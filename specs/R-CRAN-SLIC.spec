@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ces
-%global packver   1.0.1
+%global packname  SLIC
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Canadian Election Study Data
+Summary:          LIC for Distributed Skewed Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-sn 
+Requires:         R-stats 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-sn 
 
 %description
-Provides tools to easily access and analyze Canadian Election Study data.
-The package simplifies the process of downloading, cleaning, and using
-'CES' datasets for political science research and analysis. The Canadian
-Election Study ('CES') has been conducted during federal elections since
-1965, surveying Canadians on their political preferences, engagement, and
-demographics. Data is accessed from multiple sources including the
-'Borealis' Data repository <https://borealisdata.ca/> and the official
-'Canadian Election Study' website <https://ces-eec.arts.ubc.ca/>. This
-package is not officially affiliated with the Canadian Election Study,
-'Borealis' Data, or the University of British Columbia, and users should
-cite the original data sources in their work.
+This comprehensive toolkit for skewed regression is designated as "SLIC"
+(The LIC for Distributed Skewed Regression Analysis). It is predicated on
+the assumption that the error term follows a skewed distribution, such as
+the Skew-Normal, Skew-t, or Skew-Laplace. The methodology and theoretical
+foundation of the package are described in Guo G.(2020)
+<doi:10.1080/02664763.2022.2053949>.
 
 %prep
 %setup -q -c -n %{packname}

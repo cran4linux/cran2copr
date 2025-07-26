@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pqrBayes
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Penalized Quantile Regression
 
@@ -27,19 +27,20 @@ Requires:         R-splines
 Requires:         R-stats 
 
 %description
-Bayesian regularized quantile regression utilizing sparse priors to impose
-exact sparsity leads to efficient Bayesian shrinkage estimation, variable
-selection and statistical inference. In this package, we have implemented
-robust Bayesian variable selection with spike-and-slab priors under
-high-dimensional linear regression models (Fan et al. (2024)
+Bayesian regularized quantile regression utilizing sparse priors to
+promote exact sparsity leads to efficient Bayesian shrinkage estimation,
+variable selection and statistical inference. In this package, we have
+implemented robust Bayesian variable selection with spike-and-slab priors
+under high-dimensional linear regression models (Fan et al. (2024)
 <doi:10.3390/e26090794> and Ren et al. (2023) <doi:10.1111/biom.13670>),
 and regularized quantile varying coefficient models (Zhou et al.(2023)
 <doi:10.1016/j.csda.2023.107808>). In particular, valid robust Bayesian
 inferences under both models in the presence of heavy-tailed errors can be
-validated on finite samples. Additional models including robust Bayesian
-group LASSO and robust Bayesian binary LASSO are also included. The Markov
-Chain Monte Carlo (MCMC) algorithms of the proposed and alternative models
-are implemented in C++.
+validated on finite samples. Additional models with spike-and-slab priors
+include robust Bayesian group LASSO and robust binary Bayesian LASSO (Fan
+and Wu (2025) <doi:10.1002/sta4.70078>). The Markov Chain Monte Carlo
+(MCMC) algorithms of the proposed and alternative models are implemented
+in C++.
 
 %prep
 %setup -q -c -n %{packname}

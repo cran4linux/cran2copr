@@ -1,41 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OceanView
-%global packver   1.0.8
+%global packname  hann
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation of Oceanographic Data and Model Output
+Summary:          Hopfield Artificial Neural Networks
 
-License:          GPL (>= 3.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-plot3Drgl 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-shape 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-plot3Drgl 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-shape 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Functions for transforming and viewing 2-D and 3-D (oceanographic) data
-and model output.
+Builds and optimizes Hopfield artificial neural networks (Hopfield, 1982,
+<doi:10.1073/pnas.79.8.2554>). One-layer and three-layer models are
+implemented. The energy of the Hopfield network is minimized with formula
+from Krotov and Hopfield (2016, <doi:10.48550/ARXIV.1606.01164>).
+Optimization (supervised learning) is done through a gradient-based
+method. Classification is done with S3 methods predict(). Parallelization
+with 'OpenMP' is used if available during compilation.
 
 %prep
 %setup -q -c -n %{packname}

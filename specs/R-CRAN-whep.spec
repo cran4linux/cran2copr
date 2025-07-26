@@ -1,42 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epitrix
-%global packver   0.4.1
+%global packname  whep
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Helpers and Tricks for Epidemics Analysis
+Summary:          Processing Agro-Environmental Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sodium 
-BuildRequires:    R-CRAN-distcrete 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-FAOSTAT 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-mipfp 
+BuildRequires:    R-CRAN-nanoparquet 
+BuildRequires:    R-CRAN-pins 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-sodium 
-Requires:         R-CRAN-distcrete 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-FAOSTAT 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-mipfp 
+Requires:         R-CRAN-nanoparquet 
+Requires:         R-CRAN-pins 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-yaml 
 
 %description
-A collection of small functions useful for epidemics analysis and
-infectious disease modelling. This includes computation of basic
-reproduction numbers from growth rates, generation of hashed labels to
-anonymize data, and fitting discretized Gamma distributions.
+A set of tools for processing and analyzing data developed in the context
+of the "Who Has Eaten the Planet" (WHEP) project, funded by the European
+Research Council (ERC). For more details on multi-regional input–output
+model "Food and Agriculture Biomass Input–Output" (FABIO) see Bruckner et
+al. (2019) <doi:10.1021/acs.est.9b03554>.
 
 %prep
 %setup -q -c -n %{packname}

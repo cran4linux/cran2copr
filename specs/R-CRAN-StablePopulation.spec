@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ces
-%global packver   1.0.1
+%global packname  StablePopulation
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Canadian Election Study Data
+Summary:          Calculates Alpha for a Stable Population
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-stats 
 
 %description
-Provides tools to easily access and analyze Canadian Election Study data.
-The package simplifies the process of downloading, cleaning, and using
-'CES' datasets for political science research and analysis. The Canadian
-Election Study ('CES') has been conducted during federal elections since
-1965, surveying Canadians on their political preferences, engagement, and
-demographics. Data is accessed from multiple sources including the
-'Borealis' Data repository <https://borealisdata.ca/> and the official
-'Canadian Election Study' website <https://ces-eec.arts.ubc.ca/>. This
-package is not officially affiliated with the Canadian Election Study,
-'Borealis' Data, or the University of British Columbia, and users should
-cite the original data sources in their work.
+Provides tools to calculate the alpha parameter of the Weibull
+distribution, given beta and the age-specific fertility of a species, so
+that the population remains stable and stationary. Methods are inspired by
+"Survival profiles from linear models versus Weibull models: Estimating
+stable and stationary population structures for Pleistocene large mammals"
+(Martín-González et al. 2019) <doi:10.1016/j.jasrep.2019.03.031>.
 
 %prep
 %setup -q -c -n %{packname}

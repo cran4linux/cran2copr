@@ -1,43 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ces
+%global packname  vmTools
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Canadian Election Study Data
+Summary:          Version Management Tools on the File System
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-R6 >= 2.5.1
+BuildRequires:    R-CRAN-data.table >= 1.10.0
+Requires:         R-CRAN-R6 >= 2.5.1
+Requires:         R-CRAN-data.table >= 1.10.0
 
 %description
-Provides tools to easily access and analyze Canadian Election Study data.
-The package simplifies the process of downloading, cleaning, and using
-'CES' datasets for political science research and analysis. The Canadian
-Election Study ('CES') has been conducted during federal elections since
-1965, surveying Canadians on their political preferences, engagement, and
-demographics. Data is accessed from multiple sources including the
-'Borealis' Data repository <https://borealisdata.ca/> and the official
-'Canadian Election Study' website <https://ces-eec.arts.ubc.ca/>. This
-package is not officially affiliated with the Canadian Election Study,
-'Borealis' Data, or the University of British Columbia, and users should
-cite the original data sources in their work.
+Data version management on the file system for smaller projects. Manage
+data pipeline outputs with symbolic folder links, structured logging and
+reports, using 'R6' classes for encapsulation and 'data.table' for speed.
+Directory-specific logs used as source of truth to allow portability of
+versioned data folders.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ces
-%global packver   1.0.1
+%global packname  LightFitR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Canadian Election Study Data
+Summary:          Design Complex Light Regimes
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-nnls 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides tools to easily access and analyze Canadian Election Study data.
-The package simplifies the process of downloading, cleaning, and using
-'CES' datasets for political science research and analysis. The Canadian
-Election Study ('CES') has been conducted during federal elections since
-1965, surveying Canadians on their political preferences, engagement, and
-demographics. Data is accessed from multiple sources including the
-'Borealis' Data repository <https://borealisdata.ca/> and the official
-'Canadian Election Study' website <https://ces-eec.arts.ubc.ca/>. This
-package is not officially affiliated with the Canadian Election Study,
-'Borealis' Data, or the University of British Columbia, and users should
-cite the original data sources in their work.
+A system for accurately designing complex light regimes using LEDs. Takes
+calibration data and user-defined target irradiances and it tells you what
+intensities to use. For more details see Vong et al. (2025)
+<doi:10.1101/2025.06.06.658293>.
 
 %prep
 %setup -q -c -n %{packname}

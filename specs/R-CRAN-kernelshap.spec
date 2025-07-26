@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kernelshap
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel SHAP
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-utils 
 

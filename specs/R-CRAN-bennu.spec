@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bennu
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Estimation of Naloxone Kit Number Under-Reporting
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 

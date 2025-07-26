@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MBESS
-%global packver   4.9.3
+%global packver   4.9.41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.3
+Version:          4.9.41
 Release:          1%{?dist}%{?buildtag}
 Summary:          The MBESS R Package
 
@@ -57,7 +57,7 @@ Educational, and Social Sciences,' but MBESS became more general and now
 contains methods applicable and used in a wide variety of fields and is an
 orphan acronym, in the sense that what was an acronym is now literally its
 name. MBESS has greatly benefited from others, see
-<https://www3.nd.edu/~kkelley/site/MBESS.html> for a detailed list of
+<https://www3.nd.edu/~kkelley/r-packages.html> for a detailed list of
 those that have contributed and other details.
 
 %prep

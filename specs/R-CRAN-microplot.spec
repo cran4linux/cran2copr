@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  microplot
-%global packver   1.0-45
+%global packver   1.0-47
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.45
+Version:          1.0.47
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microplots (Sparklines) in 'LaTeX', 'Word', 'HTML', 'Excel'
 

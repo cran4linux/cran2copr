@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OceanView
-%global packver   1.0.8
+%global packname  VARtests
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualisation of Oceanographic Data and Model Output
+Summary:          Bootstrap Tests for Cointegration and Autocorrelation in VARs
 
-License:          GPL (>= 3.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-plot3Drgl 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-shape 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-plot3Drgl 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-shape 
+Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-sn 
 
 %description
-Functions for transforming and viewing 2-D and 3-D (oceanographic) data
-and model output.
+Implements wild bootstrap tests for autocorrelation in Vector
+Autoregressive (VAR) models based on Ahlgren and Catani (2016)
+<doi:10.1007/s00362-016-0744-0>, a combined Lagrange Multiplier (LM) test
+for Autoregressive Conditional Heteroskedasticity (ARCH) in VAR models
+from Catani and Ahlgren (2016) <doi:10.1016/j.ecosta.2016.10.006>, and
+bootstrap-based methods for determining the cointegration rank from
+Cavaliere, Rahbek, and Taylor (2012) <doi:10.3982/ECTA9099> and Cavaliere,
+Rahbek, and Taylor (2014) <doi:10.1080/07474938.2013.825175>.
 
 %prep
 %setup -q -c -n %{packname}

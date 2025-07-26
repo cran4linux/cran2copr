@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ces
-%global packver   1.0.1
+%global packname  oecdoda
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Canadian Election Study Data
+Summary:          Seamless Access to OECD Official Development Assistance (ODA) Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
 
 %description
-Provides tools to easily access and analyze Canadian Election Study data.
-The package simplifies the process of downloading, cleaning, and using
-'CES' datasets for political science research and analysis. The Canadian
-Election Study ('CES') has been conducted during federal elections since
-1965, surveying Canadians on their political preferences, engagement, and
-demographics. Data is accessed from multiple sources including the
-'Borealis' Data repository <https://borealisdata.ca/> and the official
-'Canadian Election Study' website <https://ces-eec.arts.ubc.ca/>. This
-package is not officially affiliated with the Canadian Election Study,
-'Borealis' Data, or the University of British Columbia, and users should
-cite the original data sources in their work.
+Access and Analyze Official Development Assistance (ODA) data using the
+OECD API
+<https://gitlab.algobank.oecd.org/public-documentation/dotstat-migration/-/raw/main/OECD_Data_API_documentation.pdf>.
+ODA data includes sovereign-level aid data such as key aggregates (DAC1),
+geographical distributions (DAC2A), project-level data (CRS), and
+multilateral contributions (Multisystem).
 
 %prep
 %setup -q -c -n %{packname}

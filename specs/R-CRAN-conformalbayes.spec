@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ces
-%global packver   1.0.1
+%global packname  conformalbayes
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Canadian Election Study Data
+Summary:          Jackknife(+) Predictive Intervals for Bayesian Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rstantools 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rstantools 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Provides tools to easily access and analyze Canadian Election Study data.
-The package simplifies the process of downloading, cleaning, and using
-'CES' datasets for political science research and analysis. The Canadian
-Election Study ('CES') has been conducted during federal elections since
-1965, surveying Canadians on their political preferences, engagement, and
-demographics. Data is accessed from multiple sources including the
-'Borealis' Data repository <https://borealisdata.ca/> and the official
-'Canadian Election Study' website <https://ces-eec.arts.ubc.ca/>. This
-package is not officially affiliated with the Canadian Election Study,
-'Borealis' Data, or the University of British Columbia, and users should
-cite the original data sources in their work.
+Provides functions to construct finite-sample calibrated predictive
+intervals for Bayesian models, following the approach in Barber et al.
+(2021) <doi:10.1214/20-AOS1965>. These intervals are calculated
+efficiently using importance sampling for the leave-one-out residuals. By
+default, the intervals will also reflect the relative uncertainty in the
+Bayesian model, using the locally-weighted conformal methods of Lei et al.
+(2018) <doi:10.1080/01621459.2017.1307116>.
 
 %prep
 %setup -q -c -n %{packname}

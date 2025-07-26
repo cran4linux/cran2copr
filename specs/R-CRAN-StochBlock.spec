@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StochBlock
-%global packver   0.1.2
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Blockmodeling of One-Mode and Linked Networks
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-doRNG
 Requires:         R-CRAN-foreach 
 
 %description
-Stochastic blockmodeling of one-mode and linked networks as implemented in
+Stochastic blockmodeling of one-mode and linked networks as presented in
 Škulj and Žiberna (2022) <doi:10.1016/j.socnet.2022.02.001>. The
 optimization is done via CEM (Classification Expectation Maximization)
 algorithm that can be initialized by random partitions or the results of

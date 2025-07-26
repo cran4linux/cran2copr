@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ces
-%global packver   1.0.1
+%global packname  chcd
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Canadian Election Study Data
+Summary:          Access Canadian Historical Climate Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-progress 
 
 %description
-Provides tools to easily access and analyze Canadian Election Study data.
-The package simplifies the process of downloading, cleaning, and using
-'CES' datasets for political science research and analysis. The Canadian
-Election Study ('CES') has been conducted during federal elections since
-1965, surveying Canadians on their political preferences, engagement, and
-demographics. Data is accessed from multiple sources including the
-'Borealis' Data repository <https://borealisdata.ca/> and the official
-'Canadian Election Study' website <https://ces-eec.arts.ubc.ca/>. This
-package is not officially affiliated with the Canadian Election Study,
-'Borealis' Data, or the University of British Columbia, and users should
-cite the original data sources in their work.
+Provides easy access to historical climate data in Canada from R. Search
+for weather stations and download raw hourly, daily or monthly weather
+data across Canada from 1840 to present. Implements public API access as
+detailed at <https://climate.weather.gc.ca>.
 
 %prep
 %setup -q -c -n %{packname}

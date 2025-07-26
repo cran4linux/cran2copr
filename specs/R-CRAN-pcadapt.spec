@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pcadapt
-%global packver   4.4.0
+%global packver   4.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.0
+Version:          4.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Principal Component Analysis for Outlier Detection
 
@@ -16,19 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-ggplot2 >= 3.4
 BuildRequires:    R-CRAN-bigutilsr >= 0.3
 BuildRequires:    R-CRAN-mmapcharr >= 0.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.8
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-rmio 
+Requires:         R-CRAN-ggplot2 >= 3.4
 Requires:         R-CRAN-bigutilsr >= 0.3
 Requires:         R-CRAN-mmapcharr >= 0.3
 Requires:         R-CRAN-Rcpp >= 0.12.8
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-RSpectra 
 
