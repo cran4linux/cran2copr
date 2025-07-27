@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JointFPM
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Parametric Model for Estimating the Mean Number of Events
 
@@ -39,7 +39,7 @@ Requires:         R-CRAN-statmod
 %description
 Implementation of a parametric joint model for modelling recurrent and
 competing event processes using generalised survival models as described
-in Entrop et al., (2005) <doi:10.1002/bimj.70038>. The joint model can
+in Entrop et al., (2025) <doi:10.1002/bimj.70038>. The joint model can
 subsequently be used to predict the mean number of events in the presence
 of competing risks at different time points. Comparisons of the mean
 number of event functions, e.g. the differences in mean number of events

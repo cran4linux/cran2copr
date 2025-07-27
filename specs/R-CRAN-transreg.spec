@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transreg
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalised Regression with Multiple Sets of Prior Effects ('Transfer Learning')
 
@@ -29,8 +29,9 @@ Improves the predictive performance of ridge and lasso regression
 exploiting one or more sources of prior information on the importance and
 direction of effects (Rauschenberger and others 2023,
 <doi:10.1093/bioinformatics/btad680>). For running the vignette
-(optional), install 'fwelnet' from 'GitHub'
-<https://github.com/kjytay/fwelnet>.
+(optional), install 'fwelnet' and 'ecpc' from
+<https://github.com/kjytay/fwelnet> and
+<https://github.com/Mirrelijn/ecpc>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

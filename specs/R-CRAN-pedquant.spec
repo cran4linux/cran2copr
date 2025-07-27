@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pedquant
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Public Economic Data and Quantitative Analysis
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-echarts4r 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-xefun > 0.1.3
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-TTR 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-echarts4r 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Provides an interface to access public economic and financial data for

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simulateDCE
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Data for Discrete Choice Experiments
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-formula.tools 
@@ -59,6 +60,7 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-qs 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-glue 
 
 %description
 Supports simulating choice experiment data for given designs. It helps to

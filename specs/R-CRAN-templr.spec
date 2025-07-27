@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  templr
-%global packver   0.2-0
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          MASCOTNUM Algorithms Template Tools
+Summary:          MASCOTNUM / RT-UQ Algorithms Template Tools
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,10 +29,11 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-jsonlite 
 
 %description
-Helper functions for MASCOTNUM algorithm template, for design of numerical
-experiments practice: algorithm template parser to support MASCOTNUM
-specification <https://www.gdr-mascotnum.fr/template.html>, 'ask & tell'
-decoupling injection (inspired by
+Helper functions for MASCOTNUM / RT-UQ <https://uq.math.cnrs.fr/>
+algorithm template, for design of numerical experiments practice:
+algorithm template parser to support MASCOTNUM specification
+<https://github.com/MASCOTNUM/algorithms>, 'ask & tell' decoupling
+injection (inspired by
 <https://search.r-project.org/CRAN/refmans/sensitivity/html/decoupling.html>)
 to use "crimped" algorithms (like uniroot(), optim(), ...) from outside R,
 basic template examples: Brent algorithm for 1 dim root finding and

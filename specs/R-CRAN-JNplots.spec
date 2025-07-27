@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dbstats
-%global packver   2.0.3
+%global packname  JNplots
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance-Based Statistics
+Summary:          Visualize Outputs from the 'Johnson-Neyman' Technique
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-pls 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-pls 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-scales 
 
 %description
-Prediction methods where explanatory information is coded as a matrix of
-distances between individuals. Distances can either be directly input as a
-distances matrix, a squared distances matrix, an inner-products matrix or
-computed from observed predictors.
+Aids in the calculation and visualization of regions of non-significance
+using the 'Johnson-Neyman' technique and its extensions as described by
+Bauer and Curran (2005) <doi:10.1207/s15327906mbr4003_5> to assess the
+influence of categorical and continuous moderators. Allows correcting for
+phylogenetic relatedness.
 
 %prep
 %setup -q -c -n %{packname}
