@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OSMscale
-%global packver   0.5.22
+%global packname  MAVE
+%global packver   1.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.22
+Version:          1.3.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add a Scale Bar to 'OpenStreetMap' Plots
+Summary:          Methods for Dimension Reduction
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-berryFunctions >= 1.15.0
-BuildRequires:    R-CRAN-OpenStreetMap 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-berryFunctions >= 1.15.0
-Requires:         R-CRAN-OpenStreetMap 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mda 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-mda 
 
 %description
-Functionality to handle and project lat-long coordinates, easily download
-background maps and add a correct scale bar to 'OpenStreetMap' plots in
-any map projection.
+Functions for dimension reduction, using MAVE (Minimum Average Variance
+Estimation), OPG (Outer Product of Gradient) and KSIR (sliced inverse
+regression of kernel version). Methods for selecting the best dimension
+are also included. Xia (2002) <doi:10.1111/1467-9868.03411>; Xia (2007)
+<doi:10.1214/009053607000000352>; Wang (2008)
+<doi:10.1198/016214508000000418>.
 
 %prep
 %setup -q -c -n %{packname}

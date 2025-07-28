@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  retel
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Exponentially Tilted Empirical Likelihood
 
@@ -28,7 +28,7 @@ Requires:         R-CRAN-nloptr
 
 %description
 Implements the regularized exponentially tilted empirical likelihood
-method. Details of the methods are given in Kim, MacEachern, and Peruggia
+method. Details of the method are given in Kim, MacEachern, and Peruggia
 (2023) <doi:10.48550/arXiv.2312.17015>. This work was supported by the
 U.S. National Science Foundation under Grants No. SES-1921523 and
 DMS-2015552.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DALEX
-%global packver   2.4.3
+%global packver   2.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          2.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          moDel Agnostic Language for Exploration and eXplanation
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ingredients >= 2.0
 BuildRequires:    R-CRAN-iBreakDown >= 1.3.1
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-kernelshap 
 Requires:         R-CRAN-ingredients >= 2.0
 Requires:         R-CRAN-iBreakDown >= 1.3.1
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-kernelshap 
 
 %description
 Any unverified black box model is the path to failure. Opaqueness leads to
@@ -38,7 +40,8 @@ methods help to explore the model on the level of a single instance as
 well as a level of the whole dataset. All model explainers are model
 agnostic and can be compared across different models. DALEX package is the
 cornerstone for 'DrWhy.AI' universe of packages for visual model
-exploration. Find more details in (Biecek 2018) <arXiv:1806.08915>.
+exploration. Find more details in (Biecek 2018)
+<https://jmlr.org/papers/v19/18-416.html>.
 
 %prep
 %setup -q -c -n %{packname}

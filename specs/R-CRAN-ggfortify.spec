@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfortify
-%global packver   0.4.18
+%global packver   0.4.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.18
+Version:          0.4.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualization Tools for Statistical Analysis Results
 

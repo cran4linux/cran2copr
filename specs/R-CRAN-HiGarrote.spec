@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HiGarrote
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonnegative Garrote Method Incorporating Hierarchical Relationships
 
@@ -44,9 +44,9 @@ An implementation of the nonnegative garrote method that incorporates
 hierarchical relationships among variables. The core function,
 HiGarrote(), offers an automated approach for analyzing experiments while
 respecting hierarchical structures among effects. For methodological
-details, refer to Yu and Joseph (2024) <doi:10.48550/arXiv.2411.01383>.
-This work is supported by U.S. National Science Foundation grant
-DMS-2310637.
+details, refer to Yu and Joseph (2025)
+<doi:10.1080/00224065.2025.2513508>. This work is supported by U.S.
+National Science Foundation grant DMS-2310637.
 
 %prep
 %setup -q -c -n %{packname}
