@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  broom
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Statistical Objects into Tidy Tibbles
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
@@ -43,7 +43,7 @@ Requires:         R-CRAN-stringr
 %description
 Summarizes key information about statistical objects in tidy tibbles. This
 makes it easy to report results, create plots and consistently work with
-large numbers of models at once. Broom provides three verbs that each
+large numbers of models at once.  Broom provides three verbs that each
 provide different types of information about a model. tidy() summarizes
 information about model components such as coefficients of a regression.
 glance() reports information about an entire model, such as goodness of

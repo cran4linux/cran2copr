@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  REDCapTidieR
-%global packver   1.2.4
+%global packname  mrIML
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract 'REDCap' Databases into Tidy 'Tibble's
+Summary:          Multi-Response (Multivariate) Interpretable Machine Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,50 +17,52 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-REDCapR >= 1.2.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lobstr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-formattable 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-forcats 
-Requires:         R-CRAN-REDCapR >= 1.2.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-yardstick 
+BuildRequires:    R-CRAN-flashlight 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-MetricsWeighted 
+BuildRequires:    R-CRAN-finetune 
+BuildRequires:    R-CRAN-hstats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lobstr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-formattable 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tune 
+Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-yardstick 
+Requires:         R-CRAN-flashlight 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-MetricsWeighted 
+Requires:         R-CRAN-finetune 
+Requires:         R-CRAN-hstats 
 
 %description
-Convert 'REDCap' exports into tidy tables for easy handling of 'REDCap'
-repeat instruments and event arms.
+Builds and interprets multi-response machine learning models using
+'tidymodels' syntax. Users can supply a tidy model, and 'mrIML' automates
+the process of fitting multiple response models to multivariate data and
+applying interpretable machine learning techniques across them. For more
+details see Fountain-Jones (2021) <doi:10.1111/1755-0998.13495> and
+Fountain-Jones et al. (2024) <doi:10.22541/au.172676147.77148600/v1>.
 
 %prep
 %setup -q -c -n %{packname}

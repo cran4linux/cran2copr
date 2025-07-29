@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BoneDensityMapping
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maps Bone Densities from CT Scans to Surface Models
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-rjson
 BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-RNifti 
 BuildRequires:    R-CRAN-Rvcg 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-rjson
 Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-RNifti 
 Requires:         R-CRAN-Rvcg 

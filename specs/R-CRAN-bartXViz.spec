@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bartXViz
-%global packver   1.0.6
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of BART and BARP using SHAP
 
@@ -74,9 +74,15 @@ MCMC sampling. Similar to the BART model introduced by Chipman, George,
 and McCulloch (2010) <doi:10.1214/09-AOAS285>, this package leverages
 Bayesian posterior samples generated during model estimation, allowing
 variable contributions to be computed without requiring additional
-sampling. For XGBoost and baseline adjustments, the approach by Lundberg
-et al. (2020) <doi:10.1038/s42256-019-0138-9> is also considered.The BARP
-model proposed by Bisbee (2019) <doi:10.1017/S0003055419000480> extends
+sampling. The BART model is designed to work with the following R
+packages: 'BART' <doi:10.18637/jss.v097.i01>, 'bartMachine'
+<doi:10.18637/jss.v070.i04>, and 'dbarts'
+<https://CRAN.R-project.org/package=dbarts>. For XGBoost and baseline
+adjustments, the approach by Lundberg et al. (2020)
+<doi:10.1038/s42256-019-0138-9> is also considered. The BARP model
+proposed by Bisbee (2019) <doi:10.1017/S0003055419000480> was implemented
+with reference to <https://github.com/jbisbee1/BARP> and is designed to
+work with modified functions based on that implementation. BARP extends
 post-stratification by computing variable contributions within each
 stratum defined by stratifying variables. The resulting Shapley values are
 visualized through both global and local explanation methods.

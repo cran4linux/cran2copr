@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrgsim.parallel
-%global packver   0.3.0
+%global packname  RMCLab
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate with 'mrgsolve' in Parallel
+Summary:          Lab for Matrix Completion and Imputation of Discrete Rating Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mrgsolve 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-fst 
-Requires:         R-CRAN-mrgsolve 
-Requires:         R-parallel 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-fst 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-softImpute 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-softImpute 
 
 %description
-Simulation from an 'mrgsolve'
-<https://cran.r-project.org/package=mrgsolve> model using a parallel
-backend. Input data sets are split (chunked) and simulated in parallel
-using mclapply() or future_lapply()
-<https://cran.r-project.org/package=future.apply>.
+Collection of methods for rating matrix completion, which is a statistical
+framework for recommender systems. Another relevant application is the
+imputation of rating-scale survey data in the social and behavioral
+sciences. Note that matrix completion and imputation are synonymous terms
+used in different streams of the literature. The main functionality
+implements robust matrix completion for discrete rating-scale data with a
+low-rank constraint on a latent continuous matrix (Archimbaud, Alfons, and
+Wilms (2025) <doi:10.48550/arXiv.2412.20802>). In addition, the package
+provides wrapper functions for 'softImpute' (Mazumder, Hastie, and
+Tibshirani, 2010, <https://www.jmlr.org/papers/v11/mazumder10a.html>;
+Hastie, Mazumder, Lee, Zadeh, 2015,
+<https://www.jmlr.org/papers/v16/hastie15a.html>) for easy tuning of the
+regularization parameter, as well as benchmark methods such as median
+imputation and mode imputation.
 
 %prep
 %setup -q -c -n %{packname}

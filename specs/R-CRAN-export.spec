@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  export
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamlined Export of Graphs and Data Tables
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-openxlsx >= 4.0.17
 BuildRequires:    R-CRAN-devEMF >= 3.8
 BuildRequires:    R-CRAN-xtable >= 1.8.2
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-rgl >= 0.99.16
 BuildRequires:    R-CRAN-broom >= 0.4.4
 BuildRequires:    R-CRAN-flextable >= 0.4.3
 BuildRequires:    R-CRAN-officer >= 0.2.2
@@ -36,7 +35,6 @@ Requires:         R-CRAN-openxlsx >= 4.0.17
 Requires:         R-CRAN-devEMF >= 3.8
 Requires:         R-CRAN-xtable >= 1.8.2
 Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-rgl >= 0.99.16
 Requires:         R-CRAN-broom >= 0.4.4
 Requires:         R-CRAN-flextable >= 0.4.3
 Requires:         R-CRAN-officer >= 0.2.2

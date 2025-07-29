@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quarto
-%global packver   1.4.4
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Quarto' Markdown Publishing System
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-yaml >= 2.3.10
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-xfun 
+Requires:         R-CRAN-yaml >= 2.3.10
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-later 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-xfun 
 
 %description
 Convert R Markdown documents and 'Jupyter' notebooks to a variety of

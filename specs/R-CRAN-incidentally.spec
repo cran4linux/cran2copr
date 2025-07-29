@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  incidentally
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generates Incidence Matrices and Bipartite Graphs
 
@@ -35,7 +35,8 @@ follow given distributions, or (4) represent bill sponsorships in the US
 Congress <doi:10.31219/osf.io/ectms>. It can also generate an incidence
 matrix from an adjacency matrix, or bipartite graph from a unipartite
 graph, via a social process mirroring team, group, or organization
-formation <doi:10.48550/arXiv.2204.13670>.
+formation <doi:10.48550/arXiv.2204.13670>, or examine the space of binary
+matrices with fixed marginals.
 
 %prep
 %setup -q -c -n %{packname}

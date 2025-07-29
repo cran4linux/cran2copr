@@ -1,54 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  taxa
-%global packver   0.4.4
+%global packname  AgeBandDecomposition
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classes for Storing and Manipulating Taxonomic Data
+Summary:          Age Band Decomposition Method for Tree Ring Standardization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
-Requires:         R-CRAN-pillar 
-Requires:         R-methods 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 
 %description
-Provides classes for storing and manipulating taxonomic data. Most of the
-classes can be treated like base R vectors (e.g. can be used in tables as
-columns and can be named). Vectorized classes can store taxon names and
-authorities, taxon IDs from databases, taxon ranks, and other types of
-information. More complex classes are provided to store taxonomic trees
-and user-defined data associated with them.
+Implements the Age Band Decomposition (ABD) method for standardizing tree
+ring width data while preserving both low and high frequency variability.
+Unlike traditional detrending approaches that can distort long term growth
+trends, ABD decomposes ring width series into multiple age classes,
+detrends each class separately, and then recombines them to create
+standardized chronologies. This approach improves the detection of growth
+signals linked to past climatic and environmental factors, making it
+particularly valuable for dendroecological and dendroclimatological
+studies. The package provides functions to perform ABD-based
+standardization, compare results with other common methods (e.g., BAI, C
+method, RCS), and facilitate the interpretation of growth patterns under
+current and future climate variability.
 
 %prep
 %setup -q -c -n %{packname}

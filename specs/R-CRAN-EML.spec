@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EML
-%global packver   2.0.6.1
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6.1
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write Ecological Metadata Language Files
 

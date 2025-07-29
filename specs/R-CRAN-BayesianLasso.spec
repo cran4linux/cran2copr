@@ -1,50 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NetRep
-%global packver   1.2.8
+%global packname  BayesianLasso
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation Testing Network Module Preservation Across Datasets
+Summary:          Bayesian Lasso Regression and Tools for the Lasso Distribution
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4
-BuildRequires:    R-CRAN-Rcpp >= 0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-RhpcBLASctl 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.11
-Requires:         R-methods 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-RhpcBLASctl 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppClock 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
-Functions for assessing the replication/preservation of a network module's
-topology across datasets through permutation testing; Ritchie et al.
-(2015) <doi: 10.1016/j.cels.2016.06.012>.
+Implements Bayesian Lasso regression using efficient Gibbs sampling
+algorithms, including modified versions of the Hans and Park–Casella (PC)
+samplers. Includes functions for working with the Lasso distribution, such
+as its density, cumulative distribution, quantile, and random generation
+functions, along with moment calculations. Also includes a function to
+compute the Mills ratio. Designed for sparse linear models and suitable
+for high-dimensional regression problems.
 
 %prep
 %setup -q -c -n %{packname}

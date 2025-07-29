@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzySimRes
-%global packver   0.4.5
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Resampling Methods for Epistemic Fuzzy Data
 
@@ -37,9 +37,9 @@ provided (see Grzegorzewski and Romaniuk (2022)
 <doi:10.1007/978-3-031-08974-9_39>, Romaniuk et al. (2024)
 <doi:10.32614/RJ-2024-016>) together with the functions to apply
 statistical tests and estimate various characteristics based on the
-epistemic bootstrap. The package also includes a real-life data set of
-epistemic fuzzy triangular numbers. The fuzzy numbers used in this package
-are consistent with the 'FuzzyNumbers' package.
+epistemic bootstrap. The package also includes real-life datasets of
+epistemic fuzzy triangular and trapezoidal numbers. The fuzzy numbers used
+in this package are consistent with the 'FuzzyNumbers' package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NetRep
-%global packver   1.2.8
+%global packname  ggcorrheatmap
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation Testing Network Module Preservation Across Datasets
+Summary:          Make Flexible 'ggplot2' Correlation Heatmaps
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4
-BuildRequires:    R-CRAN-Rcpp >= 0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-RhpcBLASctl 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dendextend 
+BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.11
-Requires:         R-methods 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-RhpcBLASctl 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dendextend 
+Requires:         R-CRAN-ggnewscale 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-cli 
 
 %description
-Functions for assessing the replication/preservation of a network module's
-topology across datasets through permutation testing; Ritchie et al.
-(2015) <doi: 10.1016/j.cels.2016.06.012>.
+Create correlation heatmaps with 'ggplot2' and customise them with
+flexible annotation and clustering. Symmetric heatmaps can use triangular
+or mixed layouts, removing redundant information or displaying
+complementary information in the two halves. There is also support for
+general heatmaps not displaying correlations.
 
 %prep
 %setup -q -c -n %{packname}

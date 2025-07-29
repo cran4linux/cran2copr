@@ -1,50 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NetRep
-%global packver   1.2.8
+%global packname  latticeDensity
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation Testing Network Module Preservation Across Datasets
+Summary:          Density Estimation and Nonparametric Regression on Irregular Regions
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4
-BuildRequires:    R-CRAN-Rcpp >= 0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-RhpcBLASctl 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat >= 2.0.0
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-splancs 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.11
-Requires:         R-methods 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-RhpcBLASctl 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spatialreg 
+Requires:         R-CRAN-spatstat >= 2.0.0
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-splancs 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-spam 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spatialreg 
 
 %description
-Functions for assessing the replication/preservation of a network module's
-topology across datasets through permutation testing; Ritchie et al.
-(2015) <doi: 10.1016/j.cels.2016.06.012>.
+Functions that compute the lattice-based density and regression estimators
+for two-dimensional regions with irregular boundaries and holes.  The
+density estimation technique is described in Barry and McIntyre (2011)
+<doi:10.1016/j.ecolmodel.2011.02.016>, while the non-parametric regression
+technique is described in McIntyre and Barry (2018)
+<doi:10.1080/10618600.2017.1375935>.
 
 %prep
 %setup -q -c -n %{packname}

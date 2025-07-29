@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semtree
-%global packver   0.9.20
+%global packver   0.9.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.20
+Version:          0.9.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning for Structural Equation Models
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-lavaan
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-strucchange 
 BuildRequires:    R-CRAN-sandwich 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-lavaan
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-strucchange 
 Requires:         R-CRAN-sandwich 

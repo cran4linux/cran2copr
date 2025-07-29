@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  R2OpenBUGS
-%global packver   3.2-3.2.1
+%global packver   3.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3.2.1
+Version:          3.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Running OpenBUGS from R
 
@@ -13,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         openbugs
+Requires:         openbugs glibc-devel(x86-32)
 BuildRequires:    R-devel >= 2.13.0
 Requires:         R-core >= 2.13.0
 BuildArch:        noarch
