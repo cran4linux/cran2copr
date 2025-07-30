@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TwoPhaseCorR
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Two-Phase Experimental Designs with Correlated Errors
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Tools for constructing and analyzing two-phase experimental designs under
-correlated error structures. Version 1.1.0 includes improved efficiency
+correlated error structures. Version 1.1.1 includes improved efficiency
 factor classification with tolerance control, updated plot visualizations,
 and improved clarity of the results. The conceptual framework and the term
 two-phase were introduced by McIntyre (1955) <doi:10.2307/3001770>).

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SynergyLMM
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Framework for in Vivo Drug Combination Studies
 
@@ -49,11 +49,11 @@ Requires:         R-CRAN-clubSandwich
 %description
 A framework for evaluating drug combination effects in preclinical in vivo
 studies. 'SynergyLMM' provides functions to analyze longitudinal tumor
-growth experiments using linear mixed-effects models, perform
-time-dependent analyses of synergy and antagonism, evaluate model
-diagnostics and performance, and assess both post-hoc and a priori
-statistical power. The calculation of drug combination synergy follows the
-statistical framework provided by Demidenko and Miller (2019,
+growth experiments using mixed-effects models, perform time-resolved
+analyses of synergy and antagonism, evaluate model diagnostics and
+performance, and assess both post-hoc and a priori statistical power. The
+calculation of drug combination synergy follows the statistical framework
+provided by Demidenko and Miller (2019,
 <doi:10.1371/journal.pone.0224137>). The implementation and analysis of
 linear mixed-effect models is based on the methods described by Pinheiro
 and Bates (2000, <doi:10.1007/b98882>), and Gałecki and Burzykowski (2013,

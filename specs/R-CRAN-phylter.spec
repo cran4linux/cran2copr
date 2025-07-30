@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phylter
-%global packver   0.9.11
+%global packver   0.9.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.11
+Version:          0.9.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect and Remove Outliers in Phylogenomics Datasets
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  luz
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Higher Level 'API' for 'torch'
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-torch >= 0.9.0
+BuildRequires:    R-CRAN-torch >= 0.11.9000
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-zeallot 
 BuildRequires:    R-CRAN-coro 
@@ -27,12 +27,11 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-torch >= 0.9.0
+Requires:         R-CRAN-torch >= 0.11.9000
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-zeallot 
 Requires:         R-CRAN-coro 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-cli 
@@ -51,8 +49,8 @@ A high level interface for 'torch' providing utilities to reduce the the
 amount of code needed for common tasks, abstract away torch details and
 make the same code work on both the 'CPU' and 'GPU'. It's flexible enough
 to support expressing a large range of models. It's heavily inspired by
-'fastai' by Howard et al. (2020) <arXiv:2002.04688>, 'Keras' by Chollet et
-al. (2015) and 'PyTorch Lightning' by Falcon et al. (2019)
+'fastai' by Howard et al. (2020) <doi:10.48550/arXiv.2002.04688>, 'Keras'
+by Chollet et al. (2015) and 'PyTorch Lightning' by Falcon et al. (2019)
 <doi:10.5281/zenodo.3828935>.
 
 %prep

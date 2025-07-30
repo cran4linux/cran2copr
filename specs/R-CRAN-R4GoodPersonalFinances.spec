@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R4GoodPersonalFinances
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Optimal Financial Decisions
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-PrettyCols 
 BuildRequires:    R-CRAN-scales 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-gt 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-PrettyCols 
 Requires:         R-CRAN-scales 

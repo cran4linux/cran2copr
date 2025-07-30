@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MMGFM
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Study Multi-Modality Generalized Factor Model
 
@@ -38,7 +38,7 @@ heterogeneous noises and overdispersion among modality variables with
 augmented covariates. We propose an efficient and speedy variational
 estimation procedure for estimating model parameters, along with a novel
 criterion for selecting the optimal number of factors. More details can be
-referred to Liu et al. (2024) <doi:10.48550/arXiv.2408.10542>.
+referred to Liu et al. (2025) <doi:10.48550/arXiv.2507.09889>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvif
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collinearity Detection using Redefined Variance Inflation Factor and Graphical Methods
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multiColl 
+BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-multiColl 
+Requires:         R-CRAN-car 
 
 %description
 The detection of troubling approximate collinearity in a multiple linear
@@ -30,8 +32,12 @@ and García J. (2018) <doi:10.1080/00949655.2018.1463376>, Salmerón, R.,
 Rodríguez, A. and García C. (2020) <doi:10.1007/s00180-019-00922-x>,
 Salmerón, R., García, C.B, Rodríguez, A. and García, C. (2022)
 <doi:10.32614/RJ-2023-010>, Salmerón, R., García, C.B. and García, J.
-(2024) <doi:10.1007/s10614-024-10575-8> and Salmerón, R., García, C.B,
-García J. (2023, working paper) <doi:10.48550/arXiv.2005.02245>.
+(2025) <doi:10.1007/s10614-024-10575-8> and Salmerón, R., García, C.B,
+García J. (2023, working paper) <doi:10.48550/arXiv.2005.02245>. You can
+also view the package vignette using 'browseVignettes("rvif")', the
+package website using 'browseURL(system.file("docs/index.html", package =
+"rvif"))' or version control on GitHub
+(<https://github.com/rnoremlas/rvif_package>).
 
 %prep
 %setup -q -c -n %{packname}

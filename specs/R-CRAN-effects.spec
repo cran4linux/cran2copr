@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  effects
-%global packver   4.2-2
+%global packver   4.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.2
+Version:          4.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Effect Displays for Linear, Generalized Linear, and Other Models
 
@@ -16,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-estimability >= 1.4.1
 BuildRequires:    R-CRAN-carData 
+BuildRequires:    R-datasets 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-lattice 
@@ -27,9 +30,10 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-estimability 
 BuildRequires:    R-CRAN-insight 
+Requires:         R-CRAN-estimability >= 1.4.1
 Requires:         R-CRAN-carData 
+Requires:         R-datasets 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-lattice 
@@ -40,7 +44,6 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-CRAN-survey 
 Requires:         R-utils 
-Requires:         R-CRAN-estimability 
 Requires:         R-CRAN-insight 
 
 %description

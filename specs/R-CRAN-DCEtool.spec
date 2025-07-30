@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DCEtool
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient and Accessible Discrete Choice Experiments
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-rlist
 BuildRequires:    R-CRAN-shinyhelper 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-adjustedcranlogs 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinycssloaders 
@@ -51,6 +53,8 @@ Requires:         R-CRAN-rlist
 Requires:         R-CRAN-shinyhelper 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-adjustedcranlogs 
 
 %description
 Design, conduct and analyze 'DCEs' from a virtual interface in shiny.

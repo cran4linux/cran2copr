@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  siera
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Analysis Results Programmes Using ARS Metadata
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-cli 
 
 %description
 Analysis Results Standard (ARS), a foundational standard by CDISC

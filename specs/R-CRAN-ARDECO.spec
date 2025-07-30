@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARDECO
-%global packver   2.2.2
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Annual Regional Database of the European Commission (ARDECO)
 
@@ -44,7 +44,7 @@ units of measure as well as refers to total values plus additional
 dimensions like economic sectors, gender, age classes. Data can be also
 aggregated at country level according to the tercet classes as defined by
 EUROSTAT. The description of the 'ARDECO' database can be found at the
-following URL <https://urban.jrc.ec.europa.eu/ardeco>.
+following URL <https://territorial.ec.europa.eu/ardeco>.
 
 %prep
 %setup -q -c -n %{packname}

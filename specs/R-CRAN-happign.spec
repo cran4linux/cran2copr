@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  happign
-%global packver   0.3.3
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'IGN' Web Services
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 1.0.7
-BuildRequires:    R-CRAN-archive 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-yyjsonr 
 Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.7
-Requires:         R-CRAN-archive 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
@@ -41,8 +39,8 @@ Automatic open data acquisition from resources of IGN ('Institut National
 de Information Geographique et forestiere') (<https://www.ign.fr/>).
 Available datasets include various types of raster and vector data, such
 as digital elevation models, state borders, spatial databases, cadastral
-parcels, and more. There also access to point clouds data ('LIDAR') and
-specifics API (<https://apicarto.ign.fr/api/doc/>).
+parcels, and more. 'happign' also provide access to API Carto
+(<https://apicarto.ign.fr/api/doc/>).
 
 %prep
 %setup -q -c -n %{packname}

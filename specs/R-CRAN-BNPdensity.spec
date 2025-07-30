@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BNPdensity
-%global packver   2023.3.8
+%global packver   2025.7.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.3.8
+Version:          2025.7.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ferguson-Klass Type Algorithm for Posterior Normalized Random Measures
 

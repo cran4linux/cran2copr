@@ -1,48 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bumbl
-%global packver   1.0.4
+%global packname  fortniteR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Modeling Bumblebee Colony Growth and Decline
+Summary:          Access 'Fortnite Ecosystem' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 
 %description
-Bumblebee colonies grow during worker production, then decline after
-switching to production of reproductive individuals (drones and gynes).
-This package provides tools for modeling and visualizing this pattern by
-identifying a switchpoint with a growth rate before and a decline rate
-after the switchpoint. The mathematical models fit by bumbl are described
-in Crone and Williams (2016) <doi:10.1111/ele.12581>.
+Interface for accessing the 'Fortnite Ecosystem' API, allowing users to
+retrieve island metadata and engagement metrics. The package provides
+functions to search for 'Fortnite Creative' islands, retrieve detailed
+metadata about specific islands including titles, descriptions, and tags,
+and access engagement metrics such as daily active users and play
+duration. It supports pagination for large result sets and time-series
+analysis of island performance. The API endpoint is
+<https://api.fortnite.com/ecosystem/v1>.
 
 %prep
 %setup -q -c -n %{packname}

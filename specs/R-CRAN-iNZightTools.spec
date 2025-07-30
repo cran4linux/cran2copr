@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iNZightTools
-%global packver   2.0.1
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for 'iNZight'
 
@@ -14,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-readr >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
@@ -39,10 +39,10 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-readr >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 

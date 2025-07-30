@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RESI
-%global packver   1.3.2
+%global packname  chapensk
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Effect Size Index (RESI) Estimation
+Summary:          Estimation of Gas Properties from the Lennard-Jones Potential
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aod 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-clubSandwich 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-aod 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-clubSandwich 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-sandwich 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Bessel 
+Requires:         R-methods 
+Requires:         R-CRAN-Bessel 
 
 %description
-Summarize model output using a robust effect size index. The index is
-introduced in Vandekar, Tao, & Blume (2020,
-<doi:10.1007/s11336-020-09698-2>). Software paper available at
-<doi:10.18637/jss.v112.i03>.
+Estimation of gas transport properties (viscosity, diffusion, thermal
+conductivity) using Chapman-Enskok theory (Chapman and Larmor 1918,
+<doi:10.1098/rsta.1918.0005>) and of the second virial coefficient (Vargas
+et al. 2001, <doi:10.1016/s0378-4371(00)00362-9>) using the Lennard-Jones
+(12-6) potential. Up to the third order correction is taken into account
+for viscosity and thermal conductivity. It is also possible to calculate
+the binary diffusion coefficients of polar and non-polar gases in
+non-polar bath gases (Brown et al. 2011,
+<doi:10.1016/j.pecs.2010.12.001>). 16 collision integrals are calculated
+with four digit accuracy over the reduced temperature range [0.3, 400]
+using an interpolation function of Kim and Monroe (2014,
+<doi:10.1016/j.jcp.2014.05.018>).
 
 %prep
 %setup -q -c -n %{packname}

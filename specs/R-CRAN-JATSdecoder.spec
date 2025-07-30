@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JATSdecoder
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Metadata and Text Extraction and Manipulation Tool Set
 
@@ -37,14 +37,18 @@ title, author, journal, history, 'DOI', abstract, sectioned text and
 reference list. study.character() extracts multiple study characteristics
 like number of included studies, statistical methods used, alpha error,
 power, statistical results, correction method for multiple testing,
-software used. An estimation of the involved sample size is performed
-based on reports within the abstract and the reported degrees of freedom
+software used. The function get.stats() extracts all statistical results
+from text and recomputes p-values for many standard test statistics. It
+performs a consistency check of the reported with the recalculated
+p-values. An estimation of the involved sample size is performed based on
+textual reports within the abstract and the reported degrees of freedom
 within statistical results. In addition, the package contains some useful
 functions to process text (text2sentences(), text2num(), ngram(),
 strsplit2(), grep2()). See Böschen, I. (2021)
 <doi:10.1007/s11192-021-04162-z> Böschen, I. (2021)
-<doi:10.1038/s41598-021-98782-3> and Böschen, I (2023)
-<doi:10.1038/s41598-022-27085-y>.
+<doi:10.1038/s41598-021-98782-3>, Böschen, I. (2023)
+<doi:10.1038/s41598-022-27085-y>, and Böschen, I. (2024)
+<doi:10.48550/arXiv.2408.07948>.
 
 %prep
 %setup -q -c -n %{packname}

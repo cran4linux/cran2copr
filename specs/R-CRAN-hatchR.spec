@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hatchR
-%global packver   0.3.2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predict Fish Hatch and Emergence Timing
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-lubridate >= 1.9.4
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-lifecycle >= 1.0.4
 BuildRequires:    R-CRAN-ggtext >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-lubridate >= 1.9.4
 Requires:         R-CRAN-dplyr >= 1.1.4

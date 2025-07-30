@@ -1,48 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bumbl
-%global packver   1.0.4
+%global packname  tidyrhrv
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Modeling Bumblebee Colony Growth and Decline
+Summary:          Read, Iteratively Filter, and Analyze Multiple ECG Datasets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-RHRV 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-broom 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-RHRV 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-Bumblebee colonies grow during worker production, then decline after
-switching to production of reproductive individuals (drones and gynes).
-This package provides tools for modeling and visualizing this pattern by
-identifying a switchpoint with a growth rate before and a decline rate
-after the switchpoint. The mathematical models fit by bumbl are described
-in Crone and Williams (2016) <doi:10.1111/ele.12581>.
+Allows users to quickly load multiple patients' electrocardiographic (ECG)
+data at once and conduct relevant time analysis of heart rate variability
+(HRV) without manual edits from a physician or data cleaning specialist.
+The package provides the unique ability to iteratively filter, plot, and
+store time analysis results in a data frame while writing plots to a
+predefined folder. This streamlines the workflow for HRV analysis across
+multiple datasets. Methods are based on Rodríguez-Liñares et al. (2011)
+<doi:10.1016/j.cmpb.2010.05.012>. Examples of applications using this
+package include Kwon et al. (2022) <doi:10.1007/s10286-022-00865-2> and
+Lawrence et al. (2023) <doi:10.1016/j.autneu.2022.103056>.
 
 %prep
 %setup -q -c -n %{packname}

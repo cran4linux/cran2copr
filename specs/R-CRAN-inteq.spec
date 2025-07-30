@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bumbl
-%global packver   1.0.4
+%global packname  inteq
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Modeling Bumblebee Colony Growth and Decline
+Summary:          Numerical Solution of Integral Equations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 
 %description
-Bumblebee colonies grow during worker production, then decline after
-switching to production of reproductive individuals (drones and gynes).
-This package provides tools for modeling and visualizing this pattern by
-identifying a switchpoint with a growth rate before and a decline rate
-after the switchpoint. The mathematical models fit by bumbl are described
-in Crone and Williams (2016) <doi:10.1111/ele.12581>.
+An R implementation of Matthew Thomas's 'Python' library 'inteq'. First,
+this solves Fredholm integral equations of the first kind ($f(s) =
+int_a^b K(s, y) g(y) dy$) using methods described by Twomey (1963)
+<doi:10.1145/321150.321157>. Second, this solves Volterra integral
+equations of the first kind ($f(s) = int_0^s K(s,y) g(t) dt$) using
+methods from Betto and Thomas (2021) <doi:10.48550/arXiv.2106.08496>.
+Third, this solves Voltera integral equations of the second kind ($g(s) =
+f(s) + int_a^s K(s,y) g(y) dy$) using methods from Linz (1969)
+<doi:10.1137/0706034>.
 
 %prep
 %setup -q -c -n %{packname}

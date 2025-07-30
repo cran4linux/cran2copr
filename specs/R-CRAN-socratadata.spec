@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfhotspot
-%global packver   1.0.0
+%global packname  socratadata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hot-Spot Analysis with Simple Features
+Summary:          Explore Socrata Data with Ease
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-SpatialKDE 
-BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-SpatialKDE 
-Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-tibble 
 
 %description
-Identify and understand clusters of points (typically representing the
-locations of places or events) stored in simple-features (SF) objects.
-This is useful for analysing, for example, hot-spots of crime events. The
-package emphasises producing results from point SF data in a single step
-using reasonable default values for all other arguments, to aid rapid data
-analysis by users who are starting out. Functions available include kernel
-density estimation (for details, see Yip (2020)
-<doi:10.22224/gistbok/2020.1.12>), analysis of spatial association (Getis
-and Ord (1992) <doi:10.1111/j.1538-4632.1992.tb00261.x>) and hot-spot
-classification (Chainey (2020) ISBN:158948584X).
+Provides an interface to search, read, query, and retrieve metadata for
+datasets hosted on 'Socrata' open data portals. Supports all 'Socrata'
+data types, including spatial data returned as 'sf' objects.
 
 %prep
 %setup -q -c -n %{packname}

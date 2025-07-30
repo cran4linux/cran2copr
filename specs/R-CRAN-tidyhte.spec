@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyhte
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Estimation of Heterogeneous Treatment Effects
 
@@ -41,11 +41,12 @@ Requires:         R-CRAN-tibble
 %description
 Estimates heterogeneous treatment effects using tidy semantics on
 experimental or observational data.  Methods are based on the
-doubly-robust learner of Kennedy (n.d.) <arXiv:2004.14497>. You provide a
-simple recipe for what machine learning algorithms to use in estimating
-the nuisance functions and 'tidyhte' will take care of cross-validation,
-estimation, model selection, diagnostics and construction of relevant
-quantities of interest about the variability of treatment effects.
+doubly-robust learner of Kennedy (2023) <doi:10.1214/23-EJS2157>. You
+provide a simple recipe for what machine learning algorithms to use in
+estimating the nuisance functions and 'tidyhte' will take care of
+cross-validation, estimation, model selection, diagnostics and
+construction of relevant quantities of interest about the variability of
+treatment effects.
 
 %prep
 %setup -q -c -n %{packname}
