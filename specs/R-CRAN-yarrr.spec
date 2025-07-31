@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jskm
-%global packver   0.5.14
+%global packname  yarrr
+%global packver   0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.14
+Version:          0.1.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kaplan-Meier Plot with 'ggplot2'
+Summary:          A Companion to the e-Book "YaRrr!: The Pirate's Guide to R"
 
-License:          Apache License 2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-cmprsk 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-cmprsk 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-circlize 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-BayesFactor 
+Requires:         R-CRAN-circlize 
 
 %description
-The function 'jskm()' creates publication quality Kaplan-Meier plot with
-at risk tables below. 'svyjskm()' provides plot for weighted Kaplan-Meier
-estimator.
+Contains a mixture of functions and data sets referred to in the
+introductory e-book "YaRrr!: The Pirate's Guide to R". The latest version
+of the e-book is available for free at
+<https://bookdown.org/ndphillips/YaRrr/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clubSandwich
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster-Robust (Sandwich) Variance Estimators with Small-Sample Corrections
 
@@ -38,10 +38,11 @@ single regression coefficients use Satterthwaite or saddle-point
 corrections. Tests of multiple- contrast hypotheses use an approximation
 to Hotelling's T-squared distribution. Methods are provided for a variety
 of fitted models, including lm() and mlm objects, glm(), geeglm() (from
-package 'geepack'), ivreg() (from package 'AER'), ivreg() (from package
-'ivreg' when estimated by ordinary least squares), plm() (from package
-'plm'), gls() and lme() (from 'nlme'), lmer() (from `lme4`), robu() (from
-'robumeta'), and rma.uni() and rma.mv() (from 'metafor').
+package 'geepack'), lm_robust() and lm_lin() (from package 'estimatr'),
+ivreg() (from package 'AER'), ivreg() (from package 'ivreg' when estimated
+by ordinary least squares), plm() (from package 'plm'), gls() and lme()
+(from 'nlme'), lmer() (from `lme4`), robu() (from 'robumeta'), and
+rma.uni() and rma.mv() (from 'metafor').
 
 %prep
 %setup -q -c -n %{packname}

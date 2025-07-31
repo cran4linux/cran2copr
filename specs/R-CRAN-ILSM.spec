@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ILSM
-%global packver   1.0.3.2
+%global packver   1.1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3.2
+Version:          1.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Interconnection Structure of Multilayer Interaction Networks
+Summary:          Analyze Interconnection Structure of Tripartite Interaction Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,18 +18,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-plot.matrix 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-plot.matrix 
 
 %description
 In view of the analysis of the structural characteristics of the
-multilayer network has been complete, however, there is still a lack of a
+tripartite network has been complete, however, there is still a lack of a
 unified operation that can quickly obtain the corresponding
-characteristics of the multilayer network. To solve this insufficiency,
-'ILSM' was designed for supporting calculating such metrics of multilayer
+characteristics of the tripartite network. To solve this insufficiency,
+'ILSM' was designed for supporting calculating such metrics of tripartite
 networks by functions of this R package.
 
 %prep

@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blockCV
-%global packver   3.1-6
+%global packname  ggdmcLikelihood
+%global packver   0.2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.6
+Version:          0.2.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Environmental Blocking for K-Fold and LOO Cross-Validation
+Summary:          Likelihood Computation for 'ggdmc' Package
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-sf >= 1.0
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-sf >= 1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.5.0
+BuildRequires:    R-CRAN-ggdmcHeaders 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Creating spatially or environmentally separated folds for cross-validation
-to provide a robust error estimation in spatially structured environments;
-Investigating and visualising the effective range of spatial
-autocorrelation in continuous raster covariates and point samples to find
-an initial realistic distance band to separate training and testing
-datasets spatially described in Valavi, R. et al. (2019)
-<doi:10.1111/2041-210X.13107>.
+Efficient computation of likelihoods in design-based choice response time
+models, including the Decision Diffusion Model, is supported. The package
+enables rapid evaluation of likelihood functions for both single- and
+multi-subject models across trial-level data. It also offers fast
+initialisation of starting parameters for genetic sampling with many
+Markov chains, facilitating estimation in complex models typically found
+in experimental psychology and behavioural science. These optimisations
+help reduce computational overhead in large-scale model fitting tasks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shotGroups
-%global packver   0.8.2
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Shot Group Data
 
@@ -19,21 +19,17 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CompQuadForm >= 1.4.2
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-coin 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-CompQuadForm >= 1.4.2
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-coin 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
@@ -44,10 +40,10 @@ accuracy. This includes graphical methods, descriptive statistics, and
 inference tests using standard, but also non-parametric and robust
 statistical methods. Implements distributions for radial error in
 bivariate normal variables. Works with files exported by 'OnTarget
-PC/TDS', 'Silver Mountain' e-target, 'ShotMarker' e-target, or 'Taran', as
-well as with custom data files in text format. Supports inference from
-range statistics such as extreme spread. Includes a set of web-based
-graphical user interfaces.
+PC/TDS', 'Silver Mountain' e-target, 'ShotMarker' e-target, 'SIUS'
+e-target, or 'Taran', as well as with custom data files in text format.
+Supports inference from range statistics such as extreme spread. Includes
+a set of web-based graphical user interfaces.
 
 %prep
 %setup -q -c -n %{packname}

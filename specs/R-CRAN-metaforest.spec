@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaforest
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploring Heterogeneity in Meta-Analysis using Random Forests
 
@@ -18,19 +18,21 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-metadat 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
 Requires:         R-CRAN-gtable 
 Requires:         R-grid 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-ranger 
+Requires:         R-methods 
+Requires:         R-CRAN-metadat 
 
 %description
 Conduct random forests-based meta-analysis, obtain partial dependence

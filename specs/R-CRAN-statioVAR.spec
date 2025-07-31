@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jskm
-%global packver   0.5.14
+%global packname  statioVAR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.14
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kaplan-Meier Plot with 'ggplot2'
+Summary:          Trend Removal for Vector Autoregressive Workflows
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description
-The function 'jskm()' creates publication quality Kaplan-Meier plot with
-at risk tables below. 'svyjskm()' provides plot for weighted Kaplan-Meier
-estimator.
+Detrending multivariate time-series to approximate stationarity when
+dealing with intensive longitudinal data, prior to Vector Autoregressive
+(VAR) or multilevel-VAR estimation. Classical VAR assumes weak
+stationarity (constant first two moments), and deterministic trends
+inflate spurious autocorrelation, biasing Granger-causality and
+impulse-response analyses. All functions operate on raw panel data and
+write detrended columns back to the data set, but differ in the level at
+which the trend is estimated. See, for instance, Wang & Maxwell (2015)
+<doi:10.1037/met0000030>; Burger et al. (2022)
+<doi:10.4324/9781003111238-13>; Epskamp et al. (2018)
+<doi:10.1177/2167702617744325>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  movedesign
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Study Design Toolbox for Movement Ecology Studies
 
@@ -100,9 +100,9 @@ Requires:         R-CRAN-viridis
 Toolbox and 'shiny' application to help researchers design movement
 ecology studies, focusing on two key objectives: estimating home range
 areas, and estimating fine-scale movement behavior, specifically speed and
-distance traveled. It provides interactive simulations and methodological
-guidance to support study planning and decision-making. The application is
-described in Silva et al. (2023) <doi:10.1111/2041-210X.14153>.
+distance traveled.  It provides interactive simulations and methodological
+guidance to support study planning and decision-making.  The application
+is described in Silva et al. (2023) <doi:10.1111/2041-210X.14153>.
 
 %prep
 %setup -q -c -n %{packname}

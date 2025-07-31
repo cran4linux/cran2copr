@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoModels
-%global packver   2.1.7
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Gaussian and Non Gaussian Geostatistical (Large) Data Analysis
 
@@ -29,10 +29,8 @@ BuildRequires:    R-CRAN-FastGP
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-zipfR 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-lamW 
 BuildRequires:    R-CRAN-nabor 
 BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-VGAM 
@@ -53,10 +51,8 @@ Requires:         R-CRAN-FastGP
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-zipfR 
 Requires:         R-CRAN-sn 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-lamW 
 Requires:         R-CRAN-nabor 
 Requires:         R-CRAN-hypergeo 
 Requires:         R-CRAN-VGAM 

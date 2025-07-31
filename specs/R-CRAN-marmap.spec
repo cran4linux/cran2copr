@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marmap
-%global packver   1.0.10
+%global packver   1.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Plot and Analyze Bathymetric and Topographic Data
 
@@ -45,12 +45,13 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-methods 
 
 %description
-Import xyz data from the NOAA (National Oceanic and Atmospheric
-Administration, <https://www.noaa.gov>), GEBCO (General Bathymetric Chart
-of the Oceans, <https://www.gebco.net>) and other sources, plot xyz data
-to prepare publication-ready figures, analyze xyz data to extract
-transects, get depth / altitude based on geographical coordinates, or
-calculate z-constrained least-cost paths.
+Import bathymetric and hypsometric data from the NOAA (National Oceanic
+and Atmospheric Administration,
+<https://www.ncei.noaa.gov/products/etopo-global-relief-model>), GEBCO
+(General Bathymetric Chart of the Oceans, <https://www.gebco.net>) and
+other sources, plot xyz data to prepare publication-ready figures, analyze
+xyz data to extract transects, get depth / altitude based on geographical
+coordinates, or calculate z-constrained least-cost paths.
 
 %prep
 %setup -q -c -n %{packname}

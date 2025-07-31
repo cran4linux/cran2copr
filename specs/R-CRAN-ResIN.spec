@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ResIN
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Response Item Networks
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-ggraph >= 2.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.3
 BuildRequires:    R-CRAN-shadowtext >= 0.1.4
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-qgraph 
@@ -39,6 +41,8 @@ Requires:         R-CRAN-ggraph >= 2.2.0
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.3
 Requires:         R-CRAN-shadowtext >= 0.1.4
+Requires:         R-utils 
+Requires:         R-graphics 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-qgraph 

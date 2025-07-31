@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worldmet
-%global packver   0.9.9
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Surface Meteorological Data from NOAA Integrated Surface Database (ISD)
 
@@ -14,30 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-purrr >= 1.1.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openair 
-Requires:         R-parallel 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
 
 %description

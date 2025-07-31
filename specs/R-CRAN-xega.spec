@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xega
-%global packver   0.9.0.8
+%global packver   0.9.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.8
+Version:          0.9.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Evolutionary and Genetic Algorithms
 

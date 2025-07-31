@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtmapi
-%global packver   0.0.3
+%global packname  staninside
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetching Data from the 'Displacement Tracking Matrix'
+Summary:          Facilitating the Use of 'Stan' Within Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rappdirs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rappdirs 
 
 %description
-Allows humanitarian community, academia, media, government, and
-non-governmental organizations to utilize the data collected by the
-'Displacement Tracking Matrix' (<https://dtm.iom.int>), a unit in the
-International Organization for Migration. This also provides non-sensitive
-Internally Displaced Person figures, aggregated at the country, Admin 1
-(states, provinces, or equivalent), and Admin 2 (smaller administrative
-areas) levels.
+Infrastructure and functions that can be used for integrating 'Stan'
+(Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>) code into stand
+alone R packages which in turn use the 'CmdStan' engine which is often
+accessed through 'CmdStanR'. Details given in Stan Development Team (2025)
+<https://mc-stan.org/cmdstanr/>. Using 'CmdStanR' and pre-written 'Stan'
+code can make package installation easy. Using 'staninside' offers a way
+to cache user-compiled 'Stan' models in user-specified directories
+reducing the need to recompile the same model multiple times.
 
 %prep
 %setup -q -c -n %{packname}
