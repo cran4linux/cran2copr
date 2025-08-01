@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QBMS
-%global packver   1.5.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query the Breeding Management System(s)
 
@@ -45,10 +45,11 @@ This R package assists breeders in linking data systems with their
 analytic pipelines, a crucial step in digitizing breeding processes. It
 supports querying and retrieving phenotypic and genotypic data from
 systems like 'EBS' <https://ebs.excellenceinbreeding.org/>, 'BMS'
-<https://bmspro.io>, 'BreedBase' <https://breedbase.org>, and 'GIGWA'
+<https://bmspro.io>, 'BreedBase' <https://breedbase.org>, 'GIGWA'
 <https://github.com/SouthGreenPlatform/Gigwa2> (using 'BrAPI'
-<https://brapi.org> calls). Extra helper functions support environmental
-data sources, including 'TerraClimate'
+<https://brapi.org> calls), , and 'Germinate'
+<https://germinateplatform.github.io/get-germinate/>. Extra helper
+functions support environmental data sources, including 'TerraClimate'
 <https://www.climatologylab.org/terraclimate.html> and 'FAO' 'HWSDv2'
 <https://gaez.fao.org/pages/hwsd> soil database.
 

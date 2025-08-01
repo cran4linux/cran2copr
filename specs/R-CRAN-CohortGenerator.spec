@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortGenerator
-%global packver   0.11.2
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cohort Generation for the OMOP Common Data Model
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ResultModelManager 
 BuildRequires:    R-CRAN-tibble 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RJSONIO 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ResultModelManager 
 Requires:         R-CRAN-tibble 

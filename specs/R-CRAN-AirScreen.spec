@@ -1,44 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  nomisr
-%global packver   0.4.7
+%global __requires_exclude ^libmpi
+%global packname  AirScreen
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access 'Nomis' UK Labour Market Data
+Summary:          Feature Screening via Adaptive Iterative Ridge (Air-HOLP and Air-OLS)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rsdmx 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-snakecase 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-rsdmx 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-snakecase 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Access UK official statistics from the 'Nomis' database. 'Nomis' includes
-data from the Census, the Labour Force Survey, DWP benefit statistics and
-other economic and demographic data from the Office for National
-Statistics, based around statistical geographies. See
-<https://www.nomisweb.co.uk/api/v01/help> for full API documentation.
+Implements two complementary high-dimensional feature screening methods,
+Adaptive Iterative Ridge High-dimensional Ordinary Least-squares
+Projection (Air-HOLP, suitable when the number of predictors p is greater
+than or equal to the sample size n) and Adaptive Iterative Ridge Ordinary
+Least Squares (Air-OLS, for n greater than p). Also provides helper
+functions to generate compound-symmetry and AR(1) correlated data, plus a
+unified Air() front end and a summary method. For methodological details
+see Joudah, Muller and Zhu (2025) <doi:10.1007/s11222-025-10599-6>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdracor
-%global packver   1.0.4
+%global packname  simIC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the 'DraCor' API
+Summary:          Simulate and Analyze Interval- and Mixed-Censored Survival Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-jsonlite >= 1.6
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-stringr >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.2.4.1
-BuildRequires:    R-CRAN-xml2 >= 1.2.2
-BuildRequires:    R-CRAN-tidyr >= 1.2.1
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-purrr >= 0.3.5
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-jsonlite >= 1.6
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-stringr >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.2.4.1
-Requires:         R-CRAN-xml2 >= 1.2.2
-Requires:         R-CRAN-tidyr >= 1.2.1
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-purrr >= 0.3.5
-Requires:         R-utils 
 
 %description
-Provide an interface for 'Drama Corpora Project' ('DraCor') API:
-<https://dracor.org/documentation/api>.
+Provides tools to simulate and analyze survival data with interval-,
+left-, right-, and uncensored observations under common parametric
+distributions, including "Weibull", "Exponential", "Log-Normal",
+"Log-Logistic", "Gamma", "Gompertz", "Normal", "Logistic", and "EMV". The
+package supports both direct maximum likelihood estimation and
+imputation-based methods, making it suitable for methodological research,
+simulation benchmarking, and teaching. A web-based companion app is also
+available for demonstration purposes.
 
 %prep
 %setup -q -c -n %{packname}

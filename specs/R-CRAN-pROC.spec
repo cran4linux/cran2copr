@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pROC
-%global packver   1.18.5
+%global packver   1.19.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18.5
+Version:          1.19.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Display and Analyze ROC Curves
 
@@ -18,10 +18,8 @@ BuildRequires:    R-devel >= 2.14
 Requires:         R-core >= 2.14
 BuildRequires:    R-CRAN-Rcpp >= 0.11.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-Rcpp >= 0.11.1
 Requires:         R-methods 
-Requires:         R-CRAN-plyr 
 
 %description
 Tools for visualizing, smoothing and comparing receiver operating

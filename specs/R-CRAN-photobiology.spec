@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photobiology
-%global packver   0.13.1
+%global packver   0.13.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.13.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Photobiological Calculations
 
@@ -53,9 +53,8 @@ effective (weighted) and not-weighted irradiances/doses, fluence rates,
 transmittance, reflectance, absorptance, absorbance and diverse ratios and
 other derived quantities from spectral data. Local maxima and minima:
 peaks, valleys and spikes. Conversion between energy-and photon-based
-units. Wavelength interpolation. Astronomical calculations related solar
-angles and day length. Colours and vision. This package is part of the
-'r4photobiology' suite, Aphalo, P. J. (2015)
+units. Wavelength interpolation. Colours and vision. This package is part
+of the 'r4photobiology' suite, Aphalo, P. J. (2015)
 <doi:10.19232/uv4pb.2015.1.14>.
 
 %prep

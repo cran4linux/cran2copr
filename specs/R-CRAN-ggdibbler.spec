@@ -1,55 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ohun
-%global packver   1.0.3
+%global packname  ggdibbler
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimizing Acoustic Signal Detection
+Summary:          Add Uncertainty to Data Visualisations
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-seewave >= 2.0.1
-BuildRequires:    R-CRAN-warbleR >= 1.1.32
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fftw 
+BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-seewave >= 2.0.1
-Requires:         R-CRAN-warbleR >= 1.1.32
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-fftw 
+Requires:         R-CRAN-distributional 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Facilitates the automatic detection of acoustic signals, providing
-functions to diagnose and optimize the performance of detection routines.
-Detections from other software can also be explored and optimized. This
-package has been peer-reviewed by rOpenSci. Araya-Salas et al. (2022)
-<doi:10.1101/2022.12.13.520253>.
+A 'ggplot2' extension for visualising uncertainty with the goal of signal
+suppression. Usually, uncertainty visualisation focuses on expressing
+uncertainty as a distribution or probability, whereas 'ggdibbler'
+differentiates itself by viewing an uncertainty visualisation as an
+adjustment to an existing graphic that incorporates the inherent
+uncertainty in the estimates.  You provide the code for an existing plot,
+but replace one of the variables with a vector of distributions, and it
+will convert the visualisation into it's signal suppression counterpart.
 
 %prep
 %setup -q -c -n %{packname}

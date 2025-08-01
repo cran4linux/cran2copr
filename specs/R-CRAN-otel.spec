@@ -1,41 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rraven
-%global packver   1.0.15
+%global packname  otel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connecting R and 'Raven' Sound Analysis Software
+Summary:          'OpenTelemetry' 'R' 'API'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-warbleR >= 1.1.34
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-seewave 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-warbleR >= 1.1.34
-Requires:         R-CRAN-pbapply 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-seewave 
-Requires:         R-CRAN-tuneR 
-Requires:         R-methods 
 
 %description
-A tool to exchange data between R and 'Raven' sound analysis software
-(Cornell Lab of Ornithology). Functions work on data formats compatible
-with the R package 'warbleR'.
+'OpenTelemetry' is a collection of tools, 'APIs', and 'SDKs' used to
+instrument, generate, collect, and export telemetry data (metrics, logs,
+and traces) for analysis in order to understand your software's
+performance and behavior. This package implements the 'OpenTelemetry'
+'API': <https://opentelemetry.io/docs/specs/otel/> Use this package as a
+dependency if you want to instrument your R package for 'OpenTelemetry'.
 
 %prep
 %setup -q -c -n %{packname}

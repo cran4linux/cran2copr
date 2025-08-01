@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdcuremodels
-%global packver   0.0.1
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Mixture Cure Models for High-Dimensional Data
+Summary:          High-Dimensional Cure Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,6 +30,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-flexsurvcure 
@@ -43,6 +44,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-plyr 
 Requires:         R-methods 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-withr 
 
 %description
 Provides functions for fitting various penalized parametric and

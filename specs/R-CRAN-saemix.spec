@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saemix
-%global packver   3.3
+%global packver   3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Approximation Expectation Maximization (SAEM) Algorithm
 
@@ -42,19 +42,19 @@ Requires:         R-CRAN-MASS
 
 %description
 The 'saemix' package implements the Stochastic Approximation EM algorithm
-for parameter estimation in (non)linear mixed effects models. The SAEM
-algorithm (i) computes the maximum likelihood estimator of the population
-parameters, without any approximation of the model (linearisation,
-quadrature approximation,...), using the Stochastic Approximation
-Expectation Maximization (SAEM) algorithm, (ii) provides standard errors
-for the maximum likelihood estimator (iii) estimates the conditional
-modes, the conditional means and the conditional standard deviations of
-the individual parameters, using the Hastings-Metropolis algorithm (see
-Comets et al. (2017) <doi:10.18637/jss.v080.i03>). Many applications of
-SAEM in agronomy, animal breeding and PKPD analysis have been published by
-members of the Monolix group. The full PDF documentation for the package
-including references about the algorithm and examples can be downloaded on
-the github of the IAME research institute for 'saemix':
+for parameter estimation in (non)linear mixed effects models. It (i)
+computes the maximum likelihood estimator of the population parameters,
+without any approximation of the model (linearisation, quadrature
+approximation,...), using the Stochastic Approximation Expectation
+Maximization (SAEM) algorithm, (ii) provides standard errors for the
+maximum likelihood estimator (iii) estimates the conditional modes, the
+conditional means and the conditional standard deviations of the
+individual parameters, using the Hastings-Metropolis algorithm (see Comets
+et al. (2017) <doi:10.18637/jss.v080.i03>). Many applications of SAEM in
+agronomy, animal breeding and PKPD analysis have been published by members
+of the Monolix group. The full PDF documentation for the package including
+references about the algorithm and examples can be downloaded on the
+github of the IAME research institute for 'saemix':
 <https://github.com/iame-researchCenter/saemix/blob/7638e1b09ccb01cdff173068e01c266e906f76eb/docsaem.pdf>.
 
 %prep

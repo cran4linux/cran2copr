@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parafac4microbiome
-%global packver   1.2.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Factor Analysis Modelling of Longitudinal Microbiome Data
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mize 
 BuildRequires:    R-CRAN-multiway 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pracma 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-ggpubr
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-mize 
 Requires:         R-CRAN-multiway 
 Requires:         R-parallel 
 Requires:         R-CRAN-pracma 

@@ -1,56 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rfars
-%global packver   1.2.0
+%global packname  Pv3Rs
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Analyze Crash Data
+Summary:          Estimate the Cause of Recurrent Vivax Malaria using Genetic Data
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-downloader 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-multicool 
+BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sas7bdat 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-downloader 
+BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-fields 
+Requires:         R-grDevices 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
+Requires:         R-CRAN-multicool 
+Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sas7bdat 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Download crash data from the National Highway Traffic Safety
-Administration and prepare it for research.
+Plot malaria parasite genetic data on two or more episodes. Compute
+per-person posterior probabilities that each Plasmodium vivax (Pv)
+recurrence is a recrudescence, relapse, or reinfection (3Rs) using
+per-person P. vivax genetic data on two or more episodes and a statistical
+model described in Taylor, Foo and White (2022)
+<doi:10.1101/2022.11.23.22282669>. Plot per-recurrence posterior
+probabilities.
 
 %prep
 %setup -q -c -n %{packname}

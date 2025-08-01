@@ -1,50 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynaSpec
-%global packver   1.0.4
+%global packname  smoothROCtime
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Spectrogram Visualizations
+Summary:          Smooth Time-Dependent ROC Curve Estimation
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-seewave 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-gganimate 
-BuildRequires:    R-CRAN-warbleR 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-seewave 
-Requires:         R-CRAN-tuneR 
-Requires:         R-grid 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-gganimate 
-Requires:         R-CRAN-warbleR 
+BuildRequires:    R-CRAN-ks 
+Requires:         R-CRAN-ks 
 
 %description
-A set of tools to generate dynamic spectrogram visualizations in video
-format.
+Computes smooth estimations for the Cumulative/Dynamic and
+Incident/Dynamic ROC curves, in presence of right censorship, based on the
+bivariate kernel density estimation of the joint distribution function of
+the Marker and Time-to-event variables.
 
 %prep
 %setup -q -c -n %{packname}

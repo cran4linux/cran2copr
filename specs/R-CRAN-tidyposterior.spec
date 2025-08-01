@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyposterior
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis to Compare Models using Resampling Statistics
 
@@ -14,9 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-rstanarm >= 2.21.1
 BuildRequires:    R-CRAN-tidyr >= 0.7.1
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
@@ -24,13 +25,13 @@ BuildRequires:    R-CRAN-tune >= 0.2.0
 BuildRequires:    R-CRAN-rsample >= 0.0.2
 BuildRequires:    R-CRAN-dplyr > 1.0.0
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-workflowsets 
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-rstanarm >= 2.21.1
 Requires:         R-CRAN-tidyr >= 0.7.1
 Requires:         R-CRAN-vctrs >= 0.3.0
@@ -38,7 +39,6 @@ Requires:         R-CRAN-tune >= 0.2.0
 Requires:         R-CRAN-rsample >= 0.0.2
 Requires:         R-CRAN-dplyr > 1.0.0
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

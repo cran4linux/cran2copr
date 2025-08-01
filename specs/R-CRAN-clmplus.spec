@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NPLStoolbox
-%global packver   1.1.0
+%global packname  clmplus
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          N-Way Partial Least Squares Modelling of Multi-Way Data
+Summary:          Tool-Box of Chain Ladder Plus Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-parafac4microbiome 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-StMoMo 
+BuildRequires:    R-CRAN-ChainLadder 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-parafac4microbiome 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-rTensor 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-StMoMo 
+Requires:         R-CRAN-ChainLadder 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-reshape2 
 
 %description
-Creation and selection of N-way Partial Least Squares (NPLS) models.
-Selection of the optimal number of components can be done using
-ncrossreg(). NPLS was originally described by Rasmus Bro, see
-<doi:10.1002/%%28SICI%%291099-128X%%28199601%%2910%%3A1%%3C47%%3A%%3AAID-CEM400%%3E3.0.CO%%3B2-C>.
+Implementation of the age–period–cohort models for claim development
+presented in Pittarello G, Hiabu M, Villegas A (2025) “Replicating and
+Extending Chain‑Ladder via an Age–Period–Cohort Structure on the Claim
+Development in a Run‑Off Triangle” <doi:10.1080/10920277.2025.2496725>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NPLStoolbox
-%global packver   1.1.0
+%global packname  suRface.analytics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          N-Way Partial Least Squares Modelling of Multi-Way Data
+Summary:          Statistical Analysis and Visualization of Surface-Engineered Material Properties
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-parafac4microbiome 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-grid 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-parafac4microbiome 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-rTensor 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-effectsize 
 Requires:         R-stats 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-multcompView 
+Requires:         R-grid 
 
 %description
-Creation and selection of N-way Partial Least Squares (NPLS) models.
-Selection of the optimal number of components can be done using
-ncrossreg(). NPLS was originally described by Rasmus Bro, see
-<doi:10.1002/%%28SICI%%291099-128X%%28199601%%2910%%3A1%%3C47%%3A%%3AAID-CEM400%%3E3.0.CO%%3B2-C>.
+A collection of functions for statistical and multivariate analysis of
+surface-related data, with a focus on antimicrobial activity and
+omniphobicity. Designed to support materials scientists and researchers in
+exploring structure–function relationships in surface-engineered materials
+through reproducible and interpretable workflows. For more details, see Li
+et al. (2021) <doi:10.1002/advs.202100368>, and Kwon et al. (2020)
+<doi:10.3390/polym12081826>.
 
 %prep
 %setup -q -c -n %{packname}
