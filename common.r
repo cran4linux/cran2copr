@@ -312,8 +312,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
   tpl <- c(switch(
     pkg,
     BANOVA=,beam=,Boom=,FastRWeb=,mapdata=,pbdRPC=,pbdPROF=,qtpaint=,RxODE=,
-    tth=,wingui=,mixl=,StanHeaders=,mathjaxr=,x13binary="%global debug_package %{nil}",
-    tcltk2="%undefine __brp_mangle_shebangs"), tpl)
+    tth=,wingui=,mixl=,StanHeaders=,mathjaxr=,x13binary="%global debug_package %{nil}"), tpl)
 
   # source
   src <- grep("Source0", tpl)
@@ -329,9 +328,6 @@ pkg_exceptions <- function(tpl, pkg, path) {
   setup <- grep("%setup", tpl)
   tpl[setup] <- paste0(tpl[setup], "\n", switch(
     pkg,
-    tcltk2 = paste(
-      "sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g'",
-      "%{packname}/inst/tklibs/ctext3.2/function_finder.tcl"),
     askpass = {
       unlink(dir(file.path(path, "inst"), "^mac.*", full.names=TRUE))
       "rm -f %{packname}/inst/mac*" },
@@ -343,7 +339,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
     h2o = "cp %{SOURCE1} %{packname}/inst/java",
     RcppCGAL = "tar xf %{SOURCE1} -C %{packname}/inst */include --strip-components=1",
     nws=,OpenMx=,irace=,configr=,goldi=,RWebLogo=,rSymPy=,ndl=,scrobbler=,
-    chromoR=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=,rgee=paste(
+    chromoR=,SoilR=,dynwrap=,RcppRedis=,protViz=,PRISMA=,rgee=,tcltk2=paste(
       "find %{packname} -type f -exec",
       "sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python3@g' {} \\;"),
     shinyAce=, googleComputeEngineR =

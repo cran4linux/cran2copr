@@ -1,4 +1,3 @@
-%undefine __brp_mangle_shebangs
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tcltk2
@@ -28,7 +27,7 @@ package.
 
 %prep
 %setup -q -c -n %{packname}
-sed -i 's@/bin/tclsh8.3@/usr/bin/tclsh@g' %{packname}/inst/tklibs/ctext3.2/function_finder.tcl
+find %{packname} -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*python@#!/usr/bin/python3@g' {} \;
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
