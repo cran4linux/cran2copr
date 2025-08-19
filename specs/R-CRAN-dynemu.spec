@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynemu
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Emulation of Dynamic Simulators via One-Step-Ahead Approach
 
@@ -36,10 +36,10 @@ dynamic systems. It is specifically designed for nonlinear dynamic systems
 where full simulations may be costly. The underlying Gaussian process
 model accounts for temporal dependency through the one-step-ahead
 formulation, allowing for accurate emulation of complex dynamics.
-Hyperparameters are estimated via maximum likelihood. See Heo (2025,
-<doi:10.48550/arXiv.2503.20250>) for exact method, and Mohammadi,
-Challenor, and Goodfellow (2019, <doi:10.1016/j.csda.2019.05.006>) for
-methodological details.
+Hyperparameters are estimated via maximum likelihood. For methodological
+details, see Heo (2025, <doi:10.48550/arXiv.2503.20250>) for exact method,
+and Mohammadi, Challenor, and Goodfellow (2019,
+<doi:10.1016/j.csda.2019.05.006>) for Monte Carlo method.
 
 %prep
 %setup -q -c -n %{packname}

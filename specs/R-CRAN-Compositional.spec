@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   7.6
+%global packver   7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.6
+Version:          7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -70,11 +70,11 @@ The standard textbook for such data is John Aitchison's (1986) "The
 statistical analysis of compositional data". Relevant papers include: a)
 Tsagris M.T., Preston S. and Wood A.T.A. (2011). "A data-based power
 transformation for compositional data". Fourth International International
-Workshop on Compositional Data Analysis. <doi:10.48550/arXiv.1106.1451> b)
-Tsagris M. (2014). "The k-NN algorithm for compositional data: a revised
-approach with and without zero values present". Journal of Data Science,
-12(3): 519--534. <doi:10.6339/JDS.201407_12(3).0008>. c) Tsagris M.
-(2015). "A novel, divergence based, regression for compositional data".
+Workshop on Compositional Data Analysis. <doi:10.48550/arXiv.1106.1451>.
+b) Tsagris M. (2014). "The k-NN algorithm for compositional data: a
+revised approach with and without zero values present". Journal of Data
+Science, 12(3): 519--534. <doi:10.6339/JDS.201407_12(3).0008>. c) Tsagris
+M. (2015). "A novel, divergence based, regression for compositional data".
 Proceedings of the 28th Panhellenic Statistics Conference, 15-18 April
 2015, Athens, Greece, 430--444. <doi:10.48550/arXiv.1511.07600>. d)
 Tsagris M. (2015). "Regression analysis with compositional data containing

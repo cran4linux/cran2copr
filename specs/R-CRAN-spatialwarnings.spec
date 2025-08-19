@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialwarnings
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Early Warning Signals of Ecosystem Degradation
 
@@ -38,9 +38,9 @@ Requires:         R-CRAN-segmented
 
 %description
 Tools to compute and assess significance of early-warnings signals (EWS)
-of ecosystem degradation on raster data sets. EWS are spatial metrics
-derived from raster data -- e.g. spatial autocorrelation -- that increase
-before an ecosystem undergoes a non-linear transition (Genin et al. (2018)
+of ecosystem degradation. EWS are spatial metrics derived from raster data
+-- e.g. spatial autocorrelation -- that increase before an ecosystem
+undergoes a non-linear transition (Genin et al. (2018)
 <doi:10.1111/2041-210X.13058>).
 
 %prep

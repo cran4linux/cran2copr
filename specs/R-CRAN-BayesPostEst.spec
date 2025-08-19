@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BayesPostEst
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Postestimation Quantities for Bayesian MCMC Estimation
 
@@ -32,12 +33,7 @@ BuildRequires:    R-CRAN-ROCR
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-runjags 
-BuildRequires:    R-CRAN-rstanarm 
 BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-R2WinBUGS 
-BuildRequires:    R-CRAN-brms 
 Requires:         R-CRAN-tidyr >= 0.5.1
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-coda >= 0.13
@@ -54,12 +50,7 @@ Requires:         R-CRAN-ROCR
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-runjags 
-Requires:         R-CRAN-rstanarm 
 Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-R2WinBUGS 
-Requires:         R-CRAN-brms 
 
 %description
 An implementation of functions to generate and plot postestimation

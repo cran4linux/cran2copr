@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bspcov
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Sparse Estimation of a Covariance Matrix
 
@@ -41,6 +41,9 @@ BuildRequires:    R-CRAN-caret
 BuildRequires:    R-CRAN-FinCovRegularization 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-future.apply 
 Requires:         R-CRAN-GIGrvg 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-progress 
@@ -65,6 +68,9 @@ Requires:         R-CRAN-caret
 Requires:         R-CRAN-FinCovRegularization 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-future.apply 
 
 %description
 Bayesian estimations of a covariance matrix for multivariate normal data.

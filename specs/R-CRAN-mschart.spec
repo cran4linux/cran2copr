@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mschart
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chart Generation for 'Microsoft Word' and 'Microsoft PowerPoint' Documents
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-writexl
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-xml2 >= 1.1.0
 Requires:         R-CRAN-officer >= 0.3.6
 Requires:         R-stats 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-writexl
 Requires:         R-grDevices 
 Requires:         R-CRAN-htmltools 
 Requires:         R-utils 
+Requires:         R-CRAN-scales 
 
 %description
 Create native charts for 'Microsoft PowerPoint' and 'Microsoft Word'

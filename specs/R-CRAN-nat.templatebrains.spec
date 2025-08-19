@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nat.templatebrains
-%global packver   1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          NeuroAnatomy Toolbox ('nat') Extension for Handling Template Brains
 
@@ -23,14 +23,12 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-Morpho 
 Requires:         R-CRAN-nat >= 1.8.6
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-Morpho 
 
 %description
 Extends package 'nat' (NeuroAnatomy Toolbox) by providing objects and

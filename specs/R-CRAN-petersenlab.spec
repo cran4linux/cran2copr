@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  petersenlab
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of R Functions by the Petersen Lab
 
@@ -40,6 +40,7 @@ BuildRequires:    R-CRAN-viridisLite
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
@@ -63,6 +64,7 @@ Requires:         R-CRAN-viridisLite
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lme4 
 
 %description
 A collection of R functions that are widely used by the Petersen Lab.
@@ -74,11 +76,13 @@ variable modeling, various plotting capabilities, and other miscellaneous
 useful functions. By making the package available, we hope to make our
 methods reproducible and replicable by others and to help others perform
 their data processing and analysis methods more easily and efficiently.
-The codebase is provided in Petersen (2024) <doi:10.5281/zenodo.7602890>
-and on CRAN: <doi: 10.32614/CRAN.package.petersenlab>. The package is
+The codebase is provided in Petersen (2025) <doi:10.5281/zenodo.7602890>
+and on 'CRAN': <doi: 10.32614/CRAN.package.petersenlab>. The package is
 described in "Principles of Psychological Assessment: With Applied
-Examples in R" (Petersen, 2024, 2025) <doi:10.1201/9781003357421>,
-<doi:10.25820/work.007199>, <doi:10.5281/zenodo.6466589>.
+Examples in R" (Petersen, 2024, 2025a) <doi:10.1201/9781003357421>,
+<doi:10.25820/work.007199>, <doi:10.5281/zenodo.6466589> and in "Fantasy
+Football Analytics: Statistics, Prediction, and Empiricism Using R"
+(Petersen, 2025b).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIDHAD
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Difference-in-Differences in Heterogeneous Adoption Designs with Quasi Stayers
+Summary:          Difference-in-Differences in Heterogeneous Adoption Designs with Quasi Untreated Groups
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,30 +18,28 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-YatchewTest >= 1.1.0
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nprobust 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-CRAN-rnames 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-YatchewTest >= 1.1.0
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nprobust 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plm 
 Requires:         R-CRAN-rnames 
 Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
 
 %description
 Estimation of Difference-in-Differences (DiD) estimators from de
-Chaisemartin and D'Haultfoeuille (2024) <doi:10.2139/ssrn.4284811> in
-Heterogeneous Adoption Designs with no stayers but with quasi stayers.
+Chaisemartin et al. (2025) <doi:10.48550/arXiv.2405.04465> in
+Heterogeneous Adoption Designs with Quasi Untreated Groups.
 
 %prep
 %setup -q -c -n %{packname}

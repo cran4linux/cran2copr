@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chatRater
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rating and Evaluating Texts Using Large Language Models
+Summary:          A Tool for Rating Text/Image Stimuli
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,23 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openai 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-openai 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-tools 
 
 %description
-Generates ratings and psycholinguistic metrics for textual stimuli using
-large language models. It enables users to evaluate idioms and other
-language materials by combining context, prompts, and stimulus inputs. It
-supports multiple LLM APIs (such as 'OpenAI', 'DeepSeek', 'Anthropic',
-'Cohere', 'Google PaLM', and 'Ollama') by allowing users to switch models
-with a single parameter. In addition to generating numeric ratings,
-'chatRater' provides functions for obtaining detailed psycholinguistic
-metrics including word frequency (with optional corpus input), lexical
-coverage (with customizable vocabulary size and test basis), Zipf metric,
-Levenshtein distance, and semantic transparency.
+Evaluates stimuli using Large Language Models APIs with URL support.
 
 %prep
 %setup -q -c -n %{packname}

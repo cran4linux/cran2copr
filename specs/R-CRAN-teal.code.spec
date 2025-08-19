@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.code
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Code Storage and Execution Class for 'teal' Applications
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-evaluate >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
@@ -28,6 +29,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-evaluate >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-methods 
 Requires:         R-grDevices 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  voigt
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Voigt Distribution
 
@@ -30,8 +30,9 @@ distribution. The main objective of this package is to provide R users
 with efficient estimation of Voigt parameters using classic iid data in a
 Bayesian framework. The estimating function allows flexible prior
 specification, specification of fixed parameters and several options for
-MCMC posterior simulation. A basic version of the algorithm is described
-in: Cannas M. and Piras, N. (2025) <doi:10.1007/978-3-031-96303-2_53>.
+Markov Chain Monte Carlo posterior simulation. A basic version of the
+algorithm is described in: Cannas M. and Piras, N. (2025)
+<doi:10.1007/978-3-031-96303-2_53>.
 
 %prep
 %setup -q -c -n %{packname}

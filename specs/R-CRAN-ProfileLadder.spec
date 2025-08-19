@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ProfileLadder
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Profile Chain Ladder for Claims Reserving
+Summary:          Functional-Based Chain Ladder for Claims Reserving
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon >= 1.5.0
 BuildRequires:    R-CRAN-ChainLadder >= 0.2.12
 BuildRequires:    R-CRAN-raw >= 0.1.8
+Requires:         R-CRAN-crayon >= 1.5.0
 Requires:         R-CRAN-ChainLadder >= 0.2.12
 Requires:         R-CRAN-raw >= 0.1.8
 
 %description
 Functional claims reserving methods based on aggregated chain-ladder data,
-also known as the run-off triangle (functional) development profiles,
-implemented in three nonparametric algorithms (PARALLAX, REACT, and
-MACRAME) proposed in Maciak, Mizera, and Pešta (2022)
-<doi:10.1017/asb.2022.4>.
+also known as a run-off triangle, implemented in three nonparametric
+algorithms (PARALLAX, REACT, and MACRAME) proposed in Maciak, Mizera, and
+Pešta (2022) <doi:10.1017/asb.2022.4>. Additional methods including
+permutation bootstrap for completed run-off triangles are also provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  V8
-%global packver   6.0.5
+%global packver   6.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.5
+Version:          6.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Embedded JavaScript and WebAssembly Engine for R
 

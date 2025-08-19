@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ife
-%global packver   0.1.12
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Influence Function Based Estimate Objects
+Summary:          Autodiff for Influence Function Based Estimates
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,16 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-S7 
+Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-S7 
 
 %description
-Implements an S7 class for estimates based on influence functions.
-Standard arithmetic operations are defined for the class.
+Implements an S7 class for estimates based on influence functions, with
+forward mode automatic differentiation defined for standard arithmetic
+operations.
 
 %prep
 %setup -q -c -n %{packname}

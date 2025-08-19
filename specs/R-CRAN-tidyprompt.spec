@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyprompt
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prompt Large Language Models and Enhance Their Functionality
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-R6 
 
 %description
 Easily construct prompts and associated logic for interacting with large

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AIscreenR
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          AI Screening Tools in R for Systematic Reviewing
 
@@ -50,7 +50,7 @@ These functions can enhance the quality of title and abstract screenings
 while reducing the total screening time significantly. In addition, the
 package includes tools for quality assessment of title and abstract
 screenings, as described in Vembye, Christensen, Mølgaard, and Schytt
-(2024) <DOI:10.31219/osf.io/yrhzm>.
+(2025) <DOI:10.1037/met0000769>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SlimR
-%global packver   1.0.3
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marker-Based Package for Single-Cell and Spatial-Transcriptomic Annotation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-Seurat 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 
 %description
@@ -47,16 +45,16 @@ Annotating single-cell and spatial-transcriptomic (ST) data based on the
 Marker dataset. It supports the creation of a unified marker list,
 Markers_list, using sources including: the package's built-in curated
 species-specific cell type and marker reference databases (e.g.,
-'Cellmarker2', 'PanglaoDB'), Seurat objects containing cell label
-information, or user-provided Excel tables mapping cell types to markers.
-Based on the Markers_list, 'SlimR' can iterate through different cell
-types to generate corresponding annotation reference plots (e.g.,
-'Markers_Dotplot', 'Metric_Heatmap', 'Mean_expression_Box_plot').
-Furthermore, it enables one-click generation of an annotation heatmap
-('Annotation_Heatmap') visualizing the relationship between input cell
-types and the reference marker list. For more details see Kabacoff (2015,
-ISBN:9781617291388) and Hu et al. (2023) <doi:10.1093/nar/gkac947> and
-Franzén et al. (2019) <doi:10.1093/database/baz046>.
+'Cellmarker2', 'PanglaoDB', 'scIBD', 'TCellSI'), Seurat objects containing
+cell label information, or user-provided Excel tables mapping cell types
+to markers. Based on the Markers_list, 'SlimR' can calculate gene
+expression of different cell types and predict annotation information and
+calculate corresponding AUC by 'Celltype_Calculate()', and annotate it by
+'Celltype_Annotation()', then verify it by 'Celltype_Verification()'. At
+the same time, it can calculate gene expression corresponding to the cell
+type to generate the corresponding annotation reference map for manual
+annotation (e.g., 'Heatmap', 'Features plot', 'Combined plot'). For more
+details see Kabacoff (2020, ISBN:9787115420572).
 
 %prep
 %setup -q -c -n %{packname}

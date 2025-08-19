@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  usl
-%global packver   3.0.3
+%global packver   3.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze System Scalability with the Universal Scalability Law
 

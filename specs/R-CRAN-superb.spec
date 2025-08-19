@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  superb
-%global packver   0.95.19
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.95.19
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Plots with Adjusted Error Bars
 
@@ -27,6 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-rrapply 
@@ -40,6 +41,7 @@ Requires:         R-stats
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-rrapply 
@@ -47,16 +49,17 @@ Requires:         R-CRAN-rrapply
 %description
 Computes standard error and confidence interval of various descriptive
 statistics under various designs and sampling schemes. The main function,
-superbPlot(), return a plot. superbData() returns a dataframe with the
-statistic and its precision interval so that other plotting package can be
-used. See Cousineau and colleagues (2021) <doi:10.1177/25152459211035109>
-or Cousineau (2017) <doi:10.5709/acp-0214-z> for a review as well as
-Cousineau (2005) <doi:10.20982/tqmp.01.1.p042>, Morey (2008)
-<doi:10.20982/tqmp.04.2.p061>, Baguley (2012)
-<doi:10.3758/s13428-011-0123-7>, Cousineau & Laurencelle (2016)
-<doi:10.1037/met0000055>, Cousineau & O'Brien (2014)
+superb(), return a plot. It can also be used to obtain a dataframe with
+the statistics and their precision intervals so that other plotting
+environments (e.g., Excel) can be used. See Cousineau and colleagues
+(2021) <doi:10.1177/25152459211035109> or Cousineau (2017)
+<doi:10.5709/acp-0214-z> for a review as well as Cousineau (2005)
+<doi:10.20982/tqmp.01.1.p042>, Morey (2008) <doi:10.20982/tqmp.04.2.p061>,
+Baguley (2012) <doi:10.3758/s13428-011-0123-7>, Cousineau & Laurencelle
+(2016) <doi:10.1037/met0000055>, Cousineau & O'Brien (2014)
 <doi:10.3758/s13428-013-0441-z>, Calderini & Harding
-<doi:10.20982/tqmp.15.1.p001> for specific references.
+<doi:10.20982/tqmp.15.1.p001> for specific references. The documentation
+is available at <https://dcousin3.github.io/superb/> .
 
 %prep
 %setup -q -c -n %{packname}

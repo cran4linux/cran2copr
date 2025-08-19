@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plsRbeta
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Least Squares Regression for Beta Regression Models
 
@@ -34,9 +34,10 @@ Requires:         R-methods
 
 %description
 Provides Partial least squares Regression for (weighted) beta regression
-models (Bertrand 2013, <http://journal-sfds.fr/article/view/215>) and
-k-fold cross-validation of such models using various criteria. It allows
-for missing data in the explanatory variables. Bootstrap confidence
+models (Bertrand 2013,
+<https://ojs-test.apps.ocp.math.cnrs.fr/index.php/J-SFdS/article/view/215>)
+and k-fold cross-validation of such models using various criteria. It
+allows for missing data in the explanatory variables. Bootstrap confidence
 intervals constructions are also available.
 
 %prep

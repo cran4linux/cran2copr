@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gratia
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graceful 'ggplot'-Based Graphics and Other Functions for GAMs Fitted Using 'mgcv'
 
@@ -23,12 +23,12 @@ BuildRequires:    R-CRAN-mgcv >= 1.9.0
 BuildRequires:    R-CRAN-patchwork >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-purrr >= 1.1.0
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-grDevices 
@@ -40,18 +40,19 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-CRAN-ggokabeito 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-mirai 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-mgcv >= 1.9.0
 Requires:         R-CRAN-patchwork >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-purrr >= 1.1.0
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-vctrs 
 Requires:         R-grid 
 Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-grDevices 
@@ -63,6 +64,7 @@ Requires:         R-CRAN-nlme
 Requires:         R-CRAN-ggokabeito 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-mirai 
 
 %description
 Graceful 'ggplot'-based graphics and utility functions for working with
