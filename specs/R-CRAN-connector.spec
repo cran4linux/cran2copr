@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  connector
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamlining Data Access in Clinical Research
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-fs
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 

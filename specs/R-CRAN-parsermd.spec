@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parsermd
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formal Parser and Related Tools for R Markdown Documents
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-cli >= 2.5.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-purrr 
@@ -31,7 +31,9 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-cli >= 2.5.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
@@ -48,7 +50,9 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-S7 
 
 %description
 An implementation of a formal grammar and parser for R Markdown documents

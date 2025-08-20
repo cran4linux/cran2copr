@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LatticeDesign
-%global packver   3.0-1
+%global packver   4.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lattice-Based Space-Filling Designs
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nloptr 
 Requires:         R-methods 
+Requires:         R-CRAN-nloptr 
 
 %description
 Lattice-based space-filling designs with fill or separation distance
@@ -26,12 +28,16 @@ proposed in Xu He (2017) <doi:10.1093/biomet/asx036>, interleaved
 lattice-based maximin distance designs proposed in Xu He (2018)
 <doi:10.1093/biomet/asy069>, interleaved lattice-based designs with low
 fill and high separation distance properties proposed in Xu He (2024)
-<doi:10.1137/23M156940X>, rotated sphere packing designs proposed in Xu He
-(2017) <doi:10.1080/01621459.2016.1222289>, sliced rotated sphere packing
-designs proposed in Xu He (2019) <doi:10.1080/00401706.2018.1458655>, and
-densest packing-based maximum projections designs proposed in Xu He (2021)
-<doi:10.1093/biomet/asaa057> and Xu He (2018)
-<doi:10.48550/arXiv.1709.02062>.
+<doi:10.1137/23M156940X>, (sliced) rotated sphere packing designs proposed
+in Xu He (2017) <doi:10.1080/01621459.2016.1222289> and Xu He (2019)
+<doi:10.1080/00401706.2018.1458655>, densest packing-based maximum
+projections designs proposed in Xu He (2020) <doi:10.1093/biomet/asaa057>
+and Xu He (2018) <doi:10.48550/arXiv.1709.02062>, maximin distance designs
+for mixed continuous, ordinal, and binary variables proposed in Hui Lan
+and Xu He (2025) <doi:10.48550/arXiv.2507.23405>, and optimized and
+regularly repeated lattice-based Latin hypercube designs for large-scale
+computer experiments proposed in Xu He, Junpeng Gong, and Zhaohui Li
+(2025) <doi:10.48550/arXiv.2506.04582>.
 
 %prep
 %setup -q -c -n %{packname}

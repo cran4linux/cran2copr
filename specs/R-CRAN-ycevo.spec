@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ycevo
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Estimation of the Yield Curve Evolution
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -35,10 +37,12 @@ Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

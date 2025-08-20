@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forested
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Attributes in Washington State
+Summary:          Forest Attributes in U.S. States
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 
 %description
-A small subset of plots in Washington State are sampled and assessed
+A small subset of plots throughout the U.S. are sampled and assessed
 "on-the-ground" as forested or non-forested by the U.S. Department of
 Agriculture, Forest Service, Forest Inventory and Analysis (FIA) Program,
 but the FIA also has access to remotely sensed data for all land in the
-state. The 'forested' package contains a data frame by the same name
-intended for use in predictive modeling applications where the more
-easily-accessible remotely sensed data can be used to predict whether a
-plot is forested or non-forested.
+country. The 'forested' package contains data frames intended for use in
+predictive modeling applications where the more easily-accessible remotely
+sensed data can be used to predict whether a plot is forested or
+non-forested. Currently, the package provides data for Washington and
+Georgia.
 
 %prep
 %setup -q -c -n %{packname}

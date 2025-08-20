@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianFitForecast
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Parameter Estimation and Forecasting for Epidemiological Models
 
@@ -19,16 +19,24 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-xlsx 
+Requires:         R-CRAN-loo 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rstantools
 

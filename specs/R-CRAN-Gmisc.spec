@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Gmisc
-%global packver   3.0.3
+%global packver   3.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Statistics, Transition Plots, and More
 
@@ -62,11 +62,11 @@ Requires:         R-CRAN-yaml
 Requires:         R-utils 
 
 %description
-Tools for making the descriptive "Table 1" used in medical articles, a
-transition plot for showing changes between categories (also known as a
-Sankey diagram), flow charts by extending the grid package, a method for
-variable selection based on the SVD, Bézier lines with arrows
-complementing the ones in the 'grid' package, and more.
+Utilities for common medical-statistics graphics and tables, including
+automatic creation of publication-ready "Table 1" summaries; transition
+(Sankey) plots; flow-chart helpers that extend the grid package; Bézier
+lines and arrows; and a singular-value-decomposition- based
+variable-selection method.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pliman
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Plant Image Analysis
 
@@ -16,23 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-exactextractr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-exactextractr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-future 
 Requires:         R-methods 
+Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-sf 

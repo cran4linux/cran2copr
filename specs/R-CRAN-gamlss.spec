@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gamlss
-%global packver   5.4-22
+%global packver   5.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.22
+Version:          5.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Additive Models for Location Scale and Shape
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-gamlss.data >= 5.0.0
 BuildRequires:    R-CRAN-gamlss.dist >= 4.3.1
 BuildRequires:    R-graphics 

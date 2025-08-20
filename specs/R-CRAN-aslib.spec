@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aslib
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Algorithm Selection Benchmark Library
 
@@ -50,7 +50,7 @@ Requires:         R-CRAN-yaml
 
 %description
 Provides an interface to the algorithm selection benchmark library at
-<http://www.aslib.net> and the 'LLAMA' package
+<https://www.coseal.net/aslib/> and the 'LLAMA' package
 (<https://cran.r-project.org/package=llama>) for building algorithm
 selection models; see Bischl et al. (2016)
 <doi:10.1016/j.artint.2016.04.003>.

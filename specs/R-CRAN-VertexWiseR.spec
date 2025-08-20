@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VertexWiseR
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Vertex-Wise Analyses of Whole-Brain and Hippocampal Surface
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ciftiTools 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-foreach 
@@ -25,16 +24,18 @@ BuildRequires:    R-CRAN-freesurferformats
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-gifti 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ciftiTools 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-foreach 
@@ -42,14 +43,17 @@ Requires:         R-CRAN-freesurferformats
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-gifti 
 Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description

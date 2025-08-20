@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  misty
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-rstudioapi 
 
 %description
-Miscellaneous functions for (1) data management (e.g., grand-mean and
+Miscellaneous functions for (1) data handling (e.g., grand-mean and
 group-mean centering, coding variables and reverse coding items, scale and
 cluster scores, reading and writing Excel and SPSS files), (2) descriptive
 statistics (e.g., frequency table, cross tabulation, effect size

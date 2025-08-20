@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mildsvm
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple-Instance Learning with Support Vector Machines
 
@@ -50,8 +51,8 @@ tumor prediction on whole slide images. The 'mildsvm' package provides an
 easy way to learn from this data by training Support Vector Machine
 (SVM)-based classifiers. It also contains helpful functions for building
 and printing multiple instance data frames. The core methods from
-'mildsvm' come from the following references: Kent and Yu (2022)
-<arXiv:2206.14704>; Xiao, Liu, and Hao (2018)
+'mildsvm' come from the following references: Kent and Yu (2024)
+<doi:10.1214/24-AOAS1876>; Xiao, Liu, and Hao (2018)
 <doi:10.1109/TNNLS.2017.2766164>; Muandet et al. (2012)
 <https://proceedings.neurips.cc/paper/2012/file/9bf31c7ff062936a96d3c8bd1f8f2ff3-Paper.pdf>;
 Chu and Keerthi (2007) <doi:10.1162/neco.2007.19.3.792>; and Andrews et

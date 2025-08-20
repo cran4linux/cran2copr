@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wget
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Setting Download Method to 'wget'
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
-Requires:         R-CRAN-yulab.utils >= 0.1.7
+BuildRequires:    R-CRAN-yulab.utils >= 0.2.1
+Requires:         R-CRAN-yulab.utils >= 0.2.1
 
 %description
 Provides function, wget_set(), to change the method (default to 'wget -c')

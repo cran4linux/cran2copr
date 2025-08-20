@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fcirt
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forced Choice in Item Response Theory
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-edstan 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
@@ -30,6 +32,7 @@ Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
+Requires:         R-CRAN-edstan 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-rstantools
 

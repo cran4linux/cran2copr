@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jskm
-%global packver   0.5.14
+%global packver   0.5.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.14
+Version:          0.5.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kaplan-Meier Plot with 'ggplot2'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-cmprsk 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggsci 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-survival 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-cmprsk 
 Requires:         R-stats 
+Requires:         R-CRAN-ggsci 
 
 %description
 The function 'jskm()' creates publication quality Kaplan-Meier plot with

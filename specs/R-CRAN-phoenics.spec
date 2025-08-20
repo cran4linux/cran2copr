@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phoenics
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pathways Longitudinal and Differential Analysis in Metabolomics
 
@@ -35,8 +35,10 @@ Requires:         R-stats
 %description
 Perform a differential analysis at pathway level based on metabolite
 quantifications and information on pathway metabolite composition. The
-method is based on a Principal Component Analysis step and on a linear
-mixed model. Automatic query of metabolic pathways is also implemented.
+method, described in Guilmineau et al (2025)
+<doi:10.1186/s12859-025-06118-z> is based on a Principal Component
+Analysis step and on a linear mixed model. Automatic query of metabolic
+pathways is also implemented.
 
 %prep
 %setup -q -c -n %{packname}

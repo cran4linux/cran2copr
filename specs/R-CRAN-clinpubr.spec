@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clinpubr
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Publication
 
@@ -19,43 +19,31 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-dcurves 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fBasics 
 BuildRequires:    R-CRAN-forestploter 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-ResourceSelection 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-tableone 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-dcurves 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fBasics 
 Requires:         R-CRAN-forestploter 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-ResourceSelection 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rms 
-Requires:         R-CRAN-rstatix 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-tableone 
 Requires:         R-CRAN-tidyr 
 
 %description

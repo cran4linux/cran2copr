@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BKP
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Beta and Dirichlet Kernel Processes for Binomial and Multinomial Modeling
+Summary:          Beta Kernel Process Modeling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,16 +27,15 @@ Requires:         R-CRAN-optimx
 Requires:         R-CRAN-tgp 
 
 %description
-Provides methods for nonparametric modeling of binomial and multinomial
-success probabilities via the Beta Kernel Process and its extension, the
-Dirichlet Kernel Process. Supports model fitting, predictive inference
-with uncertainty quantification, posterior simulation, and visualization
-in one- and two-dimensional input spaces. The package implements multiple
-kernel functions (Gaussian, Matern 5/2, and Matern 3/2), and performs
-hyperparameter optimization using multi-start gradient-based search.
-Applications include spatial statistics, probabilistic classification, and
-Bayesian experimental design. For more details, see MacKenzie, Trafalis,
-and Barker (2014) <doi:10.1002/sam.11241>.
+Implements the Beta Kernel Process (BKP) for nonparametric modeling of
+spatially varying binomial probabilities, together with its extension, the
+Dirichlet Kernel Process (DKP), for categorical or multinomial data. The
+package provides functions for model fitting, predictive inference with
+uncertainty quantification, posterior simulation, and visualization in
+one-and two-dimensional input spaces. Multiple kernel functions (Gaussian,
+Matern 5/2, and Matern 3/2) are supported, with hyperparameters optimized
+through multi-start gradient-based search. For more details, see Zhao,
+Qing, and Xu (2025) <doi:10.48550/arXiv.2508.10447>.
 
 %prep
 %setup -q -c -n %{packname}

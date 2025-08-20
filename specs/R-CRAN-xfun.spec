@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xfun
-%global packver   0.52
+%global packver   0.53
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.52
+Version:          0.53
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supporting Functions for Packages Maintained by 'Yihui Xie'
 
