@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DImodelsVis
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualising and Interpreting Statistical Models Fit to Compositional Data
 
@@ -17,10 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DImodels >= 1.3.1
+BuildRequires:    R-CRAN-DImodels >= 1.3.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-ggtext >= 0.1.2
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggfortify 
 BuildRequires:    R-CRAN-ggplot2 
@@ -36,10 +37,11 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-DImodels >= 1.3.1
+Requires:         R-CRAN-DImodels >= 1.3.3
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-ggtext >= 0.1.2
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggfortify 
 Requires:         R-CRAN-ggplot2 

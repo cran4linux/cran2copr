@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xegaDfGene
-%global packver   1.0.0.5
+%global packver   1.0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.5
+Version:          1.0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene Operations for Real-Coded Genes
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xegaSelectGene 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xegaSelectGene 
 
 %description

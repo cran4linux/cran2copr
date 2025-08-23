@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cubeview
-%global packver   0.2.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          View 3D Raster Cubes Interactively
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-viridisLite 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-base64enc
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-stars 
 Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-viridisLite 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidysdm
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Models with Tidymodels
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-dials
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-parsnip 
@@ -38,6 +37,7 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-workflowsets 
 BuildRequires:    R-CRAN-yardstick 
@@ -49,7 +49,6 @@ Requires:         R-CRAN-dials
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-maxnet 
 Requires:         R-methods 
 Requires:         R-CRAN-parsnip 
@@ -62,6 +61,7 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tune 
+Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-workflows 
 Requires:         R-CRAN-workflowsets 
 Requires:         R-CRAN-yardstick 

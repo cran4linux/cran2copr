@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autograph
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Plotting of Many Graphs
 
@@ -21,13 +21,19 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-manynet 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggdendro 
+BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-manynet 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggdendro 
+Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
 
 %description

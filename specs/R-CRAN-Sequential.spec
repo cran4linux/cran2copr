@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Sequential
-%global packver   4.3.4
+%global packver   4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.4
+Version:          4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Sequential Analysis for Poisson and Binomial Data
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-pmultinom 
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-pmultinom 
 
 %description
 Functions to calculate exact critical values, statistical power, expected
@@ -27,7 +29,8 @@ analysis. All these calculations can be done for either Poisson or
 binomial data, for continuous or group sequential analyses, and for
 different types of rejection boundaries. In case of group sequential
 analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled.
+alpha spending can be arbitrarily settled. For regression versions of the
+methods, Monte Carlo and asymptotic methods are used.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcrossref
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Various 'CrossRef' 'APIs'
 
@@ -19,7 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.5
 BuildRequires:    R-CRAN-xml2 >= 1.1.1
-BuildRequires:    R-CRAN-crul >= 0.7
+BuildRequires:    R-CRAN-crul >= 0.7.4
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -31,9 +31,10 @@ BuildRequires:    R-CRAN-miniUI
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite >= 1.5
 Requires:         R-CRAN-xml2 >= 1.1.1
-Requires:         R-CRAN-crul >= 0.7
+Requires:         R-CRAN-crul >= 0.7.4
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-methods 
 Requires:         R-utils 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-miniUI
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-DT 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
 Client for various 'CrossRef' 'APIs', including 'metadata' search with

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cardinalR
-%global packver   0.1.1
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Data Structures
 
@@ -14,21 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geozoo 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geozoo 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-A collection of simple simulation datasets designed for generating
-Nonlinear Dimension Reduction representations techniques such as
-t-distributed Stochastic Neighbor Embedding, and Uniform Manifold
-Approximation and Projection. These datasets serve as a valuable resource
-for understanding the reliability of Nonlinear Dimension Reduction
-representations in various contexts.
+A collection of functions to generate a large variety of structures in
+high dimensions. These data structures are useful for testing, validating,
+and improving algorithms used in dimensionality reduction, clustering,
+machine learning, and visualization.
 
 %prep
 %setup -q -c -n %{packname}

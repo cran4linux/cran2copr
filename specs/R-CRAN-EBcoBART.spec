@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EBcoBART
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Co-Data Learning for Bayesian Additive Regression Trees
 
@@ -36,8 +36,8 @@ Estimate prior variable weights for Bayesian Additive Regression Trees
 being selected in the splitting rules of the sum-of-trees. Weights are
 estimated using empirical Bayes and external information on the
 explanatory variables (co-data). BART models are fitted using the 'dbarts'
-'R' package. See Goedhart and others (2023)
-<doi:10.48550/arXiv.2311.09997> for details.
+'R' package. See Goedhart and others (2023) <doi:10.1002/sim.70004> for
+details.
 
 %prep
 %setup -q -c -n %{packname}

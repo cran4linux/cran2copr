@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tfdatasets
-%global packver   2.17.0
+%global packver   2.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.17.0
+Version:          2.18.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'TensorFlow' Datasets
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-tensorflow >= 1.13.1
 Requires:         R-CRAN-reticulate >= 1.10
 Requires:         R-CRAN-magrittr 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyselect 
 Requires:         R-stats 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-vctrs 
 
 %description
 Interface to 'TensorFlow' Datasets, a high-level library for building

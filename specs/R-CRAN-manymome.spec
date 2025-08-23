@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manymome
-%global packver   0.2.9
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation, Moderation and Moderated-Mediation After Model Fitting
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lmhelprs 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-boot 
 Requires:         R-parallel 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-lmhelprs 
 
 %description
 Computes indirect effects, conditional effects, and conditional indirect

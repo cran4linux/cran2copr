@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimSurvey
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Surveys by Simulating Spatially-Correlated Populations
 
@@ -14,13 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-lifecycle
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 

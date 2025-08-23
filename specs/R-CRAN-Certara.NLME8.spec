@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Certara.NLME8
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Certara's Nonlinear Mixed-Effects Modeling Engine
 
@@ -32,14 +32,13 @@ Requires:         R-CRAN-data.table
 Perform Nonlinear Mixed-Effects (NLME) Modeling using Certara's
 NLME-Engine. Access the same Maximum Likelihood engines used in the
 Phoenix platform, including algorithms for parametric methods, individual,
-and pooled data analysis
-<https://www.certara.com/app/uploads/2020/06/BR_PhoenixNLME-v4.pdf>. The
-Quasi-Random Parametric Expectation-Maximization Method (QRPEM) is also
-supported <https://www.page-meeting.org/default.asp?abstract=2338>.
-Execution is supported both locally or on remote machines. Remote
-execution includes support for Linux Sun Grid Engine (SGE), Terascale
-Open-source Resource and Queue Manager (TORQUE) grids, Linux and Windows
-multicore, and individual runs.
+and pooled data analysis. The Quasi-Random Parametric
+Expectation-Maximization Method (QRPEM) is also supported
+<https://www.page-meeting.org/default.asp?abstract=2338>. Execution is
+supported both locally or on remote machines. Remote execution includes
+support for Linux Sun Grid Engine (SGE), Simple Linux Utility for Resource
+Management (SLURM) grids, Linux and Windows multicore, and individual
+runs.
 
 %prep
 %setup -q -c -n %{packname}

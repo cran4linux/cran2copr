@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gicf
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalised Likelihood Estimation of a Covariance Matrix
 
@@ -25,7 +25,11 @@ Requires:         R-stats
 %description
 Penalised likelihood estimation of a covariance matrix via the
 ridge-regularised covglasso estimator described in Cibinel et al. (2024)
-<doi:10.48550/arXiv.2410.02403>.
+<doi:10.48550/arXiv.2410.02403>. Based on the 'C++' code of the 'R'
+package 'covglasso' (by Michael Fop,
+<https://orcid.org/0000-0003-3936-2757>) and the 'R' code of 'icf' (by
+Mathias Drton, <https://orcid.org/0000-0001-5614-3025>) within the 'R'
+package 'ggm'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RCzechia
-%global packver   1.12.6
+%global packver   1.12.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.6
+Version:          1.12.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Objects of the Czech Republic
 
@@ -18,11 +18,13 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 

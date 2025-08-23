@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weightedRank
-%global packver   0.3.7
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis Using Weighted Rank Statistics
 

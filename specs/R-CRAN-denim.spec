@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  denim
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate and Simulate Deterministic Discrete-Time Compartmental Models
+Summary:          Generate and Simulate Deterministic Compartmental Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,13 +27,13 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-glue 
 
 %description
-R package to build and simulate deterministic discrete-time compartmental
-models that can be non-Markov. Length of stay in each compartment can be
-defined to follow a parametric distribution (d_exponential(), d_gamma(),
-d_weibull(), d_lognormal()) or a non-parametric distribution
-(nonparametric()). Other supported types of transition from one
-compartment to another includes fixed transition (constant()), multinomial
-(multinomial()), fixed transition probability (transprob()).
+R package to build and simulate deterministic compartmental models that
+can be non-Markovian. Length of stay in each compartment can be defined to
+follow a parametric distribution (d_exponential(), d_gamma(), d_weibull(),
+d_lognormal()) or a non-parametric distribution (nonparametric()). Other
+supported types of transition from one compartment to another includes
+fixed transition (constant()), multinomial (multinomial()), fixed
+transition probability (transprob()).
 
 %prep
 %setup -q -c -n %{packname}

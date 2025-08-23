@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Keng
-%global packver   2024.12.15
+%global packver   2025.8.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.12.15
+Version:          2025.8.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knock Errors Off Nice Guesses
 
@@ -25,14 +25,16 @@ Miscellaneous functions and data used in psychological research and
 teaching. Keng currently has a built-in dataset depress, and could (1)
 scale a vector; (2) compute the cut-off values of Pearson's r with known
 sample size; (3) test the significance and compute the post-hoc power for
-Pearson's r with known sample size; (4) conduct prior power analysis and
-plan the sample size for Pearson's r; (5) compare lm()'s fitted outputs
-using R-squared, f_squared, post-hoc power, and PRE (Proportional
+Pearson's r with known sample size; (4) conduct a priori power analysis
+and plan the sample size for Pearson's r; (5) compare lm()'s fitted
+outputs using R-squared, f_squared, post-hoc power, and PRE (Proportional
 Reduction in Error, also called partial R-squared or partial Eta-squared);
 (6) calculate PRE from partial correlation, Cohen's f, or f_squared; (7)
-conduct prior power analysis and plan the sample size for one or a set of
-predictors in regression analysis; (8) conduct post-hoc power analysis for
-one or a set of predictors in regression analysis with known sample size.
+conduct a priori power analysis and plan the sample size for one or a set
+of predictors in regression analysis; (8) conduct post-hoc power analysis
+for one or a set of predictors in regression analysis with known sample
+size; (9) randomly pick numbers for Chinese Super Lotto and Double Color
+Balls.
 
 %prep
 %setup -q -c -n %{packname}

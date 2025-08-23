@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcrisp
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate the Delineation of Urban River Spaces
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf >= 0.9.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lwgeom 
@@ -24,7 +26,6 @@ BuildRequires:    R-CRAN-osmdata
 BuildRequires:    R-CRAN-rcoins 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstac 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-CRAN-sfnetworks 
 BuildRequires:    R-CRAN-stringr 
@@ -32,6 +33,8 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-visor 
+Requires:         R-CRAN-sf >= 0.9.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lwgeom 
@@ -39,7 +42,6 @@ Requires:         R-CRAN-osmdata
 Requires:         R-CRAN-rcoins 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstac 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-CRAN-sfnetworks 
 Requires:         R-CRAN-stringr 
@@ -50,11 +52,13 @@ Requires:         R-CRAN-visor
 
 %description
 Provides tools to automate the morphological delineation of riverside
-urban areas, based on a method introduced in Forgaci (2018)
+urban areas based on a method introduced in Forgaci (2018)
 <doi:10.7480/abe.2018.31>. Delineation entails the identification of
 corridor boundaries, segmentation of the corridor, and delineation of the
-river space. The resulting delineation can be used to characterise spatial
-phenomena that can be related to the river as a central element.
+river space using two-dimensional spatial information from street network
+data and digital elevation data in a projected CRS. The resulting
+delineation can be used to characterise spatial phenomena that can be
+related to the river as a central element.
 
 %prep
 %setup -q -c -n %{packname}

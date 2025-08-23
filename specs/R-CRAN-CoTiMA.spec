@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CoTiMA
-%global packver   0.8.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Meta-Analysis ('CoTiMA')
 
@@ -19,10 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MBESS >= 4.6.0
 BuildRequires:    R-CRAN-openxlsx >= 4.2.2
-BuildRequires:    R-CRAN-ctsem >= 3.8.1
+BuildRequires:    R-CRAN-ctsem >= 3.10.3
 BuildRequires:    R-CRAN-OpenMx >= 2.18.1
 BuildRequires:    R-CRAN-psych >= 1.9.12
 BuildRequires:    R-CRAN-rootSolve >= 1.8.2
+BuildRequires:    R-CRAN-Matrix >= 1.7.3
 BuildRequires:    R-CRAN-foreach >= 1.5.1
 BuildRequires:    R-CRAN-abind >= 1.4.5
 BuildRequires:    R-CRAN-crayon >= 1.3.4
@@ -36,10 +37,11 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-methods 
 Requires:         R-CRAN-MBESS >= 4.6.0
 Requires:         R-CRAN-openxlsx >= 4.2.2
-Requires:         R-CRAN-ctsem >= 3.8.1
+Requires:         R-CRAN-ctsem >= 3.10.3
 Requires:         R-CRAN-OpenMx >= 2.18.1
 Requires:         R-CRAN-psych >= 1.9.12
 Requires:         R-CRAN-rootSolve >= 1.8.2
+Requires:         R-CRAN-Matrix >= 1.7.3
 Requires:         R-CRAN-foreach >= 1.5.1
 Requires:         R-CRAN-abind >= 1.4.5
 Requires:         R-CRAN-crayon >= 1.3.4

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vapour
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Access to the 'Geospatial Data Abstraction Library' ('GDAL')
+Summary:          Access to the 'Geospatial Data Abstraction Library' ('GDAL')
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,11 +22,13 @@ Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-nanoarrow 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-wk 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-nanoarrow 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-CRAN-wk 
 

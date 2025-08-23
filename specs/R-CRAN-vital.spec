@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vital
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Analysis Tools for Mortality, Fertility, Migration and Population Data
 
@@ -23,14 +23,13 @@ BuildRequires:    R-CRAN-cobs
 BuildRequires:    R-CRAN-distributional 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fable 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-MortalityLaws 
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-StMoMo 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
@@ -42,14 +41,13 @@ Requires:         R-CRAN-cobs
 Requires:         R-CRAN-distributional 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fable 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-MortalityLaws 
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-StMoMo 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
@@ -58,7 +56,7 @@ Requires:         R-CRAN-vctrs
 
 %description
 Analysing vital statistics based on tools consistent with the tidyverse.
-Tools are provided for data visualization, lifetable calculations,
+Tools are provided for data visualization, life table calculations,
 computing net migration numbers, Lee-Carter modelling; functional data
 modelling and forecasting.
 

@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biometrics
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Datasets for Forest Biometrics and Modelling
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-datana 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
-Requires:         R-CRAN-datana 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 A system of functions and data aiming to apply quantitative analyses to
-forest ecology, silviculture and decision-support systems. Besides, the
-package helps to carry out data management, exploratory analysis, and
-model assessment.
+forest ecology, silviculture and decision-making. Besides, the package
+helps to carry out data management, exploratory analysis, and model
+assessment.
 
 %prep
 %setup -q -c -n %{packname}

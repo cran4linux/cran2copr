@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manynet
-%global packver   1.5.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Many Ways to Make, Modify, Map, Mark, and Measure Myriad Networks
+Summary:          Many Ways to Make, Modify, Mark, and Measure Myriad Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,29 +20,24 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph >= 2.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-tidygraph 
 Requires:         R-CRAN-igraph >= 2.1.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-tidygraph 
 
 %description
-Many tools for making, modifying, mapping, marking, measuring, and motifs
-and memberships of many different types of networks. All functions operate
+Many tools for making, modifying, marking, measuring, and motifs and
+memberships of many different types of networks. All functions operate
 with matrices, edge lists, and 'igraph', 'network', and 'tidygraph'
-objects, and on one-mode, two-mode (bipartite), and sometimes three-mode
-networks. The package includes functions for importing and exporting,
-creating and generating networks, modifying networks and node and tie
-attributes, and describing and visualizing networks with sensible
-defaults.
+objects, on directed, multiplex, multimodal, signed, and other networks.
+The package includes functions for importing and exporting, creating and
+generating networks, modifying networks and node and tie attributes, and
+describing networks with sensible defaults.
 
 %prep
 %setup -q -c -n %{packname}

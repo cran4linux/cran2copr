@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fluxible
-%global packver   1.2.6
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecosystem Gas Fluxes Calculations for Closed Loop Chamber Setup
 
@@ -33,6 +33,8 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-purrrlyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggforce 
@@ -49,18 +51,25 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-purrrlyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tibble 
 
 %description
-Processes the raw data from closed loop flux chamber (or tent) setups into
-ecosystem gas fluxes usable for analysis. It goes from a data frame of gas
-concentration over time (which can contain several measurements) and a
-meta data file indicating which measurement was done when, to a data frame
-of ecosystem gas fluxes including quality diagnostics. Functions provided
-include different models (exponential as described in Zhao et al (2018)
-<doi:10.1016/j.agrformet.2018.08.022>, quadratic and linear) to estimate
-the fluxes from the raw data, quality assessment, plotting for visual
-check and calculation of fluxes based on the setup specific parameters
-(chamber size, plot area, ...).
+Toolbox to process raw data from closed loop flux chamber (or tent) setups
+into ecosystem gas fluxes usable for analysis. It goes from a data frame
+of gas concentration over time (which can contain several measurements)
+and a meta data file indicating which measurement was done when, to a data
+frame of ecosystem gas fluxes including quality diagnostics. Organized
+with one function per step, maximizing user flexibility and backwards
+compatibility. Different models to estimate the fluxes from the raw data
+are available: exponential as described in Zhao et al (2018)
+<doi:10.1016/j.agrformet.2018.08.022>, exponential as described in
+Hutchinson and Mosier (1981)
+<doi:10.2136/sssaj1981.03615995004500020017x>, quadratic, and linear.
+Other functions include quality assessment, plotting for visual check,
+calculation of fluxes based on the setup specific parameters (chamber
+size, plot area, ...), gross primary production and transpiration rate
+calculation, and light response curves.
 
 %prep
 %setup -q -c -n %{packname}

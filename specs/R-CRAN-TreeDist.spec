@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeDist
-%global packver   2.9.2
+%global packver   2.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.2
+Version:          2.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Map Distances Between Phylogenetic Trees
 
@@ -14,25 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-cli >= 3.0
-BuildRequires:    R-CRAN-TreeTools >= 1.13.0
+BuildRequires:    R-CRAN-TreeTools >= 1.16
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-cli >= 3.0
-Requires:         R-CRAN-TreeTools >= 1.13.0
+Requires:         R-CRAN-TreeTools >= 1.16
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-stats 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asteRisk
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Satellite Position
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-nanotime 
 BuildRequires:    R-stats 
@@ -23,6 +23,12 @@ BuildRequires:    R-CRAN-onion
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-nanotime 
 Requires:         R-stats 
@@ -30,6 +36,10 @@ Requires:         R-CRAN-onion
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-utils 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-polynom 
+Requires:         R-tools 
+Requires:         R-CRAN-httr 
 
 %description
 Provides basic functionalities to calculate the position of satellites

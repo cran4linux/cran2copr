@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  liver
-%global packver   1.19
+%global packver   1.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.19
+Version:          1.20
 Release:          1%{?dist}%{?buildtag}
-Summary:          "Eating the Liver of Data Science"
+Summary:          Foundations Toolkit and Datasets for Data Science
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,12 +23,17 @@ Requires:         R-CRAN-class
 Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a suite of helper functions and a collection of datasets used in
-the book <https://uncovering-data-science.netlify.app>. It is designed to
-make data science techniques accessible to individuals with minimal coding
-experience. Inspired by an ancient Persian idiom, the package likens this
-learning process to "eating the liver of data science," symbolizing deep
-and immersive engagement with the field.
+Provides a collection of helper functions and illustrative datasets to
+support learning and teaching of data science with R. The package is
+designed as a companion to the book
+<https://book-data-science-r.netlify.app/>, making key data science
+techniques accessible to individuals with minimal coding experience.
+Functions include tools for data partitioning, performance evaluation, and
+data transformations (e.g., z-score and min-max scaling). The included
+datasets are curated to highlight practical applications in data
+exploration, modeling, and multivariate analysis. An early inspiration for
+the package came from an ancient Persian idiom about "eating the liver,"
+symbolizing deep and immersive engagement with knowledge.
 
 %prep
 %setup -q -c -n %{packname}

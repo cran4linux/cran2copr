@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  batchtools
-%global packver   0.9.17
+%global packver   0.9.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.17
+Version:          0.9.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Computation on Batch Systems
 
@@ -51,12 +51,12 @@ Requires:         R-utils
 As a successor of the packages 'BatchJobs' and 'BatchExperiments', this
 package provides a parallel implementation of the Map function for high
 performance computing systems managed by schedulers 'IBM Spectrum LSF'
-(<https://www.ibm.com/products/hpc-workload-management>), 'OpenLava'
-(<https://www.openlava.org/>), 'Univa Grid Engine'/'Oracle Grid Engine'
-(<https://www.univa.com/>), 'Slurm' (<https://slurm.schedmd.com/>),
-'TORQUE/PBS'
+(<https://www.ibm.com/products/hpc-workload-management>), 'Univa Grid
+Engine'/'Oracle Grid Engine'
+(<https://altair.com/hpc-cloud-applications/>), 'Slurm'
+(<https://slurm.schedmd.com/>), 'TORQUE/PBS'
 (<https://adaptivecomputing.com/cherry-services/torque-resource-manager/>),
-or 'Docker Swarm' (<https://docs.docker.com/engine/swarm/>). A multicore
+or 'Docker Swarm' (<https://docs.docker.com/engine/swarm/>).  A multicore
 and socket mode allow the parallelization on a local machines, and
 multiple machines can be hooked up via SSH to create a makeshift cluster.
 Moreover, the package provides an abstraction mechanism to define

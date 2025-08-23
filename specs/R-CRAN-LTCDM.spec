@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LTCDM
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Transition Cognitive Diagnosis Model with Covariates
 
@@ -27,21 +27,26 @@ Requires:         R-CRAN-ggpubr
 Requires:         R-CRAN-ggsignif 
 
 %description
-Implementation of the three-step approach of latent transition cognitive
-diagnosis model (CDM) with covariates. This approach can be used to assess
-changes in attribute mastery status and to evaluate the covariate effects
-on both the initial states and transition probabilities over time using
-latent logistic regression. Because stepwise approaches often yield biased
-estimates, correction for classification error probabilities (CEPs) is
-considered in this approach. The three-step approach for latent transition
-CDM with covariates involves the following steps: (1) fitting a CDM to the
-response data without covariates at each time point separately, (2)
-assigning examinees to latent states at each time point and computing the
-associated CEPs, and (3) estimating the latent transition CDM with the
-known CEPs and computing the regression coefficients. The method was
-proposed in Liang et al. (2023) <doi:10.3102/10769986231163320> and
-demonstrated using mental health data in Liang et al. (in press; annotated
-R code and data utilized in this example are available in Mendeley data)
+Implementation of the three-step approach of (latent transition) cognitive
+diagnosis model (CDM) with covariates. This approach can be used for
+single time-point situations (cross-sectional data) and multiple
+time-point situations (longitudinal data) to investigate how the
+covariates are associated with attribute mastery. For multiple time-point
+situations, the three-step approach of latent transition CDM with
+covariates allows researchers to assess changes in attribute mastery
+status and to evaluate the covariate effects on both the initial states
+and transition probabilities over time using latent logistic regression.
+Because stepwise approaches often yield biased estimates, correction for
+classification error probabilities (CEPs) is considered in this approach.
+The three-step approach for latent transition CDM with covariates involves
+the following steps: (1) fitting a CDM to the response data without
+covariates at each time point separately, (2) assigning examinees to
+latent states at each time point and computing the associated CEPs, and
+(3) estimating the latent transition CDM with the known CEPs and computing
+the regression coefficients. The method was proposed in Liang et al.
+(2023) <doi:10.3102/10769986231163320> and demonstrated using mental
+health data in Liang et al. (in press; annotated R code and data utilized
+in this example are available in Mendeley data)
 <doi:10.17632/kpjp3gnwbt.1>.
 
 %prep

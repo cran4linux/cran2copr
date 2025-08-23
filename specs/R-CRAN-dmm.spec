@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dmm
-%global packver   3.2-1
+%global packver   3.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dyadic Mixed Model for Pedigree Data
 
@@ -40,7 +40,7 @@ and pedigree-based partitioning of individual variation into a range of
 environmental and genetic variance components for individual and maternal
 effects. Method documented in dmmOverview.pdf; dmm is an implementation of
 dispersion mean model described by Searle et al. (1992) "Variance
-Components", Wiley, NY. 'DMM' can do 'MINQUE', 'bias-corrected-ML', and
+Components", Wiley, NY. Dmm() can do 'MINQUE', 'bias-corrected-ML', and
 'REML' variance and covariance component estimates.
 
 %prep

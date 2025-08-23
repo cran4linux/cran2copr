@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  serpstatr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Serpstat' API Wrapper
 
@@ -21,10 +21,11 @@ BuildRequires:    R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-httr >= 1.4.2
 
 %description
-The primary goal of 'Serpstat' API <https://serpstat.com/api/> is to
-reduce manual SEO (search engine optimization) and PPC (pay-per-click)
-tasks. You can automate your keywords research or competitors analysis
-with this API wrapper.
+The primary goal of 'Serpstat' API
+<https://api-docs.serpstat.com/docs/serpstat-public-api/jenasqbwtxdlr-introduction-to-serpstat-api>
+is to reduce manual SEO (search engine optimization) and PPC
+(pay-per-click) tasks. You can automate your keywords research or
+competitors analysis with this API wrapper.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aberrance
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Aberrant Behavior in Test Data
 
@@ -31,8 +31,8 @@ Requires:         R-utils
 
 %description
 Detect several types of aberrant behavior, including answer copying,
-answer similarity, nonparametric misfit, parametric misfit, preknowledge,
-rapid guessing, and test tampering.
+answer similarity, change point, nonparametric misfit, parametric misfit,
+preknowledge, rapid guessing, and test tampering.
 
 %prep
 %setup -q -c -n %{packname}

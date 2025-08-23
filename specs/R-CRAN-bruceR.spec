@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bruceR
-%global packver   2024.6
+%global packver   2025.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.6
+Version:          2025.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadly Useful Convenient and Efficient R Functions
 
@@ -30,13 +30,11 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-afex 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-effectsize 
-BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-CRAN-mediation 
 BuildRequires:    R-CRAN-interactions 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-jtools 
 BuildRequires:    R-CRAN-texreg 
-BuildRequires:    R-CRAN-lmerTest 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rio 
@@ -50,13 +48,11 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-afex 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-effectsize 
-Requires:         R-CRAN-performance 
 Requires:         R-CRAN-mediation 
 Requires:         R-CRAN-interactions 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-jtools 
 Requires:         R-CRAN-texreg 
-Requires:         R-CRAN-lmerTest 
 
 %description
 Broadly useful convenient and efficient R functions that bring users

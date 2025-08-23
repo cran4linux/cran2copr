@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MKMeans
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modern K-Means (MKMeans) Clustering Algorithm
 
@@ -18,11 +18,14 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-MASS 
 
 %description
-It's a Modern K-Means clustering algorithm allowing data of any number of
-dimensions, any initial center, and any number of clusters to expect.
+It's a Modern K-Means clustering algorithm which works for data of any
+number of dimensions, has no limit with number of clusters expected, and
+can start with any initial cluster centers.
 
 %prep
 %setup -q -c -n %{packname}

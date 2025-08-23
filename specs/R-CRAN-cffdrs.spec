@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cffdrs
-%global packver   1.9.0
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Canadian Forest Fire Danger Rating System
 
@@ -18,32 +18,33 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-geosphere 
 Requires:         R-methods 
 Requires:         R-parallel 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
 
 %description
 This project provides a group of new functions to calculate the outputs of
 the two main components of the Canadian Forest Fire Danger Rating System
 (CFFDRS) Van Wagner and Pickett (1985)
-<https://cfs.nrcan.gc.ca/publications?id=19973>) at various time scales:
-the Fire Weather Index (FWI) System Wan Wagner (1985)
-<https://cfs.nrcan.gc.ca/publications?id=19927> and the Fire Behaviour
-Prediction (FBP) System Forestry Canada Fire Danger Group (1992)
-<https://cfs.nrcan.gc.ca/pubwarehouse/pdfs/10068.pdf>. Some functions have
-two versions, table and raster based.
+<https://ostrnrcan-dostrncan.canada.ca/entities/publication/29706108-2891-4e5d-a59a-a77c96bc507c>)
+at various time scales: the Fire Weather Index (FWI) System Wan Wagner
+(1985)
+<https://ostrnrcan-dostrncan.canada.ca/entities/publication/d96e56aa-e836-4394-ba29-3afe91c3aa6c>
+and the Fire Behaviour Prediction (FBP) System Forestry Canada Fire Danger
+Group (1992) <https://cfs.nrcan.gc.ca/pubwarehouse/pdfs/10068.pdf>. Some
+functions have two versions, table and raster based.
 
 %prep
 %setup -q -c -n %{packname}

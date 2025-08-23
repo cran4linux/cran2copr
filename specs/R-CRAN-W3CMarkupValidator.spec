@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  W3CMarkupValidator
-%global packver   0.1-7
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to W3C Markup Validation Services
 
@@ -19,10 +19,14 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-tools 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-curl 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-tools 
+Requires:         R-parallel 
+Requires:         R-CRAN-jsonlite 
 
 %description
 R interface to a W3C Markup Validation service. See

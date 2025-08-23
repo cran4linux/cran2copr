@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xega
-%global packver   0.9.0.12
+%global packver   0.9.0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.12
+Version:          0.9.0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Evolutionary and Genetic Algorithms
 
@@ -50,12 +50,13 @@ ISBN:0-201-15767-5)), differential evolution (Price, Kenneth V., Storn,
 Rainer M. and Lampinen, Jouni A. (2005) <doi:10.1007/3-540-31306-0>),
 simulated annealing (Aarts, E., and Korst, J. (1989, ISBN:0-471-92146-7)),
 grammar-based genetic programming (Geyer-Schulz (1997,
-ISBN:978-3-7908-0830-X)), and grammatical evolution (Ryan, C., O'Neill,
-M., and Collins, J. J. (2018) <doi:10.1007/978-3-319-78717-6>). All
-algorithms reuse basic adaptive mechanisms for performance optimization.
-Sequential or parallel execution (on multi-core machines, local clusters,
-and high-performance computing environments) is available for all
-algorithms. See
+ISBN:978-3-7908-0830-X)), grammatical evolution (Ryan, C., O'Neill, M.,
+and Collins, J. J. (2018) <doi:10.1007/978-3-319-78717-6>), and
+grammatical differential evolution (O'Neill, M. and Brabazon, A. (2006) in
+Arabinia, H. (2006, ISBN:978-193-241596-3). All algorithms reuse basic
+adaptive mechanisms for performance optimization. Sequential or parallel
+execution (on multi-core machines, local clusters, and high-performance
+computing environments) is available for all algorithms. See
 <https://github.com/ageyerschulz/xega/tree/main/examples/executionModel>.
 
 %prep

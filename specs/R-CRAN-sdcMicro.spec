@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdcMicro
-%global packver   5.7.8
+%global packver   5.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.7.8
+Version:          5.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Disclosure Control Methods for Anonymization of Data and Risk Estimation
 

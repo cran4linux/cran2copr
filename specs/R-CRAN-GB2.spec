@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GB2
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Beta Distribution of the Second Kind: Properties, Likelihood, Estimation
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-hypergeo 
@@ -30,9 +31,9 @@ Requires:         R-stats
 Requires:         R-CRAN-survey 
 
 %description
-Package GB2 explores the Generalized Beta distribution of the second kind.
-Density, cumulative distribution function, quantiles and moments of the
-distributions are given. Functions for the full log-likelihood, the
+The GB2 package explores the Generalized Beta distribution of the second
+kind. Density, cumulative distribution function, quantiles and moments of
+the distribution are given. Functions for the full log-likelihood, the
 profile log-likelihood and the scores are provided. Formulas for various
 indicators of inequality and poverty under the GB2 are implemented. The
 GB2 is fitted by the methods of maximum pseudo-likelihood estimation using

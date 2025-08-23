@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EpiForsk
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Code Sharing at the Department of Epidemiological Research at Statens Serum Institut
+Summary:          Code Sharing at the Department of Epidemiology Research at Statens Serum Institut
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

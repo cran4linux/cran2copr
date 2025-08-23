@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arulesViz
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Association Rules and Frequent Itemsets
 
@@ -18,42 +18,42 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-arules >= 1.6.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-seriation 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-vcd 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-seriation 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vcd 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-arules >= 1.6.0
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-seriation 
-Requires:         R-grid 
-Requires:         R-CRAN-vcd 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggraph 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-igraph 
+Requires:         R-methods 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-seriation 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-vcd 
 Requires:         R-CRAN-visNetwork 
 
 %description

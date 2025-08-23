@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datefixR
-%global packver   1.7.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standardize Dates in Different Formats or with Missing Data
 
@@ -14,16 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 
 %description
 There are many different formats dates are commonly represented with: the

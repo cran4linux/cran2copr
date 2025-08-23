@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fluxtools
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'shiny' App for Reproducible QA/QC of Eddy Covariance Data
 
@@ -14,20 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-tibble 
 
 %description
-An interactive 'shiny'-based tool for quality assurance and quality
-control (QA/QC) of eddy covariance flux tower data processing. It
-generates data-point removal code via user-directed selection from a
+An interactive 'shiny'-based tool for exploration and quality assurance
+and quality control (QA/QC) of eddy covariance flux tower data processing.
+It generates data-point removal code via user-directed selection from a
 scatterplot, and can export a cleaned .csv with removed points set to NA
 plus an R script for reproducibility. Reference: Key (2025)
 <DOI:10.5281/zenodo.15597159>.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jsmodule
-%global packver   1.6.11
+%global packver   1.6.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.11
+Version:          1.6.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins and 'Shiny' Modules for Medical Research
 
@@ -38,7 +38,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -80,7 +79,6 @@ Requires:         R-methods
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rstudioapi 

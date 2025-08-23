@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zoib
-%global packver   1.6
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference for Beta Regression and Zero-or-One Inflated Beta Regression
 
@@ -19,12 +19,12 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-Formula 
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-Formula 
 
 %description
 Fits beta regression and zero-or-one inflated beta regression and obtains

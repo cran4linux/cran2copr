@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyViz
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Visualization of Conditional Effects from Regression Models
 
@@ -35,12 +35,13 @@ via nls(); and generalized least squares via gls(). Mixed-effects models
 with random intercepts and/or slopes can be fitted using lmer(), glmer(),
 glmer.nb(), glmmTMB(), or gam() (from 'mgcv', via smooth terms). Plots are
 rendered using base R graphics with extensive customization options.
-Robust standard errors for rlm() are computed using the sandwich estimator
-(Zeileis 2004) <doi:10.18637/jss.v011.i10>. For mixed models using
-'glmmTMB', see Brooks et al. (2017) <doi:10.32614/RJ-2017-066>. For linear
-mixed-effects models with 'lme4', see Bates et al. (2015)
-<doi:10.18637/jss.v067.i01>. Methods for generalized additive models
-follow Wood (2017) <doi:10.1201/9781315370279>.
+Approximate confidence intervals for nls() models are computed using the
+delta method. Robust standard errors for rlm() are computed using the
+sandwich estimator (Zeileis 2004) <doi:10.18637/jss.v011.i10>. Methods for
+generalized additive models follow Wood (2017)
+<doi:10.1201/9781315370279>. For linear mixed-effects models with 'lme4',
+see Bates et al. (2015) <doi:10.18637/jss.v067.i01>. For mixed models
+using 'glmmTMB', see Brooks et al. (2017) <doi:10.32614/RJ-2017-066>.
 
 %prep
 %setup -q -c -n %{packname}

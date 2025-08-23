@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mikropml
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly R Package for Supervised Machine Learning Pipelines
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-caret 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-randomForest
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rpart 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-CRAN-xgboost 
 

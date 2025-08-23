@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csmaps
-%global packver   2023.5.22
+%global packver   2025.8.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.5.22
+Version:          2025.8.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preformatted Maps of Norway that Don't Need Geolibraries
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-utils 
 
 %description

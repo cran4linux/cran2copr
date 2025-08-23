@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viafoundry
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for 'Via Foundry' API
 
@@ -20,13 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-mime 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-mime 
 
 %description
 'Via Foundry' API provides streamlined tools for interacting with and

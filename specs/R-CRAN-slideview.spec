@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  slideview
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare Raster Images Side by Side with a Slider
 
@@ -21,12 +22,14 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-methods 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-viridisLite 
 
 %description

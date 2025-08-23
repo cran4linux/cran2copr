@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drcte
-%global packver   1.0.30
+%global packver   1.0.65
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.30
+Version:          1.0.65
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Approaches for Time-to-Event Data in Agriculture
 
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-drc 
 Requires:         R-methods 
 Requires:         R-CRAN-plyr 
@@ -45,6 +47,8 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-car 
 
 %description
 A specific and comprehensive framework for the analyses of time-to-event
@@ -52,8 +56,8 @@ data in agriculture. Fit non-parametric and parametric time-to-event
 models. Compare time-to-event curves for different experimental groups.
 Plots and other displays. It is particularly tailored to the analyses of
 data from germination and emergence assays. The methods are described in
-Onofri et al. (2020) "A unified framework for the analysis of germination,
-emergence, and other time-to-event data in weed science"", Weed Science,
+Onofri et al. (2022) "A unified framework for the analysis of germination,
+emergence, and other time-to-event data in weed science", Weed Science,
 70, 259-271 <doi:10.1017/wsc.2022.8>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rtrack
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Navigation Strategy Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-graphics 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-scales 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-scales 

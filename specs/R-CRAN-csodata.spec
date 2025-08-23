@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csodata
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data from the CSO 'PxStat' API
 
@@ -44,9 +44,9 @@ into wide format. The Central Statistics Office (CSO) is the national
 statistical institute of Ireland and 'PxStat' is the CSOs online database
 of Official Statistics. This database contains current and historical data
 series compiled from CSO statistical releases and is accessed at
-<http://data.cso.ie>. The CSO 'PxStat' Application Programming Interface
+<https://data.cso.ie>. The CSO 'PxStat' Application Programming Interface
 (API), which is accessed in this package, provides access to 'PxStat' data
-in JSON-stat format at <http://data.cso.ie>. This dissemination tool
+in JSON-stat format at <https://data.cso.ie>. This dissemination tool
 allows developers machine to machine access to CSO 'PxStat' data.
 
 %prep

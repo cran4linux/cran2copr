@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lpl
-%global packver   0.12
+%global packver   0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12
+Version:          0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Partial Likelihood Estimation and Simultaneous Confidence Band
 

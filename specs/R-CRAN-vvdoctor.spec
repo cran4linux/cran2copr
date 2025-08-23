@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vvdoctor
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Test App with R 'shiny'
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-rintrojs 
 BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 Requires:         R-CRAN-datamods 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-rintrojs 
 Requires:         R-CRAN-rstatix 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
 

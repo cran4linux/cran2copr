@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DPI
-%global packver   2025.6
+%global packver   2025.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.6
+Version:          2025.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Directed Prediction Index
 
@@ -21,23 +21,27 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-bnlearn 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-bnlearn 
 
 %description
-The Directed Prediction Index ('DPI') is a simulation-based and
-conservative method for quantifying the relative endogeneity (relative
-dependence) of outcome (Y) versus predictor (X) variables in multiple
-linear regression models. By comparing the proportion of variance
-explained (R-squared) between the Y-as-outcome model and the X-as-outcome
-model while controlling for a sufficient number of potential confounding
-variables, it suggests a more plausible influence direction from a more
-exogenous variable (X) to a more endogenous variable (Y). Methodological
-details are provided at <https://psychbruce.github.io/DPI/>.
+The Directed Prediction Index ('DPI') is a simulation-based method for
+quantifying the relative endogeneity (relative dependence) of outcome (Y)
+versus predictor (X) variables in multiple linear regression models. By
+comparing the proportion of variance explained (R-squared) between the
+Y-as-outcome model and the X-as-outcome model while controlling for a
+sufficient number of potential confounding variables, it suggests a more
+plausible influence direction from a more exogenous variable (X) to a more
+endogenous variable (Y). Methodological details are provided at
+<https://psychbruce.github.io/DPI/>.
 
 %prep
 %setup -q -c -n %{packname}

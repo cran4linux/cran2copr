@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reqres
-%global packver   0.2.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Powerful Classes for HTTP Requests and Responses
 
@@ -14,11 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-tools 
@@ -27,8 +25,14 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-webutils 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-sodium 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-mirai 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-urltools 
 Requires:         R-tools 
@@ -37,6 +41,13 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-webutils 
 Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-sodium 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-mirai 
 
 %description
 In order to facilitate parsing of http requests and creating appropriate

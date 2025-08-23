@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  season
-%global packver   0.3.15
+%global packver   0.3.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.15
+Version:          0.3.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seasonal Analysis of Health Data
 
@@ -20,9 +20,21 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 0.9.3
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 >= 0.9.3
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-coda 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
 Routines for the seasonal analysis of health data, including regression

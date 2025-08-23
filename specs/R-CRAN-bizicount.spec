@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bizicount
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bivariate Zero-Inflated Count Models Using Copulas
 
@@ -51,8 +51,8 @@ copula regression for count data, see Genest and Nešlehová (2007)
 <doi:10.1017/S0515036100014963> as well as Nikoloulopoulos (2013)
 <doi:10.1007/978-3-642-35407-6_11>. For information on zero-inflated count
 regression generally, see Lambert (1992)
-<https://www.jstor.org/stable/1269547?origin=crossref>. The author
-acknowledges support by NSF DMS-1925119 and DMS-212324.
+<https://www.jstor.org/stable/1269547>. The author acknowledges support by
+NSF DMS-1925119 and DMS-212324.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exams.forge
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support for Compiling Examination Tasks using the 'exams' Package
 
@@ -21,12 +21,10 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-exams 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-spelling 
@@ -42,12 +40,10 @@ Requires:         R-tools
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-exams 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-spelling 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neatStats
-%global packver   1.13.3
+%global packver   1.13.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13.3
+Version:          1.13.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neat and Painless Statistical Reporting
 

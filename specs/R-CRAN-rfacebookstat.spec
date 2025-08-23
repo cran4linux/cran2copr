@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfacebookstat
-%global packver   2.12.0
+%global packver   2.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12.0
+Version:          2.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data from Facebook API Marketing
 
@@ -14,11 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-pbapply 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -38,7 +40,7 @@ Requires:         R-CRAN-pbapply
 Load data by campaigns, ads, ad sets and insights, ad account and business
 manager from Facebook Marketing API into R. For more details see official
 documents by Facebook Marketing API
-<https://developers.facebook.com/docs/marketing-apis/>.
+<https://developers.facebook.com/docs/marketing-api>.
 
 %prep
 %setup -q -c -n %{packname}

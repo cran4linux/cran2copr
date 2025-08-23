@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  starwarsdb
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relational Data from the 'Star Wars' API for Learning and Teaching
 
@@ -28,7 +29,7 @@ Requires:         R-CRAN-tibble
 %description
 Provides data about the 'Star Wars' movie franchise in a set of relational
 tables or as a complete 'DuckDB' database. All data was collected from the
-open source 'Star Wars' API <https://swapi.dev/>.
+open source 'Star Wars' API.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

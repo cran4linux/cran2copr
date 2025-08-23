@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeaGraphs
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sea Currents to Connectivity Transformation
 
@@ -37,8 +37,8 @@ Requires:         R-stats
 %description
 Transformation of sea currents to connectivity data. Two files of
 horizontal and vertical currents flows are transformed into connectivity
-data in the form of sfnetwork, shapefile, edge list and adjacency matrix.
-An application example is shown at Nagkoulis et al. (2025)
+data in the form of 'sfnetwork', shapefile, edge list and adjacency
+matrix. An application example is shown at Nagkoulis et al. (2025)
 <doi:10.1016/j.dib.2024.111268>.
 
 %prep

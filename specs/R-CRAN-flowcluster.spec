@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flowcluster
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Origin-Destination Flow Data
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-dbscan
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-tidyr 
@@ -31,6 +33,8 @@ Requires:         R-CRAN-dbscan
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-tidyr 
@@ -42,6 +46,10 @@ representing desire lines (or flows). This includes creating distance
 matrices between OD pairs and passing distance matrices to a clustering
 algorithm. See the academic paper Tao and Thill (2016)
 <doi:10.1111/gean.12100> for more details on spatial clustering of flows.
+See the paper on delineating demand-responsive operating areas by Mahfouz
+et al. (2025) <doi:10.1016/j.urbmob.2025.100135> for an example of how
+this package can be used to cluster flows for applied transportation
+research.
 
 %prep
 %setup -q -c -n %{packname}

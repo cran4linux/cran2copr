@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  verification
-%global packver   1.44
+%global packver   1.45
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.44
+Version:          1.45
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weather Forecast Verification Utilities
+Summary:          Weather Forecast Verification
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xegaGpGene
-%global packver   1.0.0.2
+%global packver   1.0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.2
+Version:          1.0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Operations for Grammar-Based Genetic Programming
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xegaBNF > 1.0.0.4
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-xegaBNF 
 BuildRequires:    R-CRAN-xegaDerivationTrees 
 BuildRequires:    R-CRAN-xegaSelectGene 
+Requires:         R-CRAN-xegaBNF > 1.0.0.4
 Requires:         R-stats 
-Requires:         R-CRAN-xegaBNF 
 Requires:         R-CRAN-xegaDerivationTrees 
 Requires:         R-CRAN-xegaSelectGene 
 

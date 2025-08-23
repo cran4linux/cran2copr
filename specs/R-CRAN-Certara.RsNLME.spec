@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Certara.RsNLME
-%global packver   3.0.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pharmacometric Modeling
 
@@ -40,9 +40,9 @@ simulation with powerful tools for Nonlinear Mixed-Effects (NLME)
 modeling. The package provides access to the same advanced Maximum
 Likelihood algorithms used by the NLME-Engine in the Phoenix platform.
 These tools support a range of analyses, from parametric methods to
-individual and pooled data analysis
-<https://www.certara.com/app/uploads/2020/06/BR_PhoenixNLME-v4.pdf>.
-Execution is supported both locally or on remote machines.
+individual and pooled data, and support integrated use within the Pirana
+pharmacometric workbench <doi:10.1002/psp4.70067>. Execution is supported
+both locally or on remote machines.
 
 %prep
 %setup -q -c -n %{packname}

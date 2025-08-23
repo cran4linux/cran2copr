@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.slice
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Filter Module for 'teal' Applications
 
@@ -17,45 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly >= 4.9.2.2
+BuildRequires:    R-CRAN-plotly >= 4.10.4
 BuildRequires:    R-CRAN-R6 >= 2.2.0
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-shinyjs >= 2.1.0
+BuildRequires:    R-CRAN-jsonlite >= 2.0.0
+BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.5
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-shinycssloaders >= 1.0.0
-BuildRequires:    R-CRAN-teal.data >= 0.7.0
+BuildRequires:    R-CRAN-bslib >= 0.8.0
+BuildRequires:    R-CRAN-teal.data >= 0.8.0
 BuildRequires:    R-CRAN-shinyWidgets >= 0.6.2
 BuildRequires:    R-CRAN-htmltools >= 0.5.4
-BuildRequires:    R-CRAN-teal.widgets >= 0.4.3
-BuildRequires:    R-CRAN-bslib >= 0.4.0
-BuildRequires:    R-CRAN-teal.logger >= 0.3.1
-BuildRequires:    R-CRAN-logger >= 0.3.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-teal.widgets >= 0.5.0
+BuildRequires:    R-CRAN-logger >= 0.4.0
+BuildRequires:    R-CRAN-teal.logger >= 0.4.0
+BuildRequires:    R-CRAN-bsicons >= 0.1.2
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-plotly >= 4.9.2.2
+Requires:         R-CRAN-plotly >= 4.10.4
 Requires:         R-CRAN-R6 >= 2.2.0
 Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-shinyjs >= 2.1.0
+Requires:         R-CRAN-jsonlite >= 2.0.0
+Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-dplyr >= 1.0.5
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-shinycssloaders >= 1.0.0
-Requires:         R-CRAN-teal.data >= 0.7.0
+Requires:         R-CRAN-bslib >= 0.8.0
+Requires:         R-CRAN-teal.data >= 0.8.0
 Requires:         R-CRAN-shinyWidgets >= 0.6.2
 Requires:         R-CRAN-htmltools >= 0.5.4
-Requires:         R-CRAN-teal.widgets >= 0.4.3
-Requires:         R-CRAN-bslib >= 0.4.0
-Requires:         R-CRAN-teal.logger >= 0.3.1
-Requires:         R-CRAN-logger >= 0.3.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-teal.widgets >= 0.5.0
+Requires:         R-CRAN-logger >= 0.4.0
+Requires:         R-CRAN-teal.logger >= 0.4.0
+Requires:         R-CRAN-bsicons >= 0.1.2
 Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
-Requires:         R-CRAN-shinyjs 
 Requires:         R-utils 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ApplyPolygenicScore
-%global packver   3.0.1
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for the Application of a Polygenic Score to a VCF
 
@@ -20,13 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-vcfR 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-BoutrosLab.plotting.general 
 BuildRequires:    R-CRAN-lattice 
 Requires:         R-CRAN-vcfR 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-BoutrosLab.plotting.general 
 Requires:         R-CRAN-lattice 
 

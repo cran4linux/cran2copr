@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lancor
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference via Lancaster Correlation
 
@@ -17,13 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-acepack 
 BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-acepack 
 Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-boot 
 Requires:         R-graphics 
@@ -31,14 +29,13 @@ Requires:         R-CRAN-sn
 Requires:         R-stats 
 
 %description
-Implementation of the methods described in Holzmann, Klar (2024)
-<doi:10.48550/arXiv.2303.17872>. Lancaster correlation is a correlation
-coefficient which equals the absolute value of the Pearson correlation for
-the bivariate normal distribution, and is equal to or slightly less than
-the maximum correlation coefficient for a variety of bivariate
-distributions. Rank and moment-based estimators and corresponding
-confidence intervals are implemented, as well as independence tests based
-on these statistics.
+Implementation of the methods described in Holzmann, Klar (2024) <doi:
+10.1111/sjos.12733>. Lancaster correlation is a correlation coefficient
+which equals the absolute value of the Pearson correlation for the
+bivariate normal distribution, and is equal to or slightly less than the
+maximum correlation coefficient for a variety of bivariate distributions.
+Rank and moment-based estimators and corresponding confidence intervals
+are implemented, as well as independence tests based on these statistics.
 
 %prep
 %setup -q -c -n %{packname}

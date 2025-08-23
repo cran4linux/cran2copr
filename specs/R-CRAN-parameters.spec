@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parameters
-%global packver   0.27.0
+%global packver   0.28.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27.0
+Version:          0.28.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing of Model Parameters
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-insight >= 1.3.1
-BuildRequires:    R-CRAN-datawizard >= 1.1.0
+BuildRequires:    R-CRAN-datawizard >= 1.2.0
 BuildRequires:    R-CRAN-bayestestR >= 0.16.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-insight >= 1.3.1
-Requires:         R-CRAN-datawizard >= 1.1.0
+Requires:         R-CRAN-datawizard >= 1.2.0
 Requires:         R-CRAN-bayestestR >= 0.16.1
 Requires:         R-graphics 
 Requires:         R-methods 
