@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataMetProcess
-%global packver   1.0.6
+%global packname  Statamarkdown
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meteorological Data Processing
+Summary:          'Stata' Markdown
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-base 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-base 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-knitr >= 1.43
+BuildRequires:    R-CRAN-xfun >= 0.39
+Requires:         R-CRAN-knitr >= 1.43
+Requires:         R-CRAN-xfun >= 0.39
 
 %description
-Set of tools aimed at processing meteorological data, converting hourly
-recorded data to daily, monthly and annual data.
+Settings and functions to extend the 'knitr' 'Stata' engine.
 
 %prep
 %setup -q -c -n %{packname}

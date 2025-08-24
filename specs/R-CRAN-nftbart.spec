@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nftbart
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Failure Time Bayesian Additive Regression Trees
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-Rcpp 
 
 %description
@@ -30,8 +32,8 @@ Additive Regression Trees (HBART) and Low Information Omnibus (LIO)
 Dirichlet Process Mixtures (DPM). An NFT BART model is of the form Y = mu
 + f(x) + sd(x) E where functions f and sd have BART and HBART priors,
 respectively, while E is a nonparametric error distribution due to a DPM
-LIO prior hierarchy. See the following for a complete description of the
-model at <doi:10.1111/biom.13857>.
+LIO prior hierarchy. See the following for a description of the model at
+<doi:10.1111/biom.13857>.
 
 %prep
 %setup -q -c -n %{packname}

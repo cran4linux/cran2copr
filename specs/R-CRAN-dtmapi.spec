@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataMetProcess
-%global packver   1.0.6
+%global packname  dtmapi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meteorological Data Processing
+Summary:          Fetching Data from the 'Displacement Tracking Matrix'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-base 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-base 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-testthat >= 3.1.0
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-askpass 
+Requires:         R-CRAN-testthat >= 3.1.0
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-askpass 
 
 %description
-Set of tools aimed at processing meteorological data, converting hourly
-recorded data to daily, monthly and annual data.
+Allows humanitarian community, academia, media, government, and
+non-governmental organizations to utilize the data collected by the
+'Displacement Tracking Matrix' (<https://dtm.iom.int>), a unit in the
+International Organization for Migration. This also provides non-sensitive
+Internally Displaced Person figures, aggregated at the country, Admin 1
+(states, provinces, or equivalent), and Admin 2 (smaller administrative
+areas) levels.
 
 %prep
 %setup -q -c -n %{packname}

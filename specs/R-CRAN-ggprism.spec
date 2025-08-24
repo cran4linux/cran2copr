@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggprism
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Extension Inspired by 'GraphPad Prism'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-scales >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-gtable >= 0.1.1
@@ -27,7 +27,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-scales >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-gtable >= 0.1.1

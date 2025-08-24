@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGally
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'ggplot2'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-ggstats >= 0.9.0
 BuildRequires:    R-CRAN-gtable >= 0.2.0
 BuildRequires:    R-CRAN-S7 >= 0.2.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lifecycle 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-ggstats >= 0.9.0
 Requires:         R-CRAN-gtable >= 0.2.0
 Requires:         R-CRAN-S7 >= 0.2.0
+Requires:         R-CRAN-cli 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-lifecycle 

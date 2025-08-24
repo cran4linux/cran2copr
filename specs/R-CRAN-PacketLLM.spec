@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PacketLLM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive 'OpenAI' Model Integration in 'RStudio'
 
@@ -40,17 +40,16 @@ Requires:         R-utils
 
 %description
 Offers an interactive 'RStudio' gadget interface for communicating with
-'OpenAI' large language models (e.g., 'gpt-4o', 'gpt-4o-mini', 'gpt-4.1',
-'o1', 'o3-mini') (<https://platform.openai.com/docs/api-reference>).
-Enables users to conduct multiple chat conversations simultaneously in
-separate tabs. Supports uploading local files (R, PDF, DOCX) to provide
-context for the models. Allows per-conversation configuration of model
-parameters such as temperature and system messages (where supported by the
-model). API interactions via the 'httr' package are performed
-asynchronously using 'promises' and 'future' to avoid blocking the R
-console. Useful for tasks like code generation, text summarization, and
-document analysis directly within the 'RStudio' environment. Requires an
-'OpenAI' API key set as an environment variable.
+'OpenAI' large language models (e.g., 'gpt-5', 'gpt-5-mini', 'gpt-5-nano')
+(<https://platform.openai.com/docs/api-reference>). Enables users to
+conduct multiple chat conversations simultaneously in separate tabs.
+Supports uploading local files (R, PDF, DOCX) to provide context for the
+models. Allows per-conversation configuration of system messages (where
+supported by the model). API interactions via the 'httr' package are
+performed asynchronously using 'promises' and 'future' to avoid blocking
+the R console. Useful for tasks like code generation, text summarization,
+and document analysis directly within the 'RStudio' environment. Requires
+an 'OpenAI' API key set as an environment variable.
 
 %prep
 %setup -q -c -n %{packname}

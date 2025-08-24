@@ -1,50 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LifemapR
-%global packver   1.1.5
+%global packname  vivid
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Visualisation on 'Lifemap' Tree
+Summary:          Variable Importance and Variable Interaction Displays
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-condvis2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-DendSer 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-leaflet.minicharts 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-arrow 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-flashlight 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-gtable 
+Requires:         R-CRAN-condvis2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-colorspace 
+Requires:         R-stats 
+Requires:         R-CRAN-DendSer 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-leaflet.minicharts 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-flashlight 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-gtable 
 
 %description
-Allow to visualise data on the NCBI phylogenetic tree as presented in
-Lifemap <https://lifemap.cnrs.fr/>. It takes as input a dataframe with at
-least a "taxid" column containing NCBI format TaxIds and allows to draw
-multiple layers with different visualisation tools.
+A suite of plots for displaying variable importance and two-way variable
+interaction jointly. Can also display partial dependence plots laid out in
+a pairs plot or 'zenplots' style.
 
 %prep
 %setup -q -c -n %{packname}

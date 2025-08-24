@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FDboost
-%global packver   1.1-2
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boosting Functional Regression Models
 
@@ -19,33 +19,33 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mboost >= 2.9.0
 BuildRequires:    R-CRAN-gamboostLSS >= 2.0.0
-BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stabs 
-BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-stabs 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-mboost >= 2.9.0
 Requires:         R-CRAN-gamboostLSS >= 2.0.0
-Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stabs 
-Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-stabs 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-zoo 
 
 %description
 Regression models for functional data, i.e., scalar-on-function,
 function-on-scalar and function-on-function regression models, are fitted
-by a component-wise gradient boosting algorithm. For a manual on how to
+by a component-wise gradient boosting algorithm.  For a manual on how to
 use 'FDboost', see Brockhaus, Ruegamer, Greven (2017)
 <doi:10.18637/jss.v094.i10>.
 

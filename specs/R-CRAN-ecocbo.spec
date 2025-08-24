@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecocbo
-%global packver   0.12.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Optimum Sampling Effort in Community Ecology
 
@@ -14,31 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-parabar 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-SSP 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-sampling 
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-parabar 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-SSP 
+Requires:         R-CRAN-plotly 
 
 %description
 A system for calculating the optimal sampling effort, based on the ideas
@@ -46,13 +50,16 @@ of "Ecological cost-benefit optimization" as developed by A. Underwood
 (1997, ISBN 0 521 55696 1). Data is obtained from simulated ecological
 communities with prep_data() which formats and arranges the initial data,
 and then the optimization follows the following procedure of four
-functions: (1) scompvar() calculates the variation components necessary
-for (2) sim_cbo() to calculate the optimal combination of number of sites
-and samples depending on either an economic budget or on a desired
-statistical accuracy. Additionally, (3) sim_beta() estimates statistical
-power and type 2 error by using Permutational Multivariate Analysis of
-Variance, and (6) plot_power() represents the results of the previous
-function.
+functions: (1) prep_data() takes the original dataset and creates
+simulated sets that can be used as a basis for estimating statistical
+power and type II error. (2) sim_beta() is used to estimate the
+statistical power for the different sampling efforts specified by the
+user. (3) sim_cbo() calculates then the optimal sampling effort, based on
+the statistical power and the sampling costs. Additionally, (4) scompvar()
+calculates the variation components necessary for (5) Underwood_cbo() to
+calculate the optimal combination of number of sites and samples depending
+on either an economic budget or on a desired statistical accuracy. Lastly,
+(6) plot_power() helps the user visualize the results of sim_beta().
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  conquestr
-%global packver   1.5.1
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package to Extend 'ACER ConQuest'
 
