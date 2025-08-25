@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  afex
-%global packver   1.4-1
+%global packver   1.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Factorial Experiments
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-reformulas 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-lmerTest >= 3.0.0
 Requires:         R-CRAN-lme4 >= 1.1.8
 Requires:         R-CRAN-pbkrtest >= 0.4.1
@@ -33,6 +35,8 @@ Requires:         R-CRAN-reshape2
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-reformulas 
+Requires:         R-CRAN-rlang 
 
 %description
 Convenience functions for analyzing factorial experiments using ANOVA or

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggside
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Side Grammar Graphics
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 

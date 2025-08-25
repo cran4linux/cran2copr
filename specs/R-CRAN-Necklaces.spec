@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Necklaces
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Necklaces and Bracelets
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-kStatistics
 Tools to generate Necklaces, Bracelets, Lyndon words and de Bruijn
 sequences. The generation relies on integer partitions and uses the
 'KStatistics' package. Methods used in the package refers to E. Di Nardo
-and G. Guarino (2022) <arXiv:2208.06855>.
+and G. Guarino (2022) <doi:10.48550/arXiv.2208.06855>.
 
 %prep
 %setup -q -c -n %{packname}

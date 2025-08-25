@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggimage
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Image in 'ggplot2'
 
@@ -14,16 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggfun 
+BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-ggplotify 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
@@ -31,11 +34,14 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggfun 
+Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-ggplotify 
 Requires:         R-grid 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magick 
 Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 

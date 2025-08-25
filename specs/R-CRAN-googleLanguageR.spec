@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  googleLanguageR
-%global packver   0.3.0.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Call Google's 'Natural Language' API, 'Cloud Translation' API, 'Cloud Speech' API and 'Cloud Text-to-Speech' API
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
@@ -31,20 +30,19 @@ Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
 Call 'Google Cloud' machine learning APIs for text and speech tasks. Call
-the 'Cloud Translation' API <https://cloud.google.com/translate/> for
+the 'Cloud Translation' API <https://cloud.google.com/translate> for
 detection and translation of text, the 'Natural Language' API
-<https://cloud.google.com/natural-language/> to analyse text for
-sentiment, entities or syntax, the 'Cloud Speech' API
-<https://cloud.google.com/speech/> to transcribe sound files to text and
-the 'Cloud Text-to-Speech' API <https://cloud.google.com/text-to-speech/>
-to turn text into sound files.
+<https://cloud.google.com/natural-language> to analyse text for sentiment,
+entities or syntax, the 'Cloud Speech' API
+<https://cloud.google.com/speech-to-text> to transcribe sound files to
+text and the 'Cloud Text-to-Speech' API
+<https://cloud.google.com/text-to-speech> to turn text into sound files.
 
 %prep
 %setup -q -c -n %{packname}

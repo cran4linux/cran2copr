@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  amadeus
-%global packver   1.2.3
+%global packver   1.2.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing and Analyzing Large-Scale Environmental Data
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-terra >= 1.8.50
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sftime 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
@@ -38,11 +38,11 @@ BuildRequires:    R-CRAN-archive
 BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-terra >= 1.8.50
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sftime 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 

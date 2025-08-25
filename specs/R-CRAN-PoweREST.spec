@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PoweREST
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Bootstrap-Based Power Estimation Tool for Spatial Transcriptomics
 
@@ -39,8 +39,8 @@ Requires:         R-CRAN-ggplot2
 %description
 Power estimation and sample size calculation for 10X Visium Spatial
 Transcriptomics data to detect differential expressed genes between two
-conditions based on bootstrap resampling. See Shui et al. (2024)
-<doi:10.1101/2024.08.30.610564> for method details.
+conditions based on bootstrap resampling. See Shui et al. (2025)
+<doi:10.1371/journal.pcbi.1013293> for method details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sps
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Poisson Sampling
 
@@ -27,7 +27,7 @@ is commonly used for price-index surveys. This package gives functions to
 draw stratified sequential Poisson samples according to the method by
 Ohlsson (1998, ISSN:0282-423X), as well as other order sample designs by
 Rosén (1997, <doi:10.1016/S0378-3758(96)00186-3>), and generate
-appropriate bootstrap replicate weights according to the generalized
+approximate bootstrap replicate weights according to the generalized
 bootstrap method by Beaumont and Patak (2012,
 <doi:10.1111/j.1751-5823.2011.00166.x>).
 

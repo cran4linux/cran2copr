@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataVisualizations
-%global packver   1.3.3
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of High-Dimensional Data
 
@@ -16,12 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppParallel >= 5.1.4
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sp 
