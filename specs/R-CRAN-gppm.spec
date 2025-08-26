@@ -1,53 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pema
-%global packver   0.1.4
+%global packname  gppm
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Meta-Analysis
+Summary:          Gaussian Process Panel Modeling
 
-License:          GPL (>= 3)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3.49
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.26.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-ggthemes >= 3.5.0
+BuildRequires:    R-CRAN-rstantools >= 2.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.8
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-MASS >= 7.3.49
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstan >= 2.26.0
-Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-ggthemes >= 3.5.0
+Requires:         R-CRAN-rstantools >= 2.4.0
+Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-mvtnorm >= 1.0.8
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cli 
+Requires:         R-stats 
 Requires:         R-CRAN-rstantools
 
 %description
-Conduct penalized meta-analysis, see Van Lissa, Van Erp, & Clapper (2023)
-<doi:10.31234/osf.io/6phs5>. In meta-analysis, there are often
-between-study differences. These can be coded as moderator variables, and
-controlled for using meta-regression. However, if the number of moderators
-is large relative to the number of studies, such an analysis may be
-overfit. Penalized meta-regression is useful in these cases, because it
-shrinks the regression slopes of irrelevant moderators towards zero.
+Provides an implementation of Gaussian process panel modeling (GPPM). GPPM
+is described in Karch, Brandmaier & Voelkle (2020;
+<DOI:10.3389/fpsyg.2020.00351>) and Karch (2016; <DOI:10.18452/17641>).
+Essentially, GPPM is Gaussian process based modeling of longitudinal panel
+data. 'gppm' also supports regular Gaussian process regression (with a
+focus on flexible model specification), and multi-task learning.
 
 %prep
 %setup -q -c -n %{packname}

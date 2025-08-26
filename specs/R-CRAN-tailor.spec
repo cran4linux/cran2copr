@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extractox
-%global packver   1.2.0
+%global packname  tailor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Tox Info from Various Databases
+Summary:          Iterative Steps for Postprocessing Model Predictions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,37 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-condathis 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-pingr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-webchem 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-condathis 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-pingr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-webchem 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
 
 %description
-Extract toxicological and chemical information from databases maintained
-by scientific agencies and resources, including the Comparative
-Toxicogenomics Database <https://ctdbase.org/>, the Integrated Chemical
-Environment <https://ice.ntp.niehs.nih.gov/>, the PubChem
-<https://pubchem.ncbi.nlm.nih.gov/>, and others EPA databases s.
+Postprocessors refine predictions outputted from machine learning models
+to improve predictive performance or better satisfy distributional
+limitations. This package introduces 'tailor' objects, which compose
+iterative adjustments to model predictions. A number of pre-written
+adjustments are provided with the package, such as calibration. See
+Lichtenstein, Fischhoff, and Phillips (1977)
+<doi:10.1007/978-94-010-1276-8_19>. Other methods and utilities to compose
+new adjustments are also included. Tailors are tightly integrated with the
+'tidymodels' framework.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  whirl
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Log Execution of Scripts
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-unglue 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-unglue 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 

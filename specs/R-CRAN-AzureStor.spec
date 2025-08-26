@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AzureStor
-%global packver   3.7.0
+%global packver   3.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.0
+Version:          3.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Storage Management in 'Azure'
 
@@ -35,7 +36,7 @@ Requires:         R-CRAN-vctrs
 
 %description
 Manage storage in Microsoft's 'Azure' cloud:
-<https://azure.microsoft.com/en-us/product-categories/storage/>. On the
+<https://azure.microsoft.com/en-us/products/category/storage/>. On the
 admin side, 'AzureStor' includes features to create, modify and delete
 storage accounts. On the client side, it includes an interface to blob
 storage, file storage, and 'Azure Data Lake Storage Gen2': upload and

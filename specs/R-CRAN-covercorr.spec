@@ -1,29 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  psvd
-%global packver   1.0-0
+%global packname  covercorr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Eigendecomposition, Singular-Values and the Power Method
+Summary:          Coverage Correlation Coefficient and Testing for Independence
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-transport 
+Requires:         R-CRAN-transport 
 
 %description
-For a data matrix with m rows and n columns (m>=n), the power method is
-used to compute, simultaneously, the eigendecomposition of a square
-symmetric matrix. This result is used to obtain the singular value
-decomposition (SVD) and the principal component analysis (PCA) results.
-Compared to the classical SVD method, the first r singular values can be
-computed.
+Computes the coverage correlation coefficient introduced in
+<doi:10.48550/arXiv.2508.06402> , a statistical measure that quantifies
+dependence between two random vectors by computing the union volume of
+data-centered hypercubes in a uniform space.
 
 %prep
 %setup -q -c -n %{packname}

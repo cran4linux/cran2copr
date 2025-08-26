@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nlmeU
-%global packver   0.70-9
+%global packver   0.71.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.70.9
+Version:          0.71.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets and Utility Functions Enhancing Functionality of 'nlme' Package
+Summary:          Functions and Data Supporting 'Linear Mixed-Effects Models: A Step-by-Step Approach'
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-nlme 
+Requires:         R-stats 
 
 %description
-Datasets and utility functions enhancing functionality of nlme package.
-Datasets, functions and scripts are described in book titled 'Linear
-Mixed-Effects Models: A Step-by-Step Approach' by Galecki and Burzykowski
-(2013). Package is under development.
+Provides functions and datasets to support the book by Galecki and
+Burzykowski (2013), 'Linear Mixed-Effects Models: A Step-by-Step
+Approach', Springer. Includes functions for power calculations,
+log-likelihood contributions, and data simulation for linear mixed-effects
+models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extraSuperpower
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculation for Two-Way Factorial Designs
 
@@ -31,9 +31,8 @@ BuildRequires:    R-CRAN-fGarch
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-tmvtnorm 
-BuildRequires:    R-CRAN-nparLD 
+BuildRequires:    R-CRAN-ARTool 
 BuildRequires:    R-CRAN-permuco 
-BuildRequires:    R-CRAN-Rfit 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -51,9 +50,8 @@ Requires:         R-CRAN-fGarch
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-sn 
 Requires:         R-CRAN-tmvtnorm 
-Requires:         R-CRAN-nparLD 
+Requires:         R-CRAN-ARTool 
 Requires:         R-CRAN-permuco 
-Requires:         R-CRAN-Rfit 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 

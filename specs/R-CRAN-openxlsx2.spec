@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openxlsx2
-%global packver   1.18
+%global packver   1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18
+Version:          1.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Write and Edit 'xlsx' Files
 
@@ -19,14 +19,12 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringi 
 Requires:         R-utils 
 Requires:         R-CRAN-zip 

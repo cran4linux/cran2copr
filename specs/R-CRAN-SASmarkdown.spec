@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  squeezy
-%global packver   1.1-1
+%global __requires_exclude ^libmpi
+%global packname  SASmarkdown
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group-Adaptive Elastic Net Penalised Generalised Linear Models
+Summary:          'SAS' Markdown
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiridge >= 1.5
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-multiridge >= 1.5
-Requires:         R-CRAN-glmnet 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-knitr >= 1.21
+BuildRequires:    R-CRAN-xfun >= 0.4
+Requires:         R-CRAN-knitr >= 1.21
+Requires:         R-CRAN-xfun >= 0.4
 
 %description
-Fit linear and logistic regression models penalised with group-adaptive
-elastic net penalties. The group penalties correspond to groups of
-covariates defined by a co-data group set. The method accommodates
-inclusion of unpenalised covariates and overlapping groups. See Van Nee et
-al. (2021) <arXiv:2101.03875>.
+Settings and functions to extend the 'knitr' 'SAS' engine.
 
 %prep
 %setup -q -c -n %{packname}

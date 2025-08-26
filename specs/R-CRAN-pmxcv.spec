@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pmxcv
-%global packver   0.0.1.0
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Integration-Based Coefficients of Variance
+Summary:          Integration-Based Coefficients of Variation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,7 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Estimate coefficient of variance percent (CV%%) for any arbitrary
+Estimate coefficient of variation percent (CV%%) for any arbitrary
 distribution, including some built-in estimates for commonly-used
 transformations in pharmacometrics. Methods are described in various
 sources, but applied here as summarized in: Prybylski, (2024)

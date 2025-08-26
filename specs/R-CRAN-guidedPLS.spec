@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  guidedPLS
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supervised Dimensional Reduction by Guided Partial Least Squares
 
@@ -18,14 +18,20 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-irlba 
+Requires:         R-stats 
 
 %description
 Guided partial least squares (guided-PLS) is the combination of partial
 least squares by singular value decomposition (PLS-SVD) and guided
-principal component analysis (guided-PCA). For the details of the methods,
-see the reference section of GitHub README.md
-<https://github.com/rikenbit/guidedPLS>.
+principal component analysis (guided-PCA). This package provides
+implementations of PLS-SVD, guided-PLS, and guided-PCA for supervised
+dimensionality reduction. The guided-PCA function (new in v1.1.0)
+automatically handles mixed data types (continuous and categorical) in the
+supervision matrix and provides detailed contribution analysis for
+interpretability. For the details of the methods, see the reference
+section of GitHub README.md <https://github.com/rikenbit/guidedPLS>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fect
-%global packver   1.0.0
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fixed Effects Counterfactuals
+Summary:          Fixed Effects Counterfactual Estimators
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
 BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-CRAN-abind >= 1.4.0
@@ -28,8 +28,12 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-panelView 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-foreach >= 1.4.3
@@ -43,17 +47,27 @@ Requires:         R-grid
 Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-panelView 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Estimates causal effects with panel data using the counterfactual methods.
-It is suitable for panel or time-series cross-sectional analysis with
-binary treatments under (hypothetically) baseline randomization.It allows
-a treatment to switch on and off and limited carryover effects. It
-supports linear factor models, a generalization of gsynth and the matrix
-completion method. Implementation details can be found in Liu, Wang and Xu
-(2022) <arXiv:2107.00856>.
+Provides tools for estimating causal effects in panel data using
+counterfactual methods, as well as other modern DID estimators. It is
+designed for causal panel analysis with binary treatments under the
+parallel trends assumption. The package supports scenarios where
+treatments can switch on and off and allows for limited carryover effects.
+It includes several imputation estimators, such as Gsynth (Xu 2017),
+linear factor models, and the matrix completion method. Detailed
+methodology is described in Liu, Wang, and Xu (2024)
+<doi:10.48550/arXiv.2107.00856> and Chiu et al. (2025)
+<doi:10.48550/arXiv.2309.15983>. Optionally integrates with the
+"HonestDiDFEct" package for sensitivity analyses compatible with
+imputation estimators. "HonestDiDFEct" is not on CRAN but can be obtained
+from <https://github.com/lzy318/HonestDiDFEct>.
 
 %prep
 %setup -q -c -n %{packname}

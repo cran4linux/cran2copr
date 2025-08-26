@@ -1,52 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DSMolgenisArmadillo
-%global packver   3.0.0
+%global packname  ffaframework
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DataSHIELD' Client for 'MOLGENIS Armadillo'
+Summary:          Flood Frequency Analysis Framework
 
-License:          LGPL (>= 2.1)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DSI >= 1.3.0
-BuildRequires:    R-CRAN-MolgenisAuth >= 1.0.0
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-DSI >= 1.3.0
-Requires:         R-CRAN-MolgenisAuth >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-base64enc 
 
 %description
-'DataSHIELD' is an infrastructure and series of R packages that enables
-the remote and 'non-disclosive' analysis of sensitive research data. This
-package is the 'DataSHIELD' interface implementation to analyze data
-shared on a 'MOLGENIS Armadillo' server. 'MOLGENIS Armadillo' is a
-light-weight 'DataSHIELD' server using a file store and an 'RServe'
-server.
+Tools to support systematic and reproducible workflows for both stationary
+and nonstationary flood frequency analysis, with applications extending to
+other hydroclimate extremes, such as precipitation frequency analysis.
+This package implements the FFA framework proposed by Vidrio- Sahagún et
+al. (2024) <doi:10.1016/j.envsoft.2024.105940>, originally developed in
+MATLAB, now adapted for the R environment. This work was funded by the
+Flood Hazard Identification and Mapping Program of Environment and Climate
+Change Canada, as well as the Canada Research Chair (Tier 1) awarded to
+Dr. Pietroniro.
 
 %prep
 %setup -q -c -n %{packname}

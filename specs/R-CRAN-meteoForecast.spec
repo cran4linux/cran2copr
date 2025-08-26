@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meteoForecast
-%global packver   0.56
+%global packver   0.57
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.56
+Version:          0.57
 Release:          1%{?dist}%{?buildtag}
 Summary:          Numerical Weather Predictions
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CTxCC
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normal Mean Monitoring Through Critical-to-X Control Chart
 
@@ -23,12 +23,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-ggplot2 
 
 %description
 A comprehensive set of functions designed for multivariate mean monitoring

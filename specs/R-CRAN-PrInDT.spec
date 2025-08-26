@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PrInDT
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction and Interpretation in Decision Trees for Classification and Regression
 
@@ -59,8 +59,8 @@ multilabel 2-stage versions of classification and regression trees are
 implemented in functions C2SPrInDT() and R2SPrInDT() as well as
 interdependent multilabel models in functions SimCPrInDT() and
 SimRPrInDT(). Finally, for mixtures of classification and regression
-models functions Mix2SPrInDT() and SimMixPrInDT() are implemented. These
-extensions of PrInDT are all described in Buschfeld & Weihs (2025Fc).
+models functions Mix2SPrInDT() and SimMixPrInDT() are implemented. Most of
+these extensions of PrInDT are described in Buschfeld & Weihs (2025Fc).
 References: -- Buschfeld, S., Weihs, C. (2025Fc) "Optimizing decision
 trees for the analysis of World Englishes and sociolinguistic data",
 Cambridge Elements. -- Weihs, C., Buschfeld, S. (2021a) "Combining

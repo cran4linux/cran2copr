@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sreg
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratified Randomized Experiments
 
@@ -46,7 +46,9 @@ standard errors based on Bugni, Canay, Shaikh (2018)
 <doi:10.1080/01621459.2017.1375934>; Bugni, Canay, Shaikh, Tabord-Meehan
 (2024+) <doi:10.48550/arXiv.2204.08356>; Jiang, Linton, Tang, Zhang
 (2023+) <doi:10.48550/arXiv.2201.13004>; Bai, Jiang, Romano, Shaikh, and
-Zhang (2024) <doi:10.1016/j.jeconom.2024.105740>; Liu (2024+)
+Zhang (2024) <doi:10.1016/j.jeconom.2024.105740>; Bai (2022)
+<doi:10.1257/aer.20201856>; Bai, Romano, and Shaikh (2022)
+<doi:10.1080/01621459.2021.1883437>; Liu (2024+)
 <doi:10.48550/arXiv.2301.09016>; and Cytrynbaum (2024)
 <doi:10.3982/QE2475>.
 

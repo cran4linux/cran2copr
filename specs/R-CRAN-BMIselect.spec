@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BMIselect
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian MI-LASSO for Variable Selection on Multiply-Imputed Datasets
 
@@ -51,10 +51,11 @@ models using shrinkage (Multi-Laplace, Horseshoe, ARD) and Spike-and-Slab
 (Spike-and-Laplace) priors, along with tools for model fitting via MCMC,
 four-step projection predictive variable selection, and hyperparameter
 calibration. Methods are suitable for both continuous and binary
-covariates under missing-at-random assumptions. See Zou, J., Wang, S. and
-Chen, Q. (2025), Bayesian MI-LASSO for Variable Selection on
-Multiply-Imputed Data. ArXiv, 2211.00114. <doi:10.48550/arXiv.2211.00114>
-for more details. We also provide the frequentist`s MI-LASSO function.
+covariates under missing-at-random or missing-completely-at-random
+assumptions. See Zou, J., Wang, S. and Chen, Q. (2025), Bayesian MI-LASSO
+for Variable Selection on Multiply-Imputed Data. ArXiv, 2211.00114.
+<doi:10.48550/arXiv.2211.00114> for more details. We also provide the
+frequentist`s MI-LASSO function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.9-2.1
+%global packname  degradr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Estimating Remaining Useful Life with Linear Mixed Effects Models
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
-Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, 'lbfgsb_cpp' is a 'C++' port around by Pascal Have of
-'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge Nocedal
-and Jose Luis Morales used for hyperparameters optimization.
+Provides tools for estimating the Remaining Useful Life (RUL) of degrading
+systems using linear mixed-effects models and creating a health index. It
+supports both univariate and multivariate degradation signals. For
+multivariate inputs, the signals are merged into a univariate health index
+prior to modeling. Linear and exponential degradation trajectories are
+supported (the latter using a log transformation). Remaining Useful Life
+(RUL) distributions are estimated using Bayesian updating for new units,
+enabling on-site predictive maintenance. Based on the methodology of Liu
+and Huang (2016) <doi:10.1109/TASE.2014.2349733>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bbk
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Central Bank APIs
 
@@ -17,15 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.16.0
+BuildRequires:    R-CRAN-data.table >= 1.17.0
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table >= 1.16.0
+Requires:         R-CRAN-data.table >= 1.17.0
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
@@ -36,9 +38,15 @@ Requires:         R-CRAN-xml2
 A client for retrieving data and metadata from major central bank APIs. It
 supports access to the 'Bundesbank SDMX Web Service API'
 (<https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>),
-the 'Swiss National Bank Data Portal' (<https://data.snb.ch/en>), and the
+the 'Swiss National Bank Data Portal' (<https://data.snb.ch/en>), the
 'European Central Bank Data Portal API'
-(<https://data.ecb.europa.eu/help/api/overview>).
+(<https://data.ecb.europa.eu/help/api/overview>), the 'Bank of England
+Interactive Statistical Database'
+(<https://www.bankofengland.co.uk/boeapps/database>), the 'Banco de España
+API'
+(<https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>),
+and the 'Banque de France Web Service'
+(<https://webstat.banque-france.fr/en/pages/guide-migration-api/>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RprobitB
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Probit Choice Modeling
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-oeli >= 0.4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-oeli >= 0.7.5
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
@@ -27,7 +27,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mixtools 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotROC 
 BuildRequires:    R-CRAN-progress 
@@ -38,7 +37,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.4.1
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-oeli >= 0.7.5
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
@@ -49,7 +49,6 @@ Requires:         R-graphics
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mixtools 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-parallel 
 Requires:         R-CRAN-plotROC 
 Requires:         R-CRAN-progress 
@@ -61,18 +60,18 @@ Requires:         R-utils
 Requires:         R-CRAN-viridis 
 
 %description
-Bayes estimation of probit choice models, both in the cross-sectional and
-panel setting. The package can analyze binary, multivariate, ordered, and
+Bayes estimation of probit choice models in cross-sectional and panel
+settings. The package can analyze binary, multivariate, ordered, and
 ranked choices, as well as heterogeneity of choice behavior among
-deciders. The main functionality includes model fitting via Markov chain
-Monte Carlo m ethods, tools for convergence diagnostic, choice data
-simulation, in-sample and out-of-sample choice prediction, and model
-selection using information criteria and Bayes factors. The latent class
-model extension facilitates preference-based decider classification, where
-the number of latent classes can be inferred via the Dirichlet process or
-a weight-based updating heuristic. This allows for flexible modeling of
-choice behavior without the need to impose structural constraints. For a
-reference on the method see Oelschlaeger and Bauer (2021)
+deciders. The main functionality includes model fitting via Gibbs
+sampling, tools for convergence diagnostic, choice data simulation,
+in-sample and out-of-sample choice prediction, and model selection using
+information criteria and Bayes factors. The latent class model extension
+facilitates preference-based decider classification, where the number of
+latent classes can be inferred via the Dirichlet process or a weight-based
+updating heuristic. This allows for flexible modeling of choice behavior
+without the need to impose structural constraints. For a reference on the
+method, see Oelschlaeger and Bauer (2021)
 <https://trid.trb.org/view/1759753>.
 
 %prep
