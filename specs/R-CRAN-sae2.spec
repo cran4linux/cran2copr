@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sae2
-%global packver   1.2-1
+%global packver   1.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation: Time-Series Models
 
@@ -27,17 +27,17 @@ Requires:         R-stats
 %description
 Time series area-level models for small area estimation. The package
 supplements the functionality of the sae package. Specifically, it
-includes EBLUP fitting of the original Rao-Yu model, which in the original
-form did not have a spatial component. The package also offers a modified
-('dynamic') version of the Rao-Yu model, replacing the assumption of
-stationarity. Both univariate and multivariate applications are supported.
-Of particular note is the allowance for covariance of the area-level
-sample estimates over time, as encountered in rotating panel designs such
-as the U.S. National Crime Victimization Survey or present in a
-time-series of 5-year estimates from the American Community Survey. Key
-references to the methods include J.N.K. Rao and I. Molina (2015,
-ISBN:9781118735787), J.N.K. Rao and M. Yu (1994) <doi:10.2307/3315407>,
-and R.E. Fay and R.A. Herriot (1979) <doi:10.1080/01621459.1979.10482505>.
+includes EBLUP fitting of the Rao-Yu model in the original form without a
+spatial component. The package also offers a modified ("dynamic") version
+of the Rao-Yu model, replacing the assumption of stationarity. Both
+univariate and multivariate applications are supported. Of particular note
+is the allowance for covariance of the area-level sample estimates over
+time, as encountered in rotating panel designs such as the U.S. National
+Crime Victimization Survey or present in a time-series of 5-year estimates
+from the American Community Survey. Key references to the methods include
+J.N.K. Rao and I. Molina (2015, ISBN:9781118735787), J.N.K. Rao and M. Yu
+(1994) <doi:10.2307/3315407>, and R.E. Fay and R.A. Herriot (1979)
+<doi:10.1080/01621459.1979.10482505>.
 
 %prep
 %setup -q -c -n %{packname}

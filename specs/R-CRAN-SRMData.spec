@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SRMData
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Files Supporting "Scientific Research and Methodology" by Peter K. Dunn (2025)
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 
 %description
 Provides most of the data files used in the textbook "Scientific Research
-and Methodology" by Dunn (2025, ISBN:9781032496726; forthcoming).
+and Methodology" by Dunn (2025, ISBN: 9781032496726).
 
 %prep
 %setup -q -c -n %{packname}

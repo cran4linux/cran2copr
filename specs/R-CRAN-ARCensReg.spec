@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARCensReg
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Univariate Censored Linear Regression Model with Autoregressive Errors
 
@@ -57,9 +57,9 @@ perspective. Canadian Journal of Statistics, 45(4), 375-392
 E., & Castro, L. M. (2018). Influence diagnostics for censored regression
 models with autoregressive errors. Australian & New Zealand Journal of
 Statistics, 60(2), 209-229 <doi:10.1111/anzs.12229>. Valeriano, K. A.,
-Schumacher, F. L., Galarza, C. E., & Matos, L. A. (2021). Censored
-autoregressive regression models with Student-t innovations. arXiv
-preprint <arXiv:2110.00224>.
+Schumacher, F. L., Galarza, C. E., & Matos, L. A. (2024). Censored
+autoregressive regression models with Student‐t innovations. Canadian
+Journal of Statistics, 52(3), 804-828 <doi:10.1002/cjs.11804>.
 
 %prep
 %setup -q -c -n %{packname}

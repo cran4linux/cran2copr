@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rasterList
-%global packver   0.5.20
+%global packver   0.5.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.20
+Version:          0.5.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Raster Where Cells are Generic Objects
 

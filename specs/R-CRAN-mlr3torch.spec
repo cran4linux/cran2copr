@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3torch
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Learning with 'mlr3'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-mlr3pipelines >= 0.6.0
 BuildRequires:    R-CRAN-torch >= 0.15.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.14.0
 BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-methods 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-mlr3pipelines >= 0.6.0
 Requires:         R-CRAN-torch >= 0.15.0
 Requires:         R-CRAN-mlr3misc >= 0.14.0
 Requires:         R-CRAN-backports 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
 Requires:         R-methods 

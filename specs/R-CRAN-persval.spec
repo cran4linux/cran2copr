@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  persval
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computing Personal Values Scores
 
@@ -27,9 +27,7 @@ for researchers and practitioners in psychology, sociology, and related
 fields, the package facilitates the quantification and visualization of
 different dimensions related to personal values from survey data. It
 incorporates the recommended statistical adjustment to enhance the
-accuracy and interpretation of the results. Note: The package 'persval' is
-independently developed based on the personal values theoretical
-framework, and is not directly endorsed by professor Schwartz.
+accuracy and interpretation of the results.
 
 %prep
 %setup -q -c -n %{packname}

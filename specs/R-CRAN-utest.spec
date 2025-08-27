@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grates
-%global packver   1.6.0
+%global packname  utest
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Date Classes
+Summary:          Lind/Mehlum Utest
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fastymd 
-Requires:         R-utils 
-Requires:         R-CRAN-fastymd 
 
 %description
-Provides a coherent interface and implementation for creating grouped date
-classes.
+An implementation of Lind and Mehlum's (2010)
+<doi:10.1111/j.1468-0084.2009.00569.x> Utest to test for the presence of a
+U shaped or inverted U shaped relationship between variables in
+(generalized) linear models. It also implements a test of upward/downward
+sloping relationships at the lower and upper boundary of the data range.
 
 %prep
 %setup -q -c -n %{packname}

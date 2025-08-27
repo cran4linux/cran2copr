@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EDFtest
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  WarnEpi
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Goodness of Fit Based on Empirical Distribution Function
+Summary:          A Comprehensive Tool for Early Warning in Infectious Disease
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CompQuadForm >= 1.4.3
-BuildRequires:    R-CRAN-rmutil >= 1.1.5
-BuildRequires:    R-stats 
-Requires:         R-CRAN-CompQuadForm >= 1.4.3
-Requires:         R-CRAN-rmutil >= 1.1.5
-Requires:         R-stats 
 
 %description
-This repository contains software for the calculation of goodness-of-fit
-test statistics and their P-values. The three statistics computed are the
-Empirical Distribution function statistics called Cramer-von Mises,
-Anderson-Darling, and Watson statistics. The statistics and their P-values
-can be used to assess an assumed distribution.The following distributions
-are available: Uniform, Normal, Gamma, Logistic, Laplace, Weibull, Extreme
-Value, and Exponential.
+Infectious disease surveillance requires early outbreak detection. This
+package provides statistical tools for analyzing time-series monitoring
+data through three core methods: a) EWMA (Exponentially Weighted Moving
+Average) b) Modified-CUSUM (Modified Cumulative Sum) c) Adjusted-Serfling
+models Methodologies are based on: - Wang et al. (2010)
+<doi:10.1016/j.jbi.2009.08.003> - Wang et al. (2015)
+<doi:10.1371/journal.pone.0119923> Designed for epidemiologists and public
+health researchers working with disease surveillance systems.
 
 %prep
 %setup -q -c -n %{packname}

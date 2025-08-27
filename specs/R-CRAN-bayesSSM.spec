@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesSSM
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Methods for State Space Models
 
@@ -21,15 +21,15 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
 
 %description
 Implements methods for Bayesian analysis of State Space Models. Includes

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmake
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Makefile Generator for R Analytical Projects
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-pryr
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-tools 
 Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-knitr 
 
 %description
 Creates and maintains a build process for complex analytic tasks in R.

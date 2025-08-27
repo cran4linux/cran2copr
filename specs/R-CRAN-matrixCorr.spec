@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grates
-%global packver   1.6.0
+%global packname  matrixCorr
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Date Classes
+Summary:          Collection of Correlation and Association Estimators
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fastymd 
-Requires:         R-utils 
-Requires:         R-CRAN-fastymd 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 >= 3.5.2
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides a coherent interface and implementation for creating grouped date
-classes.
+Compute correlation and other association matrices from small to very
+large datasets with simple, 'cor()'-like functions and sensible defaults.
+Includes options for shrinkage and robustness to improve results in noisy
+or high-dimensional settings (p >= n), plus convenient print/plot methods
+for inspection. Implemented with optimised 'C++' backends using
+'BLAS'/'OpenMP' and memory-aware symmetric updates. Works with base
+matrices and data frames, returning standard 'R' objects via a consistent
+S3 interface. Useful across genomics, agriculture, and machine-learning
+workflows. Methods based on Ledoit and Wolf (2004)
+<doi:10.1016/S0047-259X(03)00096-4>; Schäfer and Strimmer (2005)
+<doi:10.2202/1544-6115.1175>; Lin (1989) <doi:10.2307/2532051>.
 
 %prep
 %setup -q -c -n %{packname}

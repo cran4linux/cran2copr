@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grates
-%global packver   1.6.0
+%global packname  edfinr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Date Classes
+Summary:          Access Tidy Education Finance Data
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fastymd 
-Requires:         R-utils 
-Requires:         R-CRAN-fastymd 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides a coherent interface and implementation for creating grouped date
-classes.
+Provides easy access to tidy education finance data using Bellwether's
+methodology to combine NCES F-33 Survey, Census Bureau Small Area Income
+Poverty Estimates (SAIPE), and community data from the ACS 5-Year
+Estimates. The package simplifies downloading, caching, and filtering
+education finance data by year and state, enabling researchers and
+analysts to explore K-12 education funding patterns, revenue sources,
+expenditure categories, and demographic factors across U.S. school
+districts.
 
 %prep
 %setup -q -c -n %{packname}

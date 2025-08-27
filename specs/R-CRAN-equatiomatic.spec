@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  equatiomatic
-%global packver   0.3.7
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transform Models into 'LaTeX' Equations
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-broom >= 0.7.0
 BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-broom >= 0.7.0
 Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
 Requires:         R-utils 
 

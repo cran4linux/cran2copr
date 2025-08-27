@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EvidenceSynthesis
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthesizing Causal Evidence in a Distributed Research Network
 
@@ -14,10 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Cyclops >= 3.1.0
+BuildRequires:    R-CRAN-Cyclops >= 3.6.0
+BuildRequires:    R-CRAN-BeastJar >= 10.5.1
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,12 +27,12 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-CRAN-EmpiricalCalibration 
 BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-BeastJar 
 BuildRequires:    R-CRAN-HDInterval 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Cyclops >= 3.1.0
+Requires:         R-CRAN-Cyclops >= 3.6.0
+Requires:         R-CRAN-BeastJar >= 10.5.1
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -40,7 +41,6 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-meta 
 Requires:         R-CRAN-EmpiricalCalibration 
 Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-BeastJar 
 Requires:         R-CRAN-HDInterval 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-rlang 

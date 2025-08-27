@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  animation
-%global packver   2.7
+%global packver   2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7
+Version:          2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Gallery of Animations in Statistics and Utilities to Create Animations
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         ImageMagick
-Requires:         tex(latex)
+Recommends:       ffmpeg-free
+Recommends:       tex(latex)
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildArch:        noarch

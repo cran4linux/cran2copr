@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  svDialogs
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SciViews' - Standard Dialog Boxes for Windows, MacOS and Linuxes
+Summary:          'SciViews::R' - Standard Dialog Boxes for Windows, MacOS and Linuxes
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         zenity
-Requires:         yad
+Recommends:       yad
+Recommends:       zenity
 BuildRequires:    R-devel >= 2.6.0
 Requires:         R-core >= 2.6.0
 BuildArch:        noarch
+BuildRequires:    R-methods >= 2.6.0
+BuildRequires:    R-utils >= 2.6.0
 BuildRequires:    R-CRAN-svGUI >= 1.0.0
 BuildRequires:    R-CRAN-rstudioapi >= 0.7
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
+Requires:         R-methods >= 2.6.0
+Requires:         R-utils >= 2.6.0
 Requires:         R-CRAN-svGUI >= 1.0.0
 Requires:         R-CRAN-rstudioapi >= 0.7
-Requires:         R-utils 
-Requires:         R-methods 
 
 %description
 Quickly construct standard dialog boxes for your GUI, including message

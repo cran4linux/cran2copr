@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grates
-%global packver   1.6.0
+%global packname  EQUALencrypt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Date Classes
+Summary:          Encryption and Decryption of Files and Data for Researchers Without Coding Skills
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fastymd 
-Requires:         R-utils 
-Requires:         R-CRAN-fastymd 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-zip 
 
 %description
-Provides a coherent interface and implementation for creating grouped date
-classes.
+Support functions for R-based "EQUALencrypt - Encrypt and decrypt whole
+files" and "EQUALencrypt - Encrypt and decrypt columns of data" shiny
+applications which allow researchers without coding skills or expertise in
+encryption algorithms to share data after encryption. Gurusamy,K
+(2025)<doi:10.5281/zenodo.16743676> and Gurusamy,K
+(2025)<doi:10.5281/zenodo.16744058>.
 
 %prep
 %setup -q -c -n %{packname}

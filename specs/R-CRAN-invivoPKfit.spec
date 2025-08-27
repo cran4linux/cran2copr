@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  invivoPKfit
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fits Toxicokinetic Models to In Vivo PK Data Sets
 
@@ -17,51 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multidplyr >= 0.1.3
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httk 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-PK 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-multidplyr >= 0.1.3
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httk 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-PK 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Takes in vivo toxicokinetic concentration-time data and fits parameters of
 1-compartment and 2-compartment models for each chemical. These methods
-are described in detail in "Informatics for Toxicokinetics" (submitted).
+are described in detail in "Informatics for Toxicokinetics" (2025).
 
 %prep
 %setup -q -c -n %{packname}

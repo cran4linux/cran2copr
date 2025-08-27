@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  svHttp
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SciViews' - HTTP Server
+Summary:          'SciViews::R' - HTTP Server
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.11.0
 Requires:         R-core >= 2.11.0
 BuildArch:        noarch
+BuildRequires:    R-tools >= 2.11.0
+BuildRequires:    R-utils >= 2.11.0
 BuildRequires:    R-CRAN-svMisc >= 0.9.68
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
+Requires:         R-tools >= 2.11.0
+Requires:         R-utils >= 2.11.0
 Requires:         R-CRAN-svMisc >= 0.9.68
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
 A simple HTTP server allows to connect GUI clients to R.

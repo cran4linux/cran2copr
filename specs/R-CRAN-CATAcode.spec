@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grates
-%global packver   1.6.0
+%global packname  CATAcode
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Date Classes
+Summary:          Explore and Code Responses to Check-All-that-Apply Survey Items
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fastymd 
-Requires:         R-utils 
-Requires:         R-CRAN-fastymd 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a coherent interface and implementation for creating grouped date
-classes.
+Analyzing responses to check-all-that-apply survey items often requires
+data transformations and subjective decisions for combining categories.
+'CATAcode' contains tools for exploring response patterns, facilitating
+data transformations, applying a set of decision rules for coding
+responses, and summarizing response frequencies.
 
 %prep
 %setup -q -c -n %{packname}

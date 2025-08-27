@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polarzonoid
-%global packver   0.1-2
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Maps and Properties of Polar Zonoids
 
@@ -23,10 +23,11 @@ Requires:         R-CRAN-logger
 %description
 In each odd dimension is a convex body - the polar zonoid - whose
 generating functions are trigonometric polynomials.  The polar zonoid is a
-straightforward generalization of the polar zonohedron in dimension 3. The
-package has some applications of the polar zonoid, including the
-properties of configuration spaces of arcs on the circle and 3x3 rotation
-matrices.  There is also a root solver for trigonometric polynomials.
+straightforward generalization of the polar zonohedron in dimension 3, as
+defined by Chilton and Coxeter (1963) <doi:10.2307/2313051>. The package
+has some applications of the polar zonoid, including the properties of
+configuration spaces of arcs on the circle and 3x3 rotation matrices.
+There is also a root solver for trigonometric polynomials.
 
 %prep
 %setup -q -c -n %{packname}

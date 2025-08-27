@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sarp.snowprofile.pyface
-%global packver   0.1.3
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'python' Modules from Snowpack and Avalanche Research
 
@@ -29,8 +29,8 @@ Requires:         R-CRAN-data.table
 %description
 The development of post-processing functionality for simulated snow
 profiles by the snow and avalanche community is often done in 'python'.
-This package aims to make these tools accessible to 'R' users. Currently
-integrated modules contain functions to calculate dry snow layer
+This package aims to make some of these tools accessible to 'R' users.
+Currently integrated modules contain functions to calculate dry snow layer
 instabilities in support of avalache hazard assessments following the
 publications of Richter, Schweizer, Rotach, and Van Herwijnen (2019)
 <doi:10.5194/tc-13-3353-2019>, and Mayer, Van Herwijnen, Techel, and

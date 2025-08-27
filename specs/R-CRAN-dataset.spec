@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataset
-%global packver   0.3.9
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Data Frames that are Easier to Exchange and Reuse
+Summary:          Create Data Frames for Exchange and Reuse
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-haven
 BuildRequires:    R-CRAN-ISOcodes 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
@@ -31,16 +30,15 @@ Requires:         R-CRAN-haven
 Requires:         R-CRAN-ISOcodes 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
 
 %description
-The aim of the 'dataset' package is to make tidy datasets easier to
-release, exchange and reuse. It organizes and formats data frame 'R'
-objects into well-referenced, well-described, interoperable datasets into
-release and reuse ready form.
+The 'dataset' package helps create semantically rich, machine-readable,
+and interoperable datasets in R. It extends tidy data frames with metadata
+that preserves meaning, improves interoperability, and makes datasets
+easier to publish, exchange, and reuse in line with ISO and W3C standards.
 
 %prep
 %setup -q -c -n %{packname}

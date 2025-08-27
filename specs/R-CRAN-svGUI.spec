@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  svGUI
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          SciViews - Manage GUIs in R
+Summary:          'SciViews::R' - Manage GUIs in R
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,12 +19,11 @@ Requires:         R-core >= 2.6.0
 BuildArch:        noarch
 
 %description
-The 'SciViews' 'svGUI' package eases the management of Graphical User
-Interfaces (GUI) in R. It is independent from any particular GUI widgets
-('Tk', 'Gtk2', native, ...). It centralizes info about GUI elements
-currently used, and it dispatches GUI calls to the particular toolkits in
-use in function of the context (is R run at the terminal, within a 'Tk'
-application, a HTML page?).
+Manage Graphical User Interfaces (GUI) in R. It is independent from any
+particular GUI widgets ('Tk', 'Gtk2', native, ...). It centralizes info
+about GUI elements currently used, and it dispatches GUI calls to the
+particular toolkits in use in function of the context (is R run at the
+terminal, within a 'Tk' application, a HTML page?).
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

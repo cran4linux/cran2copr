@@ -1,52 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filtro
-%global packver   0.2.0
+%global packname  ChinAPIs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Feature Selection Using Supervised Filter-Based Methods
+Summary:          Access Chinese Data via Public APIs and Curated Datasets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-desirability2 >= 0.1.0
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-desirability2 >= 0.1.0
-Requires:         R-CRAN-cli 
+Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-S7 
-Requires:         R-stats 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
 
 %description
-Tidy tools to apply filter-based supervised feature selection methods.
-These methods score and rank feature relevance using metrics such as
-p-values, correlation, and importance scores (Kuhn and Johnson (2019)
-<doi:10.1201/9781315108230>).
+Provides functions to access data from public RESTful APIs including
+'Nager.Date', 'World Bank API', and 'REST Countries API', retrieving
+real-time or historical data related to China, such as holidays, economic
+indicators, and international demographic and geopolitical indicators.
+Additionally, the package includes one of the largest curated collections
+of open datasets focused on China and Hong Kong, covering topics such as
+air quality, demographics, input-output tables, epidemiology, political
+structure, names, and social indicators. The package supports reproducible
+research and teaching by integrating reliable international APIs and
+structured datasets from public, academic, and government sources. For
+more information on the APIs, see: 'Nager.Date'
+<https://date.nager.at/Api>, 'World Bank API'
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
+'REST Countries API' <https://restcountries.com/>.
 
 %prep
 %setup -q -c -n %{packname}

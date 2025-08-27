@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  momentfit
-%global packver   0.5
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods of Moments
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -37,7 +37,10 @@ the Generalized Empirical Likelihood (Smith 1997;
 <doi:10.1111/j.0013-0133.1997.174.x>, Kitamura 1997;
 <doi:10.1214/aos/1069362388>, Newey and Smith 2004;
 <doi:10.1111/j.1468-0262.2004.00482.x>, and Anatolyev 2005
-<doi:10.1111/j.1468-0262.2005.00601.x>).
+<doi:10.1111/j.1468-0262.2005.00601.x>). Some work is being done to add
+tools to deal with weak and/or many instruments. This includes K-Class
+estimators (Limited Information Maximum Likelihood and Fuller), Anderson
+and Rubin statistic test, etc.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grates
-%global packver   1.6.0
+%global packname  spatialCatalogueViewer
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Date Classes
+Summary:          A 'Shiny' Tool to Create Interactive Catalogues for Geospatial Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fastymd 
-Requires:         R-utils 
-Requires:         R-CRAN-fastymd 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-leaflet.extras 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-leaflet.extras 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-DT 
 
 %description
-Provides a coherent interface and implementation for creating grouped date
-classes.
+Seamlessly create interactive online catalogues for geospatial data. Items
+can be mapped as points or areas and retrieved using either a map or a
+dynamic table with search form and optional column filters.
 
 %prep
 %setup -q -c -n %{packname}

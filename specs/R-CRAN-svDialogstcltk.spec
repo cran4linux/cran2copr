@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  svDialogstcltk
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SciViews' - Standard Dialog Boxes using Tcl/Tk
+Summary:          'SciViews::R' - Standard Dialog Boxes using Tcl/Tk
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.6.0
 Requires:         R-core >= 2.6.0
 BuildArch:        noarch
+BuildRequires:    R-tcltk >= 2.6.0
+BuildRequires:    R-grDevices >= 2.6.0
+BuildRequires:    R-utils >= 2.6.0
 BuildRequires:    R-CRAN-svDialogs >= 1.0.0
 BuildRequires:    R-CRAN-svGUI >= 1.0.0
-BuildRequires:    R-tcltk 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
+Requires:         R-tcltk >= 2.6.0
+Requires:         R-grDevices >= 2.6.0
+Requires:         R-utils >= 2.6.0
 Requires:         R-CRAN-svDialogs >= 1.0.0
 Requires:         R-CRAN-svGUI >= 1.0.0
-Requires:         R-tcltk 
-Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
 Reimplementation of the 'svDialogs' dialog boxes in Tcl/Tk.

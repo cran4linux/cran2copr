@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  svUnit
-%global packver   1.0.6
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SciViews' - Unit, Integration and System Testing
+Summary:          'SciViews::R' - Unit, Integration and System Testing
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 1.9.0
 Requires:         R-core >= 1.9.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-utils >= 1.9.0
+Requires:         R-utils >= 1.9.0
 
 %description
-A complete unit test system and functions to implement its GUI part.
+A complete unit test system.
 
 %prep
 %setup -q -c -n %{packname}
@@ -30,6 +31,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
