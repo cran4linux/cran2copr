@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  causal.decomp
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Decomposition Analysis
 
@@ -14,38 +14,52 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-SuppDists 
-BuildRequires:    R-CRAN-CBPS 
 BuildRequires:    R-CRAN-PSweight 
-BuildRequires:    R-CRAN-spelling 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-DynTxRegime 
+BuildRequires:    R-CRAN-distr 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-modelObj 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-stats 
 Requires:         R-parallel 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-SuppDists 
-Requires:         R-CRAN-CBPS 
 Requires:         R-CRAN-PSweight 
-Requires:         R-CRAN-spelling 
 Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-DynTxRegime 
+Requires:         R-CRAN-distr 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-modelObj 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-knitr 
 
 %description
-We implement causal decomposition analysis using the methods proposed by
-Park, Lee, and Qin (2020) and Park, Kang, and Lee (2021+)
-<arXiv:2109.06940>. This package allows researchers to use the
-multiple-mediator-imputation, single-mediator-imputation, and
-product-of-coefficients regression methods to estimate the initial
-disparity, disparity reduction, and disparity remaining. It also allows to
-make the inference conditional on baseline covariates. We also implement
-sensitivity analysis for the causal decomposition analysis using R-squared
-values as sensitivity parameters (Park, Kang, Lee, and Ma, 2023).
+We implement causal decomposition analysis using methods proposed by Park,
+Lee, and Qin (2022) and Park, Kang, and Lee (2023), which provide
+researchers with multiple-mediator imputation, single-mediator imputation,
+and product-of-coefficients regression approaches to estimate the initial
+disparity, disparity reduction, and disparity remaining
+(<doi:10.1177/00491241211067516>; <doi:10.1177/00811750231183711>). We
+also implement sensitivity analysis for causal decomposition using
+R-squared values as sensitivity parameters (Park, Kang, Lee, and Ma, 2023
+<doi:10.1515/jci-2022-0031>). Finally, we include individualized causal
+decomposition and sensitivity analyses proposed by Park, Kang, and Lee
+(2025+) <doi:10.48550/arXiv.2506.19010>.
 
 %prep
 %setup -q -c -n %{packname}

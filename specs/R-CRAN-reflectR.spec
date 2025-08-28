@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reflectR
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Scoring of the Cognitive Reflection Test
 
@@ -21,39 +21,19 @@ BuildRequires:    R-CRAN-stringr
 Requires:         R-CRAN-stringr 
 
 %description
-A tool for researchers and psychologists to automatically code open-ended
-responses to the Cognitive Reflection Test (CRT), a widely used class of
-tests in cognitive science and psychology for assessing an individual's
-propensity to override an incorrect gut response and engage in further
-reflection to find a correct answer. This package facilitates the
-standardization of Cognitive Reflection Test responses analysis across
-large datasets in cognitive psychology, decision-making, and related
-fields. By automating the coding process, it not only reduces manual
-effort but also aims to reduce the variability introduced by subjective
-interpretation of open-ended responses, contributing to a more consistent
-and reliable analysis. 'reflectR' supports automatic coding and machine
-scoring for the original English-language version of CRT (Frederick, 2005)
-<doi:10.1257/089533005775196732>, as well as for CRT4 and CRT7, 4- and
-7-item versions, respectively (Toplak et al., 2014)
-<doi:10.1080/13546783.2013.844729>, for the CRT-long version built via
-Item Response Theory by Primi and colleagues (2016)
-<doi:10.1002/bdm.1883>, and for CRT-2 by Thomson & Oppenheimer (2016)
-<doi:10.1017/s1930297500007622>. Note: While 'reflectR' draws inspiration
-from the principles and scientific literature underlying the different
-versions of the Cognitive Reflection Test, it has been independently
-developed and does not hold any affiliation with any of the original
-authors. The development of this package benefited significantly from the
-kind insight and suggestion provided by Dr. Keela Thomson, whose
-contribution is gratefully acknowledged. Additional gratitude is extended
-to Dr. Paolo Giovanni Cicirelli, Prof. Marinella Paciello, Dr. Carmela
-Sportelli, and Prof. Francesca D'Errico, who not only contributed to the
-manual multi-rater coding of CRT-2 items but also profoundly influenced
-the understanding of the importance and practical relevance of cognitive
-reflection within personality, social, and cognitive psychology research.
-Acknowledgment is also due to the European project STERHEOTYPES (STudying
-European Racial Hoaxes and sterEOTYPES) for funding the data collection
-that produced the datasets initially used for manual multi-rater coding of
-CRT-2 items.
+Automatic coding of open-ended responses to the Cognitive Reflection Test
+(CRT), a widely used class of tests in cognitive science and psychology
+that assess the tendency to override an initial intuitive (but incorrect)
+answer and engage in reflection to reach a correct solution. The package
+standardizes CRT response coding across datasets in cognitive psychology,
+decision-making, and related fields. Automated coding reduces manual
+effort and improves reproducibility by limiting variability from
+subjective interpretation of open-ended responses. The package supports
+automatic coding and machine scoring for the original English-language CRT
+(Frederick, 2005) <doi:10.1257/089533005775196732>, CRT4 and CRT7 (Toplak
+et al., 2014) <doi:10.1080/13546783.2013.844729>, CRT-long (Primi et al.,
+2016) <doi:10.1002/bdm.1883>, and CRT-2 (Thomson & Oppenheimer, 2016)
+<doi:10.1017/s1930297500007622>.
 
 %prep
 %setup -q -c -n %{packname}

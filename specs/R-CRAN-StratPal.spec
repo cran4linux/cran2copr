@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StratPal
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratigraphic Paleobiology Modeling Pipelines
 
@@ -30,11 +30,11 @@ processes in the time domain (e.g., trait evolution, fossil abundance,
 phylogenetic trees), and examine how their expression in the rock record
 (stratigraphic domain) is influenced based on age-depth models, ecological
 niche models, and taphonomic effects. Functions simulating common
-processes used in modeling trait evolution or event type data such as
-first/last occurrences are provided and can be used standalone or as part
-of a pipeline. The package comes with example data sets and tutorials in
-several vignettes, which can be used as a template to set up one's own
-simulation.
+processes used in modeling trait evolution, biostratigraphy or event type
+data such as first/last occurrences are provided and can be used
+standalone or as part of a pipeline. The package comes with example data
+sets and tutorials in several vignettes, which can be used as a template
+to set up one's own simulation.
 
 %prep
 %setup -q -c -n %{packname}

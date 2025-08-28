@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modsem
-%global packver   1.0.11
+%global packver   1.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Interaction (and Moderation) Analysis in Structural Equation Models (SEM)
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Amelia 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-purrr 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-Amelia 
 Requires:         R-grDevices 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-RhpcBLASctl 
 
 %description
 Estimation of interaction (i.e., moderation) effects between latent

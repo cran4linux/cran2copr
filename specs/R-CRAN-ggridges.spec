@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggridges
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ridgeline Plots in 'ggplot2'
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-grid >= 3.0.0
 BuildRequires:    R-CRAN-withr >= 2.1.1
 BuildRequires:    R-CRAN-scales >= 0.4.1
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-grid >= 3.0.0
 Requires:         R-CRAN-withr >= 2.1.1
 Requires:         R-CRAN-scales >= 0.4.1

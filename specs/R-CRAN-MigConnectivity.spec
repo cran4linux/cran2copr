@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MigConnectivity
-%global packver   0.4.7
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Migratory Connectivity for Migratory Animals
 
@@ -61,8 +61,9 @@ correlation) incorporating uncertainty from multiple sources of sampling
 error. For cross-species comparisons, methods are provided to estimate
 differences in migratory connectivity strength, incorporating uncertainty.
 See Cohen et al. (2018) <doi:10.1111/2041-210X.12916>, Cohen et al. (2019)
-<doi:10.1111/ecog.03974>, and Roberts et al. (2023) <doi:10.1002/eap.2788>
-for details on some of these methods.
+<doi:10.1111/ecog.03974>, Roberts et al. (2023) <doi:10.1002/eap.2788>,
+and Hostetler et al. (2025) <doi:10.1111/2041-210X.14467> for details on
+some of these methods.
 
 %prep
 %setup -q -c -n %{packname}

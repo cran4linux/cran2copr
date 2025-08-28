@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  capybara
-%global packver   1.0.1
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Memory Efficient Fitting of Linear Models with High-Dimensional Fixed Effects
 
@@ -37,8 +37,10 @@ Requires:         R-stats
 Fast and user-friendly estimation of generalized linear models with
 multiple fixed effects and cluster the standard errors. The method to
 obtain the estimated fixed-effects coefficients is based on Stammann
-(2018) <doi:10.48550/arXiv.1707.01815> and Gaure (2013)
-<doi:10.1016/j.csda.2013.03.024>.
+(2018) <doi:10.48550/arXiv.1707.01815>, Gaure (2013)
+<doi:10.1016/j.csda.2013.03.024>, Berge (2018)
+<https://ideas.repec.org/p/luc/wpaper/18-13.html>, and Correia et al.
+(2020) <doi: 10.1177/1536867X20909691>.
 
 %prep
 %setup -q -c -n %{packname}

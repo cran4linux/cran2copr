@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctsmTMB
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Stochastic Modelling using Template Model Builder
 
@@ -17,33 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-RTMB >= 1.7
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-geomtextpath 
+BuildRequires:    R-CRAN-ggfortify 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-RcppXPtrUtils 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppXPtrUtils 
-BuildRequires:    R-CRAN-RcppZiggurat 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfortify 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-zigg 
 Requires:         R-CRAN-RTMB >= 1.7
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppEigen 
-Requires:         R-CRAN-RcppXPtrUtils 
-Requires:         R-CRAN-RcppZiggurat 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-geomtextpath 
 Requires:         R-CRAN-ggfortify 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-RcppXPtrUtils 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-TMB 
+Requires:         R-utils 
 
 %description
 Perform state and parameter inference, and forecasting, in stochastic

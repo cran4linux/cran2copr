@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paleobioDB
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Process Data from the Paleobiology Database
 
@@ -18,24 +18,18 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-curl 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-maps 
-Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-terra 
 
 %description
-Includes functions to wrap most endpoints of the 'PaleobioDB' API and
-functions to visualize and process the fossil data. The API documentation
-for the Paleobiology Database can be found at
+Includes functions to wrap most endpoints of the 'PaleobioDB' API and to
+visualize and process the obtained fossil data. The API documentation for
+the Paleobiology Database can be found at
 <https://paleobiodb.org/data1.2/>.
 
 %prep

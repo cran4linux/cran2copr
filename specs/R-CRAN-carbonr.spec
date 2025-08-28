@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  carbonr
-%global packver   0.2.1
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Carbon-Equivalent Emissions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-airportr 
 BuildRequires:    R-CRAN-checkmate 
@@ -31,9 +31,7 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-airportr 
@@ -50,9 +48,7 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 
@@ -60,7 +56,7 @@ Requires:         R-CRAN-tidyselect
 Provides a flexible tool for calculating carbon-equivalent emissions.
 Mostly using data from the UK Government's Greenhouse Gas Conversion
 Factors report
-<https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2023>,
+<https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2024>,
 it facilitates transparent emissions calculations for various sectors,
 including travel, accommodation, and clinical activities. The package is
 designed for easy integration into R workflows, with additional support

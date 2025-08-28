@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marquee
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markdown Parser and Renderer for R Graphics
 
@@ -25,6 +25,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-cpp11 
@@ -37,6 +38,7 @@ Requires:         R-grDevices
 Requires:         R-grid 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-png 
+Requires:         R-CRAN-S7 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
 
