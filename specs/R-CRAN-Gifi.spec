@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Gifi
-%global packver   0.4-0
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Analysis with Optimal Scaling
 
@@ -24,9 +24,9 @@ Requires:         R-stats
 Requires:         R-CRAN-colorspace 
 
 %description
-Implements categorical principal component analysis ('PRINCALS'), multiple
-correspondence analysis ('HOMALS'), monotone regression analysis
-('MORALS'). It replaces the 'homals' package.
+Implements various Gifi methods in a user-friendly way: categorical
+principal component analysis (princals), multiple correspondence analysis
+(homals), monotone regression analysis (morals).
 
 %prep
 %setup -q -c -n %{packname}

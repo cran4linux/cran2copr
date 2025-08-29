@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  detourr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portable and Performant Tour Animations
 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-tourr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-htmlwidgets 
@@ -32,6 +34,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-grDevices 
+Requires:         R-CRAN-cli 
 
 %description
 Provides 2D and 3D tour animations as HTML widgets. The user can interact

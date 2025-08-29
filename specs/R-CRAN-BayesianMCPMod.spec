@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianMCPMod
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate, Evaluate, and Analyze Dose Finding Trials with Bayesian MCPMod
 
@@ -19,20 +19,22 @@ Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DoseFinding >= 1.1.1
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-RBesT 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-DoseFinding >= 1.1.1
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-RBesT 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
 Bayesian MCPMod (Fleischer et al. (2022) <doi:10.1002/pst.2193>) is an
@@ -46,7 +48,7 @@ prior distributions, such as those derived with the
 Meta-Analytic-Predictive approach (Schmidli et al. (2014)
 <doi:10.1111/biom.12242>), can be specified for each dose group.
 Resulting mixture posterior distributions are used in the Bayesian
-Multiple Comparison Procedure and modeling steps.  The modeling step also
+Multiple Comparison Procedure and modeling steps. The modeling step also
 includes a weighted model averaging approach (Pinheiro et al. (2014)
 <doi:10.1002/sim.6052>). Estimated dose-response relationships can be
 bootstrapped and visualized.

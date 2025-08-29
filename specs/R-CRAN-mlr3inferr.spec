@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3inferr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference on the Generalization Error
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-mlr3 >= 1.1.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-future 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-mlr3misc
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-mlr3 >= 1.1.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-future 
@@ -39,11 +39,8 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-withr 
 
 %description
-An 'mlr3' extension that provides various resampling-based confidence
-interval (CI) methods for estimating the generalization error.  These CI
-methods are implemented as 'mlr3' measures, enabling the evaluation of
-individual algorithms on specific tasks as well as the comparison of
-different learning algorithms.
+Confidence interval and resampling methods for inference on the
+generalization error.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simulist
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Disease Outbreak Line List and Contacts Data
 
@@ -14,18 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-epiparameter >= 0.4.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-english 
+BuildRequires:    R-CRAN-grates 
 BuildRequires:    R-CRAN-randomNames 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-epiparameter >= 0.4.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-english 
+Requires:         R-CRAN-grates 
 Requires:         R-CRAN-randomNames 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

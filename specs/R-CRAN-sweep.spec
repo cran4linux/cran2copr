@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sweep
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tools for Forecasting
 
@@ -19,24 +19,16 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast >= 8.0
 BuildRequires:    R-CRAN-timetk >= 2.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.6.0
 BuildRequires:    R-CRAN-tibble >= 1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-broom >= 0.5.6
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-tidyquant 
 Requires:         R-CRAN-forecast >= 8.0
 Requires:         R-CRAN-timetk >= 2.1.0
-Requires:         R-CRAN-lubridate >= 1.6.0
 Requires:         R-CRAN-tibble >= 1.2
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-broom >= 0.5.6
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-tidyquant 
 
 %description
 Tidies up the forecasting modeling and prediction work flow, extends the

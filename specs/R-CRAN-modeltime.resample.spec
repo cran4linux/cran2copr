@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modeltime.resample
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Tools for Time Series Forecasting
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-timetk >= 2.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-modeltime >= 0.3.0
 BuildRequires:    R-CRAN-parsnip >= 0.1.4
 BuildRequires:    R-CRAN-rlang >= 0.1.2
@@ -28,21 +30,18 @@ BuildRequires:    R-CRAN-recipes
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-hardhat 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-timetk >= 2.5.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-modeltime >= 0.3.0
 Requires:         R-CRAN-parsnip >= 0.1.4
 Requires:         R-CRAN-rlang >= 0.1.2
@@ -53,16 +52,11 @@ Requires:         R-CRAN-recipes
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-tictoc 

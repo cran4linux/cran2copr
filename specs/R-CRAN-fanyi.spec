@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fanyi
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate Words or Sentences via Online Translators
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.6
 BuildRequires:    R-CRAN-ggfun >= 0.1.3
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.3
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
@@ -29,8 +29,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-SSEparser 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-yulab.utils >= 0.1.6
 Requires:         R-CRAN-ggfun >= 0.1.3
-Requires:         R-CRAN-yulab.utils >= 0.1.3
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 

@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  interpret
-%global packver   0.1.34
+%global packname  SMMAL
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.34
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Interpretable Machine Learning Models
+Summary:          Semi-Supervised Estimation of Average Treatment Effects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-splines2 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-splines2 
+Requires:         R-CRAN-xgboost 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Package for training interpretable machine learning models. Historically,
-the most interpretable machine learning models were not very accurate, and
-the most accurate models were not very interpretable. Microsoft Research
-has developed an algorithm called the Explainable Boosting Machine (EBM)
-which has both high accuracy and interpretable characteristics. EBM uses
-machine learning techniques like bagging and boosting to breathe new life
-into traditional GAMs (Generalized Additive Models). This makes them as
-accurate as random forests and gradient boosted trees, and also enhances
-their intelligibility and editability. Details on the EBM algorithm can be
-found in the paper by Rich Caruana, Yin Lou, Johannes Gehrke, Paul Koch,
-Marc Sturm, and Noemie Elhadad (2015, <doi:10.1145/2783258.2788613>).
+Provides a pipeline for estimating the average treatment effect via
+semi-supervised learning. Outcome regression is fit with cross-fitting
+using various machine learning method or user customized function. Doubly
+robust ATE estimation leverages both labeled and unlabeled data under a
+semi-supervised missing-data framework. For more details see Hou et al.
+(2021) <doi:10.48550/arxiv.2110.12336>. A detailed vignette is included.
 
 %prep
 %setup -q -c -n %{packname}

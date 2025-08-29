@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  EValue
-%global packver   4.1.3
+%global packver   4.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          4.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analyses for Unmeasured Confounding and Other Biases in Observational Studies and Meta-Analyses
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-metadat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-MetaUtility 
@@ -29,7 +29,6 @@ Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-metadat 
 Requires:         R-methods 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-MetaUtility 
@@ -40,12 +39,12 @@ Conducts sensitivity analyses for unmeasured confounding, selection bias,
 and measurement error (individually or in combination; VanderWeele & Ding
 (2017) <doi:10.7326/M16-2607>; Smith & VanderWeele (2019)
 <doi:10.1097/EDE.0000000000001032>; VanderWeele & Li (2019)
-<doi:10.1093/aje/kwz133>; Smith & VanderWeele (2021) <arXiv:2005.02908>).
-Also conducts sensitivity analyses for unmeasured confounding in
-meta-analyses (Mathur & VanderWeele (2020a)
+<doi:10.1093/aje/kwz133>; Smith, Mathur, & VanderWeele (2021)
+<doi:10.1097/EDE.0000000000001380>). Also conducts sensitivity analyses
+for unmeasured confounding in meta-analyses (Mathur & VanderWeele (2020a)
 <doi:10.1080/01621459.2018.1529598>; Mathur & VanderWeele (2020b)
 <doi:10.1097/EDE.0000000000001180>) and for additive measures of effect
-modification (Mathur et al., under review).
+modification (Mathur et al., <doi:10.1093/ije/dyac073>).
 
 %prep
 %setup -q -c -n %{packname}

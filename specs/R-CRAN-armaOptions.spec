@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  armaOptions
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          ARMA Models to Value Stock Options
 
@@ -26,7 +26,7 @@ Requires:         R-stats
 Providing ways to estimate the value of European stock options given
 historical stock price data. It includes functions for calculating option
 values based on autoregressive–moving-average (ARMA) models and generates
-information about these models. This package is make to be easy to
+information about these models. This package is made to be easy to
 understand and for financial analysis capabilities.
 
 %prep
