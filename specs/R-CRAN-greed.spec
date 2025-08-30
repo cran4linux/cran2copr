@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greed
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering and Model Selection with the Integrated Classification Likelihood
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-listenv 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-cba 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-listenv 

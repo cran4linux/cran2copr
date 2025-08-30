@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fuzzylink
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Record Linkage Using Pretrained Text Embeddings
 
@@ -46,7 +46,7 @@ embeddings. Produces more accurate record linkage when lexical string
 distance metrics are a poor guide to match quality (e.g., "Patricia" is
 more lexically similar to "Patrick" than it is to "Trish"). Capable of
 performing multilingual record linkage. Methods are described in Ornstein
-(2025) <https://joeornstein.github.io/publications/fuzzylink.pdf>.
+(2025) <doi:10.1017/pan.2025.10016>.
 
 %prep
 %setup -q -c -n %{packname}

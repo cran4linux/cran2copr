@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRTAnalysis
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Primary and Secondary Analyses for Micro-Randomized Trials
+Summary:          Assessing Proximal and Distal Causal Excursion Effects for Micro-Randomized Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,10 +21,16 @@ BuildRequires:    R-CRAN-rootSolve
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ranger 
 Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ranger 
 
 %description
 Estimates marginal causal excursion effects and moderated causal excursion
@@ -33,7 +39,16 @@ treatment options and continuous or binary outcomes. The method for MRT
 with continuous outcomes is the weighted centered least squares (WCLS) by
 Boruvka et al. (2018) <doi:10.1080/01621459.2017.1305274>. The method for
 MRT with binary outcomes is the estimator for marginal excursion effect
-(EMEE) by Qian et al. (2021) <doi:10.1093/biomet/asaa070>.
+(EMEE) by Qian et al. (2021) <doi:10.1093/biomet/asaa070>. Estimates
+marginal and moderated causal excursion effects for micro-randomized
+trials (MRTs) with binary treatment options. Supports continuous and
+binary proximal outcomes as well as distal outcomes. Methods include
+weighted and centered least squares (WCLS) for continuous proximal
+outcomes by Boruvka et al. (2018) <doi:10.1080/01621459.2017.1305274>, the
+estimator for marginal excursion effect (EMEE) for binary proximal
+outcomes by Qian et al. (2021) <doi:10.1093/biomet/asaa070>, and two-stage
+estimation of distal causal excursion effects (DCEE) for continuous distal
+outcomes <doi:10.48550/arXiv.2502.13500>.
 
 %prep
 %setup -q -c -n %{packname}

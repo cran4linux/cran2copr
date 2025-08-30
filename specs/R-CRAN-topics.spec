@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topics
-%global packver   0.60
+%global packver   0.62
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.60
+Version:          0.62
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Significance Testing Language Features for Visualisation
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-textmineR 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mallet 
 BuildRequires:    R-CRAN-ggwordcloud 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-methods 
@@ -37,7 +36,6 @@ BuildRequires:    R-CRAN-ggforce
 Requires:         R-CRAN-textmineR 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mallet 
 Requires:         R-CRAN-ggwordcloud 
 Requires:         R-CRAN-tibble 
 Requires:         R-methods 

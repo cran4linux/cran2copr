@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cthist
-%global packver   2.1.12
+%global packname  ptvalue
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Registry History
+Summary:          Working with Precision Teaching Values
 
-License:          AGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
 
 %description
-Retrieves historical versions of clinical trial registry entries from
-<https://ClinicalTrials.gov>. Package functionality and implementation for
-v 1.0.0 is documented in Carlisle (2022)
-<DOI:10.1371/journal.pone.0270909>.
+An implementation of an S3 class based on a double vector for storing and
+displaying precision teaching measures, representing a growing or a
+decaying (multiplicative) change between two frequencies. The main format
+method allows researchers to display measures (including data.frame) that
+respect the established conventions in the precision teaching community
+(i.e., prefixed multiplication or division symbol, displayed number <= 1).
+Basic multiplication and division methods are allowed and other useful
+functions are provided for creating, converting or inverting precision
+teaching measures. For more details, see Pennypacker, Gutierrez and
+Lindsley (2003, ISBN: 1-881317-13-7).
 
 %prep
 %setup -q -c -n %{packname}

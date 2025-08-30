@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  textAnnotatoR
-%global packver   0.1.4
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Text Annotation Tool with 'shiny' GUI
 
@@ -26,11 +26,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-readtext 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
@@ -40,20 +35,15 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-readtext 
 Requires:         R-CRAN-magrittr 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 
 %description
-A comprehensive text annotation tool built with 'shiny'. Provides an
-interactive graphical user interface for coding text documents, managing
-code hierarchies, creating memos, and analyzing coding patterns. Features
-include code co-occurrence analysis, visualization of coding patterns,
-comparison of multiple coding sets, and export capabilities. Supports
-collaborative qualitative research through standardized annotation formats
-and analysis tools.
+A lightweight and focused text annotation tool built with 'shiny'.
+Provides an interactive graphical user interface for coding text
+documents, managing code hierarchies, creating memos, and analyzing coding
+patterns. Features include code co-occurrence analysis, visualization of
+coding patterns, comparison of multiple coding sets, and export
+capabilities. Supports collaborative qualitative research through
+standardized annotation formats and analysis tools.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  caretSDM
-%global packver   1.1.4
+%global packname  ale
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build Species Distribution Modeling using 'caret'
+Summary:          Interpretable Machine Learning and Statistical Inference with Accumulated Local Effects (ALE)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,81 +17,61 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-CoordinateCleaner 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggspatial 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lwgeom 
-BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-pdp 
-BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-staccuracy 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-usdm 
+BuildRequires:    R-CRAN-univariateML 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-CoordinateCleaner 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggspatial 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lwgeom 
-Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-insight 
 Requires:         R-methods 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-pdp 
-Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-staccuracy 
 Requires:         R-stats 
-Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-usdm 
+Requires:         R-CRAN-univariateML 
 Requires:         R-utils 
 
 %description
-Use machine learning algorithms and advanced geographic information system
-tools to build Species Distribution Modeling in a extensible and modern
-fashion.
+Accumulated Local Effects (ALE) were initially developed as a
+model-agnostic approach for global explanations of the results of
+black-box machine learning algorithms. ALE has a key advantage over other
+approaches like partial dependency plots (PDP) and SHapley Additive
+exPlanations (SHAP): its values represent a clean functional decomposition
+of the model. As such, ALE values are not affected by the presence or
+absence of interactions among variables in a mode. Moreover, its
+computation is relatively rapid. This package reimplements the algorithms
+for calculating ALE data and develops highly interpretable visualizations
+for plotting these ALE values. It also extends the original ALE concept to
+add bootstrap-based confidence intervals and ALE-based statistics that can
+be used for statistical inference. For more details, see Okoli, Chitu.
+2023. “Statistical Inference Using Machine Learning and Classical
+Techniques Based on Accumulated Local Effects (ALE).” arXiv.
+<doi:10.48550/arXiv.2310.09877>.
 
 %prep
 %setup -q -c -n %{packname}

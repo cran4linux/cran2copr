@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manifestoR
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Process Data and Documents of the Manifesto Project
 
@@ -18,45 +18,35 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.0.0
-BuildRequires:    R-CRAN-zoo >= 1.7.11
 BuildRequires:    R-CRAN-readr >= 1.2.0
 BuildRequires:    R-CRAN-httr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.12
 BuildRequires:    R-CRAN-dplyr >= 0.7.5
-BuildRequires:    R-CRAN-tm >= 0.6
+BuildRequires:    R-CRAN-tm >= 0.7.12
 BuildRequires:    R-CRAN-functional >= 0.6
-BuildRequires:    R-CRAN-htmlwidgets >= 0.6
 BuildRequires:    R-CRAN-purrr >= 0.2.4
-BuildRequires:    R-CRAN-DT >= 0.2
-BuildRequires:    R-CRAN-NLP >= 0.1.3
+BuildRequires:    R-CRAN-NLP >= 0.2.0
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-tibble >= 2.0.0
-Requires:         R-CRAN-zoo >= 1.7.11
 Requires:         R-CRAN-readr >= 1.2.0
 Requires:         R-CRAN-httr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.12
 Requires:         R-CRAN-dplyr >= 0.7.5
-Requires:         R-CRAN-tm >= 0.6
+Requires:         R-CRAN-tm >= 0.7.12
 Requires:         R-CRAN-functional >= 0.6
-Requires:         R-CRAN-htmlwidgets >= 0.6
 Requires:         R-CRAN-purrr >= 0.2.4
-Requires:         R-CRAN-DT >= 0.2
-Requires:         R-CRAN-NLP >= 0.1.3
+Requires:         R-CRAN-NLP >= 0.2.0
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-htmltools 
 
 %description
 Provides access to coded election programmes from the Manifesto Corpus and

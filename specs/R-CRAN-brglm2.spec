@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brglm2
-%global packver   0.9.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bias Reduction in Generalized Linear Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
@@ -23,6 +23,8 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-enrichwith 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-nleqslv 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
@@ -30,15 +32,17 @@ Requires:         R-graphics
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-enrichwith 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-nleqslv 
 
 %description
 Estimation and inference from generalized linear models based on various
 methods for bias reduction and maximum penalized likelihood with powers of
-the Jeffreys prior as penalty. The 'brglmFit' fitting method can achieve
+the Jeffreys prior as penalty. The 'brglmFit()' fitting method can achieve
 reduction of estimation bias by solving either the mean bias-reducing
 adjusted score equations in Firth (1993) <doi:10.1093/biomet/80.1.27> and
 Kosmidis and Firth (2009) <doi:10.1093/biomet/asp055>, or the median
-bias-reduction adjusted score equations in Kenne et al. (2017)
+bias-reducing adjusted score equations in Kenne et al. (2017)
 <doi:10.1093/biomet/asx046>, or through the direct subtraction of an
 estimate of the bias of the maximum likelihood estimator from the maximum
 likelihood estimates as in Cordeiro and McCullagh (1991)
@@ -53,7 +57,12 @@ estimates with improved frequentist properties, that are also always
 finite, even in cases where the maximum likelihood estimates are infinite
 (e.g. complete and quasi-complete separation; see Kosmidis and Firth, 2020
 <doi:10.1093/biomet/asaa052>, for a proof for mean bias reduction in
-logistic regression).
+logistic regression). The 'mdyplFit()' fitting method fits logistic
+regression models using maximum Diaconis-Ylvisaker prior penalized
+likelihood, which also guarantees finite estimates. High-dimensionality
+corrections under proportional asymptotics can be applied to the resulting
+objects; see Sterzinger and Kosmidis (2024)
+<doi:10.48550/arXiv.2311.07419> for details.
 
 %prep
 %setup -q -c -n %{packname}

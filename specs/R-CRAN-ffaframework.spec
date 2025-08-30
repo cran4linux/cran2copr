@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ffaframework
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flood Frequency Analysis Framework
 
@@ -38,7 +38,7 @@ and nonstationary flood frequency analysis, with applications extending to
 other hydroclimate extremes, such as precipitation frequency analysis.
 This package implements the FFA framework proposed by Vidrio- Sahagún et
 al. (2024) <doi:10.1016/j.envsoft.2024.105940>, originally developed in
-MATLAB, now adapted for the R environment. This work was funded by the
+'MATLAB', now adapted for the 'R' environment. This work was funded by the
 Flood Hazard Identification and Mapping Program of Environment and Climate
 Change Canada, as well as the Canada Research Chair (Tier 1) awarded to
 Dr. Pietroniro.

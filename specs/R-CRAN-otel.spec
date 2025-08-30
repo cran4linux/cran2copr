@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  otel
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'OpenTelemetry' 'R' 'API'
+Summary:          OpenTelemetry R API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,12 +19,13 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 
 %description
-'OpenTelemetry' is a collection of tools, 'APIs', and 'SDKs' used to
-instrument, generate, collect, and export telemetry data (metrics, logs,
-and traces) for analysis in order to understand your software's
-performance and behavior. This package implements the 'OpenTelemetry'
-'API': <https://opentelemetry.io/docs/specs/otel/> Use this package as a
-dependency if you want to instrument your R package for 'OpenTelemetry'.
+High-quality, ubiquitous, and portable telemetry to enable effective
+observability. OpenTelemetry is a collection of tools, APIs, and SDKs used
+to instrument, generate, collect, and export telemetry data (metrics,
+logs, and traces) for analysis in order to understand your software's
+performance and behavior. This package implements the OpenTelemetry API:
+<https://opentelemetry.io/docs/specs/otel/>. Use this package as a
+dependency if you want to instrument your R package for OpenTelemetry.
 
 %prep
 %setup -q -c -n %{packname}

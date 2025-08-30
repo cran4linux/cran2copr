@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggredist
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scales, Geometries, and Extensions of 'ggplot2' for Election Mapping
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-palette 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-palette 
 
 %description
 Provides 'ggplot2' extensions for political map making. Implements new

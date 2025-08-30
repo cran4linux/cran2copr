@@ -1,52 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cthist
-%global packver   2.1.12
+%global packname  Stype.est
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Registry History
+Summary:          S-Type Estimators
 
-License:          AGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-datasets 
+BuildRequires:    R-stats 
+Requires:         R-datasets 
+Requires:         R-stats 
 
 %description
-Retrieves historical versions of clinical trial registry entries from
-<https://ClinicalTrials.gov>. Package functionality and implementation for
-v 1.0.0 is documented in Carlisle (2022)
-<DOI:10.1371/journal.pone.0270909>.
+Implements the S-type estimators, novel robust estimators for general
+linear regression models, addressing challenges such as outlier
+contamination and leverage points. This package introduces robust
+regression techniques to provide a robust alternative to classical methods
+and includes diagnostic tools for assessing model fit and performance. The
+methodology is based on the study, "Comparison of the Robust Methods in
+the General Linear Regression Model" by Sazak and Mutlu (2023). This
+package is designed for statisticians and applied researchers seeking
+advanced tools for robust regression analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DBCVindex
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates the Density-Based Clustering Validation (DBCV) Index
 
@@ -28,7 +28,12 @@ implementation by Pablo Andretta Jaskowiak. Original 'DBCV' index article:
 Moulavi, D., Jaskowiak, P. A., Campello, R. J., Zimek, A., and Sander, J.
 (April 2014), "Density-based clustering validation", Proceedings of SDM
 2014 -- the 2014 SIAM International Conference on Data Mining (pp.
-839-847), <doi:10.1137/1.9781611973440.96>.
+839-847), <doi:10.1137/1.9781611973440.96>. A more recent article on the
+'DBCV' index: Chicco, D., Sabino, G.; Oneto, L.; Jurman, G. (August 2025),
+"The DBCV index is more informative than DCSI, CDbw, and VIASCKDE indices
+for unsupervised clustering internal assessment of concave-shaped and
+density-based clusters", PeerJ Computer Science 11:e3095 (pp. 1-),
+<doi:10.7717/peerj-cs.3095>.
 
 %prep
 %setup -q -c -n %{packname}
