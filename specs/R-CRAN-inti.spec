@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inti
-%global packver   0.6.7
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Statistical Procedures in Plant Science
 
@@ -49,7 +49,7 @@ The 'inti' package is part of the 'inkaverse' project for developing
 different procedures and tools used in plant science and experimental
 designs. The mean aim of the package is to support researchers during the
 planning of experiments and data collection (tarpuy()), data analysis and
-graphics (yupana()) , and technical writing. Learn more about the
+graphics (yupana()) , and scientific writing. Learn more about the
 'inkaverse' project at <https://inkaverse.com/>.
 
 %prep

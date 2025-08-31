@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesWatch
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Change-Point Detection for Process Monitoring with Fault Detection
 
@@ -54,7 +54,7 @@ the probability of every possible change-point.  Bayes Watch also allows
 for an effective and efficient fault detection system that assesses what
 features in the data where the most responsible for a given change-point.
 For further details, see: Alexander C. Murph et al. (2023)
-<arXiv:2310.02940>.
+<doi:10.48550/arXiv.2310.02940>.
 
 %prep
 %setup -q -c -n %{packname}
