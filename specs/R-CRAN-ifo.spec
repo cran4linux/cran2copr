@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ifo
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for the Ifo Institute Time Series
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rvest 
-Requires:         R-utils 
 
 %description
 Download ifo business survey data and more time series from ifo institute

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmeU
-%global packver   0.71.6
+%global packver   0.71.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.71.6
+Version:          0.71.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Data Supporting 'Linear Mixed-Effects Models: A Step-by-Step Approach'
 

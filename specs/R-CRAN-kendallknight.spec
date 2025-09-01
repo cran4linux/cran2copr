@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kendallknight
-%global packver   0.7.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Implementation of Kendall's Correlation Coefficient Computation
 
@@ -30,8 +30,8 @@ difference is minimal. The references are Knight (1966)
 <doi:10.2307/2282833>, Abrevaya (1999)
 <doi:10.1016/S0165-1765(98)00255-9>, Christensen (2005)
 <doi:10.1007/BF02736122> and Emara (2024) <https://learningcpp.org/>. This
-implementation is described in Vargas Sepulveda (2024)
-<doi:10.48550/arXiv.2408.09618>.
+implementation is described in Vargas Sepulveda (2025)
+<doi:10.1371/journal.pone.0326090>.
 
 %prep
 %setup -q -c -n %{packname}

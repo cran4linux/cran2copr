@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OSLdecomposition
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Signal Component Analysis for Optically Stimulated Luminescence
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Luminescence >= 0.9.9
+BuildRequires:    R-CRAN-Luminescence >= 1.1.0
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-Luminescence >= 0.9.9
+Requires:         R-CRAN-Luminescence >= 1.1.0
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-stats 

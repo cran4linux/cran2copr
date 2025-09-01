@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LogisticEnsembles
-%global packver   0.6.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Runs 36 Logistic Models (Individual and Ensembles)
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-gam
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-gt 
@@ -70,6 +71,7 @@ Requires:         R-CRAN-gam
 Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggplotify 
+Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-gt 
@@ -97,19 +99,19 @@ Requires:         R-utils
 Requires:         R-CRAN-xgboost 
 
 %description
-Automatically returns 36 logistic models including 23 individual models
-and 13 ensembles of models of logistic data. The package also returns 10
+Automatically returns 24 logistic models including 13 individual models
+and 11 ensembles of models of logistic data. The package also returns 25
 plots, 5 tables, and a summary report. The package automatically builds
-all 36 models, reports all results, and provides graphics to show how the
-models performed. This can be used for a wide range of data sets. The
-package includes medical data (the Pima Indians data set), and information
-about the performance of Lebron James. The package can be used to analyze
-many other examples, such as stock market data. The package automatically
-returns many values for each model, such as True Positive Rate, True
-Negative Rate, False Positive Rate, False Negative Rate, Positive
-Predictive Value, Negative Predictive Value, F1 Score, Area Under the
-Curve. The package also returns 36 Receiver Operating Characteristic (ROC)
-curves for each of the 36 models.
+all 24 models, reports all results, and provides graphics to show how the
+models performed. This can be used for a wide range of data, such as
+sports or medical data. The package includes medical data (the Pima
+Indians data set), and information about the performance of Lebron James.
+The package can be used to analyze many other examples, such as stock
+market data. The package automatically returns many values for each model,
+such as True Positive Rate, True Negative Rate, False Positive Rate, False
+Negative Rate, Positive Predictive Value, Negative Predictive Value, F1
+Score, Area Under the Curve. The package also returns 36 Receiver
+Operating Characteristic (ROC) curves for each of the 24 models.
 
 %prep
 %setup -q -c -n %{packname}

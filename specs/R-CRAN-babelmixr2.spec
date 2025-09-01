@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  babelmixr2
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use 'nlmixr2' to Interact with Open Source and Commercial Software
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-rxode2 >= 3.0.2
-BuildRequires:    R-CRAN-nlmixr2est >= 3.0.1
+BuildRequires:    R-CRAN-nlmixr2est >= 4.1.0
+BuildRequires:    R-CRAN-rxode2 >= 4.1.0
 BuildRequires:    R-CRAN-nonmem2rx >= 0.1.5
 BuildRequires:    R-CRAN-monolix2rx >= 0.0.3
 BuildRequires:    R-CRAN-checkmate 
@@ -34,8 +34,8 @@ BuildRequires:    R-CRAN-rex
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-rxode2 >= 3.0.2
-Requires:         R-CRAN-nlmixr2est >= 3.0.1
+Requires:         R-CRAN-nlmixr2est >= 4.1.0
+Requires:         R-CRAN-rxode2 >= 4.1.0
 Requires:         R-CRAN-nonmem2rx >= 0.1.5
 Requires:         R-CRAN-monolix2rx >= 0.0.3
 Requires:         R-CRAN-checkmate 

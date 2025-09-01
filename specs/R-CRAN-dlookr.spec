@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dlookr
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Diagnosis, Exploration, Transformation
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-knitr >= 1.22
 BuildRequires:    R-CRAN-showtext >= 0.9.4
-BuildRequires:    R-CRAN-hrbrthemes >= 0.8.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
 BuildRequires:    R-CRAN-sysfonts >= 0.7.1
 BuildRequires:    R-CRAN-pagedown >= 0.15
@@ -43,7 +42,6 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-knitr >= 1.22
 Requires:         R-CRAN-showtext >= 0.9.4
-Requires:         R-CRAN-hrbrthemes >= 0.8.0
 Requires:         R-CRAN-dplyr >= 0.7.6
 Requires:         R-CRAN-sysfonts >= 0.7.1
 Requires:         R-CRAN-pagedown >= 0.15

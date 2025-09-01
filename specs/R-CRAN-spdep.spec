@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spdep
-%global packver   1.3-13
+%global packver   1.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.13
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
@@ -55,7 +55,7 @@ product statistic, Empirical Bayes estimates and 'Assunção/Reis' (1999)
 <doi:10.1002/(SICI)1097-0258(19990830)18:16%%3C2147::AID-SIM179%%3E3.0.CO;2-I>
 Index, 'Getis/Ord' G ('Getis' and 'Ord' 1992)
 <doi:10.1111/j.1538-4632.1992.tb00261.x> and multicoloured join count
-statistics, 'APLE' ('Li 'et al.' ) <doi:10.1111/j.1538-4632.2007.00708.x>,
+statistics, 'APLE' ('Li et al.' ) <doi:10.1111/j.1538-4632.2007.00708.x>,
 local 'Moran's I', 'Gearys C' ('Anselin' 1995)
 <doi:10.1111/j.1538-4632.1995.tb00338.x> and 'Getis/Ord' G ('Ord' and
 'Getis' 1995) <doi:10.1111/j.1538-4632.1995.tb00912.x>, 'saddlepoint'
@@ -71,8 +71,8 @@ dependence in linear models are provided ('Anselin et al'. 1996)
 <doi:10.1016/0166-0462(95)02111-6>, as are 'Rao' score tests for
 hypothesised spatial 'Durbin' models based on linear models ('Koley' and
 'Bera' 2023) <doi:10.1080/17421772.2023.2256810>. Additions in 2024
-include Local Indicators for Categorical Data based on 'Carrer' et al.
-(2021) <doi:10.1016/j.jas.2020.105306> and 'Bivand' et al. (2017)
+include Local Indicators for Categorical Data based on 'Carrer et al.'
+(2021) <doi:10.1016/j.jas.2020.105306> and 'Bivand et al.' (2017)
 <doi:10.1016/j.spasta.2017.03.003>; also Weighted Multivariate Spatial
 Autocorrelation Measures ('Bavaud' 2024) <doi:10.1111/gean.12390>.
 <doi:10.1080/17421772.2023.2256810>. A local indicators for categorical
@@ -80,9 +80,10 @@ data (LICD) implementation based on 'Carrer et al.' (2021)
 <doi:10.1016/j.jas.2020.105306> and 'Bivand et al.' (2017)
 <doi:10.1016/j.spasta.2017.03.003> was added in 1.3-7. Multivariate
 'spatialdelta' ('Bavaud' 2024) <doi:10.1111/gean.12390> was added in
-1.3-13. From 'spdep' and 'spatialreg' versions >= 1.2-1, the model fitting
-functions previously present in this package are defunct in 'spdep' and
-may be found in 'spatialreg'.
+1.3-13 ('Bivand' 2025 <doi:10.26034/la.cdclsl.2025.8343>. From 'spdep' and
+'spatialreg' versions >= 1.2-1, the model fitting functions previously
+present in this package are defunct in 'spdep' and may be found in
+'spatialreg'.
 
 %prep
 %setup -q -c -n %{packname}

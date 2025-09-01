@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Keng
-%global packver   2025.8.16
+%global packver   2025.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.8.16
+Version:          2025.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knock Errors Off Nice Guesses
 
@@ -34,7 +34,8 @@ conduct a priori power analysis and plan the sample size for one or a set
 of predictors in regression analysis; (8) conduct post-hoc power analysis
 for one or a set of predictors in regression analysis with known sample
 size; (9) randomly pick numbers for Chinese Super Lotto and Double Color
-Balls.
+Balls; (10) assess course objective achievement in Outcome-Based
+Education.
 
 %prep
 %setup -q -c -n %{packname}
