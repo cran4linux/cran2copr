@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FeatureExtraction
-%global packver   3.10.0
+%global packver   3.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.0
+Version:          3.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Features for a Cohort
 

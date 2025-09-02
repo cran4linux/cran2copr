@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iotables
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reproducible Input-Output Economics Analysis, Economic and Environmental Impact Assessment with Empirical Data
+Summary:          Reproducible Input–Output Economics Analysis, Economic and Environmental Impact Assessment with Empirical Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,44 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-eurostat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-eurostat 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
-Requires:         R-utils 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Pre-processing and basic analytical tasks related to working with
-Eurostat's symmetric input-output tables and provide basic input-output
-economics calculations. The package is part of rOpenGov
-<http://ropengov.github.io/> to open source open government initiatives.
+Pre-processing and basic analytical tasks for working with Eurostat's
+symmetric input–output tables, and basic input–output economics
+calculations. Part of rOpenGov <https://ropengov.github.io/> for open
+source open government initiatives.
 
 %prep
 %setup -q -c -n %{packname}

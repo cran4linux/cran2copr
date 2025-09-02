@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nrlR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access and Analyze Rugby League Data from Rugby League Project
+Summary:          Functions to Scrape Rugby Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -47,7 +47,8 @@ Queensland Cup, Super League, and various representative and women's
 competitions. Includes functions to fetch player statistics, match
 results, ladders, venues, and coaching data. Designed to assist analysts,
 fans, and researchers in exploring historical and current rugby league
-data.
+data. See Woods et al. (2017) <doi:10.1123/ijspp.2016-0187> for an example
+of rugby league performance analysis methodology.
 
 %prep
 %setup -q -c -n %{packname}

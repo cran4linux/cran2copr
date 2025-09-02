@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tune
-%global packver   1.3.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tuning Tools
 
@@ -14,56 +14,52 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.3.0
 BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-glue >= 1.6.2
-BuildRequires:    R-CRAN-hardhat >= 1.4.1
-BuildRequires:    R-CRAN-dials >= 1.4.0
-BuildRequires:    R-CRAN-future >= 1.33.0
+BuildRequires:    R-CRAN-hardhat >= 1.4.2
+BuildRequires:    R-CRAN-rsample >= 1.3.0.9003
+BuildRequires:    R-CRAN-dials >= 1.3.0.9000
+BuildRequires:    R-CRAN-workflows >= 1.3.0
 BuildRequires:    R-CRAN-yardstick >= 1.3.0
-BuildRequires:    R-CRAN-rsample >= 1.2.1
-BuildRequires:    R-CRAN-parsnip >= 1.2.0
+BuildRequires:    R-CRAN-parsnip >= 1.2.1.9003
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
-BuildRequires:    R-CRAN-workflows >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.4
 BuildRequires:    R-CRAN-tidyselect >= 1.1.2
+BuildRequires:    R-CRAN-recipes >= 1.1.0.9001
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-recipes >= 1.0.4
-BuildRequires:    R-CRAN-doFuture >= 1.0.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.6.1
 BuildRequires:    R-CRAN-generics >= 0.1.2
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-tailor >= 0.1.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GPfit 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-glue >= 1.6.2
-Requires:         R-CRAN-hardhat >= 1.4.1
-Requires:         R-CRAN-dials >= 1.4.0
-Requires:         R-CRAN-future >= 1.33.0
+Requires:         R-CRAN-hardhat >= 1.4.2
+Requires:         R-CRAN-rsample >= 1.3.0.9003
+Requires:         R-CRAN-dials >= 1.3.0.9000
+Requires:         R-CRAN-workflows >= 1.3.0
 Requires:         R-CRAN-yardstick >= 1.3.0
-Requires:         R-CRAN-rsample >= 1.2.1
-Requires:         R-CRAN-parsnip >= 1.2.0
+Requires:         R-CRAN-parsnip >= 1.2.1.9003
 Requires:         R-CRAN-tidyr >= 1.2.0
-Requires:         R-CRAN-workflows >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.4
 Requires:         R-CRAN-tidyselect >= 1.1.2
+Requires:         R-CRAN-recipes >= 1.1.0.9001
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-recipes >= 1.0.4
-Requires:         R-CRAN-doFuture >= 1.0.0
-Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.6.1
 Requires:         R-CRAN-generics >= 0.1.2
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-tailor >= 0.1.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GPfit 
+Requires:         R-parallel 
 Requires:         R-CRAN-withr 
 
 %description

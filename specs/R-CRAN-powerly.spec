@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  powerly
-%global packver   1.8.6
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.6
+Version:          1.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size Analysis for Psychological Networks and More
 
@@ -18,25 +18,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-bootnet 
 BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-parabar 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-progress 
-Requires:         R-parallel 
 Requires:         R-CRAN-splines2 
 Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-osqp 
 Requires:         R-CRAN-bootnet 
 Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-parabar 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-mvtnorm 
@@ -44,7 +40,7 @@ Requires:         R-CRAN-patchwork
 
 %description
 An implementation of the sample size computation method for network models
-proposed by Constantin et al. (2021) <doi:10.31234/osf.io/j5v7u>. The
+proposed by Constantin et al. (2023) <doi:10.1037/met0000555>. The
 implementation takes the form of a three-step recursive algorithm designed
 to find an optimal sample size given a model specification and a
 performance measure of interest. It starts with a Monte Carlo simulation

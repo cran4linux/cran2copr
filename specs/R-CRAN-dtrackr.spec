@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtrackr
-%global packver   0.4.6
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Track your Data Pipelines
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-htmltools 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-base64enc
 Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-scales 
 
 %description
 Track and document 'dplyr' data pipelines. As you filter, mutate, and join

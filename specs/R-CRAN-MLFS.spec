@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MLFS
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Forest Simulator
 
@@ -36,13 +37,16 @@ Requires:         R-CRAN-brnn >= 0.6
 Requires:         R-CRAN-ranger >= 0.13.1
 
 %description
-Climate-sensitive forest simulator based on the principles of machine
-learning. It stimulates all key processes in the forest: radial growth,
-height growth, mortality, crown recession, regeneration and harvesting.
-The method for predicting tree heights was described by Skudnik and
-Jevšenak (2022) <doi:10.1016/j.foreco.2022.120017>, while the method for
-predicting basal area increments (BAI) was described by Jevšenak and
-Skudnik (2021) <doi:10.1016/j.foreco.2020.118601>.
+Climate-sensitive, single-tree forest simulator based on data-driven
+machine learning. It simulates the main forest processes— radial growth,
+height growth, mortality, crown recession, regeneration, and harvesting—so
+users can assess stand development under climate and management scenarios.
+The height model is described by Skudnik and Jevšenak (2022)
+<doi:10.1016/j.foreco.2022.120017>, the basal-area increment model by
+Jevšenak and Skudnik (2021) <doi:10.1016/j.foreco.2020.118601>, and an
+overview of the MLFS package, workflow, and applications is provided by
+Jevšenak, Arnič, Krajnc, and Skudnik (2023), Ecological Informatics
+<doi:10.1016/j.ecoinf.2023.102115>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  atom4R
-%global packver   0.3-3
+%global packver   0.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Handle and Publish Metadata as 'Atom' XML Format
 
@@ -39,8 +39,8 @@ Requires:         R-CRAN-keyring
 %description
 Provides tools to read/write/publish metadata based on the 'Atom' XML
 syndication format. This includes support of 'Dublin Core' XML
-implementation, and a client to API(s) implementing the 'AtomPub' 'SWORD'
-API specification.
+implementation, and a client to API(s) implementing the 'AtomPub' -
+'SWORD' API specification.
 
 %prep
 %setup -q -c -n %{packname}

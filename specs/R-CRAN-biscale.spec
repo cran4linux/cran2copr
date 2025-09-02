@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  biscale
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Palettes for Bivariate Thematic Mapping
 
@@ -18,12 +19,8 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Provides a 'ggplot2' centric approach to bivariate mapping. This is a

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gor
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithms for the Subject Graphs and Network Optimization
 
@@ -18,21 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
 Requires:         R-CRAN-igraph 
-Requires:         R-graphics 
-Requires:         R-stats 
 
 %description
 Informal implementation of some algorithms from Graph Theory and
 Combinatorial Optimization which arise in the subject "Graphs and Network
-Optimization" from first course of the EUPLA (Escuela Universitaria
-Politecnica de La Almunia) degree of Data Engineering in Industrial
-Processes. References used are: Cook et al (1998, ISBN:0-471-55894-X),
-Korte, Vygen (2018) <doi:10.1007/978-3-662-56039-6>, Hromkovic (2004)
-<doi:10.1007/978-3-662-05269-3>, Hartmann, Weigt (2005,
-ISBN:978-3-527-40473-5).
+Optimization" from first course of the EUPLA degree of Data Engineering in
+Industrial Processes.
 
 %prep
 %setup -q -c -n %{packname}

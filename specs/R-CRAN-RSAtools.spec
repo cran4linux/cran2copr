@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSAtools
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Response Surface Analysis
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-aplpack 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-semTools >= 0.5.5
 Requires:         R-CRAN-lavaan >= 0.5.20
 Requires:         R-CRAN-RSA >= 0.10.4
@@ -35,6 +36,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-aplpack 
 Requires:         R-methods 
+Requires:         R-CRAN-MASS 
 
 %description
 Provides tools for response surface analysis, using a comparative
