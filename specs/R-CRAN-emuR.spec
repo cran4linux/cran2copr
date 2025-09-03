@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emuR
-%global packver   2.5.0
+%global packver   2.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Main Package of the EMU Speech Database Management System
 
@@ -41,6 +41,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-V8 >= 3.4.0
 Requires:         R-CRAN-cli >= 2.5.0
 Requires:         R-CRAN-RSQLite >= 2.0.0
@@ -65,6 +67,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Provide the EMU Speech Database Management System (EMU-SDMS) with database

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MHDA
-%global packver   1.4
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Massive Hierarchically Data Analysis
 
@@ -26,7 +26,9 @@ Requires:         R-graphics
 
 %description
 Three main functions about analyzing massive data (missing observations
-are allowed) considered from multiple layers of categories.
+are allowed) considered from multiple layers of categories are
+demonstrated. Flexible and diverse applications of the function parameters
+make the data analyses powerful.
 
 %prep
 %setup -q -c -n %{packname}

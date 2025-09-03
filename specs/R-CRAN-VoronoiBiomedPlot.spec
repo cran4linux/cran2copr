@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VoronoiBiomedPlot
-%global packver   0.1.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Visualization Plots for Dimensionally Reduced Data
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-MASS 
 
 %description
 Creates visualization plots for 2D projected data including ellipse plots,

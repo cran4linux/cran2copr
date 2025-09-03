@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TAF
-%global packver   4.2.0
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transparent Assessment Framework for Reproducible Research
 
@@ -19,26 +19,28 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lattice 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Functions to organize data, methods, and results used in scientific
-analyses. A TAF analysis consists of four scripts (data.R, model.R,
-output.R, report.R) that are run sequentially. Each script starts by
-reading files from a previous step and ends with writing out files for the
-next step. Convenience functions are provided to version control the
-required data and software, run analyses, clean residues from previous
-runs, manage files, manipulate tables, and produce figures. With a focus
-on stability and reproducible analyses, TAF is designed to have no package
-dependencies. TAF forms a base layer for the 'icesTAF' package and other
-scientific applications.
+General framework to organize data, methods, and results used in
+reproducible scientific analyses. A TAF analysis consists of four scripts
+(data.R, model.R, output.R, report.R) that are run sequentially. Each
+script starts by reading files from a previous step and ends with writing
+out files for the next step. Convenience functions are provided to version
+control the required data and software, run analyses, clean residues from
+previous runs, manage files, manipulate tables, and produce figures. With
+a focus on stability and reproducible analyses, the TAF package comes with
+no dependencies. TAF forms a base layer for the 'icesTAF' package and
+other scientific applications.
 
 %prep
 %setup -q -c -n %{packname}

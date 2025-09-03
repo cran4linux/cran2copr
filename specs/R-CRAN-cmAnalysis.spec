@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmAnalysis
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Visualise Concept Mapping Data
 
@@ -33,13 +33,16 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-pheatmap 
 
 %description
-Processing and visualizing concept mapping data. Concept maps are
-versatile tools used across disciplines to enhance understanding,
-teaching, brainstorming, and information organization. The analysis of
-concept mapping data involves the sequential use of cluster analysis (for
-sorting participants and statements), multidimensional scaling (for
-positioning statements in a conceptual space), and visualization
-techniques, including point cluster maps and dendrograms.
+Concept maps are versatile tools used across disciplines to enhance
+understanding, teaching, brainstorming, and information organization. This
+package provides functions for processing and visualizing concept mapping
+data, involving the sequential use of cluster analysis (for sorting
+participants and statements), multidimensional scaling (for positioning
+statements in a conceptual space), and visualization techniques, including
+point cluster maps and dendrograms. The methodology and its validity are
+discussed in Kampen, J.K., Hageman, J.A., Breuer, M., & Tobi, H. (2025).
+"The validity of concept mapping: let's call a spade a spade." Qual Quant.
+<doi:10.1007/s11135-025-02351-z>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaDES.core
-%global packver   2.1.0
+%global packver   2.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Utilities for Developing and Running Spatially Explicit Discrete Event Models
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reproducible >= 2.1.0
+BuildRequires:    R-CRAN-reproducible >= 2.1.1
 BuildRequires:    R-CRAN-terra >= 1.7.46
 BuildRequires:    R-CRAN-data.table >= 1.11.0
 BuildRequires:    R-CRAN-quickPlot >= 1.0.2
@@ -32,7 +32,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-reproducible >= 2.1.0
+Requires:         R-CRAN-reproducible >= 2.1.1
 Requires:         R-CRAN-terra >= 1.7.46
 Requires:         R-CRAN-data.table >= 1.11.0
 Requires:         R-CRAN-quickPlot >= 1.0.2

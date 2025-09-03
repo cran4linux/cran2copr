@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gecko
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographical Ecology and Conservation Knowledge Online
 
@@ -28,6 +28,10 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-red 
 BuildRequires:    R-CRAN-biomod2 
 BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-sp 
 Requires:         R-grDevices 
@@ -39,6 +43,10 @@ Requires:         R-methods
 Requires:         R-CRAN-red 
 Requires:         R-CRAN-biomod2 
 Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
 Includes a collection of geographical analysis functions aimed primarily

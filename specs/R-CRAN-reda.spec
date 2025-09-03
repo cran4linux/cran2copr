@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reda
-%global packver   0.5.5
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recurrent Event Data Analysis
 
@@ -18,17 +18,13 @@ BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
 BuildRequires:    R-CRAN-splines2 >= 0.4.3
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-splines2 >= 0.4.3
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-stats 
 

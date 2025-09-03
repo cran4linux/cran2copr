@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AssocBin
-%global packver   1.1-1
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Association with Recursive Binning
 
@@ -23,9 +23,9 @@ An iterative implementation of a recursive binary partitioning algorithm
 to measure pairwise dependence with a modular design that allows user
 specification of the splitting logic and stop criteria. Helper functions
 provide suggested versions of both and support visualization and the
-computation of summary statistics on final binnings. For a complete
-description of the functionality and algorithm, see Salahub and Oldford
-(2025) <doi:10.48550/arXiv.2311.08561>.
+computation of summary statistics on final binnings. For a thorough
+discussion and demonstration of the algorithm, see Salahub and Oldford
+(2025) <doi:10.1002/sam.70042>.
 
 %prep
 %setup -q -c -n %{packname}

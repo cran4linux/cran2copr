@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ImpactEffectsize
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation and Visualization of the Impact Effect Size Measure
 
@@ -23,6 +23,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-parallelDist 
@@ -30,6 +31,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-withr 
 
 %description
 A non-parametric effect size measure capturing changes in central tendency

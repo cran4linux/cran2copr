@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcaiman
-%global packver   1.2.2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          CAnopy IMage ANalysis
 
@@ -14,12 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-filenamer 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-testthat 
@@ -30,9 +29,10 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-spatial 
 BuildRequires:    R-CRAN-lidR 
 BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-filenamer 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-terra 
 Requires:         R-methods 
 Requires:         R-CRAN-testthat 
@@ -43,16 +43,15 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-spatial 
 Requires:         R-CRAN-lidR 
 Requires:         R-tcltk 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 
 %description
-Classify hemispherical photographs of the plant canopy with algorithms
-specially developed for such a task and well documented in Díaz and
-Lencinas (2015) <doi:10.1109/lgrs.2015.2425931> and Díaz and Lencinas
-(2018) <doi:10.1139/cjfr-2018-0006>. It supports non-circular
-hemispherical photography, such as those acquired with 15mm lenses or with
-auxiliary fish-eye lenses attached to mobile devices. For smartphone-based
-hemispherical photography see Díaz (2023) <doi:10.1111/2041-210x.14059>.
-Most of the functions also support restricted view photography.
+Tools for preprocessing and processing canopy photographs with support for
+raw data reading. Provides methods to address variability in sky
+brightness and to mitigate errors from image acquisition in non-diffuse
+light. Works with all types of fish-eye lenses, and some methods also
+apply to conventional lenses.
 
 %prep
 %setup -q -c -n %{packname}

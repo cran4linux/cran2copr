@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FFTrees
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate, Visualise, and Evaluate Fast-and-Frugal Decision Trees
 
@@ -18,9 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-knitr 
@@ -29,11 +26,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-knitr 
@@ -42,7 +35,6 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Create, visualize, and test fast-and-frugal decision trees (FFTs) using

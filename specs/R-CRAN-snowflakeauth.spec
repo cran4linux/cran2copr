@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snowflakeauth
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authentication Helpers for 'Snowflake'
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-RcppTOML 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-openssl 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-RcppTOML 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-openssl 
 
 %description
 Authentication helpers for 'Snowflake'. It provides compatibility with

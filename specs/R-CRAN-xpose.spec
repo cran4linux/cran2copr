@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xpose
-%global packver   0.4.19
+%global packver   0.4.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.19
+Version:          0.4.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostics for Pharmacometric Models
 
@@ -14,33 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-readr >= 2.1.0
-BuildRequires:    R-CRAN-tibble >= 2.1.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-vpc >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
-BuildRequires:    R-CRAN-tidyr >= 0.8.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-ggforce >= 0.2.0
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-CRAN-tibble >= 3.3.0
+BuildRequires:    R-CRAN-readr >= 2.1.5
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-vpc >= 1.2.2
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-purrr >= 1.0.4
+BuildRequires:    R-CRAN-ggforce >= 0.5.0
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-readr >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.1.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-vpc >= 1.1.0
-Requires:         R-CRAN-dplyr >= 0.8.0
-Requires:         R-CRAN-tidyr >= 0.8.0
-Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-ggforce >= 0.2.0
-Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 >= 3.5.2
+Requires:         R-CRAN-tibble >= 3.3.0
+Requires:         R-CRAN-readr >= 2.1.5
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-vpc >= 1.2.2
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-purrr >= 1.0.4
+Requires:         R-CRAN-ggforce >= 0.5.0
 Requires:         R-utils 
 Requires:         R-stats 
 

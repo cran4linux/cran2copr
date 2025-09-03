@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  haldensify
-%global packver   0.2.3
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Highly Adaptive Lasso Conditional Density Estimation
 
@@ -16,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-origami >= 1.0.3
-BuildRequires:    R-CRAN-hal9001 >= 0.4.1
+BuildRequires:    R-CRAN-origami >= 1.0.7
+BuildRequires:    R-CRAN-hal9001 >= 0.4.6
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dplyr 
@@ -27,12 +28,12 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-origami >= 1.0.3
-Requires:         R-CRAN-hal9001 >= 0.4.1
+Requires:         R-CRAN-origami >= 1.0.7
+Requires:         R-CRAN-hal9001 >= 0.4.6
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-dplyr 
@@ -42,7 +43,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-Rdpack 
@@ -51,19 +52,19 @@ Requires:         R-CRAN-Rdpack
 An algorithm for flexible conditional density estimation based on
 application of pooled hazard regression to an artificial repeated measures
 dataset constructed by discretizing the support of the outcome variable.
-To facilitate non/semi-parametric estimation of the conditional density,
-the highly adaptive lasso, a nonparametric regression function shown to
-reliably estimate a large class of functions at a fast convergence rate,
-is utilized. The pooled hazards data augmentation formulation implemented
-was first described by Díaz and van der Laan (2011)
-<doi:10.2202/1557-4679.1356>. To complement the conditional density
-estimation utilities, tools for efficient nonparametric inverse
-probability weighted (IPW) estimation of the causal effects of stochastic
-shift interventions (modified treatment policies), directly utilizing the
-density estimation technique for construction of the generalized
-propensity score, are provided. These IPW estimators utilize
-undersmoothing (sieve estimation) of the conditional density estimators in
-order to achieve the non/semi-parametric efficiency bound.
+To facilitate flexible estimation of the conditional density, the highly
+adaptive lasso, a non-parametric regression function shown to estimate
+cadlag (RCLL) functions at a suitably fast convergence rate, is used. The
+use of pooled hazards regression for conditional density estimation as
+implemented here was first described for by Díaz and van der Laan (2011)
+<doi:10.2202/1557-4679.1356>. Building on the conditional density
+estimation utilities, non-parametric inverse probability weighted (IPW)
+estimators of the causal effects of additive modified treatment policies
+are implemented, using conditional density estimation to estimate the
+generalized propensity score. Non-parametric IPW estimators based on this
+can be coupled with undersmoothing of the generalized propensity score
+estimator to attain the semi-parametric efficiency bound (per Hejazi,
+Díaz, and van der Laan <doi:10.48550/arXiv.2205.05777>).
 
 %prep
 %setup -q -c -n %{packname}

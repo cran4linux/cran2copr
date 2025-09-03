@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PLStests
-%global packver   0.1.1
+%global packname  rvolleydata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Checking for High-Dimensional GLMs via Random Projections
+Summary:          Extract Data from Professional Volleyball Leagues in North America
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-harmonicmeanp 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-harmonicmeanp 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-psych 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides methods for testing the goodness-of-fit of generalized linear
-models (GLMs) using random projections. It is specifically designed for
-high-dimensional scenarios where the number of predictors substantially
-exceeds the sample size. The statistical methodologies implemented in this
-package are detailed in the paper by Wen Chen and Falong Tan (2024,
-<doi:10.48550/arXiv.2412.10721>).
+Gather boxscore, play-by-play, and auxiliary data from Major League
+Volleyball (MLV) <https://provolleyball.com>, League One Volleyball Pro
+(LOVB Pro) <https://www.lovb.com/pro-league>, and Athletes Unlimited Pro
+Volleyball <https://auprosports.com/volleyball/> to create a repository of
+basic and advanced statistics for teams and players.
 
 %prep
 %setup -q -c -n %{packname}

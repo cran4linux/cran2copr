@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fpp3
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data for "Forecasting: Principles and Practice" (3rd Edition)
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-rstudioapi >= 0.7
 BuildRequires:    R-CRAN-fable >= 0.3.0
-BuildRequires:    R-CRAN-fabletools >= 0.3.0
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-tsibbledata >= 0.2.0
 BuildRequires:    R-CRAN-feasts >= 0.1.7
@@ -41,7 +40,6 @@ Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-rstudioapi >= 0.7
 Requires:         R-CRAN-fable >= 0.3.0
-Requires:         R-CRAN-fabletools >= 0.3.0
 Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-tsibbledata >= 0.2.0
 Requires:         R-CRAN-feasts >= 0.1.7

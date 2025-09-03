@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlbplotR
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create 'ggplot2' and 'gt' Visuals with Major League Baseball Logos
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-magrittr 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gt 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-magrittr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  puniform
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis Methods Correcting for Publication Bias
 
@@ -46,12 +46,12 @@ van Assen (2018) <doi:10.3758/s13428-017-0967-6>. The hybrid method is a
 meta-analysis method for combining a conventional study and
 replication/preregistered study while taking into account statistical
 significance of the conventional study. This method was extended in van
-Aert (2023) such that it allows for the inclusion of multiple conventional
-and replication/preregistered studies. The p-uniform and hybrid method are
-based on the statistical theory that the distribution of p-values is
-uniform conditional on the population effect size. The fourth method in
-the package is the Snapshot Bayesian Hybrid Meta-Analysis Method as
-described in van Aert and van Assen (2018)
+Aert (2025) <doi:10.1037/met0000719> such that it allows for the inclusion
+of multiple conventional and replication/preregistered studies. The
+p-uniform and hybrid method are based on the statistical theory that the
+distribution of p-values is uniform conditional on the population effect
+size. The fourth method in the package is the Snapshot Bayesian Hybrid
+Meta-Analysis Method as described in van Aert and van Assen (2018)
 <doi:10.1371/journal.pone.0175302>. This method computes posterior
 probabilities for four true effect sizes (no, small, medium, and large)
 based on an original study and replication while taking into account

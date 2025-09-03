@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  icesTAF
-%global packver   4.2.0
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Support the ICES Transparent Assessment Framework
 
@@ -17,14 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TAF >= 4.2.0
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-data.tree 
-Requires:         R-CRAN-TAF >= 4.2.0
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-data.tree 
+BuildRequires:    R-CRAN-TAF >= 4.3.0
+BuildRequires:    R-CRAN-icesSAG >= 1.6.2
+BuildRequires:    R-CRAN-icesVocab >= 1.3.1
+BuildRequires:    R-CRAN-icesDatsu >= 1.2.1
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-icesConnect 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-TAF >= 4.3.0
+Requires:         R-CRAN-icesSAG >= 1.6.2
+Requires:         R-CRAN-icesVocab >= 1.3.1
+Requires:         R-CRAN-icesDatsu >= 1.2.1
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-icesConnect 
+Requires:         R-CRAN-httr 
 
 %description
 Functions to support the ICES Transparent Assessment Framework
