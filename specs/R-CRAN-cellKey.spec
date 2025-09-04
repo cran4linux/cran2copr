@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cellKey
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consistent Perturbation of Statistical Frequency- And Magnitude Tables
 
@@ -21,24 +21,24 @@ BuildRequires:    R-CRAN-ptable >= 1.0.0
 BuildRequires:    R-CRAN-digest >= 0.6.23
 BuildRequires:    R-CRAN-sdcTable >= 0.32.2
 BuildRequires:    R-CRAN-sdcHierarchies >= 0.19.3
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-ptable >= 1.0.0
 Requires:         R-CRAN-digest >= 0.6.23
 Requires:         R-CRAN-sdcTable >= 0.32.2
 Requires:         R-CRAN-sdcHierarchies >= 0.19.3
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
 Requires:         R-CRAN-cli 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 
 Requires:         R-parallel 
+Requires:         R-CRAN-data.table 
 
 %description
 Data from statistical agencies and other institutions often need to be

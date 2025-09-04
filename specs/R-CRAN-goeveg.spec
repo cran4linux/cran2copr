@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  goeveg
-%global packver   0.7.6
+%global packver   0.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Community Data and Ordinations
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-vegan
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-data.table 
 
 %description
 A collection of functions useful in (vegetation) community analyses and

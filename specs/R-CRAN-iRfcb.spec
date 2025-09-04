@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iRfcb
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Managing Imaging FlowCytobot (IFCB) Data
 
@@ -19,34 +19,34 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 6.0.0
 BuildRequires:    R-CRAN-reticulate >= 1.41.0
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-worrms 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-R.matlab 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-worrms 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-curl >= 6.0.0
 Requires:         R-CRAN-reticulate >= 1.41.0
-Requires:         R-CRAN-zip 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-worrms 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-R.matlab 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-worrms 
+Requires:         R-CRAN-zip 
 
 %description
 A comprehensive suite of tools for managing, processing, and analyzing

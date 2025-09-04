@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  outliers.ts.oga
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Outlier Detection for Large Time Series Databases
 
@@ -19,15 +19,17 @@ Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast >= 8.22.0
 BuildRequires:    R-CRAN-caret >= 6.0.94
-BuildRequires:    R-parallel >= 3.6.2
+BuildRequires:    R-CRAN-future >= 1.67.0
 BuildRequires:    R-CRAN-parallelly >= 1.37.1
+BuildRequires:    R-CRAN-future.apply >= 1.20.0
 BuildRequires:    R-CRAN-robust >= 0.7.4
 BuildRequires:    R-CRAN-gsarima >= 0.1.5
 BuildRequires:    R-CRAN-SLBDD >= 0.0.4
 Requires:         R-CRAN-forecast >= 8.22.0
 Requires:         R-CRAN-caret >= 6.0.94
-Requires:         R-parallel >= 3.6.2
+Requires:         R-CRAN-future >= 1.67.0
 Requires:         R-CRAN-parallelly >= 1.37.1
+Requires:         R-CRAN-future.apply >= 1.20.0
 Requires:         R-CRAN-robust >= 0.7.4
 Requires:         R-CRAN-gsarima >= 0.1.5
 Requires:         R-CRAN-SLBDD >= 0.0.4
@@ -39,9 +41,8 @@ Orthogonal Greedy Algorithm (OGA) for saturated linear regression models.
 The programs implement the procedures presented in the paper entitled
 "Efficient Outlier Detection for Large Time Series Databases" by Pedro
 Galeano, Daniel Peña and Ruey S. Tsay (2025), working paper, Universidad
-Carlos III de Madrid. Version 1.0.1 contains some improvements to the
-algorithm, so the results may vary slightly compared to those obtained
-with version 0.0.1.
+Carlos III de Madrid. Version 1.1.1 contains some improvements in
+parallelization with respect to version 1.0.1.
 
 %prep
 %setup -q -c -n %{packname}

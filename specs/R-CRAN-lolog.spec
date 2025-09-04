@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lolog
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Order Logistic Graph Models
 
@@ -39,8 +39,8 @@ Estimation of Latent Order Logistic (LOLOG) Models for Networks. LOLOGs
 are a flexible and fully general class of statistical graph models. This
 package provides functions for performing MOM, GMM and variational
 inference. Visual diagnostics and goodness of fit metrics are provided.
-See Fellows (2018) <arXiv:1804.04583> for a detailed description of the
-methods.
+See Fellows (2018) <doi:10.48550/arXiv.1804.04583> for a detailed
+description of the methods.
 
 %prep
 %setup -q -c -n %{packname}

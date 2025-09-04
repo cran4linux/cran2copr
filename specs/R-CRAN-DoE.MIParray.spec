@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DoE.MIParray
-%global packver   1.0-1
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creation of Arrays by Mixed Integer Programming
 
@@ -37,10 +37,9 @@ can process such files. If at least one of the commercial products
 'Gurobi' or 'Mosek' (free academic licenses available for both) is
 available, the package also creates arrays by optimization. For installing
 'Gurobi' and its R package 'gurobi', follow instructions at
-<https://www.gurobi.com/products/gurobi-optimizer/> and
-<https://www.gurobi.com/documentation/7.5/refman/r_api_overview.html> (or
-higher version). For installing 'Mosek' and its R package 'Rmosek', follow
-instructions at <https://www.mosek.com/downloads/> and
+<https://support.gurobi.com/hc/en-us/articles/14462206790033-How-do-I-install-Gurobi-for-R>.
+For installing 'Mosek' and its R package 'Rmosek', follow instructions at
+<https://www.mosek.com/downloads/> and
 <https://docs.mosek.com/8.1/rmosek/install-interface.html>, or use the
 functionality in the stump CRAN R package 'Rmosek'.
 

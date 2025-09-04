@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multitool
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run Multiverse Style Analyses
 
@@ -14,19 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-correlation 
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-ggdist 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -36,16 +31,12 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-performance 
-Requires:         R-CRAN-clipr 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-correlation 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-ggdist 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
@@ -55,6 +46,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-performance 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 Run the same analysis over a range of arbitrary data processing decisions.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  googlesheets4
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Google Sheets using the Sheets API V4
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 2.1.1
 BuildRequires:    R-CRAN-googledrive >= 2.1.0
-BuildRequires:    R-CRAN-gargle >= 1.5.0
+BuildRequires:    R-CRAN-gargle >= 1.6.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-vctrs >= 0.2.3
@@ -38,7 +38,7 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-googledrive >= 2.1.0
-Requires:         R-CRAN-gargle >= 1.5.0
+Requires:         R-CRAN-gargle >= 1.6.0
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-vctrs >= 0.2.3

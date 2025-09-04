@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  finalfit
-%global packver   1.0.8
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quickly Create Elegant Regression Results Tables and Plots when Modelling
 
@@ -17,19 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mice >= 3.17.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-bdsmatrix 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-purrr 
@@ -37,19 +36,18 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-mice >= 3.17.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-bdsmatrix 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mice 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-purrr 

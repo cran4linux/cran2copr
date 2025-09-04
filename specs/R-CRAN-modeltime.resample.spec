@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modeltime.resample
-%global packver   0.2.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Tools for Time Series Forecasting
 
@@ -19,15 +19,13 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-timetk >= 2.5.0
+BuildRequires:    R-CRAN-tune >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-modeltime >= 0.3.0
-BuildRequires:    R-CRAN-parsnip >= 0.1.4
 BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -39,17 +37,16 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-timetk >= 2.5.0
+Requires:         R-CRAN-tune >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-modeltime >= 0.3.0
-Requires:         R-CRAN-parsnip >= 0.1.4
 Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-tune 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-workflows 
 Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-dials 
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -61,6 +58,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-withr 
 
 %description
 A 'modeltime' extension that implements forecast resampling tools that

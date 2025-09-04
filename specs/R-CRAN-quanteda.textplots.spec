@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quanteda.textplots
-%global packver   0.95
+%global packver   0.96
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.95
+Version:          0.96
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plots for the Quantitative Analysis of Textual Data
 
@@ -14,11 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-extrafont 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-extrafont 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 

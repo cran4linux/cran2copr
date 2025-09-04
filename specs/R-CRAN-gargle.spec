@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gargle
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Working with Google APIs
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-httr >= 1.4.5
 BuildRequires:    R-CRAN-fs >= 1.3.1
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-stats 
@@ -34,8 +34,8 @@ Requires:         R-CRAN-httr >= 1.4.5
 Requires:         R-CRAN-fs >= 1.3.1
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-stats 

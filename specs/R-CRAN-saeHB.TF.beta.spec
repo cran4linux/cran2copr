@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saeHB.TF.beta
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          SAE using HB Twofold Subarea Model under Beta Distribution
 
@@ -46,8 +46,8 @@ U-Turn Sampler algorithm. The model-based estimators include the HB mean,
 the variation of the mean, and quantiles. For references, see Rao and
 Molina (2015) <doi:10.1002/9781118735855>, Torabi and Rao (2014)
 <doi:10.1016/j.jmva.2014.02.001>, Leyla Mohadjer et al.(2007)
-<http://www.asasrms.org/Proceedings/y2007/Files/JSM2007-000559.pdf>, and
-Erciulescu et al.(2019) <doi:10.1111/rssa.12390>.
+<http://www.asasrms.org/Proceedings/y2007/Files/JSM2007-000559.pdf>,
+Erciulescu et al.(2019) <doi:10.1111/rssa.12390>, and Yudasena (2024).
 
 %prep
 %setup -q -c -n %{packname}

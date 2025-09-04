@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PlackettLuce
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plackett-Luce Models for Rankings
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-partykit 
@@ -31,8 +31,8 @@ BuildRequires:    R-CRAN-qvcalc
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
 Requires:         R-CRAN-partykit 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pretestcad
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pretest Probability for Coronary Artery Disease
 
@@ -36,12 +36,12 @@ Cardiology (ESC). Examples of PTP scores that comes from studies are the
 (RF-CL) and Coronary Artery Calcium Score-weighted Clinical Likelihood
 (CACS-CL) models <doi:10.1016/j.jacc.2020.09.585>, 2019 Reeh et al. basic
 and clinical models <doi:10.1093/eurheartj/ehy806> and 2017 Fordyce et al.
-PROMISE Minimal-Risk Tool <doi:10.1001/jamacardio.2016.5501>. As diagnosis
-of CAD involves a costly and invasive coronary angiography procedure for
-patients, having a reliable PTP for CAD helps doctors to make better
-decisions during patient management. This ensures high risk patients can
-be diagnosed and treated early for CAD while avoiding unnecessary testing
-for low risk patients.
+PROMISE Minimal-Risk Tool <doi:10.1001/jamacardio.2016.5501>.  As
+diagnosis of CAD involves a costly and invasive coronary angiography
+procedure for patients, having a reliable PTP for CAD helps doctors to
+make better decisions during patient management.  This ensures high risk
+patients can be diagnosed and treated early for CAD while avoiding
+unnecessary testing for low risk patients.
 
 %prep
 %setup -q -c -n %{packname}
