@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamlss.data
-%global packver   6.0-7
+%global packname  cppcontainers
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.7
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data for Generalized Additive Models for Location Scale and Shape
+Summary:          'C++' Standard Template Library Containers
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-base >= 4.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-base >= 4.0.0
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Data used as examples in the books on Generalized Additive Models for
-Location Scale and Shape: Stasinopoulos, Rigby, Heller, Voudouris, De
-Bastiani (2017). Flexible Regression and Smoothing: Using GAMLSS in R,
-<doi:10.1201/b21973>. Rigby, Stasinopoulos, Heller, De Bastiani (2019).
-Distributions for Modeling Location, Scale, and Shape Using GAMLSS in R,
-<doi:10.1201/9780429298547>. Stasinopoulos, Kneib, Klein, Mayr, Heller
-(2024). Generalized Additive Models for Location, Scale and Shape: A
-Distributional Regression Approach, with Applications,
-<doi:10.1017/9781009410076>.
+Use 'C++' Standard Template Library containers interactively in R.
+Includes sets, unordered sets, multisets, unordered multisets, maps,
+unordered maps, multimaps, unordered multimaps, stacks, queues, priority
+queues, vectors, deques, forward lists, and lists.
 
 %prep
 %setup -q -c -n %{packname}

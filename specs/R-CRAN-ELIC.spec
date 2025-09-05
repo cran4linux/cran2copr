@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamlss.data
-%global packver   6.0-7
+%global packname  ELIC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data for Generalized Additive Models for Location Scale and Shape
+Summary:          LIC for Distributed Elliptical Model
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-distr 
+BuildRequires:    R-CRAN-distrEllipse 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-distr 
+Requires:         R-CRAN-distrEllipse 
+Requires:         R-CRAN-MASS 
 
 %description
-Data used as examples in the books on Generalized Additive Models for
-Location Scale and Shape: Stasinopoulos, Rigby, Heller, Voudouris, De
-Bastiani (2017). Flexible Regression and Smoothing: Using GAMLSS in R,
-<doi:10.1201/b21973>. Rigby, Stasinopoulos, Heller, De Bastiani (2019).
-Distributions for Modeling Location, Scale, and Shape Using GAMLSS in R,
-<doi:10.1201/9780429298547>. Stasinopoulos, Kneib, Klein, Mayr, Heller
-(2024). Generalized Additive Models for Location, Scale and Shape: A
-Distributional Regression Approach, with Applications,
-<doi:10.1017/9781009410076>.
+This comprehensive toolkit for Distributed Elliptical model is designated
+as "ELIC" (The LIC for Distributed Elliptical Model Analysis) analysis. It
+is predicated on the assumption that the error term adheres to a
+Elliptical distribution. The philosophy of the package is described in Guo
+G. (2020) <doi:10.1080/02664763.2022.2053949>.
 
 %prep
 %setup -q -c -n %{packname}

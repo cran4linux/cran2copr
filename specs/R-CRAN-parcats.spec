@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parcats
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Parallel Categories Diagrams for 'easyalluvial'
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-easyalluvial >= 0.2.1.0
+BuildRequires:    R-CRAN-easyalluvial >= 0.4.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-forcats 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-easyalluvial >= 0.2.1.0
+Requires:         R-CRAN-easyalluvial >= 0.4.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-forcats 

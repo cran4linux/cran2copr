@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mdendro
-%global packver   2.2.2
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Agglomerative Hierarchical Clustering
 
@@ -34,7 +34,7 @@ similarities), returning a multifurcated dendrogram or multidendrogram.
 Multidendrograms can group more than two clusters when ties in proximity
 data occur, and therefore they do not depend on the order of the input
 data. Descriptive measures to analyze the resulting dendrogram are
-additionally provided.
+additionally provided. <doi:10.18637/jss.v114.i02>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lfstat
-%global packver   0.9.12
+%global packver   0.9.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.12
+Version:          0.9.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of Low Flow Statistics for Daily Stream Flow Data
 
@@ -14,27 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-lmom 
-BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-lmomRFA 
 BuildRequires:    R-CRAN-dygraphs 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-lmom 
-Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-xts 
 Requires:         R-CRAN-lmomRFA 
 Requires:         R-CRAN-dygraphs 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-lattice 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 The "Manual on Low-flow Estimation and Prediction" (Gustard & Demuth

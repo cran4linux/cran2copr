@@ -1,32 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KbMvtSkew
-%global packver   1.1.0
+%global packname  power4mome
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Khattree-Bahuguna's Univariate and Multivariate Skewness
+Summary:          Power Analysis for Moderation and Mediation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lmhelprs >= 0.4.2
+BuildRequires:    R-CRAN-manymome >= 0.2.8
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pgnorm 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-lmhelprs >= 0.4.2
+Requires:         R-CRAN-manymome >= 0.2.8
+Requires:         R-CRAN-lavaan 
 Requires:         R-stats 
+Requires:         R-CRAN-pbapply 
+Requires:         R-parallel 
+Requires:         R-CRAN-pgnorm 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-yaml 
+Requires:         R-graphics 
+Requires:         R-methods 
 
 %description
-Computes Khattree-Bahuguna's univariate and multivariate skewness,
-principal-component-based Khattree-Bahuguna's multivariate skewness. It
-also provides several measures of univariate or multivariate skewnesses
-including, Pearson’s coefficient of skewness, Bowley’s univariate skewness
-and Mardia's multivariate skewness. See Khattree, R. and Bahuguna, M.
-(2019) <doi: 10.1007/s41060-018-0106-1>.
+Power analysis and sample size determination for moderation, mediation,
+and moderated mediation in models fitted by structural equation modelling
+using the 'lavaan' package by Rosseel (2012) <doi:10.18637/jss.v048.i02>
+or by multiple regression. The package 'manymome' by Cheung and Cheung
+(2024) <doi:10.3758/s13428-023-02224-z> is used to specify the indirect
+paths or conditional indirect paths to be tested.
 
 %prep
 %setup -q -c -n %{packname}

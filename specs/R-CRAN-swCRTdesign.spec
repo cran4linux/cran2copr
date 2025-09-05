@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swCRTdesign
-%global packver   4.0
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepped Wedge Cluster Randomized Trial (SW CRT) Design
 
@@ -17,16 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-glmmTMB 
+Requires:         R-stats 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-glmmTMB 
 
 %description
 A set of tools for examining the design and analysis aspects of stepped
 wedge cluster randomized trials (SW CRT) based on a repeated
-cross-sectional sampling scheme (Hussey MA and Hughes JP (2007)
-Contemporary Clinical Trials 28:182-191. <doi:10.1016/j.cct.2006.05.007>).
+cross-sectional or cohort sampling scheme (Hussey MA and Hughes JP (2007)
+Contemporary Clinical Trials 28:182-191).
 
 %prep
 %setup -q -c -n %{packname}

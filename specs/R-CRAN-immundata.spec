@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  immundata
-%global packver   0.0.1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified Data Layer for Single-Cell, Spatial and Bulk Immunomics
+Summary:          A Unified Data Layer for Large-Scale Single-Cell, Spatial and Bulk Immunomics
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,30 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-jsonlite >= 2.0.0
+BuildRequires:    R-CRAN-duckplyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-duckplyr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite >= 2.0.0
+Requires:         R-CRAN-duckplyr >= 1.1.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-duckplyr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Provides a unified data layer for single-cell, spatial and bulk T-cell and
-B-cell immune receptor repertoire data, integrating diverse data formats
-such as AIRR and raw sequencing files. Includes utilities for receptor
-aggregation, metadata normalization, and clonotype filtering.
+B-cell immune receptor repertoire data. Think AnnData or SeuratObject, but
+for AIRR data.
 
 %prep
 %setup -q -c -n %{packname}

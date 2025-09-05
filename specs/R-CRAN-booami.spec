@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  classifly
-%global packver   0.4.1
+%global __requires_exclude ^libmpi
+%global packname  booami
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Explore Classification Models in High Dimensions
+Summary:          Component-Wise Gradient Boosting after Multiple Imputation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-class 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Given $p$-dimensional training data containing $d$ groups (the design
-space), a classification algorithm (classifier) predicts which group new
-data belongs to.  Generally the input to these algorithms is high
-dimensional, and the boundaries between groups will be high dimensional
-and perhaps curvilinear or multi-faceted. This package implements methods
-for understanding the division of space between the groups.
+Component-wise gradient boosting for analysis of multiply imputed
+datasets. Implements the algorithm Boosting after Multiple Imputation
+(MIBoost), which enforces uniform variable selection across imputations
+and provides utilities for pooling. Includes a cross-validation workflow
+that first splits the data into training and validation sets and then
+performs imputation on the training data, applying the learned imputation
+models to the validation data to avoid information leakage. Supports
+Gaussian and logistic loss. Methods relate to gradient boosting and
+multiple imputation as in Buehlmann and Hothorn (2007)
+<doi:10.1214/07-STS242>, Friedman (2001) <doi:10.1214/aos/1013203451>, and
+van Buuren (2018, ISBN:9781138588318) and Groothuis-Oudshoorn (2011)
+<doi:10.18637/jss.v045.i03>; see also Kuchen (2025)
+<doi:10.48550/arXiv.2507.21807>.
 
 %prep
 %setup -q -c -n %{packname}

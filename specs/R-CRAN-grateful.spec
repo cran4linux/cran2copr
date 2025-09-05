@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grateful
-%global packver   0.2.12
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Citation of R Packages
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-renv 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-desc 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-renv 

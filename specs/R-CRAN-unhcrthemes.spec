@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unhcrthemes
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          UNHCR 'ggplot2' Theme and Colour Palettes
 
@@ -22,13 +22,11 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-systemfonts 
-BuildRequires:    R-CRAN-extrafont 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-systemfonts 
-Requires:         R-CRAN-extrafont 
 
 %description
 A 'ggplot2' theme and color palettes following the United Nations High

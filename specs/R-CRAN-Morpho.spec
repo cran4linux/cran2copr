@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Morpho
-%global packver   2.12
+%global packver   2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12
+Version:          2.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculations and Visualisations Related to Geometric Morphometrics
 
@@ -32,8 +32,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-bezier 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-mclust 
 Requires:         R-CRAN-foreach >= 1.4.0
 Requires:         R-CRAN-doParallel >= 1.0.6
 Requires:         R-CRAN-Matrix >= 1.0.1
@@ -49,8 +50,9 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-bezier 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-mclust 
 
 %description
 A toolset for Geometric Morphometrics and mesh processing. This includes

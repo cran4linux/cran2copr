@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nettskjemar
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to the 'nettskjema.no' API of the University of Oslo
 
@@ -29,7 +29,8 @@ Requires:         R-tools
 %description
 Enables users to retrieve data, meta-data, and codebooks from
 <https://nettskjema.no/>. The data from the API is richer than from the
-online data portal. Mowinckel (2021) <doi:10.5281/zenodo.4745481>.
+online data portal. This package is not developed by the University of
+Oslo IT. Mowinckel (2021) <doi:10.5281/zenodo.4745481>.
 
 %prep
 %setup -q -c -n %{packname}

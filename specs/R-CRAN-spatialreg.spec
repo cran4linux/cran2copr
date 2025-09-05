@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialreg
-%global packver   1.3-6
+%global packver   1.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Analysis
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildRequires:    R-CRAN-spData >= 2.3.1
-BuildRequires:    R-CRAN-spdep >= 1.3.1
+BuildRequires:    R-CRAN-spdep >= 1.4.1
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-coda 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-LearnBayes
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-multcomp 
 Requires:         R-CRAN-spData >= 2.3.1
-Requires:         R-CRAN-spdep >= 1.3.1
+Requires:         R-CRAN-spdep >= 1.4.1
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-coda 

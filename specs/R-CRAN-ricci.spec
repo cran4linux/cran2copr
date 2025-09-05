@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  UKB.COVID19
-%global packver   0.1.6
+%global packname  ricci
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          UK Biobank COVID-19 Data Processing and Risk Factor Association Tests
+Summary:          Ricci Calculus
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-questionr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-questionr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-calculus 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-calculus 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-Process UK Biobank COVID-19 test result data for susceptibility, severity
-and mortality analyses, perform potential non-genetic COVID-19 risk factor
-and co-morbidity association tests. Wang et al. (2021)
-<doi:10.5281/zenodo.5174381>.
+Provides a compact 'R' interface for performing tensor calculations. This
+is achieved by allowing (upper and lower) index labeling of arrays and
+making use of Ricci calculus conventions to implicitly trigger
+contractions and diagonal subsetting. Explicit tensor operations, such as
+addition, subtraction and multiplication of tensors via the standard
+operators, raising and lowering indices, taking symmetric or antisymmetric
+tensor parts, as well as the Kronecker product are available. Common
+tensors like the Kronecker delta, Levi Civita epsilon, certain metric
+tensors, the Christoffel symbols, the Riemann as well as Ricci tensors are
+provided. The covariant derivative of tensor fields with respect to any
+metric tensor can be evaluated. An effort was made to provide the user
+with useful error messages.
 
 %prep
 %setup -q -c -n %{packname}

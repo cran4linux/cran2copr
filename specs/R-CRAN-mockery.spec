@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mockery
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mocking Library for R
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-testthat 
@@ -25,8 +25,8 @@ The two main functionalities of this package are creating mock objects
 (functions) and selectively intercepting calls to a given function that
 originate in some other function. It can be used with any testing
 framework available for R. Mock objects can be injected with either this
-package's own stub() function or a similar with_mock() facility present in
-the 'testthat' package.
+package's own stub() function or a similar with_mocked_binding() facility
+present in the 'testthat' package.
 
 %prep
 %setup -q -c -n %{packname}

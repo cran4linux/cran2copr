@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gemR
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Effect Modelling
 
@@ -17,28 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-HDANOVA >= 0.8.4
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-mixlm 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-plsVarSel 
-BuildRequires:    R-CRAN-mixlm 
-BuildRequires:    R-CRAN-HDANOVA 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-neuralnet 
+Requires:         R-CRAN-HDANOVA >= 0.8.4
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-mixlm 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-plsVarSel 
-Requires:         R-CRAN-mixlm 
-Requires:         R-CRAN-HDANOVA 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-neuralnet 
 
 %description
 Two-step modeling with separation of sources of variation through analysis

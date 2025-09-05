@@ -1,26 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leaflet
-%global packver   2.2.2
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Web Maps with the JavaScript 'Leaflet' Library
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 3.6.3
 BuildRequires:    R-CRAN-leaflet.providers >= 2.0.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5.4
 BuildRequires:    R-CRAN-scales >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 0.9.6
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jquerylib 
@@ -28,7 +29,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-xfun 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-raster >= 3.6.3
 Requires:         R-CRAN-leaflet.providers >= 2.0.0
 Requires:         R-CRAN-htmlwidgets >= 1.5.4
 Requires:         R-CRAN-scales >= 1.0.0
+Requires:         R-CRAN-sf >= 0.9.6
 Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jquerylib 
@@ -43,7 +45,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-xfun 
