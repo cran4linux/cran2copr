@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BrazilCrime
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accesses Brazilian Public Security Data from SINESP Since 2015
 
@@ -14,25 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geobr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geobr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Allows access to data from the Brazilian Public Security Information
-System (SINESP) by state and municipality.
+System (SINESP) by state and municipality. It should be emphasized that
+the package only extracts the data and facilitates its manipulation in R.
+Therefore, its sole purpose is to support empirical research. All data
+credits belong to SINESP, an integrated information platform developed and
+maintained by the National Secretariat of Public Security (SENASP) of the
+Ministry of Justice and Public Security.
 <https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/sinesp-1>.
 
 %prep

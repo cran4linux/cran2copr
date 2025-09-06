@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hibayes
-%global packver   3.0.3
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Individual-Level, Summary-Level and Single-Step Bayesian Regression Model
 
@@ -49,9 +49,9 @@ breeding values (GEBV) for both genotyped and non-genotyped individuals,
 single or multiple SNPs, (9) posterior probability of association of the
 genomic window (WPPA), (10) posterior inclusive probability (PIP). The
 functions are not limited, we will keep on going in enriching it with more
-features. References: Meuwissen et al. (2001)
-<doi:10.1093/genetics/157.4.1819>; Gustavo et al. (2013)
-<doi:10.1534/genetics.112.143313>; Habier et al. (2011)
+features. References: Lilin Yin et al. (2025) <doi:10.18637/jss.v114.i06>;
+Meuwissen et al. (2001) <doi:10.1093/genetics/157.4.1819>; Gustavo et al.
+(2013) <doi:10.1534/genetics.112.143313>; Habier et al. (2011)
 <doi:10.1186/1471-2105-12-186>; Yi et al. (2008)
 <doi:10.1534/genetics.107.085589>; Zhou et al. (2013)
 <doi:10.1371/journal.pgen.1003264>; Moser et al. (2015)

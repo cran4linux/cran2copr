@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCreliability
-%global packver   0.1.0
+%global packname  MGDrivE
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correct Bias in Estimated Regression Coefficients
+Summary:          Mosquito Gene Drive Explorer
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-This function corrects the bias in estimated regression coefficients due
-to classical additive measurement error (i.e., within-person variation) in
-logistic regressions under the main study/external reliability study
-design and the main study/internal reliability study design. The output
-includes the naive and corrected estimators for the regression
-coefficients; for the variance estimates of the corrected estimators, the
-extra variation due to estimating the parameters in the measurement error
-model is ignored or taken into account. Reference: Carroll RJ, Ruppert D,
-Stefanski L, Crainiceanu CM (2006) <doi:10.1201/9781420010138>.
+Provides a model designed to be a reliable testbed where various gene
+drive interventions for mosquito-borne diseases control. It is being
+developed to accommodate the use of various mosquito-specific gene drive
+systems within a population dynamics framework that allows migration of
+individuals between patches in landscape. Previous work developing the
+population dynamics can be found in Deredec et al. (2001)
+<doi:10.1073/pnas.1110717108> and Hancock & Godfray (2007)
+<doi:10.1186/1475-2875-6-98>, and extensions to accommodate CRISPR homing
+dynamics in Marshall et al. (2017) <doi:10.1038/s41598-017-02744-7>.
 
 %prep
 %setup -q -c -n %{packname}

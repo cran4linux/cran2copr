@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggscidca
-%global packver   0.2.3
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Decision Curve Analysis with Coloured Bars
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-kernlab
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ggplot2 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-kernlab
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-xgboost 
 
 %description
 Decision curve analysis is a method for evaluating and comparing

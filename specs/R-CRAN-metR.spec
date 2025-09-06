@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metR
-%global packver   0.18.1
+%global packver   0.18.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18.1
+Version:          0.18.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Easier Analysis of Meteorological Fields
 
@@ -25,14 +25,15 @@ BuildRequires:    R-CRAN-Formula
 BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-isoband 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
@@ -41,14 +42,15 @@ Requires:         R-CRAN-Formula
 Requires:         R-CRAN-formula.tools 
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-isoband 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-lubridate 
 
 %description
 Many useful functions and extensions for dealing with meteorological data

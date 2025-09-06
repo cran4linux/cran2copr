@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tokenizers.bpe
-%global packver   0.1.4
+%global packname  LLMTranslate
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Byte Pair Encoding Text Tokenization
+Summary:          'shiny' App for TRAPD/ISPOR Survey Translation with LLMs
 
-License:          MPL-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-Requires:         R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-shiny 
 
 %description
-Unsupervised text tokenizer focused on computational efficiency. Wraps the
-'YouTokenToMe' library <https://github.com/VKCOM/YouTokenToMe> which is an
-implementation of fast Byte Pair Encoding (BPE)
-<https://aclanthology.org/P16-1162/>.
+A 'shiny' application to automate forward and back survey translation with
+optional reconciliation using large language models (LLMs). It follows the
+TRAPD (Translation, Review, Adjudication, Pretesting, Documentation)
+framework and ISPOR (International Society for Pharmacoeconomics and
+Outcomes Research) recommendations. See Harkness et al. (2010)
+<doi:10.1002/9780470609927.ch7> and Wild et al. (2005)
+<doi:10.1111/j.1524-4733.2005.04054.x>.
 
 %prep
 %setup -q -c -n %{packname}

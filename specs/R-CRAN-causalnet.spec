@@ -1,46 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  covid19br
-%global packver   1.0.0
+%global packname  causalnet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brazilian COVID-19 Pandemic Data
+Summary:          Directed Causal Network Enumeration and Simulation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cowplot 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cowplot 
 
 %description
-Set of functions to import COVID-19 pandemic data into R. The Brazilian
-COVID-19 data, obtained from the official Brazilian repository at
-<https://covid.saude.gov.br/>, is available at the country, region, state,
-and city levels. The package also downloads world-level COVID-19 data from
-Johns Hopkins University's repository. COVID-19 data is available from the
-start of follow-up until to May 5, 2023, when the World Health
-Organization (WHO) declared an end to the Public Health Emergency of
-International Concern (PHEIC) for COVID-19.
+Enumerate orientation-consistent directed networks from an undirected or
+partially directed skeleton, detect feedback loops, summarize topology,
+and simulate node dynamics via stochastic differential equations.
 
 %prep
 %setup -q -c -n %{packname}

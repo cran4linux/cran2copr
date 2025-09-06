@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  important
-%global packver   0.2.0
+%global packname  connector.databricks
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supervised Feature Selection
+Summary:          Expand 'connector' Package for 'Databricks' Tables and Volumes
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,46 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hardhat >= 1.4.1
-BuildRequires:    R-CRAN-recipes >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-desirability2 >= 0.2.0
-BuildRequires:    R-CRAN-filtro >= 0.2.0
+BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-odbc >= 1.4.0
+BuildRequires:    R-CRAN-connector >= 1.0.0
+BuildRequires:    R-CRAN-brickster >= 0.2.7
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tune 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-workflows 
-Requires:         R-CRAN-hardhat >= 1.4.1
-Requires:         R-CRAN-recipes >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-desirability2 >= 0.2.0
-Requires:         R-CRAN-filtro >= 0.2.0
+BuildRequires:    R-CRAN-zephyr 
+Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-odbc >= 1.4.0
+Requires:         R-CRAN-connector >= 1.0.0
+Requires:         R-CRAN-brickster >= 0.2.7
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-hms 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-S7 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tune 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-zephyr 
 
 %description
-Interfaces for choosing important predictors in supervised regression,
-classification, and censored regression models. Permuted importance scores
-(Biecek and Burzykowski (2021) <doi:10.1201/9780429027192>) can be
-computed for 'tidymodels' model fits.
+Expands the 'connector'
+<https://github.com/NovoNordisk-OpenSource/connector> package and provides
+a convenient interface for accessing and interacting with 'Databricks'
+<https://www.databricks.com> volumes and tables directly from R.
 
 %prep
 %setup -q -c -n %{packname}

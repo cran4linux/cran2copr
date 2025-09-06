@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kinesis
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Applications for the 'tesselle' Packages
 
@@ -17,10 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tabula >= 3.3.1
-BuildRequires:    R-CRAN-mirai >= 2.4.0
+BuildRequires:    R-CRAN-tabula >= 3.3.2
+BuildRequires:    R-CRAN-mirai >= 2.5.0
 BuildRequires:    R-CRAN-kairos >= 2.3.0
-BuildRequires:    R-CRAN-folio >= 1.5.1
 BuildRequires:    R-CRAN-aion >= 1.5.0
 BuildRequires:    R-CRAN-isopleuros >= 1.4.0
 BuildRequires:    R-CRAN-khroma >= 1.16.0
@@ -31,15 +30,13 @@ BuildRequires:    R-CRAN-bslib >= 0.9.0
 BuildRequires:    R-CRAN-nexus >= 0.6.0
 BuildRequires:    R-CRAN-sass >= 0.4.10
 BuildRequires:    R-CRAN-config >= 0.3.2
-BuildRequires:    R-CRAN-dimensio >= 0.14.0
-BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-dimensio >= 0.14.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-tabula >= 3.3.1
-Requires:         R-CRAN-mirai >= 2.4.0
+Requires:         R-CRAN-tabula >= 3.3.2
+Requires:         R-CRAN-mirai >= 2.5.0
 Requires:         R-CRAN-kairos >= 2.3.0
-Requires:         R-CRAN-folio >= 1.5.1
 Requires:         R-CRAN-aion >= 1.5.0
 Requires:         R-CRAN-isopleuros >= 1.4.0
 Requires:         R-CRAN-khroma >= 1.16.0
@@ -50,8 +47,7 @@ Requires:         R-CRAN-bslib >= 0.9.0
 Requires:         R-CRAN-nexus >= 0.6.0
 Requires:         R-CRAN-sass >= 0.4.10
 Requires:         R-CRAN-config >= 0.3.2
-Requires:         R-CRAN-dimensio >= 0.14.0
-Requires:         R-datasets 
+Requires:         R-CRAN-dimensio >= 0.14.1
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 

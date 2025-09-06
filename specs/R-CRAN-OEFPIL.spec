@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tokenizers.bpe
-%global packver   0.1.4
+%global packname  OEFPIL
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Byte Pair Encoding Text Tokenization
+Summary:          Optimal Estimation of Function Parameters by Iterated Linearization
 
-License:          MPL-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-Requires:         R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-plyr 
 
 %description
-Unsupervised text tokenizer focused on computational efficiency. Wraps the
-'YouTokenToMe' library <https://github.com/VKCOM/YouTokenToMe> which is an
-implementation of fast Byte Pair Encoding (BPE)
-<https://aclanthology.org/P16-1162/>.
+Package for estimating the parameters of a nonlinear function using
+iterated linearization via Taylor series.  Method is based on Kubáček
+(2000) ISBN: 80-244-0093-6. The algorithm is a generalization of the
+procedure given in Köning, R., Wimmer, G. and Witkovský, V. (2014)
+<doi:10.1088/0957-0233/25/11/115001>.
 
 %prep
 %setup -q -c -n %{packname}

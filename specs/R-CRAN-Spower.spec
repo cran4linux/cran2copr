@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Spower
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses using Monte Carlo Simulations
 
@@ -50,10 +50,12 @@ simulation experiment functions defined within the package provide
 stochastic variants of the power analysis subroutines in G*Power 3.1
 (Faul, Erdfelder, Buchner, and Lang, 2009) <doi:10.3758/brm.41.4.1149>,
 along with various other parametric and non-parametric power analysis
-applications (e.g., mediation analyses). Additional functions for building
-empirical power curves, reanalyzing simulation information, and for
-increasing the precision of the resulting power estimates are also
-included, each of which utilize similar API structures.
+applications (e.g., mediation analyses) and support for Bayesian power
+analysis by way of Bayes factors or posterior probability evaluations.
+Additional functions for building empirical power curves, reanalyzing
+simulation information, and for increasing the precision of the resulting
+power estimates are also included, each of which utilize similar API
+structures.
 
 %prep
 %setup -q -c -n %{packname}

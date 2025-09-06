@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MKpower
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis and Sample Size Calculation
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-MKdescr
 BuildRequires:    R-CRAN-qqplotr 
 BuildRequires:    R-CRAN-coin 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-MKinfer >= 0.4
 Requires:         R-CRAN-matrixTests >= 0.2
 Requires:         R-stats 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-MKdescr
 Requires:         R-CRAN-qqplotr 
 Requires:         R-CRAN-coin 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-rlang 
 
 %description
 Power analysis and sample size calculation for Welch and Hsu (Hedderich

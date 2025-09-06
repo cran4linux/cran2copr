@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tokenizers.bpe
-%global packver   0.1.4
+%global packname  mini007
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Byte Pair Encoding Text Tokenization
+Summary:          Lightweight Framework for Orchestrating Multi-Agent Large Language Models
 
-License:          MPL-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-Requires:         R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-R6 >= 2.6.1
+BuildRequires:    R-CRAN-checkmate >= 2.3.1
+BuildRequires:    R-CRAN-uuid >= 1.2.0
+Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-R6 >= 2.6.1
+Requires:         R-CRAN-checkmate >= 2.3.1
+Requires:         R-CRAN-uuid >= 1.2.0
 
 %description
-Unsupervised text tokenizer focused on computational efficiency. Wraps the
-'YouTokenToMe' library <https://github.com/VKCOM/YouTokenToMe> which is an
-implementation of fast Byte Pair Encoding (BPE)
-<https://aclanthology.org/P16-1162/>.
+Provides tools for creating agents with persistent state using R6 classes
+<https://cran.r-project.org/package=R6> and the 'ellmer' package
+<https://cran.r-project.org/package=ellmer>. Tracks prompts, messages, and
+agent metadata for reproducible, multi-turn large language model sessions.
 
 %prep
 %setup -q -c -n %{packname}

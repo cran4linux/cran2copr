@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fairmetrics
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fairness Evaluation Metrics with Confidence Intervals
+Summary:          Fairness Evaluation Metrics with Confidence Intervals for Binary Protected Attributes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,9 +24,10 @@ Requires:         R-stats
 A collection of functions for computing fairness metrics for machine
 learning and statistical models, including confidence intervals for each
 metric. The package supports the evaluation of group-level fairness
-criterion commonly used in fairness research, particularly in healthcare.
-It is based on the overview of fairness in machine learning written by Gao
-et al (2024) <doi:10.48550/arXiv.2406.09307>.
+criterion commonly used in fairness research, particularly in healthcare
+for binary protected attributes. It is based on the overview of fairness
+in machine learning written by Gao et al (2024)
+<doi:10.48550/arXiv.2406.09307>.
 
 %prep
 %setup -q -c -n %{packname}
