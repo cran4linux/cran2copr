@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spm
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Predictive Modeling
 
@@ -21,7 +22,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-psy 
 BuildRequires:    R-CRAN-gbm 
-BuildRequires:    R-CRAN-biomod2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ranger 
 Requires:         R-CRAN-gstat 
@@ -29,7 +29,6 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-psy 
 Requires:         R-CRAN-gbm 
-Requires:         R-CRAN-biomod2 
 Requires:         R-stats 
 Requires:         R-CRAN-ranger 
 
@@ -42,12 +41,12 @@ are provided. One function is for assessing the predictive errors and
 accuracy of the method based on cross-validation. The other one is for
 generating spatial predictions using the method. For details please see:
 Li, J., Potter, A., Huang, Z., Daniell, J. J. and Heap, A. (2010)
-<https:www.ga.gov.au/metadata-gateway/metadata/record/gcat_71407> Li, J.,
-Heap, A. D., Potter, A., Huang, Z. and Daniell, J. (2011)
+<https://ecat.ga.gov.au/geonetwork/srv/eng/catalog.search#/metadata/71407>
+Li, J., Heap, A. D., Potter, A., Huang, Z. and Daniell, J. (2011)
 <doi:10.1016/j.csr.2011.05.015> Li, J., Heap, A. D., Potter, A. and
 Daniell, J. (2011) <doi:10.1016/j.envsoft.2011.07.004> Li, J., Potter, A.,
 Huang, Z. and Heap, A. (2012)
-<https:www.ga.gov.au/metadata-gateway/metadata/record/74030>.
+<https://ecat.ga.gov.au/geonetwork/srv/eng/catalog.search#/metadata/74030>.
 
 %prep
 %setup -q -c -n %{packname}

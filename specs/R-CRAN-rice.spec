@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rice
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiocarbon Equations
 
@@ -28,7 +28,7 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Provides functions for the calibration of radiocarbon dates, as well as
-options to calculate different radiocarbon realms (C14 age, F14C, pMC,
+options to calculate different radiocarbon timescales (C14 age, F14C, pMC,
 D14C) and estimating the effects of contamination or local reservoir
 offsets (Reimer and Reimer 2001 <doi:10.1017/S0033822200038339>). The
 methods follow long-established recommendations such as Stuiver and Polach

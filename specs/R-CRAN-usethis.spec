@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  usethis
-%global packver   3.2.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate Package and Project Setup
 
@@ -20,12 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.1
 BuildRequires:    R-CRAN-curl >= 2.7
 BuildRequires:    R-CRAN-withr >= 2.3.0
+BuildRequires:    R-CRAN-rprojroot >= 2.1.1
 BuildRequires:    R-CRAN-desc >= 1.4.2
 BuildRequires:    R-CRAN-gert >= 1.4.1
 BuildRequires:    R-CRAN-fs >= 1.3.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-gh >= 1.2.1
-BuildRequires:    R-CRAN-rprojroot >= 1.2
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-clipr >= 0.3.0
@@ -42,12 +42,12 @@ BuildRequires:    R-CRAN-yaml
 Requires:         R-CRAN-cli >= 3.0.1
 Requires:         R-CRAN-curl >= 2.7
 Requires:         R-CRAN-withr >= 2.3.0
+Requires:         R-CRAN-rprojroot >= 2.1.1
 Requires:         R-CRAN-desc >= 1.4.2
 Requires:         R-CRAN-gert >= 1.4.1
 Requires:         R-CRAN-fs >= 1.3.0
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-gh >= 1.2.1
-Requires:         R-CRAN-rprojroot >= 1.2
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-clipr >= 0.3.0
