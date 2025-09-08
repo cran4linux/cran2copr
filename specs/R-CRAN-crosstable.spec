@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crosstable
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Crosstables for Descriptive Analyses
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-checkmate >= 1.9.0
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-flextable >= 0.5.1
 BuildRequires:    R-CRAN-officer >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.2.3
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.0.0
@@ -46,7 +45,6 @@ Requires:         R-CRAN-flextable >= 0.5.1
 Requires:         R-CRAN-officer >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.2.3
 Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 

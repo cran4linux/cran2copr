@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  liver
-%global packver   1.20
+%global packver   1.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          1.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Foundations Toolkit and Datasets for Data Science
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-ggplot2
 Provides a collection of helper functions and illustrative datasets to
 support learning and teaching of data science with R. The package is
 designed as a companion to the book
-<https://book-data-science-r.netlify.app/>, making key data science
+<https://book-data-science-r.netlify.app>, making key data science
 techniques accessible to individuals with minimal coding experience.
 Functions include tools for data partitioning, performance evaluation, and
 data transformations (e.g., z-score and min-max scaling). The included

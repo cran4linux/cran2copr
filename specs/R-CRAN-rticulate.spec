@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rticulate
-%global packver   2.0.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Articulatory Data Processing in R
 

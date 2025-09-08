@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multilevelTools
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel and Mixed Effects Model Diagnostics and Effect Sizes
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-reformulas 
 Requires:         R-CRAN-testthat >= 3.1.0
 Requires:         R-CRAN-JWileymisc >= 1.4.2
 Requires:         R-CRAN-data.table >= 1.14.6
@@ -43,6 +44,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-brms 
+Requires:         R-CRAN-reformulas 
 
 %description
 Effect sizes, diagnostics and performance metrics for multilevel and mixed

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TSCI
-%global packver   3.0.4
+%global packver   3.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Causal Inference with Possibly Invalid Instrumental Variables
 
@@ -36,9 +36,10 @@ inference in settings when instrumental variable regression is not
 suitable because of potentially invalid instrumental variables. Based on
 Guo and Buehlmann (2022) "Two Stage Curvature Identification with Machine
 Learning: Causal Inference with Possibly Invalid Instrumental Variables"
-<arXiv:2203.12808>. The vignette is available in Carl, Emmenegger,
-Bühlmann and Guo (2023) "TSCI: two stage curvature identification for
-causal inference with invalid instruments" <arXiv:2304.00513>.
+<doi:10.48550/arXiv.2203.12808>. The vignette is available in Carl,
+Emmenegger, Bühlmann and Guo (2025) "TSCI: Two Stage Curvature
+Identification for Causal Inference with Invalid Instruments in R"
+<doi:10.18637/jss.v114.i07>.
 
 %prep
 %setup -q -c -n %{packname}

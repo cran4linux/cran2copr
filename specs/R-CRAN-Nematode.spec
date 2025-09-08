@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Nematode
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Indices Calculator for Nematode Communities
 
@@ -31,11 +31,12 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Nematode communities serve as crucial bioindicators in ecological studies,
-reflecting soil health, ecosystem functioning, and trophic interactions.
-To standardize these assessments, we developed a computational toolkit for
-quantifying nematode-based ecological indicators, including metabolic
-footprints, energy flow metrics, and community structure analysis.
+Provides a computational toolkit for analyzing nematode communities in
+ecological studies. Includes methods to quantify nematode-based ecological
+indicators such as metabolic footprints, energy flow metrics, and
+community structure. These tools support assessments of soil health,
+ecosystem functioning, and trophic interactions, standardizing the use of
+nematodes as bioindicators.
 
 %prep
 %setup -q -c -n %{packname}

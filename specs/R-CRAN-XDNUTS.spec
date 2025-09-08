@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  XDNUTS
-%global packver   1.6.1
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discontinuous Hamiltonian Monte Carlo with Varying Trajectory Length
 
@@ -42,9 +42,9 @@ Requires:         R-stats
 
 %description
 Hamiltonian Monte Carlo for both continuous and discontinuous posterior
-distributions with customisable trajectory length termination criterion.
+distributions with a customizable trajectory length termination criterion.
 See Nishimura et al. (2020) <doi:10.1093/biomet/asz083> for the original
-Discontinuous Hamiltonian Monte Carlo, Hoffman et al. (2014)
+Discontinuous Hamiltonian Monte Carlo; Hoffman et al. (2014)
 <doi:10.48550/arXiv.1111.4246> and Betancourt (2016)
 <doi:10.48550/arXiv.1601.00225> for the definition of possible Hamiltonian
 Monte Carlo termination criteria.

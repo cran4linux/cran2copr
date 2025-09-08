@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bidux
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Behavior Insight Design: A Toolkit for Integrating Behavioral Science in UI/UX Design
+Summary:          Behavioral Insight Design: A Toolkit for Integrating Behavioral Science in UI/UX Design
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -42,7 +42,7 @@ Requires:         R-utils
 
 %description
 Provides a framework and toolkit to guide 'shiny' developers in
-implementing the Behavior Insight Design (BID) framework. The package
+implementing the Behavioral Insight Design (BID) framework. The package
 offers functions for documenting each of the five stages (Notice,
 Interpret, Structure, Anticipate, and Validate), along with a
 comprehensive concept dictionary.
