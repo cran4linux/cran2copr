@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text2sdg
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting UN Sustainable Development Goals in Text
 
@@ -39,14 +39,15 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-ranger 
 
 %description
-The United Nations’ Sustainable Development Goals (SDGs) have become an
+The United Nations' Sustainable Development Goals (SDGs) have become an
 important guideline for organisations to monitor and plan their
 contributions to social, economic, and environmental transformations. The
 'text2sdg' package is an open-source analysis package that identifies SDGs
 in text using scientifically developed query systems, opening up the
 opportunity to monitor any type of text-based data, such as scientific
-output or corporate publications. For more information regarding the
-methodology see Meier, Mata & Wulff (2022) <arXiv:2110.05856>.
+output or corporate publications. For more information see Meier, Mata &
+Wulff (2025) <doi:10.32614/RJ-2024-005> and Wulff, Meier & Mata (2024)
+<doi:10.1007/s11625-024-01516-3>.
 
 %prep
 %setup -q -c -n %{packname}

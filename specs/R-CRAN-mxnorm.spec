@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mxnorm
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Normalization Methods to Multiplexed Images
 
@@ -25,7 +25,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-uwot 
@@ -35,7 +34,6 @@ BuildRequires:    R-CRAN-KernSmooth
 BuildRequires:    R-CRAN-kSamples 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-fossil 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
@@ -45,7 +43,6 @@ Requires:         R-stats
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-uwot 
@@ -55,7 +52,6 @@ Requires:         R-CRAN-KernSmooth
 Requires:         R-CRAN-kSamples 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-fossil 
-Requires:         R-CRAN-glue 
 Requires:         R-methods 
 
 %description

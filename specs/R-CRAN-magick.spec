@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  magick
-%global packver   2.8.7
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.7
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Graphics and Image-Processing in R
 
@@ -32,9 +32,8 @@ etc). All operations are vectorized via the Magick++ STL meaning they
 operate either on a single frame or a series of frames for working with
 layers, collages, or animation. In RStudio images are automatically
 previewed when printed to the console, resulting in an interactive editing
-environment. The latest version of the package includes a native graphics
-device for creating in-memory graphics or drawing onto images using pixel
-coordinates.
+environment. Also includes a graphics device for creating drawing onto
+images using pixel coordinates.
 
 %prep
 %setup -q -c -n %{packname}

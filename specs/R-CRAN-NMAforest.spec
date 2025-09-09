@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NMAforest
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Plots for Network Meta-Analysis with Proportion for Paths and Studies
 
@@ -44,9 +44,9 @@ Requires:         R-CRAN-rlist
 
 %description
 Provides customized forest plots for network meta-analysis incorporating
-direct, indirect, and network meta-analysis effects. Includes
-visualizations of evidence contributions through proportion bars based on
-the hat matrix and evidence flow decomposition.
+direct, indirect, and NMA effects. Includes visualizations of evidence
+contributions through proportion bars based on the hat matrix and evidence
+flow decomposition.
 
 %prep
 %setup -q -c -n %{packname}

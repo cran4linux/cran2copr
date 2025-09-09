@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecostate
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          State-Space Mass-Balance Model for Marine Ecosystems
 
@@ -34,10 +34,10 @@ Requires:         R-CRAN-igraph
 
 %description
 Fits a state-space mass-balance model for marine ecosystems, which
-implements dynamics derived from 'Ecopath with Ecosim'
+implements dynamics derived from 'Ecopath with Ecosim' ('EwE')
 <https://ecopath.org/> while fitting to time-series of fishery catch,
-biomass indices, age-composition samples, and weight-at-age data. Package
-'ecostate' fits biological parameters (e.g., equilibrium mass) and
+biomass indices, age-composition samples, and weight-at-age data.
+'Ecostate' fits biological parameters (e.g., equilibrium mass) and
 measurement parameters (e.g., catchability coefficients) jointly with
 residual variation in process errors, and can include Bayesian priors for
 parameters.

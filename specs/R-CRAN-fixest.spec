@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fixest
-%global packver   0.12.1
+%global packver   0.13.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.13.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-dreamerr >= 1.4.0
-BuildRequires:    R-CRAN-stringmagic >= 1.1.2
+BuildRequires:    R-CRAN-stringmagic >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-dreamerr >= 1.4.0
-Requires:         R-CRAN-stringmagic >= 1.1.2
+Requires:         R-CRAN-stringmagic >= 1.2.0
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-stats 
 Requires:         R-graphics 

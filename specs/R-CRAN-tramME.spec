@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramME
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models with Mixed Effects
 
@@ -61,7 +61,9 @@ assumed to be normally distributed on the scale of the transformation
 function, the marginal likelihood is evaluated using the Laplace
 approximation, and the gradients are calculated with automatic
 differentiation (Tamasi & Hothorn, 2021) <doi:10.32614/RJ-2021-075>.
-Penalized smooth shift terms can be defined using 'mgcv'.
+Penalized smooth shift terms can be defined using the 'mgcv' notation.
+Additive mixed-effects transformation models are described in Tamasi
+(2025) <doi:10.18637/jss.v114.i11>.
 
 %prep
 %setup -q -c -n %{packname}

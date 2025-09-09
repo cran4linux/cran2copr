@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tailplots
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimators and Plots for Gamma and Pareto Tail Detection
 
@@ -16,20 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-resample 
-Requires:         R-CRAN-resample 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Estimators for two functionals used to detect Gamma or Pareto
+Estimators for two functionals used to detect Gamma, Pareto or Lognormal
 distributions, as well as distributions exhibiting similar tail behavior,
 as introduced by Iwashita and Klar (2023) <doi:10.1111/stan.12316> and
 Klar (2024) <doi:10.1080/00031305.2024.2413081>. One of these functionals,
 g, originally proposed by Asmussen and Lehtomaa (2017)
 <doi:10.3390/risks5010010>, distinguishes between log-convex and
-log-concave tail behavior. The package also includes methods for
-visualizing these estimators and their associated confidence intervals
-across various threshold values.
+log-concave tail behavior. Furthermore the characterization of the
+lognormal distribution is based on the work of Mosimann (1970)
+<doi:10.2307/2284599>. The package also includes methods for visualizing
+these estimators and their associated confidence intervals across various
+threshold values.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   0.5.6
+%global packname  DistributionIV
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          Distributional Instrumental Variable (DIV) Model
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 0.1.17
-BuildRequires:    R-CRAN-pkgfilecache >= 0.1.1
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 0.1.17
-Requires:         R-CRAN-pkgfilecache >= 0.1.1
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-checkmate 
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <http://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+Distributional instrumental variable (DIV) model for estimation of the
+interventional distribution of the outcome Y under a do intervention on
+the treatment X. Instruments, predictors and targets can be univariate or
+multivariate. Functionality includes estimation of the (conditional)
+interventional mean and quantiles, as well as sampling from the fitted
+(conditional) interventional distribution.
 
 %prep
 %setup -q -c -n %{packname}

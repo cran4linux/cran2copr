@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MuChPoint
-%global packver   0.6.3
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Change Point
 
@@ -21,12 +22,16 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-capushe 
 Requires:         R-CRAN-shiny 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
 Nonparametric approach to estimate the location of block boundaries

@@ -1,50 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fsbrain
-%global packver   0.5.6
+%global packname  fabricQueryR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Managing and Visualizing Brain Surface Data
+Summary:          Query Data in 'Microsoft Fabric'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-freesurferformats >= 0.1.17
-BuildRequires:    R-CRAN-pkgfilecache >= 0.1.1
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-squash 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-freesurferformats >= 0.1.17
-Requires:         R-CRAN-pkgfilecache >= 0.1.1
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-squash 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magick 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-AzureAuth 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-AzureAuth 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <http://freesurfer.net/> on the level of
-subjects and groups. Load morphometry data, surfaces and brain
-parcellations based on atlases. Mask data using labels, load data for
-specific atlas regions only, and visualize data and statistical results
-directly in 'R'.
+Query data hosted in 'Microsoft Fabric'. Provides helpers to open 'DBI'
+connections to 'SQL' endpoints of 'Lakehouse' and 'Data Warehouse' items;
+submit 'Data Analysis Expressions' ('DAX') queries to semantic model
+datasets in 'Microsoft Fabric' and 'Power BI'; and read 'Delta Lake'
+tables stored in 'OneLake' ('Azure Data Lake Storage Gen2').
 
 %prep
 %setup -q -c -n %{packname}

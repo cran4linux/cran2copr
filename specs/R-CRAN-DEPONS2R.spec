@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEPONS2R
-%global packver   1.2.6
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Plot and Analyse Output from the DEPONS Model
 
@@ -27,6 +27,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-adehabitatLT 
+BuildRequires:    R-CRAN-adehabitatHR 
 Requires:         R-CRAN-raster 
 Requires:         R-methods 
 Requires:         R-CRAN-sp 
@@ -37,6 +38,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-adehabitatLT 
+Requires:         R-CRAN-adehabitatHR 
 
 %description
 Methods for analyzing population dynamics and movement tracks simulated

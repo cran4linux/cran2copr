@@ -1,26 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.2.0
+%global packname  COINT
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Unit Root Tests with Structural Breaks and Fully-Modified Estimators
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-timeSeries 
+Requires:         R-CRAN-timeSeries 
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+Procedures include Phillips (1995) FMVAR <doi:10.2307/2171721>, Kitamura
+and Phillips (1997) FMGMM <doi:10.1016/S0304-4076(97)00004-3>, and Park
+(1992) CCR <doi:10.2307/2951679>, and so on. Tests with 1 or 2 structural
+breaks include Gregory and Hansen (1996)
+<doi:10.1016/0304-4076(69)41685-7>, Zivot and Andrews (1992)
+<doi:10.2307/1391541>, and Kurozumi (2002)
+<doi:10.1016/S0304-4076(01)00106-3>.
 
 %prep
 %setup -q -c -n %{packname}

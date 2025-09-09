@@ -1,53 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bridger
+%global __requires_exclude ^libmpi
+%global packname  DBmaps
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bridge Hand Generator with Criteria Selector
+Summary:          A Metadata-Driven Framework for Streamlining Database Joins
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggedit 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggedit 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Produce bridge hands, allowing parameters for hands to offer specific for
-bidding sequences.
+Simplifies and automates the process of exploring and merging data from
+relational databases. This package allows users to discover table
+relationships, create a map of all possible joins, and generate executable
+plans to merge data based on a structured metadata framework.
 
 %prep
 %setup -q -c -n %{packname}

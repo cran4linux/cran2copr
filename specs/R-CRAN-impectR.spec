@@ -1,63 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggedit
-%global packver   0.4.1
+%global packname  impectR
+%global packver   2.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          2.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive 'ggplot2' Layer and Theme Aesthetic Editor
+Summary:          Access Data from the Impect API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-shinyBS 
-BuildRequires:    R-CRAN-colourpicker 
-BuildRequires:    R-CRAN-shinyAce 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-tools 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-shinyBS 
-Requires:         R-CRAN-colourpicker 
-Requires:         R-CRAN-shinyAce 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-tools 
-Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
-Interactively edit 'ggplot2' layer and theme aesthetics definitions.
+Pull data from the 'Impect' Customer API
+<https://glossary.impect.com/api-design>. The package can retrieve data
+such as events or match sums.
 
 %prep
 %setup -q -c -n %{packname}

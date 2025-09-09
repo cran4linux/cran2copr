@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optimall
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Allocate Samples Among Strata
 
@@ -42,7 +42,8 @@ Neyman (1934) <doi:10.2307/2342192> or Wright (2012)
 quantiles or values of known variables, randomly select samples from
 strata, allocate sampling waves iteratively, and organize a complex survey
 design. Also includes a Shiny application for observing the effects of
-different strata splits.
+different strata splits. A paper on this package was published in the
+Journal of Statistical Software <doi:10.18637/jss.v114.i10>.
 
 %prep
 %setup -q -c -n %{packname}
