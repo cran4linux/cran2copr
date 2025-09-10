@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fslr
-%global packver   2.25.3
+%global packver   2.27.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.25.3
+Version:          2.27.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Functions for 'FSL' ('FMRIB' Software Library) from Functional MRI of the Brain ('FMRIB')
 

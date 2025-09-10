@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jqbr
-%global packver   1.0.4
+%global packname  RobustAdaptiveDecomposition
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'jQuery QueryBuilder' Input for 'Shiny'
+Summary:          Decomposes a Univariate Time Series into Subcomponents
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
 
 %description
-A highly configurable 'jQuery' plugin offering a simple interface to
-create complex queries/filters in 'Shiny'. The outputted rules can easily
-be parsed into a set of 'R' and/or 'SQL' queries and used to filter data.
-Custom parsing of the rules is also supported. For more information about
-'jQuery QueryBuilder' see <https://querybuilder.js.org/>.
+Provides a method to decompose a univariate time series into meaningful
+subcomponents for analysis and denoising.
 
 %prep
 %setup -q -c -n %{packname}

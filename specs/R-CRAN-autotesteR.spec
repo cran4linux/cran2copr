@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  survivoR
-%global packver   2.3.7
+%global packname  autotesteR
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.7
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from all Seasons of Survivor (US) TV Series in Tidy Format
+Summary:          Automated Functions for Basic Statistical Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,41 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-FSA 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-FSA 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-multcompView 
+Requires:         R-CRAN-nortest 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Datasets detailing the results, castaways, and events of each season of
-Survivor for the US, Australia, South Africa, New Zealand, and the UK.
-This includes details on the cast, voting history, immunity and reward
-challenges, jury votes, boot order, advantage details, and episode
-ratings. Use this for analysis of trends and statistics of the game.
+Provides simple and intuitive functions for basic statistical analyses.
+Methods include the t-test (Student 1908 <doi:10.1093/biomet/6.1.1>), the
+Mann-Whitney U test (Mann and Whitney 1947 <doi:10.1214/aoms/1177730491>),
+Pearson's correlation (Pearson 1895 <doi:10.1098/rspl.1895.0041>), and
+analysis of variance (Fisher 1925, <doi:10.1007/978-1-4612-4380-9_5>).
+Functions are compatible with 'ggplot2' and 'dplyr'.
 
 %prep
 %setup -q -c -n %{packname}

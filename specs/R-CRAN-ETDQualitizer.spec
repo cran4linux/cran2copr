@@ -1,48 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlexperiments
-%global packver   0.0.7
+%global packname  ETDQualitizer
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Experiments
+Summary:          Automated Eye Tracking Data Quality Determination for Screen-Based Eye Trackers
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-kdry 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-splitTools 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-kdry 
-Requires:         R-parallel 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-splitTools 
 Requires:         R-stats 
 
 %description
-Provides 'R6' objects to perform parallelized hyperparameter optimization
-and cross-validation. Hyperparameter optimization can be performed with
-Bayesian optimization (via 'ParBayesianOptimization'
-<https://cran.r-project.org/package=ParBayesianOptimization>) and grid
-search. The optimized hyperparameters can be validated using k-fold
-cross-validation. Alternatively, hyperparameter optimization and
-validation can be performed with nested cross-validation. While
-'mlexperiments' focuses on core wrappers for machine learning experiments,
-additional learner algorithms can be supplemented by inheriting from the
-provided learner base class.
+Compute common data quality metrics for accuracy, precision and data loss
+for screen-based eye trackers. Supports input data both in pixels on the
+screen and in degrees, output measures are (where appropriate) expressed
+as angles in degrees.
 
 %prep
 %setup -q -c -n %{packname}

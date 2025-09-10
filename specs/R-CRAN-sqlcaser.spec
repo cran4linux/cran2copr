@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sqlcaser
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SQL' Case Statement Generator
 
@@ -20,9 +20,9 @@ BuildArch:        noarch
 
 %description
 Includes built-in methods for generating long 'SQL' CASE statements, and
-other 'SQL' statements that may otherwise be arduous to construct by hand.
-The generated statement can easily be concatenated to string literals to
-form queries to 'SQL'-like databases, such as when using the 'RODBC'
+other 'SQL' statements that may otherwise be arduous to construct by
+hand.The generated statement can easily be concatenated to string literals
+to form queries to 'SQL'-like databases, such as when using the 'RODBC'
 package. The current methods include casewhen() for building CASE
 statements, inlist() for building IN statements, and updatetable() for
 building UPDATE statements.

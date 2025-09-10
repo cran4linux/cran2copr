@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EntropicStatistics
-%global packver   0.1.1
+%global packname  clockplot
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions Based on Entropic Statistics
+Summary:          Plot Event Times on a 24-Hour Clock
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-hrbrthemes 
-BuildRequires:    R-CRAN-tidyverse 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hms 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-hrbrthemes 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hms 
 
 %description
-Contains methods for data analysis in entropic perspective. These entropic
-perspective methods are nonparametric, and perform better on non-ordinal
-data. Currently, the package has a function HeatMap() for visualizing
-distributional characteristics among multiple populations (groups).
+Provides a novel visualization technique for plotting timestamped events
+on a 24-hour circular clock face. This is particularly useful for
+analyzing daily patterns, event clustering, and gaps in temporal data. The
+package also generalizes this approach to create cyclic charts for other
+periods, including weekly and monthly cycles, enabling effective event
+planning and pattern analysis across multiple time frames.
 
 %prep
 %setup -q -c -n %{packname}

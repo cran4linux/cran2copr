@@ -1,48 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oesr
+%global packname  IndonesiAPIs
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for the Office of Evaluation Sciences
+Summary:          Access Indonesian Data via Public APIs and Curated Datasets
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-estimatr 
-BuildRequires:    R-CRAN-extrafont 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-broom 
+Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-estimatr 
-Requires:         R-CRAN-extrafont 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sandwich 
-Requires:         R-stats 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
 
 %description
-Methods for statistical analysis and reporting preferred by the US Office
-of Evaluation Sciences (OES). This package prepares data from standard
-model output objects (such as from code{lm()} and
-code{estimatr::lm_robust()}) and creates visualizations of treatment
-effects from the prepared quantities, according to the standards of the US
-Office of Evaluation Sciences.
+Provides functions to access data from public RESTful APIs including
+'Nager.Date', 'World Bank API', and 'REST Countries API', retrieving
+real-time or historical data related to Indonesia, such as holidays,
+economic indicators, and international demographic and geopolitical
+indicators. The package also includes a curated collection of open
+datasets focused on Indonesia, covering topics such as consumer prices,
+poverty probability, food prices by region, tourism destinations, and
+minimum wage statistics. The package supports reproducible research and
+teaching by integrating reliable international APIs and structured
+datasets from public, academic, and government sources. For more
+information on the APIs, see: 'Nager.Date' <https://date.nager.at/Api>,
+'World Bank API'
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
+'REST Countries API' <https://restcountries.com/>.
 
 %prep
 %setup -q -c -n %{packname}

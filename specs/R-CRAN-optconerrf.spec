@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jqbr
-%global packver   1.0.4
+%global packname  optconerrf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'jQuery QueryBuilder' Input for 'Shiny'
+Summary:          Optimal Monotone Conditional Error Functions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
-A highly configurable 'jQuery' plugin offering a simple interface to
-create complex queries/filters in 'Shiny'. The outputted rules can easily
-be parsed into a set of 'R' and/or 'SQL' queries and used to filter data.
-Custom parsing of the rules is also supported. For more information about
-'jQuery QueryBuilder' see <https://querybuilder.js.org/>.
+Design and analysis of confirmatory adaptive clinical trials using the
+optimal conditional error framework according to Brannath and Bauer (2004)
+<doi:10.1111/j.0006-341X.2004.00221.x>. An extension to the optimal
+conditional error function using interim estimates as described in
+Brannath and Dreher (2024) <doi:10.48550/arXiv.2402.00814> and functions
+to ensure that the resulting conditional error function is non-increasing
+are also available.
 
 %prep
 %setup -q -c -n %{packname}

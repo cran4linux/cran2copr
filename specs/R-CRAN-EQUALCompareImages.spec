@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jqbr
-%global packver   1.0.4
+%global packname  EQUALCompareImages
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'jQuery QueryBuilder' Input for 'Shiny'
+Summary:          Comparison of Images for Researchers Without Coding Skills
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-shinybusy 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-shinybusy 
 
 %description
-A highly configurable 'jQuery' plugin offering a simple interface to
-create complex queries/filters in 'Shiny'. The outputted rules can easily
-be parsed into a set of 'R' and/or 'SQL' queries and used to filter data.
-Custom parsing of the rules is also supported. For more information about
-'jQuery QueryBuilder' see <https://querybuilder.js.org/>.
+Support functions for R-based "EQUALCompareImages - Compare similarity
+between and within images" shiny application which allow researchers
+without coding skills or expertise in image comparison algorithms to
+compare images. Gurusamy,K (2025)<doi:10.5281/zenodo.16994047>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SKNN
-%global packver   4.1
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Super K-Nearest Neighbor (SKNN) Classification Algorithm
 
@@ -23,9 +23,10 @@ Requires:         R-methods
 Requires:         R-stats 
 
 %description
-It's a Super K-Nearest Neighbor classification method with using kernel
-density to describe weight of the distance between a training observation
-and the testing sample.
+It's a Super K-Nearest Neighbor(SKNN) classification method with using
+kernel density to describe weight of the distance between a training
+observation and the testing sample. Comparison of performance between SKNN
+and KNN shows that SKNN is significantly superior to KNN.
 
 %prep
 %setup -q -c -n %{packname}

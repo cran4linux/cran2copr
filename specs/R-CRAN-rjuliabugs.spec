@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tvthemes
-%global packver   1.3.3
+%global packname  rjuliabugs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          TV Show Themes and Color Palettes for 'ggplot2' Graphics
+Summary:          Interface to 'JuliaBUGS.jl' from R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices >= 3.5.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-magick >= 2.0
-BuildRequires:    R-CRAN-scales >= 1.0.0
-BuildRequires:    R-CRAN-extrafont >= 0.17
-Requires:         R-grDevices >= 3.5.3
-Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-magick >= 2.0
-Requires:         R-CRAN-scales >= 1.0.0
-Requires:         R-CRAN-extrafont >= 0.17
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-JuliaCall 
+BuildRequires:    R-CRAN-posterior 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-JuliaCall 
+Requires:         R-CRAN-posterior 
 
 %description
-Contains various 'ggplot2' themes and color palettes based on TV shows
-such as 'Game of Thrones', 'Brooklyn Nine-Nine', 'Avatar: The Last
-Airbender', 'Spongebob Squarepants', and more.
+Provides an R interface to the 'JuliaBUGS.jl' package
+(<https://github.com/TuringLang/JuliaBUGS.jl>) for Bayesian inference
+using the BUGS modeling language. Allows R users to run models in Julia
+and return results as familiar R objects. Visualization and posterior
+analysis are supported via the 'bayesplot' and 'posterior' packages.
 
 %prep
 %setup -q -c -n %{packname}

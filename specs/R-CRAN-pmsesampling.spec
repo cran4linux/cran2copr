@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usaidplot
-%global packver   2.0.2
+%global packname  pmsesampling
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Graphs with US Agency for International Development Colors
+Summary:          Sample Size Determination for Accurate Predictive Linear Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-extrafont 
-BuildRequires:    R-CRAN-extrafontdb 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-extrafont 
-Requires:         R-CRAN-extrafontdb 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rootSolve 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-rootSolve 
 
 %description
-Automatically apply the United States Agency for International
-Development's color palette and fonts for either discrete or continuous
-variables.
+Provides analytic and simulation tools to estimate the minimum sample size
+required for achieving a target prediction mean-squared error (PMSE) or a
+specified proportional PMSE reduction (pPMSEr) in linear regression
+models.  Functions implement the criteria of Ma (2023)
+<https://digital.wpi.edu/downloads/0g354j58c>, support covariance-matrix
+handling, and include helpers for root-finding and diagnostic plotting.
 
 %prep
 %setup -q -c -n %{packname}

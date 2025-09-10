@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggScatRidges
-%global packver   0.1.2
+%global packname  STCYP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scatter Plot Combined with Ridgelines in 'ggplot2'
+Summary:          Spatio-Temporal Crop Yield Prediction
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bsts 
+BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-hrbrthemes 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-bsts 
+Requires:         R-CRAN-copula 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-hrbrthemes 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-vegan 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
 
 %description
-The function combines a scatter plot with ridgelines to better visualise
-the distribution between sample groups. The plot is created with
-'ggplot2'.
+Provides crop yield and meteorological data for Ontario, Canada. Includes
+functions for fitting and predicting data using spatio-temporal models, as
+well as tools for visualizing the results. The package builds upon
+existing R packages, including 'copula' (Hofert et al., 2025)
+<doi:10.32614/CRAN.package.copula>, and 'bsts' (Scott, 2024)
+<doi:10.32614/CRAN.package.bsts>.
 
 %prep
 %setup -q -c -n %{packname}

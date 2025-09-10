@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RobinCar2
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ROBust INference for Covariate Adjustment in Randomized Clinical Trials
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
 Requires:         R-utils 
 
 %description

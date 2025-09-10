@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gamblers.ruin.gameplay
-%global packver   4.0.5
+%global __requires_exclude ^libmpi
+%global packname  mogiw
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          One-Dimensional Random Walks Through Simulation of the Gambler's Ruin Problem
+Summary:          The Marshal–Olkin Generalized Inverse Weibull Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,19 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hrbrthemes 
-BuildRequires:    R-CRAN-gganimate 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hrbrthemes 
-Requires:         R-CRAN-gganimate 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Simulates a gambling game under the gambler's ruin setup, after asking for
-the money you have and the money you want to win, along with your win
-probability in each round of the game.
+Density, distribution function, quantile function, and random generation
+function based on Salem, H. M. (2019)<doi:10.5539/mas.v13n2p54>. In
+addition, a numerical method for maximum likelihood estimation is
+provided.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

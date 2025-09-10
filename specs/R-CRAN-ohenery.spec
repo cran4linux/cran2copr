@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ohenery
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling of Ordinal Random Variables via Softmax Regression
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-dplyr 
 
 %description

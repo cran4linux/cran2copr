@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiApply
-%global packver   2.1.4
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Functions to Multiple Multidimensional Arrays or Vectors
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-plyr 
+Requires:         R-methods 
 
 %description
 The base apply function and its variants, as well as the related functions

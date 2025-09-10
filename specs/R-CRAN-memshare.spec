@@ -1,26 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rttf2pt1
-%global packver   1.3.12
+%global packname  memshare
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.12
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'ttf2pt1' Program
+Summary:          Shared Memory Multithreading
 
-License:          file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-Rcpp >= 1.0.14
+Requires:         R-parallel 
 
 %description
-Contains the program 'ttf2pt1', for use with the 'extrafont' package. This
-product includes software developed by the 'TTF2PT1' Project and its
-contributors.
+This project extends 'R' with a mechanism for efficient parallel data
+access by utilizing 'C++' shared memory. Large data objects can be
+accessed and manipulated directly from 'R' without redundant copying,
+providing both speed and memory efficiency.
 
 %prep
 %setup -q -c -n %{packname}

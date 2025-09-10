@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   1.5.3
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Validated Ensemble Models with Elastic Net Regression
+Summary:          Self-Validated Ensemble Models with Lasso and Relaxed-Elastic Net Regression
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

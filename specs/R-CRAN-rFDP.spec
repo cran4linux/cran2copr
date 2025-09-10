@@ -1,46 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hrbrthemes
-%global packver   0.8.7
+%global packname  rFDP
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Additional Themes, Theme Components and Utilities for 'ggplot2'
+Summary:          Resampling-Based False Discovery Proportion Control
 
-License:          MIT + file LICENSE
+License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-extrafont 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gdtools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-extrafont 
-Requires:         R-tools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gdtools 
-Requires:         R-utils 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-A compilation of extra 'ggplot2' themes, scales and utilities, including a
-spell check function for plot label fields and an overall emphasis on
-typography. A copy of the 'Google' font 'Roboto Condensed' is also
-included.
+Methods for Resampling-based False Discovery Proportion control. A
+function is provided that provides simultaneous, multi-resolution False
+Discovery Exceedance (FDX) control as described in Hemerik (2025)
+<doi:10.48550/arXiv.2509.02376>.
 
 %prep
 %setup -q -c -n %{packname}

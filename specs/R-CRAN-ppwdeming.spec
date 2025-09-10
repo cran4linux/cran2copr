@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlexperiments
-%global packver   0.0.7
+%global packname  ppwdeming
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Experiments
+Summary:          Precision Profile Weighted Deming Regression
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-kdry 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-splitTools 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-kdry 
-Requires:         R-parallel 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-splitTools 
 Requires:         R-stats 
 
 %description
-Provides 'R6' objects to perform parallelized hyperparameter optimization
-and cross-validation. Hyperparameter optimization can be performed with
-Bayesian optimization (via 'ParBayesianOptimization'
-<https://cran.r-project.org/package=ParBayesianOptimization>) and grid
-search. The optimized hyperparameters can be validated using k-fold
-cross-validation. Alternatively, hyperparameter optimization and
-validation can be performed with nested cross-validation. While
-'mlexperiments' focuses on core wrappers for machine learning experiments,
-additional learner algorithms can be supplemented by inheriting from the
-provided learner base class.
+Weighted Deming regression, also known as "errors-in-variable" regression,
+is applied with suitable weights. Weights are modeled via a precision
+profile; functions are provided for implementing it in both known and
+unknown precision profile situations. The package provides tools for
+precision profile weighted Deming (PWD) regression. It covers two settings
+– one where the precision profiles are known either from external studies
+or from adequate replication of the X and Y readings, and one in which
+there is a plausible functional form for the precision profiles but the
+exact function must be estimated from the (generally singlicate) readings.
+The function set includes tools for: estimated standard errors (via
+jackknifing); standardized-residual analysis function with regression
+diagnostic tools for normality, linearity and constant variance; and an
+outlier analysis identifying significant outliers for closer
+investigation. Further information on mathematical derivations and
+applications can be found on arXiv: Hawkins and Kraker (2025)
+<doi:10.48550/arXiv.2508.02888>.
 
 %prep
 %setup -q -c -n %{packname}

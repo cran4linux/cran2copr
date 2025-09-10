@@ -1,47 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  psc
-%global packver   1.3.0
+%global packname  eFCM
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Personalised Synthetic Controls
+Summary:          Exponential Factor Copula Model
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-enrichwith 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-flexsurv 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-gtsummary 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-waffle 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-enrichwith 
-Requires:         R-stats 
-Requires:         R-CRAN-flexsurv 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-gtsummary 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-waffle 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-nsRFA 
+BuildRequires:    R-CRAN-ismev 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-nsRFA 
+Requires:         R-CRAN-ismev 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-progress 
 
 %description
-Allows the comparison of data cohorts (DC) against a Counter Factual Model
-(CFM) and measures the difference in terms of an efficacy parameter.
-Allows the application of Personalised Synthetic Controls.
+Implements the exponential Factor Copula Model (eFCM) of Castro-Camilo, D.
+and Huser, R. (2020) for spatial extremes, with tools for dependence
+estimation, tail inference, and visualization. The package supports
+likelihood-based inference, Gaussian process modeling via Matérn
+covariance functions, and bootstrap uncertainty quantification. See
+Castro-Camilo and Huser (2020) <doi:10.1080/01621459.2019.1647842>.
 
 %prep
 %setup -q -c -n %{packname}

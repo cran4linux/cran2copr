@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EstimationTools
-%global packver   4.0.0
+%global packver   4.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Estimation for Probability Functions from Data Sets
 
@@ -17,12 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-BBmisc 
 BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-CRAN-gaussquad 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-numDeriv 
@@ -30,12 +29,13 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-autoimage 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-gaussquad 
+BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-BBmisc 
 Requires:         R-CRAN-GA 
-Requires:         R-CRAN-gaussquad 
-Requires:         R-CRAN-Rdpack 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-numDeriv 
@@ -43,6 +43,8 @@ Requires:         R-CRAN-boot
 Requires:         R-CRAN-autoimage 
 Requires:         R-graphics 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-gaussquad 
+Requires:         R-CRAN-car 
 
 %description
 Total Time on Test plot and routines for parameter estimation of any
@@ -52,8 +54,8 @@ it feasible to use in parameter estimation of probability density or mass
 functions in any field. The main routines 'maxlogL' and 'maxlogLreg' are
 wrapper functions specifically developed for ML estimation. There are
 included optimization procedures such as 'nlminb' and 'optim' from base
-package, and 'DEoptim' Mullen (2011) <doi: 10.18637/jss.v040.i06>.
-Standard errors are estimated with 'numDeriv' Gilbert (2011)
+package, and 'DEoptim' Mullen (2011) <doi:10.18637/jss.v040.i06>. Standard
+errors are estimated with 'numDeriv' Gilbert (2011)
 <https://CRAN.R-project.org/package=numDeriv> or the option 'Hessian =
 TRUE' of 'optim' function.
 

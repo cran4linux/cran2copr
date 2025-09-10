@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extrafont
-%global packver   0.19
+%global packname  spantest
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Using Fonts
+Summary:          Mean-Variance Spanning Tests
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-extrafontdb 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rttf2pt1 
-Requires:         R-CRAN-extrafontdb 
-Requires:         R-grDevices 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-Rttf2pt1 
 
 %description
-Tools to using fonts other than the standard PostScript fonts. This
-package makes it easy to use system TrueType fonts and with PDF or
-PostScript output files, and with bitmap output files in Windows.
-extrafont can also be used with fonts packaged specifically to be used
-with, such as the fontcm package, which has Computer Modern PostScript
-fonts with math symbols.
+Provides a comprehensive suite of portfolio spanning tests for asset
+pricing, such as Huberman and Kandel (1987)
+<doi:10.1111/j.1540-6261.1987.tb03917.x>, Gibbons et al. (1989)
+<doi:10.2307/1913625>, Kempf and Memmel (2006) <doi:10.1007/BF03396737>,
+Pesaran and Yamagata (2024) <doi:10.1093/jjfinec/nbad002>, and Gungor and
+Luger (2016) <doi:10.1080/07350015.2015.1019510>.
 
 %prep
 %setup -q -c -n %{packname}

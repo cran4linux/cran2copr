@@ -1,48 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlexperiments
-%global packver   0.0.7
+%global packname  sparsesurv
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Experiments
+Summary:          Forecasting and Early Outbreak Detection for Sparse Count Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-kdry 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-splitTools 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-kdry 
-Requires:         R-parallel 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-splitTools 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-coda 
 Requires:         R-stats 
 
 %description
-Provides 'R6' objects to perform parallelized hyperparameter optimization
-and cross-validation. Hyperparameter optimization can be performed with
-Bayesian optimization (via 'ParBayesianOptimization'
-<https://cran.r-project.org/package=ParBayesianOptimization>) and grid
-search. The optimized hyperparameters can be validated using k-fold
-cross-validation. Alternatively, hyperparameter optimization and
-validation can be performed with nested cross-validation. While
-'mlexperiments' focuses on core wrappers for machine learning experiments,
-additional learner algorithms can be supplemented by inheriting from the
-provided learner base class.
+Functions for fitting, forecasting, and early detection of outbreaks in
+sparse surveillance count time series. Supports negative binomial (NB),
+self-exciting NB, generalise autoregressive moving average (GARMA) NB ,
+zero-inflated NB (ZINB), self-exciting ZINB, generalise autoregressive
+moving average ZINB, and hurdle formulations. Climatic and environmental
+covariates can be included in the regression component and/or the
+zero-modified components. Includes outbreak-detection algorithms for NB,
+ZINB, and hurdle models, with utilities for prediction and diagnostics.
 
 %prep
 %setup -q -c -n %{packname}

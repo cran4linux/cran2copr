@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xpose.xtras
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Functionality for the 'xpose' Package
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-purrr >= 1.0.1
 BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-conflicted 
@@ -48,7 +48,7 @@ Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-purrr >= 1.0.1
 Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-conflicted 

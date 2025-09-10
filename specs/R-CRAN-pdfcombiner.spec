@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jqbr
-%global packver   1.0.4
+%global packname  pdfcombiner
+%global packver   1.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.9.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          'jQuery QueryBuilder' Input for 'Shiny'
+Summary:          Graphical User Interface for Manipulating PDF and Image Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-qpdf 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-qpdf 
 
 %description
-A highly configurable 'jQuery' plugin offering a simple interface to
-create complex queries/filters in 'Shiny'. The outputted rules can easily
-be parsed into a set of 'R' and/or 'SQL' queries and used to filter data.
-Custom parsing of the rules is also supported. For more information about
-'jQuery QueryBuilder' see <https://querybuilder.js.org/>.
+A 'shiny' app that supports merging of PDF and/or image files with page
+selection, removal, or rotation options. It is a fast, free, and secure
+alternative to commercial software or various online websites which
+require users to sign-up, and it avoids any potential risks associated
+with uploading files elsewhere.
 
 %prep
 %setup -q -c -n %{packname}
