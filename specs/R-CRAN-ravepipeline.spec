@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ravepipeline
-%global packver   0.0.1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Pipeline Infrastructure for Neuroscience
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-fst >= 0.9.8
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-base64url 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-digest 
@@ -36,10 +36,11 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-targets 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-logger 
 Requires:         R-CRAN-fst >= 0.9.8
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-base64url 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-digest 
@@ -55,6 +56,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-targets 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-logger 
 
 %description
 Defines the underlying pipeline structure for reproducible neuroscience,

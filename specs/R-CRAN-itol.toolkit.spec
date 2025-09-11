@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  itol.toolkit
-%global packver   1.1.7
+%global packver   1.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for 'Interactive Tree Of Life'
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-rstudioapi
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-ggsci 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
@@ -51,6 +53,8 @@ Requires:         R-CRAN-rstudioapi
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-ggsci 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-magrittr 
 
 %description
 The 'Interactive Tree Of Life' <https://itol.embl.de/> online server can

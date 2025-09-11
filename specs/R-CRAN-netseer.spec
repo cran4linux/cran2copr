@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netseer
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Prediction from a Graph Time Series
 
@@ -47,7 +47,7 @@ Predicting the structure of a graph including new nodes and edges using a
 time series of graphs. Flux balance analysis, a linear and integer
 programming technique used in biochemistry is used with time series
 prediction methods to predict the graph structure at a future time point
-Kandanaarachchi (2024) <doi:10.48550/arXiv.2401.04280>.
+Kandanaarachchi (2025) <doi:10.48550/arXiv.2507.05806>.
 
 %prep
 %setup -q -c -n %{packname}

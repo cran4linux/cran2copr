@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chopin
-%global packver   0.9.4
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Parallel Computing by Hierarchical Data Partitioning
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-CRAN-collapse 
 Requires:         R-CRAN-terra >= 1.7.18
 Requires:         R-CRAN-mirai >= 1.3.0
@@ -44,6 +45,7 @@ Requires:         R-CRAN-future.apply
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sfheaders 
 Requires:         R-CRAN-collapse 
 
 %description

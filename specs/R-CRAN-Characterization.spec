@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Characterization
-%global packver   2.1.3
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implement Descriptive Studies Using the Common Data Model
 
@@ -18,20 +18,20 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DatabaseConnector >= 6.3.1
-BuildRequires:    R-CRAN-FeatureExtraction >= 3.6.0
+BuildRequires:    R-CRAN-FeatureExtraction >= 3.10.0
 BuildRequires:    R-CRAN-ParallelLogger >= 3.0.0
 BuildRequires:    R-CRAN-SqlRender >= 1.9.0
-BuildRequires:    R-CRAN-Andromeda 
+BuildRequires:    R-CRAN-Andromeda >= 1.0.0
 BuildRequires:    R-CRAN-ResultModelManager 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-DatabaseConnector >= 6.3.1
-Requires:         R-CRAN-FeatureExtraction >= 3.6.0
+Requires:         R-CRAN-FeatureExtraction >= 3.10.0
 Requires:         R-CRAN-ParallelLogger >= 3.0.0
 Requires:         R-CRAN-SqlRender >= 1.9.0
-Requires:         R-CRAN-Andromeda 
+Requires:         R-CRAN-Andromeda >= 1.0.0
 Requires:         R-CRAN-ResultModelManager 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 

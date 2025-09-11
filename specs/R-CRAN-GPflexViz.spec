@@ -1,36 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wkutils
-%global packver   0.1.3
+%global packname  GPflexViz
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Well-Known Geometry Vectors
+Summary:          Graphical Visualizations Related to Genomic Prediction
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-wk >= 0.3.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-wk >= 0.3.1
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides extra utilities for well-known formats in the 'wk' package that
-are outside the scope of that package. Utilities to parse coordinates from
-data frames, plot well-known geometry vectors, extract meta information
-from well-known geometry vectors, and calculate bounding boxes are
-provided.
+Provides flexible tools for the visualization of genomic data. Supports
+interactive and static plots tailored for presentations and publications,
+with customizable features like colors, themes, and annotations to align
+with specific analytical and presentation goals.
 
 %prep
 %setup -q -c -n %{packname}

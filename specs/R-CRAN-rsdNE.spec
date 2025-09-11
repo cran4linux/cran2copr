@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsdNE
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Response Surface Designs with Neighbour Effects (rsdNE)
 
@@ -25,13 +25,12 @@ combination administered to one experimental unit may affect the response
 on neighboring units as well as the response on the unit to which it is
 applied (Dalal et al.,2025 <doi: 10.57805/revstat.v23i2.513>). Integrating
 these effects in the response surface model improves the experiment's
-precision (Jaggi, S., Sarika and Sharma, V.K.
-(2010)<doi:10.5555/20103265373>; Verma A., Jaggi S., Varghese,
-E.,Varghese, C.,Bhowmik, A., Datta, A. and Hemavathi M. (2021)<doi:
-10.1080/03610918.2021.1890123>). This package includes sym(), asym1(),
-asym2(), asym3() and asym4() functions that generates response surface
-designs which are rotatable under a polynomial model of a given order
-without interaction term incorporating neighbour effects.
+precision Verma A., Jaggi S., Varghese, E.,Varghese, C.,Bhowmik, A.,
+Datta, A. and Hemavathi M. (2021)<doi: 10.1080/03610918.2021.1890123>).
+This package includes sym(), asym1(), asym2(), asym3() and asym4()
+functions that generates response surface designs which are rotatable
+under a polynomial model of a given order without interaction term
+incorporating neighbour effects.
 
 %prep
 %setup -q -c -n %{packname}

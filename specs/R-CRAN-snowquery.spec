@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snowquery
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'Snowflake' Databases with 'SQL'
+Summary:          SQL Interface to 'Snowflake', 'Redshift', 'Postgres', 'SQLite', and 'DuckDB'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-RSQLite 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
 Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
 
 %description
-A wrapper allowing 'SQL' queries to be run on a 'Snowflake' instance
-directly from an 'R' script, by using the 'snowflake-connector-python'
-package in the background.
+Run 'SQL' queries across 'Snowflake', 'Amazon Redshift', 'PostgreSQL',
+'SQLite', and 'DuckDB' from R with a single function. Optionally stream
+and cache large query results to a local 'DuckDB' database for efficient
+work with larger-than-memory datasets.
 
 %prep
 %setup -q -c -n %{packname}

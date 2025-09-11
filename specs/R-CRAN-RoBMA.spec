@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoBMA
-%global packver   3.5.1
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.1
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian Meta-Analyses
 

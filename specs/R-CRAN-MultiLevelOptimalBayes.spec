@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiLevelOptimalBayes
-%global packver   0.0.2.0
+%global packver   0.0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2.0
+Version:          0.0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Bayesian Estimator for Two-Level Latent Variable Models
 
@@ -29,7 +29,10 @@ offering a robust solution for accurate parameter estimation in two-level
 latent variable models. It is designed for researchers in psychology,
 education, and related fields who face challenges in estimating
 between-group effects under small sample sizes and low intraclass
-correlation coefficients. Dashuk et al. (2024)
+correlation coefficients. The package includes comprehensive S3 methods
+for result objects: print(), summary(), coef(), se(), vcov(), confint(),
+as.data.frame(), dim(), length(), names(), and update() for enhanced
+usability and integration with standard R workflows. Dashuk et al. (2024)
 <doi:10.13140/RG.2.2.18148.39048> derived the optimal regularized Bayesian
 estimator; Dashuk et al. (2024) <doi:10.13140/RG.2.2.34350.01604> extended
 it to the multivariate case; and Luedtke et al. (2008)

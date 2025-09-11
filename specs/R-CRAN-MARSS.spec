@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MARSS
-%global packver   3.11.9
+%global packver   3.11.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.9
+Version:          3.11.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Autoregressive State-Space Modeling
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurrogateRank
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rank-Based Test to Evaluate a Surrogate Marker
 
@@ -30,9 +30,9 @@ Requires:         R-CRAN-pbmcapply
 Uses a novel rank-based nonparametric approach to evaluate a surrogate
 marker in a small sample size setting. Details are described in Parast et
 al (2024) <doi:10.1093/biomtc/ujad035> and Hughes A et al (2025)
-<doi:10.48550/arXiv.2502.03030>. A tutorial for this package can be found
-at <https://www.laylaparast.com/surrogaterank> and a Shiny App
-implementing the package can be found at
+<doi:10.1002/sim.70241>. A tutorial for this package can be found at
+<https://www.laylaparast.com/surrogaterank> and a Shiny App implementing
+the package can be found at
 <https://parastlab.shinyapps.io/SurrogateRankApp/>.
 
 %prep

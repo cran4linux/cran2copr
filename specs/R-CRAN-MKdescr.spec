@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MKdescr
-%global packver   0.8
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Statistics
 
@@ -21,19 +21,22 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
 
 %description
 Computation of standardized interquartile range (IQR), Huber-type skipped
 mean (Hampel (1985), <doi:10.2307/1268758>), robust coefficient of
-variation (CV) (Arachchige et al. (2019), <arXiv:1907.01110>), robust
-signal to noise ratio (SNR), z-score, standardized mean difference (SMD),
-as well as functions that support graphical visualization such as boxplots
-based on quartiles (not hinges), negative logarithms and generalized
-logarithms for 'ggplot2' (Wickham (2016), ISBN:978-3-319-24277-4).
+variation (CV) (Arachchige et al. (2019),
+<doi:10.48550/arXiv.1907.01110>), robust signal to noise ratio (SNR),
+z-score, standardized mean difference (SMD), as well as functions that
+support graphical visualization such as boxplots based on quartiles (not
+hinges), negative logarithms and generalized logarithms for 'ggplot2'
+(Wickham (2016), ISBN:978-3-319-24277-4).
 
 %prep
 %setup -q -c -n %{packname}
