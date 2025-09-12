@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rix
-%global packver   0.16.0
+%global packver   0.17.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.17.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Data Science Environments with 'Nix'
 
@@ -35,8 +35,9 @@ the 'Nix' package manager, as described in Dolstra (2006) <ISBN
 description of the environment as a `default.nix` file, which can then be
 built using 'Nix'. This results in project specific software environments
 with pinned versions of R, packages, linked system dependencies, and other
-tools. Additional helpers make it easy to run R code in 'Nix' software
-environments for testing and production.
+tools or programming languages such as Python or Julia. Additional helpers
+make it easy to run R code in 'Nix' software environments for testing and
+production.
 
 %prep
 %setup -q -c -n %{packname}

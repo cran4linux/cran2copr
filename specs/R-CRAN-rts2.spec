@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rts2
-%global packver   0.8.3
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Real-Time Disease Surveillance
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-raster >= 3.6.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.32.0
-BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-rstan >= 2.30.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-lubridate >= 1.9.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-raster >= 3.6.1
-Requires:         R-CRAN-rstan >= 2.26.0
+Requires:         R-CRAN-rstan >= 2.30.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-lubridate >= 1.9.0
 Requires:         R-CRAN-sf >= 1.0.14

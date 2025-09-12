@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ChileDataAPI
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Chilean Data via APIs and Curated Datasets
 
@@ -21,22 +21,30 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-scales 
 
 %description
-Provides functions to access data from the 'FINDIC API' and the 'REST
-Countries API', related to Chile's financial indicators, international
-country information, and more. Additionally, the package includes curated
-datasets related to Chile, covering topics such as human rights violations
-during the Pinochet regime, electoral data, census samples, health
-surveys, seismic events, territorial codes, and environmental
-measurements. The package supports research and analysis focused on Chile
-by integrating open APIs with high-quality datasets from multiple domains.
-For more details on 'FINDIC', see <https://findic.cl/>, and for 'REST
-Countries', see <https://restcountries.com/>.
+Provides functions to access data from public RESTful APIs including
+'FINDIC API', 'REST Countries API', 'World Bank API', and 'Nager.Date',
+retrieving real-time or historical data related to Chile such as financial
+indicators, holidays, international demographic and geopolitical
+indicators, and more. Additionally, the package includes curated datasets
+related to Chile, covering topics such as human rights violations during
+the Pinochet regime, electoral data, census samples, health surveys,
+seismic events, territorial codes, and environmental measurements. The
+package supports research and analysis focused on Chile by integrating
+open APIs with high-quality datasets from multiple domains. For more
+information on the APIs, see: 'FINDIC' <https://findic.cl/>, 'REST
+Countries' <https://restcountries.com/>, 'World Bank API'
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
+'Nager.Date' <https://date.nager.at/Api>.
 
 %prep
 %setup -q -c -n %{packname}

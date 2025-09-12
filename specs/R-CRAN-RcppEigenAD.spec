@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ergm.count
-%global packver   4.1.3
+%global packname  RcppEigenAD
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks with Count Edges
+Summary:          Generate Partial Derivatives using 'Rcpp', 'Eigen' and 'CppAD'
 
-License:          GPL-3 + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-statnet.common >= 4.12.0
-BuildRequires:    R-CRAN-ergm >= 4.10.1
-BuildRequires:    R-CRAN-Rdpack >= 2.6.4
-BuildRequires:    R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-statnet.common >= 4.12.0
-Requires:         R-CRAN-ergm >= 4.10.1
-Requires:         R-CRAN-Rdpack >= 2.6.4
-Requires:         R-CRAN-network >= 1.19.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-functional 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-methods 
+Requires:         R-CRAN-functional 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A set of extensions for the 'ergm' package to fit weighted networks whose
-edge weights are counts. See Krivitsky (2012) <doi:10.1214/12-EJS696> and
-Krivitsky, Hunter, Morris, and Klumb (2023) <doi:10.18637/jss.v105.i06>.
+Compiles 'C++' code using 'Rcpp' <doi:10.18637/jss.v040.i08>, 'Eigen'
+<doi:10.18637/jss.v052.i05> and 'CppAD' to produce first and second order
+partial derivatives. Also provides an implementation of Faa' di Bruno's
+formula to combine the partial derivatives of composed functions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssMRCD
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatially Smoothed MRCD Estimator
+Summary:          Robust Estimators for Multi-Group and Spatial Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,53 +16,51 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-rrcov 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-rootSolve 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-cellWise 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-expm 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-rrcov 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-rootSolve 
-Requires:         R-parallel 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-cellWise 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Estimation of the Spatially Smoothed Minimum Regularized Determinant
-(ssMRCD) estimator and its usage in an ssMRCD-based outlier detection
-method as described in Puchhammer and Filzmoser (2023)
-<doi:10.1080/10618600.2023.2277875> and for sparse robust PCA for
-multi-source data described in Puchhammer, Wilms and Filzmoser (2024)
-<doi:10.48550/arXiv.2407.16299>. Included are also complementary
+Estimation of robust estimators for multi-group and spatial data including
+the casewise robust Spatially Smoothed Minimum Regularized Determinant
+(ssMRCD) estimator and its usage for local outlier detection as described
+in Puchhammer and Filzmoser (2023) <doi:10.1080/10618600.2023.2277875> as
+well as for sparse robust PCA for multi-source data described in
+Puchhammer, Wilms and Filzmoser (2024) <doi:10.48550/arXiv.2407.16299>.
+Moreover, a cellwise robust multi-group Gaussian mixture model (MG-GMM) is
+implemented as described in Puchhammer, Wilms and Filzmoser (2024)
+<doi:10.48550/arXiv.2504.02547>. Included are also complementary
 visualization and parameter tuning tools.
 
 %prep

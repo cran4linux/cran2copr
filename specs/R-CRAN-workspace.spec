@@ -1,34 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ergm.count
-%global packver   4.1.3
+%global packname  workspace
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks with Count Edges
+Summary:          Manage Collections of Datasets and Objects
 
-License:          GPL-3 + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-statnet.common >= 4.12.0
-BuildRequires:    R-CRAN-ergm >= 4.10.1
-BuildRequires:    R-CRAN-Rdpack >= 2.6.4
-BuildRequires:    R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-statnet.common >= 4.12.0
-Requires:         R-CRAN-ergm >= 4.10.1
-Requires:         R-CRAN-Rdpack >= 2.6.4
-Requires:         R-CRAN-network >= 1.19.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-zip 
 
 %description
-A set of extensions for the 'ergm' package to fit weighted networks whose
-edge weights are counts. See Krivitsky (2012) <doi:10.1214/12-EJS696> and
-Krivitsky, Hunter, Morris, and Klumb (2023) <doi:10.18637/jss.v105.i06>.
+Create, store, read and manage structured collections of datasets and
+other objects using a 'workspace', then bundle it into a compressed
+archive.  Using open and interoperable formats makes it possible to
+exchange bundled data from 'R' to other languages such as 'Python' or
+'Julia'.  Multiple formats are supported 'Parquet', 'JSON', 'yaml',
+spatial data and raster data are supported.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sfcentral
-%global packver   0.1.0
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Centrality and Dispersion Statistics
 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-geodist >= 0.0.7
 Requires:         R-stats 
 
 %description
-Computing centrographic statistics (central points, standard distance,
+Compute centrographic statistics (central points, standard distance,
 standard deviation ellipse, standard deviation box) for observations taken
 at point locations in 2D or 3D. The 'sfcentral' library was inspired in
 'aspace' package but conceived to be used in a spatial 'tidyverse'

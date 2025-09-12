@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggalign
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'ggplot2' Extension for Consistent Axis Alignment
+Summary:          A 'ggplot2' Extension for Composable Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,8 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grDevices 
@@ -29,8 +30,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-vctrs >= 0.5.0
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-grDevices 
@@ -43,15 +45,14 @@ Requires:         R-utils
 Requires:         R-CRAN-lifecycle 
 
 %description
-A 'ggplot2' extension offers various tools the creation of complex,
-multi-plot visualizations. Built on the familiar grammar of graphics, it
-provides intuitive tools to align and organize plots, making it ideal for
-complex visualizations. It excels in multi-omics research—such as genomics
-and microbiomes—by simplifying the visualization of intricate
-relationships between datasets, for example, linking genes to pathways.
-Whether you need to stack plots, arrange them around a central figure, or
-create a circular layout, 'ggalign' delivers flexibility and accuracy with
-minimal effort.
+A 'ggplot2' extension providing an integrative framework for composable
+visualization, enabling the creation of complex multi-plot layouts such as
+insets, circular arrangements, and multi-panel compositions. Built on the
+grammar of graphics, it offers tools to align, stack, and nest plots,
+simplifying the construction of richly annotated figures for
+high-dimensional data contexts—such as genomics, transcriptomics, and
+microbiome studies—by making it easy to link related plots, overlay
+clustering results, or highlight shared patterns.
 
 %prep
 %setup -q -c -n %{packname}

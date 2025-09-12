@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmmTMB
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Hidden Markov Models using Template Model Builder
 
@@ -40,7 +40,7 @@ Requires:         R-methods
 Fitting hidden Markov models using automatic differentiation and Laplace
 approximation, allowing for fast inference and flexible covariate effects
 (including random effects and smoothing splines) on model parameters. The
-package is described by Michelot (2022) <doi:10.48550/arXiv.2211.14139>.
+package is described by Michelot (2025) <doi:10.18637/jss.v114.i05>.
 
 %prep
 %setup -q -c -n %{packname}

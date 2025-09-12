@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ergm.count
-%global packver   4.1.3
+%global packname  truncSP
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks with Count Edges
+Summary:          Semi-Parametric Estimators of Truncated Regression Models
 
-License:          GPL-3 + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-statnet.common >= 4.12.0
-BuildRequires:    R-CRAN-ergm >= 4.10.1
-BuildRequires:    R-CRAN-Rdpack >= 2.6.4
-BuildRequires:    R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-statnet.common >= 4.12.0
-Requires:         R-CRAN-ergm >= 4.10.1
-Requires:         R-CRAN-Rdpack >= 2.6.4
-Requires:         R-CRAN-network >= 1.19.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-truncreg 
+BuildRequires:    R-CRAN-boot 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-truncreg 
+Requires:         R-CRAN-boot 
 
 %description
-A set of extensions for the 'ergm' package to fit weighted networks whose
-edge weights are counts. See Krivitsky (2012) <doi:10.1214/12-EJS696> and
-Krivitsky, Hunter, Morris, and Klumb (2023) <doi:10.18637/jss.v105.i06>.
+Estimators for semi-parametric linear regression models with truncated
+response variables (fixed truncation point). The estimators implemented
+are the Symmetrically Trimmed Least Squares (STLS) estimator introduced by
+Powell (1986) <doi:10.2307/1914308>, the Quadratic Mode (QME) estimator
+introduced by Lee (1993) <doi:10.1016/0304-4076(93)90056-B>, and the Left
+Truncated (LT) estimator introduced by Karlsson (2006)
+<doi:10.1007/s00184-005-0023-x>.
 
 %prep
 %setup -q -c -n %{packname}

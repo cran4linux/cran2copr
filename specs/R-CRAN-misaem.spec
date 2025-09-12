@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  misaem
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Regression and Logistic Regression with Missing Covariates
 
@@ -21,11 +22,15 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-norm 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-glmnet 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-norm 
 Requires:         R-methods 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-glmnet 
 
 %description
 Estimate parameters of linear regression and logistic regression with

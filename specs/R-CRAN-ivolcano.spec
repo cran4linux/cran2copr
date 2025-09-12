@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ergm.count
-%global packver   4.1.3
+%global packname  ivolcano
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks with Count Edges
+Summary:          Interactive Volcano Plot
 
-License:          GPL-3 + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-statnet.common >= 4.12.0
-BuildRequires:    R-CRAN-ergm >= 4.10.1
-BuildRequires:    R-CRAN-Rdpack >= 2.6.4
-BuildRequires:    R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-statnet.common >= 4.12.0
-Requires:         R-CRAN-ergm >= 4.10.1
-Requires:         R-CRAN-Rdpack >= 2.6.4
-Requires:         R-CRAN-network >= 1.19.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggiraph 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggiraph 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
 
 %description
-A set of extensions for the 'ergm' package to fit weighted networks whose
-edge weights are counts. See Krivitsky (2012) <doi:10.1214/12-EJS696> and
-Krivitsky, Hunter, Morris, and Klumb (2023) <doi:10.18637/jss.v105.i06>.
+Generate interactive volcano plots for exploring gene expression data.
+Built with 'ggplot2', the plots are rendered interactive using 'ggiraph',
+enabling users to hover over points to display detailed information or
+click to trigger custom actions.
 
 %prep
 %setup -q -c -n %{packname}

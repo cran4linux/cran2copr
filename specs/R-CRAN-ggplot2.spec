@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggplot2
-%global packver   3.5.2
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.2
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Elegant Data Visualisations Using the Grammar of Graphics
 
@@ -14,39 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.5.0
-BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-scales >= 1.4.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-vctrs >= 0.6.0
-BuildRequires:    R-CRAN-gtable >= 0.1.1
+BuildRequires:    R-CRAN-gtable >= 0.3.6
 BuildRequires:    R-CRAN-lifecycle > 1.0.1
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-withr >= 2.5.0
-Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-scales >= 1.4.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-vctrs >= 0.6.0
-Requires:         R-CRAN-gtable >= 0.1.1
+Requires:         R-CRAN-gtable >= 0.3.6
 Requires:         R-CRAN-lifecycle > 1.0.1
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-S7 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 
 %description
 A system for 'declaratively' creating graphics, based on "The Grammar of

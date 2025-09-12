@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exams.forge.data
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Precomputed Dataset Collection Used in 'exams.forge'
+Summary:          Sample and Precomputed Data for Use with 'exams.forge'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,15 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-exams 
+BuildRequires:    R-CRAN-exams.forge 
+Requires:         R-CRAN-exams 
+Requires:         R-CRAN-exams.forge 
 
 %description
-The dataset collection supports Pearson correlation and linear regression
-analysis, with datasets for n=100,200,400,800,1000, where n is the sum of
-squared values in x. Each dataset has x values summing to zero, with
-sample sizes (observations in x) ranging from 2 to 10. Additional data
-frames include variables with German names and measurement levels, and
-distribution details with R function names, LaTeX names, discreteness, and
-package origins.
+Provides a small collection of datasets supporting Pearson correlation and
+linear regression analysis. It includes the precomputed dataset 'sos100',
+with integer values summing to zero and squared sum equal to 100. For
+other values of 'n' and user-defined parameters, the 'sos()' function from
+the 'exams.forge' package can be used to generate datasets on the fly. In
+addition, the package contains around 500 R Markdown exercises that
+illustrate the usage of 'exams.forge' commands.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergm.rank
-%global packver   4.1.1
+%global packver   4.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Rank-Order Relational Data
 
@@ -16,15 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-ergm >= 4.2.2
-BuildRequires:    R-CRAN-statnet.common >= 4.2.0
-BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-network >= 1.15
+BuildRequires:    R-CRAN-statnet.common >= 4.12.0
+BuildRequires:    R-CRAN-ergm >= 4.10.1
+BuildRequires:    R-CRAN-Rdpack >= 2.6.4
+BuildRequires:    R-CRAN-network >= 1.19.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ergm >= 4.2.2
-Requires:         R-CRAN-statnet.common >= 4.2.0
-Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-network >= 1.15
+Requires:         R-CRAN-statnet.common >= 4.12.0
+Requires:         R-CRAN-ergm >= 4.10.1
+Requires:         R-CRAN-Rdpack >= 2.6.4
+Requires:         R-CRAN-network >= 1.19.0
 Requires:         R-utils 
 
 %description

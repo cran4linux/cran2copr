@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sparkxgb
-%global packver   0.2.1
+%global packname  factorH
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for 'XGBoost' on 'Apache Spark'
+Summary:          Multifactor Nonparametric Rank-Based ANOVA with Post Hoc Tests
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr 
+BuildRequires:    R-CRAN-rcompanion 
+BuildRequires:    R-CRAN-FSA 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-sparklyr 
+Requires:         R-CRAN-rcompanion 
+Requires:         R-CRAN-FSA 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-fs 
 
 %description
-A 'sparklyr' <https://spark.posit.co/> extension that provides an R
-interface for 'XGBoost' <https://github.com/dmlc/xgboost> on 'Apache
-Spark'. 'XGBoost' is an optimized distributed gradient boosting library.
+Multifactor nonparametric analysis of variance based on ranks. Builds on
+the Kruskal-Wallis H test and its 2x2 Scheirer-Ray-Hare extension to
+handle any factorial designs. Provides effect sizes, Dunn-Bonferroni
+pairwise-comparison matrices, and simple-effects analyses. Tailored for
+psychology and the social sciences, with beginner-friendly R syntax and
+outputs that can be dropped into journal reports. Includes helpers to
+export tab-separated results and compact tables of descriptive statistics
+(to APA-style reports).
 
 %prep
 %setup -q -c -n %{packname}

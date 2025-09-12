@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cata
-%global packver   0.1.0.27
+%global packver   0.1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.27
+Version:          0.1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Check-All-that-Apply (CATA) Data
 
@@ -31,12 +31,11 @@ Penalty-Lift analysis are provided; for details, see Meyners, Castura &
 Carr (2013) <doi:10.1016/j.foodqual.2013.06.010>. Cluster analysis can be
 performed using b-cluster analysis, then evaluated using various measures;
 for details, see Castura, Meyners, Varela & Næs (2022)
-<doi:10.1016/j.foodqual.2022.104564>. Methods are adapted to cluster
-consumers based on their product-related hedonic responses; for details,
-see Castura, Meyners, Pohjanheimo, Varela & Næs (2023)
-<doi:10.1111/joss.12860>. Permutation tests based on the L1-norm methods
-are provided; for details, see Chaya, Castura & Greenacre (2025)
-<doi:10.48550/arXiv.2502.15945>.
+<doi:10.1016/j.foodqual.2022.104564>. Consumers can also be clustered on
+their product-related hedonic responses; see Castura, Meyners,
+Pohjanheimo, Varela & Næs (2023) <doi:10.1111/joss.12860>. Permutation
+tests based on the L1-norm methods are provided; for details, see Chaya,
+Castura & Greenacre (2025) <doi:10.1016/j.foodqual.2025.105639>.
 
 %prep
 %setup -q -c -n %{packname}

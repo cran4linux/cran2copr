@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diemr
-%global packver   1.4.3
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Index Expectation Maximisation in R
 
@@ -19,8 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-vcfR 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-circlize 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-vcfR 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-circlize 
 
 %description
 Likelihood-based genome polarisation finds which alleles of genomic

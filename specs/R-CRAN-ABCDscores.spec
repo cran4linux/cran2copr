@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NBDCtools
-%global packver   1.0.1
+%global packname  ABCDscores
+%global packver   6.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          6.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          National Institutes of Health Brain Development Cohorts Data Hub Tools
+Summary:          Summary Scores of the Adolescent Brain Cognitive Development (ABCD) Study
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,51 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-sjlabelled 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-haven 
-Requires:         R-CRAN-arrow 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-sjlabelled 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-haven 
+Requires:         R-utils 
 
 %description
-A suite of functions to work with data from the National Institutes of
-Health Brain Development Cohorts Data Hub. The package provides tools to
-create, clean, process, and filter datasets and associated metadata. These
-utilities are intended to simplify reproducible data-preparation for
-future research.
+Provides functions to compute summary scores (besides proprietary ones)
+reported in the tabulated data resource that is released by the Adolescent
+Brain Cognitive Development (ABCD) study. Feldstein Ewing and Luciana
+(2018)
+<https://www.sciencedirect.com/journal/developmental-cognitive-neuroscience/vol/32>.
 
 %prep
 %setup -q -c -n %{packname}

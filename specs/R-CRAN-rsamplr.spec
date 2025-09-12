@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ergm.count
-%global packver   4.1.3
+%global packname  rsamplr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks with Count Edges
+Summary:          Sampling Algorithms and Spatially Balanced Sampling
 
-License:          GPL-3 + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-statnet.common >= 4.12.0
-BuildRequires:    R-CRAN-ergm >= 4.10.1
-BuildRequires:    R-CRAN-Rdpack >= 2.6.4
-BuildRequires:    R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-statnet.common >= 4.12.0
-Requires:         R-CRAN-ergm >= 4.10.1
-Requires:         R-CRAN-Rdpack >= 2.6.4
-Requires:         R-CRAN-network >= 1.19.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-A set of extensions for the 'ergm' package to fit weighted networks whose
-edge weights are counts. See Krivitsky (2012) <doi:10.1214/12-EJS696> and
-Krivitsky, Hunter, Morris, and Klumb (2023) <doi:10.18637/jss.v105.i06>.
+Fast tools for unequal probability sampling in multi-dimensional spaces,
+implemented in Rust for high performance. The package offers a wide range
+of methods, including Sampford (Sampford, 1967,
+<doi:10.1093/biomet/54.3-4.499>) and correlated Poisson sampling
+(Bondesson and Thorburn, 2008, <doi:10.1111/j.1467-9469.2008.00596.x>),
+pivotal sampling (Deville and Tillé, 1998, <doi:10.1093/biomet/91.4.893>),
+and balanced sampling such as the cube method (Deville and Tillé, 2004,
+<doi:10.1093/biomet/91.4.893>) to ensure auxiliary totals are respected.
+Spatially balanced approaches, including the local pivotal method
+(Grafström et al., 2012, <doi:10.1111/j.1541-0420.2011.01699.x>),
+spatially correlated Poisson sampling (Grafström, 2012,
+<doi:10.1016/j.jspi.2011.07.003>), and locally correlated Poisson sampling
+(Prentius, 2024, <doi:10.1002/env.2832>), provide efficient designs when
+the target variable is linked to auxiliary information.
 
 %prep
 %setup -q -c -n %{packname}

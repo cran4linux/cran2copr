@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ergm.count
-%global packver   4.1.3
+%global packname  REXoplanets
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks with Count Edges
+Summary:          Creates Interface with NASA 'Exoplanets Archive API'
 
-License:          GPL-3 + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-statnet.common >= 4.12.0
-BuildRequires:    R-CRAN-ergm >= 4.10.1
-BuildRequires:    R-CRAN-Rdpack >= 2.6.4
-BuildRequires:    R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-statnet.common >= 4.12.0
-Requires:         R-CRAN-ergm >= 4.10.1
-Requires:         R-CRAN-Rdpack >= 2.6.4
-Requires:         R-CRAN-network >= 1.19.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-logger 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-readr 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-logger 
 
 %description
-A set of extensions for the 'ergm' package to fit weighted networks whose
-edge weights are counts. See Krivitsky (2012) <doi:10.1214/12-EJS696> and
-Krivitsky, Hunter, Morris, and Klumb (2023) <doi:10.18637/jss.v105.i06>.
+Provides a user-friendly interface to NASA 'Exoplanets Archive API'
+<https://exoplanetarchive.ipac.caltech.edu/>, enabling retrieval and
+analysis of exoplanetary and stellar data. Includes functions for
+querying, filtering, summarizing, and computing derived parameters from
+the 'Exoplanets' catalog.
 
 %prep
 %setup -q -c -n %{packname}

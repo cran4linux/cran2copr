@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CGNM
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Gauss-Newton Method
 
@@ -37,7 +37,10 @@ paper when profile likelihood plot is drawn with this software and used in
 your research: Aoki and Sugiyama (2024) <doi:10.1002/psp4.13055>. Cluster
 Gauss-Newton method for a quick approximation of profile likelihood: With
 application to physiologically-based pharmacokinetic models. CPT
-Pharmacometrics Syst Pharmacol.13(1):54-67.
+Pharmacometrics Syst Pharmacol.13(1):54-67. GPT based helper bot available
+at
+<https://chatgpt.com/g/g-684936db9e748191a2796debb00cd755-cluster-gauss-newton-method-helper-bot>
+.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  latentnet
-%global packver   2.11.0
+%global packver   2.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          2.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Position and Cluster Models for Statistical Networks
 
@@ -16,24 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-ergm >= 4.2.0
-BuildRequires:    R-CRAN-statnet.common >= 4.1.0
-BuildRequires:    R-CRAN-coda >= 0.17.1
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-sna 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-statnet.common >= 4.12.0
+BuildRequires:    R-CRAN-ergm >= 4.10.1
+BuildRequires:    R-CRAN-sna >= 2.8
+BuildRequires:    R-CRAN-abind >= 1.4.8
+BuildRequires:    R-CRAN-mvtnorm >= 1.3.3
+BuildRequires:    R-CRAN-network >= 1.19.0
+BuildRequires:    R-CRAN-coda >= 0.19.4.1
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-ergm >= 4.2.0
-Requires:         R-CRAN-statnet.common >= 4.1.0
-Requires:         R-CRAN-coda >= 0.17.1
-Requires:         R-CRAN-network 
-Requires:         R-CRAN-sna 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-abind 
+Requires:         R-CRAN-statnet.common >= 4.12.0
+Requires:         R-CRAN-ergm >= 4.10.1
+Requires:         R-CRAN-sna >= 2.8
+Requires:         R-CRAN-abind >= 1.4.8
+Requires:         R-CRAN-mvtnorm >= 1.3.3
+Requires:         R-CRAN-network >= 1.19.0
+Requires:         R-CRAN-coda >= 0.19.4.1
 Requires:         R-tools 
-Requires:         R-CRAN-MASS 
 
 %description
 Fit and simulate latent position and cluster models for statistical

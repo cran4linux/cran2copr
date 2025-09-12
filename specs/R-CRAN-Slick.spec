@@ -1,54 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GeneNMF
-%global packver   0.9.2
+%global packname  Slick
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Negative Matrix Factorization for Single-Cell Omics
+Summary:          Interactive Visualization of MSE Results
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Seurat >= 4.3.0
-BuildRequires:    R-CRAN-RcppML 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-lsa 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-pheatmap 
-BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-colorspace 
-Requires:         R-CRAN-Seurat >= 4.3.0
-Requires:         R-CRAN-RcppML 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-golem 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-lsa 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-pheatmap 
-Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-colorspace 
 
 %description
-A collection of methods to extract gene programs from single-cell gene
-expression data using non-negative matrix factorization (NMF). 'GeneNMF'
-contains functions to directly interact with the 'Seurat' toolkit and
-derive interpretable gene program signatures.
+A framework for visualizing and exploring results of a Management Strategy
+Evaluation (MSE). The publication quality figures and tables can be
+developed directly from the R console, or interactively explored with the
+'Slick' App. For more details, see the `Slick` website
+<https://slick.bluematterscience.com>.
 
 %prep
 %setup -q -c -n %{packname}
