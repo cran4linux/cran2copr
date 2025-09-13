@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3filters
-%global packver   0.8.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Filter Based Feature Selection for 'mlr3'
 
@@ -17,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mlr3misc >= 0.18.0
 BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-mlr3misc >= 0.18.0
 Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-mlr3misc 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-R6 
 

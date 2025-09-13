@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  migraph
-%global packver   1.5.0
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inferential Methods for Multimodal and Other Networks
 
@@ -19,12 +19,14 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-manynet >= 1.0.5
+BuildRequires:    R-CRAN-autograph >= 0.4.0
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-manynet >= 1.0.5
+Requires:         R-CRAN-autograph >= 0.4.0
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-generics 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r4ds.tutorials
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tutorials for "R for Data Science"
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tutorial.helpers >= 0.3.0
-Requires:         R-CRAN-tutorial.helpers >= 0.3.0
+BuildRequires:    R-CRAN-tutorial.helpers 
+Requires:         R-CRAN-tutorial.helpers 
 
 %description
 When assigned "R for Data Science" (Wickham, Çetinkaya-Rundel, and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cnmap
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          China Map Data from AutoNavi Map
 
@@ -25,9 +25,8 @@ Requires:         R-CRAN-terra
 %description
 According to the code or the name of the administrative division at the
 county level and above provided by the Ministry of Civil Affairs of the
-People's Republic of China in 2022
-(<https://www.mca.gov.cn/mzsj/xzqh/2022/202201xzqh.html>), get the map
-file online from the website of AutoNavi Map
+People's Republic of China in 2022, get the map file online from the
+website of AutoNavi Map
 (<http://datav.aliyun.com/portal/school/atlas/area_selector>).
 
 %prep

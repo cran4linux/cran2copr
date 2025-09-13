@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plsRglm
-%global packver   1.5.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Least Squares Regression for Generalized Linear Models
 
@@ -31,9 +31,9 @@ Requires:         R-CRAN-MASS
 %description
 Provides (weighted) Partial least squares Regression for generalized
 linear models and repeated k-fold cross-validation of such models using
-various criteria <arXiv:1810.01005>. It allows for missing data in the
-explanatory variables. Bootstrap confidence intervals constructions are
-also available.
+various criteria <doi:10.48550/arXiv.1810.01005>. It allows for missing
+data in the explanatory variables. Bootstrap confidence intervals
+constructions are also available.
 
 %prep
 %setup -q -c -n %{packname}

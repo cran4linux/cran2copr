@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phylepic
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combined Visualisation of Phylogenetic and Epidemiological Data
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-cowplot 
@@ -26,11 +26,11 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-cowplot 
@@ -39,10 +39,10 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-vctrs 
 
 %description
 A collection of utilities and 'ggplot2' extensions to assist with

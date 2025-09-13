@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moreparty
-%global packver   0.4
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Conditional Inference Trees and Random Forests
 
@@ -59,9 +59,9 @@ Requires:         R-CRAN-phosphoricons
 %description
 Additions to 'party' and 'partykit' packages : tools for the
 interpretation of forests (surrogate trees, prototypes, etc.), feature
-selection (see Gregorutti et al (2017) <arXiv:1310.5726>, Hapfelmeier and
-Ulm (2013) <doi:10.1016/j.csda.2012.09.020>, Altmann et al (2010)
-<doi:10.1093/bioinformatics/btq134>) and parallelized versions of
+selection (see Gregorutti et al (2017) <doi:10.48550/arXiv.1310.5726>,
+Hapfelmeier and Ulm (2013) <doi:10.1016/j.csda.2012.09.020>, Altmann et al
+(2010) <doi:10.1093/bioinformatics/btq134>) and parallelized versions of
 conditional forest and variable importance functions. Also modules and a
 shiny app for conditional inference trees.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  table1
-%global packver   1.4.3
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tables of Descriptive Statistics in HTML
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-Formula
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-yaml 
+Requires:         R-methods 
 
 %description
 Create HTML tables of descriptive statistics, as one would expect to see

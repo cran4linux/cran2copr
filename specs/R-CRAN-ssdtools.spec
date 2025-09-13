@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssdtools
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Sensitivity Distributions
 
@@ -40,7 +40,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-CRAN-universals 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-chk 
@@ -66,7 +65,6 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-TMB 
 Requires:         R-CRAN-universals 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
 Species sensitivity distributions are cumulative probability distributions

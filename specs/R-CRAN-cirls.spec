@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cirls
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Iteratively Reweighted Least Squares
 
@@ -14,24 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-coneproj 
 BuildRequires:    R-CRAN-TruncatedNormal 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-limSolve 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-osqp 
 Requires:         R-CRAN-coneproj 
 Requires:         R-CRAN-TruncatedNormal 
 Requires:         R-stats 
+Requires:         R-CRAN-limSolve 
 
 %description
-Routines to fit generalized linear models with constrained coefficients,
-along with inference on the coefficients. Designed to be used in
-conjunction with the base glm() function.
+Fitting and inference functions for generalized linear models with
+constrained coefficients.
 
 %prep
 %setup -q -c -n %{packname}

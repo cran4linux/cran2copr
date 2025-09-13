@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  holland
-%global packver   0.1.2-3
+%global packver   0.1.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2.3
+Version:          0.1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistics for Holland's Theory of Vocational Choice
 
@@ -31,7 +31,7 @@ Offers a convenient way to compute parameters in the framework of the
 theory of vocational choice introduced by J.L. Holland, (1997). A
 comprehensive summary to this theory of vocational choice is given in
 Holland, J.L. (1997). Making vocational choices. A theory of vocational
-personalities and work environments. Lutz, FL: Psychological Assessment.
+personalities and work environments.  Lutz, FL: Psychological Assessment.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jmvReadWrite
-%global packver   0.4.12
+%global packname  mlr3spatiotempcv
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.12
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write 'jamovi' Files ('.omv')
+Summary:          Spatiotemporal Resampling Methods for 'mlr3'
 
-License:          AGPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-mlr3 >= 0.12.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-mlr3 >= 0.12.0
+Requires:         R-CRAN-mlr3misc >= 0.11.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-R6 
+Requires:         R-utils 
 
 %description
-The free and open a statistical spreadsheet 'jamovi'
-(<https://www.jamovi.org>) aims to make statistical analyses easy and
-intuitive. 'jamovi' produces syntax that can directly be used in R (in
-connection with the R-package 'jmv'). Having import / export routines for
-the data files 'jamovi' produces ('.omv') permits an easy transfer of data
-and analyses between 'jamovi' and R.
+Extends the mlr3 machine learning framework with spatio-temporal
+resampling methods to account for the presence of spatiotemporal
+autocorrelation (STAC) in predictor variables. STAC may cause highly
+biased performance estimates in cross-validation if ignored. A JSS article
+is available at <doi:10.18637/jss.v111.i07>.
 
 %prep
 %setup -q -c -n %{packname}

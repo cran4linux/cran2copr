@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FBMS
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayesian Model Selection and Model Averaging
 
@@ -23,6 +23,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-r2r 
+BuildRequires:    R-CRAN-BAS 
+BuildRequires:    R-CRAN-tolerance 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-fastglm 
 Requires:         R-CRAN-GenSA 
@@ -31,6 +33,8 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-r2r 
+Requires:         R-CRAN-BAS 
+Requires:         R-CRAN-tolerance 
 Requires:         R-CRAN-Rcpp 
 
 %description
