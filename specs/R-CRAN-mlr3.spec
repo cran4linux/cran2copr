@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning in R - Next Generation
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.1
+BuildRequires:    R-CRAN-mirai >= 2.4.1
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-backports >= 1.5.0
 BuildRequires:    R-CRAN-future.apply >= 1.5.0
@@ -26,14 +27,16 @@ BuildRequires:    R-CRAN-evaluate >= 1.0.4
 BuildRequires:    R-CRAN-paradox >= 1.0.1
 BuildRequires:    R-CRAN-mlr3measures >= 1.0.0
 BuildRequires:    R-CRAN-lgr >= 0.3.4
-BuildRequires:    R-CRAN-mlr3misc >= 0.18.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.19.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mlbench 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-palmerpenguins 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-R6 >= 2.4.1
+Requires:         R-CRAN-mirai >= 2.4.1
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-backports >= 1.5.0
 Requires:         R-CRAN-future.apply >= 1.5.0
@@ -42,9 +45,10 @@ Requires:         R-CRAN-evaluate >= 1.0.4
 Requires:         R-CRAN-paradox >= 1.0.1
 Requires:         R-CRAN-mlr3measures >= 1.0.0
 Requires:         R-CRAN-lgr >= 0.3.4
-Requires:         R-CRAN-mlr3misc >= 0.18.0
+Requires:         R-CRAN-mlr3misc >= 0.19.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-future 
+Requires:         R-methods 
 Requires:         R-CRAN-mlbench 
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-palmerpenguins 

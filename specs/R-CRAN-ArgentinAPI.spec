@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ArgentinAPI
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Argentine Economic, Social, and Geopolitical Data via RESTful APIs and Curated Datasets
+Summary:          Access Argentinian Data via APIs and Curated Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,23 +22,29 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides functions to access data from the 'ArgentinaDatos API' and the
-'REST Countries API' related to Argentina's exchange rates, inflation,
-political figures, holidays, and general country-level indicators.
-Additionally, the package includes curated datasets related to Argentina,
-covering topics such as economic indicators, biodiversity, agriculture,
-human rights, genetic data, and consumer prices. The package supports
-research and analysis focused on Argentina by integrating open APIs with
-high-quality datasets from various domains. For more details on the
-'ArgentinaDatos API', see <https://argentinadatos.com/> and for 'REST
-Countries', see <https://restcountries.com/>.
+Provides functions to access data from public RESTful APIs including the
+'ArgentinaDatos API', 'REST Countries API', and 'World Bank API' related
+to Argentina's exchange rates, inflation, political figures, holidays,
+economic indicators, and general country-level statistics. Additionally,
+the package includes curated datasets related to Argentina, covering
+topics such as economic indicators, biodiversity, agriculture, human
+rights, genetic data, and consumer prices. The package supports research
+and analysis focused on Argentina by integrating open APIs with
+high-quality datasets from various domains. For more details on the APIs,
+see: 'ArgentinaDatos API' <https://argentinadatos.com/>, 'REST Countries
+API' <https://restcountries.com/>, and 'World Bank API'
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>.
 
 %prep
 %setup -q -c -n %{packname}

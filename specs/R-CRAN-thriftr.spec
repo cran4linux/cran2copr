@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  thriftr
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apache Thrift Client Server
 
@@ -16,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rly >= 1.7.4
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rly 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-rly >= 1.7.4
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rly 
 Requires:         R-CRAN-stringi 
 
 %description

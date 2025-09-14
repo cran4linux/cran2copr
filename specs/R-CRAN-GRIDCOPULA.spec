@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ArctosR
-%global packver   0.1.1
+%global packname  GRIDCOPULA
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to the 'Arctos' Database
+Summary:          Bivariate Copula Functions Based on Regular Grid
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.0.0
-BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-jsonlite >= 1.8.0
-Requires:         R-CRAN-curl >= 5.0.0
-Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-evmix 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-evmix 
 
 %description
-Performs requests to the 'Arctos' API to download data. Provides a set of
-builder classes for performing complex requests, as well as a set of
-simple functions for automating many common requests and workflows. More
-information about 'Arctos' can be found in Cicero et al. (2024)
-<doi:10.1371/journal.pone.0296478> or on their website
-<https://arctosdb.org/>.
+Estimates grid type bivariate copula functions, calculates some
+association measures and provides several copula graphics.
 
 %prep
 %setup -q -c -n %{packname}

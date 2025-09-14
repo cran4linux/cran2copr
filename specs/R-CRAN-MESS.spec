@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MESS
-%global packver   0.5.12
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.12
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Esoteric Statistical Scripts
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
@@ -30,6 +30,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
@@ -46,7 +47,8 @@ Requires:         R-parallel
 
 %description
 A mixed collection of useful and semi-useful diverse statistical
-functions, some of which may even be referenced in The R Primer book.
+functions, some of which may even be referenced in The R Primer book. See
+Ekstrøm, C. T. (2016). The R Primer. 2nd edition. Chapman & Hall.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  targets
-%global packver   1.11.3
+%global packver   1.11.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.3
+Version:          1.11.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Function-Oriented 'Make'-Like Declarative Pipelines
 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-igraph >= 2.0.0
 BuildRequires:    R-CRAN-ps >= 1.8.0
 BuildRequires:    R-CRAN-base64url >= 1.4
 BuildRequires:    R-CRAN-knitr >= 1.34
-BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-data.table >= 1.16.0
 BuildRequires:    R-CRAN-prettyunits >= 1.1.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
@@ -45,7 +45,7 @@ Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-ps >= 1.8.0
 Requires:         R-CRAN-base64url >= 1.4
 Requires:         R-CRAN-knitr >= 1.34
-Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-data.table >= 1.16.0
 Requires:         R-CRAN-prettyunits >= 1.1.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.0

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MexicoDataAPI
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Mexican Data via APIs and Curated Datasets
 
@@ -22,25 +22,28 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides functions to access data from the 'World Bank API' and the 'REST
-Countries API', related to Mexico's economic indicators, population
-statistics, literacy rates, and international geopolitical information.
-Additionally, the package includes curated datasets related to Mexico,
-including air quality monitoring stations, pollution zones, income
-surveys, postal abbreviations, election studies, forest productivity, and
-demographic data by state. The package supports research and analysis
-focused on Mexico by integrating reliable global APIs with structured
-national datasets drawn from open and academic sources. For more details
-on the 'World Bank API', see
+Provides functions to access data from public RESTful APIs including 'REST
+Countries API', 'World Bank API', and 'Nager.Date API', covering Mexico's
+economic indicators, population statistics, literacy rates, international
+geopolitical information and official public holidays. The package also
+includes curated datasets related to Mexico such as air quality monitoring
+stations, pollution zones, income surveys, postal abbreviations, election
+studies, forest productivity and demographic data by state. It supports
+research and analysis focused on Mexico by integrating reliable global
+APIs with structured national datasets drawn from open and academic
+sources. For more information on the APIs, see: 'REST Countries API'
+<https://restcountries.com/>, 'World Bank API'
 <https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
-for the 'REST Countries API', see <https://restcountries.com/>.
+'Nager.Date API' <https://date.nager.at/Api>.
 
 %prep
 %setup -q -c -n %{packname}

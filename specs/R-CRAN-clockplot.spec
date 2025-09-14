@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clockplot
-%global packver   0.7.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Event Times on a 24-Hour Clock
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-hms 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides a novel visualization technique for plotting timestamped events

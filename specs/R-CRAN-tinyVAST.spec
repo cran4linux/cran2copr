@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyVAST
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Spatio-Temporal Models using Structural Equations
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-sdmTMB 
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-cv 
+BuildRequires:    R-CRAN-sparseinv 
+BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.9.17
 Requires:         R-CRAN-dsem >= 1.6.0
@@ -53,6 +55,8 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-sdmTMB 
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-cv 
+Requires:         R-CRAN-sparseinv 
+Requires:         R-CRAN-gstat 
 
 %description
 Fits a wide variety of multivariate spatio-temporal models with
@@ -61,8 +65,8 @@ autoregressive spatio-temporal ('VAST') dynamics) for areal, continuous,
 or network spatial domains. It includes time-variable, space-variable, and
 space-time-variable interactions using dynamic structural equation models
 ('DSEM') as expressive interface, and the 'mgcv' package to specify
-splines via the formula interface.  See Thorson et al. (2024)
-<doi:10.48550/arXiv.2401.10193> for more details.
+splines via the formula interface.  See Thorson et al. (2025)
+<doi:10.1111/geb.70035> for more details.
 
 %prep
 %setup -q -c -n %{packname}
