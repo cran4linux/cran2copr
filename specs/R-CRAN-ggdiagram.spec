@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdiagram
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Object-Oriented Diagram Plots with 'ggplot2'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-arrowheadr 
 BuildRequires:    R-CRAN-bezier 
 BuildRequires:    R-CRAN-cli 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-farver
 BuildRequires:    R-CRAN-geomtextpath 
 BuildRequires:    R-CRAN-ggarrow 
 BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
@@ -46,6 +46,7 @@ BuildRequires:    R-CRAN-tinter
 BuildRequires:    R-CRAN-tinytex 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-arrowheadr 
 Requires:         R-CRAN-bezier 
 Requires:         R-CRAN-cli 
@@ -54,7 +55,6 @@ Requires:         R-CRAN-farver
 Requires:         R-CRAN-geomtextpath 
 Requires:         R-CRAN-ggarrow 
 Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggtext 
 Requires:         R-grDevices 
 Requires:         R-grid 

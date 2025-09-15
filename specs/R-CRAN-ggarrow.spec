@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggarrow
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Arrows for 'ggplot2'
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-polyclip 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-grid 
 Requires:         R-CRAN-polyclip 
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-scales 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialrisk
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Spatial Risk
 
@@ -48,13 +48,13 @@ Requires:         R-CRAN-units
 Requires:         R-CRAN-viridis 
 
 %description
-Methods for spatial risk calculations. It offers an efficient approach to
-determine the sum of all observations within a circle of a certain radius.
-This might be beneficial for insurers who are required (by a recent
-European Commission regulation) to determine the maximum value of insured
-fire risk policies of all buildings that are partly or fully located
-within a circle of a radius of 200m. See Church (1974)
-<doi:10.1007/BF01942293> for a description of the problem.
+Provides methods for spatial risk calculations, focusing on efficient
+determination of the sum of observations within a circle of a given
+radius. These methods are particularly relevant for applications such as
+insurance, where recent European Commission regulations require the
+calculation of the maximum insured value of fire risk policies for all
+buildings that are partly or fully located within a 200 m radius. The
+underlying problem is described by Church (1974) <doi:10.1007/BF01942293>.
 
 %prep
 %setup -q -c -n %{packname}

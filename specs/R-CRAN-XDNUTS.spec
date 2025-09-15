@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  XDNUTS
-%global packver   1.6.4
+%global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discontinuous Hamiltonian Monte Carlo with Varying Trajectory Length
 
@@ -27,6 +27,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-base 
@@ -39,6 +40,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
 Hamiltonian Monte Carlo for both continuous and discontinuous posterior

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photobiologyWavebands
-%global packver   0.5.2
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Waveband Definitions for UV, VIS, and IR Radiation
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-photobiology >= 0.11.0
-Requires:         R-CRAN-photobiology >= 0.11.0
+BuildRequires:    R-CRAN-photobiology >= 0.13.0
+Requires:         R-CRAN-photobiology >= 0.13.0
 
 %description
 Constructors of waveband objects for commonly used biological spectral

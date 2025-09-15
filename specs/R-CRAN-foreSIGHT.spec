@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  foreSIGHT
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systems Insights from Generation of Hydroclimatic Timeseries
 
@@ -18,51 +18,64 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-GA >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-directlabels 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-rcorpora 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-SoilHyP 
-BuildRequires:    R-CRAN-cmaes 
 BuildRequires:    R-CRAN-dfoptim 
 BuildRequires:    R-CRAN-RGN 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-BLRPM 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-airGR 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-GA >= 3.0.2
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-directlabels 
 Requires:         R-CRAN-cowplot 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-CRAN-moments 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rcorpora 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-SoilHyP 
-Requires:         R-CRAN-cmaes 
 Requires:         R-CRAN-dfoptim 
 Requires:         R-CRAN-RGN 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-BLRPM 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tidyr 
+Requires:         R-methods 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-airGR 
 
 %description
 A tool to create hydroclimate scenarios, stress test systems and visualize

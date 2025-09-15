@@ -1,46 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cmahalanobis
-%global packver   1.0.0
+%global packname  bdf3
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Distance Measures for DataFrames
+Summary:          Efficient Block Designs for 3-Level Factorial Experiments in Block Size 3
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-matrixStats 
 
 %description
-It provides functions that calculate Mahalanobis distance, Euclidean
-distance, Manhattan distance, Chebyshev distance, Hamming distance,
-Canberra distance, Minkowski dissimilarity (distance defined for p >= 1),
-Cosine dissimilarity, Bhattacharyya dissimilarity, Jaccard distance,
-Hellinger distance, Bray-Curtis dissimilarity, Sorensen-Dice dissimilarity
-between each pair of species in a list of data frames. These statistics
-are fundamental in various fields, such as cluster analysis,
-classification, and other applications of machine learning and data
-mining, where assessing similarity or dissimilarity between data is
-crucial. The package is designed to be flexible and easily integrated into
-data analysis workflows, providing reliable tools for evaluating distances
-in multidimensional contexts.
+Provides functions to construct efficient block designs for 3-level
+factorial experiments in block size 3. The designs ensure the estimation
+of all main effects and two-factor interactions in minimum number of
+replications. For more details, see Dey and Mukerjee (2012)
+<doi:10.1016/j.spl.2012.06.014> and Dash, S., Parsad, R. and Gupta, V.K.
+(2013) <doi:10.1007/s40003-013-0059-5>.
 
 %prep
 %setup -q -c -n %{packname}

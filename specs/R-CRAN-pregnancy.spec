@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pmetar
-%global packver   0.6.0
+%global packname  pregnancy
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing METAR Weather Reports
+Summary:          Calculate and Track Dates and Medications During Pregnancy
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-anytime 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
-Allows to download current and historical METAR weather reports extract
-and parse basic parameters and present main weather information. Current
-reports are downloaded from Aviation Weather Center
-<https://aviationweather.gov/data/metar/> and historical reports from Iowa
-Environmental Mesonet web page of Iowa State University ASOS-AWOS-METAR
-<http://mesonet.agron.iastate.edu/AWOS/>.
+Provides functionality for calculating pregnancy-related dates and
+tracking medications during pregnancy and fertility treatment. Calculates
+due dates from various starting points including last menstrual period and
+IVF (In Vitro Fertilisation) transfer dates, determines pregnancy progress
+on any given date, and identifies when specific pregnancy weeks are
+reached. Includes medication tracking capabilities for individuals
+undergoing fertility treatment or during pregnancy, allowing users to
+monitor remaining doses and quantities needed over specified time periods.
+Designed for those tracking their own pregnancies or supporting partners
+through the process, making use of options to personalise output messages.
+For details on due date calculations, see
+<https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date>.
 
 %prep
 %setup -q -c -n %{packname}

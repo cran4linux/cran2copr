@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cmahalanobis
+%global packname  DUToolkit
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Distance Measures for DataFrames
+Summary:          Visualizing and Quantifying Decision Uncertainty
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggdist 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggdist 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
-It provides functions that calculate Mahalanobis distance, Euclidean
-distance, Manhattan distance, Chebyshev distance, Hamming distance,
-Canberra distance, Minkowski dissimilarity (distance defined for p >= 1),
-Cosine dissimilarity, Bhattacharyya dissimilarity, Jaccard distance,
-Hellinger distance, Bray-Curtis dissimilarity, Sorensen-Dice dissimilarity
-between each pair of species in a list of data frames. These statistics
-are fundamental in various fields, such as cluster analysis,
-classification, and other applications of machine learning and data
-mining, where assessing similarity or dissimilarity between data is
-crucial. The package is designed to be flexible and easily integrated into
-data analysis workflows, providing reliable tools for evaluating distances
-in multidimensional contexts.
+A suite of tools to help modelers and decision-makers effectively
+interpret and communicate decision risk when evaluating multiple policy
+options. It uses model outputs from uncertainty analysis for baseline
+scenarios and policy alternatives to generate visual representations of
+uncertainty and quantitative measures for assessing associated risks. For
+more details see <https://dut.ihe.ca/>.
 
 %prep
 %setup -q -c -n %{packname}

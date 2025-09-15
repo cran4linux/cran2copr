@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cmahalanobis
-%global packver   1.0.0
+%global packname  epitraxr
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Distance Measures for DataFrames
+Summary:          Manipulate 'EpiTrax' Data and Generate Reports
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-lubridate 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-utils 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-yaml 
 
 %description
-It provides functions that calculate Mahalanobis distance, Euclidean
-distance, Manhattan distance, Chebyshev distance, Hamming distance,
-Canberra distance, Minkowski dissimilarity (distance defined for p >= 1),
-Cosine dissimilarity, Bhattacharyya dissimilarity, Jaccard distance,
-Hellinger distance, Bray-Curtis dissimilarity, Sorensen-Dice dissimilarity
-between each pair of species in a list of data frames. These statistics
-are fundamental in various fields, such as cluster analysis,
-classification, and other applications of machine learning and data
-mining, where assessing similarity or dissimilarity between data is
-crucial. The package is designed to be flexible and easily integrated into
-data analysis workflows, providing reliable tools for evaluating distances
-in multidimensional contexts.
+A fast, flexible tool for generating disease surveillance reports from
+data exported from 'EpiTrax', a central repository for epidemiological
+data used by public health officials. It provides functions to manipulate
+'EpiTrax' datasets, tailor reports to internal or public use, and export
+reports in CSV, Excel 'xlsx', or PDF formats.
 
 %prep
 %setup -q -c -n %{packname}

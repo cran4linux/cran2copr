@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cmahalanobis
+%global packname  TailID
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Distance Measures for DataFrames
+Summary:          Detect Sensitive Points in the Tail
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ismev 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ismev 
+Requires:         R-CRAN-scales 
 
 %description
-It provides functions that calculate Mahalanobis distance, Euclidean
-distance, Manhattan distance, Chebyshev distance, Hamming distance,
-Canberra distance, Minkowski dissimilarity (distance defined for p >= 1),
-Cosine dissimilarity, Bhattacharyya dissimilarity, Jaccard distance,
-Hellinger distance, Bray-Curtis dissimilarity, Sorensen-Dice dissimilarity
-between each pair of species in a list of data frames. These statistics
-are fundamental in various fields, such as cluster analysis,
-classification, and other applications of machine learning and data
-mining, where assessing similarity or dissimilarity between data is
-crucial. The package is designed to be flexible and easily integrated into
-data analysis workflows, providing reliable tools for evaluating distances
-in multidimensional contexts.
+The goal of 'TailID' is to detect sensitive points in the tail of a
+dataset using techniques from Extreme Value Theory (EVT). It utilizes the
+Generalized Pareto Distribution (GPD) for assessing tail behavior and
+detecting inconsistent points with the Identical Distribution hypothesis
+of the tail. For more details see Manau
+(2025)<doi:10.4230/LIPIcs.ECRTS.2025.20>.
 
 %prep
 %setup -q -c -n %{packname}
