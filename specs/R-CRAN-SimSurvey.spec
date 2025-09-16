@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimSurvey
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Surveys by Simulating Spatially-Correlated Populations
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
 Requires:         R-CRAN-data.table 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Matrix 
 
 %description
 Simulate age-structured populations that vary in space and time and

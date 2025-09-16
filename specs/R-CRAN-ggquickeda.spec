@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggquickeda
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quickly Explore Your Data Using 'ggplot2' and 'table1' Summary Tables
 
@@ -30,9 +30,11 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggpmisc 
+BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-glue 
@@ -43,19 +45,17 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-shinyjqui 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-shinyFiles 
-BuildRequires:    R-CRAN-RPostgres 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-GGally >= 2.1.0
 Requires:         R-CRAN-table1 >= 1.4.2
@@ -68,9 +68,11 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggpmisc 
+Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-glue 
@@ -81,19 +83,17 @@ Requires:         R-methods
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rms 
+Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-shinyjqui 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-shinyFiles 
-Requires:         R-CRAN-RPostgres 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-tibble 
 
 %description
 Quickly and easily perform exploratory data analysis by uploading your

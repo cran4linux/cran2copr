@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hdtg
-%global packver   0.2.1
+%global packname  repo.data
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Samples from Multivariate Truncated Normal Distributions
+Summary:          R Repository Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-RcppXsimd 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-RcppXsimd 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-methods 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Efficient sampling from high-dimensional truncated Gaussian distributions,
-or multivariate truncated normal (MTN). Techniques include zigzag
-Hamiltonian Monte Carlo as in Akihiko Nishimura, Zhenyu Zhang and Marc A.
-Suchard (2024) <doi:10.1080/01621459.2024.2395587>, and harmonic Monte in
-Ari Pakman and Liam Paninski (2014) <doi:10.1080/10618600.2013.788448>.
+Retrieve metadata about packages from repositories to explore package
+dependencies, links between help pages, aliases, package availability on a
+given date, and other repository dependent outcome. This metadata can be
+used to help package maintainers and users to navigate changes on
+dependencies and with reproducibility.
 
 %prep
 %setup -q -c -n %{packname}

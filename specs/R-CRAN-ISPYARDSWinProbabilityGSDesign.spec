@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VMDecomp
-%global packver   1.0.2
+%global packname  ISPYARDSWinProbabilityGSDesign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Mode Decomposition
+Summary:          Trial Design in Respiratory Disease Based on the Win Probability
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DFBA 
+Requires:         R-CRAN-DFBA 
 
 %description
-'RcppArmadillo' implementation for the Matlab code of the 'Variational
-Mode Decomposition' and 'Two-Dimensional Variational Mode Decomposition'.
-For more information, see (i) 'Variational Mode Decomposition' by K.
-Dragomiretskiy and D. Zosso in IEEE Transactions on Signal Processing,
-vol. 62, no. 3, pp. 531-544, Feb.1, 2014, <doi:10.1109/TSP.2013.2288675>;
-(ii) 'Two-Dimensional Variational Mode Decomposition' by Dragomiretskiy,
-K., Zosso, D. (2015), In: Tai, XC., Bae, E., Chan, T.F., Lysaker, M. (eds)
-Energy Minimization Methods in Computer Vision and Pattern Recognition.
-EMMCVPR 2015. Lecture Notes in Computer Science, vol 8932. Springer,
-<doi:10.1007/978-3-319-14612-6_15>.
+Provides analysis results and trial simulation functions for the I-SPY
+Acute Respiratory Disease Syndrome trial based on composite ranked
+outcomes. The composite ranked outcome is a hierarchical outcome where
+trial participants are ranked first by 28 day mortality, then ventilator
+days, then by advanced respiratory support days. A Bayesian win
+probability approach is used for analysis. Trial design options include
+group sequential looks for safety, superiority, futility, and adjustment
+of randomization probabilities.
 
 %prep
 %setup -q -c -n %{packname}

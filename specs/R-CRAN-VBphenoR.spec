@@ -1,50 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fabricQueryR
-%global packver   0.2.0
+%global packname  VBphenoR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query Data in 'Microsoft Fabric'
+Summary:          Variational Bayes for Latent Patient Phenotypes in EHR
 
-License:          MIT + file LICENSE
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureAuth 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-CholWishart 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-AzureAuth 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-CholWishart 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-knitr 
 Requires:         R-utils 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Query data hosted in 'Microsoft Fabric'. Provides helpers to open 'DBI'
-connections to 'SQL' endpoints of 'Lakehouse' and 'Data Warehouse' items;
-submit 'Data Analysis Expressions' ('DAX') queries to semantic model
-datasets in 'Microsoft Fabric' and 'Power BI'; read 'Delta Lake' tables
-stored in 'OneLake' ('Azure Data Lake Storage Gen2'); and execute 'Spark'
-code via the 'Livy API'.
+Identification of Latent Patient Phenotype from Electronic Health Records
+(EHR) Data using Variational Bayes Gaussian Mixture Model for Latent Class
+Analysis and Variational Bayes regression for Biomarker level shifts, both
+implemented by Coordinate Ascent Variational Inference algorithms.
+Variational methods are used to enable Bayesian analysis of very large
+Electronic Health Records data. For VB GMM details see Bishop
+(2006,ISBN:9780-387-31073-2). For Logistic VB see Jaakkola and Jordan
+(2000) <doi:10.1023/A:1008932416310>.
 
 %prep
 %setup -q -c -n %{packname}

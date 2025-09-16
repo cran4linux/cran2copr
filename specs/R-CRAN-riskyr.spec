@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riskyr
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rendering Risk Literacy more Transparent
 
@@ -29,7 +29,7 @@ representations, 'riskyr' computes, translates, and visualizes
 risk-related information in a variety of ways. Adopting multiple
 complementary perspectives provides insights into the interplay between
 key parameters and renders teaching and training programs on risk literacy
-more transparent.
+more transparent (see <doi:10.3389/fpsyg.2020.567817>, for details).
 
 %prep
 %setup -q -c -n %{packname}

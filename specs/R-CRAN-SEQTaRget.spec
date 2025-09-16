@@ -1,50 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fabricQueryR
-%global packver   0.2.0
+%global packname  SEQTaRget
+%global packver   0.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.13.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query Data in 'Microsoft Fabric'
+Summary:          Sequential Trial Emulation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureAuth 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-fastglm 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-AzureAuth 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-fastglm 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
+Requires:         R-methods 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-survival 
 
 %description
-Query data hosted in 'Microsoft Fabric'. Provides helpers to open 'DBI'
-connections to 'SQL' endpoints of 'Lakehouse' and 'Data Warehouse' items;
-submit 'Data Analysis Expressions' ('DAX') queries to semantic model
-datasets in 'Microsoft Fabric' and 'Power BI'; read 'Delta Lake' tables
-stored in 'OneLake' ('Azure Data Lake Storage Gen2'); and execute 'Spark'
-code via the 'Livy API'.
+Implementation of sequential trial emulation for the analysis of
+observational databases. The 'SEQTaRget' software accommodates
+time-varying treatments and confounders, as well as binary and failure
+time outcomes. 'SEQTaRget' allows to compare both static and dynamic
+strategies, can be used to estimate observational analogs of
+intention-to-treat and per-protocol effects, and can adjust for potential
+selection bias induced by losses-to-follow-up. (Paper to come).
 
 %prep
 %setup -q -c -n %{packname}

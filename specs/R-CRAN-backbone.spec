@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  backbone
-%global packver   2.1.5
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extracts the Backbone from Graphs
+Summary:          Extracts the Backbone from Networks
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
@@ -30,11 +30,11 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-utils 
 
 %description
-An implementation of methods for extracting an unweighted unipartite graph
-(i.e. a backbone) from an unweighted unipartite graph, a weighted
-unipartite graph, the projection of an unweighted bipartite graph, or the
-projection of a weighted bipartite graph (Neal, 2022
-<doi:10.1371/journal.pone.0269137>).
+An implementation of methods for extracting a sparse unweighted network
+(i.e. a backbone) from an unweighted network (e.g., Hamann et al., 2016
+<doi:10.1007/s13278-016-0332-2>), a weighted network (e.g., Serrano et
+al., 2009 <doi:10.1073/pnas.0808904106>), or a weighted projection (e.g.,
+Neal et al., 2021 <doi:10.1038/s41598-021-03238-3>).
 
 %prep
 %setup -q -c -n %{packname}

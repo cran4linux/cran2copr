@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  peperr
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallelised Estimation of Prediction Error
 
@@ -29,7 +29,7 @@ possibly accelerated by parallel execution on a compute cluster. Newly
 developed model fitting routines can be easily incorporated. Methods used
 in the package are detailed in Porzelius Ch., Binder H. and Schumacher M.
 (2009) <doi:10.1093/bioinformatics/btp062> and were used, for instance, in
-Porzelius Ch., Schumacher M.and Binder H. (2011)
+Porzelius Ch., Schumacher M. and Binder H. (2011)
 <doi:10.1007/s00180-011-0236-6>.
 
 %prep

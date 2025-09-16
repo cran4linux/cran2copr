@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coveffectsplot
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Produce Forest Plots to Visualize Covariate Effects
 
@@ -18,7 +18,7 @@ Recommends:       pandoc
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-egg 
@@ -26,7 +26,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-egg 

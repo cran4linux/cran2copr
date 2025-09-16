@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  processpredictR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Prediction
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bupaR 
 BuildRequires:    R-CRAN-edeaR 
+BuildRequires:    R-CRAN-eventdataR 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-magrittr 
@@ -36,9 +37,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-bupaR 
 Requires:         R-CRAN-edeaR 
+Requires:         R-CRAN-eventdataR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-magrittr 
@@ -56,16 +57,15 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-progress 
 
 %description
 Means to predict process flow, such as process outcome, next activity,
 next time, remaining time, and remaining trace. Off-the-shelf predictive
 models based on the concept of Transformers are provided, as well as
-multiple ways to customize the models. This package is partly based on
-work described in Zaharah A. Bukhsh, Aaqib Saeed, & Remco M. Dijkman.
-(2021). "ProcessTransformer: Predictive Business Process Monitoring with
-Transformer Network" <arXiv:2104.00721>.
+multiple way to customize the models. This package is partly based on work
+described in Zaharah A. Bukhsh, Aaqib Saeed, & Remco M. Dijkman. (2021).
+"ProcessTransformer: Predictive Business Process Monitoring with
+Transformer Network" <doi:10.48550/arXiv.2104.00721>.
 
 %prep
 %setup -q -c -n %{packname}

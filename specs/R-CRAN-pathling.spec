@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pathling
-%global packver   7.0.0
+%global packver   8.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.0
+Version:          8.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Library for using 'Pathling'
 
@@ -17,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.8.8
 BuildRequires:    R-CRAN-sparklyr >= 1.8.1
 BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-jsonlite >= 1.8.8
 Requires:         R-CRAN-sparklyr >= 1.8.1
 Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-purrr 
 
 %description
 R API for 'Pathling', a tool for querying and transforming electronic

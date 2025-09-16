@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crew.aws.batch
-%global packver   0.0.11
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Crew Launcher Plugin for AWS Batch
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.1.0
-BuildRequires:    R-CRAN-crew >= 1.2.0
+BuildRequires:    R-CRAN-crew >= 1.3.0
 BuildRequires:    R-CRAN-paws.common >= 0.7.0
 BuildRequires:    R-CRAN-paws.compute 
 BuildRequires:    R-CRAN-paws.management 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.1.0
-Requires:         R-CRAN-crew >= 1.2.0
+Requires:         R-CRAN-crew >= 1.3.0
 Requires:         R-CRAN-paws.common >= 0.7.0
 Requires:         R-CRAN-paws.compute 
 Requires:         R-CRAN-paws.management 

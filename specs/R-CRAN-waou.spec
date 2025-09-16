@@ -1,50 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fabricQueryR
-%global packver   0.2.0
+%global packname  waou
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query Data in 'Microsoft Fabric'
+Summary:          Weighting All of Us
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AzureAuth 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-AzureAuth 
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-nonprobsvy 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-nonprobsvy 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
 
 %description
-Query data hosted in 'Microsoft Fabric'. Provides helpers to open 'DBI'
-connections to 'SQL' endpoints of 'Lakehouse' and 'Data Warehouse' items;
-submit 'Data Analysis Expressions' ('DAX') queries to semantic model
-datasets in 'Microsoft Fabric' and 'Power BI'; read 'Delta Lake' tables
-stored in 'OneLake' ('Azure Data Lake Storage Gen2'); and execute 'Spark'
-code via the 'Livy API'.
+Utilities for using a probability sample to reweight prevalence estimates
+calculated from the All of Us research program. Weighted estimates will
+still not be representative of the general U.S. population. However, they
+will provide an early indication for how unweighted estimates may be
+biased by the sampling bias in the All of Us sample.
 
 %prep
 %setup -q -c -n %{packname}

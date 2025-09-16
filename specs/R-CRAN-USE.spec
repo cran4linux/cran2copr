@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VMDecomp
-%global packver   1.0.2
+%global packname  USE
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Mode Decomposition
+Summary:          Uniform Sampling of the Environmental Space
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+Requires:         R-CRAN-sf 
+Requires:         R-parallel 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
 
 %description
-'RcppArmadillo' implementation for the Matlab code of the 'Variational
-Mode Decomposition' and 'Two-Dimensional Variational Mode Decomposition'.
-For more information, see (i) 'Variational Mode Decomposition' by K.
-Dragomiretskiy and D. Zosso in IEEE Transactions on Signal Processing,
-vol. 62, no. 3, pp. 531-544, Feb.1, 2014, <doi:10.1109/TSP.2013.2288675>;
-(ii) 'Two-Dimensional Variational Mode Decomposition' by Dragomiretskiy,
-K., Zosso, D. (2015), In: Tai, XC., Bae, E., Chan, T.F., Lysaker, M. (eds)
-Energy Minimization Methods in Computer Vision and Pattern Recognition.
-EMMCVPR 2015. Lecture Notes in Computer Science, vol 8932. Springer,
-<doi:10.1007/978-3-319-14612-6_15>.
+Provides functions for uniform sampling of the environmental space,
+designed to assist species distribution modellers in gathering
+ecologically relevant pseudo-absence data. The method ensures balanced
+representation of environmental conditions and helps reduce sampling bias
+in model calibration. Based on the framework described by Da Re et al.
+(2023) <doi:10.1111/2041-210X.14209>.
 
 %prep
 %setup -q -c -n %{packname}

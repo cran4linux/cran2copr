@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BrazilDataAPI
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Brazilian Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets
+Summary:          Access Brazilian Data via APIs and Curated Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,22 +21,30 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides functions to access data from the 'BrasilAPI' and the 'REST
-Countries API', related to Brazil's postal codes, banks, holidays, company
-registrations, and international country indicators. Additionally, the
-package includes curated datasets related to Brazil, covering topics such
-as demographic data (males and females by state and year), river levels,
-environmental emission factors, film festivals, and yellow fever outbreak
-records. The package supports research and analysis focused on Brazil by
-integrating open APIs with high-quality datasets from multiple domains.
-For more details on the 'BrasilAPI', see <https://brasilapi.com.br/>, and
-for 'REST Countries', see <https://restcountries.com/>.
+Provides functions to access data from the 'BrasilAPI', 'REST Countries
+API', 'Nager.Date API', and 'World Bank API', related to Brazil's postal
+codes, banks, holidays, company registrations, international country
+indicators, public holidays information, and economic development data.
+Additionally, the package includes curated datasets related to Brazil,
+covering topics such as demographic data (males and females by state and
+year), river levels, environmental emission factors, film festivals, and
+yellow fever outbreak records. The package supports research and analysis
+focused on Brazil by integrating open APIs with high-quality datasets from
+multiple domains. For more information on the APIs, see: 'BrasilAPI'
+<https://brasilapi.com.br/>, 'Nager.Date' <https://date.nager.at/Api>,
+'World Bank API'
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
+'REST Countries API' <https://restcountries.com/>.
 
 %prep
 %setup -q -c -n %{packname}

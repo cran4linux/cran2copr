@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VMDecomp
-%global packver   1.0.2
+%global packname  lbaModel
+%global packver   0.2.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Mode Decomposition
+Summary:          The Linear Ballistic Accumulation Model
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.8.3
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.5.0
+BuildRequires:    R-CRAN-ggdmcPrior 
+BuildRequires:    R-CRAN-ggdmcModel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggdmcHeaders 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-ggdmcPrior 
+Requires:         R-CRAN-ggdmcModel 
+Requires:         R-methods 
 
 %description
-'RcppArmadillo' implementation for the Matlab code of the 'Variational
-Mode Decomposition' and 'Two-Dimensional Variational Mode Decomposition'.
-For more information, see (i) 'Variational Mode Decomposition' by K.
-Dragomiretskiy and D. Zosso in IEEE Transactions on Signal Processing,
-vol. 62, no. 3, pp. 531-544, Feb.1, 2014, <doi:10.1109/TSP.2013.2288675>;
-(ii) 'Two-Dimensional Variational Mode Decomposition' by Dragomiretskiy,
-K., Zosso, D. (2015), In: Tai, XC., Bae, E., Chan, T.F., Lysaker, M. (eds)
-Energy Minimization Methods in Computer Vision and Pattern Recognition.
-EMMCVPR 2015. Lecture Notes in Computer Science, vol 8932. Springer,
-<doi:10.1007/978-3-319-14612-6_15>.
+Provides density, distribution and random generation functions for the
+Linear Ballistic Accumulation (LBA) model, a widely used choice response
+time model in cognitive psychology. The package supports model
+specifications, parameter estimation, and likelihood computation,
+facilitating simulation and statistical inference for LBA-based
+experiments. For details on the LBA model, see Brown and Heathcote (2008)
+<doi:10.1016/j.cogpsych.2007.12.002>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,65 +1,67 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R.AlphA.Home
-%global packver   1.1.0
+%global packname  polarisR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Feel at Home using R, Thanks to Shortcuts Functions Making it Simple
+Summary:          Non-Linear Dimensionality Reduction Visualization Tool
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-CRAN-detourr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-qs 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-quollr 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-tourr 
+BuildRequires:    R-CRAN-umap 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-crosstalk 
+Requires:         R-CRAN-detourr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-qs 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-quollr 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-diffr 
-Requires:         R-CRAN-R6 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-CRAN-tourr 
+Requires:         R-CRAN-umap 
+Requires:         R-utils 
 
 %description
-A collection of personal functions designed to simplify and streamline
-common R programming tasks. This package provides reusable tools and
-shortcuts for frequently used calculations and workflows.
+A 'shiny' application for visualizing high-dimensional data using
+non-linear dimensionality reduction (NLDR) techniques such as t-SNE and
+UMAP. It provides an interactive platform to explore high-dimensional
+datasets, diagnose the quality of the embeddings using the 'quollr'
+package, and compare different NLDR methods.
 
 %prep
 %setup -q -c -n %{packname}
