@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dialrjars
-%global packver   9.0.14
+%global packname  Rparadox
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.0.14
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Required 'libphonenumber' jars for the 'dialr' Package
+Summary:          Read Paradox Database Files into R
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-Requires:         R-CRAN-rJava 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-blob 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-blob 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-tibble 
 
 %description
-Collects 'libphonenumber' jars required for the 'dialr' package.
+Provides a simple and efficient way to read data from Paradox database
+files (.db) directly into R as modern 'tibble' data frames. It uses the
+underlying 'pxlib' C library to handle the low-level file format details
+and provides a clean, user-friendly R interface.
 
 %prep
 %setup -q -c -n %{packname}

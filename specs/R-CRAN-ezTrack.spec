@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  washi
-%global packver   0.2.1
+%global packname  ezTrack
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Washington Soil Health Initiative Branding
+Summary:          Exploring Animal Movement Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,27 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-adehabitatHR 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-systemfonts 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-flextable 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-methods 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-adehabitatHR 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-utils 
+Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-systemfonts 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-dplyr 
 
 %description
-Create plots and tables in a consistent style with WaSHI (Washington Soil
-Health Initiative) branding. Use 'washi' to easily style your 'ggplot2'
-plots and 'flextable' tables.
+Streamlines common steps for working with animal tracking data, from raw
+telemetry points to summaries, interactive maps, and home range estimates.
+Designed to be beginner-friendly, it enables rapid exploration of spatial
+and movement data with minimal wrangling, providing a unified workflow for
+importing, summarizing, and visualizing, and analyzing animal movement
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

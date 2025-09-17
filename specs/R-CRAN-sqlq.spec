@@ -1,27 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dialrjars
-%global packver   9.0.14
+%global packname  sqlq
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.0.14
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Required 'libphonenumber' jars for the 'dialr' Package
+Summary:          'SQL' Query Builder
 
-License:          GPL (>= 3)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-Requires:         R-CRAN-rJava 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-DBI 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-DBI 
 
 %description
-Collects 'libphonenumber' jars required for the 'dialr' package.
+Allows to build complex 'SQL' (Structured Query Language) queries
+dynamically. Classes and/or factory functions are used to produce a syntax
+tree from which the final character string is generated. Strings and
+identifiers are automatically quoted using the right quotes, using either
+ANSI (American National Standards Institute) quoting or the quoting style
+of an existing database connector. Style can be configured to set
+uppercase/lowercase for keywords, remove unnecessary spaces, or omit
+optional keywords.
 
 %prep
 %setup -q -c -n %{packname}

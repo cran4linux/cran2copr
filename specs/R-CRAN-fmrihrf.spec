@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DUToolkit
-%global packver   1.0.1
+%global packname  fmrihrf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing and Quantifying Decision Uncertainty
+Summary:          Hemodynamic Response Functions for fMRI Data Analysis
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggdist 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggdist 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-purrr 
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-splines 
+Requires:         R-CRAN-pracma 
 
 %description
-A suite of tools to help modelers and decision-makers effectively
-interpret and communicate decision risk when evaluating multiple policy
-options. It uses model outputs from uncertainty analysis for baseline
-scenarios and policy alternatives to generate visual representations of
-uncertainty and quantitative measures for assessing associated risks. For
-more details see <https://dut.ihe.ca/>.
+Creates, manipulates, and evaluates hemodynamic response functions and
+event-related regressors for functional magnetic resonance imaging data
+analysis. Supports multiple basis sets including Canonical, Gamma,
+Gaussian, B-spline, and Fourier bases. Features decorators for
+time-shifting and blocking, and efficient convolution algorithms for
+regressor construction. Methods are based on standard fMRI analysis
+techniques as described in Jezzard et al. (2001, ISBN:9780192630711).
 
 %prep
 %setup -q -c -n %{packname}

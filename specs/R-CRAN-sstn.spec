@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  csmGmm
-%global packver   0.4.0
+%global packname  sstn
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conditionally Symmetric Multidimensional Gaussian Mixture Model
+Summary:          Self-Similarity Test for Normality
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,28 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
 
 %description
-Implements the conditionally symmetric multidimensional Gaussian mixture
-model (csmGmm) for large-scale testing of composite null hypotheses in
-genetic association applications such as mediation analysis, pleiotropy
-analysis, and replication analysis. In such analyses, we typically have J
-sets of K test statistics where K is a small number (e.g. 2 or 3) and J is
-large (e.g. 1 million). For each one of the J sets, we want to know if we
-can reject all K individual nulls. Please see the vignette for a
-quickstart guide. The paper describing these methods is "Testing a Large
-Number of Composite Null Hypotheses Using Conditionally Symmetric
-Multidimensional Gaussian Mixtures in Genome-Wide Studies" by Sun R, McCaw
-Z, & Lin X (Journal of the American Statistical Association 2025,
-<doi:10.1080/01621459.2024.2422124>).
+Implements the Self-Similarity Test for Normality (SSTN), a new
+statistical test designed to assess whether a given sample originates from
+a normal distribution. The procedure is based on iteratively estimating
+the characteristic function of the sum of standardized i.i.d. random
+variables and comparing it to the characteristic function of the standard
+normal distribution. A Monte Carlo procedure is used to determine the
+empirical distribution of the test statistic under the null hypothesis.
+Details of the methodology are described in Anarat and Schwender (2025),
+"A normality test based on self-similarity" (Submitted).
 
 %prep
 %setup -q -c -n %{packname}

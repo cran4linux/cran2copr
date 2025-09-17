@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  csmGmm
-%global packver   0.4.0
+%global packname  GenePopStats
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conditionally Symmetric Multidimensional Gaussian Mixture Model
+Summary:          Population Genetics Statistics for Selective Sweep
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,28 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-vcfR 
+Requires:         R-CRAN-vcfR 
 
 %description
-Implements the conditionally symmetric multidimensional Gaussian mixture
-model (csmGmm) for large-scale testing of composite null hypotheses in
-genetic association applications such as mediation analysis, pleiotropy
-analysis, and replication analysis. In such analyses, we typically have J
-sets of K test statistics where K is a small number (e.g. 2 or 3) and J is
-large (e.g. 1 million). For each one of the J sets, we want to know if we
-can reject all K individual nulls. Please see the vignette for a
-quickstart guide. The paper describing these methods is "Testing a Large
-Number of Composite Null Hypotheses Using Conditionally Symmetric
-Multidimensional Gaussian Mixtures in Genome-Wide Studies" by Sun R, McCaw
-Z, & Lin X (Journal of the American Statistical Association 2025,
-<doi:10.1080/01621459.2024.2422124>).
+Selective Sweep can be calculated by five significant Population Genetics
+Statistics such as "Pi", "Wattersons_theta", "Tajima_D", "Kelly_ZnS" and
+"Omega" Statistics in specified chromosomal region. It has been developed
+by using the concept of "Kern" and "Schrider"
+(2018)<doi:10.1534/g3.118.200262>.
 
 %prep
 %setup -q -c -n %{packname}

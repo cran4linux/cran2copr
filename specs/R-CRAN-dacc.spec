@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  csmGmm
-%global packver   0.4.0
+%global packname  dacc
+%global packver   0.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conditionally Symmetric Multidimensional Gaussian Mixture Model
+Summary:          Detection and Attribution Analysis of Climate Change
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-CFtime 
+BuildRequires:    R-CRAN-ncdf4 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-Iso 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-CFtime 
+Requires:         R-CRAN-ncdf4 
 
 %description
-Implements the conditionally symmetric multidimensional Gaussian mixture
-model (csmGmm) for large-scale testing of composite null hypotheses in
-genetic association applications such as mediation analysis, pleiotropy
-analysis, and replication analysis. In such analyses, we typically have J
-sets of K test statistics where K is a small number (e.g. 2 or 3) and J is
-large (e.g. 1 million). For each one of the J sets, we want to know if we
-can reject all K individual nulls. Please see the vignette for a
-quickstart guide. The paper describing these methods is "Testing a Large
-Number of Composite Null Hypotheses Using Conditionally Symmetric
-Multidimensional Gaussian Mixtures in Genome-Wide Studies" by Sun R, McCaw
-Z, & Lin X (Journal of the American Statistical Association 2025,
-<doi:10.1080/01621459.2024.2422124>).
+Detection and attribution of climate change using methods including
+optimal fingerprinting via generalized total least squares or an
+estimating equation approach (Li et al., 2025,
+<doi:10.1175/JCLI-D-24-0193.1>; Ma et al., 2023,
+<doi:10.1175/JCLI-D-22-0681.1>). Provides shrinkage estimators for the
+covariance matrix following Ledoit and Wolf (2004,
+<doi:10.1016/S0047-259X(03)00096-4>) and Ledoit and Wolf (2017,
+<doi:10.2139/ssrn.2383361>).
 
 %prep
 %setup -q -c -n %{packname}

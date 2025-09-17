@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  alookr
-%global packver   0.3.91
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.91
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Classifier for Binary Classification
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-dlookr 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-ggmosaic 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-MLmetrics 
 BuildRequires:    R-methods 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-randomForest
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-dlookr 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-ggmosaic 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-MLmetrics 
 Requires:         R-methods 

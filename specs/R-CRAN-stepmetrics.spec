@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DUToolkit
+%global packname  stepmetrics
 %global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing and Quantifying Decision Uncertainty
+Summary:          Calculate Step and Cadence Metrics from Wearable Data
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggdist 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-PhysicalActivity 
+BuildRequires:    R-tools 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggdist 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-PhysicalActivity 
+Requires:         R-tools 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A suite of tools to help modelers and decision-makers effectively
-interpret and communicate decision risk when evaluating multiple policy
-options. It uses model outputs from uncertainty analysis for baseline
-scenarios and policy alternatives to generate visual representations of
-uncertainty and quantitative measures for assessing associated risks. For
-more details see <https://dut.ihe.ca/>.
+Provides functions to calculate step- and cadence-based metrics from
+timestamped accelerometer and wearable device data. Supports CSV and AGD
+files from 'ActiGraph' devices, CSV files from 'Fitbit' devices, and step
+counts derived with R package 'GGIR' <https://github.com/wadpac/GGIR>,
+with automatic handling of epoch lengths from 1 to 60 seconds. Metrics
+include total steps, cadence peaks, minutes and steps in predefined
+cadence bands, and time and steps in moderate-to-vigorous physical
+activity (MVPA). Methods and thresholds are informed by the literature,
+e.g., Tudor-Locke and Rowe (2012) <doi:10.2165/11599170-000000000-00000>,
+Barreira et al. (2012) <doi:10.1249/MSS.0b013e318254f2a3>, and Tudor-Locke
+et al. (2018) <doi:10.1136/bjsports-2017-097628>. The package record is
+also available on Zenodo (2023) <doi:10.5281/zenodo.7858094>.
 
 %prep
 %setup -q -c -n %{packname}

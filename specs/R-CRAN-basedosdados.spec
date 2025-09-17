@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  basedosdados
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Base Dos Dados' R Client
 
@@ -34,7 +34,6 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-dotenv >= 1.0.2
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-typed >= 0.0.1
 BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 3.1.1
 Requires:         R-CRAN-cli >= 2.5.0
@@ -53,12 +52,11 @@ Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-dotenv >= 1.0.2
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-typed >= 0.0.1
 Requires:         R-methods 
 
 %description
 An R interface to the 'Base dos Dados' API
-<https:basedosdados.github.io/mais/py_reference_api/>). Authenticate your
+<https://basedosdados.org/docs/api_reference_python/>). Authenticate your
 project, query our tables, save data to disk and memory, all from R.
 
 %prep

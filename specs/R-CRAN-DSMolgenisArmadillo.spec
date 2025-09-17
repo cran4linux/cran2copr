@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  csmGmm
-%global packver   0.4.0
+%global packname  DSMolgenisArmadillo
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conditionally Symmetric Multidimensional Gaussian Mixture Model
+Summary:          'DataSHIELD' Client for 'MOLGENIS Armadillo'
 
-License:          GPL-3
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DSI >= 1.3.0
+BuildRequires:    R-CRAN-MolgenisAuth >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-DSI >= 1.3.0
+Requires:         R-CRAN-MolgenisAuth >= 1.0.0
+Requires:         R-methods 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Implements the conditionally symmetric multidimensional Gaussian mixture
-model (csmGmm) for large-scale testing of composite null hypotheses in
-genetic association applications such as mediation analysis, pleiotropy
-analysis, and replication analysis. In such analyses, we typically have J
-sets of K test statistics where K is a small number (e.g. 2 or 3) and J is
-large (e.g. 1 million). For each one of the J sets, we want to know if we
-can reject all K individual nulls. Please see the vignette for a
-quickstart guide. The paper describing these methods is "Testing a Large
-Number of Composite Null Hypotheses Using Conditionally Symmetric
-Multidimensional Gaussian Mixtures in Genome-Wide Studies" by Sun R, McCaw
-Z, & Lin X (Journal of the American Statistical Association 2025,
-<doi:10.1080/01621459.2024.2422124>).
+'DataSHIELD' is an infrastructure and series of R packages that enables
+the remote and 'non-disclosive' analysis of sensitive research data. This
+package is the 'DataSHIELD' interface implementation to analyze data
+shared on a 'MOLGENIS Armadillo' server. 'MOLGENIS Armadillo' is a
+light-weight 'DataSHIELD' server using a file store and an 'RServe'
+server.
 
 %prep
 %setup -q -c -n %{packname}

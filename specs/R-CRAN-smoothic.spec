@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smoothic
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection Using a Smooth Information Criterion
 
@@ -48,10 +48,11 @@ are from the Laplace distribution. The "smooth generalized normal
 distribution" is used, where the estimation of an additional shape
 parameter allows the user to move smoothly between both types of
 regression. See O'Neill and Burke (2022) "Robust Distributional Regression
-with Automatic Variable Selection" for more details. <arXiv:2212.07317>.
-This package also contains the data analyses from O'Neill and Burke
-(2023). "Variable selection using a smooth information criterion for
-distributional regression models". <doi:10.1007/s11222-023-10204-8>.
+with Automatic Variable Selection" for more details.
+<doi:10.48550/arXiv.2212.07317>. This package also contains the data
+analyses from O'Neill and Burke (2023). "Variable selection using a smooth
+information criterion for distributional regression models".
+<doi:10.1007/s11222-023-10204-8>.
 
 %prep
 %setup -q -c -n %{packname}

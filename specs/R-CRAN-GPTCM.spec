@@ -1,42 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DUToolkit
-%global packver   1.0.1
+%global packname  GPTCM
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing and Quantifying Decision Uncertainty
+Summary:          Generalized Promotion Time Cure Model with Bayesian Shrinkage Priors
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-riskRegression 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-miCoPTCM 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggdist 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-riskRegression 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-miCoPTCM 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-scales 
+Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-A suite of tools to help modelers and decision-makers effectively
-interpret and communicate decision risk when evaluating multiple policy
-options. It uses model outputs from uncertainty analysis for baseline
-scenarios and policy alternatives to generate visual representations of
-uncertainty and quantitative measures for assessing associated risks. For
-more details see <https://dut.ihe.ca/>.
+Generalized promotion time cure model (GPTCM) via Bayesian hierarchical
+modeling for multiscale data integration (Zhao et al. (2025)
+<doi:10.48550/arXiv.2509.01001>). The Bayesian GPTCMs are applicable for
+both low- and high-dimensional data.
 
 %prep
 %setup -q -c -n %{packname}

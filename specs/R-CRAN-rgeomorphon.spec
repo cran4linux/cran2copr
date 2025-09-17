@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dialrjars
-%global packver   9.0.14
+%global packname  rgeomorphon
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.0.14
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Required 'libphonenumber' jars for the 'dialr' Package
+Summary:          A Lightweight Implementation of the 'Geomorphon' Algorithm
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava 
-Requires:         R-CRAN-rJava 
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
 
 %description
-Collects 'libphonenumber' jars required for the 'dialr' package.
+A lightweight implementation of the geomorphon terrain form classification
+algorithm of Jasiewicz and Stepinski (2013)
+<doi:10.1016/j.geomorph.2012.11.005> based largely on the 'GRASS GIS'
+'r.geomorphon' module. This implementation employs a novel algorithm
+written in C++ and 'RcppParallel'.
 
 %prep
 %setup -q -c -n %{packname}
