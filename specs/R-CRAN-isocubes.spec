@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ILSE
-%global packver   1.1.7
+%global __requires_exclude ^libmpi
+%global packname  isocubes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Regression Based on 'ILSE' for Missing Data
+Summary:          Voxel Data Visualization with Isometric Cubes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-colorfast >= 1.0.1
+BuildRequires:    R-grid 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-colorfast >= 1.0.1
+Requires:         R-grid 
+Requires:         R-methods 
 
 %description
-Linear regression when covariates include missing values by embedding the
-correlation information between covariates. Especially for block missing
-data, it works well. 'ILSE' conducts imputation and regression
-simultaneously and iteratively. More details can be referred to Huazhen
-Lin, Wei Liu and Wei Lan. (2021) <doi:10.1080/07350015.2019.1635486>.
+A voxel is a representation of a value on a regular, three-dimensional
+grid; it is the 3D equivalent of a 2D pixel.  Voxel data can be visualised
+with this package using fixed viewpoint isometric cubes for each data
+point. This package also provides sample voxel data and tools for
+transforming the data.
 
 %prep
 %setup -q -c -n %{packname}

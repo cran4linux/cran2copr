@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  postcard
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Marginal Effects with Prognostic Covariate Adjustment
 
@@ -22,14 +22,15 @@ BuildRequires:    R-CRAN-Deriv
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-gggrid 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-options 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-workflowsets 
@@ -40,14 +41,15 @@ Requires:         R-CRAN-Deriv
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-earth 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-gggrid 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-options 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tune 
 Requires:         R-utils 
 Requires:         R-CRAN-workflowsets 

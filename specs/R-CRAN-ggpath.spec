@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpath
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Image Rendering Support for 'ggplot2'
 
@@ -14,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-magick >= 2.7.3
 BuildRequires:    R-CRAN-memoise >= 2.0.0
-BuildRequires:    R-CRAN-backports >= 1.1.6
 BuildRequires:    R-CRAN-cachem >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-grid 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-magick >= 2.7.3
 Requires:         R-CRAN-memoise >= 2.0.0
-Requires:         R-CRAN-backports >= 1.1.6
 Requires:         R-CRAN-cachem >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-grid 
 
 %description

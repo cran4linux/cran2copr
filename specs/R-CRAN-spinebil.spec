@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spinebil
-%global packver   0.1.6
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Investigating New Projection Pursuit Index Functions
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-cassowaryr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tourr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-cassowaryr 
+Requires:         R-CRAN-rlang 
 
 %description
 Projection pursuit is used to find interesting low-dimensional projections

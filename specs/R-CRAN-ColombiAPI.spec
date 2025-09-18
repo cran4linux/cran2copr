@@ -1,44 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ColombiAPI
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Colombia's Public Data via 'API-Colombia'
+Summary:          Access Colombian Data via APIs and Curated Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides a seamless interface to access diverse public data about Colombia
-through the 'API-Colombia', a RESTful API. The package enables users to
-explore various aspects of Colombia, including general information,
-geography, and cultural insights. It includes five API-related functions
-to retrieve data on topics such as Colombia's general information,
-airports, departments, regions, and presidents. Additionally, 'ColombiAPI'
-offers a built-in function to view the datasets available within the
-package. The package also includes curated datasets covering Bogota air
-stations, business and holiday dates, public schools, Colombian coffee
-exports, cannabis licenses, Medellin rainfall, and malls in Bogota, making
-it a comprehensive tool for exploring Colombia's data. For more details on
-the 'API-Colombia', see <https://api-colombia.com/>.
+Provides a comprehensive interface to access diverse public data about
+Colombia through multiple APIs and curated datasets. The package
+integrates four different APIs: 'API-Colombia' for Colombian-specific data
+including geography, culture, tourism, and government information; 'World
+Bank API' for economic and demographic indicators; 'Nager.Date' for public
+holidays; and 'REST Countries API' for general country information. The
+package enables users to explore various aspects of Colombia such as
+geographic locations, cultural attractions, economic indicators,
+demographic data, and public holidays. Additionally, 'ColombiAPI' includes
+curated datasets covering Bogota air stations, business and holiday dates,
+public schools, Colombian coffee exports, cannabis licenses, Medellin
+rainfall, and malls in Bogota, making it a comprehensive tool for
+exploring Colombia's multifaceted data landscape. For more information on
+the APIs, see: 'API-Colombia' <https://api-colombia.com/>, 'Nager.Date'
+<https://date.nager.at/Api>, 'World Bank API'
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
+'REST Countries API' <https://restcountries.com/>.
 
 %prep
 %setup -q -c -n %{packname}

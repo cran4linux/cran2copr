@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EMLI
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computationally Efficient Maximum Likelihood Identification of Linear Dynamical Systems
 
@@ -22,12 +22,13 @@ Requires:         R-stats
 
 %description
 Provides implementations of computationally efficient maximum likelihood
-parameter estimation algorithms for models that represent linear dynamical
-systems. Currently, one such algorithm is implemented for the
-one-dimensional cumulative structural equation model with shock-error
-output measurement equation and assumptions of normality and independence.
-The corresponding scientific paper is yet to be published, therefore the
-relevant reference will be provided later.
+parameter estimation algorithms for models representing linear dynamical
+systems. Currently, two such algorithms (one offline and one online) are
+implemented for the single-output cumulative structural equation model
+with an additive-noise output measurement equation and assumptions of
+normality and independence. The corresponding scientific papers are
+referenced in the descriptions of the functions implementing these
+algorithms.
 
 %prep
 %setup -q -c -n %{packname}

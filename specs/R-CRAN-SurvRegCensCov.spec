@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurvRegCensCov
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weibull Regression for a Right-Censored Endpoint with Interval-Censored Covariate
 
@@ -34,7 +34,7 @@ allow to switch between different parametrizations of Weibull regression
 used by different R functions, inference for the mean difference of two
 arbitrarily censored Normal samples, and estimation of canonical
 parameters from censored samples for several distributional assumptions.
-Hubeaux, S. and Rufibach, K. (2014) <arXiv:1402.0432>.
+Hubeaux, S. and Rufibach, K. (2014) <doi:10.48550/arXiv.1402.0432>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sjSDM
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Joint Species Distribution Modeling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
@@ -33,10 +33,10 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-ggtern 
 BuildRequires:    R-CRAN-beeswarm 
 BuildRequires:    R-CRAN-qgam 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
@@ -53,10 +53,10 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-ggtern 
 Requires:         R-CRAN-beeswarm 
 Requires:         R-CRAN-qgam 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-viridis 
 
 %description
 A scalable and fast method for estimating joint Species Distribution

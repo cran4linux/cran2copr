@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semboottools
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrapping Helpers for Structural Equation Modelling
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-lavaan.printer
 A collection of helper functions for forming bootstrapping confidence
 intervals and examining bootstrap estimates in structural equation
 modelling. Currently supports models fitted by the 'lavaan' package by
-Rosseel (2012) <doi:10.18637/jss.v048.i02>.
+Rosseel (2012) <doi: 10.18637/jss.v048.i02>.
 
 %prep
 %setup -q -c -n %{packname}

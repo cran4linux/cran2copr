@@ -1,47 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  alpaca
-%global packver   0.3.4
+%global packname  cxreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit GLM's with High-Dimensional k-Way Fixed Effects
+Summary:          Complex-Valued Lasso and Complex-Valued Graphical Lasso
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-gdata 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides a routine to partial out factors with many levels during the
-optimization of the log-likelihood function of the corresponding
-generalized linear model (glm). The package is based on the algorithm
-described in Stammann (2018) <arXiv:1707.01815> and is restricted to glm's
-that are based on maximum likelihood estimation and nonlinear. It also
-offers an efficient algorithm to recover estimates of the fixed effects in
-a post-estimation routine and includes robust and multi-way clustered
-standard errors. Further the package provides analytical bias corrections
-for binary choice models derived by Fernandez-Val and Weidner (2016)
-<doi:10.1016/j.jeconom.2015.12.014> and Hinz, Stammann, and Wanner (2020)
-<arXiv:2004.12655>.
+Implements 'glmnet'-style complex-valued lasso and complex-valued
+graphical lasso using a 'pathwise' coordinate descent algorithm for
+complex-valued parameters. The package provides supporting tools for
+estimation, simulation, and prediction. See Deb (2024)
+<doi:10.48550/ArXiv.2401.11128> for the algorithm description.
 
 %prep
 %setup -q -c -n %{packname}
