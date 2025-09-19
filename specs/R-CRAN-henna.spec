@@ -1,62 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  readyomics
-%global packver   0.1.2
+%global packname  henna
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ready-to-Use Omics Formatting, Analysis, and Visualization Pipeline
+Summary:          A Versatile Visualization Suite
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-abdiv 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggalluvial 
+BuildRequires:    R-CRAN-ggeasy 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-liver 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-permute 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-zCompositions 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-abdiv 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggalluvial 
+Requires:         R-CRAN-ggeasy 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-grDevices 
+Requires:         R-CRAN-liver 
 Requires:         R-methods 
-Requires:         R-CRAN-permute 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-zCompositions 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-viridis 
 
 %description
-Provides a flexible and streamlined pipeline for formatting, analyzing,
-and visualizing omics data, regardless of omics type (e.g.
-transcriptomics, proteomics, metabolomics). The package includes tools for
-shaping input data into analysis-ready structures, fitting linear or
-mixed-effect models, extracting key contrasts, and generating a rich
-variety of ready-to-use publication-quality plots. Designed for
-transparency and reproducibility across a wide range of study designs,
-with customizable components for statistical modeling.
+A visualization suite primarily designed for single-cell RNA-sequencing
+data analysis applications, but adaptable to other purposes as well. It
+introduces novel plots to represent two-variable and frequency data and
+optimizes some commonly used plotting options (e.g., correlation, network,
+density and alluvial plots) for ease of usage and flexibility.
 
 %prep
 %setup -q -c -n %{packname}

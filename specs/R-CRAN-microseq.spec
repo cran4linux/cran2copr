@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  microseq
-%global packver   2.1.6
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Biological Sequence Handling
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rlang 
 
 %description

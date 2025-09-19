@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ZEP
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures Related to the Zadeh's Extension Principle for Fuzzy Data
 
@@ -19,15 +19,19 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FuzzyNumbers 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-animation 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-FuzzyNumbers 
 Requires:         R-methods 
+Requires:         R-CRAN-animation 
+Requires:         R-grDevices 
 
 %description
-Procedures for calculation, plotting, and approximation of the outputs for
-fuzzy numbers (see A.I. Ban, L. Coroianu, P. Grzegorzewski "Fuzzy Numbers:
-Approximations, Ranking and Applications" (2015)) based on the Zadeh's
-Extension Principle (see de Barros, L.C., Bassanezi, R.C., Lodwick, W.A.
-(2017) <doi:10.1007/978-3-662-53324-6_2>).
+Procedures for calculation, plotting, animation, and approximation of the
+outputs for fuzzy numbers (see A.I. Ban, L. Coroianu, P. Grzegorzewski
+"Fuzzy Numbers: Approximations, Ranking and Applications" (2015)) based on
+the Zadeh's Extension Principle (see de Barros, L.C., Bassanezi, R.C.,
+Lodwick, W.A. (2017) <doi:10.1007/978-3-662-53324-6_2>).
 
 %prep
 %setup -q -c -n %{packname}

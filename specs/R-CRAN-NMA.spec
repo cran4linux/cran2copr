@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NMA
-%global packver   1.4-3
+%global packver   2.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Meta-Analysis Based on Multivariate Meta-Analysis Models
+Summary:          Network Meta-Analysis Based on Multivariate Meta-Analysis and Meta-Regression Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-forestplot 
+BuildRequires:    R-CRAN-nleqslv 
 Requires:         R-stats 
 Requires:         R-grid 
 Requires:         R-CRAN-MASS 
@@ -31,22 +32,23 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-forestplot 
+Requires:         R-CRAN-nleqslv 
 
 %description
 Network meta-analysis tools based on contrast-based approach using the
-multivariate meta-analysis and meta-regression models (Noma et al. (2023)
-<Forthcoming>). Standard analysis tools for network meta-analysis and
-meta-regression (e.g., synthesis analysis, ranking analysis, and creating
-league table) are available by simple commands. For inconsistency
-analyses, the local and global inconsistency tests based on the Higgins'
-design-by-treatment interaction model can be applied. Also, the
-side-splitting and the Jackson's random inconsistency model are available.
-Standard graphical tools for network meta-analysis (e.g., network plot,
-ranked forest plot, and transitivity analysis) can also be utilized. For
-the synthesis analyses, the Noma-Hamura's improved REML (restricted
-maximum likelihood)-based methods (Noma et al. (2023)
-<doi:10.1002/jrsm.1652> <doi:10.1002/jrsm.1651>) are adopted as the
-default methods.
+multivariate meta-analysis and meta-regression models (Noma et al. (2025)
+<doi:10.1101/2025.09.15.25335823>). Comprehensive analysis tools for
+network meta-analysis and meta-regression (e.g., synthesis analysis,
+ranking analysis, and creating league table) are available through simple
+commands. For inconsistency assessment, the local and global inconsistency
+tests based on the Higgins' design-by-treatment interaction model are
+available. In addition, the side-splitting methods and Jackson's random
+inconsistency model can be applied. Standard graphical tools for network
+meta-analysis, including network plots, ranked forest plots, and
+transitivity analyses, are also provided. For the synthesis analyses, the
+Noma-Hamura's improved REML (restricted maximum likelihood)-based methods
+(Noma et al. (2023) <doi:10.1002/jrsm.1652> <doi:10.1002/jrsm.1651>) are
+adopted as the default methods.
 
 %prep
 %setup -q -c -n %{packname}

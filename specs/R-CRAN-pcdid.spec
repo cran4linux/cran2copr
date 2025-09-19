@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  downscale
-%global packver   5.1.3
+%global packname  pcdid
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downscaling Species Occupancy
+Summary:          Principal Components Difference-in-Differences
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.7.3
-BuildRequires:    R-CRAN-minpack.lm >= 1.1.9
-BuildRequires:    R-CRAN-cubature >= 1.1.2
-BuildRequires:    R-CRAN-sf >= 1.0.9
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-terra >= 1.7.3
-Requires:         R-CRAN-minpack.lm >= 1.1.9
-Requires:         R-CRAN-cubature >= 1.1.2
-Requires:         R-CRAN-sf >= 1.0.9
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-lmtest 
 Requires:         R-stats 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-lmtest 
 
 %description
-Uses species occupancy at coarse grain sizes to predict species occupancy
-at fine grain sizes. Ten models are provided to fit and extrapolate the
-occupancy-area relationship, as well as methods for preparing atlas data
-for modelling. See Marsh et. al. (2018) <doi:10.18637/jss.v086.c03>.
+Implements the Principal Components Difference-in-Differences estimators
+as described in Chan, M. K., & Kwok, S. S. (2022)
+<doi:10.1080/07350015.2021.1914636>.
 
 %prep
 %setup -q -c -n %{packname}

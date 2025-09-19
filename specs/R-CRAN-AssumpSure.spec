@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AssumpSure
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Application for Statistical Test Assumption Checking and Guidance
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-shinyscreenshot
 BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-compositions 
 BuildRequires:    R-CRAN-car 
@@ -58,6 +59,7 @@ Requires:         R-CRAN-shinyscreenshot
 Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-compositions 
 Requires:         R-CRAN-car 

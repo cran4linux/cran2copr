@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arcgisutils
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          ArcGIS Utility Functions
+Summary:          R-ArcGIS Bridge Utility Functions
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,18 +18,24 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildRequires:    R-CRAN-httr2 >= 1.0.5
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RcppSimdJson 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yyjsonr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-httr2 >= 1.0.5
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RcppSimdJson 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-sf 
 Requires:         R-utils 
+Requires:         R-CRAN-yyjsonr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Developer oriented utility functions designed to be used as the building

@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DiscreteDists
-%global packver   1.1.1
+%global packname  dsBase
+%global packver   6.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          6.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discrete Statistical Distributions
+Summary:          'DataSHIELD' Server Side Base Functions
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-polycor >= 0.8
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-COMPoissonReg 
-BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-childsds 
+Requires:         R-CRAN-polycor >= 0.8
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-splines 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-COMPoissonReg 
-Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-childsds 
 
 %description
-Implementation of new discrete statistical distributions. Each
-distribution includes the traditional functions as well as an additional
-function called the family function, which can be used to estimate
-parameters within the 'gamlss' framework.
+Base 'DataSHIELD' functions for the server side. 'DataSHIELD' is a
+software package which allows you to do non-disclosive federated analysis
+on sensitive data. 'DataSHIELD' analytic functions have been designed to
+only share non disclosive summary statistics, with built in automated
+output checking based on statistical disclosure control. With data sites
+setting the threshold values for the automated output checks. For more
+details, see 'citation("dsBase")'.
 
 %prep
 %setup -q -c -n %{packname}

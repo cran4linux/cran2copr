@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bartMan
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Visualisations for BART Models
 
@@ -28,25 +28,19 @@ BuildRequires:    R-CRAN-ggraph
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rrapply 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidybayes 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytreatment 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-BART 
 BuildRequires:    R-CRAN-bartMachine 
 BuildRequires:    R-CRAN-dbarts 
 BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-DendSer 
@@ -58,25 +52,19 @@ Requires:         R-CRAN-ggraph
 Requires:         R-grid 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rrapply 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-tidybayes 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytreatment 
 Requires:         R-utils 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-BART 
 Requires:         R-CRAN-bartMachine 
 Requires:         R-CRAN-dbarts 
 Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-vctrs 
 
 %description
 Investigating and visualising Bayesian Additive Regression Tree (BART)

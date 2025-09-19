@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  downscale
-%global packver   5.1.3
+%global packname  CompositionalClust
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downscaling Species Occupancy
+Summary:          Clustering with Compositional Data
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.7.3
-BuildRequires:    R-CRAN-minpack.lm >= 1.1.9
-BuildRequires:    R-CRAN-cubature >= 1.1.2
-BuildRequires:    R-CRAN-sf >= 1.0.9
+BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-lowmemtkmeans 
+BuildRequires:    R-CRAN-mixture 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-terra >= 1.7.3
-Requires:         R-CRAN-minpack.lm >= 1.1.9
-Requires:         R-CRAN-cubature >= 1.1.2
-Requires:         R-CRAN-sf >= 1.0.9
+Requires:         R-CRAN-Compositional 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-lowmemtkmeans 
+Requires:         R-CRAN-mixture 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
 
 %description
-Uses species occupancy at coarse grain sizes to predict species occupancy
-at fine grain sizes. Ten models are provided to fit and extrapolate the
-occupancy-area relationship, as well as methods for preparing atlas data
-for modelling. See Marsh et. al. (2018) <doi:10.18637/jss.v086.c03>.
+Cluster analysis with compositional data using the alpha--transformation.
+Relevant papers include: Tsagris M. and Kontemeniotis N. (2025),
+<doi:10.48550/arXiv.2509.05945>. Tsagris M.T., Preston S. and Wood A.T.A.
+(2011), <doi:10.48550/arXiv.1106.1451>. Garcia-Escudero Luis A., Gordaliza
+Alfonso, Matran Carlos, Mayo-Iscar Agustin. (2008),
+<doi:10.1214/07-AOS515>.
 
 %prep
 %setup -q -c -n %{packname}

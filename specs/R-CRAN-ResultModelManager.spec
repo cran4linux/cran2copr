@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ResultModelManager
-%global packver   0.5.11
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.11
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Result Model Manager
 
@@ -50,10 +50,10 @@ Requires:         R-CRAN-withr
 
 %description
 Database data model management utilities for R packages in the
-Observational Health Data Sciences and Informatics program
-<https://ohdsi.org>. 'ResultModelManager' provides utility functions to
-allow package maintainers to migrate existing SQL database models, export
-and import results in consistent patterns.
+Observational Health Data Sciences and Informatics programme.
+'ResultModelManager' provides utility functions to allow package
+maintainers to migrate existing SQL database models, export and import
+results in consistent patterns.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tree.interpreter
-%global packver   0.1.3
+%global packname  swaglm
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Forest Prediction Decomposition and Feature Importance Measure
+Summary:          Fast Sparse Wrapper Algorithm for Generalized Linear Models and Testing Procedures for Network of Highly Predictive Variables
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-fastglm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-fastglm 
+Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-gdata 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-fields 
 
 %description
-An R re-implementation of the 'treeinterpreter' package on PyPI
-<https://pypi.org/project/treeinterpreter/>. Each prediction can be
-decomposed as 'prediction = bias + feature_1_contribution + ... +
-feature_n_contribution'. This decomposition is then used to calculate the
-Mean Decrease Impurity (MDI) and Mean Decrease Impurity using out-of-bag
-samples (MDI-oob) feature importance measures based on the work of Li et
-al. (2019) <doi:10.48550/arXiv.1906.10845>.
+Provides a fast implementation of the SWAG algorithm for Generalized
+Linear Models which allows to perform a meta-learning procedure that
+combines screening and wrapper methods to find a set of extremely
+low-dimensional attribute combinations. The package then performs test on
+the network of selected models to identify the variables that are highly
+predictive by using entropy-based network measures.
 
 %prep
 %setup -q -c -n %{packname}

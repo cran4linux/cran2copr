@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlibkriging
-%global packver   0.9-2.2
+%global packname  GLMMRR
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging Models using the 'libKriging' Library
+Summary:          Generalized Linear Mixed Model (GLMM) for Binary Randomized Response Data
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-lme4 
 Requires:         R-methods 
-Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-lattice 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
-that should provide most standard Kriging / Gaussian process regression
-features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
-'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
-by Conrad Sanderson, 'lbfgsb_cpp' is a 'C++' port around by Pascal Have of
-'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge Nocedal
-and Jose Luis Morales used for hyperparameters optimization.
+Generalized Linear Mixed Model (GLMM) for Binary Randomized Response Data.
+Includes Cauchit, Compl. Log-Log, Logistic, and Probit link functions for
+Bernoulli Distributed RR data. RR Designs: Warner, Forced Response,
+Unrelated Question, Kuk, Crosswise, and Triangular. Reference: Fox, J-P,
+Veen, D. and Klotzke, K. (2018). Generalized Linear Mixed Models for
+Randomized Responses. Methodology. <doi:10.1027/1614-2241/a000153>.
 
 %prep
 %setup -q -c -n %{packname}

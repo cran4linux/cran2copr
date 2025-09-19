@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kerasnip
-%global packver   0.0.1
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Bridge Between 'keras' and 'tidymodels'
 
@@ -39,9 +39,9 @@ Requires:         R-CRAN-recipes
 Requires:         R-CRAN-reticulate 
 
 %description
-Provides a seamless bridge between 'keras' and the 'tidymodels' ecosystem.
-It allows for the dynamic creation of 'parsnip' model specifications for
-'keras' models.
+Provides a seamless bridge between 'keras' and the 'tidymodels'
+frameworks. It allows for the dynamic creation of 'parsnip' model
+specifications for 'keras' models.
 
 %prep
 %setup -q -c -n %{packname}

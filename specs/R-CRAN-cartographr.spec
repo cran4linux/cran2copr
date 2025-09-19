@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cartographr
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Crafting Print-Ready Maps and Layered Visualizations
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-osmdata 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
@@ -27,7 +29,9 @@ BuildRequires:    R-CRAN-sysfonts
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-osmdata 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 

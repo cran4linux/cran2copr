@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VIM
-%global packver   6.2.2
+%global packver   6.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.2
+Version:          6.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Imputation of Missing Values
 
@@ -14,19 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-data.table >= 1.9.4
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-vcd 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-methods 
@@ -35,17 +33,17 @@ BuildRequires:    R-utils
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-laeken 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-data.table >= 1.9.4
 Requires:         R-CRAN-colorspace 
 Requires:         R-grid 
 Requires:         R-CRAN-car 
 Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-vcd 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-e1071 
 Requires:         R-methods 
@@ -54,6 +52,8 @@ Requires:         R-utils
 Requires:         R-graphics 
 Requires:         R-CRAN-laeken 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-xgboost 
 
 %description
 New tools for the visualization of missing and/or imputed values are
