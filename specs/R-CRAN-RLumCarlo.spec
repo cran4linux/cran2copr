@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RLumCarlo
-%global packver   0.1.9
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte-Carlo Methods for Simulating Luminescence Phenomena
 
@@ -14,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-khroma >= 1.9.0
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
+BuildRequires:    R-CRAN-RcppArmadillo >= 14.6.0
 BuildRequires:    R-CRAN-foreach >= 1.5.2
-BuildRequires:    R-CRAN-abind >= 1.4.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-abind >= 1.4.8
+BuildRequires:    R-CRAN-khroma >= 1.16.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-CRAN-doParallel >= 1.0.17
 BuildRequires:    R-CRAN-scatterplot3d >= 0.3
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.11.2.0.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-khroma >= 1.9.0
 Requires:         R-CRAN-foreach >= 1.5.2
-Requires:         R-CRAN-abind >= 1.4.5
-Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-abind >= 1.4.8
+Requires:         R-CRAN-khroma >= 1.16.0
+Requires:         R-CRAN-Rcpp >= 1.1.0
 Requires:         R-CRAN-doParallel >= 1.0.17
 Requires:         R-CRAN-scatterplot3d >= 0.3
 Requires:         R-utils 

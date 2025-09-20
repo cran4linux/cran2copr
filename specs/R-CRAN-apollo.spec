@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  apollo
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Choice Model Estimation and Application
 
@@ -72,7 +72,7 @@ continuous models are covered in addition to discrete choice.
 Multi-threading processing is supported for estimation and a large number
 of pre and post-estimation routines, including for computing posterior
 (individual-level) distributions are available. For examples, a manual,
-and a support forum, visit <http://www.ApolloChoiceModelling.com>. For
+and a support forum, visit <https://www.ApolloChoiceModelling.com>. For
 more information on choice models see Train, K. (2009)
 <isbn:978-0-521-74738-7> and Hess, S. & Daly, A.J. (2014)
 <isbn:978-1-781-00314-5> for an overview of the field.

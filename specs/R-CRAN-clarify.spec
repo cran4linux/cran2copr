@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clarify
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Inference for Regression Models
 
@@ -14,23 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-pbapply >= 1.7.0
-BuildRequires:    R-CRAN-rlang >= 1.0.6
-BuildRequires:    R-CRAN-chk >= 0.9.0
-BuildRequires:    R-CRAN-marginaleffects >= 0.20.0
-BuildRequires:    R-CRAN-mvnfast >= 0.2.6
-BuildRequires:    R-CRAN-insight >= 0.19.11
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-pbapply >= 1.7.0
-Requires:         R-CRAN-rlang >= 1.0.6
-Requires:         R-CRAN-chk >= 0.9.0
-Requires:         R-CRAN-marginaleffects >= 0.20.0
-Requires:         R-CRAN-mvnfast >= 0.2.6
-Requires:         R-CRAN-insight >= 0.19.11
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-pbapply >= 1.7.4
+BuildRequires:    R-CRAN-insight >= 1.4.2
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-marginaleffects >= 0.30.0
+BuildRequires:    R-CRAN-chk >= 0.10.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-pbapply >= 1.7.4
+Requires:         R-CRAN-insight >= 1.4.2
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-marginaleffects >= 0.30.0
+Requires:         R-CRAN-chk >= 0.10.0
 
 %description
 Performs simulation-based inference as an alternative to the delta method
@@ -39,10 +37,10 @@ post-estimation quantities, such as average marginal effects and
 predictions at representative values. This framework for simulation-based
 inference is especially useful when the resulting quantity is not normally
 distributed and the delta method approximation fails. The methodology is
-described in King, Tomz, and Wittenberg (2000) <doi:10.2307/2669316>.
-'clarify' is meant to replace some of the functionality of the archived
-package 'Zelig'; see the vignette "Translating Zelig to clarify" for
-replicating this functionality.
+described in Greifer, et al. (2025) <doi:10.32614/RJ-2024-015>. 'clarify'
+is meant to replace some of the functionality of the archived package
+'Zelig'; see the vignette "Translating Zelig to clarify" for replicating
+this functionality.
 
 %prep
 %setup -q -c -n %{packname}

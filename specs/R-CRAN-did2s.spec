@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  did2s
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Stage Difference-in-Differences Following Gardner (2021)
 
@@ -17,32 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fixest >= 0.10.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-SparseM 
-BuildRequires:    R-CRAN-MatrixExtra 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fixest >= 0.13.2
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-did 
-BuildRequires:    R-CRAN-staggered 
 BuildRequires:    R-CRAN-didimputation 
-Requires:         R-CRAN-fixest >= 0.10.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-SparseM 
-Requires:         R-CRAN-MatrixExtra 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dreamerr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-HonestDiD 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-staggered 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fixest >= 0.13.2
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-did 
-Requires:         R-CRAN-staggered 
 Requires:         R-CRAN-didimputation 
+Requires:         R-CRAN-dreamerr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-HonestDiD 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-staggered 
+Requires:         R-stats 
 
 %description
 Estimates Two-way Fixed Effects difference-in-differences/event-study
