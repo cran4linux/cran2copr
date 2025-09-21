@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsvddpd
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Singular Value Decomposition using Density Power Divergence
 
@@ -31,10 +31,10 @@ Requires:         R-CRAN-matrixStats
 %description
 Computing singular value decomposition with robustness is a challenging
 task. This package provides an implementation of computing robust SVD
-using density power divergence (<arXiv:2109.10680>). It combines the idea
-of robustness and efficiency in estimation based on a tuning parameter. It
-also provides utility functions to simulate various scenarios to compare
-performances of different algorithms.
+using density power divergence (<doi:10.48550/arXiv.2109.10680>). It
+combines the idea of robustness and efficiency in estimation based on a
+tuning parameter. It also provides utility functions to simulate various
+scenarios to compare performances of different algorithms.
 
 %prep
 %setup -q -c -n %{packname}

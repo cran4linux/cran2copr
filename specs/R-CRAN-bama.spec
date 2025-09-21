@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bama
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Bayesian Mediation Analysis
 
@@ -28,13 +28,13 @@ Requires:         R-parallel
 Perform mediation analysis in the presence of high-dimensional mediators
 based on the potential outcome framework. Bayesian Mediation Analysis
 (BAMA), developed by Song et al (2019) <doi:10.1111/biom.13189> and Song
-et al (2020) <arXiv:2009.11409>, relies on two Bayesian sparse linear
-mixed models to simultaneously analyze a relatively large number of
-mediators for a continuous exposure and outcome assuming a small number of
-mediators are truly active. This sparsity assumption also allows the
-extension of univariate mediator analysis by casting the identification of
-active mediators as a variable selection problem and applying Bayesian
-methods with continuous shrinkage priors on the effects.
+et al (2020) <doi:10.48550/arXiv.2009.11409>, relies on two Bayesian
+sparse linear mixed models to simultaneously analyze a relatively large
+number of mediators for a continuous exposure and outcome assuming a small
+number of mediators are truly active. This sparsity assumption also allows
+the extension of univariate mediator analysis by casting the
+identification of active mediators as a variable selection problem and
+applying Bayesian methods with continuous shrinkage priors on the effects.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  svrep
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating, Updating, and Analyzing Survey Replicate Weights
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-DBI
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sampling 
 Requires:         R-stats 
 Requires:         R-utils 

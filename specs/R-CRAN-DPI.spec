@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DPI
-%global packver   2025.8
+%global packver   2025.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.8
+Version:          2025.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Directed Prediction Index
+Summary:          The Directed Prediction Index for Quasi-Causal Inference with Cross-Sectional Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-bnlearn 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
@@ -31,17 +32,18 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-bnlearn 
+Requires:         R-CRAN-MASS 
 
 %description
-The Directed Prediction Index ('DPI') is a simulation-based method for
-quantifying the relative endogeneity (relative dependence) of outcome (Y)
-versus predictor (X) variables in multiple linear regression models. By
-comparing the proportion of variance explained (R-squared) between the
-Y-as-outcome model and the X-as-outcome model while controlling for a
-sufficient number of potential confounding variables, it suggests a more
-plausible influence direction from a more exogenous variable (X) to a more
-endogenous variable (Y). Methodological details are provided at
-<https://psychbruce.github.io/DPI/>.
+The Directed Prediction Index ('DPI') is a quasi-causal inference method
+for cross-sectional data designed to quantify the relative endogeneity
+(relative dependence) of outcome (Y) versus predictor (X) variables in
+regression models. By comparing the proportion of variance explained
+(R-squared) between the Y-as-outcome model and the X-as-outcome model
+while controlling for a sufficient number of possible confounders, it
+suggests a plausible (admissible) direction of influence from a more
+exogenous variable (X) to a more endogenous variable (Y). Methodological
+details are provided at <https://psychbruce.github.io/DPI/>.
 
 %prep
 %setup -q -c -n %{packname}

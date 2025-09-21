@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ElevDistr
-%global packver   1.0.9
+%global packname  rfars
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate the Distance to the Nearest Local Treeline
+Summary:          Download and Analyze Crash Data
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggmap 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-ggmap 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-downloader 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-downloader 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-A method to calculate the distance to the climatic tree line for large
-data sets of coordinates (World Geodetic System 1984) with geographical
-uncertainty. The default thresholds and the treeline definition is based
-on Paulsen and Körner (2014) <doi:10.1007/s00035-014-0124-0>, users are
-free to decide what climate layers they would like to use.
+Download crash data from the National Highway Traffic Safety
+Administration and prepare it for research.
 
 %prep
 %setup -q -c -n %{packname}
