@@ -1,48 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TDAkit
-%global packver   0.1.3
+%global packname  DAGassist
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Topological Data Analysis
+Summary:          Test Robustness with Directed Acyclic Graphs
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-TDAstats 
-BuildRequires:    R-CRAN-T4cluster 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-maotai 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dagitty 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-TDAstats 
-Requires:         R-CRAN-T4cluster 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-maotai 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dagitty 
+Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-writexl 
 
 %description
-Topological data analysis studies structure and shape of the data using
-topological features. We provide a variety of algorithms to learn with
-persistent homology of the data based on functional summaries for
-clustering, hypothesis testing, visualization, and others. We refer to
-Wasserman (2018) <doi:10.1146/annurev-statistics-031017-100045> for a
-statistical perspective on the topic.
+Provides robustness checks driven by directed acyclic graphs (DAGs). Given
+a 'dagitty' DAG object and a model specification, 'DAGassist' classifies
+variables by causal roles, flags problematic controls, and generates a
+report comparing the original model with minimal and canonical adjustment
+sets. Exports publication-grade reports in 'LaTeX', 'Word', 'Excel', or
+plain text. 'DAGassist' is built on 'dagitty', an 'R' package that uses
+the 'DAGitty' web tool (<https://dagitty.net/>) for creating and analyzing
+DAGs. Methods draw on Pearl (2009) <doi:10.1017/CBO9780511803161> and
+Textor et al. (2016) <doi:10.1093/ije/dyw341>.
 
 %prep
 %setup -q -c -n %{packname}

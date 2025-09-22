@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BKP
-%global packver   0.2.2
+%global packname  rcppmlpackexamples
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Beta Kernel Process Modeling
+Summary:          Example Use of 'mlpack' from C++ via R
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dirmult 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-tgp 
-Requires:         R-CRAN-dirmult 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-tgp 
+BuildRequires:    R-CRAN-mlpack >= 4.6.3
+BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.1
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-RcppEnsmallen 
+Requires:         R-CRAN-Rcpp >= 1.1.0
 
 %description
-Implements the Beta Kernel Process (BKP) for nonparametric modeling of
-spatially varying binomial probabilities, together with its extension, the
-Dirichlet Kernel Process (DKP), for categorical or multinomial data. The
-package provides functions for model fitting, predictive inference with
-uncertainty quantification, posterior simulation, and visualization in
-one-and two-dimensional input spaces. Multiple kernel functions (Gaussian,
-Matern 5/2, and Matern 3/2) are supported, with hyperparameters optimized
-through multi-start gradient-based search. For more details, see Zhao,
-Qing, and Xu (2025) <doi:10.48550/arXiv.2508.10447>.
+A Minimal Example Package which demonstrates 'mlpack' use via C++ Code
+from R.
 
 %prep
 %setup -q -c -n %{packname}

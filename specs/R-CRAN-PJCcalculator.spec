@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geoarrow
-%global packver   0.4.0
+%global packname  PJCcalculator
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension Types for Spatial Data for Use with 'Arrow'
+Summary:          PROs-Joint Contrast (PJC) Calculator
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-wk >= 0.9.0
-BuildRequires:    R-CRAN-nanoarrow >= 0.5.0
-Requires:         R-CRAN-wk >= 0.9.0
-Requires:         R-CRAN-nanoarrow >= 0.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-splines 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides extension types and conversions to between R-native object types
-and 'Arrow' columnar types. This includes integration among the 'arrow',
-'nanoarrow', 'sf', and 'wk' packages such that spatial metadata is
-preserved wherever possible. Extension type implementations ensure
-first-class geometry data type support in the 'arrow' and 'nanoarrow'
-packages.
+Computes the Patient-Reported Outcomes (PROs) Joint Contrast (PJC), a
+residual-based summary that captures information left over after
+accounting for the clinical Disease Activity index for Psoriatic Arthritis
+(cDAPSA). PROs (pain and patient global assessment) and joint counts
+(swollen and tender) are standardized, then each component is adjusted for
+standardized cDAPSA using natural spline coefficients that were derived
+from previously published models. The resulting residuals are standardized
+and combined using fixed principal component loadings, to yield a
+continuous PJC score and quartile groupings. This package provides a
+calculator for applying those published coefficients to new datasets; it
+does not itself estimate spline models or principal components.
 
 %prep
 %setup -q -c -n %{packname}

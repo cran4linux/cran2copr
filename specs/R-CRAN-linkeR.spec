@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geoarrow
-%global packver   0.4.0
+%global packname  linkeR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension Types for Spatial Data for Use with 'Arrow'
+Summary:          Link Interactive Plots and Tables in 'shiny' Applications
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-wk >= 0.9.0
-BuildRequires:    R-CRAN-nanoarrow >= 0.5.0
-Requires:         R-CRAN-wk >= 0.9.0
-Requires:         R-CRAN-nanoarrow >= 0.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-later >= 1.0.0
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-later >= 1.0.0
 
 %description
-Provides extension types and conversions to between R-native object types
-and 'Arrow' columnar types. This includes integration among the 'arrow',
-'nanoarrow', 'sf', and 'wk' packages such that spatial metadata is
-preserved wherever possible. Extension type implementations ensure
-first-class geometry data type support in the 'arrow' and 'nanoarrow'
-packages.
+Build powerful, linked-view dashboards in 'shiny' applications. With a
+declarative, one-line setup, you can create bidirectional links between
+interactive components. When a user interacts with one element (e.g.,
+clicking a map marker), all linked components (such as 'DT' tables or
+other charts) instantly update. Supports 'leaflet' maps, 'DT' tables, and
+spatial data via 'sf' objects out-of-the-box, with an extensible API for
+custom components.
 
 %prep
 %setup -q -c -n %{packname}

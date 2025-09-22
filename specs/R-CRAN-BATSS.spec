@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BATSS
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Adaptive Trial Simulator Software (BATSS) for Generalised Linear Models
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-sm 
 Requires:         R-parallel 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-sm 
 
 %description
 Defines operating characteristics of Bayesian Adaptive Trials considering

@@ -1,48 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TDAkit
-%global packver   0.1.3
+%global packname  narfima
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Topological Data Analysis
+Summary:          Neural AutoRegressive Fractionally Integrated Moving Average Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-TDAstats 
-BuildRequires:    R-CRAN-T4cluster 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-maotai 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-bsts 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-TDAstats 
-Requires:         R-CRAN-T4cluster 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-maotai 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-bsts 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Topological data analysis studies structure and shape of the data using
-topological features. We provide a variety of algorithms to learn with
-persistent homology of the data based on functional summaries for
-clustering, hypothesis testing, visualization, and others. We refer to
-Wasserman (2018) <doi:10.1146/annurev-statistics-031017-100045> for a
-statistical perspective on the topic.
+Methods and tools for forecasting univariate time series using the NARFIMA
+(Neural AutoRegressive Fractionally Integrated Moving Average) model. It
+combines neural networks with fractional differencing to capture both
+nonlinear patterns and long-term dependencies. The NARFIMA model supports
+seasonal adjustment, Box-Cox transformations, optional exogenous
+variables, and the computation of prediction intervals. In addition to the
+NARFIMA model, this package provides alternative forecasting models
+including NARIMA (Neural ARIMA), NBSTS (Neural Bayesian Structural Time
+Series), and NNaive (Neural Naive) for performance comparison across
+different modeling approaches. The methods are based on algorithms
+introduced by Chakraborty et al. (2025) <doi:10.48550/arXiv.2509.06697>.
 
 %prep
 %setup -q -c -n %{packname}

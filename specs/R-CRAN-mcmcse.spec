@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mcmcse
-%global packver   1.5-0
+%global packver   1.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo Standard Errors for MCMC
 
@@ -29,10 +30,11 @@ Requires:         R-CRAN-testthat
 
 %description
 Provides tools for computing Monte Carlo standard errors (MCSE) in Markov
-chain Monte Carlo (MCMC) settings. MCSE computation for expectation and
-quantile estimators is supported as well as multivariate estimations. The
-package also provides functions for computing effective sample size and
-for plotting Monte Carlo estimates versus sample size.
+chain Monte Carlo (MCMC) settings (survey in <doi:10.1201/b10905>, Chapter
+7). MCSE computation for expectation and quantile estimators is supported
+as well as multivariate estimations. The package also provides functions
+for computing effective sample size and for plotting Monte Carlo estimates
+versus sample size.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geoarrow
-%global packver   0.4.0
+%global packname  extr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension Types for Spatial Data for Use with 'Arrow'
+Summary:          Extinction Risk Estimation
 
-License:          Apache License (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-wk >= 0.9.0
-BuildRequires:    R-CRAN-nanoarrow >= 0.5.0
-Requires:         R-CRAN-wk >= 0.9.0
-Requires:         R-CRAN-nanoarrow >= 0.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides extension types and conversions to between R-native object types
-and 'Arrow' columnar types. This includes integration among the 'arrow',
-'nanoarrow', 'sf', and 'wk' packages such that spatial metadata is
-preserved wherever possible. Extension type implementations ensure
-first-class geometry data type support in the 'arrow' and 'nanoarrow'
-packages.
+Estimates extinction risk from population time series under a drifted
+Wiener process using the w-z method for accurate confidence intervals.
 
 %prep
 %setup -q -c -n %{packname}

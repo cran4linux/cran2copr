@@ -1,53 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  strand
-%global packver   0.2.2
+%global packname  ggDNAvis
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Investment Strategy Simulation
+Summary:          'ggplot2'-Based Tools for Visualising DNA Sequences and Modifications
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-ragg 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-magick 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-methods 
+Requires:         R-CRAN-ragg 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-magick 
 
 %description
-Provides a framework for performing discrete (share-level) simulations of
-investment strategies. Simulated portfolios optimize exposure to an input
-signal subject to constraints such as position size and factor exposure.
-For background see L. Chincarini and D. Kim (2010, ISBN:978-0-07-145939-6)
-"Quantitative Equity Portfolio Management".
+Uses 'ggplot2' to visualise either (a) a single DNA/RNA sequence split
+across multiple lines, (b) multiple DNA/RNA sequences, each occupying a
+whole line, or (c) base modifications such as DNA methylation called by
+modified bases models in Dorado or Guppy. Functions starting with
+visualise_<something>() are the main plotting functions, and functions
+starting with extract_<something>() are key helper functions for reading
+files and reformatting data. Source code is available at
+<https://github.com/ejade42/ggDNAvis> and a full non-expert user guide is
+available at <https://ejade42.github.io/ggDNAvis/>.
 
 %prep
 %setup -q -c -n %{packname}
