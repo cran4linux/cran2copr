@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ConSciR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Conservation Science
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-padr 
+BuildRequires:    R-CRAN-openair 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-CRAN-tidyr 
@@ -41,15 +42,16 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-padr 
+Requires:         R-CRAN-openair 
 
 %description
 Provides data science tools for conservation science, including methods
-for environmental analysis applications, humidity calculations,
-sustainability metrics, engineering calculations, and data visualisation.
-Supports conservators, scientists, and engineers working with cultural
-heritage data. The package was motivated by the developing tools and
-frameworks outlined in Cosaert and Beltran et al. (2022) "Tools for the
-Analysis of Collection Environments"
+for environmental data analysis, humidity calculations, sustainability
+metrics, engineering calculations, and data visualisation. Supports
+conservators, scientists, and engineers working with cultural heritage
+preventive conservation data. The package is motivated by the framework
+outlined in Cosaert and Beltran et al. (2022) "Tools for the Analysis of
+Collection Environments"
 <https://www.getty.edu/conservation/publications_resources/pdf_publications/tools_for_the_analysis_of_collection_environments.html>.
 
 %prep

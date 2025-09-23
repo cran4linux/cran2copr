@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROptSpace
-%global packver   0.2.4
+%global packname  screenshotbase
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrix Reconstruction from a Few Entries
+Summary:          Client for the 'Screenshotbase' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 
 %description
-Matrix reconstruction, also known as matrix completion, is the task of
-inferring missing entries of a partially observed matrix. This package
-provides a method called OptSpace, which was proposed by Keshavan, R.H.,
-Oh, S., and Montanari, A. (2009) <doi:10.1109/ISIT.2009.5205567> for a
-case under low-rank assumption.
+Minimal R client for the 'Screenshotbase' API to render website
+screenshots and query account status. Provides functions to set the API
+key, call the status endpoint, and take a screenshot as a raw image
+response.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROptSpace
-%global packver   0.2.4
+%global packname  BKP
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrix Reconstruction from a Few Entries
+Summary:          Beta Kernel Process Modeling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dirmult 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-tgp 
+Requires:         R-CRAN-dirmult 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-tgp 
 
 %description
-Matrix reconstruction, also known as matrix completion, is the task of
-inferring missing entries of a partially observed matrix. This package
-provides a method called OptSpace, which was proposed by Keshavan, R.H.,
-Oh, S., and Montanari, A. (2009) <doi:10.1109/ISIT.2009.5205567> for a
-case under low-rank assumption.
+Implements the Beta Kernel Process (BKP) for nonparametric modeling of
+spatially varying binomial probabilities, together with its extension, the
+Dirichlet Kernel Process (DKP), for categorical or multinomial data. The
+package provides functions for model fitting, predictive inference with
+uncertainty quantification, posterior simulation, and visualization in
+one-and two-dimensional input spaces. Multiple kernel functions (Gaussian,
+Matern 5/2, and Matern 3/2) are supported, with hyperparameters optimized
+through multi-start gradient-based search. For more details, see Zhao,
+Qing, and Xu (2025) <doi:10.48550/arXiv.2508.10447>.
 
 %prep
 %setup -q -c -n %{packname}

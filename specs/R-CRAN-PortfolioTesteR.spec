@@ -1,52 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mpactr
-%global packver   0.3.0
+%global packname  PortfolioTesteR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correction of Preprocessed MS Data
+Summary:          Test Investment Strategies with English-Like Code
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-cli 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-treemapify 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-TTR 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-readr 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-treemapify 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-TTR 
+Requires:         R-utils 
+Requires:         R-CRAN-zoo 
 
 %description
-An 'R' implementation of the 'python' program Metabolomics Peak Analysis
-Computational Tool ('MPACT') (Robert M. Samples, Sara P. Puckett, and
-Marcy J. Balunas (2023) <doi:10.1021/acs.analchem.2c04632>). Filters in
-the package serve to address common errors in tandem mass spectrometry
-preprocessing, including: (1) isotopic patterns that are incorrectly split
-during preprocessing, (2) features present in solvent blanks due to
-carryover between samples, (3) features whose abundance is greater than
-user-defined abundance threshold in a specific group of samples, for
-example media blanks, (4) ions that are inconsistent between technical
-replicates, and (5) in-source fragment ions created during ionization
-before fragmentation in the tandem mass spectrometry workflow.
+Design, backtest, and analyze portfolio strategies using simple,
+English-like function chains. Includes technical indicators, flexible
+stock selection, portfolio construction methods (equal weighting, signal
+weighting, inverse volatility, hierarchical risk parity), and a compact
+backtesting engine for portfolio returns, drawdowns, and summary metrics.
 
 %prep
 %setup -q -c -n %{packname}

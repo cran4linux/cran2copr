@@ -1,55 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rdimtools
-%global packver   1.1.3
+%global packname  dbrobust
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dimension Reduction and Estimation Methods
+Summary:          Robust Distance-Based Visualization and Analysis of Mixed-Type Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-CVXR >= 1.0
-BuildRequires:    R-CRAN-maotai >= 0.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-BuildRequires:    R-CRAN-ADMM 
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-RcppDE 
+BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-mclustcomp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-CVXR >= 1.0
-Requires:         R-CRAN-maotai >= 0.2.4
-Requires:         R-CRAN-Rcpp >= 0.12.15
-Requires:         R-CRAN-ADMM 
+BuildRequires:    R-CRAN-dbstats 
+BuildRequires:    R-CRAN-StatMatch 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-RcppDE 
+Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-graphics 
-Requires:         R-CRAN-mclustcomp 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-dbstats 
+Requires:         R-CRAN-StatMatch 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-vegan 
 
 %description
-We provide linear and nonlinear dimension reduction techniques. Intrinsic
-dimension estimation methods for exploratory analysis are also provided.
-For more details on the package, see the paper by You and Shung (2022)
-<doi:10.1016/j.simpa.2022.100414>.
+Robust distance-based methods applied to matrices and data frames,
+producing distance matrices that can be used as input for various
+visualization techniques such as graphs, heatmaps, or multidimensional
+scaling configurations. See Boj and Grané (2024)
+<doi:10.1016/j.seps.2024.101992>.
 
 %prep
 %setup -q -c -n %{packname}

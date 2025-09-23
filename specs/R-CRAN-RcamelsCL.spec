@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROptSpace
-%global packver   0.2.4
+%global packname  RcamelsCL
+%global packver   0.1-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrix Reconstruction from a Few Entries
+Summary:          Easy Handling of the CAMELS-CL Dataset
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.7.78
+BuildRequires:    R-CRAN-zoo >= 1.7.2
+BuildRequires:    R-CRAN-hydroTSM >= 0.5.0
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-terra >= 1.7.78
+Requires:         R-CRAN-zoo >= 1.7.2
+Requires:         R-CRAN-hydroTSM >= 0.5.0
+Requires:         R-CRAN-httr 
 
 %description
-Matrix reconstruction, also known as matrix completion, is the task of
-inferring missing entries of a partially observed matrix. This package
-provides a method called OptSpace, which was proposed by Keshavan, R.H.,
-Oh, S., and Montanari, A. (2009) <doi:10.1109/ISIT.2009.5205567> for a
-case under low-rank assumption.
+Download and handle spatial and temporal data from the CAMELS-CL dataset
+(Catchment Attributes and Meteorology for Large Sample Studies, Chile)
+<https://camels.cr2.cl/>, developed by Alvarez-Garreton et al. (2018)
+<doi:10.5194/hess-22-5817-2018>. The package does not generate new data,
+it only facilitates direct access to the original dataset for hydrological
+analyses.
 
 %prep
 %setup -q -c -n %{packname}

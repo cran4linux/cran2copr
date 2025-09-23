@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROptSpace
-%global packver   0.2.4
+%global packname  tranSurv
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrix Reconstruction from a Few Entries
+Summary:          Transformation-Based Regression under Dependent Truncation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-truncSP 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-SQUAREM 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-truncSP 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-SQUAREM 
+Requires:         R-methods 
 
 %description
-Matrix reconstruction, also known as matrix completion, is the task of
-inferring missing entries of a partially observed matrix. This package
-provides a method called OptSpace, which was proposed by Keshavan, R.H.,
-Oh, S., and Montanari, A. (2009) <doi:10.1109/ISIT.2009.5205567> for a
-case under low-rank assumption.
+A latent, quasi-independent truncation time is assumed to be linked with
+the observed dependent truncation time, the event time, and an unknown
+transformation parameter via a structural transformation model. The
+transformation parameter is chosen to minimize the conditional Kendall's
+tau (Martin and Betensky, 2005) <doi:10.1198/016214504000001538> or the
+regression coefficient estimates (Jones and Crowley, 1992)
+<doi:10.2307/2336782>. The marginal distribution for the truncation time
+and the event time are completely left unspecified. The methodology is
+applied to survival curve estimation and regression analysis.
 
 %prep
 %setup -q -c -n %{packname}

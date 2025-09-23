@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lme4breeding
-%global packver   1.0.70
+%global packver   1.0.80
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.70
+Version:          1.0.80
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship-Based Mixed-Effects Models
+Summary:          Breeding-Related Mixed-Effects Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

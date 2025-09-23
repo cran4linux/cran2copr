@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  annotator
-%global packver   0.0.3.1
+%global packver   0.0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.1
+Version:          0.0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Image Annotation and Polygon Outlining using Free Drawing
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -33,7 +33,7 @@ Provides functions to create image annotations through polygon outlining.
 Annotator has the same function as 'graphics::locator()' but achieves its
 purpose through drawing, rather than multiple mouse clicks. It is based on
 the 'htmlwidgets' package and 'fabric.js' JavaScript library
-<http://fabricjs.com/>.
+<https://fabricjs.com/>.
 
 %prep
 %setup -q -c -n %{packname}

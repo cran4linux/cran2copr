@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROptSpace
-%global packver   0.2.4
+%global packname  NetVAR
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrix Reconstruction from a Few Entries
+Summary:          Network Structures in VAR Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-fGarch 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-fGarch 
 
 %description
-Matrix reconstruction, also known as matrix completion, is the task of
-inferring missing entries of a partially observed matrix. This package
-provides a method called OptSpace, which was proposed by Keshavan, R.H.,
-Oh, S., and Montanari, A. (2009) <doi:10.1109/ISIT.2009.5205567> for a
-case under low-rank assumption.
+Vector AutoRegressive (VAR) type models with tailored regularisation
+structures are provided to uncover network type structures in the data,
+such as influential time series (influencers). Currently the package
+implements the LISAR model from Zhang and Trimborn (2023)
+<doi:10.2139/ssrn.4619531>. The package automatically derives the required
+regularisation sequences and refines it during the estimation to provide
+the optimal model. The package allows for model optimisation under various
+loss functions such as Mean Squared Forecasting Error (MSFE), Akaike
+Information Criterion (AIC), and Bayesian Information Criterion (BIC). It
+provides a dedicated class, allowing for summary prints of the optimal
+model and a plotting function to conveniently analyse the optimal model
+via heatmaps.
 
 %prep
 %setup -q -c -n %{packname}

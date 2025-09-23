@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROptSpace
-%global packver   0.2.4
+%global packname  cowfootR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrix Reconstruction from a Few Entries
+Summary:          Dairy Farm Carbon Footprint Assessment
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-writexl 
 
 %description
-Matrix reconstruction, also known as matrix completion, is the task of
-inferring missing entries of a partially observed matrix. This package
-provides a method called OptSpace, which was proposed by Keshavan, R.H.,
-Oh, S., and Montanari, A. (2009) <doi:10.1109/ISIT.2009.5205567> for a
-case under low-rank assumption.
+Calculates the carbon footprint of dairy farms based on methodologies of
+the International Dairy Federation and the Intergovernmental Panel on
+Climate Change. Includes tools for single-farm and batch analysis, report
+generation, and visualization. Methods follow International Dairy
+Federation (2022) "The IDF global Carbon Footprint standard for the dairy
+sector" (Bulletin of the IDF n° 520/2022) <doi:10.56169/FKRK7166> and IPCC
+(2019) "2019 Refinement to the 2006 IPCC Guidelines for National
+Greenhouse Gas Inventories, Chapter 10: Emissions from Livestock and
+Manure Management"
+<https://www.ipcc-nggip.iges.or.jp/public/2019rf/pdf/4_Volume4/19R_V4_Ch10_Livestock.pdf>
+guidelines.
 
 %prep
 %setup -q -c -n %{packname}

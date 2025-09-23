@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ForIT
-%global packver   2.5.0
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Estimate Tree Volume and Phytomass in the Italian Forest Inventory 2005
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-metR 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-metR 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
 
 %description
 Tabacchi et al. (2011) published a very detailed study producing a uniform

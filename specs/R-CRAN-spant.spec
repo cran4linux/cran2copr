@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spant
-%global packver   3.5.0
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-expm >= 1.0.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-signal 
@@ -38,6 +39,7 @@ BuildRequires:    R-CRAN-jsonlite
 Requires:         R-CRAN-expm >= 1.0.0
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-signal 

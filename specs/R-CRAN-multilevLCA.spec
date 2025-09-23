@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multilevLCA
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimates and Plots Single-Level and Multilevel Latent Class Models
 
@@ -43,8 +43,8 @@ Requires:         R-CRAN-tictoc
 %description
 Efficiently estimates single- and multilevel latent class models with
 covariates, allowing for output visualization in all specifications. For
-more technical details, see Lyrvall et al (2023)
-<doi:10.48550/arXiv.2305.07276>.
+more technical details, see Lyrvall et al. (2025)
+<doi:10.1080/00273171.2025.2473935>.
 
 %prep
 %setup -q -c -n %{packname}

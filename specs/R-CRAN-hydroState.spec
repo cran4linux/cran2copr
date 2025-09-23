@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  apcluster
-%global packver   1.4.14
+%global packname  hydroState
+%global packver   0.2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.14
+Version:          0.2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Affinity Propagation Clustering
+Summary:          Hidden Markov Modelling of Hydrological State Change
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-DEoptim 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-padr 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Rcpp >= 0.11.1
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+Requires:         R-CRAN-DEoptim 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-padr 
+Requires:         R-CRAN-zoo 
 Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-checkmate 
 
 %description
-Implements Affinity Propagation clustering introduced by Frey and Dueck
-(2007) <DOI:10.1126/science.1136800>. The algorithms are largely analogous
-to the 'Matlab' code published by Frey and Dueck. The package further
-provides leveraged affinity propagation and an algorithm for
-exemplar-based agglomerative clustering that can also be used to join
-clusters obtained from affinity propagation. Various plotting functions
-are available for analyzing clustering results.
+Identifies regime changes in streamflow runoff not explained by variations
+in precipitation. The package builds a flexible set of Hidden Markov
+Models of annual, seasonal or monthly streamflow runoff with precipitation
+as a predictor. Suites of models can be built for a single site, ranging
+from one to three states and each with differing combinations of error
+models and auto-correlation terms. The most parsimonious model is easily
+identified by AIC, and useful for understanding catchment drought
+non-recovery: Peterson TJ, Saft M, Peel MC & John A (2021)
+<doi:10.1126/science.abd5085>.
 
 %prep
 %setup -q -c -n %{packname}
