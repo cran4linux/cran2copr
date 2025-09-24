@@ -1,56 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inTextSummaryTable
-%global packver   3.3.4
+%global packname  salmonMSE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creation of in-Text Summary Table
+Summary:          Management Strategy Evaluation for Salmon Species
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reshape2 >= 1.4
-BuildRequires:    R-CRAN-flextable >= 0.5.5
-BuildRequires:    R-CRAN-clinUtils >= 0.1.0
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-MSEtool >= 3.7.2
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-RTMB 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-reshape2 >= 1.4
-Requires:         R-CRAN-flextable >= 0.5.5
-Requires:         R-CRAN-clinUtils >= 0.1.0
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-MSEtool >= 3.7.2
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-RTMB 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-magrittr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gsl 
 Requires:         R-methods 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Creation of tables of summary statistics or counts for clinical data (for
-'TLFs'). These tables can be exported as in-text table (with the
-'flextable' package) for a Clinical Study Report (Word format) or a
-'topline' presentation (PowerPoint format), or as interactive table (with
-the 'DT' package) to an html document for clinical data review.
+Simulation tools to evaluate the long-term effects of salmon management
+strategies, including a combination of habitat, harvest, and habitat
+actions. The stochastic age-structured operating model accommodates
+complex life histories, including freshwater survival across early life
+stages, juvenile survival and fishery exploitation in the marine life
+stage, partial maturity by age class, and fitness impacts of hatchery
+programs on natural spawning populations. 'salmonMSE' also provides an
+age-structured conditioning model to develop operating models fitted to
+data.
 
 %prep
 %setup -q -c -n %{packname}

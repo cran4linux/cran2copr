@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  influxdbclient
-%global packver   0.1.2
+%global packname  acmgscaler
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'InfluxDB' 2.x Client
+Summary:          Variant Effect Calibration to ACMG/AMP Evidence Strength
 
-License:          MIT License + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanotime >= 0.3.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-nanotime >= 0.3.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-plyr 
 
 %description
-'InfluxDB' 2.x time-series database client. Supports both 'InfluxDB' OSS
-(<https://portal.influxdata.com/downloads/>) and Cloud
-(<https://cloud2.influxdata.com/>) version.
+Provides a function to calibrate variant effect scores against evidence
+strength categories defined by the American College of Medical Genetics
+and Genomics (ACMG) and the Association for Molecular Pathology (AMP)
+guidelines. The method computes likelihood ratios of pathogenicity via
+kernel density estimation of pathogenic and benign score distributions,
+and derives score intervals corresponding to ACMG/AMP evidence levels.
+This enables researchers and clinical geneticists to interpret functional
+and computational variant scores in a reproducible and standardised
+manner. For details, see Badonyi and Marsh (2025)
+<doi:10.1093/bioinformatics/btaf503>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgload
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Package Installation and Attach
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-withr >= 2.4.3
 BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-fs 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-processx
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-withr >= 2.4.3
 Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-fs 

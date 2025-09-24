@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openaistream
-%global packver   0.3.0
+%global packname  EpiILMCT
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Streaming Capabilities for 'OpenAI API' Interactions
+Summary:          Continuous Time Distance-Based and Network-Based Individual Level Models for Epidemics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.1.0
-BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-jsonlite >= 1.8.7
-BuildRequires:    R-CRAN-iterators >= 1.0.14
-BuildRequires:    R-CRAN-httr2 >= 0.2.3
-Requires:         R-CRAN-curl >= 5.1.0
-Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-jsonlite >= 1.8.7
-Requires:         R-CRAN-iterators >= 1.0.14
-Requires:         R-CRAN-httr2 >= 0.2.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-coda 
+Requires:         R-parallel 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
 
 %description
-Based on the 'httr2' framework, the 'OpenAI' interface supports streaming
-calls and model training. For more details on the API methods implemented,
-see the 'OpenAI' platform documentation at
-<https://platform.openai.com/docs/api-reference>.
+Provides tools for simulating from continuous-time individual level models
+of disease transmission, and carrying out infectious disease data analyses
+with the same models. The epidemic models considered are distance-based
+and/or contact network-based models within Susceptible-Infectious-Removed
+(SIR) or Susceptible-Infectious-Notified-Removed (SINR) compartmental
+frameworks. <doi:10.18637/jss.v098.i10>.
 
 %prep
 %setup -q -c -n %{packname}

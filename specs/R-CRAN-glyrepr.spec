@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  schtools
-%global packver   0.4.1
+%global packname  glyrepr
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Schloss Lab Tools for Reproducible Microbiome Research
+Summary:          Representation for Glycan Compositions and Structures
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vctrs >= 0.6.5
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-formatR 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstackdeque 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs >= 0.6.5
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-formatR 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstackdeque 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
-A collection of useful functions and example code created and used by the
-Schloss Lab for reproducible microbiome research. Perform common tasks
-like read files created by mothur <https://mothur.org/>, tidy up your
-microbiome data, and format R Markdown documents for publication.  See the
-website <http://www.schlosslab.org/schtools/> for more information,
-documentation, and examples.
+Computational representations of glycan compositions and structures,
+including details such as linkages, anomers, and substituents. Supports
+varying levels of monosaccharide specificity (e.g., "Hex" or "Gal") and
+ambiguous linkages. Provides robust parsing and generation of
+IUPAC-condensed structure strings. Optimized for vectorized operations on
+glycan structures, with efficient handling of duplications. As the
+cornerstone of the glycoverse ecosystem, this package delivers the
+foundational data structures that power glycomics and glycoproteomics
+analysis workflows.
 
 %prep
 %setup -q -c -n %{packname}

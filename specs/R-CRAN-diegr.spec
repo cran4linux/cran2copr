@@ -1,40 +1,50 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MLVSBM
-%global packver   0.2.4
+%global __requires_exclude ^libmpi
+%global packname  diegr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Stochastic Block Model for Multilevel Networks
+Summary:          Dynamic and Interactive EEG Graphics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-blockmodels 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-cluster 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-blockmodels 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-cluster 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Simulation, inference and clustering of multilevel networks using a
-Stochastic Block Model framework as described in Chabert-Liddell,
-Barbillon, Donnet and Lazega (2021) <doi:10.1016/j.csda.2021.107179>. A
-multilevel network is defined as the junction of two interaction networks,
-the upper level or inter-organizational level and the lower level or
-inter-individual level. The inter-level represents an affiliation
-relationship.
+Allows to visualize high-density electroencephalography (HD-EEG) data
+through interactive plots and animations, enabling exploratory and
+communicative analysis of temporal-spatial brain signals. Funder: Masaryk
+University (Grant No. MUNI/A/1457/2023).
 
 %prep
 %setup -q -c -n %{packname}

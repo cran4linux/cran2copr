@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ockc
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Order Constrained Solutions in k-Means Clustering
 
@@ -18,11 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-flexclust 
+BuildRequires:    R-CRAN-seriation 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-modeltools 
 BuildRequires:    R-stats4 
 Requires:         R-CRAN-flexclust 
+Requires:         R-CRAN-seriation 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-modeltools 

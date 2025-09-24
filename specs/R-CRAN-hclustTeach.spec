@@ -1,34 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinyreforms
-%global packver   0.0.1
+%global packname  hclustTeach
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Forms to your 'Shiny' App
+Summary:          Hierarchical Cluster Analysis (Learning Didactically)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.0.0
-BuildRequires:    R-CRAN-htmltools >= 0.2.6
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-shiny >= 1.0.0
-Requires:         R-CRAN-htmltools >= 0.2.6
-Requires:         R-CRAN-R6 
 
 %description
-Allows to create modular, reusable 'HTML' forms which can be embedded in
-your 'shiny' app with minimal effort. Features include conditional code
-execution on form submission, automatic input validation and input
-tooltips.
+Implements hierarchical clustering methods (single linkage, complete
+linkage, average linkage, and centroid linkage) with stepwise printing and
+dendrograms for didactic purposes.
 
 %prep
 %setup -q -c -n %{packname}

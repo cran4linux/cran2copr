@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  expDB
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Database for Experiment Dataset
 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-reshape2 
@@ -46,7 +46,6 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-CRAN-reshape2 
@@ -54,9 +53,10 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-rlang 
 
 %description
-A SQLite database is designed to store all information of experiment-based
-data including metadata, experiment design, managements, phenotypic values
-and climate records. The dataset can be imported from an excel file.
+A 'SQLite' database is designed to store all information of
+experiment-based data including metadata, experiment design, managements,
+phenotypic values and climate records. The dataset can be imported from an
+'Excel' file.
 
 %prep
 %setup -q -c -n %{packname}

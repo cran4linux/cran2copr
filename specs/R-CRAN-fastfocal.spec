@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  factset.protobuf.stachextensions
-%global packver   1.0.4
+%global packname  fastfocal
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'FactSet' 'STACH' Extensions Package
+Summary:          Fast Multiscale Raster Extraction and Moving Window Analysis with FFT
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    protobuf-devel
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-terra 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-Allow clients to convert 'FactSet' 'STACH' formatted data to simpler
-tabular formats in the form of data frames. This package also provides
-helper methods to extract the meta data from 'FactSet' 'STACH' formatted
-data. See documentation on the 'GitHub' repository for more information.
+Provides fast moving-window ("focal") and buffer-based extraction for
+raster data using the 'terra' package. Automatically selects between a
+'C++' backend (via 'terra') and a Fast Fourier Transform (FFT) backend
+depending on problem size. The FFT backend supports sum and mean, while
+other statistics (e.g., median, min, max, standard deviation) are handled
+by the 'terra' backend. Supports multiple kernel types (e.g., circle,
+rectangle, gaussian), with NA handling consistent with 'terra' via 'na.rm'
+and 'na.policy'. Operates on 'SpatRaster' objects and returns results with
+the same geometry.
 
 %prep
 %setup -q -c -n %{packname}

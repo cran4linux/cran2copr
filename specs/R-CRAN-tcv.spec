@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  networkR
-%global packver   0.1.5
+%global packname  tcv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Determining the Number of Factors in Poisson Factor Models via Thinning Cross-Validation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-GFM 
+BuildRequires:    R-CRAN-countsplit 
+BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-GFM 
+Requires:         R-CRAN-countsplit 
+Requires:         R-CRAN-irlba 
 
 %description
-Collection of functions for fast manipulation, handling, and analysis of
-large-scale networks based on family and social data. Functions are
-utility functions used to manipulate data in three "formats": sparse
-adjacency matrices, pedigree trio family data, and pedigree family data.
-When possible, the functions should be able to handle millions of data
-points quickly for use in combination with data from large public national
-registers and databases. Kenneth Lange (2003, ISBN:978-8181281135).
+Implements methods for selecting the number of factors in Poisson factor
+models, with a primary focus on Thinning Cross-Validation (TCV). The TCV
+method is based on the 'data thinning' technique, which probabilistically
+partitions each count observation into training and test sets while
+preserving the underlying factor structure. The Poisson factor model is
+then fit on the training set, and model selection is performed by
+comparing predictive performance on the test set. This toolkit is designed
+for researchers working with high-dimensional count data in fields such as
+genomics, text mining, and social sciences. The data thinning methodology
+is detailed in Dharamshi et al. (2025) <doi:10.1080/01621459.2024.2353948>
+and Wang et al. (2025) <doi:10.1080/01621459.2025.2546577>.
 
 %prep
 %setup -q -c -n %{packname}

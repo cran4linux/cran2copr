@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  antaresRead
-%global packver   2.9.0
+%global packver   2.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          2.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Manipulate and Explore the Results of an 'Antares' Simulation
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-CRAN-lubridate >= 1.7.1
+BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-methods 
@@ -35,8 +35,8 @@ BuildRequires:    R-CRAN-memuse
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-data.table >= 1.9.6
 Requires:         R-CRAN-lubridate >= 1.7.1
+Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-plyr 
 Requires:         R-methods 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeBUGS
-%global packver   1.5.0
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Multinomial Processing Tree Modeling
 
@@ -16,29 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.6
-BuildRequires:    R-CRAN-runjags 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-runjags 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-logspline 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.6
-Requires:         R-CRAN-runjags 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-stats 
+Requires:         R-parallel 
 Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-grDevices 
-Requires:         R-CRAN-coda 
-Requires:         R-parallel 
-Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-runjags 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-hypergeo 
 Requires:         R-CRAN-logspline 
 
@@ -55,7 +55,7 @@ either fitted by calling JAGS or by an MPT-tailored Gibbs sampler in C++
 heterogeneity and MPT-tailored summaries and plotting functions. A
 detailed documentation is available in Heck, Arnold, & Arnold (2018)
 <DOI:10.3758/s13428-017-0869-7> and a tutorial on MPT modeling can be
-found in Schmidt, Erdfelder, & Heck (2022) <DOI:10.31234/osf.io/gh8md>.
+found in Schmidt, Erdfelder, & Heck (2023) <DOI:10.1037/met0000561>.
 
 %prep
 %setup -q -c -n %{packname}

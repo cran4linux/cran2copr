@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  weaana
-%global packver   0.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis the Weather Data
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -38,7 +39,8 @@ Requires:         R-CRAN-tibble
 %description
 Functions are collected to analyse weather data for agriculture purposes
 including to read weather records in multiple formats, calculate extreme
-climate index.
+climate index. Demonstration data are included the SILO daily climate data
+(licensed under CC BY 4.0, <https://www.longpaddock.qld.gov.au/silo/>).
 
 %prep
 %setup -q -c -n %{packname}
