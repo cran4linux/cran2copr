@@ -1,41 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SCORPION
-%global packver   1.2.0
+%global packname  Rttf2pt1
+%global packver   1.3.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Cell Oriented Reconstruction of PANDA Individual Optimized Networks
+Summary:          'ttf2pt1' Program
 
-License:          GPL-3
+License:          file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-devel >= 2.15
+Requires:         R-core >= 2.15
 
 %description
-Constructs gene regulatory networks from single-cell gene expression data
-using the PANDA (Passing Attributes between Networks for Data
-Assimilation) algorithm.
+Contains the program 'ttf2pt1', for use with the 'extrafont' package. This
+product includes software developed by the 'TTF2PT1' Project and its
+contributors.
 
 %prep
 %setup -q -c -n %{packname}

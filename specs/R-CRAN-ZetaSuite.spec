@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ZetaSuite
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze High-Dimensional High-Throughput Dataset and Quality Control Single-Cell RNA-Seq
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,20 +19,28 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-DT 
 
 %description
 The advent of genomic technologies has enabled the generation of

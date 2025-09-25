@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maotai
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Matrix Algebra, Optimization and Inference
 
@@ -30,6 +30,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-gsignal 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-Matrix 
@@ -46,6 +47,7 @@ Requires:         R-utils
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-gsignal 
 
 %description
 Matrix is an universal and sometimes primary object/unit in applied

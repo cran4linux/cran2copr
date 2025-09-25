@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  loedata
-%global packver   1.0.1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Sets from "Lectures on Econometrics" by Chirok Han
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.0
 BuildArch:        noarch
 
 %description
-Data sets for Chirok Han (2022, ISBN:979-11-303-1497-6, "Lectures on
+Data sets for Chirok Han (2024, ISBN:979-11-303-1964-3, "Lectures on
 Econometrics"). Students, teachers, and self-learners will find the data
 sets essential for replicating the results in the book.
 

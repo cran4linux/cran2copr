@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SCORPION
-%global packver   1.2.0
+%global packname  devianLM
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Cell Oriented Reconstruction of PANDA Individual Optimized Networks
+Summary:          Detecting Extremal Values in a Normal Linear Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Constructs gene regulatory networks from single-cell gene expression data
-using the PANDA (Passing Attributes between Networks for Data
-Assimilation) algorithm.
+Provides a method to detect values poorly explained by a Gaussian linear
+model. The procedure is based on the maximum of the absolute value of the
+studentized residuals, which is a parameter-free statistic. This approach
+generalizes several procedures used to detect abnormal values during
+longitudinal monitoring of biological markers. For methodological details,
+see: Berthelot G., Saulière G., Dedecker J. (2025). "DEViaN-LM An R
+Package for Detecting Abnormal Values in the Gaussian Linear Model". HAL
+Id: hal-05230549. <https://hal.science/hal-05230549>.
 
 %prep
 %setup -q -c -n %{packname}

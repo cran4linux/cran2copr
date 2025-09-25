@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SmallCountRounding
-%global packver   1.2.0
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Count Rounding of Tabular Data
 
@@ -17,12 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.7.0
+BuildRequires:    R-CRAN-SSBtools >= 1.8.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-SSBtools >= 1.7.0
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-SSBtools >= 1.8.2
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-rlang 
 
 %description
 A statistical disclosure control tool to protect frequency tables in cases

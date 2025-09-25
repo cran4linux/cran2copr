@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggspectra
-%global packver   0.3.16
+%global packver   0.3.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.16
+Version:          0.3.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions to 'ggplot2' for Radiation Spectra
 

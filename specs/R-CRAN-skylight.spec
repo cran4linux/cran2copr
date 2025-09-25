@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  skylight
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Sky Illuminance Model
 
@@ -14,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
 A tool to calculate sky illuminance values (in lux) for both sun and moon.
-The model is a verbatim translation of the code by Janiczek and DeYoung
+The model is a translation of the Fortran code by Janiczek and DeYoung
 (1987) <https://archive.org/details/DTIC_ADA182110>.
 
 %prep

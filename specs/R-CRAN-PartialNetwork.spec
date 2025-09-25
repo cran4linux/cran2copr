@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PartialNetwork
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Peer Effects Using Partial Network Data
 
@@ -48,8 +48,7 @@ Autoregressive (SAR) model (see LeSage, 1997
 information about the network structure is available. Examples are when
 the adjacency matrix is not fully observed or when only consistent
 estimation of the network formation model is available (see Boucher and
-Houndetoungan
-<https://ahoundetoungan.com/files/Papers/PartialNetwork.pdf>).
+Houndetoungan <doi:10.48550/arXiv.2509.08145>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,53 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bssm
-%global packver   2.0.3
+%global packname  gglyph
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference of Non-Linear and Non-Gaussian State Space Models
+Summary:          Network-Style Visualization of Directed Pairwise Relationships
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-coda >= 0.18.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-bayesplot 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-diagis 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ramcmc 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-sitmo 
-Requires:         R-CRAN-coda >= 0.18.1
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-bayesplot 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-diagis 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-grid 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Efficient methods for Bayesian inference of state space models via Markov
-chain Monte Carlo (MCMC) based on parallel importance sampling type
-weighted estimators (Vihola, Helske, and Franks, 2020,
-<doi:10.1111/sjos.12492>), particle MCMC, and its delayed acceptance
-version. Gaussian, Poisson, binomial, negative binomial, and Gamma
-observation densities and basic stochastic volatility models with
-linear-Gaussian state dynamics, as well as general non-linear Gaussian
-models and discretised diffusion models are supported. See Helske and
-Vihola (2021, <doi:10.32614/RJ-2021-103>) for details.
+Create network-style visualizations of pairwise relationships using custom
+edge glyphs built on top of 'ggplot2'. The package supports both
+statistical and non-statistical data and allows users to represent
+directed relationships. This enables clear, publication-ready graphics for
+exploring and communicating relational structures in a wide range of
+domains. The method was first used in Abu-Akel et al. (2021)
+<doi:10.1371/journal.pone.0245100>. Code is released under the MIT
+License; included datasets are licensed under the Creative Commons
+Attribution 4.0 International (CC BY 4.0).
 
 %prep
 %setup -q -c -n %{packname}

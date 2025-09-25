@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SCORPION
-%global packver   1.2.0
+%global packname  containr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Cell Oriented Reconstruction of PANDA Individual Optimized Networks
+Summary:          Containerize Your 'R' Project
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-httr 
 
 %description
-Constructs gene regulatory networks from single-cell gene expression data
-using the PANDA (Passing Attributes between Networks for Data
-Assimilation) algorithm.
+Automates the process of containerizing 'R' projects. The core function of
+'containr' is 'generate_dockerfile()', which analyzes an 'R' project's
+environment and dependencies via an 'renv' lock file and generates a
+ready-to-use 'Dockerfile' that encapsulates the computational setup. The
+package helps researchers build portable and consistent workflows so that
+analyses can be reliably shared, archived, and rerun across systems. See R
+Core Team (2025) <https://www.R-project.org/>, Ushey et al. (2025)
+<https://CRAN.R-project.org/package=renv>, and Docker Inc. (2025)
+<https://www.docker.com/>.
 
 %prep
 %setup -q -c -n %{packname}

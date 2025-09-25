@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SCORPION
-%global packver   1.2.0
+%global packname  elixir
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Cell Oriented Reconstruction of PANDA Individual Optimized Networks
+Summary:          Transmutation of Languages
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-methods 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
 
 %description
-Constructs gene regulatory networks from single-cell gene expression data
-using the PANDA (Passing Attributes between Networks for Data
-Assimilation) algorithm.
+Tools for transforming 'R' expressions. Provides functions for finding,
+extracting, and replacing patterns in 'R' language objects, similarly to
+how regular expressions can be used to find, extract, and replace patterns
+in text. Also provides functions for generating code using
+specially-formatted template files and for translating 'R' expressions
+into similar expressions in other programming languages. The package may
+be helpful for advanced uses of 'R' expressions, such as developing
+domain-specific languages.
 
 %prep
 %setup -q -c -n %{packname}

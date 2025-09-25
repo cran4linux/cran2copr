@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openVA
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Method for Verbal Autopsy
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-InterVA4 >= 1.7.3
 BuildRequires:    R-CRAN-InSilicoVA >= 1.1.3
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-InterVA4 >= 1.7.3
 Requires:         R-CRAN-InSilicoVA >= 1.1.3
 Requires:         R-CRAN-InterVA5 >= 1.0.1
@@ -33,6 +34,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 Implements multiple existing open-source algorithms for coding cause of
