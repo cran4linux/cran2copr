@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ResultModelManager
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Result Model Manager
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DatabaseConnector >= 6.0.0
+BuildRequires:    R-CRAN-DatabaseConnector >= 7.0.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-SqlRender 
 BuildRequires:    R-CRAN-ParallelLogger 
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-DatabaseConnector >= 6.0.0
+Requires:         R-CRAN-DatabaseConnector >= 7.0.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-SqlRender 
 Requires:         R-CRAN-ParallelLogger 

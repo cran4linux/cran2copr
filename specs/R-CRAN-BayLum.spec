@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayLum
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chronological Bayesian Models Integrating Optically Stimulated Luminescence and Radiocarbon Age Dating
 
@@ -14,26 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags >= 4.13
-BuildRequires:    R-CRAN-cli >= 3.6.1
-BuildRequires:    R-CRAN-yaml >= 2.3.7
+BuildRequires:    R-CRAN-rjags >= 4.17
+BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-yaml >= 2.3.10
 BuildRequires:    R-CRAN-KernSmooth >= 2.23
-BuildRequires:    R-CRAN-runjags >= 2.2.1
-BuildRequires:    R-CRAN-hexbin >= 1.28.3
-BuildRequires:    R-CRAN-Luminescence >= 0.9.22
+BuildRequires:    R-CRAN-runjags >= 2.2.2
+BuildRequires:    R-CRAN-hexbin >= 1.28.5
+BuildRequires:    R-CRAN-Luminescence >= 1.1.1
 BuildRequires:    R-CRAN-coda >= 0.19
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-rjags >= 4.13
-Requires:         R-CRAN-cli >= 3.6.1
-Requires:         R-CRAN-yaml >= 2.3.7
+Requires:         R-CRAN-rjags >= 4.17
+Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-yaml >= 2.3.10
 Requires:         R-CRAN-KernSmooth >= 2.23
-Requires:         R-CRAN-runjags >= 2.2.1
-Requires:         R-CRAN-hexbin >= 1.28.3
-Requires:         R-CRAN-Luminescence >= 0.9.22
+Requires:         R-CRAN-runjags >= 2.2.2
+Requires:         R-CRAN-hexbin >= 1.28.5
+Requires:         R-CRAN-Luminescence >= 1.1.1
 Requires:         R-CRAN-coda >= 0.19
 Requires:         R-utils 
 Requires:         R-methods 

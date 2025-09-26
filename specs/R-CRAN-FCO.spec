@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FCO
-%global packver   0.8.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Cutoffs for Model Fit Evaluation in Covariance-Based Structural Models
 
@@ -14,19 +14,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-semTools 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cutpointr 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-semTools 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-overlapping 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-PoisBinOrdNor 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-rcompanion 
+BuildRequires:    R-CRAN-semTools 
+BuildRequires:    R-CRAN-simstandard 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cutpointr 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-overlapping 
+Requires:         R-parallel 
+Requires:         R-CRAN-PoisBinOrdNor 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-rcompanion 
+Requires:         R-CRAN-semTools 
+Requires:         R-CRAN-simstandard 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
 A toolbox to derive flexible cutoffs for fit indices in 'Covariance-based

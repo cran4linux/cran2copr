@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GaussSuppression
-%global packver   1.1.5
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabular Data Suppression using Gaussian Elimination
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.8.1
+BuildRequires:    R-CRAN-SSBtools >= 1.8.2
 BuildRequires:    R-CRAN-RegSDC >= 0.7.0
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-SSBtools >= 1.8.1
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-SSBtools >= 1.8.2
 Requires:         R-CRAN-RegSDC >= 0.7.0
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-rlang 
 
 %description
 A statistical disclosure control tool to protect tables by suppression

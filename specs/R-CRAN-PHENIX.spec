@@ -1,47 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sads
-%global packver   0.6.5
+%global packname  PHENIX
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Models for Species Abundance Distributions
+Summary:          Phenotypic Integration Index
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bbmle >= 1.0.19
-BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-poilog 
-BuildRequires:    R-CRAN-GUILDS 
-BuildRequires:    R-CRAN-poweRlaw 
-Requires:         R-CRAN-bbmle >= 1.0.19
-Requires:         R-stats 
-Requires:         R-stats4 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-poilog 
-Requires:         R-CRAN-GUILDS 
-Requires:         R-CRAN-poweRlaw 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ppcor 
+BuildRequires:    R-CRAN-SuppDists 
+Requires:         R-CRAN-ppcor 
+Requires:         R-CRAN-SuppDists 
 
 %description
-Maximum likelihood tools to fit and compare models of species abundance
-distributions and of species rank-abundance distributions.
+Provides functions to estimate the size-controlled phenotypic integration
+index, a novel method by Torices & Méndez (2014) <doi:10.1086/676622> to
+solve problems due to individual size when estimating integration (namely,
+larger individuals have larger components, which will drive a correlation
+between components only due to resource availability that might obscure
+the observed measures of integration). In addition, the package also
+provides the classical estimation by Wagner (1984)
+<doi:10.1007/BF00275224>, bootstrapping and jackknife methods to calculate
+confidence intervals and a significance test for both integration indices.
+Further details can be found in Torices & Muñoz-Pajares
+<doi:10.3732/apps.1400104>.
 
 %prep
 %setup -q -c -n %{packname}

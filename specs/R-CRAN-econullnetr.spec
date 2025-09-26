@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  econullnetr
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Null Model Analysis for Ecological Networks
 
@@ -16,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bipartite >= 2.22
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-bipartite 
 BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-bipartite >= 2.22
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-bipartite 
 Requires:         R-CRAN-gtools 
 
 %description
-Tools for using null models to analyse ecological networks (e.g. food
-webs, flower-visitation networks, seed-dispersal networks) and detect
-resource preferences or non-random interactions among network nodes. Tools
-are provided to run null models, test for and plot preferences, plot and
+Null models to analyse ecological networks (e.g. food webs,
+flower-visitation networks, seed-dispersal networks) and detect resource
+preferences or non-random interactions among network nodes. Tools are
+provided to run null models, test for and plot preferences, plot and
 analyse bipartite networks, and export null model results in a form
 compatible with other network analysis packages. The underlying null model
 was developed by Agusti et al. (2003) Molecular Ecology
@@ -45,6 +46,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
