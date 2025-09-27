@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdsvm
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithm for Support Vector Machine
 
@@ -24,12 +24,13 @@ Requires:         R-CRAN-Matrix
 Requires:         R-methods 
 
 %description
-Implements an efficient algorithm to fit and tune penalized Support Vector
-Machine models using the generalized coordinate descent algorithm.
-Designed to handle high-dimensional datasets effectively, with emphasis on
-precision and computational efficiency. This package implements the
-algorithms proposed in Tang, Q., Zhang, Y., & Wang, B. (2022)
-<https://openreview.net/pdf?id=RvwMTDYTOb>.
+Implements an efficient algorithm for fitting the entire regularization
+path of support vector machine models with elastic-net penalties using a
+generalized coordinate descent scheme. The framework also supports SCAD
+and MCP penalties. It is designed for high-dimensional datasets and
+emphasizes numerical accuracy and computational efficiency. This package
+implements the algorithms proposed in Tang, Q., Zhang, Y., & Wang, B.
+(2022) <https://openreview.net/pdf?id=RvwMTDYTOb>.
 
 %prep
 %setup -q -c -n %{packname}

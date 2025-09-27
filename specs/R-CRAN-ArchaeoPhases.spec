@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ArchaeoPhases
-%global packver   2.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Post-Processing of Markov Chain Monte Carlo Simulations for Chronological Modelling
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.6.0
-BuildRequires:    R-CRAN-aion >= 1.0.2
+BuildRequires:    R-CRAN-aion >= 1.5.0
+BuildRequires:    R-CRAN-arkhe >= 1.11.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.6.0
-Requires:         R-CRAN-aion >= 1.0.2
+Requires:         R-CRAN-aion >= 1.5.0
+Requires:         R-CRAN-arkhe >= 1.11.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 

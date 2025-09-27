@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   2.1.3
+%global packver   2.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Validated Ensemble Models with Lasso and Relaxed-Elastic Net Regression
+Summary:          Self-Validated Ensemble Models with Lasso and Relaxed Elastic Net Regression
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,36 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-glmnet >= 4.1.2
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gamlss 
-BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+Requires:         R-CRAN-glmnet >= 4.1.2
 Requires:         R-stats 
-Requires:         R-CRAN-gamlss 
-Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
 
 %description
-Implements Self-Validated Ensemble Models (SVEM, Lemkus et al. (2021)
-<doi:10.1016/j.chemolab.2021.104439>) using Elastic Net regression via
-'glmnet' (Friedman et al. <doi:10.18637/jss.v033.i01>). SVEM averages
-predictions from multiple models fitted to fractionally weighted
+Implements Self-Validated Ensemble Models (SVEM; Lemkus et al. (2021)
+<doi:10.1016/j.chemolab.2021.104439>) using elastic net regression via
+'glmnet' (Friedman et al. (2010) <doi:10.18637/jss.v033.i01>). SVEM
+averages predictions from multiple models fitted to fractionally weighted
 bootstraps of the data, tuned with anti-correlated validation weights.
-Also implements the randomized permutation whole model test for SVEM (Karl
-(2024) <doi:10.1016/j.chemolab.2024.105122>). \Code for the whole model
-test was taken from the supplementary material of Karl (2024). Development
-of this package was assisted by 'GPT o1-preview' for code structure and
-documentation.
+Also implements the randomized permutation whole-model test for SVEM (Karl
+(2024) <doi:10.1016/j.chemolab.2024.105122>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lazyWeave
-%global packver   3.0.3
+%global packname  EpiILM
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          LaTeX Wrappers for R Users
+Summary:          Spatial and Network Based Individual Level Models for Epidemics
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-labelVector 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-labelVector 
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-adaptMCMC 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-adaptMCMC 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-Provides the functionality to write LaTeX code from within R without
-having to learn LaTeX.  Functionality also exists to create HTML and
-Markdown code.  While the functionality still exists to write complete
-documents with lazyWeave, it is generally easier to do so with with
-markdown and knitr.  lazyWeave's main strength now is the ability to
-design custom and complex tables for reporting results.
+Provides tools for simulating from discrete-time individual level models
+for infectious disease data analysis. This epidemic model class contains
+spatial and contact-network based models with two disease types:
+Susceptible-Infectious (SI) and Susceptible-Infectious-Removed (SIR).
 
 %prep
 %setup -q -c -n %{packname}

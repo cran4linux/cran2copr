@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isingLenzMC
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo for Classical Ising Model
 
@@ -24,7 +24,10 @@ cooperative phenomenon in general, for example phase transitions and
 neural networks.This package provides utilities to simulate one
 dimensional Ising Model with Metropolis and Glauber Monte Carlo with
 single flip dynamics in periodic boundary conditions. Utility functions
-for exact solutions are provided.
+for exact solutions are provided. Such as transfer matrix for 1D. Utility
+functions for exact solutions are provided. Example use cases are as
+follows: Measuring effective ergodicity and power-laws in so called
+functional-diffusion.
 
 %prep
 %setup -q -c -n %{packname}

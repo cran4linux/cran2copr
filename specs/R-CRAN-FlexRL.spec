@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FlexRL
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Flexible Model for Record Linkage
 
@@ -28,8 +28,8 @@ Requires:         R-CRAN-testit >= 0.13
 %description
 Implementation of the Stochastic Expectation Maximisation (StEM) approach
 to Record Linkage described in the paper by K. Robach, S. L. van der Pas,
-M. A. van de Wiel and M. H. Hof (2024, <doi:10.48550/arXiv.2407.06835>);
-see 'citation("FlexRL")' for details. This is a record linkage method, for
+M. A. van de Wiel and M. H. Hof (2024, <doi:10.1093/jrsssc/qlaf016>); see
+citation("FlexRL") for details. This is a record linkage method, for
 finding the common set of records among 2 data sources based on Partially
 Identifying Variables (PIVs) available in both sources. It includes
 modelling of dynamic Partially Identifying Variables (e.g. postal code)

@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CERFIT
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Effect Random Forest of Interaction Tress
+Summary:          Causal Effect Random Forest of Interaction Trees
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,8 +38,8 @@ a modification of the Random Forest algorithm where each split is chosen
 to maximize subgroup treatment heterogeneity. Doing this allows it to
 estimate the individualized treatment effect for each observation in
 either randomized controlled trial (RCT) or observational data. For more
-information see X. Su, A. T. Peña, L. Liu, and R. A. Levine (2018)
-<doi:10.48550/arXiv.1709.04862>.
+information see L. Li, R. A. Levine, and J. Fan (2022)
+<doi:10.1002/sta4.457>.
 
 %prep
 %setup -q -c -n %{packname}

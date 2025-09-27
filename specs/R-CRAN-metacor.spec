@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metacor
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analytic Effect Size Calculation for Pre-Post Designs with Correlation Imputation
 
@@ -14,26 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
+Requires:         R-stats 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-stringr 
-Requires:         R-stats 
 
 %description
 Tools for the calculation of effect sizes (standardised mean difference)
 and mean difference in pre-post controlled studies, including robust
 imputation of missing variances (standard deviation of changes) and
 correlations (Pearson correlation coefficient). The main function
-metacor_dual() implements several methods for imputing missing standard
+'metacor_dual()' implements several methods for imputing missing standard
 deviation of changes or Pearson correlation coefficient, and generates
 transparent imputation reports. Designed for meta-analyses with incomplete
-summary statistics. For more details on the methods, see Higgins et al.
-(2023) and Fu et al. (2013).
+summary statistics. For details on the methods, see Higgins et al. (2023)
+and Fu et al. (2013).
 
 %prep
 %setup -q -c -n %{packname}

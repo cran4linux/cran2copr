@@ -1,36 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hdqr
-%global packver   1.0.2
+%global packname  rbioacc
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Algorithm for Penalized Quantile Regression
+Summary:          Inference and Prediction of Toxicokinetic Models
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
+BuildRequires:    R-CRAN-rstantools >= 2.1.1
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggmcmc 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.26.0
+Requires:         R-CRAN-rstantools >= 2.1.1
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggmcmc 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-rstantools
 
 %description
-Implements an efficient algorithm for fitting the entire regularization
-path of quantile regression models with elastic-net penalties using a
-generalized coordinate descent scheme. The framework also supports SCAD
-and MCP penalties. It is designed for high-dimensional datasets and
-emphasizes numerical accuracy and computational efficiency. This package
-implements the algorithms proposed in Tang, Q., Zhang, Y., & Wang, B.
-(2022) <https://openreview.net/pdf?id=RvwMTDYTOb>.
+Provides bioaccumulation factors from a toxicokinetic model fitted to
+accumulation-depuration data. It is designed to fulfil the requirements of
+regulators when examining applications for market authorization of active
+substances.
 
 %prep
 %setup -q -c -n %{packname}

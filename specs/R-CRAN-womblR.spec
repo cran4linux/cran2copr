@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  womblR
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Boundary Detection Model for Areal Unit Data
 
@@ -43,8 +43,7 @@ specified as exponential or first-order autoregressive. Full details of
 the package can be found in the accompanying vignette. Furthermore, the
 details of the package can be found in "Diagnosing Glaucoma Progression
 with Visual Field Data Using a Spatiotemporal Boundary Detection Method",
-by Berchuck et al (2018), <arXiv:1805.11636>. The paper is in press at the
-Journal of the American Statistical Association.
+by Berchuck et al (2019) <doi:10.1080/01621459.2018.1537911>.
 
 %prep
 %setup -q -c -n %{packname}

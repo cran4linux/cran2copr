@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statConfR
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models of Decision Confidence and Measures of Metacognition
 
@@ -34,8 +34,8 @@ Requires:         R-CRAN-Rmisc
 Provides fitting functions and other tools for decision confidence and
 metacognition researchers, including meta-d'/d', often considered to be
 the gold standard to measure metacognitive efficiency, and
-information-theoretic measures of metacognition. Also allows to fit
-several static models of decision making and confidence.
+information-theoretic measures of metacognition. Also allows to fit and
+compare several static models of decision making and confidence.
 
 %prep
 %setup -q -c -n %{packname}

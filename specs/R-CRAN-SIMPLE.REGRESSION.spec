@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIMPLE.REGRESSION
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          OLS, Moderated, Logistic, and Count Regressions Made Simple
 
@@ -23,7 +23,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-BayesFactor 
-BuildRequires:    R-CRAN-rstanarm 
 BuildRequires:    R-CRAN-pscl 
 Requires:         R-graphics 
 Requires:         R-stats 
@@ -31,7 +30,6 @@ Requires:         R-utils
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-BayesFactor 
-Requires:         R-CRAN-rstanarm 
 Requires:         R-CRAN-pscl 
 
 %description

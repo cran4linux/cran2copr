@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  eye
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Eye Data
 
@@ -13,33 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.3
-BuildRequires:    R-CRAN-cli >= 3.0.1
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-lubridate >= 1.7.10
-BuildRequires:    R-CRAN-pillar >= 1.6.2
-BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-tibble >= 3.3.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.4
+BuildRequires:    R-CRAN-lubridate >= 1.9.4
+BuildRequires:    R-CRAN-stringr >= 1.5.2
+BuildRequires:    R-CRAN-tidyr >= 1.3.1
 BuildRequires:    R-CRAN-english >= 1.2.6
-BuildRequires:    R-CRAN-tidyr >= 1.1.3
-BuildRequires:    R-CRAN-tidyselect >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-tibble >= 3.1.3
-Requires:         R-CRAN-cli >= 3.0.1
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-lubridate >= 1.7.10
-Requires:         R-CRAN-pillar >= 1.6.2
-Requires:         R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-pillar >= 1.11.1
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-purrr >= 1.1.0
+Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-tibble >= 3.3.0
+Requires:         R-CRAN-magrittr >= 2.0.4
+Requires:         R-CRAN-lubridate >= 1.9.4
+Requires:         R-CRAN-stringr >= 1.5.2
+Requires:         R-CRAN-tidyr >= 1.3.1
 Requires:         R-CRAN-english >= 1.2.6
-Requires:         R-CRAN-tidyr >= 1.1.3
-Requires:         R-CRAN-tidyselect >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-pillar >= 1.11.1
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-purrr >= 1.1.0
 
 %description
 There is no ophthalmic researcher who has not had headaches from the
@@ -54,7 +55,7 @@ specific variables between wide and long format. Visual acuity conversion
 is based on Schulze-Bonsel et al. (2006) <doi:10.1167/iovs.05-0981>,
 Gregori et al. (2010) <doi:10.1097/iae.0b013e3181d87e04>, Beck et al.
 (2003) <doi:10.1016/s0002-9394(02)01825-1> and Bach (2007)
-<http:michaelbach.de/sci/acuity.html>.
+<https://michaelbach.de/sci/acuity.html>.
 
 %prep
 %setup -q -c -n %{packname}
