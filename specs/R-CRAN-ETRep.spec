@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ETRep
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Elliptical Tubes Under the Relative Curvature Condition
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-rotations
 BuildRequires:    R-CRAN-Rvcg 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-shapes 
 Requires:         R-CRAN-Morpho 
@@ -35,14 +36,16 @@ Requires:         R-CRAN-rotations
 Requires:         R-CRAN-Rvcg 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Analysis of elliptical tubes with applications in biological modeling. The
 package is based on the references: Taheri, M., Pizer, S. M., & Schulz, J.
-(2024) "The Mean Shape under the Relative Curvature Condition." arXiv
-<doi:10.48550/arXiv.2404.01043>. Mohsen Taheri Shalmani (2024) "Shape
-Statistics via Skeletal Structures", PhD Thesis, University of Stavanger,
-Norway <doi:10.13140/RG.2.2.34500.23685>. Key features include
+(2024) "The Mean Shape under the Relative Curvature Condition." Journal of
+Computational and Graphical Statistics <doi:10.1080/10618600.2025.2535600>
+and arXiv <doi:10.48550/arXiv.2404.01043>. Mohsen Taheri Shalmani (2024)
+"Shape Statistics via Skeletal Structures", PhD Thesis, University of
+Stavanger, Norway <doi:10.13140/RG.2.2.34500.23685>. Key features include
 constructing discrete elliptical tubes, calculating transformations,
 validating structures under the Relative Curvature Condition (RCC),
 computing means, and generating simulations. Supports intrinsic and

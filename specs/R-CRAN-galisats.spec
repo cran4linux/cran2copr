@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  galisats
-%global packver   2.0.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Configuration of Jupiter's Four Largest Satellites
 
@@ -23,8 +23,8 @@ Requires:         R-graphics
 Requires:         R-CRAN-png 
 
 %description
-Calculate and plot the configuration of Jupiter's four largest satellites
-(known as Galilean satellites) for a given date and time (UTC -
+Calculate, plot and animate the configuration of Jupiter's four largest
+satellites (known as Galilean satellites) for a given date and time (UTC -
 Coordinated Universal Time). The galsat() function returns numerical
 values of the satellites’ positions. x – the apparent rectangular
 coordinate of the satellite with respect to the center of Jupiter’s disk
@@ -33,8 +33,11 @@ positive toward the west, y – the apparent rectangular coordinate of the
 satellite with respect to the center of Jupiter’s disk from the equatorial
 plane in the units of Jupiter’s equatorial radius; Y is positive toward
 the north. For more details see Meeus (1988, ISBN 0-943396-22-0)
-"Astronomical Formulae for Calculators". The function delta_t() returns
-the value of delta-T in units of seconds.
+"Astronomical Formulae for Calculators". The galsat_animate() function
+creates an animation of the Galilean satellites' positions. You provide
+the starting time, duration, the time step between frames, and the pause
+between frames. The function delta_t() returns the value of delta-T in
+units of seconds.
 
 %prep
 %setup -q -c -n %{packname}

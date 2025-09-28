@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cNORM
-%global packver   3.4.1
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Norming
 
@@ -26,18 +26,19 @@ Requires:         R-CRAN-leaps >= 3.1
 A comprehensive toolkit for generating continuous test norms in
 psychometrics and biometrics, and analyzing model fit. The package offers
 both distribution-free modeling using Taylor polynomials and parametric
-modeling using the beta-binomial distribution. Originally developed for
-achievement tests, it is applicable to a wide range of mental, physical,
-or other test scores dependent on continuous or discrete explanatory
-variables. The package provides several advantages: It minimizes
-deviations from representativeness in subsamples, interpolates between
-discrete levels of explanatory variables, and significantly reduces the
-required sample size compared to conventional norming per age group. cNORM
-enables graphical and analytical evaluation of model fit, accommodates a
-wide range of scales including those with negative and descending values,
-and even supports conventional norming. It generates norm tables including
-confidence intervals. It also includes methods for addressing
-representativeness issues through Iterative Proportional Fitting.
+modeling using the beta-binomial and the 'Sinh-Arcsinh' distribution.
+Originally developed for achievement tests, it is applicable to a wide
+range of mental, physical, or other test scores dependent on continuous or
+discrete explanatory variables. The package provides several advantages:
+It minimizes deviations from representativeness in subsamples,
+interpolates between discrete levels of explanatory variables, and
+significantly reduces the required sample size compared to conventional
+norming per age group. cNORM enables graphical and analytical evaluation
+of model fit, accommodates a wide range of scales including those with
+negative and descending values, and even supports conventional norming. It
+generates norm tables including confidence intervals. It also includes
+methods for addressing representativeness issues through Iterative
+Proportional Fitting.
 
 %prep
 %setup -q -c -n %{packname}

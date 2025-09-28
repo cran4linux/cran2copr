@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  liver
-%global packver   1.22
+%global packname  DEmixR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Foundations Toolkit and Datasets for Data Science
+Summary:          Fit Two-Component Normal and Lognormal Mixture Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-class 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DEoptim >= 2.0.0
+BuildRequires:    R-CRAN-pbapply >= 1.0.0
+BuildRequires:    R-CRAN-parallelly >= 1.0.0
+Requires:         R-CRAN-DEoptim >= 2.0.0
+Requires:         R-CRAN-pbapply >= 1.0.0
+Requires:         R-CRAN-parallelly >= 1.0.0
 
 %description
-Provides a collection of helper functions and illustrative datasets to
-support learning and teaching of data science with R. The package is
-designed as a companion to the book
-<https://book-data-science-r.netlify.app>, making key data science
-techniques accessible to individuals with minimal coding experience.
-Functions include tools for data partitioning, performance evaluation, and
-data transformations (e.g., z-score and min-max scaling). The included
-datasets are curated to highlight practical applications in data
-exploration, modeling, and multivariate analysis. An early inspiration for
-the package came from an ancient Persian idiom about "eating the liver,"
-symbolizing deep and immersive engagement with knowledge.
+Fits, bootstraps, and evaluates two-component normal and lognormal mixture
+models. Includes diagnostic plots and statistical evaluation of mixture
+model fits using differential evolution optimization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  liver
-%global packver   1.22
+%global packname  spuriouscorrelations
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Foundations Toolkit and Datasets for Data Science
+Summary:          Datasets with Strong and Spurious Correlations
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-class 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a collection of helper functions and illustrative datasets to
-support learning and teaching of data science with R. The package is
-designed as a companion to the book
-<https://book-data-science-r.netlify.app>, making key data science
-techniques accessible to individuals with minimal coding experience.
-Functions include tools for data partitioning, performance evaluation, and
-data transformations (e.g., z-score and min-max scaling). The included
-datasets are curated to highlight practical applications in data
-exploration, modeling, and multivariate analysis. An early inspiration for
-the package came from an ancient Persian idiom about "eating the liver,"
-symbolizing deep and immersive engagement with knowledge.
+Provides datasets from Vigen (2015)
+<https://web.archive.org/web/20230607181247/https%%3A/tylervigen.com/spurious-correlations>
+rescued from the Internet Wayback Machine. These should be preserved for
+statistics introductory courses as these make it very clear that
+correlation is not causation.
 
 %prep
 %setup -q -c -n %{packname}

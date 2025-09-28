@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ohoegdm
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ordinal Higher-Order Exploratory General Diagnostic Model for Polytomous Data
 
@@ -13,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.2
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-Rcpp >= 1.1.0
 
 %description
 Perform a Bayesian estimation of the ordinal exploratory Higher-order
 General Diagnostic Model (OHOEGDM) for Polytomous Data described by
-Culpepper, S. A. and Balamuta, J. J. (In Press)
+Culpepper, S. A. and Balamuta, J. J. (2021)
 <doi:10.1080/00273171.2021.1985949>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plume
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Author Handler for Scientific Writing
 
@@ -51,8 +51,8 @@ Requires:         R-CRAN-stringr
 %description
 Handles and formats author information in scientific writing in 'R
 Markdown' and 'Quarto'. 'plume' provides easy-to-use and flexible tools
-for injecting author metadata in 'YAML' headers as well as generating
-author and contribution lists (among others) as strings from tabular data.
+for inserting author data in 'YAML' as well as generating author and
+contribution lists (among others) as strings from tabular data.
 
 %prep
 %setup -q -c -n %{packname}

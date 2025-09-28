@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  liver
-%global packver   1.22
+%global packname  BioWorldR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Foundations Toolkit and Datasets for Data Science
+Summary:          A Curated Collection of Biodiversity and Species Datasets and Utilities
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-class 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Provides a collection of helper functions and illustrative datasets to
-support learning and teaching of data science with R. The package is
-designed as a companion to the book
-<https://book-data-science-r.netlify.app>, making key data science
-techniques accessible to individuals with minimal coding experience.
-Functions include tools for data partitioning, performance evaluation, and
-data transformations (e.g., z-score and min-max scaling). The included
-datasets are curated to highlight practical applications in data
-exploration, modeling, and multivariate analysis. An early inspiration for
-the package came from an ancient Persian idiom about "eating the liver,"
-symbolizing deep and immersive engagement with knowledge.
+Provides a curated collection of biodiversity and species-related datasets
+(birds, plants, reptiles, turtles, mammals, bees, marine data and related
+biological measurements), together with small utilities to load and
+explore them. The package gathers data sourced from public repositories
+(including Kaggle and well-known ecological/biological R packages) and
+standardizes access for researchers, educators, and data analysts working
+on biodiversity, biogeography, ecology and comparative biology. It aims to
+simplify reproducible workflows by packaging commonly used example
+datasets and metadata so they can be easily inspected, visualized, and
+used for teaching, testing, and prototyping analyses.
 
 %prep
 %setup -q -c -n %{packname}

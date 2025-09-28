@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tci
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Target Controlled Infusion (TCI)
 
@@ -14,29 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-knitr 
 
