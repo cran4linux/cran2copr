@@ -1,52 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jstor
-%global packver   0.3.11
+%global packname  prefio
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Data from JSTOR/DfR
+Summary:          Structures for Preference Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-readr >= 2.0.0
-BuildRequires:    R-CRAN-stringr >= 1.3.0
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 0.7.2
-BuildRequires:    R-CRAN-purrr >= 0.2.4
-BuildRequires:    R-CRAN-rlang >= 0.2.0
-BuildRequires:    R-CRAN-furrr >= 0.1.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-readr >= 2.0.0
-Requires:         R-CRAN-stringr >= 1.3.0
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 0.7.2
-Requires:         R-CRAN-purrr >= 0.2.4
-Requires:         R-CRAN-rlang >= 0.2.0
-Requires:         R-CRAN-furrr >= 0.1.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-utils 
 
 %description
-Functions and helpers to import metadata, ngrams and full-texts delivered
-by Data for Research by JSTOR.
+Convenient structures for creating, sourcing, reading, writing and
+manipulating ordinal preference data. Methods for writing to/from PrefLib
+formats. See Nicholas Mattei and Toby Walsh "PrefLib: A Library of
+Preference Data" (2013) <doi:10.1007/978-3-642-41575-3_20>.
 
 %prep
 %setup -q -c -n %{packname}

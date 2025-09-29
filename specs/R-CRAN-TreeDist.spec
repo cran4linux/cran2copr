@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeDist
-%global packver   2.10.1
+%global packver   2.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.1
+Version:          2.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Map Distances Between Phylogenetic Trees
 
@@ -42,8 +42,9 @@ Smith 2020) <doi:10.1093/bioinformatics/btaa614>; Jaccard-Robinson-Foulds
 distances (Bocker et al. 2013) <doi:10.1007/978-3-642-40453-5_13>,
 including the Nye et al. (2006) metric
 <doi:10.1093/bioinformatics/bti720>; the Matching Split Distance
-(Bogdanowicz & Giaro 2012) <doi:10.1109/TCBB.2011.48>; Maximum Agreement
-Subtree distances; the Kendall-Colijn (2016) distance
+(Bogdanowicz & Giaro 2012) <doi:10.1109/TCBB.2011.48>; the Hierarchical
+Mutual Information (Perotti et al. 2015) <doi:10.1103/PhysRevE.92.062825>;
+Maximum Agreement Subtree distances; the Kendall-Colijn (2016) distance
 <doi:10.1093/molbev/msw124>, and the Nearest Neighbour Interchange (NNI)
 distance, approximated per Li et al. (1996)
 <doi:10.1007/3-540-61332-3_168>. Includes tools for visualizing mappings

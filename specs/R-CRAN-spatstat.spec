@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat
-%global packver   3.4-0
+%global packver   3.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests
 
@@ -17,22 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.explore >= 3.5.2
-BuildRequires:    R-CRAN-spatstat.geom >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.random >= 3.4.1
-BuildRequires:    R-CRAN-spatstat.model >= 3.4.0
-BuildRequires:    R-CRAN-spatstat.linnet >= 3.3.1
-BuildRequires:    R-CRAN-spatstat.data >= 3.1.6
-BuildRequires:    R-CRAN-spatstat.utils >= 3.1.5
+BuildRequires:    R-CRAN-spatstat.geom >= 3.6
+BuildRequires:    R-CRAN-spatstat.explore >= 3.5.3
+BuildRequires:    R-CRAN-spatstat.random >= 3.4.2
+BuildRequires:    R-CRAN-spatstat.model >= 3.4.2
+BuildRequires:    R-CRAN-spatstat.linnet >= 3.3.2
+BuildRequires:    R-CRAN-spatstat.utils >= 3.2
+BuildRequires:    R-CRAN-spatstat.data >= 3.1.8
 BuildRequires:    R-CRAN-spatstat.univar >= 3.1.4
 BuildRequires:    R-utils 
-Requires:         R-CRAN-spatstat.explore >= 3.5.2
-Requires:         R-CRAN-spatstat.geom >= 3.5.0
-Requires:         R-CRAN-spatstat.random >= 3.4.1
-Requires:         R-CRAN-spatstat.model >= 3.4.0
-Requires:         R-CRAN-spatstat.linnet >= 3.3.1
-Requires:         R-CRAN-spatstat.data >= 3.1.6
-Requires:         R-CRAN-spatstat.utils >= 3.1.5
+Requires:         R-CRAN-spatstat.geom >= 3.6
+Requires:         R-CRAN-spatstat.explore >= 3.5.3
+Requires:         R-CRAN-spatstat.random >= 3.4.2
+Requires:         R-CRAN-spatstat.model >= 3.4.2
+Requires:         R-CRAN-spatstat.linnet >= 3.3.2
+Requires:         R-CRAN-spatstat.utils >= 3.2
+Requires:         R-CRAN-spatstat.data >= 3.1.8
 Requires:         R-CRAN-spatstat.univar >= 3.1.4
 Requires:         R-utils 
 

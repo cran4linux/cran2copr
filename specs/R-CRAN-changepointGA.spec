@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  changepointGA
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Changepoint Detection via Modified Genetic Algorithm
 
@@ -16,18 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-methods 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-clue 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 The Genetic Algorithm (GA) is used to perform changepoint analysis in time

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  constants
-%global packver   1.0.1
+%global packver   2022.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2022.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference on Constants, Units and Uncertainty
 
@@ -25,9 +26,9 @@ if the 'errors', 'units' and/or 'quantities' packages are installed. The
 Committee on Data for Science and Technology (CODATA) is an
 interdisciplinary committee of the International Council for Science which
 periodically provides the internationally accepted set of values of the
-fundamental physical constants. This package contains the "2018 CODATA"
-version, published on May 2019: Eite Tiesinga, Peter J. Mohr, David B.
-Newell, and Barry N. Taylor (2020)
+fundamental physical constants. This package contains the "2022 CODATA"
+version, published on May 2024: Eite Tiesinga, Peter J. Mohr, David B.
+Newell, and Barry N. Taylor (2024)
 <https://physics.nist.gov/cuu/Constants/>.
 
 %prep
@@ -38,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

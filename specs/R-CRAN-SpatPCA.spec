@@ -1,28 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpatPCA
-%global packver   1.3.5
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Principal Component Analysis for Spatial Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.1.7
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-RcppParallel >= 5.1.7
-Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-ggplot2 
+Requires:         R-parallel 
 
 %description
 Provide regularized principal component analysis incorporating smoothness,
