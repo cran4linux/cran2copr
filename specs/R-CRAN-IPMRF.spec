@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tilemaps
-%global packver   0.2.1
+%global packname  IPMRF
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Tile Maps
+Summary:          Intervention in Prediction Measure for Random Forests
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-smoothr 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-smoothr 
+BuildRequires:    R-CRAN-party 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-gbm 
+Requires:         R-CRAN-party 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-gbm 
 
 %description
-Implements an algorithm for generating maps, known as tile maps, in which
-each region is represented by a single tile of the same shape and size.
-The algorithm was first proposed in "Generating Tile Maps" by Graham
-McNeill and Scott Hale (2017) <doi:10.1111/cgf.13200>. Functions allow
-users to generate, plot, and compare square or hexagon tile maps.
+Computes intervention in prediction measure for assessing variable
+importance for random forests. See details at I. Epifanio (2017)
+<DOI:10.1186/s12859-017-1650-8>.
 
 %prep
 %setup -q -c -n %{packname}

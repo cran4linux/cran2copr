@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tilemaps
-%global packver   0.2.1
+%global packname  EntropicStatistics
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Tile Maps
+Summary:          Functions Based on Entropic Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-smoothr 
-Requires:         R-CRAN-clue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-smoothr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements an algorithm for generating maps, known as tile maps, in which
-each region is represented by a single tile of the same shape and size.
-The algorithm was first proposed in "Generating Tile Maps" by Graham
-McNeill and Scott Hale (2017) <doi:10.1111/cgf.13200>. Functions allow
-users to generate, plot, and compare square or hexagon tile maps.
+Methods for data analysis from an entropic perspective. These methods are
+nonparametric and perform well on non-ordinal data. Currently includes
+'HeatMap()' for visualizing distributional characteristics among multiple
+populations (groups).
 
 %prep
 %setup -q -c -n %{packname}

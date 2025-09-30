@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tilemaps
-%global packver   0.2.1
+%global packname  SHAPBoost
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Tile Maps
+Summary:          The SHAPBoost Feature Selection Algorithm
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-smoothr 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-smoothr 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-SHAPforxgboost 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-SHAPforxgboost 
+Requires:         R-methods 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-Matrix 
 
 %description
-Implements an algorithm for generating maps, known as tile maps, in which
-each region is represented by a single tile of the same shape and size.
-The algorithm was first proposed in "Generating Tile Maps" by Graham
-McNeill and Scott Hale (2017) <doi:10.1111/cgf.13200>. Functions allow
-users to generate, plot, and compare square or hexagon tile maps.
+The implementation of SHAPBoost, a boosting-based feature selection
+technique that ranks features iteratively based on Shapley values.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ASML
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithm Portfolio Selection with Machine Learning
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DALEX 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DALEX 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 

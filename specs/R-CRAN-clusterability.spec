@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tilemaps
-%global packver   0.2.1
+%global packname  clusterability
+%global packver   0.2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Tile Maps
+Summary:          Performs Tests for Cluster Tendency of a Data Set
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-smoothr 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-smoothr 
+BuildRequires:    R-CRAN-diptest 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-sparsepca 
+BuildRequires:    R-CRAN-elasticnet 
+Requires:         R-CRAN-diptest 
+Requires:         R-splines 
+Requires:         R-CRAN-sparsepca 
+Requires:         R-CRAN-elasticnet 
 
 %description
-Implements an algorithm for generating maps, known as tile maps, in which
-each region is represented by a single tile of the same shape and size.
-The algorithm was first proposed in "Generating Tile Maps" by Graham
-McNeill and Scott Hale (2017) <doi:10.1111/cgf.13200>. Functions allow
-users to generate, plot, and compare square or hexagon tile maps.
+Test for cluster tendency (clusterability) of a data set. The methods
+implemented - reducing the data set to a single dimension using principal
+component analysis or computing pairwise distances, and performing a
+multimodality test like the Dip Test or Silverman's Critical Bandwidth
+Test - are described in Adolfsson, Ackerman, and Brownstein (2019)
+<doi:10.1016/j.patcog.2018.10.026>. Such methods can inform whether
+clustering algorithms are appropriate for a data set.
 
 %prep
 %setup -q -c -n %{packname}

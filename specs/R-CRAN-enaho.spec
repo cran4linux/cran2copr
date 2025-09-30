@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enaho
-%global packver   0.2.0
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Encuesta Nacional de Hogares (Peruvian Home National Survey)
 
@@ -19,14 +19,17 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Descarga, lee y combina bases de la Encuesta Nacional de Hogares (ENAHO)
-del Instituto Nacional de Estadística e Informática (INEI) del Perú.
-(Downloads, reads, and combines data from the Peruvian Home National
-Survey.)
+Descarga, lee y analiza bases de la Encuesta Nacional de Hogares (ENAHO) y
+otras encuestas del Instituto Nacional de Estadística e Informática (INEI)
+del Perú. (Downloads, reads, and combines data from the Peruvian Home
+National Survey and other surveys from the National Institute for
+Statistics (INEI).)
 
 %prep
 %setup -q -c -n %{packname}

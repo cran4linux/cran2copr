@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  copBasic
-%global packver   2.2.8
+%global packver   2.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          2.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Bivariate Copula Theory and Many Utility Functions
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lmomco 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-randtoolbox 
 Requires:         R-CRAN-lmomco 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-randtoolbox 
 
 %description
@@ -37,8 +39,8 @@ Schweizer- Wolff Sigma, tail dependency, tail order, skewness, and
 bivariate Lmoments are implemented, and positive/negative quadrant
 dependency, left (right) increasing (decreasing) are available. Other
 features include Kullback-Leibler Divergence, Vuong Procedure, spectral
-measure, and Lcomoments for inference, maximum likelihood, and AIC, BIC,
-and RMSE for goodness-of-fit.
+measure, and Lcomoments for fit and inference, Lcomoment ratio diagrams,
+maximum likelihood, and AIC, BIC, and RMSE for goodness-of-fit.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mwa
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference in Spatiotemporal Event Data
 
@@ -13,16 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
-BuildRequires:    R-devel >= 2.6
-Requires:         R-core >= 2.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.0
-BuildRequires:    R-CRAN-cem >= 1.1
-BuildRequires:    R-CRAN-rJava >= 0.9
-Requires:         R-CRAN-MASS >= 7.0
-Requires:         R-CRAN-cem >= 1.1
-Requires:         R-CRAN-rJava >= 0.9
+BuildRequires:    R-CRAN-cem 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-cem 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-MASS 
 
 %description
 Implementation of Matched Wake Analysis (mwa) for studying causal

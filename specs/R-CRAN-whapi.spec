@@ -1,50 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  workspace
-%global packver   0.1.6
+%global packname  whapi
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage Collections of Datasets and Objects
+Summary:          R Client for 'whapi.cloud'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-tibble >= 3.2.0
+BuildRequires:    R-CRAN-lubridate >= 1.9.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-openssl 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-tibble >= 3.2.0
+Requires:         R-CRAN-lubridate >= 1.9.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-zip 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-mime 
+Requires:         R-CRAN-openssl 
 
 %description
-Create, store, read and manage structured collections of datasets and
-other objects using a 'workspace', then bundle it into a compressed
-archive.  Using open and interoperable formats makes it possible to
-exchange bundled data from 'R' to other languages such as 'Python' or
-'Julia'.  Multiple formats are supported 'Parquet', 'JSON', 'yaml',
-spatial data and raster data are supported.
+Provides an 'R' interface to the 'Whapi' 'API' <https://whapi.cloud>,
+enabling sending and receiving 'WhatsApp' messages directly from 'R'.
+Functions include sending text, images, documents, stickers, geographic
+locations, and interactive messages (buttons and lists). Also includes
+'webhook' parsing utilities and channel health checks.
 
 %prep
 %setup -q -c -n %{packname}

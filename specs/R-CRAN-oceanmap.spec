@@ -1,42 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  khroma
-%global packver   1.17.0
+%global packname  oceanmap
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colour Schemes for Scientific Data Visualization
+Summary:          A Plotting Toolbox for 2D Oceanographic Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Recommends:       ImageMagick
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sf >= 0.9.7
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-mapdata 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-extrafont 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-sf >= 0.9.7
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-mapdata 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-extrafont 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-plotrix 
+Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-stats 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 
 %description
-Color schemes ready for each type of data (qualitative, diverging or
-sequential), with colors that are distinct for all people, including
-color-blind readers. This package provides an implementation of Paul Tol
-(2018) and Fabio Crameri (2018) <doi:10.5194/gmd-11-2541-2018> color
-schemes for use with 'graphics' or 'ggplot2'. It provides tools to
-simulate color-blindness and to test how well the colors of any palette
-are identifiable. Several scientific thematic schemes (geologic timescale,
-land cover, FAO soils, etc.) are also implemented.
+Plotting toolbox for 2D oceanographic data (satellite data, sea surface
+temperature, chlorophyll, ocean fronts & bathymetry). Recognized classes
+and formats include netcdf, Raster, '.nc' and '.gz' files.
 
 %prep
 %setup -q -c -n %{packname}

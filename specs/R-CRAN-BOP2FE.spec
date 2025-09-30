@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  khroma
-%global packver   1.17.0
+%global packname  BOP2FE
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colour Schemes for Scientific Data Visualization
+Summary:          Bayesian Optimal Phase II Design with Futility and Efficacy Stopping Boundaries
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Color schemes ready for each type of data (qualitative, diverging or
-sequential), with colors that are distinct for all people, including
-color-blind readers. This package provides an implementation of Paul Tol
-(2018) and Fabio Crameri (2018) <doi:10.5194/gmd-11-2541-2018> color
-schemes for use with 'graphics' or 'ggplot2'. It provides tools to
-simulate color-blindness and to test how well the colors of any palette
-are identifiable. Several scientific thematic schemes (geologic timescale,
-land cover, FAO soils, etc.) are also implemented.
+Bayesian optimal design with futility and efficacy stopping boundaries
+(BOP2-FE) is a novel statistical framework for single-arm Phase II
+clinical trials. It enables early termination for efficacy when interim
+data are promising, while explicitly controlling Type I and Type II error
+rates. The design supports a variety of endpoint structures, including
+single binary endpoints, nested endpoints, co-primary endpoints, and joint
+monitoring of efficacy and toxicity. The package provides tools for
+enumerating stopping boundaries prior to trial initiation and for
+conducting simulation studies to evaluate the design’s operating
+characteristics. Users can flexibly specify design parameters to suit
+their specific applications. For methodological details, refer to Xu et
+al. (2025) <doi:10.1080/10543406.2025.2558142>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,54 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRplotthedots
-%global packver   0.2.2
+%global packname  occCite
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Draw XmR Charts for NHS 'Making Data Count' Programme
+Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-rgbif >= 3.1
+BuildRequires:    R-CRAN-BIEN 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RefManageR 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-bib2df 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rsvg 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-rgbif >= 3.1
+Requires:         R-CRAN-BIEN 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RefManageR 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-bib2df 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rsvg 
-Requires:         R-CRAN-scales 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
 
 %description
-Provides tools for drawing Statistical Process Control (SPC) charts. This
-package supports the NHS 'Making Data Count' programme, and allows users
-to draw XmR charts, use change points and apply rules with summary
-indicators for when rules are breached.
+Facilitates the gathering of biodiversity occurrence data from disparate
+sources. Metadata is managed throughout the process to facilitate
+reporting and enhanced ability to repeat analyses.
 
 %prep
 %setup -q -c -n %{packname}

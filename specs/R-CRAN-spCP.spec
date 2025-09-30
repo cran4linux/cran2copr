@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spCP
-%global packver   1.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Varying Change Points
 
@@ -42,9 +42,10 @@ modeled jointly using a multivariate conditional autoregressive (MCAR)
 prior. The MCAR is a unique process that allows for a dissimilarity metric
 to dictate the local spatial dependencies. Full details of the package can
 be found in the accompanying vignette. Furthermore, the details of the
-package can be found in the corresponding paper on arXiv by Berchuck et al
-(2018): "A spatially varying change points model for monitoring glaucoma
-progression using visual field data", <arXiv:1811.11038>.
+package can be found in the corresponding paper published in Spatial
+Statistics by Berchuck et al (2019): "A spatially varying change points
+model for monitoring glaucoma progression using visual field data",
+<doi:10.1016/j.spasta.2019.02.001>.
 
 %prep
 %setup -q -c -n %{packname}

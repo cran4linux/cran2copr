@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tilemaps
-%global packver   0.2.1
+%global packname  bhpm
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Tile Maps
+Summary:          Bayesian Hierarchical Poisson Models for Multiple Grouped Outcomes with Clustering
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-smoothr 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-smoothr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-coda >= 0.19
+Requires:         R-CRAN-coda >= 0.19
 
 %description
-Implements an algorithm for generating maps, known as tile maps, in which
-each region is represented by a single tile of the same shape and size.
-The algorithm was first proposed in "Generating Tile Maps" by Graham
-McNeill and Scott Hale (2017) <doi:10.1111/cgf.13200>. Functions allow
-users to generate, plot, and compare square or hexagon tile maps.
+Bayesian hierarchical methods for the detection of differences in rates of
+related outcomes for multiple treatments for clustered observations
+(Carragher et al. (2020) <doi:10.1002/sim.8563>). This software was
+developed for the Precision Drug Theraputics: Risk Prediction in
+Pharmacoepidemiology project as part of a Rutherford Fund Fellowship at
+Health Data Research (UK), Medical Research Council (UK) award reference
+MR/S003967/1 (<https://gtr.ukri.org/>). Principal Investigator: Raymond
+Carragher.
 
 %prep
 %setup -q -c -n %{packname}

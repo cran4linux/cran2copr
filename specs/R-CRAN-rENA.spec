@@ -1,39 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  intsurv
+%global packname  rENA
 %global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Integrative Survival Modeling
+Summary:          Epistemic Network Analysis
 
-License:          GPL (>= 3)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-tma 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-tma 
 
 %description
-Contains implementations of the integrative Cox model with uncertain event
-times proposed by Wang, et al. (2020) <doi:10.1214/19-AOAS1287>, the
-regularized Cox cure rate model with uncertain event status proposed by
-Wang, et al. (2023) <doi:10.1007/s12561-023-09374-w>, and other survival
-analysis routines including the Cox cure rate model proposed by Kuk and
-Chen (1992) <doi:10.1093/biomet/79.3.531> via an EM algorithm proposed by
-Sy and Taylor (2000) <doi:10.1111/j.0006-341X.2000.00227.x>, the
-regularized Cox cure rate model with elastic net penalty following Masud
-et al. (2018) <doi:10.1177/0962280216677748>.
+ENA (Shaffer, D. W. (2017) Quantitative Ethnography. ISBN: 0578191687) is
+a method used to identify meaningful and quantifiable patterns in
+discourse or reasoning. ENA moves beyond the traditional frequency-based
+assessments by examining the structure of the co-occurrence, or
+connections in coded data. Moreover, compared to other methodological
+approaches, ENA has the novelty of (1) modeling whole networks of
+connections and (2) affording both quantitative and qualitative
+comparisons between different network models.  Shaffer, D.W., Collier, W.,
+& Ruis, A.R. (2016).
 
 %prep
 %setup -q -c -n %{packname}
