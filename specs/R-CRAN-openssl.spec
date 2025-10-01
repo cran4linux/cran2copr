@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openssl
-%global packver   2.3.3
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Encryption, Signatures and Certificates Based on OpenSSL
 

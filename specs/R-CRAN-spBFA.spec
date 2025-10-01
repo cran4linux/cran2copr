@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spBFA
-%global packver   1.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Bayesian Factor Analysis
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-msm >= 1.0
+BuildRequires:    R-CRAN-msm >= 1.0.0
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.0
 BuildRequires:    R-CRAN-pgdraw >= 1.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.500.0.0
@@ -25,7 +25,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-msm >= 1.0
+Requires:         R-CRAN-msm >= 1.0.0
 Requires:         R-CRAN-mvtnorm >= 1.0.0
 Requires:         R-CRAN-pgdraw >= 1.0
 Requires:         R-CRAN-Rcpp >= 0.12.9
@@ -48,8 +48,7 @@ be specified as exponential or first-order autoregressive. Full details of
 the package can be found in the accompanying vignette. Furthermore, the
 details of the package can be found in "Bayesian Non-Parametric Factor
 Analysis for Longitudinal Spatial Surfaces", by Berchuck et al (2019),
-<arXiv:1911.04337>. The paper is in press at the journal Bayesian
-Analysis.
+<doi:10.1214/20-BA1253> in Bayesian Analysis.
 
 %prep
 %setup -q -c -n %{packname}

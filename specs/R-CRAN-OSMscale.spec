@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OSMscale
-%global packver   0.5.22
+%global packver   0.5.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.22
+Version:          0.5.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add a Scale Bar to 'OpenStreetMap' Plots
 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pollen
-%global packver   0.82.0
+%global packver   0.83.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.82.0
+Version:          0.83.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Aerobiological Data
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psbcSpeedUp
-%global packver   2.0.7
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Semiparametric Bayesian Cox Models
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.000
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-MASS 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-riskRegression
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-MASS 

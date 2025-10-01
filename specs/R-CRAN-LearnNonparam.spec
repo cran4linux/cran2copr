@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LearnNonparam
-%global packver   1.2.9
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'R6'-Based Flexible Framework for Permutation Tests
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-compiler 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-R6 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-compiler 

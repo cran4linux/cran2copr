@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StepReg
-%global packver   1.5.8
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepwise Regression Analysis
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-survAUC 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
@@ -51,21 +53,23 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-survAUC 
 
 %description
 Stepwise regression is a statistical technique used for model selection.
 This package streamlines stepwise regression analysis by supporting
-multiple regression types, incorporating popular selection strategies, and
-offering essential metrics. It enables users to apply multiple selection
-strategies and metrics in a single function call, visualize variable
-selection processes, and export results in various formats. However,
-StepReg should not be used for statistical inference unless the variable
-selection process is explicitly accounted for, as it can compromise the
-validity of the results. This limitation does not apply when StepReg is
-used for prediction purposes. We validated StepReg's accuracy using public
-datasets within the SAS software environment. Additionally, StepReg
-features an interactive Shiny application to enhance usability and
-accessibility.
+multiple regression types(linear, Cox, logistic, Poisson, Gamma, and
+negative binomial), incorporating popular selection strategies(forward,
+backward, bidirectional, and subset), and offering essential metrics. It
+enables users to apply multiple selection strategies and metrics in a
+single function call, visualize variable selection processes, and export
+results in various formats. StepReg offers a data-splitting option to
+address potential issues with invalid statistical inference and a
+randomized forward selection option to avoid overfitting. We validated
+StepReg's accuracy using public datasets within the SAS software
+environment. Additionally, StepReg features an interactive Shiny
+application to enhance usability and accessibility.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phm
-%global packver   1.1.5
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phrase Mining
 
@@ -16,26 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-Matrix >= 1.4.1
 BuildRequires:    R-CRAN-data.table >= 1.14.2
 BuildRequires:    R-CRAN-smallstuff >= 1.0.1
 BuildRequires:    R-CRAN-tm >= 0.7.8
 BuildRequires:    R-CRAN-NLP >= 0.2.1
-Requires:         R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix >= 1.4.1
 Requires:         R-CRAN-data.table >= 1.14.2
 Requires:         R-CRAN-smallstuff >= 1.0.1
 Requires:         R-CRAN-tm >= 0.7.8
 Requires:         R-CRAN-NLP >= 0.2.1
+Requires:         R-CRAN-Rcpp 
 
 %description
 Functions to extract and handle commonly occurring principal phrases
-obtained from collections of texts. This package is based on, Small, E., &
-Cabrera, J. (2025). Principal phrase mining, an automated method for
-extracting meaningful phrases from text. International Journal of
-Computers and Applications, 47(1), 84–92.
+obtained from collections of texts. Major speed improvements - core
+functions rewritten in C++ for faster phrase-document parsing, clustering,
+and text distance computations. Based on, Small, E., & Cabrera, J. (2025).
+Principal phrase mining, an automated method for extracting meaningful
+phrases from text. International Journal of Computers and Applications,
+47(1), 84–92.
 
 %prep
 %setup -q -c -n %{packname}

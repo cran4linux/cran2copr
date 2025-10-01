@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geodata
-%global packver   0.6-2
+%global packver   0.6-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Geographic Data
+Summary:          Access Geographic Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.6.41
+BuildRequires:    R-CRAN-rappdirs 
 Requires:         R-CRAN-terra >= 1.6.41
+Requires:         R-CRAN-rappdirs 
 
 %description
 Functions for downloading of geographic data for use in spatial analysis

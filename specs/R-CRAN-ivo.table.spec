@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ivo.table
-%global packver   0.6
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nicely Formatted Contingency Tables and Frequency Tables
 
@@ -14,18 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-gt 
 Requires:         R-CRAN-officer 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 
 %description

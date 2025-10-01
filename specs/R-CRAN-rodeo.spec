@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rodeo
-%global packver   0.8.2
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Code Generator for ODE-Based Models
 
@@ -20,11 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readODS 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readODS 
 
 %description
 Provides an R6 class and several utility methods to facilitate the

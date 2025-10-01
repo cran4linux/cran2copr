@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstanarm
-%global packver   2.32.1
+%global packver   2.32.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.32.1
+Version:          2.32.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Applied Regression Modeling via Stan
 
@@ -36,6 +36,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-nlme >= 3.1.124
@@ -53,6 +54,7 @@ Requires:         R-methods
 Requires:         R-CRAN-posterior 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-reformulas 
 Requires:         R-CRAN-rstantools
 
 %description

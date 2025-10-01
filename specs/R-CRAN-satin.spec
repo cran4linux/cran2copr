@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  satin
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisation and Analysis of Ocean Data Derived from Satellites
 
@@ -48,13 +48,12 @@ chlorophyll concentration, sea surface temperature (SST), and several
 others.  Data sources specific for SST that can be imported too includes
 Pathfinder AVHRR <https://www.ncei.noaa.gov/products/avhrr-pathfinder-sst>
 and GHRSST <https://www.ghrsst.org/>.  In addition, ocean productivity
-data produced by Oregon State University
-<http://sites.science.oregonstate.edu/ocean.productivity/> can also be
-handled previous conversion from HDF4 to HDF5 format.  Many other ocean
-variables can be processed by importing netCDF data files from two
-European Union's Copernicus Marine Service databases
-<https://marine.copernicus.eu/>, namely Global Ocean Physical Reanalysis
-and Global Ocean Biogeochemistry Hindcast.
+data produced by Oregon State University can also be handled previous
+conversion from HDF4 to HDF5 format.  Many other ocean variables can be
+processed by importing netCDF data files from two European Union's
+Copernicus Marine Service databases <https://marine.copernicus.eu/>,
+namely Global Ocean Physical Reanalysis and Global Ocean Biogeochemistry
+Hindcast.
 
 %prep
 %setup -q -c -n %{packname}

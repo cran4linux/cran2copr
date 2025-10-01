@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manydata
-%global packver   1.0.3
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Portal for Global Governance Data
+Summary:          Many Global Governance Datacubes
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,29 +21,35 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-messydates >= 0.5.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-dtplyr 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-text2vec 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-messydates >= 0.5.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-dtplyr 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-text2vec 
 Requires:         R-CRAN-tidyr 
 
 %description
-This is the core package for the many packages universe. It includes
-functions to help researchers work with and contribute to event datasets
-on global governance.
+This is the core package offering a portal to the many packages universe.
+It includes functions to help researchers access, work across, and
+maintain ensembles of datasets on global governance called datacubes.
 
 %prep
 %setup -q -c -n %{packname}
