@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jstable
-%global packver   1.3.17
+%global packver   1.3.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.17
+Version:          1.3.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Tables from Different Types of Regression
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival >= 3.0.0
+BuildRequires:    R-CRAN-coxme >= 2.2.22
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-tableone 
-BuildRequires:    R-CRAN-coxme 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
@@ -36,13 +36,13 @@ BuildRequires:    R-CRAN-car
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-nortest 
 Requires:         R-CRAN-survival >= 3.0.0
+Requires:         R-CRAN-coxme >= 2.2.22
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-tableone 
-Requires:         R-CRAN-coxme 
 Requires:         R-CRAN-survey 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 

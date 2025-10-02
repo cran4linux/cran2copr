@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiTraits
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing and Visualizing Multidimensional Plant Traits
 
@@ -17,22 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtern 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-ggrepel 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtern 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scatterplot3d 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-ggsci 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scatterplot3d 
 
 %description
 Implements analytical methods for multidimensional plant traits, including
@@ -42,8 +54,7 @@ analysis, and Trait Network analysis. Provides functions for data
 analysis, visualization, and network metrics calculation. Methods are
 based on Grime (1974) <doi:10.1038/250026a0>, Pierce et al. (2017)
 <doi:10.1111/1365-2435.12882>, Westoby (1998)
-<doi:10.1023/A:1004327224729>, Yang et al. (2022)
-<doi:10.1016/j.foreco.2022.120540>, Winemiller et al. (2015)
+<doi:10.1023/A:1004327224729>, Winemiller et al. (2015)
 <doi:10.1111/ele.12462>, He et al. (2020)
 <doi:10.1016/j.tree.2020.06.003>.
 

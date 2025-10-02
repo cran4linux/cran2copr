@@ -1,55 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SEQTaRget
-%global packver   1.0.1
+%global packname  FDOTT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sequential Trial Emulation
+Summary:          Optimal Transport Based Testing in Factorial Design
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-fastglm 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-ROI 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-transport 
+BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-CRAN-rrapply 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-parallelly 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-fastglm 
-Requires:         R-CRAN-future 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-ROI 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-transport 
+Requires:         R-CRAN-slam 
+Requires:         R-CRAN-rrapply 
+Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-parallelly 
 
 %description
-Implementation of sequential trial emulation for the analysis of
-observational databases. The 'SEQTaRget' software accommodates
-time-varying treatments and confounders, as well as binary and failure
-time outcomes. 'SEQTaRget' allows to compare both static and dynamic
-strategies, can be used to estimate observational analogs of
-intention-to-treat and per-protocol effects, and can adjust for potential
-selection bias induced by losses-to-follow-up. (Paper to come).
+Perform optimal transport based tests in factorial designs as introduced
+in Groppe et al. (2025) <doi:10.48550/arXiv.2509.13970> via the FDOTT()
+function. These tests are inspired by ANOVA and its nonparametric
+counterparts. They allow for testing linear relationships in factorial
+designs between finitely supported probability measures on a metric space.
+Such relationships include equality of all measures (no treatment effect),
+interaction effects between a number of factors, as well as main and
+simple factor effects.
 
 %prep
 %setup -q -c -n %{packname}

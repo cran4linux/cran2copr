@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  repo.data
-%global packver   0.1.5
+%global packname  LePage
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Repository Data
+Summary:          LePage Type Tests
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Retrieve metadata about packages from repositories to explore package
-dependencies, links between help pages, aliases, package availability on a
-given date, and other repository dependent outcome. This metadata can be
-used to help package maintainers and users to navigate changes on
-dependencies and with reproducibility.
+Location and scale hypothesis testing using the LePage test and variants
+of its as proposed by Hussain A. and Tsagris M. (2025),
+<doi:10.48550/arXiv.2509.19126>.
 
 %prep
 %setup -q -c -n %{packname}

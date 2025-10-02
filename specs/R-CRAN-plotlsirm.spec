@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cxreg
-%global packver   1.0.0
+%global packname  plotlsirm
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Complex-Valued Lasso and Complex-Valued Graphical Lasso
+Summary:          Plot Toolkit for Latent Space Item Response Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-gdata 
-Requires:         R-grDevices 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 >= 3.4
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-scales 
+Requires:         R-grid 
 
 %description
-Implements 'glmnet'-style complex-valued lasso and complex-valued
-graphical lasso using a 'pathwise' coordinate descent algorithm for
-complex-valued parameters. The package provides supporting tools for
-estimation, simulation, and prediction. See Deb (2024)
-<doi:10.48550/ArXiv.2401.11128> for the algorithm description.
+Provides publication‑quality and interactive plots for exploring the
+posterior output of Latent Space Item Response Models, including Posterior
+Interaction Profiles, radar charts, 2‑D latent maps, and item‑similarity
+heat maps. The methods implemented in this package are based on work by
+Jeon, M., Jin, I. H., Schweinberger, M., Baugh, S. (2021)
+<doi:10.1007/s11336-021-09762-5>.
 
 %prep
 %setup -q -c -n %{packname}

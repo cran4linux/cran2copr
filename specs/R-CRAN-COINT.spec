@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  COINT
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unit Root Tests with Structural Breaks and Fully-Modified Estimators
 
@@ -22,11 +22,10 @@ Requires:         R-CRAN-timeSeries
 
 %description
 Procedures include Phillips (1995) FMVAR <doi:10.2307/2171721>, Kitamura
-and Phillips (1997) FMGMM <doi:10.1016/S0304-4076(97)00004-3>, and Park
-(1992) CCR <doi:10.2307/2951679>, and so on. Tests with 1 or 2 structural
-breaks include Gregory and Hansen (1996)
-<doi:10.1016/0304-4076(69)41685-7>, Zivot and Andrews (1992)
-<doi:10.2307/1391541>, and Kurozumi (2002)
+and Phillips (1997) FMGMM <doi:10.1016/S0304-4076(97)00004-3>, Park (1992)
+CCR <doi:10.2307/2951679>, and so on. Tests with 1 or 2 structural breaks
+include Gregory and Hansen (1996) <doi:10.1016/0304-4076(69)41685-7>,
+Zivot and Andrews (1992) <doi:10.2307/1391541>, and Kurozumi (2002)
 <doi:10.1016/S0304-4076(01)00106-3>.
 
 %prep

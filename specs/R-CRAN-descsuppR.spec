@@ -1,43 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rilostat
-%global packver   2.3.4
+%global packname  descsuppR
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to ILOSTAT Open Data
+Summary:          Support Functions for (Reproducible) Descriptive Statistics
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.3.0
-BuildRequires:    R-CRAN-readr >= 2.1.5
-BuildRequires:    R-CRAN-stringr >= 1.5.2
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-tibble >= 3.3.0
-Requires:         R-CRAN-readr >= 2.1.5
-Requires:         R-CRAN-stringr >= 1.5.2
-Requires:         R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-descutils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-nparcomp 
+BuildRequires:    R-CRAN-rankFD 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-descutils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-nparcomp 
+Requires:         R-CRAN-rankFD 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 
 %description
-Provides tools to access, search, and manipulate ILO's ilostat database,
-including bulk download of statistical data, dictionary lookups, and table
-of contents.
+Contains functions to help with generating tables with descriptive
+statistics. In addition, the package can display results of statistical
+tests for group comparisons. A wide range of test procedures is supported,
+and user-defined test functions can be incorporated.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mnreadR
-%global packver   2.1.7
+%global packname  ExtendedABSurvTDC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MNREAD Parameters Estimation and Curve Plotting
+Summary:          Survival Analysis using Indicators under Time Dependent Covariates
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-readxl 
 Requires:         R-stats 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-readxl 
 
 %description
-Allows to analyze the reading data obtained with the MNREAD Acuity Chart,
-a continuous-text reading acuity chart for normal and low vision. Provides
-the necessary functions to plot the MNREAD curve and estimate
-automatically the four MNREAD parameters: Maximum Reading Speed, Critical
-Print Size, Reading Acuity and Reading Accessibility Index. Parameters can
-be estimated either with the standard method or with a nonlinear
-mixed-effects (NLME) modeling. See Calabrese et al. 2018 for more details
-<doi:10.1167/18.1.8>.
+Survival analysis is employed to model time-to-event data. This package
+examines the relationship between survival and one or more predictors,
+termed as covariates, which can include both treatment variables (e.g.,
+season of birth, represented by indicator functions) and continuous
+variables. To this end, the Cox-proportional hazard (Cox-PH) model,
+introduced by Cox in 1972, is a widely applicable and commonly used method
+for survival analysis. This package enables the estimation of the effect
+of randomization for the treatment variable to account for potential
+confounders, providing adjustment when estimating the association with
+exposure. It accommodates both fixed and time-dependent covariates and
+computes survival probabilities for lactation periods in dairy animals.
+The package is built upon the algorithm developed by Klein and
+Moeschberger (2003) <DOI:10.1007/b97377>.
 
 %prep
 %setup -q -c -n %{packname}

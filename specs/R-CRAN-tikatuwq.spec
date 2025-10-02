@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tikatuwq
-%global packver   0.4.6
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water Quality Analysis Tools for the Brazilian Context
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-leaflet 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-leaflet 
 
 %description
 Tools to import, clean, validate, and analyze freshwater quality data in
@@ -53,8 +55,8 @@ Brazil. Implements water quality indices including the Water Quality Index
 <doi:10.4319/lo.1977.22.2.0361> and Lamparelli (2004)
 <https://www.teses.usp.br/teses/disponiveis/41/41134/tde-20032006-075813/publico/TeseLamparelli2004.pdf>,
 and the National Sanitation Foundation Water Quality Index (NSF WQI)
-<https://www.nsf.org/education/nsf-water-quality-index>. The package also
-checks compliance with Brazilian standard CONAMA Resolution 357/2005
+<doi:10.1007/s11157-023-09650-7>. The package also checks compliance with
+Brazilian standard CONAMA Resolution 357/2005
 <https://conama.mma.gov.br/?id=450&option=com_sisconama&task=arquivo.download>
 and generates reproducible reports for routine monitoring workflows.
 

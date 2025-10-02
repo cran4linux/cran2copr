@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bbk
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Central Bank APIs
 
@@ -45,8 +45,9 @@ Interactive Statistical Database'
 (<https://www.bankofengland.co.uk/boeapps/database>), the 'Banco de España
 API'
 (<https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>),
-and the 'Banque de France Web Service'
-(<https://webstat.banque-france.fr/en/pages/guide-migration-api/>).
+the 'Banque de France Web Service'
+(<https://webstat.banque-france.fr/en/pages/guide-migration-api/>), and
+'Bank of Canada Valet API' (<https://www.bankofcanada.ca/valet/docs>).
 
 %prep
 %setup -q -c -n %{packname}

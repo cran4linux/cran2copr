@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrgdp
-%global packver   0.3.2
+%global packname  boxTest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mexican Regional Gross Domestic Product
+Summary:          Boxplot and Significance Test for Two Groups
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
-Download Mexican economic census for several years (2004, 2009, 2014 and
-2019) and all federal entities. Filter the census data table by municipal
-data and build a data.frame for all federal entities and several years.
+Provides functions to create side-by-side boxplots for a continuous
+variable grouped by a two-level categorical variable, check normality
+assumptions using the Shapiro-Wilk test (Shapiro and Wilk (1965)
+<doi:10.2307/2333709>), and perform appropriate statistical tests such as
+the independent two-sample t-test (Student (1908)
+<doi:10.1093/biomet/6.1.1>) or the Mann–Whitney U test ( Mann–Whitney
+(1947) <doi:10.1214/aoms/1177730491>). Returns a publication-ready plot
+and test statistics including test statistic, degrees of freedom, and
+p-value.
 
 %prep
 %setup -q -c -n %{packname}

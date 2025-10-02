@@ -1,25 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  checkglobals
-%global packver   0.1.4
+%global packname  BlockwiseRankTest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Static Analysis of R-Code Dependencies
+Summary:          Block-Wise Rank in Similarity Graph Edge-Count Two-Sample Test (BRISE)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-A minimal R-package to approximately detect global and imported functions
-or variables from R-source code or R-packages by static code analysis.
+Implements the Block-wise Rank in Similarity Graph Edge-count test
+(BRISE), a rank-based two-sample test designed for block-wise missing
+data. The method constructs (pattern) pair-wise similarity graphs and
+derives quadratic test statistics with asymptotic chi-square distribution
+or permutation-based p-values. It provides both vectorized and congregated
+versions for flexible inference. The methodology is described in Zhang,
+Liang, Maile, and Zhou (2025) <doi:10.48550/arXiv.2508.17411>.
 
 %prep
 %setup -q -c -n %{packname}

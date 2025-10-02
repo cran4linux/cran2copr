@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  faux
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation for Factorial Designs
 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-rlang
 %description
 Create datasets with factorial structure through simulation by specifying
 variable parameters. Extended documentation at
-<https://debruine.github.io/faux/>. Described in DeBruine (2020)
+<https://scienceverse.github.io/faux/>. Described in DeBruine (2020)
 <doi:10.5281/zenodo.2669586>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predict3d
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Three Dimensional Predict Plot Using Package 'rgl'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-rgl >= 1.0.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggiraphExtra 
@@ -30,7 +30,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-rgl >= 1.0.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggiraphExtra 
