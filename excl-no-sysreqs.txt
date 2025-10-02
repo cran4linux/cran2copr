@@ -16,16 +16,11 @@ KoNLP
 RGtk2
 commonsMath
 googleformr
-gifski cargo
-baseflow cargo
-ymd cargo
-string2path cargo
 traitdataform
 freetypeharfbuzz internet
 wrswoR.benchmark
 GeneBook
 rLindo
-salso cargo
 XLConnect
 bitmexr internet
 dmdScheme internet
@@ -38,7 +33,3 @@ packagefinder internet
 elbird internet
 iriR internet
 nfl4th internet
-caviarpd cargo
-fangs cargo
-hellorust cargo
-rshift cargo
