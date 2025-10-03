@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Sequential
-%global packver   4.5
+%global packname  salso
+%global packver   0.3.57
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          0.3.57
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Search Algorithms and Loss Functions for Bayesian Clustering
 
-License:          GPL-2
+License:          MIT + file LICENSE | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pmultinom 
-BuildRequires:    R-CRAN-maxLik 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pmultinom 
-Requires:         R-CRAN-maxLik 
+BuildRequires:    cargo
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled. For regression versions of the
-methods, Monte Carlo and asymptotic methods are used.
+The SALSO algorithm is an efficient randomized greedy search method to
+find a point estimate for a random partition based on a loss function and
+posterior Monte Carlo samples. The algorithm is implemented for many loss
+functions, including the Binder loss and a generalization of the variation
+of information loss, both of which allow for unequal weights on the two
+types of clustering mistakes. Efficient implementations are also provided
+for Monte Carlo estimation of the posterior expected loss of a given
+clustering estimate. See Dahl, Johnson, Müller (2022)
+<doi:10.1080/10618600.2022.2069779>.
 
 %prep
 %setup -q -c -n %{packname}

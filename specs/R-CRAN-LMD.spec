@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LMD
-%global packver   1.0.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Self-Adaptive Approach for Demodulating Multi-Component Signal
 
@@ -20,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-EMD 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-EMD 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-shiny 
+Requires:         R-utils 
 
 %description
 Local Mean Decomposition is an iterative and self-adaptive approach for

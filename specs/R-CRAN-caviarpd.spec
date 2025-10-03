@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Sequential
-%global packver   4.5
+%global packname  caviarpd
+%global packver   0.3.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          0.3.20
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Cluster Analysis via Random Partition Distributions
 
-License:          GPL-2
+License:          MIT + file LICENSE | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pmultinom 
-BuildRequires:    R-CRAN-maxLik 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pmultinom 
-Requires:         R-CRAN-maxLik 
+BuildRequires:    cargo
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled. For regression versions of the
-methods, Monte Carlo and asymptotic methods are used.
+Cluster analysis is performed using pairwise distance information and a
+random partition distribution. The method is implemented for two random
+partition distributions. It draws samples and then obtains and plots
+clustering estimates. An implementation of a selection algorithm is
+provided for the mass parameter of the partition distribution. Since
+pairwise distances are the principal input to this procedure, it is most
+comparable to the hierarchical and k-medoids clustering methods. The
+method is Dahl, Andros, Carter (2022+) <doi:10.1002/sam.11602>.
 
 %prep
 %setup -q -c -n %{packname}

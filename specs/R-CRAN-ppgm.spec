@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ppgm
-%global packver   1.0.3
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          PaleoPhyloGeographic Modeling of Climate Niches and Species Distributions
 
@@ -14,29 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-animation 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-gifski 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-animation 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-geiger 
+Requires:         R-CRAN-gifski 
 Requires:         R-methods 
 Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-stringi 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
 Reconstruction of paleoclimate niches using phylogenetic comparative

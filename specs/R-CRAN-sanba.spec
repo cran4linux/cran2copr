@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  batchmix
-%global packver   2.2.1
+%global packname  sanba
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Supervised Bayesian Mixture Models Incorporating Batch Correction
+Summary:          Fitting Shared Atoms Nested Models via MCMC or Variational Bayes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-salso 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-salso 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Semi-supervised and unsupervised Bayesian mixture models that
-simultaneously infer the cluster/class structure and a batch correction.
-Densities available are the multivariate normal and the multivariate t.
-The model sampler is implemented in C++. This package is aimed at analysis
-of low-dimensional data generated across several batches. See Coleman et
-al. (2022) <doi:10.1101/2022.01.14.476352> for details of the model.
+An efficient tool for fitting nested mixture models based on a shared set
+of atoms via Markov Chain Monte Carlo and variational inference
+algorithms. Specifically, the package implements the common atoms model
+(Denti et al., 2023), its finite version (similar to D'Angelo et al.,
+2023), and a hybrid finite-infinite model (D'Angelo and Denti, 2024). All
+models implement univariate nested mixtures with Gaussian kernels equipped
+with a normal-inverse gamma prior distribution on the parameters.
+Additional functions are provided to help analyze the results of the
+fitting procedure. References: Denti, Camerlenghi, Guindani, Mira (2023)
+<doi:10.1080/01621459.2021.1933499>, D’Angelo, Canale, Yu, Guindani (2023)
+<doi:10.1111/biom.13626>, D’Angelo, Denti (2024) <doi:10.1214/24-BA1458>.
 
 %prep
 %setup -q -c -n %{packname}

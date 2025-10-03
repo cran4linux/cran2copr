@@ -1,51 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hmde
-%global packver   1.2.2
+%global packname  plot4fun
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Methods for Differential Equations
+Summary:          Just Plot for Fun
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstantools >= 2.3.1.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstantools >= 2.3.1.1
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-pcutils 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-gifski 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-sysfonts 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstantools
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-reshape2 
+Requires:         R-graphics 
+Requires:         R-CRAN-pcutils 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-gifski 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-sysfonts 
 
 %description
-Wrapper for Stan that offers a number of in-built models to implement a
-hierarchical Bayesian longitudinal model for repeat observation data.
-Model choice selects the differential equation that is fit to the
-observations. Single and multi-individual models are available. O'Brien et
-al. (2024) <doi:10.1111/2041-210X.14463>.
+Explore the world of R graphics with fun and interesting plot functions!
+Use make_LED() to create dynamic LED screens, draw interconnected rings
+with Olympic_rings(), and make festive Chinese couplets with chunlian().
+Unleash your creativity and turn data into exciting visuals!
 
 %prep
 %setup -q -c -n %{packname}

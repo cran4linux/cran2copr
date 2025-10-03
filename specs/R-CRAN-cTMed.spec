@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cTMed
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Mediation
 
@@ -16,23 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-simStateSpace 
-BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
 Requires:         R-CRAN-simStateSpace 
 
 %description
-Calculates standard errors and confidence intervals for effects in
-continuous-time mediation models. This package extends the work of Deboeck
-and Preacher (2015) <doi:10.1080/10705511.2014.973960> and Ryan and
-Hamaker (2021) <doi:10.1007/s11336-021-09767-0> by providing methods to
-generate standard errors and confidence intervals for the total, direct,
-and indirect effects in these models.
+Calculates effect sizes, standard errors and confidence intervals in
+continuous-time mediation models (Deboeck and Preacher, 2015
+<doi:10.1080/10705511.2014.973960>; Ryan and Hamaker, 2021
+<doi:10.1007/s11336-021-09767-0>).
 
 %prep
 %setup -q -c -n %{packname}

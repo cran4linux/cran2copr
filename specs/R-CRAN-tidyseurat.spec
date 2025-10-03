@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyseurat
-%global packver   0.8.0
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Brings Seurat to the Tidyverse
 
@@ -19,20 +19,19 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Seurat >= 4.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-ttservice >= 0.3.8
 BuildRequires:    R-CRAN-SeuratObject 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-stringr 
@@ -41,20 +40,19 @@ BuildRequires:    R-CRAN-fansi
 BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-Seurat >= 4.3.0
 Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-ttservice >= 0.3.8
 Requires:         R-CRAN-SeuratObject 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-stringr 

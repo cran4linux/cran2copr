@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjdworkspace
-%global packver   1.1.9
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate 'JDemetra+' Workspaces
 
@@ -19,20 +19,26 @@ Requires:         R-core >= 3.1.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rJava >= 0.9.8
 BuildRequires:    R-CRAN-RJDemetra 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-rJava >= 0.9.8
 Requires:         R-CRAN-RJDemetra 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 Requires:         R-CRAN-XML 
 
 %description
-Set of tools to manipulate the 'JDemetra+' workspaces. Based on the
+Set of tools to manipulate the 'JDemetra+' workspaces.  Based on the
 'RJDemetra' package (which interfaces with version 2 of the 'JDemetra+'
 (<https://github.com/jdemetra/jdemetra-app>), the seasonal adjustment
 software officially recommended to the members of the European Statistical
-System (ESS) and the European System of Central Banks). This package
+System (ESS) and the European System of Central Banks).  This package
 provides access to additional workspace manipulation functions such as
 metadata manipulation, raw paths and wrangling of several workspaces
-simultaneously. These additional functionalities are useful as part of a
+simultaneously.  These additional functionalities are useful as part of a
 CVS data production chain.
 
 %prep

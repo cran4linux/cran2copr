@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grwat
-%global packver   0.0.4
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          River Hydrograph Separation and Analysis
 
@@ -14,11 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-lubridate 
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-mblm
 BuildRequires:    R-CRAN-R.utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-lubridate 

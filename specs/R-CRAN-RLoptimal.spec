@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RLoptimal
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Adaptive Allocation Using Deep Reinforcement Learning
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-DoseFinding 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-zip 
 
 %description
 An implementation to compute an optimal adaptive allocation rule using

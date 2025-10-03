@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoAdjust
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accounting for Random Displacements of True GPS Coordinates of Data
 
@@ -42,10 +42,10 @@ survey household cluster center coordinates in geostatistical analyses of
 Demographic and Health Surveys program (DHS) data. Adjustment for
 jittering can be implemented either in the spatial random effect, or in
 the raster/distance based covariates, or in both. Detailed information
-about the methods behind the package functionality can be found in two
-preprints. Umut Altay, John Paige, Andrea Riebler, Geir-Arne Fuglstad
-(2022) <arXiv:2202.11035v2>. Umut Altay, John Paige, Andrea Riebler,
-Geir-Arne Fuglstad (2022) <arXiv:2211.07442v1>.
+about the methods behind the package functionality can be found in our two
+papers. Umut Altay, John Paige, Andrea Riebler, Geir-Arne Fuglstad (2024)
+<doi:10.32614/RJ-2024-027>. Umut Altay, John Paige, Andrea Riebler,
+Geir-Arne Fuglstad (2023) <doi:10.1177/1471082X231219847>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  asymmetry
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Scaling of Asymmetric Proximities
 
@@ -27,19 +28,18 @@ Requires:         R-CRAN-smacof
 
 %description
 Multidimensional scaling models and methods for the visualization and
-analysis of asymmetric proximity data
-<doi:10.1111/j.2044-8317.1996.tb01078.x>. An asymmetric data matrix has
-the same number of rows and columns, and these rows and columns refer to
-the same set of objects. At least some elements in the upper-triangle are
+analysis of asymmetric proximity data. An asymmetric data matrix has the
+same number of rows and columns, and these rows and columns refer to the
+same set of objects. At least some elements in the upper-triangle are
 different from the corresponding elements in the lower triangle. An
 example of an asymmetric matrix is a student migration table, where the
 rows correspond to the countries of origin of the students and the columns
 to the destination countries. This package provides algorithms for three
-multidimensional scaling models. These are the slide-vector model
-<doi:10.1007/BF02294474>, a scaling model with unique dimensions and the
-asymscal model for asymmetric multidimensional scaling. Furthermore, a
-heat map for skew-symmetric data, and the decomposition of asymmetry are
-provided for the exploratory analysis of asymmetric tables.
+multidimensional scaling models, the slide-vector model, a scaling model
+with unique dimensions and the asymscal model.Furthermore, some other
+procedures, such as a heat map for skew-symmetric data, and the
+decomposition of asymmetry are also provided for the exploratory analysis
+of asymmetric tables.
 
 %prep
 %setup -q -c -n %{packname}

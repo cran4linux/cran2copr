@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qreport
-%global packver   1.0-2
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Reporting with 'Quarto'
 
@@ -18,21 +18,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc >= 5.1.1
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-Hmisc >= 5.1.1
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-data.table 
 
 %description
 Provides statistical components, tables, and graphs that are useful in

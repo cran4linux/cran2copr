@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Sequential
-%global packver   4.5
+%global packname  SANple
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          Fitting Shared Atoms Nested Models via Markov Chains Monte Carlo
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pmultinom 
-BuildRequires:    R-CRAN-maxLik 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pmultinom 
-Requires:         R-CRAN-maxLik 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-salso 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-salso 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled. For regression versions of the
-methods, Monte Carlo and asymptotic methods are used.
+Estimate Bayesian nested mixture models via Markov Chain Monte Carlo
+methods. Specifically, the package implements the common atoms model
+(Denti et al., 2023), and hybrid finite-infinite models. All models use
+Gaussian mixtures with a normal-inverse-gamma prior distribution on the
+parameters. Additional functions are provided to help analyzing the
+results of the fitting procedure. References: Denti, Camerlenghi,
+Guindani, Mira (2023) <doi:10.1080/01621459.2021.1933499>, D’Angelo, Denti
+(2024) <doi:10.1214/24-BA1458>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  edgemodelr
-%global packver   0.1.0
+%global packname  rshift
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Language Model Inference
+Summary:          Paleoecology Functions for Regime Shift Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-utils 
-Requires:         R-tools 
+BuildRequires:    cargo
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Enables R users to run large language models locally using 'GGUF' model
-files and the 'llama.cpp' inference engine. Provides a complete R
-interface for loading models, generating text completions, and streaming
-responses in real-time. Supports local inference without requiring cloud
-APIs or internet connectivity, ensuring complete data privacy and control.
-References: 'Gerganov' et al. (2023)
-<https://github.com/ggml-org/llama.cpp>.
+Contains a variety of functions, based around regime shift analysis of
+paleoecological data. Citations: Rodionov() from Rodionov (2004)
+<doi:10.1029/2004GL019448> Lanzante() from Lanzante (1996)
+<doi:10.1002/(SICI)1097-0088(199611)16:11%%3C1197::AID-JOC89%%3E3.0.CO;2-L>
+Hellinger_trans from Numerical Ecology, Legendre & Legendre (ISBN
+9780444538680) rolling_autoc from Liu, Gao & Wang (2018)
+<doi:10.1016/j.scitotenv.2018.06.276> Sample data sets lake_data &
+lake_RSI processed from Bush, Silman & Urrego (2004)
+<doi:10.1126/science.1090795> Sample data set January_PDO from NOAA:
+<https://www.ncei.noaa.gov/access/monitoring/pdo/>.
 
 %prep
 %setup -q -c -n %{packname}

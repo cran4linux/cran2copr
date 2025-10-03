@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Sequential
-%global packver   4.5
+%global packname  fcl
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Sequential Analysis for Poisson and Binomial Data
+Summary:          A Financial Calculator
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pmultinom 
-BuildRequires:    R-CRAN-maxLik 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pmultinom 
-Requires:         R-CRAN-maxLik 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-ymd 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-ymd 
 
 %description
-Functions to calculate exact critical values, statistical power, expected
-time to signal, and required sample sizes for performing exact sequential
-analysis. All these calculations can be done for either Poisson or
-binomial data, for continuous or group sequential analyses, and for
-different types of rejection boundaries. In case of group sequential
-analyses, the group sizes do not have to be specified in advance and the
-alpha spending can be arbitrarily settled. For regression versions of the
-methods, Monte Carlo and asymptotic methods are used.
+A financial calculator that provides very fast implementations of common
+financial indicators using 'Rust' code. It includes functions for
+bond-related indicators, such as yield to maturity ('YTM'), modified
+duration, and Macaulay duration, as well as functions for calculating
+time-weighted and money-weighted rates of return (using 'Modified Dietz'
+method) for multiple portfolios, given their market values and profit and
+loss ('PnL') data. 'fcl' is designed to be efficient and accurate for
+financial analysis and computation. The methods used in this package are
+based on the following references:
+<https://en.wikipedia.org/wiki/Modified_Dietz_method>,
+<https://en.wikipedia.org/wiki/Time-weighted_return>.
 
 %prep
 %setup -q -c -n %{packname}

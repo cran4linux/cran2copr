@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ccaPP
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Robust) Canonical Correlation Analysis via Projection Pursuit
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-pcaPP >= 1.8.1
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.100.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.200.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-robustbase 
