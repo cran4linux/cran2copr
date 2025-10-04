@@ -1,41 +1,48 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cesR
+%global __requires_exclude ^libmpi
+%global packname  BioMoR
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Canadian Election Study Datasets
+Summary:          Bioinformatics Modeling with Recursion and Autoencoder-Based Ensemble
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-themis 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-pROC 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-themis 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-pROC 
 
 %description
-Makes accessing and loading the Canadian Election Study
-(<http://www.ces-eec.ca/>, <https://ces-eec.arts.ubc.ca/>,
-<https://search1.odesi.ca/#/>) surveys into the R workspace more efficient
-by downloading a requested survey and loading it as a data object. This
-removes the need to locate, download, load, and change working directories
-when working with the Canadian Election Study surveys.
+Tools for bioinformatics modeling using recursive transformer-inspired
+architectures, autoencoders, random forests, XGBoost, and stacked ensemble
+models. Includes utilities for cross-validation, calibration,
+benchmarking, and threshold optimization in predictive modeling workflows.
+The methodology builds on ensemble learning (Breiman 2001
+<doi:10.1023/A:1010933404324>), gradient boosting (Chen and Guestrin 2016
+<doi:10.1145/2939672.2939785>), autoencoders (Hinton and Salakhutdinov
+2006 <doi:10.1126/science.1127647>), and recursive transformer efficiency
+approaches such as Mixture-of-Recursions (Bae et al. 2025
+<doi:10.48550/arXiv.2507.10524>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  devtools
-%global packver   2.4.5
+%global packver   2.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.5
+Version:          2.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Make Developing R Packages Easier
 
@@ -14,54 +14,54 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-roxygen2 >= 7.2.1
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-testthat >= 3.1.5
-BuildRequires:    R-CRAN-withr >= 2.5.0
-BuildRequires:    R-CRAN-remotes >= 2.4.2
-BuildRequires:    R-CRAN-usethis >= 2.1.6
-BuildRequires:    R-CRAN-rversions >= 2.1.1
-BuildRequires:    R-CRAN-pkgdown >= 2.0.6
+BuildRequires:    R-CRAN-roxygen2 >= 7.3.3
+BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-testthat >= 3.2.3
+BuildRequires:    R-CRAN-usethis >= 3.2.1
+BuildRequires:    R-CRAN-withr >= 3.0.2
+BuildRequires:    R-CRAN-remotes >= 2.5.0
+BuildRequires:    R-CRAN-pkgdown >= 2.1.3
+BuildRequires:    R-CRAN-rversions >= 2.1.2
 BuildRequires:    R-CRAN-memoise >= 2.0.1
-BuildRequires:    R-CRAN-fs >= 1.5.2
-BuildRequires:    R-CRAN-desc >= 1.4.1
+BuildRequires:    R-CRAN-fs >= 1.6.6
+BuildRequires:    R-CRAN-pkgbuild >= 1.4.8
+BuildRequires:    R-CRAN-desc >= 1.4.3
+BuildRequires:    R-CRAN-pkgload >= 1.4.1
 BuildRequires:    R-CRAN-rcmdcheck >= 1.4.0
-BuildRequires:    R-CRAN-pkgbuild >= 1.3.1
-BuildRequires:    R-CRAN-pkgload >= 1.3.0
-BuildRequires:    R-CRAN-sessioninfo >= 1.2.2
-BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-lifecycle >= 1.0.1
+BuildRequires:    R-CRAN-sessioninfo >= 1.2.3
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-lifecycle >= 1.0.4
 BuildRequires:    R-CRAN-urlchecker >= 1.0.1
-BuildRequires:    R-CRAN-profvis >= 0.3.7
+BuildRequires:    R-CRAN-profvis >= 0.4.0
 BuildRequires:    R-CRAN-ellipsis >= 0.3.2
-BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
+BuildRequires:    R-CRAN-miniUI >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-roxygen2 >= 7.2.1
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-testthat >= 3.1.5
-Requires:         R-CRAN-withr >= 2.5.0
-Requires:         R-CRAN-remotes >= 2.4.2
-Requires:         R-CRAN-usethis >= 2.1.6
-Requires:         R-CRAN-rversions >= 2.1.1
-Requires:         R-CRAN-pkgdown >= 2.0.6
+Requires:         R-CRAN-roxygen2 >= 7.3.3
+Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-testthat >= 3.2.3
+Requires:         R-CRAN-usethis >= 3.2.1
+Requires:         R-CRAN-withr >= 3.0.2
+Requires:         R-CRAN-remotes >= 2.5.0
+Requires:         R-CRAN-pkgdown >= 2.1.3
+Requires:         R-CRAN-rversions >= 2.1.2
 Requires:         R-CRAN-memoise >= 2.0.1
-Requires:         R-CRAN-fs >= 1.5.2
-Requires:         R-CRAN-desc >= 1.4.1
+Requires:         R-CRAN-fs >= 1.6.6
+Requires:         R-CRAN-pkgbuild >= 1.4.8
+Requires:         R-CRAN-desc >= 1.4.3
+Requires:         R-CRAN-pkgload >= 1.4.1
 Requires:         R-CRAN-rcmdcheck >= 1.4.0
-Requires:         R-CRAN-pkgbuild >= 1.3.1
-Requires:         R-CRAN-pkgload >= 1.3.0
-Requires:         R-CRAN-sessioninfo >= 1.2.2
-Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-lifecycle >= 1.0.1
+Requires:         R-CRAN-sessioninfo >= 1.2.3
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-lifecycle >= 1.0.4
 Requires:         R-CRAN-urlchecker >= 1.0.1
-Requires:         R-CRAN-profvis >= 0.3.7
+Requires:         R-CRAN-profvis >= 0.4.0
 Requires:         R-CRAN-ellipsis >= 0.3.2
-Requires:         R-CRAN-miniUI >= 0.1.1.1
+Requires:         R-CRAN-miniUI >= 0.1.2
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 

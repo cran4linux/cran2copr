@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmtree
-%global packver   0.3.1
+%global packname  topologyR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logistic Regression Trees
+Summary:          Topological Connectivity Analysis for Numeric Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-partykit 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-caret 
-Requires:         R-CRAN-partykit 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-caret 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A logistic regression tree is a decision tree with logistic regressions at
-its leaves. A particular stochastic expectation maximization algorithm is
-used to draw a few good trees, that are then assessed via the user's
-criterion of choice among BIC / AIC / test set Gini. The formal
-development is given in a PhD chapter, see Ehrhardt (2019)
-<https://github.com/adimajo/manuscrit_these/releases/>.
+Description: Implementation of topological data analysis methods based on
+graph-theoretic approaches for discovering topological structures in data.
+The core algorithm constructs topological spaces from graphs following
+Nada et al. (2018) <doi:10.1002/mma.5096> "New types of topological
+structures via graphs".
 
 %prep
 %setup -q -c -n %{packname}

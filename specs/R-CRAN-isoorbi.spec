@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isoorbi
-%global packver   1.3.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Orbitrap Isotopocule Data
 
@@ -14,35 +14,51 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-utils >= 4.1.0
 BuildRequires:    R-stats >= 4.1.0
+BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-withr >= 3.0.0
+BuildRequires:    R-CRAN-arrow >= 21.0.0.0
 BuildRequires:    R-CRAN-readr >= 2.1.0
+BuildRequires:    R-CRAN-knitr >= 1.5
 BuildRequires:    R-CRAN-scales >= 1.2.1
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-prettyunits >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-methods 
 Requires:         R-utils >= 4.1.0
 Requires:         R-stats >= 4.1.0
+Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-withr >= 3.0.0
+Requires:         R-CRAN-arrow >= 21.0.0.0
 Requires:         R-CRAN-readr >= 2.1.0
+Requires:         R-CRAN-knitr >= 1.5
 Requires:         R-CRAN-scales >= 1.2.1
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-prettyunits >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-methods 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-purrr 
-Requires:         R-methods 
 
 %description
 Read and process isotopocule data from an Orbitrap Isotope Solutions mass

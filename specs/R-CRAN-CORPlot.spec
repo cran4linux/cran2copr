@@ -1,54 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  primerTree
-%global packver   1.1.0
+%global packname  CORPlot
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visually Assessing the Specificity and Informativeness of Primer Pairs
+Summary:          Cumulative Odds Ratio Plot
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-directlabels 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-directlabels 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-knitr 
+Requires:         R-stats 
+Requires:         R-CRAN-VGAM 
 
 %description
-Identifies potential target sequences for a given set of primers and
-generates phylogenetic trees annotated with the taxonomies of the
-predicted amplification products.
+Create cumulative odds ratio plot to visually inspect the proportional
+odds assumption from the proportional odds model.
 
 %prep
 %setup -q -c -n %{packname}

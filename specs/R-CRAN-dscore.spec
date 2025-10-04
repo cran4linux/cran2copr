@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dscore
-%global packver   1.11.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          D-Score for Child Development
 
@@ -29,13 +29,16 @@ Requires:         R-stats
 Requires:         R-CRAN-stringi 
 
 %description
-The D-score summarizes the child's performance on a set of milestones into
-a single number. The package implements four Rasch model keys to convert
-milestone scores into a D-score. It provides tools to calculate the
-D-score and its precision from the child's milestone scores, to convert
-the D-score into the Development-for-Age Z-score (DAZ) using
-age-conditional references, and to map milestone names into a generic
-9-position item naming convention.
+The D-score summarizes a child's performance on developmental milestones
+into a single number. Its key feature is its generic nature. The method
+does not depend on a specific measurement instrument. The statistical
+method underlying the D-score is described in van Buuren et al. (2025)
+<doi:10.1177/01650254241294033>. This package implements model keys to
+convert milestone scores to D-scores; maps instrument-specific item names
+to a generic 9-position naming convention; computes D-scores and their
+precision from a child's milestone scores; and converts D-scores to
+Development-for-Age Z-scores (DAZ) using age-conditional reference
+standards.
 
 %prep
 %setup -q -c -n %{packname}
