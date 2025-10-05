@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photobiologyPlants
-%global packver   0.6.1
+%global packver   0.6.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plant Photobiology Related Functions and Data
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-photobiologyWavebands >= 0.5.3
-BuildRequires:    R-CRAN-photobiology >= 0.13.2
+BuildRequires:    R-CRAN-photobiology >= 0.14.0
 Requires:         R-CRAN-photobiologyWavebands >= 0.5.3
-Requires:         R-CRAN-photobiology >= 0.13.2
+Requires:         R-CRAN-photobiology >= 0.14.0
 
 %description
 Provides functions for quantifying visible (VIS) and ultraviolet (UV)

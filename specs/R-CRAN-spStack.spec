@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spStack
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Geostatistics Using Predictive Stacking
 
@@ -39,8 +39,8 @@ these individual posterior distributions using Bayesian predictive
 stacking. Our algorithm is highly parallelizable and hence, much faster
 than traditional Markov chain Monte Carlo algorithms while delivering
 competitive predictive performance. See Zhang, Tang, and Banerjee (2025)
-<doi:10.48550/arXiv.2304.12414>, and, Pan, Zhang, Bradley, and Banerjee
-(2025) <doi:10.48550/arXiv.2406.04655> for details.
+<doi:10.1080/01621459.2025.2566449>, and, Pan, Zhang, Bradley, and
+Banerjee (2025) <doi:10.48550/arXiv.2406.04655> for details.
 
 %prep
 %setup -q -c -n %{packname}

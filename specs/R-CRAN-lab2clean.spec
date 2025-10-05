@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lab2clean
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automation and Standardization of Cleaning Clinical Lab Data
+Summary:          Automation and Standardization of Cleaning Clinical Laboratory Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
@@ -32,12 +32,15 @@ pre-processing and cleaning and the lack of all-in-one tools tailored for
 this need, we developed our algorithm 'lab2clean' as an open-source
 R-package. 'lab2clean' package is set to automate and standardize the
 intricate process of cleaning clinical laboratory results. With a keen
-focus on improving the data quality of laboratory result values, our goal
-is to equip researchers with a straightforward, plug-and-play tool, making
-it smoother for them to unlock the true potential of clinical laboratory
-data in clinical research and clinical machine learning (ML) model
-development. Version 1.0 of the algorithm is described in detail in 'Zayed
-et al. (2024)' <doi:10.1186/s12911-024-02652-7>.
+focus on improving the data quality of laboratory result values and units,
+our goal is to equip researchers with a straightforward, plug-and-play
+tool, making it smoother for them to unlock the true potential of clinical
+laboratory data in clinical research and clinical machine learning (ML)
+model development. Functions to clean & validate result values (Version
+1.0) are described in detail in 'Zayed et al. (2024)'
+<doi:10.1186/s12911-024-02652-7>. Functions to standardize & harmonize
+result units (added in Version 2.0) are described in detail in 'Zayed et
+al. (2025)' <doi:10.1016/j.ijmedinf.2025.106131>.
 
 %prep
 %setup -q -c -n %{packname}
