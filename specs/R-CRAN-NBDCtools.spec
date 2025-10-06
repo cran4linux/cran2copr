@@ -1,45 +1,67 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  visOmopResults
-%global packver   1.3.0
+%global packname  NBDCtools
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphs and Tables for OMOP Results
+Summary:          National Institutes of Health Brain Development Cohorts Data Hub Tools
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-omopgenerics >= 0.3.1
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-omopgenerics >= 0.3.1
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sjmisc 
+BuildRequires:    R-CRAN-haven 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-chk 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-hms 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-sjmisc 
+Requires:         R-CRAN-haven 
 
 %description
-Provides methods to transform omop_result objects into formatted tables
-and figures, facilitating the visualisation of study results working with
-the Observational Medical Outcomes Partnership (OMOP) Common Data Model.
+A suite of functions to work with data from the National Institutes of
+Health Brain Development Cohorts Data Hub. The package provides tools to
+create, clean, process, and filter datasets and associated metadata. These
+utilities are intended to simplify reproducible data-preparation for
+future research.
 
 %prep
 %setup -q -c -n %{packname}

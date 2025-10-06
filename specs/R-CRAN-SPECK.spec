@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPECK
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Receptor Abundance Estimation using Reduced Rank Reconstruction and Clustered Thresholding
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
 BuildRequires:    R-CRAN-Ckmeans.1d.dp 
@@ -38,9 +38,9 @@ mechanism. Seurat's normalization method is described in: Hao et al.,
 <doi:10.1016/j.cell.2019.05.031>, Butler et al., (2018)
 <doi:10.1038/nbt.4096> and Satija et al., (2015) <doi:10.1038/nbt.3192>.
 Method for the RRR is further detailed in: Erichson et al., (2019)
-<doi:10.18637/jss.v089.i11> and Halko et al., (2009) <arXiv:0909.4061>.
-Clustering method is outlined in: Song et al., (2020)
-<doi:10.1093/bioinformatics/btaa613> and Wang et al., (2011)
+<doi:10.18637/jss.v089.i11> and Halko et al., (2009)
+<doi:10.48550/arXiv.0909.4061>. Clustering method is outlined in: Song et
+al., (2020) <doi:10.1093/bioinformatics/btaa613> and Wang et al., (2011)
 <doi:10.32614/RJ-2011-015>.
 
 %prep

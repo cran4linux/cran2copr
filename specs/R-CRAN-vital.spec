@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vital
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Analysis Tools for Mortality, Fertility, Migration and Population Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HMDHFDplus >= 2.0.3
+BuildRequires:    R-CRAN-HMDHFDplus >= 2.0.8
 BuildRequires:    R-CRAN-fabletools >= 0.3.3
 BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-CRAN-distributional 
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-HMDHFDplus >= 2.0.3
+Requires:         R-CRAN-HMDHFDplus >= 2.0.8
 Requires:         R-CRAN-fabletools >= 0.3.3
 Requires:         R-CRAN-cobs 
 Requires:         R-CRAN-distributional 

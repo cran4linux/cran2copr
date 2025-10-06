@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Hmisc
-%global packver   5.2-3
+%global packver   5.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.3
+Version:          5.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harrell Miscellaneous
 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-gtable
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-colorspace 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-gtable
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-colorspace 
