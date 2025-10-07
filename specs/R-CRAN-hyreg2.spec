@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  QuantRegGLasso
-%global packver   1.0.1
+%global packname  hyreg2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptively Weighted Group Lasso for Semiparametric Quantile Regression Models
+Summary:          Estimate Latent Classes on a Mixture of Continuous and Dichotomous Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-flexmix 
+BuildRequires:    R-CRAN-bbmle 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-flexmix 
+Requires:         R-CRAN-bbmle 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Implements an adaptively weighted group Lasso procedure for simultaneous
-variable selection and structure identification in varying coefficient
-quantile regression models and additive quantile regression models with
-ultra-high dimensional covariates. The methodology, grounded in a strong
-sparsity condition, establishes selection consistency under certain weight
-conditions. To address the challenge of tuning parameter selection in
-practice, a BIC-type criterion named high-dimensional information
-criterion (HDIC) is proposed. The Lasso procedure, guided by
-HDIC-determined tuning parameters, maintains selection consistency.
-Theoretical findings are strongly supported by simulation studies. (Toshio
-Honda, Ching-Kang Ing, Wei-Ying Wu, 2019, <DOI:10.3150/18-BEJ1091>).
+EQ-5D value set estimation can be done using the hybrid model likelihood
+as described by Oppe and van Hout (2010) <doi:10.1002/hec.3560> and
+Ramos-Goñi et al. (2017) <doi:10.1097/MLR.0000000000000283 >. The package
+is based on `flexmix()` and among others contains an M-step-driver as
+described by Leisch (2004) <doi:10.18637/jss.v011.i08>. Users can estimate
+latent classes and address preference heterogeneity. Both uncensored and
+censored data are supported. Furthermore, heteroscedasticity can be taken
+into account. It is possible to control for different covariates on the
+continuous and dichotomous parts of the data and start values can differ
+between the expected latent classes.
 
 %prep
 %setup -q -c -n %{packname}

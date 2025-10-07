@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  micEcon
-%global packver   0.6-20
+%global packname  FakeDataR
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.20
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microeconomic Analysis and Modelling
+Summary:          Privacy-Preserving Synthetic Data for 'LLM' Workflows
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plm >= 1.1.0
-BuildRequires:    R-CRAN-miscTools >= 0.6.1
-Requires:         R-CRAN-plm >= 1.1.0
-Requires:         R-CRAN-miscTools >= 0.6.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-zip 
 
 %description
-Various tools for microeconomic analysis and microeconomic modelling, e.g.
-estimating quadratic, Cobb-Douglas and Translog functions, calculating
-partial derivatives and elasticities of these functions, and calculating
-Hessian matrices, checking curvature and preparing restrictions for
-imposing monotonicity of Translog functions.
+Generate privacy-preserving synthetic datasets that mirror structure,
+types, factor levels, and missingness; export bundles for 'LLM' workflows
+(data plus 'JSON' schema and guidance); and build fake data directly from
+'SQL' database tables without reading real rows. Methods are related to
+approaches in Nowok, Raab and Dibben (2016) <doi:10.32614/RJ-2016-019> and
+the foundation-model overview by Bommasani et al. (2021)
+<doi:10.48550/arXiv.2108.07258>.
 
 %prep
 %setup -q -c -n %{packname}

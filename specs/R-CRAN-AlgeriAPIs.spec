@@ -1,43 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gerda
-%global packver   0.2.1
+%global packname  AlgeriAPIs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          German Election Database (GERDA)
+Summary:          Access Algerian Data via Public APIs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-stringdist 
+Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
 
 %description
-Provides tools to download comprehensive datasets of local, state, and
-federal election results in Germany from 1990 to 2025. The package
-facilitates access to data on turnout, vote shares for major parties, and
-demographic information across different levels of government (municipal,
-state, and federal). It offers access to geographically harmonized
-datasets that account for changes in municipal boundaries over time and
-incorporate mail-in voting districts. Users can easily retrieve, clean,
-and standardize German electoral data, making it ready for analysis. Data
-is sourced from <https://github.com/awiedem/german_election_data>.
+Provides functions to access data from public RESTful APIs including
+'World Bank API' and 'REST Countries API', retrieving real-time or
+historical information related to Algeria. The package enables users to
+query economic indicators and international demographic and geopolitical
+statistics in a reproducible way. It is designed for researchers,
+analysts, and developers who require reliable and programmatic access to
+Algerian data through established APIs. For more information on the APIs,
+see: 'World Bank API'
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392> and
+'REST Countries API' <https://restcountries.com/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xpose
-%global packver   0.4.20
+%global packver   0.4.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.20
+Version:          0.4.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostics for Pharmacometric Models
 

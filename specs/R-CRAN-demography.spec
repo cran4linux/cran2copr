@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  demography
-%global packver   2.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Mortality, Fertility, Migration and Population Data
 
@@ -19,14 +19,14 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast >= 8.5
 BuildRequires:    R-CRAN-ftsa >= 4.8
-BuildRequires:    R-CRAN-HMDHFDplus >= 2.0.0
+BuildRequires:    R-CRAN-HMDHFDplus >= 2.0.8
 BuildRequires:    R-CRAN-rainbow 
 BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-strucchange 
 Requires:         R-CRAN-forecast >= 8.5
 Requires:         R-CRAN-ftsa >= 4.8
-Requires:         R-CRAN-HMDHFDplus >= 2.0.0
+Requires:         R-CRAN-HMDHFDplus >= 2.0.8
 Requires:         R-CRAN-rainbow 
 Requires:         R-CRAN-cobs 
 Requires:         R-CRAN-mgcv 

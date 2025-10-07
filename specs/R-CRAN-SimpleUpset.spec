@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  micEcon
-%global packver   0.6-20
+%global packname  SimpleUpset
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.20
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microeconomic Analysis and Modelling
+Summary:          Create Upset Plots
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plm >= 1.1.0
-BuildRequires:    R-CRAN-miscTools >= 0.6.1
-Requires:         R-CRAN-plm >= 1.1.0
-Requires:         R-CRAN-miscTools >= 0.6.1
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-patchwork >= 1.3.2
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-patchwork >= 1.3.2
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Various tools for microeconomic analysis and microeconomic modelling, e.g.
-estimating quadratic, Cobb-Douglas and Translog functions, calculating
-partial derivatives and elasticities of these functions, and calculating
-Hessian matrices, checking curvature and preparing restrictions for
-imposing monotonicity of Translog functions.
+Create Upset plots using a combination of 'ggplot2' and 'patchwork'.
 
 %prep
 %setup -q -c -n %{packname}

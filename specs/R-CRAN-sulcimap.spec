@@ -1,43 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DUToolkit
-%global packver   1.0.2
+%global packname  sulcimap
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing and Quantifying Decision Uncertainty
+Summary:          Mapping Brain Folding Patterns
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggdist 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-scales 
-Requires:         R-stats 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-cowplot 
+Requires:         R-grid 
+Requires:         R-grDevices 
 
 %description
-A suite of tools to help modelers and decision-makers effectively
-interpret and communicate decision risk when evaluating multiple policy
-options. It uses model outputs from uncertainty analysis for baseline
-scenarios and policy alternatives to generate visual representations of
-uncertainty and quantitative measures for assessing associated risks. For
-more details see Wiggins and colleagues (2025)
-<doi:10.1371/journal.pone.0332522> and <https://dut.ihe.ca/>.
+Visualizes sulcal morphometry data derived from 'BrainVisa'
+<https://brainvisa.info/> including width, depth, surface area, and
+length. The package enables mapping of statistical group results or
+subject-level values onto cortical surface maps, with options to focus on
+all sulci or only selected regions of interest. Users can display all four
+measures simultaneously or restrict plots to chosen measures, creating
+composite, publication-quality brain visualizations in R to support the
+analysis and interpretation of sulcal morphology.
 
 %prep
 %setup -q -c -n %{packname}

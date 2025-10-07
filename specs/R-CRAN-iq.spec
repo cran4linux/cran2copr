@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iq
-%global packver   1.10.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Protein Quantification in Mass Spectrometry-Based Proteomics
 
@@ -25,9 +25,10 @@ An implementation of the MaxLFQ algorithm by Cox et al. (2014)
 proteomics data in data-independent acquisition mode (Pham et al. 2020
 <doi:10.1093/bioinformatics/btz961>). It offers additional options for
 protein quantification using the N most intense fragment ions, using all
-fragment ions, and a wrapper for the median polish algorithm by Tukey
-(1977, ISBN:0201076160). In general, the tool can be used to integrate
-multiple proportional observations into a single quantitative value.
+fragment ions, the median polish algorithm by Tukey (1977,
+ISBN:0201076160), and a robust linear model. In general, the tool can be
+used to integrate multiple proportional observations into a single
+quantitative value.
 
 %prep
 %setup -q -c -n %{packname}

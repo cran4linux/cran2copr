@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  micEcon
-%global packver   0.6-20
+%global packname  UVdose
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.20
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microeconomic Analysis and Modelling
+Summary:          Estimate Ambient UV Dose from Location and Date Info
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plm >= 1.1.0
-BuildRequires:    R-CRAN-miscTools >= 0.6.1
-Requires:         R-CRAN-plm >= 1.1.0
-Requires:         R-CRAN-miscTools >= 0.6.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-Various tools for microeconomic analysis and microeconomic modelling, e.g.
-estimating quadratic, Cobb-Douglas and Translog functions, calculating
-partial derivatives and elasticities of these functions, and calculating
-Hessian matrices, checking curvature and preparing restrictions for
-imposing monotonicity of Translog functions.
+Estimate ambient vitamin D-effective or erythemal dose using ultraviolet
+radiation (UV) data from the 'TEMIS' database, based on date and
+geographical location.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tangles
-%global packver   2.0.1
+%global packname  nilsier
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Anonymisation of Spatial Point Patterns and Grids
+Summary:          Design-Based Estimators for NILS
 
-License:          GPL-2
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+Requires:         R-CRAN-Rcpp >= 1.0.14
 
 %description
-Methods for anonymisation of spatial datasets while preserving spatial
-structure and relationships. Original coordinates or raster geometries are
-transformed using randomized or predefined vertical shifts, horizontal
-shifts, and rotations. Compatible with point-based data in 'matrix',
-'data.frame', or 'sf' formats, as well as 'terra' raster objects. Supports
-reversible anonymisation workflows, hash-based validation, shapefile
-export, and consistent tangling across related datasets using stored
-transformation sequences. Approach informed by the De-Identification
-Decision Making Framework (CM O’Keefe, S Otorepec, M Elliot, E Mackey, and
-K O’Hara 2017) <doi:10.4225/08/59c169433efd4>.
+Estimators and variance estimators tailored to the NILS hierarchical
+design (Adler et al. 2020, <https://res.slu.se/id/publ/105630>; Grafström
+et al. 2023, <https://res.slu.se/id/publ/128235>). The National
+Inventories of Landscapes in Sweden (NILS) is a long-term national
+monitoring program that collects, analyses and presents data on Swedish
+nature, covering both common and rare habitats
+<https://www.slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/miljoanalys/nils/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  QuantRegGLasso
-%global packver   1.0.1
+%global packname  adaplots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptively Weighted Group Lasso for Semiparametric Quantile Regression Models
+Summary:          Ada-Plot and Uda-Plot for Assessing Distributional Attributes and Normality
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-ggplot2 
 
 %description
-Implements an adaptively weighted group Lasso procedure for simultaneous
-variable selection and structure identification in varying coefficient
-quantile regression models and additive quantile regression models with
-ultra-high dimensional covariates. The methodology, grounded in a strong
-sparsity condition, establishes selection consistency under certain weight
-conditions. To address the challenge of tuning parameter selection in
-practice, a BIC-type criterion named high-dimensional information
-criterion (HDIC) is proposed. The Lasso procedure, guided by
-HDIC-determined tuning parameters, maintains selection consistency.
-Theoretical findings are strongly supported by simulation studies. (Toshio
-Honda, Ching-Kang Ing, Wei-Ying Wu, 2019, <DOI:10.3150/18-BEJ1091>).
+The centralized empirical cumulative average deviation function is
+utilized to develop both Ada-plot and Uda-plot as alternatives to Ad-plot
+and Ud-plot introduced by the author. Analogous to Ad-plot, Ada-plot can
+identify symmetry, skewness, and outliers of the data distribution. The
+Uda-plot is as exceptional as Ud-plot in assessing normality. The d-value
+that quantifies the degree of proximity between the Uda-plot and the graph
+of the estimated normal density function helps guide to make decisions on
+confirmation of normality. Extreme values in the data can be eliminated
+using the 1.5IQR rule to create its robust version if user demands. Full
+description of the methodology can be found in the article by Wijesuriya
+(2025a) <doi:10.1080/03610926.2025.2558108>. Further, the development of
+Ad-plot and Ud-plot is contained in both article and the 'adplots' R
+package by Wijesuriya (2025b & 2025c) <doi:10.1080/03610926.2024.2440583>
+and <doi:10.32614/CRAN.package.adplots>.
 
 %prep
 %setup -q -c -n %{packname}

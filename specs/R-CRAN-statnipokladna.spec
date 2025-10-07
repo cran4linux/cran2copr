@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statnipokladna
-%global packver   0.7.4
+%global packver   0.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Data from the Czech Public Finance Database
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 4.3
 BuildRequires:    R-utils >= 3.6.0
@@ -54,7 +54,8 @@ Requires:         R-CRAN-magrittr
 
 %description
 Get programmatic access to data from the Czech public budgeting and
-accounting database, Státní pokladna <https://monitor.statnipokladna.cz/>.
+accounting database, Státní pokladna
+<https://monitor.statnipokladna.gov.cz/>.
 
 %prep
 %setup -q -c -n %{packname}

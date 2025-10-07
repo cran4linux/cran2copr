@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvg
-%global packver   0.3.5
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Graphics Devices for 'Office' Vector Graphics Output
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-gdtools >= 0.3.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-systemfonts 
 Requires:         R-CRAN-xml2 >= 1.0.0
 Requires:         R-CRAN-officer >= 0.6.2
 Requires:         R-CRAN-gdtools >= 0.3.3
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-systemfonts 
 
 %description
 Vector Graphics devices for 'Microsoft PowerPoint' and 'Microsoft Excel'.

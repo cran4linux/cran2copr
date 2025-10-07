@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  micEcon
-%global packver   0.6-20
+%global packname  Pinference
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.20
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microeconomic Analysis and Modelling
+Summary:          Probability Inference for Propositional Logic
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plm >= 1.1.0
-BuildRequires:    R-CRAN-miscTools >= 0.6.1
-Requires:         R-CRAN-plm >= 1.1.0
-Requires:         R-CRAN-miscTools >= 0.6.1
+BuildRequires:    R-CRAN-lpSolve 
+Requires:         R-CRAN-lpSolve 
 
 %description
-Various tools for microeconomic analysis and microeconomic modelling, e.g.
-estimating quadratic, Cobb-Douglas and Translog functions, calculating
-partial derivatives and elasticities of these functions, and calculating
-Hessian matrices, checking curvature and preparing restrictions for
-imposing monotonicity of Translog functions.
+Implementation of T. Hailperin's procedure to calculate lower and upper
+bounds of the probability for a propositional-logic expression, given
+equality and inequality constraints on the probabilities for other
+expressions. Truth-valuation is included as a special case. Applications
+range from decision-making and probabilistic reasoning, to pedagogical for
+probability and logic courses. For more details see T. Hailperin (1965)
+<doi:10.1080/00029890.1965.11970533>, T. Hailperin (1996) "Sentential
+Probability Logic" ISBN:0-934223-45-9, and package documentation. Requires
+the 'lpSolve' package.
 
 %prep
 %setup -q -c -n %{packname}

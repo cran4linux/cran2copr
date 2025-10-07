@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  micEcon
-%global packver   0.6-20
+%global packname  normref
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.20
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microeconomic Analysis and Modelling
+Summary:          Continuous Norming
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plm >= 1.1.0
-BuildRequires:    R-CRAN-miscTools >= 0.6.1
-Requires:         R-CRAN-plm >= 1.1.0
-Requires:         R-CRAN-miscTools >= 0.6.1
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-openxlsx2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-openxlsx2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Various tools for microeconomic analysis and microeconomic modelling, e.g.
-estimating quadratic, Cobb-Douglas and Translog functions, calculating
-partial derivatives and elasticities of these functions, and calculating
-Hessian matrices, checking curvature and preparing restrictions for
-imposing monotonicity of Translog functions.
+A toolbox for calculating continuous norms for psychological tests, where
+the norms can be age-dependent. The norms are based Generalized Additive
+Models for Location, Scale, and Shape (GAMLSS) for the test scores in the
+normative sample. The package includes functions for model selection,
+reliability estimation, and calculating norms, including confidence
+intervals. For more details, see Timmerman et al. (2021)
+<doi:10.1037/met0000348>.
 
 %prep
 %setup -q -c -n %{packname}

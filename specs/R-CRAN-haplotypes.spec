@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  haplotypes
-%global packver   1.1.3.1
+%global packver   1.1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3.1
+Version:          1.1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulating DNA Sequences and Estimating Unambiguous Haplotype Network with Statistical Parsimony
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -36,11 +36,11 @@ Requires:         R-CRAN-plotrix
 
 %description
 Provides S4 classes and methods for reading and manipulating aligned DNA
-sequences, supporting an indel coding methods (only simple indel coding
+sequences, supporting an indel-coding method (only simple indel-coding
 method is available in the current version), showing base substitutions
 and indels, calculating absolute pairwise distances between DNA sequences,
-and collapses identical DNA sequences into haplotypes or inferring
-haplotypes using user provided absolute pairwise character difference
+and collapsing identical DNA sequences into haplotypes or inferring
+haplotypes using user-provided absolute pairwise character difference
 matrix.  This package also includes S4 classes and methods for estimating
 genealogical relationships among haplotypes using statistical parsimony
 and plotting parsimony networks.

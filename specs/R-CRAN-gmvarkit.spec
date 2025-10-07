@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmvarkit
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Gaussian and Student's t Mixture Vector Autoregressive Models
 
@@ -45,8 +45,8 @@ simulations, forecasting, and estimation of generalized impulse response
 function and generalized forecast error variance decomposition. Leena
 Kalliovirta, Mika Meitz, Pentti Saikkonen (2016)
 <doi:10.1016/j.jeconom.2016.02.012>, Savi Virolainen (2025)
-<doi:10.1080/07350015.2024.2322090>, Savi Virolainen (2022)
-<doi:10.48550/arXiv.2109.13648>.
+<doi:10.1080/07350015.2024.2322090>, Savi Virolainen (in press)
+<doi:10.1016/j.ecosta.2025.09.003>.
 
 %prep
 %setup -q -c -n %{packname}

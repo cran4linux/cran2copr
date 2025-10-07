@@ -1,33 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  micEcon
-%global packver   0.6-20
+%global packname  nose
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.20
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microeconomic Analysis and Modelling
+Summary:          Classification of Sparseness in 2-by-2 Categorical Data
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plm >= 1.1.0
-BuildRequires:    R-CRAN-miscTools >= 0.6.1
-Requires:         R-CRAN-plm >= 1.1.0
-Requires:         R-CRAN-miscTools >= 0.6.1
 
 %description
-Various tools for microeconomic analysis and microeconomic modelling, e.g.
-estimating quadratic, Cobb-Douglas and Translog functions, calculating
-partial derivatives and elasticities of these functions, and calculating
-Hessian matrices, checking curvature and preparing restrictions for
-imposing monotonicity of Translog functions.
+Provides functions for classifying sparseness in 2 x 2 categorical data
+where one or more cells have zero counts. The classification uses three
+widely applied summary measures: Risk Difference (RD), Relative Risk (RR),
+and Odds Ratio (OR). Helps in selecting suitable continuity corrections
+for zero cells in multi-centre or meta-analysis studies. Also supports
+sensitivity analysis and can detect phenomena such as Simpson's paradox.
+The methodology is based on Subbiah and Srinivasan (2008)
+<doi:10.1016/j.spl.2008.06.023>.
 
 %prep
 %setup -q -c -n %{packname}

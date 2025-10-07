@@ -1,52 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rfars
-%global packver   2.0.1
+%global packname  RegCalReliab
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Analyze Crash Data
+Summary:          Regression Calibration Using Reliability Studies
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-downloader 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-downloader 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-stats 
+Requires:         R-CRAN-sandwich 
 
 %description
-Download crash data from the National Highway Traffic Safety
-Administration and prepare it for research.
+Implements regression calibration methods for correcting measurement error
+in regression models using external or internal reliability studies.
+Methods are described in Carroll, Ruppert, Stefanski, and Crainiceanu
+(2006) "Measurement Error in Nonlinear Models: A Modern Perspective"
+<doi:10.1201/9781420010138>.
 
 %prep
 %setup -q -c -n %{packname}

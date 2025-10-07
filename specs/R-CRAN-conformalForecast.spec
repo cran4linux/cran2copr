@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nopp
-%global packver   1.1.2
+%global packname  conformalForecast
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nash Optimal Party Positions
+Summary:          Conformal Prediction Methods for Multistep-Ahead Time Series Forecasting
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlogit 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-mlogit 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-zoo 
 
 %description
-Estimation of party/candidate ideological positions that correspond to a
-Nash equilibrium along a one-dimensional space.
+Methods and tools for performing multistep-ahead time series forecasting
+using conformal prediction methods including classical conformal
+prediction, adaptive conformal prediction, conformal PID
+(Proportional-Integral-Derivative) control, and autocorrelated
+multistep-ahead conformal prediction. The methods were described by Wang
+and Hyndman (2024) <doi:10.48550/arXiv.2410.13115>.
 
 %prep
 %setup -q -c -n %{packname}

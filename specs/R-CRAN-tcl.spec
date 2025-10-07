@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tcl
-%global packver   0.2.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing in Conditional Likelihood Context
 
@@ -64,7 +64,9 @@ be tested and a user-specified level alpha of the test. Power and sample
 size computations are based on a Monte Carlo simulation approach. It is
 computationally very efficient. The variance of the random error in
 computing power and sample size arising from the simulation approach is
-analytically derived by using the delta method. Draxler, C., &
+analytically derived by using the delta method. Additionally, functions to
+compute the power of the tests as a function of an effect measure
+interpreted as explained variance are provided. Draxler, C., &
 Alexandrowicz, R. W. (2015), <doi:10.1007/s11336-015-9472-y>.
 
 %prep
