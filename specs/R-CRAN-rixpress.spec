@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sassy
-%global packver   1.2.9
+%global packname  rixpress
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Makes 'R' Easier for Everyone
+Summary:          Build Reproducible Analytical Pipelines with 'Nix'
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fmtr >= 1.6.8
-BuildRequires:    R-CRAN-reporter >= 1.4.4
-BuildRequires:    R-CRAN-logr >= 1.3.9
-BuildRequires:    R-CRAN-libr >= 1.3.9
-BuildRequires:    R-CRAN-common >= 1.1.3
-BuildRequires:    R-CRAN-procs >= 1.0.7
-BuildRequires:    R-datasets 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-fmtr >= 1.6.8
-Requires:         R-CRAN-reporter >= 1.4.4
-Requires:         R-CRAN-logr >= 1.3.9
-Requires:         R-CRAN-libr >= 1.3.9
-Requires:         R-CRAN-common >= 1.1.3
-Requires:         R-CRAN-procs >= 1.0.7
-Requires:         R-datasets 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
 
 %description
-A meta-package that aims to make 'R' easier for everyone, especially
-programmers who have a background in 'SAS®' software. This set of packages
-brings many useful concepts to 'R', including data libraries, data
-dictionaries, formats and format catalogs, a data step, and a traceable
-log.  The system also includes a package that replicates several
-commonly-used 'SAS®' procedures, like 'PROC FREQ', 'PROC MEANS', and 'PROC
-REG'.
+Streamlines the creation of reproducible analytical pipelines using
+'default.nix' expressions generated via the 'rix' package for
+reproducibility. Define derivations in 'R', 'Python' or 'Julia', chain
+them into a composition of pure functions and build the resulting pipeline
+using 'Nix' as the underlying end-to-end build tool. Functions to plot the
+pipeline as a directed acyclic graph are included, as well as functions to
+load and inspect intermediary results for interactive analysis. User
+experience heavily inspired by the 'targets' package.
 
 %prep
 %setup -q -c -n %{packname}

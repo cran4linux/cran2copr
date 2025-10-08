@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Epi
-%global packver   2.60
+%global packver   2.61
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.60
+Version:          2.61
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis in Epidemiology
 
@@ -52,8 +52,9 @@ representation, manipulation, rate estimation and simulation for
 multistate data - the Lexis suite of functions, which includes interfaces
 to 'mstate', 'etm' and 'cmprsk' packages. Contains functions for
 Age-Period-Cohort and Lee-Carter modeling and a function for interval
-censored data and some useful functions for tabulation and plotting, as
-well as a number of epidemiological data sets.
+censored data. Has functions for extracting and manipulating parameter
+estimates and predicted values (ci.lin and its cousins), as well as a
+number of epidemiological data sets.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FARS
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor-Augmented Regression Scenarios
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-sn 
@@ -30,6 +32,8 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-sn 
@@ -47,12 +51,15 @@ Requires:         R-CRAN-stringr
 %description
 Provides a comprehensive framework in R for modeling and forecasting
 economic scenarios based on multi-level dynamic factor model. The package
-enables users to: (i) extract global and block-specific factors using a
-flexible multilevel factor structure; (ii) compute asymptotically valid
+enables users to: (i) extract global and group-specific factors using a
+flexible multi-level factor structure; (ii) compute asymptotically valid
 confidence regions for the estimated factors, accounting for uncertainty
-in the factor loadings; (iii) estimate factor-augmented quantile
-regressions; (iv) recover full predictive densities from these quantile
-forecasts; and (v) estimate the density when the factors are stressed.
+in the factor loadings; (iii) obtain estimates of the parameters of the
+factor-augmented quantile regressions together with their standard
+deviations; (iv) recover full predictive conditional densities from
+estimated quantiles; (v) obtain risk measures based on extreme quantiles
+of the conditional densities; (vi) estimate the conditional density and
+the corresponding extreme quantiles when the factors are stressed.
 
 %prep
 %setup -q -c -n %{packname}

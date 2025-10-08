@@ -1,45 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bipartite
-%global packver   2.23
+%global packname  RTMBdist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualising Bipartite Networks and Calculating Some (Ecological) Indices
+Summary:          Distributions Compatible with Automatic Differentiation by 'RTMB'
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-sna 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-permute 
-Requires:         R-CRAN-sna 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-permute 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RTMB >= 1.7
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-movMF 
+Requires:         R-CRAN-RTMB >= 1.7
+Requires:         R-stats 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-movMF 
 
 %description
-Functions to visualise webs and calculate a series of indices commonly
-used to describe pattern in (ecological) webs. It focuses on webs
-consisting of only two levels (bipartite), e.g. pollination webs or
-predator-prey-webs. Visualisation is important to get an idea of what we
-are actually looking at, while the indices summarise different aspects of
-the web's topology.
+Extends the functionality of the 'RTMB'
+<https://kaskr.r-universe.dev/RTMB> package by providing a collection of
+non-standard probability distributions compatible with automatic
+differentiation (AD). While 'RTMB' enables flexible and efficient
+modelling, including random effects, its built-in support is limited to
+standard distributions. The package adds additional AD-compatible
+distributions, broadening the range of models that can be implemented and
+estimated using 'RTMB'. Automatic differentiation and Laplace
+approximation are described in Kristensen et al. (2016)
+<doi:10.18637/jss.v070.i05>.
 
 %prep
 %setup -q -c -n %{packname}

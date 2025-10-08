@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Analitica
-%global packver   2.0.0
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Data Analysis, Group Comparison Tools, and Other Procedures
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-multcompView 
+Requires:         R-stats 
 
 %description
 Provides a comprehensive set of tools for descriptive statistics,
@@ -47,7 +49,9 @@ post hoc comparison methods such as Tukey, Scheffé, Games-Howell,
 Brunner-Munzel, and others. This version introduces two new procedures:
 the Jonckheere-Terpstra trend test and the Jarque-Bera test with
 Glinskiy's (2024) correction. Designed for use in teaching, applied
-statistical analysis, and reproducible research.
+statistical analysis, and reproducible research. Additionally you can find
+a post hoc Test Planner, which helps you to make a decision on which
+procedure is most suitable.
 
 %prep
 %setup -q -c -n %{packname}

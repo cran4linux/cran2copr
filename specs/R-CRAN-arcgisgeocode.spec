@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arcgisgeocode
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Robust Interface to ArcGIS 'Geocoding Services'
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildRequires:    R-CRAN-httr2 >= 1.1.1
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-arcgisutils >= 0.3.0
+BuildRequires:    R-CRAN-arcgisutils >= 0.3.3.9000
 BuildRequires:    R-CRAN-RcppSimdJson >= 0.1.13
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-jsonify 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-httr2 >= 1.1.1
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-arcgisutils >= 0.3.0
+Requires:         R-CRAN-arcgisutils >= 0.3.3.9000
 Requires:         R-CRAN-RcppSimdJson >= 0.1.13
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-jsonify 

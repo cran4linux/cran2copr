@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggiraph
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make 'ggplot2' Graphics Interactive
 
@@ -19,27 +19,31 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-CRAN-systemfonts >= 1.3.1
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-gdtools >= 0.4.4
+BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-systemfonts 
-BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-htmlwidgets >= 1.5
-Requires:         R-CRAN-Rcpp >= 1.0
+Requires:         R-CRAN-systemfonts >= 1.3.1
+Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-gdtools >= 0.4.4
+Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
 Requires:         R-grid 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-systemfonts 
-Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-vctrs 
 
 %description

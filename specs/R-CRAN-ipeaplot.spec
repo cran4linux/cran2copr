@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ipeaplot
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-paletteer
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-ragg 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-paletteer
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-ragg 
 
 %description
 Convenient functions to create 'ggplot2' graphics following the editorial

@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Statamarkdown
-%global packver   0.9.6
+%global packname  BTIME
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Stata' Markdown
+Summary:          Bayesian Hierarchical Models for Single-Cell Protein Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.43
-BuildRequires:    R-CRAN-xfun >= 0.39
-Requires:         R-CRAN-knitr >= 1.43
-Requires:         R-CRAN-xfun >= 0.39
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-runjags 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-matlib 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-runjags 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-matlib 
 
 %description
-Settings and functions to extend the 'knitr' 'Stata' engine.
+Bayesian Hierarchical beta-binomial models for modeling cell population to
+predictors/exposures. This package utilizes 'runjags' to run Gibbs
+sampling with parallel chains. Options for different
+covariances/relationship structures between parameters of interest.
 
 %prep
 %setup -q -c -n %{packname}

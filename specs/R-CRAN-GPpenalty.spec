@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Statamarkdown
-%global packver   0.9.6
+%global packname  GPpenalty
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Stata' Markdown
+Summary:          Penalized Likelihood in Gaussian Processes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.43
-BuildRequires:    R-CRAN-xfun >= 0.39
-Requires:         R-CRAN-knitr >= 1.43
-Requires:         R-CRAN-xfun >= 0.39
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Settings and functions to extend the 'knitr' 'Stata' engine.
+Implements maximum likelihood estimation for Gaussian processes,
+supporting both isotropic and separable models with predictive
+capabilities. Includes penalized likelihood estimation following Li and
+Sudjianto (2005, <doi:10.1198/004017004000000671>), using score-based
+metrics that account for uncertainty (See Gneiting and Raftery 2007,
+<doi:10.1198/016214506000001437>). Includes cross validation techniques
+for tuning parameter selection. Designed specifically for small datasets.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Statamarkdown
-%global packver   0.9.6
+%global packname  mda.biber
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Stata' Markdown
+Summary:          Functions for Multi-Dimensional Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.43
-BuildRequires:    R-CRAN-xfun >= 0.39
-Requires:         R-CRAN-knitr >= 1.43
-Requires:         R-CRAN-xfun >= 0.39
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-nFactors 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-nFactors 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
 
 %description
-Settings and functions to extend the 'knitr' 'Stata' engine.
+Multi-Dimensional Analysis (MDA) is an adaptation of factor analysis
+developed by Douglas Biber (1992) <doi:10.1007/BF00136979>. Its most
+common use is to describe language as it varies by genre, register, and
+use. This package contains functions for carrying out the calculations
+needed to describe and plot MDA results: dimension scores, dimension
+means, and factor loadings.
 
 %prep
 %setup -q -c -n %{packname}

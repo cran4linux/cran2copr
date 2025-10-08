@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pysparklyr
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides a 'PySpark' Back-End for the 'sparklyr' Package
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.9.0
 BuildRequires:    R-CRAN-reticulate >= 1.41.0.1
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
@@ -28,6 +27,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sparklyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-magrittr 
@@ -37,7 +37,6 @@ BuildRequires:    R-CRAN-processx
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-rsconnect 
-Requires:         R-CRAN-sparklyr >= 1.9.0
 Requires:         R-CRAN-reticulate >= 1.41.0.1
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-cli 
@@ -48,6 +47,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-purrr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sparklyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-magrittr 

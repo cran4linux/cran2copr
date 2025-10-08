@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  linkeR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Link Interactive Plots and Tables in 'shiny' Applications
 
@@ -29,9 +29,9 @@ Build powerful, linked-view dashboards in 'shiny' applications. With a
 declarative, one-line setup, you can create bidirectional links between
 interactive components. When a user interacts with one element (e.g.,
 clicking a map marker), all linked components (such as 'DT' tables or
-other charts) instantly update. Supports 'leaflet' maps, 'DT' tables, and
-spatial data via 'sf' objects out-of-the-box, with an extensible API for
-custom components.
+other charts) instantly update. Supports 'leaflet' maps, 'DT' tables,
+'plotly' charts, and spatial data via 'sf' objects out-of-the-box, with an
+extensible API for custom components.
 
 %prep
 %setup -q -c -n %{packname}

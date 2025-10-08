@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gam.hp
-%global packver   0.0-3
+%global packver   0.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Partitioning of Adjusted R2 and Explained Deviance for Generalized Additive Models
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-ggplot2
 %description
 Conducts hierarchical partitioning to calculate individual contributions
 of each predictor towards adjusted R2 and explained deviance for
-generalized additive models based on output of gam()in 'mgcv' package,
-applying the algorithm in this paper: Lai(2024)
+generalized additive models based on output of 'gam()' and 'bam()' in
+'mgcv' package, applying the algorithm in this paper: Lai(2024)
 <doi:10.1016/j.pld.2024.06.002>.
 
 %prep
