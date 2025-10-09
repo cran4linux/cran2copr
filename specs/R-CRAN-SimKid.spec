@@ -1,56 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jpinfect
-%global packver   0.1.5
+%global packname  SimKid
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Acquiring and Processing Data from Japan Institute for Health Security
+Summary:          Simulate Virtual Pediatrics using Anthropometric Growth Charts
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 2.1.5
+BuildRequires:    R-stats >= 4.4.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-withr >= 3.0.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-stringi >= 1.8.7
-BuildRequires:    R-CRAN-stringr >= 1.5.1
-BuildRequires:    R-CRAN-readxl >= 1.4.5
-BuildRequires:    R-CRAN-future >= 1.34.0
+BuildRequires:    R-CRAN-msm >= 1.7.1
+BuildRequires:    R-CRAN-tmvtnorm >= 1.6
 BuildRequires:    R-CRAN-tidyr >= 1.3.1
-BuildRequires:    R-CRAN-tidyselect >= 1.2.1
-BuildRequires:    R-CRAN-future.apply >= 1.11.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-ISOweek >= 0.6.2
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-readr >= 2.1.5
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-randomizr >= 1.0.0
+Requires:         R-stats >= 4.4.1
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-withr >= 3.0.0
 Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-stringi >= 1.8.7
-Requires:         R-CRAN-stringr >= 1.5.1
-Requires:         R-CRAN-readxl >= 1.4.5
-Requires:         R-CRAN-future >= 1.34.0
+Requires:         R-CRAN-msm >= 1.7.1
+Requires:         R-CRAN-tmvtnorm >= 1.6
 Requires:         R-CRAN-tidyr >= 1.3.1
-Requires:         R-CRAN-tidyselect >= 1.2.1
-Requires:         R-CRAN-future.apply >= 1.11.3
 Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-ISOweek >= 0.6.2
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-randomizr >= 1.0.0
 
 %description
-Download and post process the infectious disease case data from Japan
-Institute for Health Security. Also the package included ready-to-analyse
-datasets. See the data source website for further details
-<https://id-info.jihs.go.jp/>.
+Simulate a virtual population of subjects that has demographic
+distributions (height, weight, and BMI) and correlations (height and
+weight), by sex and age, which mimic those reported in real-world
+anthropometric growth charts (CDC, WHO, or Fenton).
 
 %prep
 %setup -q -c -n %{packname}

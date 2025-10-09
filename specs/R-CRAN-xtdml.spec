@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtdml
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double Machine Learning for Static Panel Models with Fixed Effects
 
@@ -49,14 +49,14 @@ Requires:         R-CRAN-MLmetrics
 Requires:         R-CRAN-checkmate 
 
 %description
-Implementation of partially linear panel regression (PLPR) models with
-high-dimensional confounding variables and exogenous treatment variable
-within the double machine learning framework. It allows the estimation of
-the structural parameter (treatment effect) in static panel data models
-with fixed effects using panel data approaches established in Clarke and
-Polselli (2025) <doi:10.1093/ectj/utaf011>. 'xtdml' is built on the
-object-oriented 'DoubleML' (Bach et al., 2024) <doi:10.18637/jss.v108.i03>
-using the 'mlr3' ecosystem.
+The 'xtdml' package implements partially linear panel regression (PLPR)
+models with high-dimensional confounding variables and an exogenous
+treatment variable within the double machine learning framework. The
+package is used to estimate the structural parameter (treatment effect) in
+static panel data models with fixed effects using the approaches
+established in Clarke and Polselli (2025) <doi:10.1093/ectj/utaf011>.
+'xtdml' is built on the object-oriented package 'DoubleML' (Bach et al.,
+2024) <doi:10.18637/jss.v108.i03> using the 'mlr3' ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

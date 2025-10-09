@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  escalation
-%global packver   0.1.10
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular Approach to Dose-Finding Clinical Trials
 
@@ -35,6 +35,8 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-binom 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Iso 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-tidyr >= 1.0
 Requires:         R-CRAN-trialr >= 0.1.5
@@ -54,6 +56,8 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-binom 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-graphics 
+Requires:         R-CRAN-Iso 
 Requires:         R-CRAN-testthat 
 
 %description

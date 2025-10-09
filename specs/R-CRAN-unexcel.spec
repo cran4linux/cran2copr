@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggvenn
-%global packver   0.1.19
+%global packname  unexcel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Draw Venn Diagram by 'ggplot2'
+Summary:          Revert Excel Serial Dates Back to Intended Day.Month Numerics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scales >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-scales >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-rlang 
 
 %description
-An easy-to-use way to draw pretty Venn diagrams using 'ggplot2'. This
-package provides functions to create Venn diagrams with customizable
-colors, labels, and styling options.
+Detects values imported from spreadsheets that were auto-converted to
+Excel date serials and reconstructs the originally intended day.month
+decimals (for example, '30.3' that Excel displayed as '30/03/2025'). The
+functions work in a vectorized manner, preserve non-serial values, and
+support both the 1900 and 1904 date systems.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmulti
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Data Visualization
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grid 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easysurv
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify Survival Data Analysis and Model Fitting
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggsurvfit >= 1.2.0
 BuildRequires:    R-CRAN-bshazard 
 BuildRequires:    R-CRAN-censored 
 BuildRequires:    R-CRAN-cli 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-flexsurvcure 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggsurvfit 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-plotly 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ggsurvfit >= 1.2.0
 Requires:         R-CRAN-bshazard 
 Requires:         R-CRAN-censored 
 Requires:         R-CRAN-cli 
@@ -46,7 +47,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-flexsurvcure 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggsurvfit 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-plotly 
@@ -63,10 +63,10 @@ Requires:         R-utils
 %description
 Inspect survival data, plot Kaplan-Meier curves, assess the proportional
 hazards assumption, fit parametric survival models, predict and plot
-survival and hazards, and export the outputs to Excel.  A simple interface
-for fitting survival models using 'flexsurv::flexsurvreg()',
-'flexsurv::flexsurvspline()', 'flexsurvcure::flexsurvcure()', and
-'survival::survreg()'.
+survival and hazards, and export the outputs to 'Excel'.  A simple
+interface for fitting survival models using flexsurv::flexsurvreg(),
+flexsurv::flexsurvspline(), flexsurvcure::flexsurvcure(), and
+survival::survreg().
 
 %prep
 %setup -q -c -n %{packname}

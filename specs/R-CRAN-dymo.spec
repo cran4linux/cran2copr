@@ -1,55 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dymo
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Mode Decomposition for Multivariate Time Feature Prediction
+Summary:          Dynamic Mode Decomposition Forecasting with Conformal Predictive Sampling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.54
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-imputeTS >= 3.2
-BuildRequires:    R-CRAN-modeest >= 2.4.0
-BuildRequires:    R-CRAN-readr >= 2.1.2
-BuildRequires:    R-CRAN-lubridate >= 1.7.10
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-tictoc >= 1.0
-BuildRequires:    R-CRAN-greybox >= 1.0.1
-BuildRequires:    R-CRAN-matlib >= 0.9.5
-BuildRequires:    R-CRAN-fANCOVA >= 0.6.1
-BuildRequires:    R-CRAN-narray >= 0.4.1.1
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-moments >= 0.14
-Requires:         R-CRAN-MASS >= 7.3.54
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-imputeTS >= 3.2
-Requires:         R-CRAN-modeest >= 2.4.0
-Requires:         R-CRAN-readr >= 2.1.2
-Requires:         R-CRAN-lubridate >= 1.7.10
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-tictoc >= 1.0
-Requires:         R-CRAN-greybox >= 1.0.1
-Requires:         R-CRAN-matlib >= 0.9.5
-Requires:         R-CRAN-fANCOVA >= 0.6.1
-Requires:         R-CRAN-narray >= 0.4.1.1
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-moments >= 0.14
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-rlang >= 1.1.6
 
 %description
-An application of Dynamic Mode Decomposition for prediction of time
-features. Automatic search for the best model across the space of all
-possible feature combinations and ranks of Singular Value Decomposition.
+The DYMO package provides tools for multi-feature time-series forecasting
+using a Dynamic Mode Decomposition (DMD) model combined with conformal
+predictive sampling for uncertainty quantification.
 
 %prep
 %setup -q -c -n %{packname}

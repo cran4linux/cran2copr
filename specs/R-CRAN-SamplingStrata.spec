@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SamplingStrata
-%global packver   1.5-4
+%global packver   1.5-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Stratification of Sampling Frames for Multipurpose Sampling Surveys
 
@@ -31,22 +31,17 @@ Requires:         R-CRAN-glue
 Requires:         R-methods 
 
 %description
-In the field of stratified sampling design, this package offers an
-approach for the determination of the best stratification of a sampling
-frame, the one that ensures the minimum sample cost under the condition to
-satisfy precision constraints in a multivariate and multidomain case. This
-approach is based on the use of the genetic algorithm: each solution (i.e.
-a particular partition in strata of the sampling frame) is considered as
-an individual in a population; the fitness of all individuals is evaluated
-applying the Bethel-Chromy algorithm to calculate the sampling size
-satisfying precision constraints on the target estimates. Functions in the
-package allows to: (a) analyse the obtained results of the optimisation
-step; (b) assign the new strata labels to the sampling frame; (c) select a
-sample from the new frame accordingly to the best allocation. Functions
-for the execution of the genetic algorithm are a modified version of the
-functions in the 'genalg' package. M.Ballin, G.Barcaroli (2020)
-<arXiv:2004.09366> "R package SamplingStrata: new developments and
-extension to Spatial Sampling".
+Tools for the optimization of stratified sampling design. It determines a
+stratification of a sampling frame that minimizes sample cost while
+satisfying precision constraints in a multivariate and multidomain
+context. The approach relies on a genetic algorithm; each candidate
+partition of the frame is an individual whose fitness is evaluated via the
+Bethel-Chromy allocation to meet target precisions. Functions support
+analysis of optimization results, labeling of the frame with new strata,
+and drawing a sample according to the optimal allocation. Algorithmic
+components adapt code from the 'genalg' package. See M. Ballin and G.
+Barcaroli (2020) "R package SamplingStrata: new developments and extension
+to Spatial Sampling" <doi:10.48550/arXiv.2004.09366>.
 
 %prep
 %setup -q -c -n %{packname}

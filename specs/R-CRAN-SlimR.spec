@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SlimR
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Marker-Based Package for Single-Cell and Spatial-Transcriptomic Annotation
+Summary:          Machine Learning-Assisted, Marker-Based Tool for Single-Cell and Spatial Transcriptomics Annotation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -41,20 +41,18 @@ Requires:         R-tools
 Requires:         R-CRAN-tibble 
 
 %description
-Annotating single-cell and spatial-transcriptomic (ST) data based on the
-Marker dataset. It supports the creation of a unified marker list,
-Markers_list, using sources including: the package's built-in curated
-species-specific cell type and marker reference databases (e.g.,
-'Cellmarker2', 'PanglaoDB', 'scIBD', 'TCellSI'), Seurat objects containing
-cell label information, or user-provided Excel tables mapping cell types
-to markers. Based on the Markers_list, 'SlimR' can calculate gene
-expression of different cell types and predict annotation information and
-calculate corresponding AUC by 'Celltype_Calculate()', and annotate it by
-'Celltype_Annotation()', then verify it by 'Celltype_Verification()'. At
-the same time, it can calculate gene expression corresponding to the cell
-type to generate the corresponding annotation reference map for manual
-annotation (e.g., 'Heatmap', 'Features plot', 'Combined plot'). For more
-details see Kabacoff (2020, ISBN:9787115420572).
+Annotates single-cell and spatial-transcriptomic (ST) data using marker
+datasets. Supports unified markers list ('Markers_list') creation from
+built-in databases (e.g., 'Cellmarker2', 'PanglaoDB', 'scIBD', 'TCellSI'),
+Seurat objects, or user-supplied Excel files. SlimR can predict calculate
+parameters by machine learning algorithms (e.g., 'Random Forest',
+'Gradient Boosting', 'Support Vector Machine', 'Ensemble Learning'), and
+based on Markers_list, calculate gene expression of different cell types
+and predict annotation information and calculate corresponding AUC and
+annotate it, then verify it. At the same time, it can calculate gene
+expression corresponding to the cell type to generate a reference map for
+manual annotation (e.g., 'Heat Map', 'Feature Plots', 'Combined Plots').
+For more details see Kabacoff (2020, ISBN:9787115420572).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neuralGAM
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Neural Network Based on Generalized Additive Models
 
@@ -23,24 +23,28 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tensorflow 
 Requires:         R-CRAN-keras 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
 
 %description
-Neural network framework based on Generalized Additive Models from Hastie
-& Tibshirani (1990, ISBN:9780412343902), which trains a different neural
-network to estimate the contribution of each feature to the response
-variable. The networks are trained independently leveraging the local
-scoring and backfitting algorithms to ensure that the Generalized Additive
-Model converges and it is additive. The resultant Neural Network is a
-highly accurate and interpretable deep learning model, which can be used
-for high-risk AI practices where decision-making should be based on
+Neural Additive Model framework based on Generalized Additive Models from
+Hastie & Tibshirani (1990, ISBN:9780412343902), which trains a different
+neural network to estimate the contribution of each feature to the
+response variable. The networks are trained independently leveraging the
+local scoring and backfitting algorithms to ensure that the Generalized
+Additive Model converges and it is additive. The resultant Neural Network
+is a highly accurate and interpretable deep learning model, which can be
+used for high-risk AI practices where decision-making should be based on
 accountable and interpretable algorithms.
 
 %prep

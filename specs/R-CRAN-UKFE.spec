@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  UKFE
-%global packver   0.4.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          UK Flood Estimation
 
@@ -46,7 +46,7 @@ Hydrology (1992, ISBN 0 948540 45 1). Wallingford HydroSolutions, (2016,
 <http://software.hydrosolutions.co.uk/winfap4/Urban-Adjustment-Procedure-Technical-Note.pdf>).
 Data from the UK National River Flow Archive (<https://nrfa.ceh.ac.uk/>,
 terms and conditions:
-<https://nrfa.ceh.ac.uk/costs-terms-and-conditions>).
+<https://nrfa.ceh.ac.uk/help/costs-terms-and-conditions>).
 
 %prep
 %setup -q -c -n %{packname}

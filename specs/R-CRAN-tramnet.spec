@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramnet
-%global packver   0.0-8
+%global packver   0.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Transformation Models
 
@@ -51,7 +51,7 @@ model-based optimization functionalities from package 'mlrMBO'. The
 accompanying vignette describes the methodology used in 'tramnet' in
 detail. Transformation models and model-based optimization are described
 in Hothorn et al. (2019) <doi:10.1111/sjos.12291> and Bischl et al. (2016)
-<arxiv:1703.03373>, respectively.
+<doi:10.48550/arXiv.1703.03373>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

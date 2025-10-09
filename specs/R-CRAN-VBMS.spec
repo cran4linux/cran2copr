@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggvenn
-%global packver   0.1.19
+%global packname  VBMS
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Draw Venn Diagram by 'ggplot2'
+Summary:          Variational Bayesian Algorithm for Multi-Source Heterogeneous Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scales >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-scales >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-selectiveInference 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-selectiveInference 
+Requires:         R-CRAN-MASS 
 
 %description
-An easy-to-use way to draw pretty Venn diagrams using 'ggplot2'. This
-package provides functions to create Venn diagrams with customizable
-colors, labels, and styling options.
+A Variational Bayesian algorithm for high-dimensional multi-source
+heterogeneous linear models. More details have been written up in a paper
+submitted to the journal Statistics in Medicine, and the details of
+variational Bayesian methods can be found in Ray and Szabo (2021)
+<doi:10.1080/01621459.2020.1847121>. It simultaneously performs parameter
+estimation and variable selection. The algorithm supports two model
+settings: (1) local models, where variable selection is only applied to
+homogeneous coefficients, and (2) global models, where variable selection
+is also performed on heterogeneous coefficients. Two forms of
+Spike-and-Slab priors are available: the Laplace distribution and the
+Gaussian distribution as the Slab component.
 
 %prep
 %setup -q -c -n %{packname}

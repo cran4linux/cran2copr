@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggvenn
-%global packver   0.1.19
+%global packname  MLSP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Draw Venn Diagram by 'ggplot2'
+Summary:          Machine Learning Models for Soil Properties
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scales >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-scales >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-gsignal 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Cubist 
+BuildRequires:    R-CRAN-randomForest 
+Requires:         R-CRAN-gsignal 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Cubist 
+Requires:         R-CRAN-randomForest 
 
 %description
-An easy-to-use way to draw pretty Venn diagrams using 'ggplot2'. This
-package provides functions to create Venn diagrams with customizable
-colors, labels, and styling options.
+Creates a spectroscopy guideline with a highly accurate prediction model
+for soil properties using machine learning or deep learning algorithms
+such as LASSO, Random Forest, Cubist, etc., and decide which algorithm
+generates the best model for different soil types.
 
 %prep
 %setup -q -c -n %{packname}

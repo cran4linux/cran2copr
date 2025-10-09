@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastKRR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Ridge Regression using 'RcppArmadillo'
 
@@ -42,10 +42,9 @@ package offers a unified interface for exact kernel ridge regression and
 three scalable approximations—Nyström, Pivoted Cholesky, and Random
 Fourier Features—allowing analyses with substantially larger sample sizes
 than are feasible with exact KRR. It also integrates with the 'tidymodels'
-ecosystem via the 'parsnip' model specification 'krr_reg', the S3 method
-tunable.krr_reg(), and the direct fitting helper fit_krr(). To understand
-the theoretical background, one can refer to Wainwright (2019)
-<doi:10.1017/9781108627771>.
+ecosystem via the 'parsnip' model specification 'krr_reg', and the S3
+method tunable.krr_reg(). To understand the theoretical background, one
+can refer to Wainwright (2019) <doi:10.1017/9781108627771>.
 
 %prep
 %setup -q -c -n %{packname}
