@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matlib
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrix Functions for Teaching and Learning Linear Algebra and Multivariate Statistics
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-MASS 
@@ -38,13 +38,14 @@ Requires:         R-CRAN-rstudioapi
 
 %description
 A collection of matrix functions for teaching and learning matrix linear
-algebra as used in multivariate statistical methods. These functions are
-mainly for tutorial purposes in learning matrix algebra ideas using R. In
-some cases, functions are provided for concepts available elsewhere in R,
-but where the function call or name is not obvious. In other cases,
-functions are provided to show or demonstrate an algorithm. In addition, a
-collection of functions are provided for drawing vector diagrams in 2D and
-3D.
+algebra as used in multivariate statistical methods. Many of these
+functions are designed for tutorial purposes in learning matrix algebra
+ideas using R. In some cases, functions are provided for concepts
+available elsewhere in R, but where the function call or name is not
+obvious. In other cases, functions are provided to show or demonstrate an
+algorithm. In addition, a collection of functions are provided for drawing
+vector diagrams in 2D and 3D and for rendering matrix expressions and
+equations in LaTeX.
 
 %prep
 %setup -q -c -n %{packname}

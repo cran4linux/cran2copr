@@ -1,53 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oysteR
-%global packver   0.1.4
+%global packname  BioMonTools
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scans R Projects for Vulnerable Third Party Dependencies
+Summary:          Biomonitoring and Bioassessment Calculations
 
-License:          Apache License 2.0 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-maps 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
 
 %description
-Collects a list of your third party R packages, and scans them with the
-'OSS' Index provided by 'Sonatype', reporting back on any vulnerabilities
-that are found in the third party packages you use.
+An aid for manipulating data associated with biomonitoring and
+bioassessment. Calculations include metric calculation, marking of
+excluded taxa, subsampling, and multimetric index calculation.  Targeted
+communities are benthic macroinvertebrates, fish, periphyton, and coral.
+As described in the Revised Rapid Bioassessment Protocols (Barbour et al.
+1999) <https://archive.epa.gov/water/archive/web/html/index-14.html>.
 
 %prep
 %setup -q -c -n %{packname}

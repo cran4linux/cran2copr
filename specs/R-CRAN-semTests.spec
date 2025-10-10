@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bootStateSpace
-%global packver   1.0.3
+%global packname  semTests
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap for State Space Models
+Summary:          Goodness-of-Fit Testing for Structural Equation Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-simStateSpace 
-BuildRequires:    R-CRAN-dynr 
-Requires:         R-stats 
-Requires:         R-CRAN-simStateSpace 
-Requires:         R-CRAN-dynr 
+BuildRequires:    R-CRAN-lavaan >= 0.6.16
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-lavaan >= 0.6.16
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-Provides a streamlined and user-friendly framework for bootstrapping in
-state space models, particularly when the number of subjects/units (n)
-exceeds one, a scenario commonly encountered in social and behavioral
-sciences. The parametric bootstrap implemented here was developed and
-applied in Pesigan, Russell, and Chow (2025) <doi:10.1037/met0000779>.
+Supports eigenvalue block-averaging p-values (Foldnes, Grønneberg, 2018)
+<doi:10.1080/10705511.2017.1373021>, penalized eigenvalue block-averaging
+p-values (Foldnes, Moss, Grønneberg, 2024)
+<doi:10.1080/10705511.2024.2372028>, penalized regression p-values
+(Foldnes, Moss, Grønneberg, 2024) <doi:10.1080/10705511.2024.2372028>, as
+well as traditional p-values such as Satorra-Bentler. All p-values can be
+calculated using unbiased or biased gamma estimates (Du, Bentler, 2022)
+<doi:10.1080/10705511.2022.2063870> and two choices of chi square
+statistics.
 
 %prep
 %setup -q -c -n %{packname}

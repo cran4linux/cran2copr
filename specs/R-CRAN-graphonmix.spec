@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bootStateSpace
-%global packver   1.0.3
+%global packname  graphonmix
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap for State Space Models
+Summary:          Generates Mixture Graphs from Dense and Sparse Graphons
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-simStateSpace 
-BuildRequires:    R-CRAN-dynr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-imager 
 Requires:         R-stats 
-Requires:         R-CRAN-simStateSpace 
-Requires:         R-CRAN-dynr 
 
 %description
-Provides a streamlined and user-friendly framework for bootstrapping in
-state space models, particularly when the number of subjects/units (n)
-exceeds one, a scenario commonly encountered in social and behavioral
-sciences. The parametric bootstrap implemented here was developed and
-applied in Pesigan, Russell, and Chow (2025) <doi:10.1037/met0000779>.
+Generates (U,W) mixture graphs where U is a line graph graphon and W is a
+dense graphon. Graphons are graph limits and graphon U can be written as
+sequence of positive numbers adding to 1. Graphs are sampled from U and W
+and joined randomly to obtain the mixture graph. Given a mixture graph, U
+can be inferred. Kandanaarachchi and Ong (2025)
+<doi:10.48550/arXiv.2505.13864>.
 
 %prep
 %setup -q -c -n %{packname}

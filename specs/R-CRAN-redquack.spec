@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redquack
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transfer 'REDCap' Data to Database
 
@@ -20,20 +20,29 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-audio 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-audio 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 
 %description
-Transfer 'REDCap' (Research Electronic Data Capture) data to a database
-with additional support for 'DuckDB'. Processes data in chunks to handle
-large datasets without exceeding available memory. Features include
-resuming incomplete transfers, automatically converting data types for
-'DuckDB', tracking progress, and logging operations in the database.
+Transfer 'REDCap' (Research Electronic Data Capture) data to a database,
+specifically optimized for 'DuckDB'. Processes data in chunks to handle
+large datasets without exceeding available memory. Features include data
+labeling, coded value conversion, and hearing a "quack" sound on success.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RiskMap
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geo-Statistical Modeling of Spatially Referenced Data
+Summary:          Geostatistical Modeling of Spatially Referenced Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,30 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-spatialEco 
+BuildRequires:    R-CRAN-spatialsample 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sns 
+BuildRequires:    R-CRAN-stars 
 Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-xtable 
+Requires:         R-graphics 
+Requires:         R-CRAN-spatialEco 
+Requires:         R-CRAN-spatialsample 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sns 
+Requires:         R-CRAN-stars 
 
 %description
-Provides functions for geo-statistical analysis of both continuous and
-count data using maximum likelihood methods. The models implemented in the
-package use stationary Gaussian processes with Matern correlation function
-to carry out spatial prediction in a geographical area of interest. The
-underpinning theory of the methods implemented in the package are found in
-Diggle and Giorgi (2019, ISBN: 978-1-138-06102-7).
+Geostatistical analysis of continuous and count data. Implements
+stationary Gaussian processes with Matérn correlation for spatial
+prediction, as described in Diggle and Giorgi (2019, ISBN:
+978-1-138-06102-7).
 
 %prep
 %setup -q -c -n %{packname}

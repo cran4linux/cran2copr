@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oysteR
-%global packver   0.1.4
+%global packname  psme
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scans R Projects for Vulnerable Third Party Dependencies
+Summary:          Penalized Splines Mixed-Effects Models
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-lme4 
 
 %description
-Collects a list of your third party R packages, and scans them with the
-'OSS' Index provided by 'Sonatype', reporting back on any vulnerabilities
-that are found in the third party packages you use.
+Fit penalized splines mixed-effects models (a special case of additive
+models) for large longitudinal datasets. The package includes a psme()
+function that (1) relies on package 'mgcv' for constructing population and
+subject smooth functions as penalized splines, (2) transforms the
+constructed additive model to a linear mixed-effects model, (3) exploits
+package 'lme4' for model estimation and (4) backtransforms the estimated
+linear mixed-effects model to the additive model for interpretation and
+visualization. See Pedersen et al. (2019) <doi:10.7717/peerj.6876> and
+Bates et al. (2015) <doi:10.18637/jss.v067.i01> for an introduction.
+Unlike the gamm() function in 'mgcv', the psme() function is fast and
+memory-efficient, able to handle datasets with millions of observations.
 
 %prep
 %setup -q -c -n %{packname}

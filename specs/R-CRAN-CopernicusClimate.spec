@@ -1,53 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oysteR
-%global packver   0.1.4
+%global packname  CopernicusClimate
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scans R Projects for Vulnerable Third Party Dependencies
+Summary:          Search Download and Handle Data from Copernicus Climate Data Service
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
 
 %description
-Collects a list of your third party R packages, and scans them with the
-'OSS' Index provided by 'Sonatype', reporting back on any vulnerabilities
-that are found in the third party packages you use.
+Subset and download data from EU Copernicus Climate Data Service:
+<https://cds.climate.copernicus.eu/>. Import information about the Earth's
+past, present and future climate from Copernicus into R without the need
+of external software.
 
 %prep
 %setup -q -c -n %{packname}

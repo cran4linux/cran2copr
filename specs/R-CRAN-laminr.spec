@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  laminr
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for 'LaminDB'
 
@@ -17,24 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.38.0
+BuildRequires:    R-CRAN-reticulate >= 1.41.0
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-pak 
+BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-reticulate >= 1.38.0
+Requires:         R-CRAN-reticulate >= 1.41.0
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-pak 
+Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sessioninfo 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rversions
-%global packver   2.1.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query 'R' Versions, Including 'r-release' and 'r-oldrel'
 
@@ -17,12 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 >= 1.0.0
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-xml2 >= 1.0.0
 Requires:         R-CRAN-curl 
-Requires:         R-utils 
 
 %description
 Query the main 'R' 'SVN' repository to find the versions 'r-release' and

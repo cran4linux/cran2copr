@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bootStateSpace
-%global packver   1.0.3
+%global packname  kardl
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap for State Space Models
+Summary:          Make Symmetric and Asymmetric ARDL Estimations
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,18 +18,32 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-simStateSpace 
-BuildRequires:    R-CRAN-dynr 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-nlWaldTest 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-simStateSpace 
-Requires:         R-CRAN-dynr 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-nlWaldTest 
+Requires:         R-CRAN-car 
+Requires:         R-utils 
 
 %description
-Provides a streamlined and user-friendly framework for bootstrapping in
-state space models, particularly when the number of subjects/units (n)
-exceeds one, a scenario commonly encountered in social and behavioral
-sciences. The parametric bootstrap implemented here was developed and
-applied in Pesigan, Russell, and Chow (2025) <doi:10.1037/met0000779>.
+Implements estimation procedures for Autoregressive Distributed Lag (ARDL)
+and Nonlinear ARDL (NARDL) models, which allow researchers to investigate
+both short- and long-run relationships in time series data under mixed
+orders of integration. The package supports simultaneous modeling of
+symmetric and asymmetric regressors, flexible treatment of short-run and
+long-run asymmetries, and automated equation handling. It includes several
+cointegration testing approaches such as the Pesaran-Shin-Smith F and t
+bounds tests, the Banerjee error correction test, and the restricted ECM
+test, together with diagnostic tools including Wald tests for asymmetry,
+ARCH tests, and stability procedures (CUSUM and CUSUMQ). Methodological
+foundations are provided in Pesaran, Shin, and Smith (2001)
+<doi:10.1016/S0304-4076(01)00049-5> and Shin, Yu, and Greenwood-Nimmo
+(2014, ISBN:9780123855079).
 
 %prep
 %setup -q -c -n %{packname}

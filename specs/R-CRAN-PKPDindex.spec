@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bootStateSpace
-%global packver   1.0.3
+%global packname  PKPDindex
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap for State Space Models
+Summary:          Optimal PK/PD Index Finder
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-simStateSpace 
-BuildRequires:    R-CRAN-dynr 
-Requires:         R-stats 
-Requires:         R-CRAN-simStateSpace 
-Requires:         R-CRAN-dynr 
 
 %description
-Provides a streamlined and user-friendly framework for bootstrapping in
-state space models, particularly when the number of subjects/units (n)
-exceeds one, a scenario commonly encountered in social and behavioral
-sciences. The parametric bootstrap implemented here was developed and
-applied in Pesigan, Russell, and Chow (2025) <doi:10.1037/met0000779>.
+Fits Emax models to pharmacokinetic/pharmacodynamic (PK/PD) data, estimate
+key parameters, and visualise model fits for multiple PK/PD indices.
+Methods are described in Macdougall J (2006)
+<doi:10.1007/0-387-33706-7_9>, Spiess AN, Neumeyer N (2010)
+<doi:10.1186/1471-2210-10-6>, and Burnham KP, Anderson DR (2004)
+<doi:10.1177/0049124104268644>.
 
 %prep
 %setup -q -c -n %{packname}

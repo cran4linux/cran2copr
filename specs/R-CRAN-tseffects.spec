@@ -1,53 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oysteR
+%global packname  tseffects
 %global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scans R Projects for Vulnerable Third Party Dependencies
+Summary:          Dynamic (Causal) Inferences from Time Series (with Interactions)
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-mpoly 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-mpoly 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
 
 %description
-Collects a list of your third party R packages, and scans them with the
-'OSS' Index provided by 'Sonatype', reporting back on any vulnerabilities
-that are found in the third party packages you use.
+Autoregressive distributed lag (A[R]DL) models (and their reparameterized
+equivalent, the Generalized Error-Correction Model [GECM]) (see De Boef
+and Keele 2008 <doi:10.1111/j.1540-5907.2007.00307.x>) are the workhorse
+models in uncovering dynamic inferences. ADL models are simple to
+estimate; this is what makes them attractive. Once these models are
+estimated, what is less clear is how to uncover a rich set of dynamic
+inferences from these models. We provide tools for recovering those
+inferences in three forms: causal inferences from ADL models, traditional
+time series quantities of interest (short- and long-run effects), and
+dynamic conditional relationships.
 
 %prep
 %setup -q -c -n %{packname}

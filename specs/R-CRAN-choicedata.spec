@@ -1,53 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oysteR
-%global packver   0.1.4
+%global packname  choicedata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scans R Projects for Vulnerable Third Party Dependencies
+Summary:          Working with Choice Data
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-oeli >= 0.7.5
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-optimizeR 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-oeli >= 0.7.5
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-optimizeR 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
 
 %description
-Collects a list of your third party R packages, and scans them with the
-'OSS' Index provided by 'Sonatype', reporting back on any vulnerabilities
-that are found in the third party packages you use.
+Offers a set of objects tailored to simplify working with choice data. It
+enables the computation of choice probabilities and the likelihood of
+various types of choice models based on given data.
 
 %prep
 %setup -q -c -n %{packname}

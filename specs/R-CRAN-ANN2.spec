@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ANN2
-%global packver   2.3.4
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Artificial Neural Networks for Anomaly Detection
 
@@ -15,18 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-reshape2 >= 1.4.3
-BuildRequires:    R-CRAN-viridisLite >= 0.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-viridisLite >= 0.4.2
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-reshape2 >= 1.4.3
-Requires:         R-CRAN-viridisLite >= 0.3.0
-Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-reshape2 >= 1.4.4
+Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-viridisLite >= 0.4.2
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 Training of neural networks for classification and regression tasks using
@@ -50,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

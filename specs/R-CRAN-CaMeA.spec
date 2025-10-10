@@ -1,53 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oysteR
-%global packver   0.1.4
+%global packname  CaMeA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scans R Projects for Vulnerable Third Party Dependencies
+Summary:          Causal Meta-Analysis for Aggregated Data
 
-License:          Apache License 2.0 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-dplyr 
 
 %description
-Collects a list of your third party R packages, and scans them with the
-'OSS' Index provided by 'Sonatype', reporting back on any vulnerabilities
-that are found in the third party packages you use.
+A tool for causal meta-analysis. This package implements the aggregation
+formulas and inference methods proposed in Berenfeld et al. (2025)
+<doi:10.48550/arXiv.2505.20168>. Users can input aggregated data across
+multiple studies and compute causally meaningful aggregated effects of
+their choice (risk difference, risk ratio, odds ratio, etc) under
+user-specified population weighting. The built-in function camea() allows
+to obtain precise variance estimates for these effects and to compare the
+latter to a classical meta-analysis aggregate, the random effect model, as
+implemented in the 'metafor' package
+<https://CRAN.R-project.org/package=metafor>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diemr
-%global packver   1.5
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Index Expectation Maximisation in R
+Summary:          Genome Polarization via Diagnostic Index Expectation Maximization
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,10 +27,13 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-circlize 
 
 %description
-Likelihood-based genome polarisation finds which alleles of genomic
-markers belong to which side of the barrier. Co-estimates which
-individuals belong to either side of the barrier and barrier strength.
-Uses expectation maximisation in likelihood framework. The method is
+Implements a likelihood-based method for genome polarization, identifying
+which alleles of SNV markers belong to either side of a barrier to gene
+flow. The approach co-estimates individual assignment, barrier strength,
+and divergence between sides, with direct application to studies of
+hybridization. Includes VCF-to-diem conversion and input checks, support
+for mixed ploidy and parallelization, and tools for visualization and
+diagnostic outputs. Based on diagnostic index expectation maximization as
 described in Baird et al. (2023) <doi:10.1111/2041-210X.14010>.
 
 %prep

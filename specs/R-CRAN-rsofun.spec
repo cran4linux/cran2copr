@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsofun
-%global packver   5.0.0
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The P-Model and BiomeE Modelling Framework
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-GenSA 
 BuildRequires:    R-CRAN-BayesianTools 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-multidplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-GenSA 
 Requires:         R-CRAN-BayesianTools 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-multidplyr 
 Requires:         R-stats 
 Requires:         R-utils 

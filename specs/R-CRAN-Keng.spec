@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Keng
-%global packver   2025.9.1
+%global packver   2025.10.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.9.1
+Version:          2025.10.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knock Errors Off Nice Guesses
 

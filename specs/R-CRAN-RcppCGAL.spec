@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppCGAL
-%global packver   6.0.1
+%global packver   6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1
+Version:          6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for 'CGAL'
 
@@ -19,12 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-utils 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Creates a header only package to link to the 'CGAL' (Computational
@@ -32,7 +28,7 @@ Geometry Algorithms Library) header files in 'Rcpp'. There are a variety
 of potential uses for the software such as Hilbert sorting, K-D Tree
 nearest neighbors, and convex hull algorithms. For more information about
 how to use the header files, see the 'CGAL' documentation at
-<https://www.cgal.org>. Currently downloads version 6.0.1 of the 'CGAL'
+<https://www.cgal.org>. Currently downloads version 6.1 of the 'CGAL'
 header files.
 
 %prep

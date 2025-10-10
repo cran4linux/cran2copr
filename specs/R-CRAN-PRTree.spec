@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PRTree
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Regression Trees
 
@@ -14,18 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 
 %description
-Probabilistic Regression Trees (PRTree). Functions for fitting and
-predicting PRTree models with some adaptations to handle missing values.
-The main calculations are performed in 'FORTRAN', resulting in highly
-efficient algorithms. This package's implementation is based on the PRTree
-methodology described in Alkhoury, S.; Devijver, E.; Clausel, M.; Tami,
-M.; Gaussier, E.; Oppenheim, G. (2020) - "Smooth And Consistent
-Probabilistic Regression Trees"
+Implementation of Probabilistic Regression Trees (PRTree), providing
+functions for model fitting and prediction, with specific adaptations to
+handle missing values. The main computations are implemented in 'Fortran'
+for high efficiency. The package is based on the PRTree methodology
+described in Alkhoury et al. (2020), "Smooth and Consistent Probabilistic
+Regression Trees"
 <https://proceedings.neurips.cc/paper_files/paper/2020/file/8289889263db4a40463e3f358bb7c7a1-Paper.pdf>.
+Details on the treatment of missing data and implementation aspects are
+presented in Prass, T.S.; Neimaier, A.S.; Pumi, G. (2025), "Handling
+Missing Data in Probabilistic Regression Trees: Methods and Implementation
+in R" <doi:10.48550/arXiv.2510.03634>.
 
 %prep
 %setup -q -c -n %{packname}

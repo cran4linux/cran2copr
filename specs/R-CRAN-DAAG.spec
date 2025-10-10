@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DAAG
-%global packver   1.25.6
+%global packver   1.25.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.25.6
+Version:          1.25.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis and Graphics Data and Functions
 

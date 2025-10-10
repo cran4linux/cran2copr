@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  immundata
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Data Layer for Large-Scale Single-Cell, Spatial and Bulk Immunomics
 
@@ -51,7 +51,8 @@ Requires:         R-utils
 %description
 Provides a unified data layer for single-cell, spatial and bulk T-cell and
 B-cell immune receptor repertoire data. Think AnnData or SeuratObject, but
-for AIRR data.
+for AIRR data, a.k.a. Adaptive Immune Receptor Repertoire, VDJ-seq,
+RepSeq, or VDJ sequencing data.
 
 %prep
 %setup -q -c -n %{packname}

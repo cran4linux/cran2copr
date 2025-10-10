@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ExtremeRisks
-%global packver   0.0.4-1
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extreme Risk Measures
 
@@ -45,7 +45,8 @@ Adapts the methodologies derived in Padoan and Stupfler (2022)
 <doi:10.1111/rssb.12254>, Drees (2000) <doi:10.1214/aoap/1019487617>,
 Drees (2003) <doi:10.3150/bj/1066223272>, de Haan and Ferreira (2006)
 <doi:10.1007/0-387-34471-3>, de Haan et al. (2016)
-<doi:10.1007/s00780-015-0287-6>.
+<doi:10.1007/s00780-015-0287-6>, Padoan and Rizzelli (2024)
+<doi:10.3150/23-BEJ1668>, Daouia et al. (2024) <doi:10.3150/23-BEJ1632>.
 
 %prep
 %setup -q -c -n %{packname}

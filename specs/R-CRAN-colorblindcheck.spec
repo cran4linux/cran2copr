@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colorblindcheck
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Check Color Palettes for Problems with Color Vision Deficiency
 
@@ -30,7 +30,7 @@ deuteranopia, protanopia, and tritanopia. It includes calculation of
 distances between colors, and creating summaries of differences between a
 color palette and simulations of color vision deficiencies. This work was
 inspired by the blog post at
-<http://www.vis4.net/blog/2018/02/automate-colorblind-checking/>.
+<https://www.datawrapper.de/blog/colorblind-check>.
 
 %prep
 %setup -q -c -n %{packname}
