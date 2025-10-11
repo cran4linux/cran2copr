@@ -1,49 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  npregfast
-%global packver   1.6.0
+%global packname  apathe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Estimation of Regression Models with Factor-by-Curve Interactions
+Summary:          American Psychological Association Thesis Templates for R Markdown
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-sfsmisc 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-wesanderson 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-sfsmisc 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-wesanderson 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rmdfiltr >= 0.1.5
+BuildRequires:    R-CRAN-papaja >= 0.1.3
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-rmdfiltr >= 0.1.5
+Requires:         R-CRAN-papaja >= 0.1.3
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-assertthat 
 
 %description
-A method for obtaining nonparametric estimates of regression models with
-or without factor-by-curve interactions using local polynomial kernel
-smoothers or splines. Additionally, a parametric model (allometric model)
-can be estimated.
+Facilitates writing computationally reproducible student theses in PDF
+format that conform to the American Psychological Association (APA)
+manuscript guidelines (6th Edition). The package currently provides two R
+Markdown templates for homework and theses at the Psychology Department of
+the University of Cologne. The package builds on the package 'papaja' but
+is tailored to the requirements of student theses and omits features for
+simplicity.
 
 %prep
 %setup -q -c -n %{packname}

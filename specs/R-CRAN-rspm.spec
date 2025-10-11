@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rspm
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Package Manager
 
-License:          GPL-2 | GPL-3 | MIT + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 
 %description
@@ -23,9 +23,9 @@ Enables binary package installations on Linux distributions. Provides
 access to 'RStudio' public repositories at
 <https://packagemanager.posit.co>, and transparent management of system
 requirements without administrative privileges. Currently supported
-distributions are 'CentOS' / 'RHEL' 7-9, and several 'RHEL' derivatives
+distributions are 'CentOS' / 'RHEL', and several 'RHEL' derivatives
 ('Rocky Linux', 'AlmaLinux', 'Oracle Linux', and 'Amazon Linux'),
-'openSUSE' / 'SLES' 15.4-5, 'Debian' 11-12, and 'Ubuntu' LTS 20-22.
+'openSUSE' / 'SLES', 'Debian', and 'Ubuntu' LTS.
 
 %prep
 %setup -q -c -n %{packname}

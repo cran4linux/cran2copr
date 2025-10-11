@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebnm
-%global packver   1.1-38
+%global packver   1.1-42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.38
+Version:          1.1.42
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solve the Empirical Bayes Normal Means Problem
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-ashr
 BuildRequires:    R-CRAN-mixsqp 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-trust 
-BuildRequires:    R-CRAN-horseshoe 
 BuildRequires:    R-CRAN-deconvolveR 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-ashr
 Requires:         R-CRAN-mixsqp 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-trust 
-Requires:         R-CRAN-horseshoe 
 Requires:         R-CRAN-deconvolveR 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 

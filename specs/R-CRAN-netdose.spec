@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netdose
-%global packver   0.6-0
+%global packver   0.7-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose-Response Network Meta-Analysis in a Frequentist Way
 
@@ -21,18 +21,20 @@ BuildRequires:    R-CRAN-netmeta >= 3.1.1
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-netmeta >= 3.1.1
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-meta 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-grid 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggh4x 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
 A set of functions providing the implementation of the network

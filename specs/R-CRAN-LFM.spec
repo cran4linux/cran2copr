@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LFM
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Laplace Factor Model Analysis and Evaluation
 
@@ -20,17 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-FarmTest 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-SOPC 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-relliptical 
+BuildRequires:    R-CRAN-elasticnet 
 Requires:         R-stats 
 Requires:         R-CRAN-FarmTest 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-SOPC 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-relliptical 
+Requires:         R-CRAN-elasticnet 
 
 %description
 Enables the generation of Laplace factor models across diverse Laplace

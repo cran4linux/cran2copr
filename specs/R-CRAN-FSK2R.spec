@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FSK2R
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface Between the 'FSKX' Standard and 'R'
 
@@ -20,32 +21,30 @@ BuildRequires:    R-CRAN-XML >= 3.98
 BuildRequires:    R-tools >= 3.5.3
 BuildRequires:    R-utils >= 3.5.3
 BuildRequires:    R-CRAN-R.utils >= 2.9.0
-BuildRequires:    R-CRAN-zip >= 2.0.4
 BuildRequires:    R-CRAN-tibble >= 2.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.6.0
 BuildRequires:    R-CRAN-shiny >= 1.3.2
 BuildRequires:    R-CRAN-readxl >= 1.3.1
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-tidyr >= 0.7.2
-BuildRequires:    R-CRAN-readtext >= 0.7
+BuildRequires:    R-CRAN-readtext >= 0.7.1
 BuildRequires:    R-CRAN-rlang >= 0.3.0.1
 BuildRequires:    R-CRAN-purrr >= 0.2.4
-BuildRequires:    R-CRAN-rjson >= 0.2.20
 Requires:         R-CRAN-XML >= 3.98
 Requires:         R-tools >= 3.5.3
 Requires:         R-utils >= 3.5.3
 Requires:         R-CRAN-R.utils >= 2.9.0
-Requires:         R-CRAN-zip >= 2.0.4
 Requires:         R-CRAN-tibble >= 2.0.0
+Requires:         R-CRAN-jsonlite >= 1.6.0
 Requires:         R-CRAN-shiny >= 1.3.2
 Requires:         R-CRAN-readxl >= 1.3.1
 Requires:         R-CRAN-xml2 >= 1.2.0
 Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-tidyr >= 0.7.2
-Requires:         R-CRAN-readtext >= 0.7
+Requires:         R-CRAN-readtext >= 0.7.1
 Requires:         R-CRAN-rlang >= 0.3.0.1
 Requires:         R-CRAN-purrr >= 0.2.4
-Requires:         R-CRAN-rjson >= 0.2.20
 
 %description
 Functions for importing, creating, editing and exporting 'FSK' files

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simStateSpace
-%global packver   1.2.11
+%global packver   1.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.11
+Version:          1.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Data from State Space Models
 
@@ -16,19 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-stats 
 
 %description
 Provides a streamlined and user-friendly framework for simulating data in
 state space models, particularly when the number of subjects/units (n)
 exceeds one, a scenario commonly encountered in social and behavioral
-sciences. For an introduction to state space models in social and
-behavioral sciences, refer to Chow, Ho, Hamaker, and Dolan (2010)
-<doi:10.1080/10705511003661553>.
+sciences. This package was designed to generate data for the simulations
+performed in Pesigan, Russell, and Chow (2025) <doi:10.1037/met0000779>.
 
 %prep
 %setup -q -c -n %{packname}

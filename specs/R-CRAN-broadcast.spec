@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  broadcast
-%global packver   0.1.5.1
+%global packver   0.1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.1
+Version:          0.1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadcasted Array Operations Like 'NumPy'
 

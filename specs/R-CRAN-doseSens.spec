@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doseSens
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conduct Sensitivity Analysis with Continuous Exposures and Binary Outcomes
+Summary:          Conduct Sensitivity Analysis with Continuous Exposures and Binary or Continuous Outcomes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gtools 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-lpSolve 
 
 %description
-Performs sensitivity analysis for the sharp null and attributable effects
-in matched studies with continuous exposures and binary outcomes as
-described in Zhang, Small, Heng (2024) <arXiv:2401.06909>. Two of the
-functions require installation of the 'Gurobi' optimizer. Please see
-<https://www.gurobi.com/documentation/9.0/refman/ins_the_r_package.html>
-for guidance.
+Performs sensitivity analysis for the sharp null, attributable effects,
+and weak nulls in matched studies with continuous exposures and binary or
+continuous outcomes as described in Zhang, Small, Heng (2024)
+<doi:10.48550/arXiv.2401.06909> and Zhang, Heng (2024)
+<doi:10.48550/arXiv.2409.12848>. Two of the functions require installation
+of the 'Gurobi' optimizer. Please see
+<https://docs.gurobi.com/current/#refman/ins_the_r_package.html> for
+guidance.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  V8
-%global packver   8.0.0
+%global packver   8.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.0
+Version:          8.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Embedded JavaScript and WebAssembly Engine for R
 
@@ -28,8 +28,8 @@ Requires:         R-utils
 
 %description
 An R interface to V8 <https://v8.dev>: Google's open source JavaScript and
-WebAssembly engine. This package can be compiled either with V8 version 6
-and up or NodeJS when built as a shared library.
+WebAssembly engine. This package can be compiled either with V8 or NodeJS
+when built as a shared library.
 
 %prep
 %setup -q -c -n %{packname}

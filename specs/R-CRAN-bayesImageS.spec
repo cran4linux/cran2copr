@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayesImageS
-%global packver   0.6-1
+%global packver   0.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Methods for Image Segmentation using a Potts Model
 
@@ -15,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.10.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.10.6
+Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
 Various algorithms for segmentation of 2D and 3D images, such as computed
@@ -28,9 +29,9 @@ sampled using chequerboard updating or Swendsen-Wang. Algorithms for the
 smoothing parameter include pseudolikelihood, path sampling, the exchange
 algorithm, approximate Bayesian computation (ABC-MCMC and ABC-SMC), and
 the parametric functional approximate Bayesian (PFAB) algorithm. Refer to
-<doi:10.1007/978-3-030-42553-1_6> for an overview and also to
-<doi:10.1007/s11222-014-9525-6> and <doi:10.1214/18-BA1130> for further
-details of specific algorithms.
+Moores, Pettitt & Mengersen (2020) <doi:10.1007/978-3-030-42553-1_6> for
+an overview and also to <doi:10.1007/s11222-014-9525-6> and
+<doi:10.1214/18-BA1130> for further details of specific algorithms.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

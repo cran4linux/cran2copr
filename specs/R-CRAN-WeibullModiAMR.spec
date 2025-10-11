@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GWASinlps
-%global packver   2.2
+%global packname  WeibullModiAMR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Local Prior Based Iterative Variable Selection Tool for Genome-Wide Association Studies
+Summary:          Fit Modified Weibull-Type Distributions
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-mombf 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-fastglm 
-BuildRequires:    R-CRAN-horseshoe 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-Rcpp >= 1.0.9
-Requires:         R-CRAN-mombf 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-fastglm 
-Requires:         R-CRAN-horseshoe 
-Requires:         R-CRAN-survival 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Performs variable selection with data from Genome-wide association studies
-(GWAS), or other high-dimensional data with continuous, binary or survival
-outcomes, combining in an iterative framework the computational efficiency
-of the structured screen-and-select variable selection strategy based on
-some association learning and the parsimonious uncertainty quantification
-provided by the use of non-local priors (see Sanyal et al., 2019
-<DOI:10.1093/bioinformatics/bty472>).
+Provides maximum likelihood estimation methods for eight modified
+Weibull-type distributions. It returns parameter estimates,
+log-likelihood, AIC, and BIC, and also supports model fitting, validation,
+and comparison across different distributional forms. These methods can be
+applied to reliability, survival, and lifetime data analysis, making the
+package useful for researchers and practitioners in statistics,
+engineering, and medicine. The following distributions are included:
+Rangoli2023, Peng2014, Lai2003, Xie1996, Sarhan2009, Rangoli2025,
+Mustafa2012, and Alwasel2009.
 
 %prep
 %setup -q -c -n %{packname}

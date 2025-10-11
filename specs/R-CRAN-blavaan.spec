@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blavaan
-%global packver   0.5-8
+%global packver   0.5-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.5.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Variable Analysis
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-bayesplot
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-tmvnsim 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.26.0
@@ -54,6 +55,7 @@ Requires:         R-CRAN-bayesplot
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-tmvnsim 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-rstantools
 
 %description

@@ -1,49 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  npregfast
-%global packver   1.6.0
+%global packname  RAP
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Estimation of Regression Models with Factor-by-Curve Interactions
+Summary:          Reversal Association Pattern Analysis for Categorical Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-sfsmisc 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-wesanderson 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-sfsmisc 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-wesanderson 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A method for obtaining nonparametric estimates of regression models with
-or without factor-by-curve interactions using local polynomial kernel
-smoothers or splines. Additionally, a parametric model (allometric model)
-can be estimated.
+Implements reversal association pattern analysis for categorical data.
+Detects sub-tables exhibiting reversal associations in contingency tables,
+provides visualization tools, and supports simulation-based validation for
+complex I × J tables.
 
 %prep
 %setup -q -c -n %{packname}

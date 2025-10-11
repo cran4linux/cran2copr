@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datapack
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Flexible Container to Transport and Manipulate Data and Associated Resources
 
@@ -44,7 +44,7 @@ The OAI- ORE standard is described at <https://www.openarchives.org/ore/>.
 Data packages can be serialized and transported as structured files that
 have been created following the BagIt specification. The BagIt
 specification is described at
-<https://tools.ietf.org/html/draft-kunze-bagit-08>.
+<https://datatracker.ietf.org/doc/html/draft-kunze-bagit-08>.
 
 %prep
 %setup -q -c -n %{packname}

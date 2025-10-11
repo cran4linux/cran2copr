@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DyadRatios
-%global packver   1.3
+%global packname  qol
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dyad Ratios Algorithm
+Summary:          Powerful 'SAS' Inspired Concepts for more Efficient Bigger Outputs
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-progress 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-collapse >= 2.1.2
+BuildRequires:    R-CRAN-openxlsx2 >= 1.19
+BuildRequires:    R-CRAN-data.table >= 1.17.8
+Requires:         R-CRAN-collapse >= 2.1.2
+Requires:         R-CRAN-openxlsx2 >= 1.19
+Requires:         R-CRAN-data.table >= 1.17.8
 
 %description
-Estimates the Dyad Ratios Algorithm for pooling and smoothing poll
-estimates. The Dyad Ratios Algorithm smooths both forward and backward in
-time over polling results allowing differences in both question type and
-polling house. The result is an estimate of a single latent variable that
-describes the systematic trend over time in the (noisy) polling results.
-See James A. Stimson (2018) <doi:10.1177/0759106318761614> and the
-package's vignette for more details.
+The main goal is to make descriptive evaluations easier to create bigger
+and more complex outputs in less time with less code. Introducing format
+containers with multilabels
+<https:[https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/p06ciqes4eaqo6n0zyqtz9p21nfb.htm]>,
+a more powerful summarise which is capable to output every possible
+combination of the provided grouping variables in one go
+<https:[https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/p0jvbbqkt0gs2cn1lo4zndbqs1pe.htm]>,
+tabulation functions which can create any table in different styles
+<https:[https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/n1ql5xnu0k3kdtn11gwa5hc7u435.htm]>
+and other more readable functions. The code is optimized to work fast even
+with datasets of over a million observations.
 
 %prep
 %setup -q -c -n %{packname}
