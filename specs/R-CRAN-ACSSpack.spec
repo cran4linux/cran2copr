@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ACSSpack
-%global packver   0.0.1.4
+%global packver   1.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.4
+Version:          1.0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          ACSS, Corresponding ACSS, and GLP Algorithm
+Summary:          ACSS, Corresponding INSS, and GLP Algorithms
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,8 +38,8 @@ M., & Primiceri, G. E. (2021, ISBN:978-92-899-4542-4) "Economic
 predictions with big data: The illusion of sparsity". The two new
 algorithms, ACSS algorithm and INSS algorithm, and the discussion on their
 performance can be seen in Yang, Z., Khare, K., & Michailidis, G. (2024,
-preprint) "Bayesian methodology for adaptive sparsity and shrinkage in
-regression".
+submitted to Journal of Business & Economic Statistics) "Bayesian
+methodology for adaptive sparsity and shrinkage in regression".
 
 %prep
 %setup -q -c -n %{packname}

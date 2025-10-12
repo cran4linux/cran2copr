@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaDES.tools
-%global packver   2.0.7
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additional Tools for Developing Spatially Explicit Discrete Event Simulation (SpaDES) Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildRequires:    R-CRAN-reproducible >= 2.0.9
 BuildRequires:    R-CRAN-checkmate >= 1.8.2
 BuildRequires:    R-CRAN-data.table >= 1.10.4
@@ -42,11 +42,11 @@ Requires:         R-CRAN-terra
 %description
 Provides GIS and map utilities, plus additional modeling tools for
 developing cellular automata, dynamic raster models, and agent based
-models in 'SpaDES'. Included are various methods for spatial spreading,
-spatial agents, GIS operations, random map generation, and others. See
-'?SpaDES.tools' for an categorized overview of these additional tools. The
-suggested package 'NLMR' can be installed from the following repository:
-(<https://PredictiveEcology.r-universe.dev>).
+models in 'SpaDES'.  Included are various methods for spatial spreading,
+spatial agents, GIS operations, random map generation, and others.  See
+'?SpaDES.tools' for an categorized overview of these additional tools.
+The suggested package 'NLMR' can be installed from the following
+repository: (<https://PredictiveEcology.r-universe.dev>).
 
 %prep
 %setup -q -c -n %{packname}

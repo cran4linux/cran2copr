@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coneproj
-%global packver   1.20
+%global packver   1.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          1.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Primal or Dual Cone Projections with Routines for Constrained Regression
 
@@ -16,8 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
+BuildRequires:    R-methods >= 4.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.10.4
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-methods >= 4.5.0
 Requires:         R-CRAN-Rcpp >= 0.10.4
 
 %description

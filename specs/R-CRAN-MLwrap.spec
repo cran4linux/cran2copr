@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLwrap
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Modelling for Everyone
 
@@ -40,6 +40,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
@@ -63,6 +64,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-scales 
 
 %description
 A minimal library specifically designed to make the estimation of Machine

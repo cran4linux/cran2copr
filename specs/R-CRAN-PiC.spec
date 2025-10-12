@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PiC
-%global packver   1.0.3
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pointcloud Interactive Computation for Forest Structure Analysis
+Summary:          Pointcloud Interactive Computation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,30 +18,37 @@ BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-conicfit 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-conicfit 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-tictoc 
+Requires:         R-utils 
 
 %description
-Provides advanced algorithms for analyzing pointcloud data in forestry
-applications. Key features include fast voxelization of large datasets;
-segmentation of point clouds into forest floor, understorey, canopy, and
-wood components. The package enables efficient processing of large-scale
-forest pointcloud data, offering insights into forest structure,
-connectivity, and fire risk assessment. Algorithms to analyze pointcloud
-data (.xyz input file). For more details, see Ferrara & Arrizza (2025)
+Provides advanced algorithms for analyzing pointcloud data from
+terrestrial laser scanner in forestry applications. Key features include
+fast voxelization of large datasets; segmentation of point clouds into
+forest floor, understorey, canopy, and wood components. The package
+enables efficient processing of large-scale forest pointcloud data,
+offering insights into forest structure, connectivity, and fire risk
+assessment. Algorithms to analyze pointcloud data (.xyz input file). For
+more details, see Ferrara & Arrizza (2025)
 <https://hdl.handle.net/20.500.14243/533471>. For single tree segmentation
 details, see Ferrara et al. (2018) <doi:10.1016/j.agrformet.2018.04.008>.
 
