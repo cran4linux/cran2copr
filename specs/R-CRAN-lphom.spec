@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lphom
-%global packver   0.3.5-6
+%global packver   0.3.5-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5.6
+Version:          0.3.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference by Linear Programming under Homogeneity
 
@@ -33,10 +33,10 @@ and Romero (2024) <doi:10.1093/jrsssa/qnae013>. Pavía (2023)
 <doi:10.1177/07591063241277064>. Pavía and Penadés (2024). A bottom-up
 approach for ecological inference. Romero, Pavía, Martín and Romero (2020)
 <doi:10.1080/02664763.2020.1804842>. Acknowledgements: The authors wish to
-thank Consellería de Educación, Universidades y Empleo, Generalitat
-Valenciana (grants AICO/2021/257, CIAICO/2023/031) and Ministerio de
-Economía e Innovación (grant PID2021-128228NB-I00) for supporting this
-research.
+thank Consellería de Educación, Cultura, Universidades y Empleo,
+Generalitat Valenciana (grants AICO/2021/257, CIAICO/2023/031) and
+MICIU/AEI/10.13039/501100011033/FEDER, UE (grant PID2021-128228NB-I00) for
+supporting this research.
 
 %prep
 %setup -q -c -n %{packname}

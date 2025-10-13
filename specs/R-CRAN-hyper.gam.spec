@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hyper.gam
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Additive Models with Hyper Column
 
@@ -23,14 +23,12 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-groupedHyperframe 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-nlme 
 Requires:         R-parallel 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-groupedHyperframe 
 
 %description
 Generalized additive models with a numeric hyper column tabulated on a

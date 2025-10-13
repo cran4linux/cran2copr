@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NumericEnsembles
-%global packver   0.10.1
+%global packver   0.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.10.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Runs 18 Individual and 14 Ensembles of Models
 
@@ -93,7 +93,7 @@ Requires:         R-CRAN-xgboost
 %description
 Automatically runs 18 individual models and 14 ensembles on numeric data,
 for a total of 32 models. The package automatically returns complete
-results on all 32 models, 25 charts, multiple tables. The user simply
+results on all 32 models, 30 charts and six tables. The user simply
 provides the tidy data, and answers a few questions (for example, how many
 times would you like to resample the data). From there the package
 randomly splits the data into train, test and validation sets, fits each

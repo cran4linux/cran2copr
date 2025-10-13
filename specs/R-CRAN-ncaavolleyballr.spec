@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncaavolleyballr
-%global packver   0.4.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Data from NCAA Women's and Men's Volleyball Website
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-chromote 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-chromote 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
@@ -43,7 +45,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-xml2 
 
 %description
-Extracts team records/schedules and player statistics for the 2020-2024
+Extracts team records/schedules and player statistics for the 2020-2025
 National Collegiate Athletic Association (NCAA) women's and men's
 divisions I, II, and III volleyball teams from <https://stats.ncaa.org>.
 Functions can aggregate statistics for teams, conferences, divisions, or

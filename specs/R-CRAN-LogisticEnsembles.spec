@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LogisticEnsembles
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatically Runs 36 Logistic Models (Individual and Ensembles)
+Summary:          Automatically Runs 24 Logistic Models (Individual and Ensembles)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

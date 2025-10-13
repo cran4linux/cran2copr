@@ -1,45 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modeLLtest
-%global packver   1.0.5
+%global packname  lmreg
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compare Models with Cross-Validated Log-Likelihood
+Summary:          Data and Functions Used in Linear Models and Regression with R: An Integrated Approach
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-coxrobust 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-coxrobust 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-An implementation of the cross-validated difference in means (CVDM) test
-by Desmarais and Harden (2014) <doi:10.1007/s11135-013-9884-7> (see also
-Harden and Desmarais, 2011 <doi:10.1177/1532440011408929>) and the
-cross-validated median fit (CVMF) test by Desmarais and Harden (2012)
-<doi:10.1093/pan/mpr042>. These tests use leave-one-out cross-validated
-log-likelihoods to assist in selecting among model estimations. You can
-also utilize data from Golder (2010) <doi:10.1177/0010414009341714> and
-Joshi & Mason (2008) <doi:10.1177/0022343308096155> that are included to
-facilitate examples from real-world analysis.
+Data files and a few functions used in the book 'Linear Models and
+Regression with R: An Integrated Approach' by Debasis Sengupta and
+Sreenivas Rao Jammalamadaka (2019).
 
 %prep
 %setup -q -c -n %{packname}
