@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdflex
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Aggregate Density Forecasts
 
@@ -40,7 +40,8 @@ time-varying and computationally fast manner. The method proceeds in two
 steps: First, it transforms a predictive signal into a density forecast
 and, second, it combines the resulting candidate density forecasts into an
 ultimate aggregate density forecast. For a detailed explanation of the
-method, please refer to Adaemmer et al. (2023) <doi:10.2139/ssrn.4342487>.
+method, please refer to Adaemmer et al. (2025)
+<doi:10.1080/07350015.2025.2526424>.
 
 %prep
 %setup -q -c -n %{packname}

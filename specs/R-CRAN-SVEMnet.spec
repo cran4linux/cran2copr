@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   2.2.4
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Validated Ensemble Models with Lasso and Relaxed Elastic Net Regression
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 4.1.2
+BuildRequires:    R-CRAN-glmnet >= 4.1.4
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
-Requires:         R-CRAN-glmnet >= 4.1.2
+Requires:         R-CRAN-glmnet >= 4.1.4
 Requires:         R-stats 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 

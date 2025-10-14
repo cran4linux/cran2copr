@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GoodFibes
-%global packver   0.1.10
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection and Reconstruction of Muscle Fibers from diceCT Image Data
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -25,7 +24,8 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-splines2 
-Requires:         R-CRAN-imager 
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-tinycodet 
 Requires:         R-CRAN-rgl 
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -33,6 +33,8 @@ Requires:         R-grDevices
 Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-prodlim 
 Requires:         R-CRAN-splines2 
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-tinycodet 
 
 %description
 Reconstruction of muscle fibers from image stacks using textural analysis.

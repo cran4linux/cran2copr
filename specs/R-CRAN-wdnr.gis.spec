@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdnr.gis
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pull Spatial Layers from 'WDNR ArcGIS REST API'
 
@@ -20,12 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-arcpullr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-arcpullr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 
 %description

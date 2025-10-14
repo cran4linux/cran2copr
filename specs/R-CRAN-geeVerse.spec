@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geeVerse
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Analysis of High Dimensional Longitudinal Data
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.10.2
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-MASS 
 
 %description
 To provide a comprehensive analysis of high dimensional longitudinal

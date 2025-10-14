@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  altmeta
-%global packver   4.2
+%global packver   4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2
+Version:          4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternative Meta-Analysis Methods
 
@@ -42,18 +42,17 @@ Requires:         R-utils
 Provides alternative statistical methods for meta-analysis, including: -
 bivariate generalized linear mixed models for synthesizing odds ratios,
 relative risks, and risk differences (Chu et al., 2012
-<doi:10.1177/0962280210393712>) - heterogeneity tests and measures and
-penalization methods that are robust to outliers (Lin et al., 2017
-<doi:10.1111/biom.12543>; Wang et al., 2022 <doi:10.1002/sim.9261>); -
-measures, tests, and visualization tools for publication bias or
-small-study effects (Lin and Chu, 2018 <doi:10.1111/biom.12817>; Lin, 2019
-<doi:10.1002/jrsm.1340>; Lin, 2020 <doi:10.1177/0962280220910172>; Shi et
-al., 2020 <doi:10.1002/jrsm.1415>); - meta-analysis of combining
-standardized mean differences and odds ratios (Jing et al., 2023
-<doi:10.1080/10543406.2022.2105345>); - meta-analysis of diagnostic tests
-for synthesizing sensitivities, specificities, etc. (Reitsma et al., 2005
-<doi:10.1016/j.jclinepi.2005.02.022>; Chu and Cole, 2006
-<doi:10.1016/j.jclinepi.2006.06.011>); - meta-analysis methods for
+<doi:10.1177/0962280210393712>) - tests and measures for between-study
+heterogeneity (Lin et al., 2017 <doi:10.1111/biom.12543>; Wang et al.,
+2022 <doi:10.1002/sim.9261>); - measures, tests, and visualization tools
+for publication bias or small-study effects (Lin and Chu, 2018
+<doi:10.1111/biom.12817>; Lin, 2019 <doi:10.1002/jrsm.1340>; Lin, 2020
+<doi:10.1177/0962280220910172>; Shi et al., 2020 <doi:10.1002/jrsm.1415>);
+- meta-analysis of combining standardized mean differences and odds ratios
+(Jing et al., 2023 <doi:10.1080/10543406.2022.2105345>); - meta-analysis
+of diagnostic tests for synthesizing sensitivities, specificities, etc.
+(Reitsma et al., 2005 <doi:10.1016/j.jclinepi.2005.02.022>; Chu and Cole,
+2006 <doi:10.1016/j.jclinepi.2006.06.011>); - meta-analysis methods for
 synthesizing proportions (Lin and Chu, 2020
 <doi:10.1097/ede.0000000000001232>); - models for multivariate
 meta-analysis, measures of inconsistency degrees of freedom in Bayesian

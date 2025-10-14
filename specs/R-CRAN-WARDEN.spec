@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WARDEN
-%global packver   1.2.5
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflows for Health Technology Assessments in R using Discrete EveNts
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreach 
@@ -29,8 +28,9 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreach 
@@ -43,13 +43,14 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Toolkit to support and perform discrete event simulations without resource
-constraints in the context of health technology assessments (HTA). The
-package focuses on cost-effectiveness modelling and aims to be
+Toolkit to support and perform discrete event simulations with and without
+resource constraints in the context of health technology assessments
+(HTA). The package focuses on cost-effectiveness modelling and aims to be
 submission-ready to relevant HTA bodies in alignment with 'NICE TSD 15'
 <https://sheffield.ac.uk/nice-dsu/tsds/patient-level-simulation>. More
 details an examples can be found in the package website
