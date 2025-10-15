@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbmi
-%global packver   1.4.1
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Based Multiple Imputation
 
@@ -24,6 +24,9 @@ BuildRequires:    R-tools
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-jinjar 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-mmrm 
 Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-Matrix 
@@ -31,6 +34,9 @@ Requires:         R-tools
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-jinjar 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-stringr 
 
 %description
 Implements standard and reference based multiple imputation methods for

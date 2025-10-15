@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groupedHyperframe.random
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulated Grouped Hyper Data Frame
 
@@ -14,19 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-groupedHyperframe 
+BuildRequires:    R-CRAN-groupedHyperframe >= 0.3.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-groupedHyperframe 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
+Requires:         R-CRAN-groupedHyperframe >= 0.3.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
 
 %description
 An intuitive interface to simulate (1) superimposed (marked) point

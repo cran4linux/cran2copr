@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GephiForR
-%global packver   0.1.1
+%global packname  GINAX
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Gephi' Network Visualization
+Summary:          Performs Genome-Wide Iterative Fine-Mapping for Non-Gaussian Data using GINA-X
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-caret >= 6.0.86
+BuildRequires:    R-stats >= 4.2.2
+BuildRequires:    R-CRAN-GA >= 3.2
+BuildRequires:    R-CRAN-Matrix >= 1.2.18
+BuildRequires:    R-CRAN-memoise >= 1.1.0
+Requires:         R-CRAN-caret >= 6.0.86
+Requires:         R-stats >= 4.2.2
+Requires:         R-CRAN-GA >= 3.2
+Requires:         R-CRAN-Matrix >= 1.2.18
+Requires:         R-CRAN-memoise >= 1.1.0
 
 %description
-Implements key features of 'Gephi' for network visualization, including
-'ForceAtlas2' (with LinLog mode), network scaling, and network rotations.
-It also includes easy network visualization tools such as edge and node
-color assignment for recreating 'Gephi'-style graphs in R. The package
-references layout algorithms developed by Jacomy, M., Venturini T.,
-Heymann S., and Bastian M. (2014) <doi:10.1371/journal.pone.0098679> and
-Noack, A. (2009) <doi:10.48550/arXiv.0807.4052>.
+Implements GINA-X, a genome-wide iterative fine-mapping method designed
+for non-Gaussian traits. It supports the identification of credible sets
+of genetic variants.
 
 %prep
 %setup -q -c -n %{packname}

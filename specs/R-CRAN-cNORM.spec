@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cNORM
-%global packver   3.5.0
+%global packver   3.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          3.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Norming
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-leaps >= 3.1
-Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-leaps >= 3.1
 
 %description
@@ -38,7 +38,11 @@ of model fit, accommodates a wide range of scales including those with
 negative and descending values, and even supports conventional norming. It
 generates norm tables including confidence intervals. It also includes
 methods for addressing representativeness issues through Iterative
-Proportional Fitting.
+Proportional Fitting. Based on Lenhard et al. (2016)
+<doi:10.1177/1073191116656437>, Lenhard et al. (2019)
+<doi:10.1371/journal.pone.0222279>, Lenhard and Lenhard (2021)
+<doi:10.1177/0013164420928457> and Gary et al. (2023)
+<doi:10.1007/s00181-023-02456-0>.
 
 %prep
 %setup -q -c -n %{packname}

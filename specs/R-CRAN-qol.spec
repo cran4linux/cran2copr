@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qol
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Powerful 'SAS' Inspired Concepts for more Efficient Bigger Outputs
 
@@ -28,12 +28,12 @@ Requires:         R-CRAN-data.table >= 1.17.8
 The main goal is to make descriptive evaluations easier to create bigger
 and more complex outputs in less time with less code. Introducing format
 containers with multilabels
-<https:[https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/p06ciqes4eaqo6n0zyqtz9p21nfb.htm]>,
+<https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/p06ciqes4eaqo6n0zyqtz9p21nfb.htm>,
 a more powerful summarise which is capable to output every possible
 combination of the provided grouping variables in one go
-<https:[https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/p0jvbbqkt0gs2cn1lo4zndbqs1pe.htm]>,
+<https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/p0jvbbqkt0gs2cn1lo4zndbqs1pe.htm>,
 tabulation functions which can create any table in different styles
-<https:[https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/n1ql5xnu0k3kdtn11gwa5hc7u435.htm]>
+<https://documentation.sas.com/doc/en/pgmsascdc/v_067/proc/n1ql5xnu0k3kdtn11gwa5hc7u435.htm>
 and other more readable functions. The code is optimized to work fast even
 with datasets of over a million observations.
 

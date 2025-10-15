@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GephiForR
-%global packver   0.1.1
+%global packname  mumarinex
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Gephi' Network Visualization
+Summary:          Computation of the Multivariate Marine Recovery Index
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-vegan 
 
 %description
-Implements key features of 'Gephi' for network visualization, including
-'ForceAtlas2' (with LinLog mode), network scaling, and network rotations.
-It also includes easy network visualization tools such as edge and node
-color assignment for recreating 'Gephi'-style graphs in R. The package
-references layout algorithms developed by Jacomy, M., Venturini T.,
-Heymann S., and Bastian M. (2014) <doi:10.1371/journal.pone.0098679> and
-Noack, A. (2009) <doi:10.48550/arXiv.0807.4052>.
+Computation of the multivariate marine recovery index, including functions
+for data visualization and ecological diagnostics of marine ecosystems.
+The computational details are described in the original publication.
+Reference: Chauvel, N., Grall, J., Thiébaut, E., Houbin, C., Pezy, J.P.
+(in press). "A general-purpose Multivariate Marine Recovery Index for
+quantifying the influence of human activities on benthic habitat
+ecological status". Ecological Indicators.
 
 %prep
 %setup -q -c -n %{packname}

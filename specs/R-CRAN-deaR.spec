@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deaR
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conventional and Fuzzy Data Envelopment Analysis
 
@@ -41,11 +41,12 @@ Requires:         R-grDevices
 Requires:         R-CRAN-optiSolve 
 
 %description
-Set of functions for Data Envelopment Analysis. It runs both classic and
-fuzzy DEA models. See: Banker, R.; Charnes, A.; Cooper, W.W. (1984).
-<doi:10.1287/mnsc.30.9.1078>, Charnes, A.; Cooper, W.W.; Rhodes, E.
-(1978). <doi:10.1016/0377-2217(78)90138-8> and Charnes, A.; Cooper, W.W.;
-Rhodes, E. (1981). <doi:10.1287/mnsc.27.6.668>.
+Set of functions for Data Envelopment Analysis, including classical,
+fuzzy, cross-efficiency, bootstrapping, and Malmquist models. See: Banker,
+R.; Charnes, A.; Cooper, W.W. (1984). <doi:10.1287/mnsc.30.9.1078>,
+Charnes, A.; Cooper, W.W.; Rhodes, E. (1978).
+<doi:10.1016/0377-2217(78)90138-8> and Charnes, A.; Cooper, W.W.; Rhodes,
+E. (1981). <doi:10.1287/mnsc.27.6.668>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GephiForR
+%global packname  fejiv
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Gephi' Network Visualization
+Summary:          Fixed Effect Jackknife Instrumental Variables Estimation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
 
 %description
-Implements key features of 'Gephi' for network visualization, including
-'ForceAtlas2' (with LinLog mode), network scaling, and network rotations.
-It also includes easy network visualization tools such as edge and node
-color assignment for recreating 'Gephi'-style graphs in R. The package
-references layout algorithms developed by Jacomy, M., Venturini T.,
-Heymann S., and Bastian M. (2014) <doi:10.1371/journal.pone.0098679> and
-Noack, A. (2009) <doi:10.48550/arXiv.0807.4052>.
+Implements the Fixed Effect Jackknife Instrumental Variables ('FEJIV')
+estimator of Chao, Swanson, and Woutersen (2023)
+<doi:10.1016/j.jeconom.2022.12.011>, allowing consistent IV estimation
+with many (possibly weak) instruments, cluster fixed effects,
+heteroskedastic errors, and many exogenous covariates. The estimator is
+recommended by Słoczyński (2024) <doi:10.48550/arXiv.2011.06695> as an
+alternative to two-stage least squares when estimating the interacted
+specification of Angrist and Imbens (1995)
+<doi:10.1080/01621459.1995.10476535>.
 
 %prep
 %setup -q -c -n %{packname}

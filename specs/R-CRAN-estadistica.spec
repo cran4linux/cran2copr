@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  estadistica
-%global packver   0.2.3
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fundamentos De Estadistica Descriptiva e Inferencial
+Summary:          Fundamentos de estadística descriptiva e inferencial
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rio 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-cowplot 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rio 
-Requires:         R-CRAN-data.table 
-Requires:         R-grid 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-cowplot 
 
 %description
 Este paquete pretende apoyar el proceso enseñanza-aprendizaje de

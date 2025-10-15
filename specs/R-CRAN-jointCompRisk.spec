@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GephiForR
-%global packver   0.1.1
+%global packname  jointCompRisk
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Gephi' Network Visualization
+Summary:          Joint Inference for Competing Risks Data Using Multiple Endpoints
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-survival 
 
 %description
-Implements key features of 'Gephi' for network visualization, including
-'ForceAtlas2' (with LinLog mode), network scaling, and network rotations.
-It also includes easy network visualization tools such as edge and node
-color assignment for recreating 'Gephi'-style graphs in R. The package
-references layout algorithms developed by Jacomy, M., Venturini T.,
-Heymann S., and Bastian M. (2014) <doi:10.1371/journal.pone.0098679> and
-Noack, A. (2009) <doi:10.48550/arXiv.0807.4052>.
+Tools for competing risks trials that allow simultaneous inference on
+recovery and mortality endpoints. Provides data preparation helpers,
+standard cumulative incidence estimators (restricted mean time
+gained/lost), and severity weighted extensions that integrate longitudinal
+ordinal outcomes to summarise treatment benefit. Methods follow Wen, Wang,
+and Hu (2023) Biometrics 79(3):1635-1645 <doi:10.1111/biom.13752>.
 
 %prep
 %setup -q -c -n %{packname}

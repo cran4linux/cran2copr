@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cstime
-%global packver   2023.5.3
+%global packver   2025.10.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.5.3
+Version:          2025.10.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Date and Time Functions for Public Health Purposes
 

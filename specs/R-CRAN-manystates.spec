@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GephiForR
-%global packver   0.1.1
+%global packname  manystates
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Gephi' Network Visualization
+Summary:          Many Data on State and State-Like Actors in the International System
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-manydata 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-manydata 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringi 
 
 %description
-Implements key features of 'Gephi' for network visualization, including
-'ForceAtlas2' (with LinLog mode), network scaling, and network rotations.
-It also includes easy network visualization tools such as edge and node
-color assignment for recreating 'Gephi'-style graphs in R. The package
-references layout algorithms developed by Jacomy, M., Venturini T.,
-Heymann S., and Bastian M. (2014) <doi:10.1371/journal.pone.0098679> and
-Noack, A. (2009) <doi:10.48550/arXiv.0807.4052>.
+Comprehensively identifying states and state-like actors is difficult.
+This package provides data on states and state-like entities in the
+international system across time. The package combines and
+cross-references several existing datasets consistent with the aims and
+functions of the manydata package. It also includes functions for
+identifying state references in text, and for generating fictional state
+names.
 
 %prep
 %setup -q -c -n %{packname}

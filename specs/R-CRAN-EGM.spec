@@ -1,22 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EGM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluating Cardiac Electrophysiology Signals
+Summary:          Intracardiac Electrograms
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-stats 
@@ -29,6 +28,8 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-stats 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-signal 
 
 %description
 A system for importing electrophysiological signal, based on the 'Waveform
@@ -49,7 +51,8 @@ Database (WFDB)' software package, written by Moody et al 2022
 reading and writing signal data, as well as functions for visualization
 and analysis are provided. A stable and broadly compatible class for
 working with signal data, supporting the reading in of cardiac
-electrophysiogical files such as intracardiac electrograms, is introduced.
+electrophysiological files such as intracardiac electrograms, is
+introduced.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,51 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  saeSim
-%global packver   0.12.0
+%global packname  NMADTA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation Tools for Small Area Estimation
+Summary:          Network Meta-Analysis of Multiple Diagnostic Tests
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.2
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-functional 
+BuildRequires:    R-CRAN-rjags >= 4.6
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-parallelMap 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 0.2
-Requires:         R-methods 
-Requires:         R-CRAN-functional 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-rjags >= 4.6
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-MASS 
-Requires:         R-utils 
-Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-plotrix 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-parallelMap 
-Requires:         R-CRAN-tibble 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Tools for the simulation of data in the context of small area estimation.
-Combine all steps of your simulation - from data generation over drawing
-samples to model fitting - in one object. This enables easy modification
-and combination of different scenarios. You can store your results in a
-folder or start the simulation in parallel.
+Implements HSROC (hierarchical summary receiver operating characteristic)
+model developed by Ma, Lian, Chu, Ibrahim, and Chen (2018)
+<doi:10.1093/biostatistics/kxx025> and hierarchical model developed by
+Lian, Hodges, and Chu (2019) <doi:10.1080/01621459.2018.1476239> for
+performing meta-analysis for 1-5 diagnostic tests to simultaneously
+compare multiple tests within a missing data framework. This package
+evaluates the accuracy of multiple diagnostic tests and also gives
+graphical representation of the results.
 
 %prep
 %setup -q -c -n %{packname}
