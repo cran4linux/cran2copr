@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bakerrr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Background-Parallel Jobs
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr >= 1.1.0
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-carrier 
 BuildRequires:    R-CRAN-cli 
@@ -24,8 +25,8 @@ BuildRequires:    R-CRAN-config
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-mirai 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-S7 
+Requires:         R-CRAN-purrr >= 1.1.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-carrier 
 Requires:         R-CRAN-cli 
@@ -33,7 +34,6 @@ Requires:         R-CRAN-config
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-mirai 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-S7 
 
 %description

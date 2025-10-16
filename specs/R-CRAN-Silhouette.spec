@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Silhouette
-%global packver   0.9.4
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Proximity Measure Based Diagnostics for Standard, Soft, and Multi-Way Clustering
 
@@ -14,17 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
 Quantifies clustering quality by measuring both cohesion within clusters
@@ -34,7 +38,8 @@ silhouette (Van der Laan et al., 2003) <doi:10.1080/0094965031000136012>,
 Probability of Alternative Cluster normalization methods (Raymaekers &
 Rousseeuw, 2022) <doi:10.1080/10618600.2022.2050249>, fuzzy clustering and
 silhouette diagnostics using membership probabilities (Campello &
-Hruschka, 2006; Bhat & Kiruthika, 2024) <doi:10.1016/j.fss.2006.07.006>,
+Hruschka, 2006; Menardi, 2011; Bhat & Kiruthika, 2024)
+<doi:10.1016/j.fss.2006.07.006>, <doi:10.1007/s11222-010-9169-0>,
 <doi:10.1080/23737484.2024.2408534>, and multi-way clustering extensions
 such as block and tensor clustering (Schepers et al., 2008; Bhat &
 Kiruthika, 2025) <doi:10.1007/s00357-008-9005-9>,

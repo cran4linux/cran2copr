@@ -1,45 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.1
+%global packname  andorR
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Optimisation of the Analysis of AND-OR Decision Trees
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+A decision support tool to strategically prioritise evidence gathering in
+complex, hierarchical AND-OR decision trees. It is designed for situations
+with incomplete or uncertain information where the goal is to reach a
+confident conclusion as efficiently as possible (responding to the minimum
+number of questions, and only spending resources on generating improved
+evidence when it is of significant value to the final decision). The
+framework excels in complex analyses with multiple potential successful
+pathways to a conclusion ('OR' nodes). Key features include a dynamic
+influence index to guide users to the most impactful question, a system
+for propagating answers and semi-quantitative confidence scores (0-5) up
+the tree, and post-conclusion guidance to identify the best actions to
+increase the final confidence. These components are brought together in an
+interactive command-line workflow that guides the analysis from start to
+finish.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rhoR
-%global packver   1.3.1
+%global packname  localLLM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rho for Inter Rater Reliability
+Summary:          Running Local LLMs with 'llama.cpp' Backend
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.14
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-Rho is used to test the generalization of inter rater reliability (IRR)
-statistics. Calculating rho starts by generating a large number of
-simulated, fully-coded data sets: a sizable collection of hypothetical
-populations, all of which have a kappa value below a given threshold --
-which indicates unacceptable agreement. Then kappa is calculated on a
-sample from each of those sets in the collection to see if it is equal to
-or higher than the kappa in then real sample. If less than five percent of
-the distribution of samples from the simulated data sets is greater than
-actual observed kappa, the null hypothesis is rejected and one can
-conclude that if the two raters had coded the rest of the data, we would
-have acceptable agreement (kappa above the threshold).
+The 'localLLM' package provides R bindings to the 'llama.cpp' library for
+running large language models. The package uses a lightweight architecture
+where the C++ backend library is downloaded at runtime rather than bundled
+with the package. Package features include text generation, reproducible
+generation, and parallel inference.
 
 %prep
 %setup -q -c -n %{packname}

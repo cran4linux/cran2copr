@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  packageRank
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation and Visualization of Package Download Counts and Percentile Ranks
 
@@ -18,29 +18,33 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.12.2
+BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-cranlogs 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-fasttime 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ISOcodes 
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pkgsearch 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rversions 
 BuildRequires:    R-CRAN-sugrrants 
 Requires:         R-CRAN-data.table >= 1.12.2
+Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-cranlogs 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-fasttime 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
 Requires:         R-CRAN-ISOcodes 
 Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pkgsearch 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rversions 
 Requires:         R-CRAN-sugrrants 
 

@@ -1,32 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cord
-%global packver   0.2.0
+%global packname  medicalcoder
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Community Estimation in G-Models via CORD
+Summary:          Tools for Working with ICD Codes and Comorbidity Algorithms
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Partitions data points (variables) into communities/clusters, similar to
-clustering algorithms such as k-means and hierarchical clustering. This
-package implements a clustering algorithm based on a new metric CORD,
-defined for high-dimensional parametric or semiparametric distributions.
-For more details see Bunea et al. (2020), Annals of Statistics
-<doi:10.1214/18-AOS1794>.
+Provides tools for working with medical coding schemas such as the
+International Classification of Diseases (ICD). Includes functions for
+comorbidity classification algorithms such as the Pediatric Complex
+Chronic Conditions (PCCC), Charlson, and Elixhauser indices.
 
 %prep
 %setup -q -c -n %{packname}

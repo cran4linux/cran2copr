@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rhoR
-%global packver   1.3.1
+%global packname  clitable
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rho for Inter Rater Reliability
+Summary:          Render Tables in Text for the Terminal
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-Rho is used to test the generalization of inter rater reliability (IRR)
-statistics. Calculating rho starts by generating a large number of
-simulated, fully-coded data sets: a sizable collection of hypothetical
-populations, all of which have a kappa value below a given threshold --
-which indicates unacceptable agreement. Then kappa is calculated on a
-sample from each of those sets in the collection to see if it is equal to
-or higher than the kappa in then real sample. If less than five percent of
-the distribution of samples from the simulated data sets is greater than
-actual observed kappa, the null hypothesis is rejected and one can
-conclude that if the two raters had coded the rest of the data, we would
-have acceptable agreement (kappa above the threshold).
+Render tables in text format in the terminal using ANSI strings thanks to
+the 'cli' and 'crayon' packages.
 
 %prep
 %setup -q -c -n %{packname}

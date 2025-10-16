@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quicR
-%global packver   2.1.0
+%global packname  rChEA3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          RT-QuIC Data Formatting and Analysis
+Summary:          R Client for the 'ChEA3' Transcription Factor Enrichment API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-slider 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-slider 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-writexl 
 
 %description
-Designed for the curation and analysis of data generated from real-time
-quaking-induced conversion (RT-QuIC) assays first described by Atarashi et
-al. (2011) <doi:10.1038/nm.2294>. 'quicR' calculates useful metrics such
-as maxpoint ratio: Rowden et al. (2023) <doi:10.1099/vir.0.069906-0>;
-time-to-threshold: Shi et al. (2013) <doi:10.1186/2051-5960-1-44>; and
-maximum slope. Integration with the output from plate readers allows for
-seamless input of raw data into the R environment.
+Interface to the 'ChEA3' transcription factor enrichment API. 'ChEA3'
+integrates evidence from ChIP-seq, co-expression, and literature resources
+to prioritize transcription factors regulating a given set of genes. This
+package provides convenient R functions to query the API, retrieve ranked
+results across collections (including integrated scores), and standardize
+output for downstream analysis in R/Bioconductor workflows. See
+<https://maayanlab.cloud/chea3/> or Keenan (2019) <doi:10.1093/nar/gkz446>
+for further details.
 
 %prep
 %setup -q -c -n %{packname}

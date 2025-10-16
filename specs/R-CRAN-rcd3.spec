@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cord
-%global packver   0.2.0
+%global packname  rcd3
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Community Estimation in G-Models via CORD
+Summary:          Efficient Row-Column Designs for 3 Level Factorial Experiments in 3 Rows
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
 
 %description
-Partitions data points (variables) into communities/clusters, similar to
-clustering algorithms such as k-means and hierarchical clustering. This
-package implements a clustering algorithm based on a new metric CORD,
-defined for high-dimensional parametric or semiparametric distributions.
-For more details see Bunea et al. (2020), Annals of Statistics
-<doi:10.1214/18-AOS1794>.
+Provides functions to construct efficient row-column designs for 3-level
+factorial experiments in 3 rows. The designs ensure the estimation of all
+main effects (full efficiency) and two factor interactions in minimum
+replications. For more details, see Dey, A. and Mukerjee, R. (2012)
+<doi:10.1016/j.spl.2012.06.014> and Dash, S., Parsad, R., and Gupta, V. K.
+(2013) <doi:10.1007/s40003-013-0059-5>.
 
 %prep
 %setup -q -c -n %{packname}

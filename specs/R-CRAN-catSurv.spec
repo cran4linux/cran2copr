@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  catSurv
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computerized Adaptive Testing for Survey Research
 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-RcppParallel
 Provides methods of computerized adaptive testing for survey researchers.
 See Montgomery and Rossiter (2020) <doi:10.1093/jssam/smz027>. Includes
 functionality for data fit with the classic item response methods
-including the latent trait model, Birnbaum`s three parameter model, the
+including the latent trait model, the Birnbaum three parameter model, the
 graded response, and the generalized partial credit model.  Additionally,
 includes several ability parameter estimation and item selection routines.
 During item selection, all calculations are done in compiled C++ code.

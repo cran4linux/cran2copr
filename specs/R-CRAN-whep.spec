@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  whep
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing Agro-Environmental Data
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-zoo 
 
 %description
 A set of tools for processing and analyzing data developed in the context

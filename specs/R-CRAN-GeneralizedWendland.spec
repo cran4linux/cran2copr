@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeneralizedWendland
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fully Parameterized Generalized Wendland Covariance Function
 
@@ -49,8 +49,9 @@ Moreno Bevilacqua and Reinhard Furrer and Tarik Faouzi and Emilio Porcu
 (2019)
 <url:<https://projecteuclid.org/journalArticle/Download?urlId=10.1214%%2F17-AOS1652
 >>. Moreno Bevilacqua and Christian Caamaño-Carrillo and Emilio Porcu
-(2022) <arXiv:2008.02904>. Reinhard Furrer and Roman Flury and Florian
-Gerber (2022) <url:<https://CRAN.R-project.org/package=spam >>.
+(2022) <doi:10.48550/arXiv.2008.02904>. Reinhard Furrer and Roman Flury
+and Florian Gerber (2022) <url:<https://CRAN.R-project.org/package=spam
+>>.
 
 %prep
 %setup -q -c -n %{packname}

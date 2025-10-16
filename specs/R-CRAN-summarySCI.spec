@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AnalysisLin
-%global packver   0.1.2
+%global packname  summarySCI
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Data Analysis
+Summary:          Produces Publication-Ready Summary Tables
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gtsummary >= 2.3.0
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-cardx 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-officer 
+Requires:         R-CRAN-gtsummary >= 2.3.0
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-stats 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-cardx 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-officer 
 
 %description
-A quick and effective data exploration toolkit. It provides essential
-features, including a descriptive statistics table for a quick overview of
-your dataset, interactive distribution plots to visualize variable
-patterns, Principal Component Analysis for dimensionality reduction and
-feature analysis, missing value imputation methods, and correlation
-analysis.
+Produces tables with descriptive statistics for continuous, categorical
+and dichotomous variables. It is largely based on the package 'gtsummary';
+Sjoberg DD et al. (2021) <doi:10.32614/RJ-2021-053>.
 
 %prep
 %setup -q -c -n %{packname}

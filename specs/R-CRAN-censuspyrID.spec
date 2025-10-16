@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrda
-%global packver   0.2.3
+%global packname  censuspyrID
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ridge Redundancy Analysis for High-Dimensional Omics Data
+Summary:          Explorer of Indonesian Population Pyramids from Harmonized and Non-Harmonized Census Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 0.13.0
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pheatmap 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-networkD3 
+Requires:         R-CRAN-shiny >= 0.13.0
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pheatmap 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-scales 
-Requires:         R-stats 
+Requires:         R-CRAN-networkD3 
 
 %description
-Efficient framework for ridge redundancy analysis (rrda), tailored for
-high-dimensional omics datasets where the number of predictors exceeds the
-number of samples. The method leverages Singular Value Decomposition (SVD)
-to avoid direct inversion of the covariance matrix, enhancing scalability
-and performance. It also introduces a memory-efficient storage strategy
-for coefficient matrices, enabling practical use in large-scale
-applications. The package supports cross-validation for selecting
-regularization parameters and reduced-rank dimensions, making it a robust
-and flexible tool for multivariate analysis in omics research. Please
-refer to our article (Yoshioka et al., 2025) for more details.
+Provides harmonized and non-harmonized population pyramid datasets from
+the Indonesian population censuses (1971–2020), along with tools for
+visualization and an interactive 'shiny'-based explorer application. Data
+are processed from IPUMS International (1971–2010) and the Population
+Census 2020 (BPS Indonesia).
 
 %prep
 %setup -q -c -n %{packname}

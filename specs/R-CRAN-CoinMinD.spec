@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsmSearch
+%global packname  CoinMinD
 %global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DSM and LiDAR downloader
+Summary:          Simultaneous Confidence Intervals for Multinomial Proportions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-lidR 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-forestdata 
-BuildRequires:    R-CRAN-nominatimlite 
-BuildRequires:    R-CRAN-imager 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-lidR 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-forestdata 
-Requires:         R-CRAN-nominatimlite 
-Requires:         R-CRAN-imager 
+BuildRequires:    R-CRAN-MCMCpack 
+Requires:         R-CRAN-MCMCpack 
 
 %description
-A collection of functions to search and donwload DSM (Digital Surface
-Model) and LiDAR (Light Detection and Ranging) data via APIs, including
-'OpenTopography' <https://portal.opentopography.org/apidocs/> and
-'TNMAccess' <https://apps.nationalmap.gov/tnmaccess/#/>.
+Several authors have proposed methods for constructing simultaneous
+confidence intervals for multinomial proportions. The package implements
+seven classical approaches—Wilson, Quesenberry and Hurst, Goodman, Wald
+(with and without continuity correction), Fitzpatrick and Scott, and Sison
+and Glaz—along with Bayesian methods based on Dirichlet models. Both equal
+and unequal Dirichlet priors are supported, providing a broad framework
+for inference, data analysis, and sensitivity evaluation.
 
 %prep
 %setup -q -c -n %{packname}
