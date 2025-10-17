@@ -1,37 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ebdm
-%global packver   3.0.0
+%global packname  envsetup
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Bivariate Dependency from Marginal Data
+Summary:          Support the Setup of the R Environment for Clinical Trial Programming Workflows
 
-License:          GPL (>= 3)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-envnames 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-envnames 
+Requires:         R-utils 
 
 %description
-Provides statistical methods for estimating bivariate dependency
-(correlation) from marginal summary statistics across multiple studies.
-The package supports three modules: (1) bivariate correlation estimation
-for binary outcomes, (2) bivariate correlation estimation for continuous
-outcomes, and (3) estimation of component-wise means and variances under a
-conditional two-component Gaussian mixture model for a continuous variable
-stratified by a binary class label. These methods enable
-privacy-preserving joint estimation when individual-level data are
-unavailable. The approaches are detailed in Shang, Tsao, and Zhang (2025a)
-<doi:10.48550/arXiv.2505.03995> and Shang, Tsao, and Zhang (2025b)
-<doi:10.48550/arXiv.2508.02057>.
+The purpose of this package is to support the setup the R environment. The
+two main features are 'autos', to automatically source files and/or
+directories into your environment, and 'paths' to consistently set path
+objects across projects for input and output. Both are implemented using a
+configuration file to allow easy, custom configurations that can be used
+for multiple or all projects.
 
 %prep
 %setup -q -c -n %{packname}

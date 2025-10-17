@@ -1,55 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  archiveRetriever
-%global packver   0.4.1
+%global packname  brfinance
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Archived Web Pages from the 'Internet Archive'
+Summary:          Simplified Access to Brazilian Financial and Macroeconomic Data
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-sidrar 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-anytime 
+BuildRequires:    R-CRAN-janitor 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sidrar 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-janitor 
 
 %description
-Scraping content from archived web pages stored in the 'Internet Archive'
-(<https://archive.org>) using a systematic workflow.  Get an overview of
-the mementos available from the respective homepage, retrieve the Urls and
-links of the page and finally scrape the content. The final output is
-stored in tibbles, which can be then easily used for further analysis.
+It offers simplified access to Brazilian macroeconomic and financial
+indicators selected from official sources, such as the 'IBGE' (Brazilian
+Institute of Geography and Statistics) via the 'SIDRA' API and the
+'Central Bank of Brazil' via the 'SGS' API. It allows users to quickly
+retrieve and visualize data series such as the unemployment rate and the
+Selic interest rate. This package was developed for data access and
+visualization purposes, without generating forecasts or statistical
+results. For more information, see the official APIs:
+<https://sidra.ibge.gov.br/> and
+<https://dadosabertos.bcb.gov.br/dataset/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inferCSN
-%global packver   1.1.7
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inferring Cell-Specific Gene Regulatory Network
 
@@ -18,40 +18,32 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggnetwork 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-L0Learn 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-thisutils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggnetwork 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-L0Learn 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-stats 
+Requires:         R-CRAN-thisutils 
 
 %description
 An R package for inferring cell-type specific gene regulatory network from
-single-cell RNA data.
+single-cell RNA-seq data.
 
 %prep
 %setup -q -c -n %{packname}

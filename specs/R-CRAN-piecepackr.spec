@@ -1,55 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  archiveRetriever
-%global packver   0.4.1
+%global packname  piecepackr
+%global packver   1.15.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.15.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Archived Web Pages from the 'Internet Archive'
+Summary:          Board Game Graphics
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+Recommends:       ghostscript
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-affiner >= 0.1.1
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridGeometry 
+BuildRequires:    R-CRAN-grImport2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-anytime 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-affiner >= 0.1.1
+Requires:         R-grid 
+Requires:         R-CRAN-gridGeometry 
+Requires:         R-CRAN-grImport2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Scraping content from archived web pages stored in the 'Internet Archive'
-(<https://archive.org>) using a systematic workflow.  Get an overview of
-the mementos available from the respective homepage, retrieve the Urls and
-links of the page and finally scrape the content. The final output is
-stored in tibbles, which can be then easily used for further analysis.
+Functions to make board game graphics with the 'ggplot2', 'grid',
+'rayrender', 'rayvertex', and 'rgl' packages.  Specializes in game
+diagrams, animations, and "Print & Play" layouts for the 'piecepack'
+<https://www.ludism.org/ppwiki> but can make graphics for other board game
+systems.  Includes configurations for several public domain game systems
+such as checkers, (double-18) dominoes, go, 'piecepack', playing cards,
+etc.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fledge
-%global packver   0.1.3
+%global packname  tmapverse
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Smoother Change Tracking and Versioning for R Packages
+Summary:          Meta-Package for Thematic Mapping with 'tmap'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-usethis >= 1.5.0
-BuildRequires:    R-CRAN-gert >= 1.4.0
-BuildRequires:    R-CRAN-desc >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 0.4.12
-BuildRequires:    R-CRAN-purrr >= 0.3.2
-BuildRequires:    R-CRAN-brio 
+BuildRequires:    R-CRAN-tmap >= 4.2
+BuildRequires:    R-CRAN-tmap.glyphs 
+BuildRequires:    R-CRAN-tmap.networks 
+BuildRequires:    R-CRAN-tmap.cartogram 
+BuildRequires:    R-CRAN-tmap.mapgl 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-cols4all 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rematch2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-whoami 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-usethis >= 1.5.0
-Requires:         R-CRAN-gert >= 1.4.0
-Requires:         R-CRAN-desc >= 1.2.0
-Requires:         R-CRAN-rlang >= 0.4.12
-Requires:         R-CRAN-purrr >= 0.3.2
-Requires:         R-CRAN-brio 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-tmap >= 4.2
+Requires:         R-CRAN-tmap.glyphs 
+Requires:         R-CRAN-tmap.networks 
+Requires:         R-CRAN-tmap.cartogram 
+Requires:         R-CRAN-tmap.mapgl 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-cols4all 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rematch2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-whoami 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-crayon 
 
 %description
-Streamlines the process of updating changelogs (NEWS.md) and versioning R
-packages developed in git repositories.
+Attaches a set of packages commonly used for spatial plotting with 'tmap'.
+It includes 'tmap' and its extensions ('tmap.glyphs', 'tmap.networks',
+'tmap.cartogram', 'tmap.mapgl'), as well as supporting spatial data
+packages ('sf', 'stars', 'terra') and 'cols4all' for exploring color
+palettes. The collection is designed for thematic mapping workflows and
+does not include the full set of packages from the R-spatial ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

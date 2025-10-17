@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ebdm
-%global packver   3.0.0
+%global packname  command
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Bivariate Dependency from Marginal Data
+Summary:          Process Command Line Arguments
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-methods 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-methods 
+Requires:         R-tools 
 
 %description
-Provides statistical methods for estimating bivariate dependency
-(correlation) from marginal summary statistics across multiple studies.
-The package supports three modules: (1) bivariate correlation estimation
-for binary outcomes, (2) bivariate correlation estimation for continuous
-outcomes, and (3) estimation of component-wise means and variances under a
-conditional two-component Gaussian mixture model for a continuous variable
-stratified by a binary class label. These methods enable
-privacy-preserving joint estimation when individual-level data are
-unavailable. The approaches are detailed in Shang, Tsao, and Zhang (2025a)
-<doi:10.48550/arXiv.2505.03995> and Shang, Tsao, and Zhang (2025b)
-<doi:10.48550/arXiv.2508.02057>.
+Process command line arguments, as part of a data analysis pipeline. The
+pipeline is controlled by a Makefile or shell script. Functions to
+construct Makefiles and shell scripts are included in a the package. The
+aim is a pipeline that is modular, transparent, and reliable.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,54 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bage
-%global packver   0.9.8
+%global packname  cpp4r
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation and Forecasting of Age-Specific Rates
+Summary:          Header-Only 'C++' and 'R' Interface
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-TMB >= 1.9.1
-BuildRequires:    R-CRAN-poputils >= 0.3.4
-BuildRequires:    R-CRAN-rvec >= 0.0.7
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-sparseMVN 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-decor 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB >= 1.9.1
-Requires:         R-CRAN-poputils >= 0.3.4
-Requires:         R-CRAN-rvec >= 0.0.7
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-brio 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-sparseMVN 
-Requires:         R-stats 
+Requires:         R-CRAN-decor 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 
 %description
-Fast Bayesian estimation and forecasting of age-specific rates,
-probabilities, and means, based on 'Template Model Builder'.
+Provides a header only, 'C++' interface to 'R' with enhancements over
+'cpp11'. Enforces copy-on-write semantics consistent with 'R' behavior.
+Offers native support for ALTREP objects, 'UTF-8' string handling, modern
+'C++11' features and idioms, and reduced memory requirements. Allows for
+vendoring, making it useful for restricted environments. Compared to
+'cpp11', it adds support for converting 'C++' maps to 'R' lists, 'Roxygen'
+documentation directly in 'C++' code, proper handling of matrix
+attributes, support for nullable external pointers, bidirectional copy of
+complex number types, flexibility in type conversions, use of nullable
+pointers, and various performance optimizations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  archiveRetriever
-%global packver   0.4.1
+%global packname  descsuppRplots
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Archived Web Pages from the 'Internet Archive'
+Summary:          Generate Plots for All Variables in Descriptive Tables
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-descsuppR >= 1.1
+BuildRequires:    R-CRAN-ggstatsplot >= 0.12.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-descutils 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-anytime 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsignif 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-descsuppR >= 1.1
+Requires:         R-CRAN-ggstatsplot >= 0.12.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-descutils 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsignif 
+Requires:         R-CRAN-zoo 
 
 %description
-Scraping content from archived web pages stored in the 'Internet Archive'
-(<https://archive.org>) using a systematic workflow.  Get an overview of
-the mementos available from the respective homepage, retrieve the Urls and
-links of the page and finally scrape the content. The final output is
-stored in tibbles, which can be then easily used for further analysis.
+Visualizes variables from descriptive tables produced by
+'descsuppR::buildDescrTbl()' using 'ggstatsplot'. It automatically maps
+each variable to a suitable 'ggstatsplot' plotting function based on the
+applied or suggested statistical test. Users can override the automatic
+mapping via a named list of plot specifications. The package supports
+grouped and ungrouped tables, and forwards additional arguments to the
+underlying 'ggstatsplot' functions, providing quick, reproducible, and
+customizable default visualizations for descriptive summaries.
 
 %prep
 %setup -q -c -n %{packname}

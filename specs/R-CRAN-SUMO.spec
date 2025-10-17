@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SUMO
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Multi-Omics Datasets for Testing and Benchmarking
 
@@ -20,6 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ragg 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
@@ -29,10 +32,15 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-officer 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-rlang 
+Requires:         R-grid 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ragg 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
@@ -42,6 +50,8 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-officer 
 
 %description

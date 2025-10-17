@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lavaangui
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical User Interface with Integrated 'Diagrammer' for 'Lavaan'
 
@@ -54,12 +54,12 @@ Requires:         R-CRAN-base64enc >= 0.1.3
 
 %description
 Provides a graphical user interface with an integrated diagrammer for
-latent variables from the 'lavaan' package. It offers two core functions:
-first, lavaangui() launches a web application that allows users to specify
-models by drawing path diagrams, fitting them, assessing model fit, and
-more; second, plot_lavaan() creates interactive path diagrams from models
-specified in 'lavaan'. Karch (2024) <doi: 10.31234/osf.io/f4ary> contains
-a tutorial.
+latent variable models from the 'lavaan' package. It offers two core
+functions: first, lavaangui() launches a web application that allows users
+to specify models by drawing path diagrams, fitting them, assessing model
+fit, and more; second, plot_lavaan() creates interactive path diagrams
+from models specified in 'lavaan'. Karch (2024) <doi:
+10.31234/osf.io/f4ary> contains a tutorial.
 
 %prep
 %setup -q -c -n %{packname}

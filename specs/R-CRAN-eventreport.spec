@@ -1,55 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  archiveRetriever
-%global packver   0.4.1
+%global packname  eventreport
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Archived Web Pages from the 'Internet Archive'
+Summary:          Diagnose, Visualize, and Aggregate Event Report Level Data
 
-License:          Apache License (>= 2.0)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-anytime 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tibble 
 
 %description
-Scraping content from archived web pages stored in the 'Internet Archive'
-(<https://archive.org>) using a systematic workflow.  Get an overview of
-the mementos available from the respective homepage, retrieve the Urls and
-links of the page and finally scrape the content. The final output is
-stored in tibbles, which can be then easily used for further analysis.
+Diagnose, visualize, and aggregate event report level data to the event
+level. Users provide an event report level dataset, specify their
+aggregation rules, and the package produces a dataset aggregated at the
+event level. Also includes the Modes and Agents of Election-Related
+Violence in Côte d'Ivoire and Kenya (MAVERICK) dataset, an event report
+level dataset that records all documented instances of electoral violence
+from the first multiparty election to 2022 in Côte d'Ivoire (1995-2022)
+and Kenya (1992-2022).
 
 %prep
 %setup -q -c -n %{packname}

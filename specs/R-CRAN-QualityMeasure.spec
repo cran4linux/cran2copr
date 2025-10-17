@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ebdm
-%global packver   3.0.0
+%global packname  QualityMeasure
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Bivariate Dependency from Marginal Data
+Summary:          Methods for Analyzing Quality Measure Performance
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides statistical methods for estimating bivariate dependency
-(correlation) from marginal summary statistics across multiple studies.
-The package supports three modules: (1) bivariate correlation estimation
-for binary outcomes, (2) bivariate correlation estimation for continuous
-outcomes, and (3) estimation of component-wise means and variances under a
-conditional two-component Gaussian mixture model for a continuous variable
-stratified by a binary class label. These methods enable
-privacy-preserving joint estimation when individual-level data are
-unavailable. The approaches are detailed in Shang, Tsao, and Zhang (2025a)
-<doi:10.48550/arXiv.2505.03995> and Shang, Tsao, and Zhang (2025b)
-<doi:10.48550/arXiv.2508.02057>.
+Quality of care is compared across accountable entities, including
+hospitals, provider groups, and insurance plans, using standardized
+quality measures. However, observed variations in quality measure
+performance might be the result of chance sampling or measurement errors.
+Contains functions for estimating the reliability of unadjusted and
+risk-standardized quality measures.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AlleleShift
-%global packver   1.1-3
+%global packname  ZIHINAR1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict and Visualize Population-Level Changes in Allele Frequencies in Response to Climate Change
+Summary:          Zero-Inflated and Hurdle INAR(1) Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan >= 2.6.4
-BuildRequires:    R-CRAN-BiodiversityR >= 2.15.4
-BuildRequires:    R-CRAN-adegenet 
-Requires:         R-CRAN-vegan >= 2.6.4
-Requires:         R-CRAN-BiodiversityR >= 2.15.4
-Requires:         R-CRAN-adegenet 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-stats 
+Requires:         R-CRAN-knitr 
+Requires:         R-utils 
+Requires:         R-CRAN-rstantools
 
 %description
-Methods (<doi:10.7717/peerj.11534>) are provided of calibrating and
-predicting shifts in allele frequencies through redundancy analysis
-('vegan::rda()') and generalized additive models ('mgcv::gam()').
-Visualization functions for predicted changes in allele frequencies
-include 'shift.dot.ggplot()', 'shift.pie.ggplot()', 'shift.moon.ggplot()',
-'shift.waffle.ggplot()' and 'shift.surf.ggplot()' that are made with input
-data sets that are prepared by helper functions for each visualization
-method. Examples in the documentation show how to prepare animated climate
-change graphics through a time series with the 'gganimate' package.
-Function 'amova.rda()' shows how Analysis of Molecular Variance can be
-directly conducted with the results from redundancy analysis.
+Provides tools for estimating Zero-Inflated INAR(1) (ZI-INAR(1)) and
+Hurdle INAR(1) (H-INAR(1)) models using 'Stan'. It allows users to
+simulate time series data for these models, estimate parameters, and
+evaluate model fit using various criteria. Functions include model
+estimation, simulation, and likelihood-based metrics.
 
 %prep
 %setup -q -c -n %{packname}

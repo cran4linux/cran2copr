@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ebdm
-%global packver   3.0.0
+%global packname  dispersionIndicators
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Bivariate Dependency from Marginal Data
+Summary:          Indicators for the Analysis of Dispersion of Datasets with Batched and Ordered Samples
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.5.2
+Requires:         R-CRAN-corpcor 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides statistical methods for estimating bivariate dependency
-(correlation) from marginal summary statistics across multiple studies.
-The package supports three modules: (1) bivariate correlation estimation
-for binary outcomes, (2) bivariate correlation estimation for continuous
-outcomes, and (3) estimation of component-wise means and variances under a
-conditional two-component Gaussian mixture model for a continuous variable
-stratified by a binary class label. These methods enable
-privacy-preserving joint estimation when individual-level data are
-unavailable. The approaches are detailed in Shang, Tsao, and Zhang (2025a)
-<doi:10.48550/arXiv.2505.03995> and Shang, Tsao, and Zhang (2025b)
-<doi:10.48550/arXiv.2508.02057>.
+Provides methods for analyzing the dispersion of tabular datasets with
+batched and ordered samples. Based on convex hull or integrated covariance
+Mahalanobis, several indicators are implemented for inter and intra batch
+dispersion analysis. It is designed to facilitate robust statistical
+assessment of data variability, supporting applications in exploratory
+data analysis and quality control, for such datasets as the one found in
+metabololomics studies. For more details see Salanon (2024)
+<doi:10.1016/j.chemolab.2024.105148> and Salanon (2025)
+<doi:10.1101/2025.08.01.668073>.
 
 %prep
 %setup -q -c -n %{packname}

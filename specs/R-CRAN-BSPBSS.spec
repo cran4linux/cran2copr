@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BSPBSS
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spatial Blind Source Separation
 
@@ -51,9 +51,9 @@ and large-scale data, such as neuroimaging. The method assumes the
 expectation of the observed images as a linear mixture of multiple sparse
 and piece-wise smooth latent source signals, and constructs a Bayesian
 nonparametric prior by thresholding Gaussian processes. Details can be
-found in our paper: Wu et al. (2022+) "Bayesian Spatial Blind Source
-Separation via the Thresholded Gaussian Process"
-<doi:10.1080/01621459.2022.2123336>.
+found in our paper: Wu, B., Guo, Y., & Kang, J. (2024). Bayesian spatial
+blind source separation via the thresholded gaussian process. Journal of
+the American Statistical Association, 119(545), 422-433.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ebdm
-%global packver   3.0.0
+%global packname  KQM
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Bivariate Dependency from Marginal Data
+Summary:          K Quantiles Medoids (KQM) Clustering
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-cluster 
+Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-cluster 
 
 %description
-Provides statistical methods for estimating bivariate dependency
-(correlation) from marginal summary statistics across multiple studies.
-The package supports three modules: (1) bivariate correlation estimation
-for binary outcomes, (2) bivariate correlation estimation for continuous
-outcomes, and (3) estimation of component-wise means and variances under a
-conditional two-component Gaussian mixture model for a continuous variable
-stratified by a binary class label. These methods enable
-privacy-preserving joint estimation when individual-level data are
-unavailable. The approaches are detailed in Shang, Tsao, and Zhang (2025a)
-<doi:10.48550/arXiv.2505.03995> and Shang, Tsao, and Zhang (2025b)
-<doi:10.48550/arXiv.2508.02057>.
+K Quantiles Medoids (KQM) clustering applies quantiles to divide data of
+each dimension into K mean intervals. Combining quantiles of all the
+dimensions of the data and fully permuting quantiles on each dimension is
+the strategy to determine a pool of candidate initial cluster centers. To
+find the best initial cluster centers from the pool of candidate initial
+cluster centers, two methods based on quantile strategy and PAM strategy
+respectively are proposed. During a clustering process, medoids of
+clusters are used to update cluster centers in each iteration. Comparison
+between KQM and the method of randomly selecting initial cluster centers
+shows that KQM is almost always getting clustering results with smaller
+total sum squares of distances.
 
 %prep
 %setup -q -c -n %{packname}
