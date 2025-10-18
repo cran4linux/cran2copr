@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdpGLM
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Dirichlet Process Generalized Linear Models
 
@@ -25,21 +25,15 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-isotone 
-BuildRequires:    R-CRAN-questionr 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-data.table 
@@ -50,21 +44,15 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-isotone 
-Requires:         R-CRAN-questionr 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyverse 
 
 %description
 Implementation of MCMC algorithms to estimate the Hierarchical Dirichlet

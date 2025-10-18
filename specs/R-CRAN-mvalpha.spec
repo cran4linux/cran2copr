@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.2
+%global packname  mvalpha
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Krippendorff's Alpha for Multi-Valued Data
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Calculate Krippendorff's alpha for multi-valued data using the methods
+introduced by Krippendorff and Craggs (2016)
+<doi:10.1080/19312458.2016.1228863>. Nominal, ordinal, interval, and ratio
+data types are supported, with options to create bootstrapped estimates of
+alpha and/or parallelize calculations.
 
 %prep
 %setup -q -c -n %{packname}

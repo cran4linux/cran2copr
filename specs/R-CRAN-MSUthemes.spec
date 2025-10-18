@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.2
+%global packname  MSUthemes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Michigan State University (MSU) Palettes and Themes
 
-License:          MIT + file LICENSE
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-systemfonts 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-systemfonts 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Defines colour palettes and themes for Michigan State University (MSU)
+publications and presentations. Palettes and themes are supported in both
+base R and 'ggplot2' graphics, and are intended to provide consistency
+between those creating documents and presentations.
 
 %prep
 %setup -q -c -n %{packname}

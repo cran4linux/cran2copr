@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tcpl
-%global packver   3.3.0
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          ToxCast Data Analysis Pipeline
 
@@ -17,8 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-data.table >= 1.15.0
-BuildRequires:    R-CRAN-ctxR >= 1.1.0
+BuildRequires:    R-CRAN-ctxR >= 1.1.3
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RMariaDB 
 BuildRequires:    R-CRAN-numDeriv 
@@ -33,14 +34,14 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-tcplfit2 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-gt 
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-data.table >= 1.15.0
-Requires:         R-CRAN-ctxR >= 1.1.0
+Requires:         R-CRAN-ctxR >= 1.1.3
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RMariaDB 
 Requires:         R-CRAN-numDeriv 
@@ -55,7 +56,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-tcplfit2 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 

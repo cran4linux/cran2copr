@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sbw
-%global packver   1.1.9
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stable Balancing Weights for Causal Inference and Missing Data
 
@@ -39,7 +39,7 @@ available through CRAN. The solver 'osqp' is also posted on CRAN. To
 enhance the performance of 'sbw', users are encouraged to install other
 solvers such as 'gurobi' and 'Rmosek', which require special installation.
 For the installation of gurobi and pogs, please follow the instructions at
-<https://www.gurobi.com/documentation/current/refman/r_ins_the_r_package.html>
+<https://docs.gurobi.com/projects/optimizer/en/current/reference/r.html>
 and <http://foges.github.io/pogs/stp/r>.
 
 %prep

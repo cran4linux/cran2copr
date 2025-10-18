@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMTranslate
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' App for TRAPD/ISPOR Survey Translation with LLMs
 
@@ -22,7 +22,8 @@ Requires:         R-CRAN-shiny
 
 %description
 A 'shiny' application to automate forward and back survey translation with
-optional reconciliation using large language models (LLMs). It follows the
+optional reconciliation using large language models (LLMs). Supports
+OpenAI (GPT), Google Gemini, and Anthropic Claude models. It follows the
 TRAPD (Translation, Review, Adjudication, Pretesting, Documentation)
 framework and ISPOR (International Society for Pharmacoeconomics and
 Outcomes Research) recommendations. See Harkness et al. (2010)

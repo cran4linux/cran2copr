@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ProjectManagement
-%global packver   2.0.2
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Management of Deterministic and Stochastic Projects
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.3.3
+Requires:         R-core >= 4.3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-lpSolveAPI 

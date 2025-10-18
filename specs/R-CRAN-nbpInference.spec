@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.2
+%global packname  nbpInference
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Inference on Average Treatment Effects for Continuous Treatments
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-nbpMatching 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-nbpMatching 
+Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Conduct inference on the sample average treatment effect for a matched
+(observational) dataset with a continuous treatment. Equipped with
+calipered non-bipartite matching, bias-corrected sample average treatment
+effect estimation, and covariate-adjusted variance estimation. Matching,
+estimation, and inference methods are described in Frazier, Heng and Zhou
+(2024) <doi:10.48550/arXiv.2409.11701>.
 
 %prep
 %setup -q -c -n %{packname}

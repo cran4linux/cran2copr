@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  libimath
-%global packver   3.1.9-4
+%global packver   3.1.9-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.9.4
+Version:          3.1.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Imath' Computer Graphics Linear Algebra Static Library
 

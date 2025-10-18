@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.2
+%global packname  partialling.out
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Residuals from Partial Regressions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-fixest 
+BuildRequires:    R-CRAN-lfe 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tinyplot 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-fixest 
+Requires:         R-CRAN-lfe 
+Requires:         R-stats 
+Requires:         R-CRAN-tinyplot 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Creates a data frame with the residuals of partial regressions of the main
+explanatory variable and the variable of interest. This method follows the
+Frisch-Waugh-Lovell theorem, as explained in Lovell (2008)
+<doi:10.3200/JECE.39.1.88-91>.
 
 %prep
 %setup -q -c -n %{packname}

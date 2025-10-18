@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.2
+%global packname  clusterGGM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Sparse Gaussian Graphical Modeling with Variable Clustering
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
+Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Perform sparse estimation of a Gaussian graphical model (GGM) with node
+aggregation through variable clustering. Currently, the package implements
+the clusterpath estimator of the Gaussian graphical model (CGGM) (Touw,
+Alfons, Groenen & Wilms, 2025; <doi:10.48550/arXiv.2407.00644>).
 
 %prep
 %setup -q -c -n %{packname}

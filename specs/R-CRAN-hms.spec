@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hms
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pretty Time of Day
 
@@ -19,11 +19,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-vctrs >= 0.3.8
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pkgconfig 
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-vctrs >= 0.3.8
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-pkgconfig 

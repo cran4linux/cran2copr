@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.2
+%global packname  rlibkriging
+%global packver   0.9-2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          0.9.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Kriging Models using the 'libKriging' Library
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    cmake
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-DiceKriging 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
+that should provide most standard Kriging / Gaussian process regression
+features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
+'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
+by Conrad Sanderson, 'lbfgsb_cpp' is a 'C++' port around by Pascal Have of
+'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge Nocedal
+and Jose Luis Morales used for hyperparameters optimization.
 
 %prep
 %setup -q -c -n %{packname}

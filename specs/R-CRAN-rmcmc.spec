@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmcmc
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Markov Chain Monte Carlo Methods
 
@@ -45,8 +45,8 @@ estimates under the target distribution. As well as the default Barker
 proposal, the package also provides implementations of alternative
 proposal distributions, such as (Gaussian) random walk and Langevin
 proposals. Optionally, if 'BridgeStan's R interface
-<https://roualdes.github.io/bridgestan/latest/languages/r.html>, available
-on GitHub <https://github.com/roualdes/bridgestan>, is installed, then
+<https://roualdes.us/bridgestan/latest/languages/r.html>, available on
+GitHub <https://github.com/roualdes/bridgestan>, is installed, then
 'BridgeStan' can be used to specify the target distribution to sample
 from.
 

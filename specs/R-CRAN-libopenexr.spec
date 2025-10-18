@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  libopenexr
-%global packver   3.4.0-4
+%global packver   3.4.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0.4
+Version:          3.4.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Static Library and Headers for 'OpenEXR' Image I/O
 

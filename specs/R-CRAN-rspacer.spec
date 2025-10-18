@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rspacer
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RSpace' API Wrapper
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
@@ -47,14 +48,15 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-lubridate 
 
 %description
 Wrapper for the 'RSpace' Electronic Lab Notebook
 (<https://www.researchspace.com/>) API. This packages provides convenience
-functions to browse, search, create, and edit your RSpace documents. In
+functions to browse, search, create, and edit your 'RSpace' documents. In
 addition, it enables filling 'RSpace' templates from R Markdown/Quarto
-templates or tabular data (e.g., Excel files). This R package is not
-developed or endorsed by Research Space.
+templates or tabular data (e.g., 'Excel' files). This R package is not
+developed or endorsed by 'Research Space'.
 
 %prep
 %setup -q -c -n %{packname}
