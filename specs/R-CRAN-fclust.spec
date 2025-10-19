@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fclust
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy Clustering
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.5
 Requires:         R-core >= 4.5
 BuildRequires:    R-CRAN-MASS >= 7.3.65
-BuildRequires:    R-CRAN-RcppArmadillo >= 14.6.0.1
+BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.2
 BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-base 
 BuildRequires:    R-stats 

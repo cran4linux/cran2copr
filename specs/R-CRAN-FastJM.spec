@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastJM
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-timeROC 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-survival 
@@ -37,6 +39,8 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-timeROC 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 
 %description
 Maximum likelihood estimation for the semi-parametric joint modeling of

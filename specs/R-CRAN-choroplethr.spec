@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  choroplethr
-%global packver   5.0.0
+%global packver   5.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          5.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Color-Coded Choropleth Maps in R
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidycensus 
-BuildRequires:    R-CRAN-rnaturalearth 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-tigris >= 1.0
 Requires:         R-CRAN-Hmisc 
@@ -36,20 +35,14 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidycensus 
-Requires:         R-CRAN-rnaturalearth 
 
 %description
 Easily create color-coded (choropleth) maps in R. No knowledge of
 cartography or shapefiles needed; go directly from your geographically
 identified data to a highly customizable map with a single line of code!
-Supported geographies: U.S. states, counties, and census tracts, world
-countries and sub-country regions (e.g., provinces, prefectures, etc.).
-One of the suggested packages, rnaturalearthhires, is not available on
-CRAN owing to its larger filesize (40MB). It can be installed from GitHub
-using
-remotes::install_github("https://github.com/ropensci/rnaturalearthhires").
-This package contains higher resolution sub-country maps and is only
-needed for the choropleth_admin1() function.
+Supported geographies: U.S. states, counties, census tracts, and zip
+codes, world countries and sub-country regions (e.g., provinces,
+prefectures, etc.).
 
 %prep
 %setup -q -c -n %{packname}
