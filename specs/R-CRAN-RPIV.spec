@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  betaNB
-%global packver   1.0.6
+%global packname  RPIV
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap for Regression Effect Sizes
+Summary:          Residual Prediction Test for Well-Specification of Instrumental Variable Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-ranger 
 Requires:         R-stats 
 
 %description
-Generates nonparametric bootstrap confidence intervals (Efron and
-Tibshirani, 1993: <doi:10.1201/9780429246593>) for standardized regression
-coefficients (beta) and other effect sizes, including multiple
-correlation, semipartial correlations, improvement in R-squared, squared
-partial correlations, and differences in standardized regression
-coefficients, for models fitted by lm().
+A test for the well-specification of the linear instrumental variable
+model. The test is based on trying to predict the residuals of a two-stage
+least-squares regression using a random forest. Details can be found in
+Scheidegger, Londschien and Bühlmann (2025) "A residual prediction test
+for the well-specification of linear instrumental variable models"
+<doi:10.48550/arXiv.2506.12771>.
 
 %prep
 %setup -q -c -n %{packname}

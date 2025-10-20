@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaMC
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo for Regression Effect Sizes
 
@@ -27,7 +27,7 @@ correlation, semipartial correlations, improvement in R-squared, squared
 partial correlations, and differences in standardized regression
 coefficients, for models fitted by lm(). 'betaMC' combines ideas from
 Monte Carlo confidence intervals for the indirect effect (Pesigan and
-Cheung, 2023 <doi:10.3758/s13428-023-02114-4>) and the sampling covariance
+Cheung, 2024 <doi:10.3758/s13428-023-02114-4>) and the sampling covariance
 matrix of regression coefficients (Dudgeon, 2017
 <doi:10.1007/s11336-017-9563-z>) to generate confidence intervals effect
 sizes in regression.

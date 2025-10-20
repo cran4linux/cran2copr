@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AssumpSure
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Application for Statistical Test Assumption Checking and Guidance
 
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-see
 BuildRequires:    R-CRAN-bestNormalize 
 BuildRequires:    R-CRAN-DHARMa 
 BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-broom 
@@ -72,6 +73,7 @@ Requires:         R-CRAN-see
 Requires:         R-CRAN-bestNormalize 
 Requires:         R-CRAN-DHARMa 
 Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-broom 

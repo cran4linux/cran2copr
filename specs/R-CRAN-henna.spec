@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  henna
-%global packver   0.2.5
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Versatile Visualization Suite
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-abdiv 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggalluvial 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-withr 
 
 %description
 A visualization suite primarily designed for single-cell RNA-sequencing

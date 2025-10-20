@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deforestable
-%global packver   3.1.1
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classify RGB Images into Forest or Non-Forest
 
@@ -29,13 +29,12 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-StableEstim 
 
 %description
-Implements two out-of box classifiers presented in
-<doi:10.48550/arXiv.2112.01063> for distinguishing forest and non-forest
-terrain images. Under these algorithms, there are frequentist approaches:
-one parametric, using stable distributions, and another one-
-non-parametric, using the squared Mahalanobis distance. The package also
-contains functions for data handling and building of new classifiers as
-well as some test data set.
+Implements two out-of box classifiers presented in <doi:10.1002/env.2848>
+for distinguishing forest and non-forest terrain images. Under these
+algorithms, there are frequentist approaches: one parametric, using stable
+distributions, and another one- non-parametric, using the squared
+Mahalanobis distance. The package also contains functions for data
+handling and building of new classifiers as well as some test data set.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlt
-%global packver   1.6-6
+%global packver   1.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Most Likely Transformations
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-icenReg 
 Requires:         R-CRAN-basefun >= 1.2.1
 Requires:         R-CRAN-variables >= 1.1.0
 Requires:         R-CRAN-BB 
@@ -48,6 +49,7 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-icenReg 
 
 %description
 Likelihood-based estimation of conditional transformation models via the

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  betaNB
-%global packver   1.0.6
+%global packname  lightsf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap for Regression Effect Sizes
+Summary:          A Curated Collection of Georeferenced and Spatial Datasets
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
 
 %description
-Generates nonparametric bootstrap confidence intervals (Efron and
-Tibshirani, 1993: <doi:10.1201/9780429246593>) for standardized regression
-coefficients (beta) and other effect sizes, including multiple
-correlation, semipartial correlations, improvement in R-squared, squared
-partial correlations, and differences in standardized regression
-coefficients, for models fitted by lm().
+Provides a diverse collection of georeferenced and spatial datasets from
+different domains including urban studies, housing markets, environmental
+monitoring, transportation, and socio-economic indicators. The package
+consolidates datasets from multiple open sources such as Kaggle, chopin,
+spData, adespatial, and bivariateLeaflet. It is designed for researchers,
+analysts, and educators interested in spatial analysis, geostatistics, and
+geographic data visualization. The datasets include point patterns,
+polygons, socio-economic data frames, and network-like structures,
+allowing flexible exploration of geospatial phenomena.
 
 %prep
 %setup -q -c -n %{packname}
