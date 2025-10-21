@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmsaf
-%global packver   3.5.2
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.2
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for CM SAF NetCDF Data
 
@@ -17,42 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-tcltk >= 3.5
-BuildRequires:    R-CRAN-maps >= 3.3
-BuildRequires:    R-CRAN-raster >= 3.0
-BuildRequires:    R-CRAN-R.utils >= 2.9
 BuildRequires:    R-CRAN-cmsafops >= 1.4.0
-BuildRequires:    R-CRAN-colorspace >= 1.4
-BuildRequires:    R-CRAN-shiny >= 1.4
 BuildRequires:    R-CRAN-cmsafvis >= 1.2.0
-BuildRequires:    R-CRAN-ncdf4 >= 1.17
-BuildRequires:    R-CRAN-FNN >= 1.1
-BuildRequires:    R-CRAN-shinyjs >= 1.1
-BuildRequires:    R-CRAN-shinythemes >= 1.1
-BuildRequires:    R-CRAN-colourpicker >= 1.0
-BuildRequires:    R-CRAN-shinyFiles >= 0.8.0
-BuildRequires:    R-CRAN-shinyWidgets >= 0.6
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-SearchTrees 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-tcltk >= 3.5
-Requires:         R-CRAN-maps >= 3.3
-Requires:         R-CRAN-raster >= 3.0
-Requires:         R-CRAN-R.utils >= 2.9
 Requires:         R-CRAN-cmsafops >= 1.4.0
-Requires:         R-CRAN-colorspace >= 1.4
-Requires:         R-CRAN-shiny >= 1.4
 Requires:         R-CRAN-cmsafvis >= 1.2.0
-Requires:         R-CRAN-ncdf4 >= 1.17
-Requires:         R-CRAN-FNN >= 1.1
-Requires:         R-CRAN-shinyjs >= 1.1
-Requires:         R-CRAN-shinythemes >= 1.1
-Requires:         R-CRAN-colourpicker >= 1.0
-Requires:         R-CRAN-shinyFiles >= 0.8.0
-Requires:         R-CRAN-shinyWidgets >= 0.6
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-SearchTrees 
-Requires:         R-CRAN-xml2 
 
 %description
 The Satellite Application Facility on Climate Monitoring (CM SAF) is a

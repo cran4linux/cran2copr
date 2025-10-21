@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spnn
-%global packver   1.3.0
+%global packname  SimplicialComplex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scale Invariant Probabilistic Neural Networks
+Summary:          Topological Data Analysis: Simplicial Complex
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 3.1.20
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS >= 3.1.20
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Scale invariant version of the original PNN proposed by Specht (1990)
-<doi:10.1016/0893-6080(90)90049-q> with the added functionality of
-allowing for smoothing along multiple dimensions while accounting for
-covariances within the data set. It is written in the R statistical
-programming language. Given a data set with categorical variables, we use
-this algorithm to estimate the probabilities of a new observation vector
-belonging to a specific category. This type of neural network provides the
-benefits of fast training time relative to backpropagation and statistical
-generalization with only a small set of known observations.
+Provides an implementation of simplicial complexes for Topological Data
+Analysis (TDA). The package includes functions to compute faces, boundary
+operators, Betti numbers, Euler characteristic, and to construct
+simplicial complexes. It also implements persistent homology, from
+building filtrations to computing persistence diagrams, with the aim of
+helping readers understand the core concepts of computational topology.
+Methods are based on standard references in persistent homology such as
+Zomorodian and Carlsson (2005) <doi:10.1007/s00454-004-1146-y> and Chazal
+and Michel (2021) <doi:10.3389/frai.2021.667963>.
 
 %prep
 %setup -q -c -n %{packname}

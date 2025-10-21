@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spnn
-%global packver   1.3.0
+%global packname  FSinR
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scale Invariant Probabilistic Neural Networks
+Summary:          Feature Selection
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 3.1.20
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS >= 3.1.20
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-e1071 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-e1071 
 
 %description
-Scale invariant version of the original PNN proposed by Specht (1990)
-<doi:10.1016/0893-6080(90)90049-q> with the added functionality of
-allowing for smoothing along multiple dimensions while accounting for
-covariances within the data set. It is written in the R statistical
-programming language. Given a data set with categorical variables, we use
-this algorithm to estimate the probabilities of a new observation vector
-belonging to a specific category. This type of neural network provides the
-benefits of fast training time relative to backpropagation and statistical
-generalization with only a small set of known observations.
+Feature subset selection algorithms modularized in search algorithms and
+measure utilities.
 
 %prep
 %setup -q -c -n %{packname}

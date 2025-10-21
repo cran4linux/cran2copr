@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readyomics
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ready-to-Use Omics Formatting, Analysis, and Visualization Pipeline
 

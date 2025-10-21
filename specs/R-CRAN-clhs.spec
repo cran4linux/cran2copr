@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  clhs
-%global packver   0.9.0
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditioned Latin Hypercube Sampling
 
@@ -19,7 +20,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-methods 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-reshape2 
@@ -31,7 +31,6 @@ Requires:         R-utils
 Requires:         R-methods 
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-reshape2 

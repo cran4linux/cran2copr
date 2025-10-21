@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spnn
-%global packver   1.3.0
+%global packname  faunabr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scale Invariant Probabilistic Neural Networks
+Summary:          Explore Catálogo Taxônomico da Fauna do Brasil Database
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 3.1.20
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS >= 3.1.20
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats >= 4.2.3
+BuildRequires:    R-utils >= 4.2.3
+BuildRequires:    R-CRAN-XML >= 3.99.0.14
+BuildRequires:    R-CRAN-terra >= 1.7.39
+BuildRequires:    R-CRAN-httr >= 1.4.6
+BuildRequires:    R-CRAN-data.table >= 1.14.8
+Requires:         R-stats >= 4.2.3
+Requires:         R-utils >= 4.2.3
+Requires:         R-CRAN-XML >= 3.99.0.14
+Requires:         R-CRAN-terra >= 1.7.39
+Requires:         R-CRAN-httr >= 1.4.6
+Requires:         R-CRAN-data.table >= 1.14.8
 
 %description
-Scale invariant version of the original PNN proposed by Specht (1990)
-<doi:10.1016/0893-6080(90)90049-q> with the added functionality of
-allowing for smoothing along multiple dimensions while accounting for
-covariances within the data set. It is written in the R statistical
-programming language. Given a data set with categorical variables, we use
-this algorithm to estimate the probabilities of a new observation vector
-belonging to a specific category. This type of neural network provides the
-benefits of fast training time relative to backpropagation and statistical
-generalization with only a small set of known observations.
+A collection of functions designed to retrieve, filter and spatialize data
+from the Catálogo Taxônomico da Fauna do Brasil. For more information
+about the dataset, please visit
+<http://fauna.jbrj.gov.br/fauna/listaBrasil/>.
 
 %prep
 %setup -q -c -n %{packname}

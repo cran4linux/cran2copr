@@ -1,43 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multcomp
-%global packver   1.4-29
+%global packname  epmfd
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.29
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Inference in General Parametric Models
+Summary:          Exploratory and Person/Item Misfit Diagnostics for Polytomous Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 2.39.4
-BuildRequires:    R-CRAN-sandwich >= 2.3.0
-BuildRequires:    R-CRAN-TH.data >= 1.0.2
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.10
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-Requires:         R-CRAN-survival >= 2.39.4
-Requires:         R-CRAN-sandwich >= 2.3.0
-Requires:         R-CRAN-TH.data >= 1.0.2
-Requires:         R-CRAN-mvtnorm >= 1.0.10
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-mokken 
+BuildRequires:    R-CRAN-PerFit 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-mokken 
+Requires:         R-CRAN-PerFit 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Simultaneous tests and confidence intervals for general linear hypotheses
-in parametric models, including linear, generalized linear, linear mixed
-effects, and survival models. The package includes demos reproducing
-analyzes presented in the book "Multiple Comparisons Using R" (Bretz,
-Hothorn, Westfall, 2010, CRC Press).
+Analysis of items and persons in data. To identify and remove person
+misfit in polytomous item-response data using either 'mokken' or a graded
+response model (GRM, via 'mirt'). Provides automatic thresholds, visual
+diagnostics (2D/3D), and export utilities. Methods build on Mokken scaling
+as in Mokken (1971, ISBN:9789027968821) and on the graded response model
+of Samejima (1969) <doi:10.1007/BF03372160>.
 
 %prep
 %setup -q -c -n %{packname}

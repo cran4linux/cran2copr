@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jointCompRisk
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Inference for Competing Risks Data Using Multiple Endpoints
 
@@ -33,8 +33,8 @@ Tools for competing risks trials that allow simultaneous inference on
 recovery and mortality endpoints. Provides data preparation helpers,
 standard cumulative incidence estimators (restricted mean time
 gained/lost), and severity weighted extensions that integrate longitudinal
-ordinal outcomes to summarise treatment benefit. Methods follow Wen, Wang,
-and Hu (2023) Biometrics 79(3):1635-1645 <doi:10.1111/biom.13752>.
+ordinal outcomes to summarise treatment benefit. Methods follow Wen, Hu,
+and Wang (2023) Biometrics 79(3):1635-1645 <doi:10.1111/biom.13752>.
 
 %prep
 %setup -q -c -n %{packname}

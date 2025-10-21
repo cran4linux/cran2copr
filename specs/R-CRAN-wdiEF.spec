@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdiEF
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of the Water Deficit Index (WDI) and the Evaporative Fraction (EF) on Rasters
 
@@ -25,10 +25,11 @@ Requires:         R-stats
 Requires:         R-CRAN-terra 
 
 %description
-Calculates the Water Deficit Index (WDI) and the Evaporative Fraction (EF)
-using geospatial data, such as fractional vegetation cover (FVC) and
-surface-air temperature difference (TS-TA). Terms like "raster", "CRS" are
-part of standard geospatial terminology.
+Provides functions to calculate the Water Deficit Index (WDI) and the
+Evaporative Fraction (EF) using geospatial raster data such as fractional
+vegetation cover (FVC) and surface-air temperature difference (TS-TA). The
+package automates regression-based edge fitting and produces continuous
+spatial maps of surface moisture and evaporative dynamics.
 
 %prep
 %setup -q -c -n %{packname}

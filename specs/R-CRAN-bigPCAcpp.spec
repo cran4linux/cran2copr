@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spnn
-%global packver   1.3.0
+%global packname  bigPCAcpp
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scale Invariant Probabilistic Neural Networks
+Summary:          Principal Component Analysis for 'bigmemory' Matrices
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 3.1.20
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-MASS >= 3.1.20
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-methods 
+Requires:         R-CRAN-withr 
 
 %description
-Scale invariant version of the original PNN proposed by Specht (1990)
-<doi:10.1016/0893-6080(90)90049-q> with the added functionality of
-allowing for smoothing along multiple dimensions while accounting for
-covariances within the data set. It is written in the R statistical
-programming language. Given a data set with categorical variables, we use
-this algorithm to estimate the probabilities of a new observation vector
-belonging to a specific category. This type of neural network provides the
-benefits of fast training time relative to backpropagation and statistical
-generalization with only a small set of known observations.
+High performance principal component analysis routines that operate
+directly on 'bigmemory::big.matrix' objects. The package avoids
+materialising large matrices in memory by streaming data through 'BLAS'
+and 'LAPACK' kernels and provides helpers to derive scores, loadings,
+correlations, and contribution diagnostics, including utilities that
+stream results into 'bigmemory'-backed matrices for file-based workflows.
+Additional interfaces expose 'scalable' singular value decomposition,
+robust PCA, and robust SVD algorithms so that users can explore large
+matrices while tempering the influence of outliers. 'Scalable' principal
+component analysis is also implemented, Elgamal, Yabandeh, Aboulnaga,
+Mustafa, and Hefeeda (2015) <doi:10.1145/2723372.2751520>.
 
 %prep
 %setup -q -c -n %{packname}

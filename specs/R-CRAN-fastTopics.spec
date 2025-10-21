@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastTopics
-%global packver   0.6-192
+%global packver   0.7-30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.192
+Version:          0.7.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithms for Fitting Topic Models and Non-Negative Matrix Factorizations to Count Data
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-RcppParallel >= 5.1.7
@@ -62,6 +63,7 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-htmlwidgets 
 
 %description

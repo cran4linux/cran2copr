@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seqtrie
-%global packver   0.2.9
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radix Tree and Trie-Based String Distances
 

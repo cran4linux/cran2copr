@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  forestdata
-%global packver   0.3.1
+%global packname  rosario
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Forestry Data
+Summary:          A Null Model Algorithm to Analyze Cyclical Data in Ecology
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,40 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-archive 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-countrycode 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-archive 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions for downloading forestry and land use data for use in spatial
-analysis. This packages offers a user-friendly solution to quickly obtain
-datasets such as forest height, forest types, tree species under various
-climate change scenarios, or land use data among others.
+Implements a null model analysis to quantify concurrent temporal niche
+overlap (i.e., activity or phenology) among biological identities (e.g.,
+individuals, populations, species) using the Rosario randomization
+algorithm Castro-Arellano et al. (2010)
+<doi:10.1111/j.2041-210X.2010.00031.x>.
 
 %prep
 %setup -q -c -n %{packname}
