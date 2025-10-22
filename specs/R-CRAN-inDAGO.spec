@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inDAGO
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A GUI for Dual and Bulk RNA-Sequencing Analysis
 
@@ -52,6 +52,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-spsComps 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
@@ -93,6 +94,7 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-spsComps 
 Requires:         R-stats 
+Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 

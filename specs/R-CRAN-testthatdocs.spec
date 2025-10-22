@@ -1,41 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  psychotools
-%global packver   0.7-5
+%global packname  testthatdocs
+%global packver   1.0.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          1.0.23
 Release:          1%{?dist}%{?buildtag}
-Summary:          Psychometric Modeling Infrastructure
+Summary:          Automated and Idempotent Unit Tests Documentation for Reproducible Quality Assurance
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Infrastructure for psychometric modeling such as data classes (for item
-response data and paired comparisons), basic model fitting functions (for
-Bradley-Terry, Rasch, parametric logistic IRT, generalized partial credit,
-rating scale, multinomial processing tree models), extractor functions for
-different types of parameters (item, person, threshold, discrimination,
-guessing, upper asymptotes), unified inference and visualizations, and
-various datasets for illustration.  Intended as a common lightweight and
-efficient toolbox for psychometric modeling and a common building block
-for fitting psychometric mixture models in package "psychomix" and trees
-based on psychometric models in package "psychotree".
+Automates documentation of test_that() calls within R test files. The
+package scans test sources, extracts human-readable test titles (even when
+composed with functions like paste() or glue::glue(), ... etc.), and
+generates reproducible roxygen2-style listings that can be inserted both
+globally and per-section. It ensures idempotent updates and supports
+customizable numbering templates with hierarchical indices. Designed for
+developers, QA teams, and package maintainers seeking consistent,
+self-documenting test inventories.
 
 %prep
 %setup -q -c -n %{packname}

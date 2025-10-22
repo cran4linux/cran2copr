@@ -1,65 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  guideR
-%global packver   0.5.1
+%global packname  AgeTopicModels
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Statistical Functions Used in 'guide-R'
+Summary:          Inferring Age-Dependent Disease Topic from Diagnosis Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-pak 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-pak 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-renv 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-srvyr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description
-Companion package for the manual 'guide-R : Guide pour l’analyse de
-données d’enquêtes avec R' available at
-<https://larmarange.github.io/guide-R/>. 'guideR' implements miscellaneous
-functions introduced in 'guide-R' to facilitate statistical analysis and
-manipulation of survey data.
+We propose an age-dependent topic modelling (ATM) model, providing a
+low-rank representation of longitudinal records of hundreds of distinct
+diseases in large electronic health record data sets. The model assigns to
+each individual topic weights for several disease topics; each disease
+topic reflects a set of diseases that tend to co-occur as a function of
+age, quantified by age-dependent topic loadings for each disease. The
+model assumes that for each disease diagnosis, a topic is sampled based on
+the individual’s topic weights (which sum to 1 across topics, for a given
+individual), and a disease is sampled based on the individual’s age and
+the age-dependent topic loadings (which sum to 1 across diseases, for a
+given topic at a given age). The model generalises the Latent Dirichlet
+Allocation (LDA) model by allowing topic loadings for each topic to vary
+with age. References: Jiang (2023) <doi:10.1038/s41588-023-01522-8>.
 
 %prep
 %setup -q -c -n %{packname}

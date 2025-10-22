@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  medfate
-%global packver   4.8.3
+%global packver   4.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8.3
+Version:          4.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediterranean Forest Simulation
 

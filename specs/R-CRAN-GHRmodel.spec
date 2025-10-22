@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AnthropMMD
-%global packver   4.1.0
+%global packname  GHRmodel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Package for the Mean Measure of Divergence (MMD)
+Summary:          Bayesian Hierarchical Modelling of Spatio-Temporal Health Data
 
-License:          CeCILL-2 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dlnm 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-GHRexplore 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-smacof 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dlnm 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-GHRexplore 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-smacof 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Offers a graphical user interface for the calculation of the mean measure
-of divergence, with facilities for trait selection and graphical
-representations <doi:10.1002/ajpa.23336>.
+Supports modeling health outcomes using Bayesian hierarchical
+spatio-temporal models with complex covariate effects (e.g., linear,
+non-linear, interactions, distributed lag linear and non-linear models) in
+the 'INLA' framework. It is designed to help users identify key drivers
+and predictors of disease risk by enabling streamlined model exploration,
+comparison, and visualization of complex covariate effects. See an
+application of the modelling framework in Lowe, Lee, O'Reilly et al.
+(2021) <doi:10.1016/S2542-5196(20)30292-8>.
 
 %prep
 %setup -q -c -n %{packname}

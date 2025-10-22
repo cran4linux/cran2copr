@@ -1,41 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  psychotools
-%global packver   0.7-5
+%global packname  LLMing
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Psychometric Modeling Infrastructure
+Summary:          Large Language Model (LLM) Tools for Psychological Text Analysis
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-text 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-stopwords 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-text 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-pracma 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Infrastructure for psychometric modeling such as data classes (for item
-response data and paired comparisons), basic model fitting functions (for
-Bradley-Terry, Rasch, parametric logistic IRT, generalized partial credit,
-rating scale, multinomial processing tree models), extractor functions for
-different types of parameters (item, person, threshold, discrimination,
-guessing, upper asymptotes), unified inference and visualizations, and
-various datasets for illustration.  Intended as a common lightweight and
-efficient toolbox for psychometric modeling and a common building block
-for fitting psychometric mixture models in package "psychomix" and trees
-based on psychometric models in package "psychotree".
+A collection of large language model (LLM) text analysis methods designed
+with psychological data in mind. Currently, LLMing (aka "lemming")
+includes a text anomaly detection method based on the angle-based subspace
+approach described by Zhang, Lin, and Karim (2015)
+<doi:10.1016/j.ress.2015.05.025>.
 
 %prep
 %setup -q -c -n %{packname}

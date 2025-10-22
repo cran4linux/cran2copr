@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ZVCV
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Zero-Variance Control Variates
 
@@ -40,19 +40,19 @@ Stein control variates can be used to improve Monte Carlo estimates of
 expectations when the derivatives of the log target are available. This
 package implements a variety of such methods, including zero-variance
 control variates (ZV-CV, Mira et al. (2013)
-<doi:10.1007/s11222-012-9344-6>), regularised ZV-CV (South et al., 2018
-<arXiv:1811.05073>), control functionals (CF, Oates et al. (2017)
+<doi:10.1007/s11222-012-9344-6>), regularised ZV-CV (South et al., 2023
+<doi:10.1214/22-BA1328>), control functionals (CF, Oates et al. (2017)
 <doi:10.1111/rssb.12185>) and semi-exact control functionals (SECF, South
-et al., 2020 <arXiv:2002.00033>). ZV-CV is a parametric approach that is
-exact for (low order) polynomial integrands with Gaussian targets. CF is a
-non-parametric alternative that offers better than the standard Monte
-Carlo convergence rates. SECF has both a parametric and a non-parametric
-component and it offers the advantages of both for an additional
-computational cost. Functions for applying ZV-CV and CF to two estimators
-for the normalising constant of the posterior distribution in Bayesian
-statistics are also supplied in this package. The basic requirements for
-using the package are a set of samples, derivatives and function
-evaluations.
+et al., 2022 <doi:10.1093/biomet/asab036>). ZV-CV is a parametric approach
+that is exact for (low order) polynomial integrands with Gaussian targets.
+CF is a non-parametric alternative that offers better than the standard
+Monte Carlo convergence rates. SECF has both a parametric and a
+non-parametric component and it offers the advantages of both for an
+additional computational cost. Functions for applying ZV-CV and CF to two
+estimators for the normalising constant of the posterior distribution in
+Bayesian statistics are also supplied in this package. The basic
+requirements for using the package are a set of samples, derivatives and
+function evaluations.
 
 %prep
 %setup -q -c -n %{packname}

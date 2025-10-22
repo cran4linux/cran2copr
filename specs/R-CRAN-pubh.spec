@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pubh
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Public Health and Epidemiology
 
@@ -14,17 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-ggformula 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-huxtable 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Epi 
 BuildRequires:    R-CRAN-epitools 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-jtools 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-performance 
@@ -35,13 +36,14 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-ggformula 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-huxtable 
 Requires:         R-stats 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Epi 
 Requires:         R-CRAN-epitools 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-jtools 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-performance 

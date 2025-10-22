@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  psychotools
-%global packver   0.7-5
+%global packname  eco
+%global packver   4.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          4.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Psychometric Modeling Infrastructure
+Summary:          Ecological Inference in 2x2 Tables
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 2.0
+Requires:         R-core >= 2.0
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 Requires:         R-utils 
 
 %description
-Infrastructure for psychometric modeling such as data classes (for item
-response data and paired comparisons), basic model fitting functions (for
-Bradley-Terry, Rasch, parametric logistic IRT, generalized partial credit,
-rating scale, multinomial processing tree models), extractor functions for
-different types of parameters (item, person, threshold, discrimination,
-guessing, upper asymptotes), unified inference and visualizations, and
-various datasets for illustration.  Intended as a common lightweight and
-efficient toolbox for psychometric modeling and a common building block
-for fitting psychometric mixture models in package "psychomix" and trees
-based on psychometric models in package "psychotree".
+Implements the Bayesian and likelihood methods proposed in Imai, Lu, and
+Strauss (2008 <doi:10.1093/pan/mpm017>) and (2011
+<doi:10.18637/jss.v042.i05>) for ecological inference in 2 by 2 tables as
+well as the method of bounds introduced by Duncan and Davis (1953).  The
+package fits both parametric and nonparametric models using either the
+Expectation-Maximization algorithms (for likelihood models) or the Markov
+chain Monte Carlo algorithms (for Bayesian models).  For all models, the
+individual-level data can be directly incorporated into the estimation
+whenever such data are available. Along with in-sample and out-of-sample
+predictions, the package also provides a functionality which allows one to
+quantify the effect of data aggregation on parameter estimation and
+hypothesis testing under the parametric likelihood models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bimets
-%global packver   4.1.0
+%global packname  Rfuzzycoco
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series and Econometric Modeling
+Summary:          Provides an R Interface to the 'FuzzyCoCo' C++ Library and Extends It
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-generics 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Time series analysis, (dis)aggregation and manipulation, e.g. time series
-extension, merge, projection, lag, lead, delta, moving and cumulative
-average and product, selection by index, date and year-period, conversion
-to daily, monthly, quarterly, (semi)annually. Simultaneous equation models
-definition, estimation, simulation and forecasting with coefficient
-restrictions, error autocorrelation, exogenization, add-factors, impact
-and interim multipliers analysis, conditional equation evaluation,
-rational expectations, endogenous targeting and model renormalization,
-structural stability, stochastic simulation and forecast, optimal control.
+Provides and extends the 'Fuzzy Coco' algorithm by wrapping the
+'FuzzyCoCo' 'C++' Library, cf
+<https://github.com/Lonza-RND-Data-Science/fuzzycoco>. 'Fuzzy Coco'
+constructs systems that predict the outcome of a human decision-making
+process while providing an understandable explanation of a possible
+reasoning leading to it.  The constructed fuzzy systems are composed of
+rules and linguistic variables.  This package provides a 'S3' classic
+interface (fit_xy()/fit()/predict()/evaluate()) and a
+'tidymodels'/'parsnip' interface, a custom engine with custom iteration
+stop criterion and progress bar support as well as a systematic
+implementation that do not rely on genetic programming but rather explore
+all possible combinations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R2MLwiN
-%global packver   0.8-9
+%global packver   0.8-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          0.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Running 'MLwiN' from Within R
 
@@ -24,7 +24,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-R2WinBUGS 
 BuildRequires:    R-CRAN-texreg 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
@@ -40,7 +39,6 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-stats4 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-R2WinBUGS 
 Requires:         R-CRAN-texreg 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 

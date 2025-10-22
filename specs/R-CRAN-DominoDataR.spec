@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DominoDataR
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Domino Data R SDK'
 
@@ -21,10 +21,14 @@ BuildRequires:    R-CRAN-arrow
 BuildRequires:    R-CRAN-ConfigParser 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-ConfigParser 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-withr 
 
 %description
 A wrapper on top of the 'Domino Data Python SDK' library. It lets you

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VSURF
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection Using Random Forests
 
@@ -39,7 +39,7 @@ variables related to the response for interpretation purpose. Third step
 refines the selection by eliminating redundancy in the set of variables
 selected by the second step, for prediction purpose. Genuer, R. Poggi,
 J.-M. and Tuleau-Malot, C. (2015)
-<https://journal.r-project.org/archive/2015-2/genuer-poggi-tuleaumalot.pdf>.
+<https://journal.r-project.org/articles/RJ-2015-018/>.
 
 %prep
 %setup -q -c -n %{packname}

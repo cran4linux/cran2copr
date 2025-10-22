@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robflreg
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Functional Linear Regression
 
@@ -26,6 +26,10 @@ BuildRequires:    R-CRAN-goffda
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pcaPP 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-cvTools 
+BuildRequires:    R-CRAN-quantreg 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-robustbase 
@@ -35,14 +39,16 @@ Requires:         R-CRAN-goffda
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pcaPP 
 Requires:         R-CRAN-fields 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-cvTools 
+Requires:         R-CRAN-quantreg 
 
 %description
 Functions for implementing robust methods for functional linear
 regression. In the functional linear regression, we consider
 scalar-on-function linear regression and function-on-function linear
-regression. More details, see Beyaztas, U., and Shang, H. L. (2021)
-<arXiv:2111.01238> and Beyaztas, U., and Shang, H. L. (2022)
-<arXiv:2203.05065>.
+regression.
 
 %prep
 %setup -q -c -n %{packname}

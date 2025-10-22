@@ -1,50 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  UComp
-%global packver   5.1.3
+%global packname  EFM
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Univariate Time Series Modelling of many Kinds
+Summary:          Elliptical Factor Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-tsibble 
-BuildRequires:    R-CRAN-tsoutliers 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-utils 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-tsibble 
-Requires:         R-CRAN-tsoutliers 
+BuildRequires:    R-CRAN-SOPC 
+BuildRequires:    R-CRAN-matrixcalc 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-ggforce 
-Requires:         R-utils 
-Requires:         R-parallel 
+Requires:         R-CRAN-SOPC 
+Requires:         R-CRAN-matrixcalc 
 
 %description
-Comprehensive analysis and forecasting of univariate time series using
-automatic time series models of many kinds. Harvey AC (1989)
-<doi:10.1017/CBO9781107049994>. Pedregal DJ and Young PC (2002)
-<doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
-<doi:10.1093/acprof:oso/9780199641178.001.0001>. Hyndman RJ, Koehler AB,
-Ord JK, and Snyder RD (2008) <doi:10.1007/978-3-540-71918-2>. Gómez V,
-Maravall A (2000) <doi:10.1002/9781118032978>. Pedregal DJ, Trapero JR and
-Holgado E (2024) <doi:10.1016/j.ijforecast.2023.09.004>.
+The elliptical factor model, as an extension of the traditional factor
+model, effectively overcomes the limitations of the traditional model when
+dealing with heavy-tailed characteristic data. This package implements
+sparse principal component methods (SPC) and bi-sparse online principal
+component estimation (SPOC) for parameter estimation. Includes
+functionality for calculating mean squared error, relative error, and
+loading matrix sparsity.The philosophy of the package is described in Guo
+G. (2023) <doi:10.1007/s00180-022-01270-z>.
 
 %prep
 %setup -q -c -n %{packname}
