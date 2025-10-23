@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depower
-%global packver   2025.10.21
+%global packname  bayesQRsurvey
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.10.21
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Differential Expression Studies
+Summary:          Bayesian Quantile Regression Models for Complex Survey Data Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-multidplyr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-multidplyr 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-posterior 
 
 %description
-Provides a convenient framework to simulate, test, power, and visualize
-data for differential expression studies with lognormal or negative
-binomial outcomes. Supported designs are two-sample comparisons of
-independent or dependent outcomes. Power may be summarized in the context
-of controlling the per-family error rate or family-wise error rate.
-Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
-<doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
-<doi:10.1186/s12859-020-3541-7>.
+Provides Bayesian quantile regression models for complex survey data under
+informative sampling using survey-weighted estimators. Both single- and
+multiple-output models are supported. To accelerate computation, all
+algorithms are implemented in 'C++' using 'Rcpp', 'RcppArmadillo', and
+'RcppEigen', and are called from 'R'. See Nascimento and Gonçalves (2024)
+<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2025, in press)
+<https://academic.oup.com/jssam>.
 
 %prep
 %setup -q -c -n %{packname}

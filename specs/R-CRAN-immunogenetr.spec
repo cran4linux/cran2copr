@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  immunogenetr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Toolkit for Clinical HLA Informatics
 
@@ -50,7 +50,9 @@ format to and from GL string; calculation of matching and mismatching in
 all directions, with multiple output formats; automatic formatting of HLA
 data for searching within a GL string; truncation of molecular HLA data to
 a specific number of fields; and reading HLA genotypes in HML files and
-extracting the GL string.
+extracting the GL string. This library is intended for research use. Any
+application making use of this package in a clinical setting will need to
+be independently validated according to local regulations.
 
 %prep
 %setup -q -c -n %{packname}

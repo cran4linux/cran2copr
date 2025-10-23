@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tikatuwq
-%global packver   0.6.2
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Water Quality Analysis Tools for the Brazilian Context
+Summary:          Water Quality Assessment and Environmental Compliance in Brazil
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

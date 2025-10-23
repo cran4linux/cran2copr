@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  promises
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Abstractions for Promise-Based Asynchronous Programming
 
@@ -14,22 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-fastmap >= 1.1.0
+BuildRequires:    R-CRAN-otel >= 0.2.0
 BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-fastmap >= 1.1.0
+Requires:         R-CRAN-otel >= 0.2.0
 Requires:         R-CRAN-later 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 
 %description
 Provides fundamental abstractions for doing asynchronous programming in R

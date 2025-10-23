@@ -1,48 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depower
-%global packver   2025.10.21
+%global packname  ohun
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.10.21
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Differential Expression Studies
+Summary:          Optimizing Acoustic Signal Detection
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-seewave >= 2.0.1
+BuildRequires:    R-CRAN-warbleR >= 1.1.32
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-multidplyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fftw 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-seewave >= 2.0.1
+Requires:         R-CRAN-warbleR >= 1.1.32
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-cli 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-multidplyr 
+Requires:         R-utils 
+Requires:         R-CRAN-fftw 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
 
 %description
-Provides a convenient framework to simulate, test, power, and visualize
-data for differential expression studies with lognormal or negative
-binomial outcomes. Supported designs are two-sample comparisons of
-independent or dependent outcomes. Power may be summarized in the context
-of controlling the per-family error rate or family-wise error rate.
-Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
-<doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
-<doi:10.1186/s12859-020-3541-7>.
+Facilitates the automatic detection of acoustic signals, providing
+functions to diagnose and optimize the performance of detection routines.
+Detections from other software can also be explored and optimized. This
+package has been peer-reviewed by rOpenSci. Araya-Salas et al. (2022)
+<doi:10.1101/2022.12.13.520253>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depower
-%global packver   2025.10.21
+%global packname  mcmodule
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.10.21
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Differential Expression Studies
+Summary:          Modular Monte Carlo Risk Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-mc2d 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-multidplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-mc2d 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-multidplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
 
 %description
-Provides a convenient framework to simulate, test, power, and visualize
-data for differential expression studies with lognormal or negative
-binomial outcomes. Supported designs are two-sample comparisons of
-independent or dependent outcomes. Power may be summarized in the context
-of controlling the per-family error rate or family-wise error rate.
-Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
-<doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
-<doi:10.1186/s12859-020-3541-7>.
+Framework for building modular Monte Carlo risk analysis models. It
+extends the capabilities of 'mc2d' to facilitate working with multiple
+risk pathways, variates and scenarios. It provides tools to organize risk
+analysis in independent flexible modules, perform multivariate Monte Carlo
+node operations, automate the creation of Monte Carlo nodes and visualize
+risk analysis models. For more details see Ciria (2025)
+<https://nataliaciria.github.io/mcmodule/articles/mcmodule>.
 
 %prep
 %setup -q -c -n %{packname}

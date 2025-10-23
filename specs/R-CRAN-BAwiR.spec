@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BAwiR
-%global packver   1.3.4
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Basketball Data
 
@@ -17,41 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Anthropometry 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-polite 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-qdapRegex 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-robotstxt 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-rworldmap 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-Anthropometry 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-grid 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-polite 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-qdapRegex 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-robotstxt 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-rworldmap 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
@@ -66,15 +66,15 @@ visualization. Data were obtained from
 <https://www.euroleaguebasketball.net/eurocup/> and
 <https://www.acb.com/>, following the instructions of their respectives
 robots.txt files, when available. Box score data are available for the
-three leagues. Play-by-play data are also available for the Spanish
-league. Methods for analysis include a population pyramid, 2D plots,
-circular plots of players' percentiles, plots of players' monthly/yearly
-stats, team heatmaps, team shooting plots, team four factors plots,
-cross-tables with the results of regular season games, maps of
-nationalities, combinations of lineups, possessions-related variables,
-timeouts, performance by periods, personal fouls and offensive rebounds.
-Please see Vinue (2020) <doi:10.1089/big.2018.0124> and Vinue (2024)
-<doi:10.1089/big.2023.0177>.
+three leagues. Play-by-play and spatial shooting data are also available
+for the Spanish league. Methods for analysis include a population pyramid,
+2D plots, circular plots of players' percentiles, plots of players'
+monthly/yearly stats, team heatmaps, team shooting plots, team four
+factors plots, cross-tables with the results of regular season games, maps
+of nationalities, combinations of lineups, possessions-related variables,
+timeouts, performance by periods, personal fouls, offensive rebounds and
+different types of shooting charts. Please see Vinue (2020)
+<doi:10.1089/big.2018.0124> and Vinue (2024) <doi:10.1089/big.2023.0177>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depower
-%global packver   2025.10.21
+%global packname  ci
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.10.21
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Differential Expression Studies
+Summary:          Confidence Intervals for Education
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-multidplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-multidplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-checkmate 
 
 %description
-Provides a convenient framework to simulate, test, power, and visualize
-data for differential expression studies with lognormal or negative
-binomial outcomes. Supported designs are two-sample comparisons of
-independent or dependent outcomes. Power may be summarized in the context
-of controlling the per-family error rate or family-wise error rate.
-Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
-<doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
-<doi:10.1186/s12859-020-3541-7>.
+An educational package providing intuitive functions for calculating
+confidence intervals (CI) for various statistical parameters. Designed
+primarily for teaching and learning about statistical inference
+(particularly confidence intervals). Offers user-friendly wrappers around
+established methods for proportions, means, and bootstrap-based intervals.
+Integrates seamlessly with Tidyverse workflows, making it ideal for
+classroom demonstrations and student exercises.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depower
-%global packver   2025.10.21
+%global packname  CFM
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.10.21
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Differential Expression Studies
+Summary:          Analyzing Censored Factor Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-multidplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-crch 
 Requires:         R-stats 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-multidplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-crch 
 
 %description
-Provides a convenient framework to simulate, test, power, and visualize
-data for differential expression studies with lognormal or negative
-binomial outcomes. Supported designs are two-sample comparisons of
-independent or dependent outcomes. Power may be summarized in the context
-of controlling the per-family error rate or family-wise error rate.
-Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
-<doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
-<doi:10.1186/s12859-020-3541-7>.
+Provides generation and estimation of censored factor models for
+high-dimensional data with censored errors (normal, t, logistic). Includes
+Sparse Orthogonal Principal Components (SOPC), and evaluation metrics.
+Based on Guo G. (2023) <doi:10.1007/s00180-022-01270-z>.
 
 %prep
 %setup -q -c -n %{packname}

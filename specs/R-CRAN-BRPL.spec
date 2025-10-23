@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depower
-%global packver   2025.10.21
+%global packname  BRPL
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.10.21
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Differential Expression Studies
+Summary:          Methods for Bivariate Poverty Line Calculations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-multidplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-multidplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+Requires:         R-graphics 
+Requires:         R-methods 
 
 %description
-Provides a convenient framework to simulate, test, power, and visualize
-data for differential expression studies with lognormal or negative
-binomial outcomes. Supported designs are two-sample comparisons of
-independent or dependent outcomes. Power may be summarized in the context
-of controlling the per-family error rate or family-wise error rate.
-Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
-<doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
-<doi:10.1186/s12859-020-3541-7>.
+Provides tools for identifying subgroups within populations based on
+individual response patterns to specific interventions or treatments.
+Designed to support researchers and clinicians in exploring heterogeneous
+treatment effects and developing personalized therapeutic strategies.
+Offers functionality for analyzing and visualizing the interplay between
+two variables, thereby enhancing the interpretation of social
+sustainability metrics. The package focuses on bivariate discriminant
+analysis and aims to clarify relationships between indicator variables.
 
 %prep
 %setup -q -c -n %{packname}

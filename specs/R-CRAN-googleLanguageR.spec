@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  googleLanguageR
-%global packver   0.3.1
+%global packver   0.3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Call Google's 'Natural Language' API, 'Cloud Translation' API, 'Cloud Speech' API and 'Cloud Text-to-Speech' API
+Summary:          Call Google's 'Natural Language', 'Cloud Translation', 'Cloud Speech', and 'Cloud Text-to-Speech' APIs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,14 +35,11 @@ Requires:         R-CRAN-tibble
 Requires:         R-utils 
 
 %description
-Call 'Google Cloud' machine learning APIs for text and speech tasks. Call
-the 'Cloud Translation' API <https://cloud.google.com/translate> for
-detection and translation of text, the 'Natural Language' API
-<https://cloud.google.com/natural-language> to analyse text for sentiment,
-entities or syntax, the 'Cloud Speech' API
-<https://cloud.google.com/speech-to-text> to transcribe sound files to
-text and the 'Cloud Text-to-Speech' API
-<https://cloud.google.com/text-to-speech> to turn text into sound files.
+Access Google Cloud machine learning APIs for text and speech tasks. Use
+the Cloud Translation API for text detection and translation, the Natural
+Language API to analyze sentiment, entities, and syntax, the Cloud Speech
+API to transcribe audio to text, and the Cloud Text-to-Speech API to
+synthesize text into audio files.
 
 %prep
 %setup -q -c -n %{packname}

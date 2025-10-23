@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.modules.general
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Modules for 'teal' Applications
 
@@ -48,7 +48,6 @@ BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
 BuildRequires:    R-CRAN-teal.reporter >= 0.5.0
 BuildRequires:    R-CRAN-teal.widgets >= 0.5.0
 BuildRequires:    R-CRAN-teal.logger >= 0.4.0
-BuildRequires:    R-CRAN-ggmosaic >= 0.3.0
 BuildRequires:    R-CRAN-shinyTree >= 0.2.8
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-lattice >= 0.18.4
@@ -91,7 +90,6 @@ Requires:         R-CRAN-shinyWidgets >= 0.5.1
 Requires:         R-CRAN-teal.reporter >= 0.5.0
 Requires:         R-CRAN-teal.widgets >= 0.5.0
 Requires:         R-CRAN-teal.logger >= 0.4.0
-Requires:         R-CRAN-ggmosaic >= 0.3.0
 Requires:         R-CRAN-shinyTree >= 0.2.8
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-lattice >= 0.18.4

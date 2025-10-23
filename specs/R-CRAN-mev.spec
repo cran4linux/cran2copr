@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mev
-%global packver   1.17
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling of Extreme Values
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -27,13 +28,14 @@ Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-alabama 
 Requires:         R-methods 
 Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-stats 
 
 %description
 Various tools for the analysis of univariate, multivariate and functional
-extremes. Exact simulation from max-stable processes [Dombry, Engelke and
-Oesting (2016) <doi:10.1093/biomet/asw008>, R-Pareto processes for various
+extremes. Exact simulation from max-stable processes (Dombry, Engelke and
+Oesting, 2016, <doi:10.1093/biomet/asw008>, R-Pareto processes for various
 parametric models, including Brown-Resnick (Wadsworth and Tawn, 2014,
 <doi:10.1093/biomet/ast042>) and Extremal Student (Thibaud and Opitz,
 2015, <doi:10.1093/biomet/asv045>). Threshold selection methods, including

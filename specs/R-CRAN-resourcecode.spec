@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  resourcecode
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the 'RESOURCECODE' Hindcast Database
 
@@ -20,10 +20,15 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridtext 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-resourcecodedata 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
@@ -34,10 +39,15 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-gridtext 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-resourcecodedata 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 

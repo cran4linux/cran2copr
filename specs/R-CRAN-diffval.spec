@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diffval
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vegetation Patterns
 
@@ -30,8 +30,9 @@ data (namely in a phytosociological table), using the Differential Value
 (DiffVal). Patterns are searched through mathematical optimization
 algorithms. Ultimately, Total Differential Value (TDV) optimization aims
 at obtaining classifications of vegetation data based on differential
-taxa, as in the traditional geobotanical approach.  The Gurobi optimizer,
-as well as the R package 'gurobi', can be installed from
+taxa, as in the traditional geobotanical approach (Monteiro-Henriques
+2025, <doi:10.3897/VCS.140466>). The Gurobi optimizer, as well as the R
+package 'gurobi', can be installed from
 <https://www.gurobi.com/products/gurobi-optimizer/>.  The useful vignette
 Gurobi Installation Guide, from package 'prioritizr', can be found here:
 <https://prioritizr.net/articles/gurobi_installation_guide.html>.

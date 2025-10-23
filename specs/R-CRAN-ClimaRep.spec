@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClimaRep
-%global packver   0.7
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Climate Representativeness
 
@@ -31,8 +31,8 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-tidyterra 
 
 %description
-Offers tools to estimate the climate representativeness of defined areas
-and quantifies and analyzes its transformation under future climate change
+Offers tools to estimate the climate representativeness of reference
+polygons and quantifies its transformation under future climate change
 scenarios. Approaches described in Mingarro and Lobo (2018)
 <doi:10.32800/abc.2018.41.0333> and Mingarro and Lobo (2022)
 <doi:10.1017/S037689292100014X>.
