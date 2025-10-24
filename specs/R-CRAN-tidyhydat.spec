@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyhydat
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract and Tidy Canadian 'Hydrometric' Data
 
@@ -44,9 +44,7 @@ Requires:         R-CRAN-rlang >= 0.1.2
 
 %description
 Provides functions to access historical and real-time national
-'hydrometric' data from Water Survey of Canada data sources
-(<https://dd.weather.gc.ca/hydrometric/csv/> and
-<https://collaboration.cmc.ec.gc.ca/cmc/hydrometrics/www/>) and then
+'hydrometric' data from Water Survey of Canada data sources and then
 applies tidy data principles.
 
 %prep

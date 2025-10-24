@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiATSM
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multicountry Term Structure of Interest Rates Models
 
@@ -21,24 +21,25 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-hablar 
 BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-neldermead 
 BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-hablar 
 Requires:         R-CRAN-magic 
-Requires:         R-CRAN-neldermead 
 Requires:         R-CRAN-pracma 
 
 %description
-Estimation routines for several classes of affine term structure of
-interest rates models. All the models are based on the single-country
-unspanned macroeconomic risk framework from Joslin, Priebsch, and
-Singleton (2014, JF) <doi:10.1111/jofi.12131>. Multicountry extensions
-such as the ones of Jotikasthira, Le, and Lundblad (2015, JFE)
+Package for estimating, analyzing, and forecasting multi-country
+macro-finance affine term structure models (ATSMs). All setups build on
+the single-country unspanned macroeconomic risk framework from Joslin,
+Priebsch, and Singleton (2014, JF) <doi:10.1111/jofi.12131>. Multicountry
+extensions by Jotikasthira, Le, and Lundblad (2015, JFE)
 <doi:10.1016/j.jfineco.2014.09.004>, Candelon and Moura (2023, EM)
 <doi:10.1016/j.econmod.2023.106453>, and Candelon and Moura (2024, JFEC)
-<doi:10.1093/jjfinec/nbae008> are also available.
+<doi:10.1093/jjfinec/nbae008> are also available. The package also
+provides tools for bias correction as in Bauer Rudebusch and Wu (2012,
+JBES) <doi:10.1080/07350015.2012.693855>, bootstrap analysis, and several
+graphical/numerical outputs.
 
 %prep
 %setup -q -c -n %{packname}

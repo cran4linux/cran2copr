@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PUGMM
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parsimonious Ultrametric Gaussian Mixture Models
 
@@ -16,25 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ClusterR 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ManlyMix 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-mcompanion 
 BuildRequires:    R-CRAN-ppclust 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ClusterR 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ManlyMix 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-mcompanion 
 Requires:         R-CRAN-ppclust 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Parsimonious Ultrametric Gaussian Mixture Models via grouped coordinate

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSTest
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hypothesis Testing for Markov Switching Models
 
@@ -45,7 +45,7 @@ Implementation of hypothesis testing procedures described in Hansen (1992)
 <doi:10.1002/jae.3950070506>, Carrasco, Hu, & Ploberger (2014)
 <doi:10.3982/ECTA8609>, Dufour & Luger (2017)
 <doi:10.1080/07474938.2017.1307548>, and Rodriguez Rondon & Dufour (2024)
-<https://grodriguezrondon.com/files/RodriguezRondon_Dufour_2024_MonteCarlo_LikelihoodRatioTest_MarkovSwitchingModels_20241015.pdf>
+<https://grodriguezrondon.com/files/RodriguezRondon_Dufour_2025_MonteCarlo_LikelihoodRatioTest_MarkovSwitchingModels_20251014.pdf>
 that can be used to identify the number of regimes in Markov switching
 models.
 

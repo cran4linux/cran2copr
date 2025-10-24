@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastmatrix
-%global packver   0.6-2
+%global packver   0.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of some Matrices Useful in Statistics
 
@@ -18,23 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 
 %description
-Small set of functions to fast computation of some matrices and operations
-useful in statistics and econometrics. Currently, there are functions for
-efficient computation of duplication, commutation and symmetrizer matrices
-with minimal storage requirements. Some commonly used matrix
-decompositions (LU and LDL), basic matrix operations (for instance,
-Hadamard, Kronecker products and the Sherman-Morrison formula) and
-iterative solvers for linear systems are also available. In addition, the
-package includes a number of common statistical procedures such as the
-sweep operator, weighted mean and covariance matrix using an online
-algorithm, linear regression (using Cholesky, QR, SVD, sweep operator and
-conjugate gradients methods), ridge regression (with optimal selection of
-the ridge parameter considering several procedures), omnibus tests for
-univariate normality, functions to compute the multivariate skewness,
-kurtosis, the Mahalanobis distance (checking the positive defineteness),
-and the Wilson-Hilferty transformation of gamma variables. Furthermore,
-the package provides interfaces to C code callable by another C code from
-other R packages.
+Small set of functions designed to speed up the computation of certain
+matrix operations that are commonly used in statistics and econometrics.
+It provides efficient implementations for the computation of several
+structured matrices, matrix decompositions and statistical procedures,
+many of which have minimal memory overhead. Furthermore, the package
+provides interfaces to C code callable by another C code from other R
+packages.
 
 %prep
 %setup -q -c -n %{packname}

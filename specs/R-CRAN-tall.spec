@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tall
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Analysis for All
 
@@ -16,13 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-curl >= 6.3.0
+BuildRequires:    R-CRAN-pdftools >= 3.6.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-shinycssloaders >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-ca 
 BuildRequires:    R-CRAN-chromote 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-fontawesome 
@@ -35,7 +37,6 @@ BuildRequires:    R-CRAN-later
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-pagedown 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-purrr 
@@ -44,7 +45,6 @@ BuildRequires:    R-CRAN-readtext
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinydashboardPlus 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-shinyjs 
@@ -60,13 +60,15 @@ BuildRequires:    R-CRAN-udpipe
 BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-word2vec 
+Requires:         R-CRAN-curl >= 6.3.0
+Requires:         R-CRAN-pdftools >= 3.6.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-shinycssloaders >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-ca 
 Requires:         R-CRAN-chromote 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-fontawesome 
@@ -79,7 +81,6 @@ Requires:         R-CRAN-later
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-pagedown 
 Requires:         R-parallel 
-Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-purrr 
@@ -88,7 +89,6 @@ Requires:         R-CRAN-readtext
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinydashboardPlus 
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-shinyjs 

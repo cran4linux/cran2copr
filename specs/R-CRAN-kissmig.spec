@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kissmig
-%global packver   2.0-0
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          a Keep It Simple Species Migration Model
 
@@ -28,7 +28,7 @@ Requires:         R-stats
 %description
 Simulating species migration and range dynamics under stable or changing
 environmental conditions based on a simple, raster-based, deterministic or
-stochastic migration model. Kissmig runs on binary or quantitative
+stochastic migration model. KISSMig runs on binary or quantitative
 suitability maps, which are pre-calculated with niche-based habitat
 suitability models (also called ecological niche models (ENMs) or species
 distribution models (SDMs)). Nobis & Normand (2014),

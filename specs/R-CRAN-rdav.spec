@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WSCdata
-%global packver   0.1.1
+%global packname  rdav
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A New Four-Arm Within-Study Comparison Data on Math and Vocabulary Training
+Summary:          Simple 'WebDAV' Client
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-utils 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-xml2 
 
 %description
-This dataset was collected using a new four-arm within-study comparison
-design. The study aimed to examine the impact of a mathematics training
-intervention and a vocabulary study session on post-test scores in
-mathematics and vocabulary, respectively. The innovative four-arm
-within-study comparison design facilitates both experimental and
-quasi-experimental identification of average causal effects.
+A simple 'WebDAV' client that provides functions to fetch and send files
+or folders to servers using the 'WebDAV' protocol (see 'RFC' 4918
+<https://www.rfc-editor.org/rfc/rfc4918>). Only a subset of the protocol
+is implemented (e.g. file locks are not yet supported).
 
 %prep
 %setup -q -c -n %{packname}

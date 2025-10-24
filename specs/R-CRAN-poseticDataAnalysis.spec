@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WSCdata
-%global packver   0.1.1
+%global packname  poseticDataAnalysis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A New Four-Arm Within-Study Comparison Data on Math and Vocabulary Training
+Summary:          Posetic Data Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-This dataset was collected using a new four-arm within-study comparison
-design. The study aimed to examine the impact of a mathematics training
-intervention and a vocabulary study session on post-test scores in
-mathematics and vocabulary, respectively. The innovative four-arm
-within-study comparison design facilitates both experimental and
-quasi-experimental identification of average causal effects.
+Build and manipulate partially ordered sets (posets), to perform some data
+analysis on them and to implement multi-criteria decision making
+procedures. Several efficient ways for generating linear extensions are
+implemented, together with functions for building mutual ranking
+probabilities, incomparability, dominance and separation scores (Fattore,
+M., De Capitani, L., Avellone, A., Suardi, A. (2024). A fuzzy posetic
+toolbox for multi-criteria evaluation on ordinal data systems. ANNALS OF
+OPERATIONS RESEARCH <doi:10.1007/s10479-024-06352-3>).
 
 %prep
 %setup -q -c -n %{packname}

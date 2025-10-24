@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WSCdata
-%global packver   0.1.1
+%global packname  Rraven
+%global packver   1.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          A New Four-Arm Within-Study Comparison Data on Math and Vocabulary Training
+Summary:          Connecting R and 'Raven' Sound Analysis Software
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-warbleR >= 1.1.34
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-warbleR >= 1.1.34
+Requires:         R-CRAN-pbapply 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tuneR 
+Requires:         R-methods 
 
 %description
-This dataset was collected using a new four-arm within-study comparison
-design. The study aimed to examine the impact of a mathematics training
-intervention and a vocabulary study session on post-test scores in
-mathematics and vocabulary, respectively. The innovative four-arm
-within-study comparison design facilitates both experimental and
-quasi-experimental identification of average causal effects.
+A tool to exchange data between R and 'Raven' sound analysis software
+(Cornell Lab of Ornithology). Functions work on data formats compatible
+with the R package 'warbleR'.
 
 %prep
 %setup -q -c -n %{packname}

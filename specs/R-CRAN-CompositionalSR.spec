@@ -1,32 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  devRate
-%global packver   0.2.5
+%global packname  CompositionalSR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantify the Relationship Between Development Rate and Temperature in Ectotherms
+Summary:          Spatial Regression Models with Compositional Data
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-blockCV 
+BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-blockCV 
+Requires:         R-CRAN-Compositional 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 
 %description
-A set of functions to quantify the relationship between development rate
-and temperature and to build phenological models. The package comprises a
-set of models and estimated parameters borrowed from a literature review
-in ectotherms. The methods and literature review are described in Rebaudo
-et al. (2018) <doi:10.1111/2041-210X.12935>, Rebaudo and Rabhi (2018)
-<doi:10.1111/eea.12693>, and Regnier et al. (2021)
-<doi:10.1093/ee/nvab115>. An example can be found in Rebaudo et al. (2017)
-<doi:10.1007/s13355-017-0480-5>.
+Spatial regression models with compositional responses using the
+alpha--transformation. Relevant papers include: Tsagris M. (2025),
+<doi:10.48550/arXiv.2510.12663>, Tsagris M. (2015),
+<https://soche.cl/chjs/volumes/06/02/Tsagris(2015).pdf>, Tsagris M.T.,
+Preston S. and Wood A.T.A. (2011), <doi:10.48550/arXiv.1106.1451>.
 
 %prep
 %setup -q -c -n %{packname}

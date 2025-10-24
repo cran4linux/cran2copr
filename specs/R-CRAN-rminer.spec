@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rminer
-%global packver   1.4.9
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Mining Classification and Regression Methods
+Summary:          Machine Learning Classification and Regression Methods
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -53,9 +53,10 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-xgboost 
 
 %description
-Facilitates the use of data mining algorithms in classification and
+Facilitates the use of machine learning algorithms in classification and
 regression (including time series forecasting) tasks by presenting a short
-and coherent set of functions. Versions: 1.4.9 / 1.4.8 improved help,
+and coherent set of functions. Versions: 1.5.0 improved mparheuristic
+function (new hyperparameter heuristics); 1.4.9 / 1.4.8 improved help,
 several warning and error code fixes (more stable version, all examples
 run correctly); 1.4.7 - improved Importance function and examples, minor
 error fixes; 1.4.6 / 1.4.5 / 1.4.4 new automated machine learning (AutoML)

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MixtureMissing
-%global packver   3.0.4
+%global packver   3.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust and Flexible Model-Based Clustering for Data Sets with Missing Values at Random
 
@@ -44,7 +44,9 @@ Mixtures via some special or limiting cases of the multivariate
 generalized hyperbolic distribution are also included: Normal-Inverse
 Gaussian, Symmetric Normal-Inverse Gaussian, Skew-Cauchy, Cauchy, Skew-t,
 Student's t, Normal, Symmetric Generalized Hyperbolic, Hyperbolic
-Univariate Marginals, Hyperbolic, and Symmetric Hyperbolic.
+Univariate Marginals, Hyperbolic, and Symmetric Hyperbolic. Funding: This
+work was partially supported by the National Science foundation NSF Grant
+NO. 2209974.
 
 %prep
 %setup -q -c -n %{packname}
