@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StepReg
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepwise Regression Analysis
 
@@ -17,42 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-summarytools 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-survAUC 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-summarytools 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-survAUC 
 
@@ -68,8 +44,8 @@ results in various formats. StepReg offers a data-splitting option to
 address potential issues with invalid statistical inference and a
 randomized forward selection option to avoid overfitting. We validated
 StepReg's accuracy using public datasets within the SAS software
-environment. Additionally, StepReg features an interactive Shiny
-application to enhance usability and accessibility.
+environment. For an interactive web interface, users can install the
+companion 'StepRegShiny' package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayesmove
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Bayesian Analyses of Animal Movement
 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-datamods 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-leaflet >= 2.0.0
@@ -52,6 +54,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-datamods 
 
 %description
 Methods for assessing animal movement from telemetry and biologging data
@@ -60,7 +63,7 @@ processing and analysis of data, as well as the visualization of results
 from the models. This framework does not rely on standard parametric
 density functions, which provides flexibility during model fitting.
 Further details regarding part of this framework can be found in Cullen et
-al. (2021) <doi:10.1101/2020.11.05.369702>.
+al. (2022) <doi:10.1111/2041-210X.13745>.
 
 %prep
 %setup -q -c -n %{packname}

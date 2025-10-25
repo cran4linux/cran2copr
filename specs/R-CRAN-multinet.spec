@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multinet
-%global packver   4.3.1
+%global packver   4.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.1
+Version:          4.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Mining of Multilayer Social Networks
 

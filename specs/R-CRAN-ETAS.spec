@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ETAS
-%global packver   0.6.1.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Earthquake Data Using 'ETAS' Model
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -45,7 +45,7 @@ earthquake catalogs using a stochastic 'declustering' approach. The 'ETAS'
 model is a 'spatio-temporal' marked point process model and a special case
 of the 'Hawkes' process. The package is based on a Fortran program by
 'Jiancang Zhuang' (available at
-<http://bemlar.ism.ac.jp/zhuang/software.html>), which is modified and
+<https://bemlar.ism.ac.jp/zhuang/software.html>), which is modified and
 translated into C++ and C such that it can be called from R. Parallel
 computing with 'OpenMP' is possible on supported platforms.
 

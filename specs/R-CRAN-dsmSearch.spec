@@ -1,40 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MARVEL
-%global packver   1.4.0
+%global packname  dsmSearch
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Revealing Splicing Dynamics at Single-Cell Resolution
+Summary:          DSM and LiDAR Downloader
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-Matrix >= 1.3.3
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-Matrix >= 1.3.3
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-lidR 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-nominatimlite 
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-aws.s3 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-lidR 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-nominatimlite 
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-stringr 
 
 %description
-Alternative splicing represents an additional and underappreciated layer
-of complexity underlying gene expression profiles. Nevertheless, there
-remains hitherto a paucity of software to investigate splicing dynamics at
-single-cell resolution. 'MARVEL' enables splicing analysis of single-cell
-RNA-sequencing data generated from plate- and droplet-based library
-preparation methods.
+A collection of functions to search and download Digital Surface Model
+(DSM) and Light Detection and Ranging (LiDAR) data via APIs, including
+'OpenTopography' <https://portal.opentopography.org/apidocs/> and
+'TNMAccess' <https://apps.nationalmap.gov/tnmaccess/#/>, and canopy tree
+height data.
 
 %prep
 %setup -q -c -n %{packname}
