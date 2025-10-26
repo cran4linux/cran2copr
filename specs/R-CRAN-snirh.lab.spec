@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vntrs
-%global packver   0.2.0
+%global packname  snirh.lab
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Neighborhood Trust Region Search
+Summary:          Convert Laboratory Water-Quality Data to 'SNIRH' Import Format
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-oeli >= 0.7.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.7.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-utils 
 
 %description
-An algorithm for nonlinear global optimization based on the variable
-neighbourhood trust region search (VNTRS) algorithm proposed by Bierlaire
-et al. (2009) "A Heuristic for Nonlinear Global Optimization"
-<doi:10.1287/ijoc.1090.0343>. The algorithm combines variable
-neighbourhood exploration with a trust-region framework to efficiently
-search the solution space. It can terminate a local search early if the
-iterates are converging toward a previously visited local optimum or if
-further improvement within the current region is unlikely. In addition to
-global optimization, the algorithm can also be applied to identify
-multiple local optima.
+Convert laboratory data to the Portuguese Information System for Water
+Resources 'SNIRH' file format. 'SNIRH' is Portugal's national water
+resources information system <https://snirh.apambiente.pt/>. The package
+validates station data, converts parameters and units, and generates
+compliant output files for data submission.
 
 %prep
 %setup -q -c -n %{packname}

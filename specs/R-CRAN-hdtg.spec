@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vntrs
-%global packver   0.2.0
+%global packname  hdtg
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Neighborhood Trust Region Search
+Summary:          Generate Samples from Multivariate Truncated Normal Distributions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-oeli >= 0.7.5
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.7.5
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
+Requires:         R-CRAN-Rdpack 
 
 %description
-An algorithm for nonlinear global optimization based on the variable
-neighbourhood trust region search (VNTRS) algorithm proposed by Bierlaire
-et al. (2009) "A Heuristic for Nonlinear Global Optimization"
-<doi:10.1287/ijoc.1090.0343>. The algorithm combines variable
-neighbourhood exploration with a trust-region framework to efficiently
-search the solution space. It can terminate a local search early if the
-iterates are converging toward a previously visited local optimum or if
-further improvement within the current region is unlikely. In addition to
-global optimization, the algorithm can also be applied to identify
-multiple local optima.
+Efficient sampling from high-dimensional truncated Gaussian distributions,
+or multivariate truncated normal (MTN). Techniques include zigzag
+Hamiltonian Monte Carlo as in Akihiko Nishimura, Zhenyu Zhang and Marc A.
+Suchard (2024) <doi:10.1080/01621459.2024.2395587>, and harmonic Monte in
+Ari Pakman and Liam Paninski (2014) <doi:10.1080/10618600.2013.788448>.
 
 %prep
 %setup -q -c -n %{packname}

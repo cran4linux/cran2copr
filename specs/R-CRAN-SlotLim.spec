@@ -1,51 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mintyr
-%global packver   0.1.2
+%global packname  SlotLim
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Streamlined Data Processing Tools for Genomic Selection
+Summary:          Catch Advice for Fisheries Managed by Harvest Slot Limits
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rsample 
-Requires:         R-CRAN-rstatix 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-utils 
+Requires:         R-CRAN-patchwork 
 
 %description
-A toolkit for genomic selection in animal breeding with emphasis on
-multi-breed and multi-trait nested grouping operations. Streamlines
-iterative analysis workflows when working with 'ASReml-R' package.
-Includes utility functions for phenotypic data processing commonly used by
-animal breeders.
+Catch advice for data-limited vertebrate and invertebrate fisheries
+managed by harvest slot limits using the SlotLim harvest control rule. The
+package accompanies the manuscript "SlotLim: catch advice for data-limited
+vertebrate and invertebrate fisheries managed by harvest slot limits"
+(Pritchard et al., in prep). Minimum data requirements: at least two
+consecutive years of catch data, length–frequency distributions, and
+biomass or abundance indices (all from fishery-dependent sources);
+species-specific growth rate parameters (either von Bertalanffy, Gompertz,
+or Schnute); and either the natural mortality rate ('M') or the maximum
+observed age ('tmax'), from which M is estimated. The following functions
+have optional plotting capabilities that require 'ggplot2' installed:
+prop_target(), TBA(), SAM(), catch_advice(), catch_adjust(), and
+slotlim_once().
 
 %prep
 %setup -q -c -n %{packname}

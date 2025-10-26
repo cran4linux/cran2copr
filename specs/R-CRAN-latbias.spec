@@ -1,59 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moranajp
-%global packver   0.9.7
+%global packname  latbias
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Morphological Analysis for Japanese
+Summary:          Calculate the Latitudinal Bias Index
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5.3
+Requires:         R-core >= 3.5.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
-Requires:         R-grid 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-units 
 
 %description
-Supports morphological analysis for Japanese by using 'MeCab'
-<https://taku910.github.io/mecab/>, 'Sudachi'
-<https://github.com/WorksApplications/Sudachi>, 'Chamame'
-<https://chamame.ninjal.ac.jp/>, or 'Ginza'
-<https://github.com/megagonlabs/ginza>. Can input a data.frame and obtain
-all results of 'MeCab' and the row number of the original data.frame as a
-text id.
+Studies that report shifts in species distributions may be biased by the
+shape of the study area. The main functionality of this package is to
+calculate the Latitudinal Bias Index (LBI) for any given shape. The LBI is
+bounded between +1 (100%% probability to exclusively record latitudinal
+shifts, i.e., range shifts data sampled along a perfectly South-North
+oriented straight line) and -1 (100%% probability to exclusively record
+longitudinal shifts, i.e., range shifts data sampled along a perfectly
+East-West oriented straight line).
 
 %prep
 %setup -q -c -n %{packname}

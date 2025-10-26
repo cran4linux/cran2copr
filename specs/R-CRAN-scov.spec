@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vntrs
-%global packver   0.2.0
+%global packname  scov
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Neighborhood Trust Region Search
+Summary:          Structured Covariances Estimators for Pairwise and Spatial Covariates
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-oeli >= 0.7.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.7.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-missMDA 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ohenery 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-missMDA 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ohenery 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-purrr 
 
 %description
-An algorithm for nonlinear global optimization based on the variable
-neighbourhood trust region search (VNTRS) algorithm proposed by Bierlaire
-et al. (2009) "A Heuristic for Nonlinear Global Optimization"
-<doi:10.1287/ijoc.1090.0343>. The algorithm combines variable
-neighbourhood exploration with a trust-region framework to efficiently
-search the solution space. It can terminate a local search early if the
-iterates are converging toward a previously visited local optimum or if
-further improvement within the current region is unlikely. In addition to
-global optimization, the algorithm can also be applied to identify
-multiple local optima.
+Implements estimators for structured covariance matrices in the presence
+of pairwise and spatial covariates. Metodiev, Perrot-Dockès, Ouadah,
+Fosdick, Robin, Latouche & Raftery (2025) <doi:10.48550/arXiv.2411.04520>.
 
 %prep
 %setup -q -c -n %{packname}

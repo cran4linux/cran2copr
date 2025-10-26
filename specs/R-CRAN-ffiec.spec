@@ -1,53 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  reticulate
-%global packver   1.44.0
+%global packname  ffiec
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.44.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Python'
+Summary:          R Interface to 'FFIEC Central Data Repository REST API' Service
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       python3
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppTOML 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-here 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-RcppTOML 
-Requires:         R-graphics 
-Requires:         R-CRAN-here 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-utils 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-xml2 
 
 %description
-Interface to 'Python' modules, classes, and functions. When calling into
-'Python', R data types are automatically converted to their equivalent
-'Python' types. When values are returned from 'Python' to R they are
-converted back to R types. Compatible with all versions of 'Python' >=
-2.7.
+Provides a simplified interface to the Central Data Repository 'REST API'
+service made available by the United States Federal Financial Institutions
+Examination Council ('FFIEC'). Contains functions to retrieve reports of
+Condition and Income (Call Reports) and Uniform Bank Performance Reports
+('UBPR') in list or tidy data frame format for most 'FDIC' insured
+institutions. See
+<https://cdr.ffiec.gov/public/Files/SIS611_-_Retrieve_Public_Data_via_Web_Service.pdf>
+for the official 'REST API' documentation published by the 'FFIEC'.
 
 %prep
 %setup -q -c -n %{packname}

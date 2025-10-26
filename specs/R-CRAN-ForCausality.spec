@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vntrs
-%global packver   0.2.0
+%global packname  ForCausality
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Neighborhood Trust Region Search
+Summary:          A Curated Collection of 'Causal Inference' Datasets and Tools
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-oeli >= 0.7.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.7.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-An algorithm for nonlinear global optimization based on the variable
-neighbourhood trust region search (VNTRS) algorithm proposed by Bierlaire
-et al. (2009) "A Heuristic for Nonlinear Global Optimization"
-<doi:10.1287/ijoc.1090.0343>. The algorithm combines variable
-neighbourhood exploration with a trust-region framework to efficiently
-search the solution space. It can terminate a local search early if the
-iterates are converging toward a previously visited local optimum or if
-further improvement within the current region is unlikely. In addition to
-global optimization, the algorithm can also be applied to identify
-multiple local optima.
+Provides a comprehensive set of datasets and tools for 'causal inference'
+research. The package includes data from clinical trials, cancer studies,
+epidemiological surveys, environmental exposures, and health-related
+observational studies. Designed to facilitate causal analysis, risk
+assessment, and advanced statistical modeling, it leverages datasets from
+packages such as 'causalOT', 'survival', 'causalPAF', 'evident', 'melt',
+and 'sanon'. The package is inspired by the foundational work of Pearl
+(2009) <doi:10.1017/CBO9780511803161> on causal inference frameworks.
 
 %prep
 %setup -q -c -n %{packname}

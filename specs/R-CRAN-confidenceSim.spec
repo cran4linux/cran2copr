@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vntrs
-%global packver   0.2.0
+%global packname  confidenceSim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Neighborhood Trust Region Search
+Summary:          Highly Customizable, Parallelized Simulations of Frequentist Confidence Clinical Trials
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-oeli >= 0.7.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.7.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rpact >= 4.0.0
+BuildRequires:    R-CRAN-genodds >= 1.1.2
+BuildRequires:    R-CRAN-confidenceCurves >= 0.2.0
+Requires:         R-CRAN-rpact >= 4.0.0
+Requires:         R-CRAN-genodds >= 1.1.2
+Requires:         R-CRAN-confidenceCurves >= 0.2.0
 
 %description
-An algorithm for nonlinear global optimization based on the variable
-neighbourhood trust region search (VNTRS) algorithm proposed by Bierlaire
-et al. (2009) "A Heuristic for Nonlinear Global Optimization"
-<doi:10.1287/ijoc.1090.0343>. The algorithm combines variable
-neighbourhood exploration with a trust-region framework to efficiently
-search the solution space. It can terminate a local search early if the
-iterates are converging toward a previously visited local optimum or if
-further improvement within the current region is unlikely. In addition to
-global optimization, the algorithm can also be applied to identify
-multiple local optima.
+Simulate one or many frequentist confidence clinical trials based on a
+specified set of parameters.  From a two-arm, single-stage trial to a
+perpetually run Adaptive Platform Trial, this package offers vast
+flexibility to customize your trial and observe operational
+characterisitics over thousands of instances.
 
 %prep
 %setup -q -c -n %{packname}

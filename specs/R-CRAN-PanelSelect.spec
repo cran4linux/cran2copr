@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vntrs
-%global packver   0.2.0
+%global packname  PanelSelect
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Neighborhood Trust Region Search
+Summary:          Panel Sample Selection Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-oeli >= 0.7.5
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-PanelCount 
+BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-pbv 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.7.5
-Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-PanelCount 
+Requires:         R-CRAN-pbivnorm 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-pbv 
 
 %description
-An algorithm for nonlinear global optimization based on the variable
-neighbourhood trust region search (VNTRS) algorithm proposed by Bierlaire
-et al. (2009) "A Heuristic for Nonlinear Global Optimization"
-<doi:10.1287/ijoc.1090.0343>. The algorithm combines variable
-neighbourhood exploration with a trust-region framework to efficiently
-search the solution space. It can terminate a local search early if the
-iterates are converging toward a previously visited local optimum or if
-further improvement within the current region is unlikely. In addition to
-global optimization, the algorithm can also be applied to identify
-multiple local optima.
+Extends the Heckman selection framework to panel data with individual
+random effects. The first stage models participation via a panel Probit
+specification, while the second stage can take a panel linear, Probit,
+Poisson, or Poisson log-normal form. Model details are provided in Bailey
+and Peng (2025) <doi:10.2139/ssrn.5475626> and Peng and Van den Bulte
+(2024) <doi:10.1287/mnsc.2019.01897>.
 
 %prep
 %setup -q -c -n %{packname}
