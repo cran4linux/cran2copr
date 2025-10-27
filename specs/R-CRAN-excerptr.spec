@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tind
-%global packver   0.2.1
+%global packname  excerptr
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Common Representation of Time Indices of Different Types
+Summary:          Excerpt Structuring Comments from Your Code File and Set a Table of Contents
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Provides an easy-to-use tind class representing time indices of different
-types (years, quarters, months, ISO 8601 weeks, dates, time of day,
-date-time, and arbitrary integer/numeric indices). Includes an extensive
-collection of functions for calendrical computations (including business
-applications), index conversions, index parsing, and other operations.
-Auxiliary classes representing time differences and time intervals (with
-set operations and index matching functionality) are also provided. All
-routines have been optimised for speed in order to facilitate computations
-on large datasets. More details regarding calendars in general and
-calendrical algorithms can be found in "Calendar FAQ" by Claus Tøndering
-<https://www.tondering.dk/claus/calendar.html>.
+Ever read or wrote source files containing sectioning comments? If these
+comments are markdown style section comments, you can excerpt them and set
+a table of contents using the 'python' package 'excerpts'
+(<https://pypi.org/project/excerpts/>).
 
 %prep
 %setup -q -c -n %{packname}
-
+find %{packname}/inst -type f -name *.cl -exec chmod a-x {} \;
+ find %{packname}/inst -type f -exec sed -Ei 's@#!( )*(/usr)*/bin/(env )*dash@#!/usr/bin/sh@g' {} \;
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

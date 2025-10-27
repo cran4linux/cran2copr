@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FBFsearch
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithm for Searching the Space of Gaussian Directed Acyclic Graph Models Through Moment Fractional Bayes Factors
 
@@ -22,10 +22,10 @@ Requires:         R-CRAN-Rcpp >= 0.12.7
 
 %description
 We propose an objective Bayesian algorithm for searching the space of
-Gaussian directed acyclic graph (DAG) models. The algorithm proposed makes
-use of moment fractional Bayes factors (MFBF) and thus it is suitable for
-learning sparse graph. The algorithm is implemented by using Armadillo: an
-open-source C++ linear algebra library.
+Gaussian directed acyclic graph (DAG) models. The algorithm uses moment
+fractional Bayes factors (MFBF) and is suitable for learning sparse
+graphs. The algorithm is implemented using Armadillo, an open-source C++
+linear algebra library.
 
 %prep
 %setup -q -c -n %{packname}

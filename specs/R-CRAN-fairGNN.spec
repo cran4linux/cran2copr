@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filibustr
-%global packver   0.5.0
+%global packname  fairGNN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Utilities for Congressional Research
+Summary:          Fairness-Aware Gated Neural Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,40 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggalluvial 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
+Requires:         R-CRAN-purrr 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-ggalluvial 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides easy-to-understand and consistent interfaces for accessing data
-on the U.S. Congress. The functions in 'filibustr' streamline the process
-for importing data on Congress into R, removing the need to download and
-work from CSV files and the like. Data sources include 'Voteview'
-(<https://voteview.com/>), the U.S. Senate website
-(<https://www.senate.gov/>), and more.
+Tools for training and analysing fairness-aware gated neural networks for
+subgroup-aware prediction and interpretation in clinical datasets. Methods
+draw on prior work in mixture-of-experts neural networks by Jordan and
+Jacobs (1994) <doi:10.1007/978-1-4471-2097-1_113>, fairness-aware learning
+by Hardt, Price, and Srebro (2016) <doi:10.48550/arXiv.1610.02413>, and
+personalised treatment prediction for depression by Iniesta, Stahl, and
+McGuffin (2016) <doi:10.1016/j.jpsychires.2016.03.016>.
 
 %prep
 %setup -q -c -n %{packname}

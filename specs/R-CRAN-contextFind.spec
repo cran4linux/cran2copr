@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  missForest
-%global packver   1.6.1
+%global packname  contextFind
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Missing Value Imputation using Random Forest
+Summary:          Find Code Snippets with Context and Click to Navigate Directly to Results
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-itertools 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-itertools 
-Requires:         R-CRAN-doRNG 
-Requires:         R-stats 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-miniUI 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-miniUI 
 
 %description
-The function 'missForest' in this package is used to impute missing values
-particularly in the case of mixed-type data. It uses a random forest (via
-'ranger' or 'randomForest') trained on the observed values of a data
-matrix to predict the missing values. It can be used to impute continuous
-and/or categorical data including complex interactions and non-linear
-relations. It yields an out-of-bag (OOB) imputation error estimate without
-the need of a test set or elaborate cross-validation. It can be run in
-parallel to save computation time.
+Search across R files with contextual results, highlights and clickable
+links. Includes an add-in for further workflow enhancement.
 
 %prep
 %setup -q -c -n %{packname}
