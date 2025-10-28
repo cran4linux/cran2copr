@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nparMD
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Analysis of Multivariate Data in Factorial Designs
 
@@ -41,7 +42,8 @@ the different variable types. The package offers two functions performing
 the analysis, one for small and the other for large sample sizes. The
 underlying methodology is largely described in Bathke and Harrar (2016)
 <doi:10.1007/978-3-319-39065-9_7> and in Munzel and Brunner (2000)
-<doi:10.1016/S0378-3758(99)00212-8>.
+<doi:10.1016/S0378-3758(99)00212-8> and in Kiefel and Bathke (2022)
+<doi:10.1515/stat-2022-0112>.
 
 %prep
 %setup -q -c -n %{packname}

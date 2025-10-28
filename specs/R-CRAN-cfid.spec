@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cfid
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification of Counterfactual Queries in Causal Models
 
@@ -21,7 +21,7 @@ BuildArch:        noarch
 %description
 Facilitates the identification of counterfactual queries in structural
 causal models via the ID* and IDC* algorithms by Shpitser, I. and Pearl,
-J. (2007, 2008) <arXiv:1206.5294>,
+J. (2007, 2008) <doi:10.48550/arXiv.1206.5294>,
 <https://jmlr.org/papers/v9/shpitser08a.html>. Provides a simple interface
 for defining causal diagrams and counterfactual conjunctions. Construction
 of parallel worlds graphs and counterfactual graphs is carried out

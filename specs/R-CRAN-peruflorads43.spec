@@ -1,28 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  peruflorads43
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reviewed Official Classification of Endangered Wild Flora Species in Peru
+Summary:          Check Threatened Plant Species Status Against Peru's DS 043-2006-AG
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-readr >= 2.1.0
+BuildRequires:    R-CRAN-memoise >= 2.0.1
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+BuildRequires:    R-CRAN-fuzzyjoin >= 0.1.6
+Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-readr >= 2.1.0
+Requires:         R-CRAN-memoise >= 2.0.1
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-fuzzyjoin >= 0.1.6
 
 %description
-Provide users with a convenient way to access and analyze information on
-endangered plant species in Peru based on `Decreto Supremo N 043-2006-AG -
-Aprueban categorizacion de especies amenazadas de flora
-silvestre`<https://sinia.minam.gob.pe/normas/aprueban-categorizacion-especies-amenazadas-flora-silvestre>.
+Provides tools to match plant species names against the official
+threatened species list of Peru (Supreme Decree DS 043-2006-AG, 2006).
+Implements a hierarchical matching pipeline with exact, fuzzy, and suffix
+matching algorithms to handle nomenclatural variations and taxonomic
+changes. Supports both the original 2006 nomenclature and updated
+taxonomic names, allowing users to check protection status regardless of
+nomenclatural changes since the decree's publication. Threat categories
+follow IUCN standards (CR, EN, VU, NT).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  harbinger
-%global packver   1.2.737
+%global packver   1.2.747
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.737
+Version:          1.2.747
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Time Series Event Detection Framework
 

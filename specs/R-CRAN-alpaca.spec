@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IssueTrackeR
-%global packver   1.3.1
+%global packname  alpaca
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          List Things to Do
+Summary:          Fit GLM's with High-Dimensional k-Way Fixed Effects
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-gh 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-tools 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-gh 
-Requires:         R-CRAN-yaml 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Manage a 'GitHub' problem using R: wrangle issues, labels and milestones.
-It includes functions for storing, prioritizing (sorting), displaying,
-adding, deleting, and selecting (filtering) issues based on qualitative
-and quantitative information. Issues (labels and milestones) are written
-in lists and categorized into the S3 class to be easily manipulated as
-datasets in R.
+Provides a routine to partial out factors with many levels during the
+optimization of the log-likelihood function of the corresponding
+generalized linear model (glm). The package is based on the algorithm
+described in Stammann (2018) <doi:10.48550/arXiv.1707.01815> and is
+restricted to glm's that are based on maximum likelihood estimation and
+nonlinear. It also offers an efficient algorithm to recover estimates of
+the fixed effects in a post-estimation routine and includes robust and
+multi-way clustered standard errors. Further the package provides
+analytical bias corrections for binary choice models derived by
+Fernandez-Val and Weidner (2016) <doi:10.1016/j.jeconom.2015.12.014> and
+Hinz, Stammann, and Wanner (2020) <doi:10.48550/arXiv.2004.12655>.
 
 %prep
 %setup -q -c -n %{packname}

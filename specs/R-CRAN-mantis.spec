@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mantis
-%global packver   0.4.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Time Series Scanner
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-knitr 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-lubridate 
 
 %description
 Generate interactive html reports that enable quick visual review of

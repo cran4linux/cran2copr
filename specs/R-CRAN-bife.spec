@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gerefer
-%global packver   0.1.3
+%global packname  bife
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Preparer of Main Scientific References for Automatic Insertion in Academic Papers
+Summary:          Binary Choice Models with Fixed Effects
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bibliorefer 
-Requires:         R-CRAN-bibliorefer 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Generates a file, containing the main scientific references, prepared to
-be automatically inserted into an academic paper. The articles present in
-the list are chosen from the main references generated, by function
-principal_lister(), of the package 'bibliorefer'. The generated file
-contains the list of metadata of the principal references in 'BibTex'
-format. Massimo Aria, Corrado Cuccurullo. (2017)
-<doi:10.1016/j.joi.2017.08.007>. Caibo Zhou, Wenyan Song. (2021)
-<doi:10.1016/j.jclepro.2021.126943>. Hamid Derviş. (2019)
-<doi:10.5530/jscires.8.3.32>.
+Estimates fixed effects binary choice models (logit and probit) with
+potentially many individual fixed effects and computes average partial
+effects. Incidental parameter bias can be reduced with an asymptotic bias
+correction proposed by Fernandez-Val (2009)
+<doi:10.1016/j.jeconom.2009.02.007>.
 
 %prep
 %setup -q -c -n %{packname}

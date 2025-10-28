@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proxirr
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Alpha and Beta Proximity to Irreplaceability
+Summary:          Alpha, Beta and Gamma Proximity to Irreplaceability
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,8 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Functions to measure Alpha and Beta Proximity to Irreplaceability. The
-methods for Alpha and Beta irreplaceability were first described in:
+Functions to measure Alpha, Beta and Gamma Proximity to Irreplaceability.
+The methods for Alpha and Beta irreplaceability were first described in:
 Baisero D., Schuster R. & Plumptre A.J. Redefining and Mapping Global
 Irreplaceability. Conservation Biology 2021;1-11.
 <doi:10.1111/cobi.13806>.

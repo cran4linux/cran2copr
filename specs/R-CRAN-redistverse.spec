@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redistverse
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load Redistricting Software
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-PL94171
 BuildRequires:    R-CRAN-alarmdata 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-birdie 
+BuildRequires:    R-CRAN-baf 
 Requires:         R-CRAN-redist 
 Requires:         R-CRAN-redistmetrics 
 Requires:         R-CRAN-geomander 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-PL94171
 Requires:         R-CRAN-alarmdata 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-birdie 
+Requires:         R-CRAN-baf 
 
 %description
 Easy installation, loading, and control of packages for redistricting data

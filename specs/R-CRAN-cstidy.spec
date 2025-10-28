@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cstidy
-%global packver   2023.5.24
+%global packver   2025.10.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.5.24
+Version:          2025.10.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helpful Functions for Cleaning Surveillance Data
 

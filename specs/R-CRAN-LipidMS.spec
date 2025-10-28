@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LipidMS
-%global packver   3.0.5
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.5
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lipid Annotation for LC-MS/MS DDA or DIA Data
 
@@ -16,32 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-readMzXmlData 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-CHNOSZ 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-iterators 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parallelly 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-readMzXmlData 
+Requires:         R-utils 
 Requires:         R-CRAN-CHNOSZ 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinythemes 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-R.utils 
+Requires:         R-parallel 
+Requires:         R-CRAN-parallelly 
 
 %description
 Lipid annotation in untargeted LC-MS lipidomics based on fragmentation
