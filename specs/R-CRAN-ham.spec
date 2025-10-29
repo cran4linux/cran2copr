@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ham
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Healthcare Analysis Methods
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 Requires:         R-methods 
@@ -33,7 +33,10 @@ alpha for various scale items (e.g., survey questions). See Github URL for
 examples in the README file. For more details on the statistical methods,
 see Allen & Yen (1979, ISBN:0-8185-0283-5), Angrist & Pischke (2009,
 ISBN:9780691120355), Harrell (2016, ISBN:978-3-319-19424-0), Kline (1999,
-ISBN:9780415211581), and Linden (2015) <doi:10.1177/1536867X1501500208>.
+ISBN:9780415211581), Linden (2015) <doi:10.1177/1536867X1501500208>, Merlo
+(2006) <doi:10.1136/jech.2004.029454> Muthen & Satorra (1995)
+<doi:10.2307/271070>, and Rabe-Hesketh & Skrondal (2008,
+ISBN:978-1-59718-040-5).
 
 %prep
 %setup -q -c -n %{packname}

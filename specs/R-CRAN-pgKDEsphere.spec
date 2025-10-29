@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pgKDEsphere
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametrically Guided Kernel Density Estimator for Spherical Data
 
@@ -36,12 +36,11 @@ Requires:         R-CRAN-movMF
 
 %description
 Nonparametric density estimation for (hyper)spherical data by means of a
-parametrically guided kernel estimator (adaptation of the method of Hjort
-and Glad (1995) <doi:10.1214/aos/1176324627> to the spherical setting).
-The package also allows the data-driven selection of the smoothing
-parameter and the representation of the estimated density for circular and
-spherical data. Estimators of the density without guide can also be
-obtained.
+parametrically guided kernel estimator (Alonso-Pena et al. (2024)
+<doi:10.1111/sjos.12737>. The package also allows the data-driven
+selection of the smoothing parameter and the representation of the
+estimated density for circular and spherical data. Estimators of the
+density without guide can also be obtained.
 
 %prep
 %setup -q -c -n %{packname}

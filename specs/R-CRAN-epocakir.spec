@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epocakir
-%global packver   0.9.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Coding of Patients with Kidney Disease
 
@@ -22,17 +22,15 @@ BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.1
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-units >= 0.7
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-ellipsis 
 Requires:         R-CRAN-tibble >= 3.0.1
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-lubridate >= 1.7.0
 Requires:         R-CRAN-tidyr >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.1
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-units >= 0.7
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-ellipsis 
 
 %description
 Clinical coding and diagnosis of patients with kidney using clinical

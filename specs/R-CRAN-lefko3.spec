@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lefko3
-%global packver   6.5.1
+%global packver   6.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5.1
+Version:          6.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Historical and Ahistorical Population Projection Matrix Analysis
 

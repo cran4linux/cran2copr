@@ -1,60 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FeatureExtraction
-%global packver   3.12.0
+%global packname  pleioh2g
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.12.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Features for a Cohort
+Summary:          Estimation of Pleiotropic Heritability from Genome-Wide Association Studies (GWAS) Summary Statistics
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DatabaseConnector >= 3.0.0
-BuildRequires:    R-CRAN-ParallelLogger >= 2.0.2
-BuildRequires:    R-CRAN-SqlRender >= 1.18.0
-BuildRequires:    R-CRAN-Andromeda >= 1.0.0
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vroom 
-Requires:         R-CRAN-DatabaseConnector >= 3.0.0
-Requires:         R-CRAN-ParallelLogger >= 2.0.2
-Requires:         R-CRAN-SqlRender >= 1.18.0
-Requires:         R-CRAN-Andromeda >= 1.0.0
-Requires:         R-methods 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-readr 
+Requires:         R-stats 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-gdata 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vroom 
 
 %description
-An R interface for generating features for a cohort using data in the
-Common Data Model. Features can be constructed using default or custom
-made feature definitions. Furthermore it's possible to aggregate features
-and get the summary statistics.
+Provides tools to compute unbiased pleiotropic heritability estimates of
+complex diseases from genome-wide association studies (GWAS) summary
+statistics. We estimate pleiotropic heritability from GWAS summary
+statistics by estimating the proportion of variance explained from an
+estimated genetic correlation matrix (Bulik-Sullivan et al. 2015
+<doi:10.1038/ng.3406>) and employing a Monte-Carlo bias correction
+procedure to account for sampling noise in genetic correlation estimates.
 
 %prep
 %setup -q -c -n %{packname}

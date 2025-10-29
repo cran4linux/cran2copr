@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bidux
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Behavioral Insight Design: A Toolkit for Integrating Behavioral Science in UI/UX Design
 
@@ -19,33 +19,37 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-readr >= 2.1.5
-BuildRequires:    R-CRAN-stringr >= 1.5.1
 BuildRequires:    R-CRAN-stringdist >= 0.9.15
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-readr >= 2.1.5
-Requires:         R-CRAN-stringr >= 1.5.1
 Requires:         R-CRAN-stringdist >= 0.9.15
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
 Provides a framework and toolkit to guide 'shiny' developers in
 implementing the Behavioral Insight Design (BID) framework. The package
-offers functions for documenting each of the five stages (Notice,
-Interpret, Structure, Anticipate, and Validate), along with a
-comprehensive concept dictionary.
+offers functions for documenting each of the five stages (Interpret,
+Notice, Anticipate, Structure, and Validate), along with a comprehensive
+concept dictionary.
 
 %prep
 %setup -q -c -n %{packname}

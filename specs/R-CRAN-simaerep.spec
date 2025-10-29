@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simaerep
-%global packver   0.7.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Clinical Trial Sites Under-Reporting Adverse Events
+Summary:          Detect Clinical Trial Sites Over- or Under-Reporting Clinical Events
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-furrr >= 0.2.1
@@ -47,14 +48,17 @@ Requires:         R-CRAN-progressr
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-glue 
 
 %description
-Monitoring of Adverse Event (AE) reporting in clinical trials is important
-for patient safety. Sites that are under-reporting AEs can be detected
-using Bootstrap-based simulations that simulate overall AE reporting.
-Based on the simulation an AE under-reporting probability is assigned to
-each site in a given trial (Koneswarakantha 2021
-<doi:10.1007/s40264-020-01011-5>).
+Monitoring reporting rates of subject-level clinical events (e.g. adverse
+events, protocol deviations) reported by clinical trial sites is an
+important aspect of risk-based quality monitoring strategy. Sites that are
+under-reporting or over-reporting events can be detected using bootstrap
+simulations during which patients are redistributed between sites.
+Site-specific distributions of event reporting rates are generated that
+are used to assign probabilities to the observed reporting rates.
+(Koneswarakantha 2024 <doi:10.1007/s43441-024-00631-8>).
 
 %prep
 %setup -q -c -n %{packname}

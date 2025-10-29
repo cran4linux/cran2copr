@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RBNZ
-%global packver   3.0.0
+%global packname  afmpar
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Reserve Bank of New Zealand Website
+Summary:          Check Validity of Greek AFM and PA Numbers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
 
 %description
-Provides a convenient way of accessing data published by the Reserve Bank
-of New Zealand (RBNZ) on their website,
-<https://www.rbnz.govt.nz/statistics>. A range of financial and economic
-data is provided in spreadsheet format including exchange and interest
-rates, commercial lending statistics, Reserve Bank market operations,
-financial institution statistics, household financial data, New Zealand
-debt security information, and economic indicators. This package provides
-a method to download those spreadsheets and read them directly into R.
+With the functions in this package you can check the validity of the Greek
+Tax Identification Number (AFM) and the Greek Personal Number (PA)
+<https://pa.gov.gr>. The PA is a new universal ID for Greek citizens
+across all public services and it is to replace older numbers issued by
+various Greek state agencies. Its format is a 12-character ID consisting
+of three alphanumeric characters followed by the nine numerical digits of
+the AFM.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  priceR
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Economics and Pricing Tools
 
@@ -43,8 +43,7 @@ exchange rate data from World Bank API, data cleaning/parsing, and
 standardisation. Inflation adjustment calculations as found in Principles
 of Macroeconomics by Gregory Mankiw et al (2014). Current and historical
 end of day exchange rates for 171 currencies from the European Central
-Bank Statistical Data Warehouse (2020)
-<https://sdw.ecb.europa.eu/curConverter.do>.
+Bank Statistical Data Warehouse (2020).
 
 %prep
 %setup -q -c -n %{packname}

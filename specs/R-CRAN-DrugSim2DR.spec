@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RBNZ
-%global packver   3.0.0
+%global packname  DrugSim2DR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Reserve Bank of New Zealand Website
+Summary:          Predict Drug Functional Similarity to Drug Repurposing
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-fastmatch 
+Requires:         R-CRAN-igraph 
+Requires:         R-stats 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-fastmatch 
 
 %description
-Provides a convenient way of accessing data published by the Reserve Bank
-of New Zealand (RBNZ) on their website,
-<https://www.rbnz.govt.nz/statistics>. A range of financial and economic
-data is provided in spreadsheet format including exchange and interest
-rates, commercial lending statistics, Reserve Bank market operations,
-financial institution statistics, household financial data, New Zealand
-debt security information, and economic indicators. This package provides
-a method to download those spreadsheets and read them directly into R.
+A systematic biology tool was developed to repurpose drugs via a drug-drug
+functional similarity network. 'DrugSim2DR' first predict drug-drug
+functional similarity in the context of specific disease, and then using
+the similarity constructed a weighted drug similarity network. Finally, it
+used a network propagation algorithm on the network to identify drugs with
+significant target abnormalities as candidate drugs.
 
 %prep
 %setup -q -c -n %{packname}

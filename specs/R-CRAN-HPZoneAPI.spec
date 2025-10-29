@@ -1,64 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sivirep
-%global packver   1.0.1
+%global packname  HPZoneAPI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Wrangling and Automated Reports from 'SIVIGILA' Source
+Summary:          'HPZone' API Interface
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-epitrix 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-showtext 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-safer 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-sysfonts 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-epitrix 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-showtext 
-Requires:         R-stats 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-safer 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-sysfonts 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Data wrangling, pre-processing, and generating automated reports from
-Colombia's epidemiological surveillance system, 'SIVIGILA'
-<https://portalsivigila.ins.gov.co/>. It provides a customizable R
-Markdown template for analysis and automatic generation of epidemiological
-reports that can be adapted to local, regional, and national contexts.
-This tool offers a standardized and reproducible workflow that helps to
-reduce manual labor and potential errors in report generation, improving
-their efficiency and consistency.
+Package that simplifies the use of the 'HPZone' API. Most of the annoying
+and labor-intensive parts of the interface are handled by wrapper
+functions. Note that the API and its details are not publicly available.
+Information can be found at
+<https://www.ggdghorkennisnet.nl/groep/726-platform-infectieziekte-epidemiologen/documenten/map/9609>
+for those with access.
 
 %prep
 %setup -q -c -n %{packname}

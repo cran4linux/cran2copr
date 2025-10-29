@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RBNZ
-%global packver   3.0.0
+%global packname  ganttify
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Reserve Bank of New Zealand Website
+Summary:          Create Interactive Gantt Charts with Work Breakdown Structure
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-plotly >= 4.9.0
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-plotly >= 4.9.0
+Requires:         R-CRAN-htmlwidgets >= 1.5.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides a convenient way of accessing data published by the Reserve Bank
-of New Zealand (RBNZ) on their website,
-<https://www.rbnz.govt.nz/statistics>. A range of financial and economic
-data is provided in spreadsheet format including exchange and interest
-rates, commercial lending statistics, Reserve Bank market operations,
-financial institution statistics, household financial data, New Zealand
-debt security information, and economic indicators. This package provides
-a method to download those spreadsheets and read them directly into R.
+Create Primavera-style interactive Gantt charts with Work Breakdown
+Structure (WBS) hierarchy and activities. Features include color-coded WBS
+items, indented labels, scrollable views for large projects, dynamic date
+formatting, and the ability to dim past activities. Built on top of
+'plotly' for interactive visualizations.
 
 %prep
 %setup -q -c -n %{packname}

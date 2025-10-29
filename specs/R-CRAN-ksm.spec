@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DLSSM
-%global packver   1.1.1
+%global packname  ksm
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Logistic State Space Prediction Model
+Summary:          Kernel Density Estimation for Random Symmetric Positive Definite Matrices
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.10
-Requires:         R-core >= 3.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
-Implements the dynamic logistic state space model for binary outcome data
-proposed by Jiang et al. (2021) <doi:10.1111/biom.13593>. It provides a
-computationally efficient way to update the prediction whenever new data
-becomes available. It allows for both time-varying and time-invariant
-coefficients, and use cubic smoothing splines to model varying
-coefficients. The smoothing parameters are objectively chosen by maximum
-likelihood. The model is updated using batch data accumulated at
-pre-specified time intervals.
+Kernel smoothing for Wishart random matrices described in Daayeb, Khardani
+and Ouimet (2025) <doi:10.48550/arXiv.2506.08816>, Gaussian and
+log-Gaussian models using least square or likelihood cross validation
+criteria for optimal bandwidth selection.
 
 %prep
 %setup -q -c -n %{packname}

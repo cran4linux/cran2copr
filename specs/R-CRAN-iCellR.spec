@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iCellR
-%global packver   1.6.7
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing High-Throughput Single Cell Sequencing Data
 
@@ -37,11 +37,11 @@ BuildRequires:    R-CRAN-Hmisc
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-uwot 
-BuildRequires:    R-CRAN-hdf5r 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-hdf5r 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-png 
@@ -66,11 +66,11 @@ Requires:         R-CRAN-Hmisc
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-methods 
 Requires:         R-CRAN-uwot 
-Requires:         R-CRAN-hdf5r 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-hdf5r 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-png 

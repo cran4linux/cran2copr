@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RBNZ
-%global packver   3.0.0
+%global packname  iSTAY
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Reserve Bank of New Zealand Website
+Summary:          Information-Based Stability and Synchrony Measures
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggpubr 
 
 %description
-Provides a convenient way of accessing data published by the Reserve Bank
-of New Zealand (RBNZ) on their website,
-<https://www.rbnz.govt.nz/statistics>. A range of financial and economic
-data is provided in spreadsheet format including exchange and interest
-rates, commercial lending statistics, Reserve Bank market operations,
-financial institution statistics, household financial data, New Zealand
-debt security information, and economic indicators. This package provides
-a method to download those spreadsheets and read them directly into R.
+Provides functions to to compute a continuum of information-based measures
+for quantifying the temporal stability of populations, communities, and
+ecosystems, as well as their associated synchrony, based on species (or
+species assemblage) biomass or other key variables. When biodiversity data
+are available, the package also enables the assessment of the
+corresponding diversity–stability relationships. All measures are
+applicable in both temporal and spatial contexts. The theoretical and
+methodological background is detailed in Chao et al. (2025)
+<doi:10.1101/2025.08.20.671203>.
 
 %prep
 %setup -q -c -n %{packname}

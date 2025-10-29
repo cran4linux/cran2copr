@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RBNZ
-%global packver   3.0.0
+%global packname  dynaSpec
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Reserve Bank of New Zealand Website
+Summary:          Dynamic Spectrogram Visualizations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-warbleR 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tuneR 
+Requires:         R-grid 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-warbleR 
 
 %description
-Provides a convenient way of accessing data published by the Reserve Bank
-of New Zealand (RBNZ) on their website,
-<https://www.rbnz.govt.nz/statistics>. A range of financial and economic
-data is provided in spreadsheet format including exchange and interest
-rates, commercial lending statistics, Reserve Bank market operations,
-financial institution statistics, household financial data, New Zealand
-debt security information, and economic indicators. This package provides
-a method to download those spreadsheets and read them directly into R.
+A set of tools to generate dynamic spectrogram visualizations in video
+format.
 
 %prep
 %setup -q -c -n %{packname}

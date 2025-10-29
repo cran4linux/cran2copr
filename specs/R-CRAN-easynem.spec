@@ -1,75 +1,77 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  breathtestcore
-%global packver   0.8.10
+%global packname  easynem
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.10
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core Functions to Read and Fit 13c Time Series from Breath Tests
+Summary:          Nematode Community Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-broom >= 0.7.0
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-agricolae 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggfittext 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-Ternary 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-broom >= 0.7.0
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-agricolae 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggfittext 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
 Requires:         R-methods 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-signal 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-Ternary 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-vegan 
 
 %description
-Reads several formats of 13C data (IRIS/Wagner, BreathID) and CSV.
-Creates artificial sample data for testing.  Fits Maes/Ghoos, Bluck-Coward
-self-correcting formula using 'nls', 'nlme'. Methods to fit breath test
-curves with Bayesian Stan methods are refactored to package
-'breathteststan'. For a Shiny GUI, see package 'dmenne/breathtestshiny' on
-github.
+Provides a built-in Nemaplex database for nematodes, which can be used to
+search for various nematodes. Also supports various nematode community and
+functional analyses such as nematode diversity, maturity index, metabolic
+footprint, and functional guild. The methods are based on
+<https://shiny.wur.nl/ninja/>, Bongers, T. (1990)
+<doi:10.1007/BF00324627>, Ferris, H. (2010)
+<doi:10.1016/j.ejsobi.2010.01.003>, Wan, B. et al. (2022)
+<doi:10.1016/j.soilbio.2022.108695>, and Van Den Hoogen, J. et al. (2019)
+<doi:10.1038/s41586-019-1418-6>.
 
 %prep
 %setup -q -c -n %{packname}

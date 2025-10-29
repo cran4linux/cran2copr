@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cancerradarr
-%global packver   1.3.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cancer RADAR Project Tool
 
@@ -20,32 +20,34 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 4.2.7
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-epitools 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-openxlsx >= 4.2.7
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-epitools 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-plyr 
 
 %description
 Cancer RADAR is a project which aim is to develop an infrastructure that
 allows quantifying the risk of cancer by migration background across
-Europe. This package contains a set of functions cancer registries
+Europe.  This package contains a set of functions cancer registries
 partners should use to reshape 5 year-age group cancer incidence data into
 a set of summary statistics (see Boyle & Parkin (1991,
 ISBN:978-92-832-1195-2)) in lines with Cancer RADAR data protections

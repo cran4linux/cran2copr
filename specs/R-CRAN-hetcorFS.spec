@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RBNZ
-%global packver   3.0.0
+%global packname  hetcorFS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Reserve Bank of New Zealand Website
+Summary:          Unsupervised Feature Selection using the Heterogeneous Correlation Matrix
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-polycor 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-psych 
+Requires:         R-CRAN-polycor 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cluster 
+Requires:         R-graphics 
+Requires:         R-CRAN-psych 
 
 %description
-Provides a convenient way of accessing data published by the Reserve Bank
-of New Zealand (RBNZ) on their website,
-<https://www.rbnz.govt.nz/statistics>. A range of financial and economic
-data is provided in spreadsheet format including exchange and interest
-rates, commercial lending statistics, Reserve Bank market operations,
-financial institution statistics, household financial data, New Zealand
-debt security information, and economic indicators. This package provides
-a method to download those spreadsheets and read them directly into R.
+Unsupervised multivariate filter feature selection using the UFS-rHCM or
+UFS-cHCM algorithms based on the heterogeneous correlation matrix (HCM).
+The HCM consists of Pearson's correlations between numerical features,
+polyserial correlations between numerical and ordinal features, and
+polychoric correlations between ordinal features. Tortora C., Madhvani S.,
+Punzo A. (2025). "Designing unsupervised mixed-type feature selection
+techniques using the heterogeneous correlation matrix." International
+Statistical Review. Forthcoming.
 
 %prep
 %setup -q -c -n %{packname}

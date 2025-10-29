@@ -1,42 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RBNZ
-%global packver   3.0.0
+%global packname  rSDR
+%global packver   1.0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Reserve Bank of New Zealand Website
+Summary:          Robust Sufficient Dimension Reduction
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-ManifoldOptim 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rstiefel 
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsci 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-ManifoldOptim 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rstiefel 
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsci 
 
 %description
-Provides a convenient way of accessing data published by the Reserve Bank
-of New Zealand (RBNZ) on their website,
-<https://www.rbnz.govt.nz/statistics>. A range of financial and economic
-data is provided in spreadsheet format including exchange and interest
-rates, commercial lending statistics, Reserve Bank market operations,
-financial institution statistics, household financial data, New Zealand
-debt security information, and economic indicators. This package provides
-a method to download those spreadsheets and read them directly into R.
+A novel sufficient-dimension reduction method is robust against outliers
+using alpha-distance covariance and manifold-learning in dimensionality
+reduction problems. Please refer Hsin-Hsiung Huang, Feng Yu & Teng Zhang
+(2024) <doi:10.1080/10485252.2024.2313137> for the details.
 
 %prep
 %setup -q -c -n %{packname}

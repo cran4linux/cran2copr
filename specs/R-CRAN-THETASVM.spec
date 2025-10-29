@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RBNZ
-%global packver   3.0.0
+%global packname  THETASVM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Reserve Bank of New Zealand Website
+Summary:          Time Series Forecasting using THETA-SVM Hybrid Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.3.1
+Requires:         R-core >= 2.3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-TSSVM 
+Requires:         R-stats 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-TSSVM 
 
 %description
-Provides a convenient way of accessing data published by the Reserve Bank
-of New Zealand (RBNZ) on their website,
-<https://www.rbnz.govt.nz/statistics>. A range of financial and economic
-data is provided in spreadsheet format including exchange and interest
-rates, commercial lending statistics, Reserve Bank market operations,
-financial institution statistics, household financial data, New Zealand
-debt security information, and economic indicators. This package provides
-a method to download those spreadsheets and read them directly into R.
+Testing, Implementation, and Forecasting of the THETA-SVM hybrid model.
+The THETA-SVM hybrid model combines the distinct strengths of the THETA
+model and the Support Vector Machine (SVM) model for time series
+forecasting.For method details see Bhattacharyya et al. (2022)
+<doi:10.1007/s11071-021-07099-3>.
 
 %prep
 %setup -q -c -n %{packname}
