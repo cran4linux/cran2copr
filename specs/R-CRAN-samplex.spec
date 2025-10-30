@@ -1,45 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PROreg
-%global packver   1.3.2
+%global packname  samplex
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Patient Reported Outcomes Regression Analysis
+Summary:          Shiny Tool for Sample Size Calculation
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-rootSolve 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-rootSolve 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-shiny 
 
 %description
-It offers a wide variety of techniques, such as graphics, recoding, or
-regression models, for a comprehensive analysis of patient-reported
-outcomes (PRO). Especially novel is the broad range of regression models
-based on the beta-binomial distribution useful for analyzing binomial data
-with over-dispersion in cross-sectional, longitudinal, or multidimensional
-response studies (see Najera-Zuloaga J., Lee D.-J. and Arostegui I. (2019)
-<doi:10.1002/bimj.201700251>).
+An interactive 'shiny' application to assist in determining sample sizes
+for common survey designs such as 'simple random sampling', 'stratified
+sampling', and 'cluster sampling'. It includes formulas, helper
+calculators, and illustrative examples.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PROreg
-%global packver   1.3.2
+%global packname  survC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Patient Reported Outcomes Regression Analysis
+Summary:          Survival Model Validation Utilities
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-rootSolve 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-rootSolve 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-timeROC 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-rvg 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-CRAN-timeROC 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-rvg 
 
 %description
-It offers a wide variety of techniques, such as graphics, recoding, or
-regression models, for a comprehensive analysis of patient-reported
-outcomes (PRO). Especially novel is the broad range of regression models
-based on the beta-binomial distribution useful for analyzing binomial data
-with over-dispersion in cross-sectional, longitudinal, or multidimensional
-response studies (see Najera-Zuloaga J., Lee D.-J. and Arostegui I. (2019)
-<doi:10.1002/bimj.201700251>).
+Provides helper functions to compute linear predictors, time-dependent ROC
+curves, and Harrell's concordance index for Cox proportional hazards
+models as described in Therneau (2024)
+<https://CRAN.R-project.org/package=survival>, Therneau and Grambsch
+(2000, ISBN:0-387-98784-3), Hung and Chiang (2010)
+<doi:10.1002/cjs.10046>, Uno et al. (2007)
+<doi:10.1198/016214507000000149>, Blanche, Dartigues, and Jacqmin-Gadda
+(2013) <doi:10.1002/sim.5958>, Blanche, Latouche, and Viallon (2013)
+<doi:10.1007/978-1-4614-8981-8_11>, Harrell et al. (1982)
+<doi:10.1001/jama.1982.03320430047030>, Peto and Peto (1972)
+<doi:10.2307/2344317>, Schemper (1992) <doi:10.2307/2349009>, and Uno et
+al. (2011) <doi:10.1002/sim.4154>.
 
 %prep
 %setup -q -c -n %{packname}

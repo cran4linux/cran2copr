@@ -1,43 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gerda
-%global packver   0.3.0
+%global packname  edar
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          German Election Database (GERDA)
+Summary:          Convenient Functions for Exploratory Data Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-stringdist 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-flextable 
+Requires:         R-grDevices 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides tools to download comprehensive datasets of local, state, and
-federal election results in Germany from 1990 to 2025. The package
-facilitates access to data on turnout, vote shares for major parties, and
-demographic information across different levels of government (municipal,
-state, and federal). It offers access to geographically harmonized
-datasets that account for changes in municipal boundaries over time and
-incorporate mail-in voting districts. Users can easily retrieve, clean,
-and standardize German electoral data, making it ready for analysis. Data
-is sourced from <https://github.com/awiedem/german_election_data>.
+A collection of convenient functions to facilitate common tasks in
+exploratory data analysis. Some common tasks include generating summary
+tables of variables, displaying tables as a 'flextable' or a 'kable' and
+showing distributions of variables using 'ggplot2'. Labels stating the
+source file with run time can be easily generated for annotation in tables
+and plots.
 
 %prep
 %setup -q -c -n %{packname}

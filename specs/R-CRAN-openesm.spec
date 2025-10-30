@@ -1,45 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PROreg
-%global packver   1.3.2
+%global packname  openesm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Patient Reported Outcomes Regression Analysis
+Summary:          Access the Open Experience Sampling Method Database
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-rootSolve 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-rootSolve 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-zen4R 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-zen4R 
 
 %description
-It offers a wide variety of techniques, such as graphics, recoding, or
-regression models, for a comprehensive analysis of patient-reported
-outcomes (PRO). Especially novel is the broad range of regression models
-based on the beta-binomial distribution useful for analyzing binomial data
-with over-dispersion in cross-sectional, longitudinal, or multidimensional
-response studies (see Najera-Zuloaga J., Lee D.-J. and Arostegui I. (2019)
-<doi:10.1002/bimj.201700251>).
+Provides programmatic access to the Open Experience Sampling Method
+('openESM') database (<https://openesmdata.org>), a collection of
+harmonized experience sampling datasets. The package enables researchers
+to discover, download, and work with the datasets while ensuring proper
+citation and license compliance.
 
 %prep
 %setup -q -c -n %{packname}

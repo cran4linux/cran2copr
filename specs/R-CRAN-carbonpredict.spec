@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  carbonpredict
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predict Carbon Emissions for UK SMEs
 
@@ -35,17 +35,20 @@ Requires:         R-CRAN-htmlwidgets
 %description
 Predict Scope 1, 2 and 3 carbon emissions for UK Small and Medium-sized
 Enterprises (SMEs), using Standard Industrial Classification (SIC) codes
-and annual turnover data. The 'carbonpredict' package provides single and
-batch prediction, plotting, and workflow tools for carbon accounting and
-reporting. The package utilises pre-trained models, leveraging rich
-classified transaction data to accurately predict Scope 1, 2 and 3 carbon
-emissions for UK SMEs as well as identifying emissions hotspots. The
-methodology used to produce the estimates in this package is fully
-detailed in the following peer-reviewed publication in the Journal of
-Industrial Ecology: Phillpotts, A., Owen. A., Norman, J., Trendl, A.,
-Gathergood, J., Jobst, Norbert., Leake, D. (2025) <doi:10.1111/jiec.70106>
-"Bridging the SME Reporting Gap: A New Model for Predicting Scope 1 and 2
-Emissions".
+and annual turnover data, as well as Scope 1 carbon emissions for UK
+farms. The 'carbonpredict' package provides single and batch prediction,
+plotting, and workflow tools for carbon accounting and reporting. The
+package utilises pre-trained models, leveraging rich classified
+transaction data to accurately predict Scope 1, 2 and 3 carbon emissions
+for UK SMEs as well as identifying emissions hotspots. It also provides
+Scope 1 carbon emissions predictions for UK farms of types: Cereals ex.
+rice, Dairy, Mixed farming, Sheep and goats, Cattle & buffaloes, Poultry,
+Animal production and Support for crop production. The methodology used to
+produce the estimates in this package is fully detailed in the following
+peer-reviewed publication in the Journal of Industrial Ecology:
+Phillpotts, A., Owen. A., Norman, J., Trendl, A., Gathergood, J., Jobst,
+Norbert., Leake, D. (2025) <doi:10.1111/jiec.70106> "Bridging the SME
+Reporting Gap: A New Model for Predicting Scope 1 and 2 Emissions".
 
 %prep
 %setup -q -c -n %{packname}

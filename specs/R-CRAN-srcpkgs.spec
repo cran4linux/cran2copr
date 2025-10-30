@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  srcpkgs
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Source Packages Manager
 
@@ -18,11 +18,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clitable 
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clitable 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-testthat 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Manage a collection/library of R source packages. Discover, document,

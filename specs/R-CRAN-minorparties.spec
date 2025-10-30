@@ -1,59 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ForestElementsR
-%global packver   2.2.0
+%global packname  minorparties
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Structures and Functions for Working with Forest Data
+Summary:          Quantitatively Analyze Minor Political Parties
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-quanteda.textmodels 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-spacyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-doBy 
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-quanteda.textmodels 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-spacyr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-doBy 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides generic data structures and algorithms for use with forest
-mensuration data in a consistent framework. The functions and objects
-included are a collection of broadly applicable tools. More specialized
-applications should be implemented in separate packages that build on this
-foundation. Documentation about 'ForestElementsR' is provided by three
-vignettes included in this package. For an introduction to the field of
-forest mensuration, refer to the textbooks by Kershaw et al. (2017)
-<doi:10.1002/9781118902028>, and van Laar and Akca (2007)
-<doi:10.1007/978-1-4020-5991-9>.
+Tools for calculating I-Scores, a simple way to measure how successful
+minor political parties are at influencing the major parties in their
+environment. I-Scores are designed to be a more comprehensive measurement
+of minor party success than vote share and legislative seats won, the
+current standard measurements, which do not reflect the strategies that
+most minor parties employ. The procedure leverages the Manifesto Project's
+NLP model to identify the issue areas that sentences discuss, see Burst et
+al. (2024)
+<doi:10.25522/manifesto.manifestoberta.56topics.context.2024.1.1>, and the
+Wordfish algorithm to estimate the relative positions that platforms take
+on those issue areas, see Slapin and Proksch (2008)
+<doi:10.1111/j.1540-5907.2008.00338.x>.
 
 %prep
 %setup -q -c -n %{packname}

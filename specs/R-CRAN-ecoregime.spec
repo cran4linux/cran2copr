@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecoregime
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Ecological Dynamic Regimes
 
@@ -14,21 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ecotraj >= 1.1.1
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ecotraj 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shape 
 BuildRequires:    R-CRAN-smacof 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-ecotraj >= 1.1.1
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ecotraj 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-shape 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CARM
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate-Adjusted Adaptive Randomization via Mahalanobis-Distance
 
@@ -32,7 +32,7 @@ the most important concern. CARM package provides functions to balance the
 covariates and generate allocation sequence by covariate-adjusted Adaptive
 Randomization via Mahalanobis-distance (ARM) for RCT. About what ARM is
 and how it works please see Y. Qin, Y. Li, W. Ma, H. Yang, and F. Hu
-(2022). "Adaptive randomization via Mahalanobis distance" Statistica
+(2024). "Adaptive randomization via Mahalanobis distance" Statistica
 Sinica. <doi:10.5705/ss.202020.0440>. In addition, the package is also
 suitable for the randomization process of multi-arm trials. For details,
 please see Yang H, Qin Y, Wang F, et al. (2023). "Balancing covariates in

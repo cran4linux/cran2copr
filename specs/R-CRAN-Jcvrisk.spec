@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Jcvrisk
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Calculator for Cardiovascular Disease in Japan
 
@@ -19,8 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-A calculation tool to obtain the 10-year risk of cardiovascular disease
-from various risk models (Hisayama, Suita, EPOCH Japan).
+A calculation tool to obtain the 5-year or 10-year risk of cardiovascular
+disease from various risk models.
 
 %prep
 %setup -q -c -n %{packname}

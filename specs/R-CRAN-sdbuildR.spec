@@ -1,61 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glyrepr
-%global packver   0.7.5
+%global packname  sdbuildR
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Representation for Glycan Compositions and Structures
+Summary:          Easily Build, Simulate, and Visualise Stock-and-Flow Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vctrs >= 0.6.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-JuliaConnectoR 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstackdeque 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-vctrs >= 0.6.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-JuliaConnectoR 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pillar 
+Requires:         R-parallel 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstackdeque 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
 
 %description
-Computational representations of glycan compositions and structures,
-including details such as linkages, anomers, and substituents. Supports
-varying levels of monosaccharide specificity (e.g., "Hex" or "Gal") and
-ambiguous linkages. Provides robust parsing and generation of
-IUPAC-condensed structure strings. Optimized for vectorized operations on
-glycan structures, with efficient handling of duplications. As the
-cornerstone of the glycoverse ecosystem, this package delivers the
-foundational data structures that power glycomics and glycoproteomics
-analysis workflows.
+Stock-and-flow models are a computational method from the field of system
+dynamics. They represent how systems change over time and are
+mathematically equivalent to ordinary differential equations. 'sdbuildR'
+(system dynamics builder) provides an intuitive interface for constructing
+stock-and-flow models without requiring extensive domain knowledge. Models
+can quickly be simulated and revised, supporting iterative development.
+'sdbuildR' simulates models in 'R' and 'Julia', where 'Julia' offers unit
+support and large-scale ensemble simulations. Additionally, 'sdbuildR' can
+import models created in 'Insight Maker' (<https://insightmaker.com/>).
 
 %prep
 %setup -q -c -n %{packname}

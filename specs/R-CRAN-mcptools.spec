@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcptools
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Context Protocol Servers and Clients
 
@@ -18,15 +18,19 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nanonext >= 1.6.0
-BuildRequires:    R-CRAN-ellmer >= 0.2.0
+BuildRequires:    R-CRAN-ellmer >= 0.3.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-nanonext >= 1.6.0
-Requires:         R-CRAN-ellmer >= 0.2.0
+Requires:         R-CRAN-ellmer >= 0.3.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-promises 

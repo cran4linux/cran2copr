@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MoBPS
-%global packver   1.6.64
+%global packver   1.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.64
+Version:          1.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modular Breeding Program Simulator
 
@@ -25,10 +26,8 @@ Requires:         R-utils
 
 %description
 Framework for the simulation framework for the simulation of complex
-breeding programs and compare their economic and genetic impact. The
-package is also used as the background simulator for our a web-based
-interface <http:www.mobps.de>. Associated publication: Pook et al. (2020)
-<doi:10.1534/g3.120.401193>.
+breeding programs and compare their economic and genetic impact.
+Associated publication: Pook et al. (2020) <doi:10.1534/g3.120.401193>.
 
 %prep
 %setup -q -c -n %{packname}

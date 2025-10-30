@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tractor.base
-%global packver   3.4.5.1
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.5.1
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read, Manipulate and Visualise Magnetic Resonance Images
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-RNifti >= 1.8.0
 BuildRequires:    R-CRAN-ore >= 1.3.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-reportr 
 BuildRequires:    R-CRAN-shades 
-BuildRequires:    R-CRAN-RNifti 
+Requires:         R-CRAN-RNifti >= 1.8.0
 Requires:         R-CRAN-ore >= 1.3.0
 Requires:         R-methods 
 Requires:         R-CRAN-reportr 
 Requires:         R-CRAN-shades 
-Requires:         R-CRAN-RNifti 
 
 %description
 Functions for working with magnetic resonance images. Reading and writing

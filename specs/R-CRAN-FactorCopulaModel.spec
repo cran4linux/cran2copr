@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PROreg
-%global packver   1.3.2
+%global packname  FactorCopulaModel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Patient Reported Outcomes Regression Analysis
+Summary:          Factor Copula Models
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-rootSolve 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-rootSolve 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-VineCopula 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-VineCopula 
 
 %description
-It offers a wide variety of techniques, such as graphics, recoding, or
-regression models, for a comprehensive analysis of patient-reported
-outcomes (PRO). Especially novel is the broad range of regression models
-based on the beta-binomial distribution useful for analyzing binomial data
-with over-dispersion in cross-sectional, longitudinal, or multidimensional
-response studies (see Najera-Zuloaga J., Lee D.-J. and Arostegui I. (2019)
-<doi:10.1002/bimj.201700251>).
+Inference methods for factor copula models for continuous data in Krupskii
+and Joe (2013) <doi:10.1016/j.jmva.2013.05.001>, Krupskii and Joe (2015)
+<doi:10.1016/j.jmva.2014.11.002>, Fan and Joe (2024)
+<doi:10.1016/j.jmva.2023.105263>, one factor truncated vine models in Joe
+(2018) <doi:10.1002/cjs.11481>, and Gaussian oblique factor models.
+Functions for computing tail-weighted dependence measures in Lee, Joe and
+Krupskii (2018) <doi:10.1080/10485252.2017.1407414> and estimating tail
+dependence parameter.
 
 %prep
 %setup -q -c -n %{packname}
