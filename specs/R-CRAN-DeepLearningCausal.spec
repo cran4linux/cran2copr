@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DeepLearningCausal
-%global packver   0.0.106
+%global packver   0.0.107
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.106
+Version:          0.0.107
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference with Super Learner and Deep Neural Networks
 
@@ -21,50 +21,34 @@ BuildRequires:    R-CRAN-ROCR
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-neuralnet 
 BuildRequires:    R-CRAN-SuperLearner 
-BuildRequires:    R-CRAN-class 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-gam 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-gbm 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-weights 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-keras3 
+BuildRequires:    R-CRAN-Hmisc 
 Requires:         R-CRAN-ROCR 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-neuralnet 
 Requires:         R-CRAN-SuperLearner 
-Requires:         R-CRAN-class 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-gam 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-gbm 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-weights 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-keras3 
+Requires:         R-CRAN-Hmisc 
 
 %description
-Functions to estimate Conditional Average Treatment Effects (CATE) and
-Population Average Treatment Effects on the Treated (PATT) from
-experimental or observational data using the Super Learner (SL) ensemble
-method and Deep neural networks. The package first provides functions to
-implement meta-learners such as the Single-learner (S-learner) and
-Two-learner (T-learner) described in KC<nzel et al. (2019)
-<doi:10.1073/pnas.1804597116> for estimating the CATE. The S- and
-T-learner are each estimated using the SL ensemble method and deep neural
-networks. It then provides functions to implement the Ottoboni and Poulos
-(2020) <doi:10.1515/jci-2018-0035> PATT-C estimator to obtain the PATT
-from experimental data with noncompliance by using the SL ensemble method
-and deep neural networks.
+Functions for deep learning estimation of Conditional Average Treatment
+Effects (CATEs) from meta-learner models and Population Average Treatment
+Effects on the Treated (PATT) in settings with treatment noncompliance
+using reticulate, TensorFlow and Keras3. Functions in the package also
+implements the conformal prediction framework that enables computation and
+illustration of conformal prediction (CP) intervals for estimated
+individual treatment effects (ITEs) from meta-learner models. Additional
+functions in the package permit users to estimate the meta-learner CATEs
+and the PATT in settings with treatment noncompliance using weighted
+ensemble learning via the super learner approach and R neural networks.
 
 %prep
 %setup -q -c -n %{packname}

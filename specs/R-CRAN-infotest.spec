@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  argoFloats
-%global packver   1.0.9
+%global packname  infotest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Oceanographic Argo Floats
+Summary:          Information Matrix Test for Regression Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-oce >= 1.3.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-oce >= 1.3.0
-Requires:         R-methods 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Supports the analysis of oceanographic data recorded by Argo autonomous
-drifting profiling floats. Functions are provided to (a) download and
-cache data files, (b) subset data in various ways, (c) handle
-quality-control flags and (d) plot the results according to oceanographic
-conventions. A shiny app is provided for easy exploration of datasets. The
-package is designed to work well with the 'oce' package, providing a wide
-range of processing capabilities that are particular to oceanographic
-analysis. See Kelley, Harbin, and Richards (2021)
-<doi:10.3389/fmars.2021.635922> for more on the scientific context and
-applications.
+Implements the Information Matrix test for regression models following
+Cameron, A. C., & Trivedi, P. K. (1990)
+<https://cameron.econ.ucdavis.edu/research/imtest_impliedalternatives_ucdwp372.pdf>
+Decomposes the test into components for heteroscedasticity, skewness, and
+kurtosis to diagnose specific forms of misspecification. Provides both
+overall and component-wise statistics for model assessment.
 
 %prep
 %setup -q -c -n %{packname}

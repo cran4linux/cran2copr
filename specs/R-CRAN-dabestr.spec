@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dabestr
-%global packver   2025.3.14
+%global packver   2025.3.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.3.14
+Version:          2025.3.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis using Bootstrap-Coupled Estimation
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-brunnermunzel 
 BuildRequires:    R-CRAN-cli 
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-brunnermunzel 
 Requires:         R-CRAN-cli 

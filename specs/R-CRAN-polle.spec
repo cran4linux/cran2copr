@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polle
-%global packver   1.5
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Policy Learning
 
@@ -14,23 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lava >= 1.7.0
+BuildRequires:    R-CRAN-lava >= 1.7.2.1
 BuildRequires:    R-CRAN-policytree >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.14.5
-BuildRequires:    R-CRAN-targeted >= 0.4
+BuildRequires:    R-CRAN-targeted >= 0.6
 BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-DynTxRegime 
-Requires:         R-CRAN-lava >= 1.7.0
+Requires:         R-CRAN-lava >= 1.7.2.1
 Requires:         R-CRAN-policytree >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.14.5
-Requires:         R-CRAN-targeted >= 0.4
+Requires:         R-CRAN-targeted >= 0.6
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
@@ -39,12 +39,13 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-DynTxRegime 
 
 %description
-Package for evaluating user-specified finite stage policies and learning
-optimal treatment policies via doubly robust loss functions. Policy
-learning methods include doubly robust learning of the blip/conditional
-average treatment effect and sequential policy tree learning. The package
-also include methods for optimal subgroup analysis. See Nordland and Holst
-(2022) <doi:10.48550/arXiv.2212.02335> for documentation and references.
+Package for learning and evaluating (subgroup) policies via doubly robust
+loss functions. Policy learning methods include doubly robust
+blip/conditional average treatment effect learning and sequential policy
+tree learning. Methods for (subgroup) policy evaluation include doubly
+robust cross-fitting and online estimation/sequential validation. See
+Nordland and Holst (2022) <doi:10.48550/arXiv.2212.02335> for
+documentation and references.
 
 %prep
 %setup -q -c -n %{packname}

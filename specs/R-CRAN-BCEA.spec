@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BCEA
-%global packver   2.4.81
+%global packver   2.4.82
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.81
+Version:          2.4.82
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Cost Effectiveness Analysis
 
@@ -25,15 +25,11 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MCMCvis 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rstantools
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-voi >= 1.0.1
@@ -42,15 +38,11 @@ Requires:         R-graphics
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MCMCvis 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rstantools
+Requires:         R-CRAN-tidyr 
 
 %description
 Produces an economic evaluation of a sample of suitable variables of cost

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  novelqualcodes
-%global packver   0.13.1
+%global packver   0.13.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.13.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualise the Path to a Stopping Point in Qualitative Interviews Based on Novel Codes
 
@@ -38,7 +38,8 @@ information. This package provides tools to visualise when refinements
 occur and how that affects the trends of novel and duplicate codes. These
 visualisations, when used progressively as new interviews are finished,
 can help the researcher to decide on a stopping point for their
-interviews.
+interviews. For context, see Wong et al., (2023)
+<doi:10.1177/16094069231220773>.
 
 %prep
 %setup -q -c -n %{packname}

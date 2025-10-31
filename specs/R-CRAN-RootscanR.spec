@@ -1,55 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinpubr
-%global packver   1.1.0
+%global packname  RootscanR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Publication
+Summary:          Stitching and Analyzing Root Scans
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fBasics 
-BuildRequires:    R-CRAN-forestploter 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fBasics 
-Requires:         R-CRAN-forestploter 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-tidyr 
+Requires:         R-grid 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-abind 
+Requires:         R-parallel 
 
 %description
-Accelerate the process from clinical data to medical publication,
-including clinical data cleaning, significant result screening, and the
-generation of publish-ready tables and figures.
+Minirhizotrons are widely used to observe and explore roots and their
+growth. This package provides the means to stitch images and divide them
+into depth layers. Please note that this R package was developed alongside
+the following manuscript: Stitching root scans and extracting depth layer
+information -- a workflow and practical examples, S. Kersting, L. Knüver,
+and M. Fischer. The manuscript is currently in preparation and should be
+citet as soon as it is available. This project was supported by the
+project ArtIGROW, which is a part of the WIR!-Alliance ArtIFARM –
+Artificial Intelligence in Farming funded by the German Federal Ministry
+of Research, Technology and Space (No. 03WIR4805).
 
 %prep
 %setup -q -c -n %{packname}

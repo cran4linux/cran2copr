@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinpubr
-%global packver   1.1.0
+%global packname  GMC
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Publication
+Summary:          Generalized Measure of Correlation (GMC)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fBasics 
-BuildRequires:    R-CRAN-forestploter 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fBasics 
-Requires:         R-CRAN-forestploter 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ks 
+Requires:         R-stats 
 
 %description
-Accelerate the process from clinical data to medical publication,
-including clinical data cleaning, significant result screening, and the
-generation of publish-ready tables and figures.
+Provides tools to compute the Generalized Measure of Correlation (GMC), a
+dependence measure accounting for nonlinearity and asymmetry in the
+relationship between variables. Based on the method proposed by Zheng,
+Shi, and Zhang (2012).
 
 %prep
 %setup -q -c -n %{packname}

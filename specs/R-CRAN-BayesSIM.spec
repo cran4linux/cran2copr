@@ -1,55 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinpubr
-%global packver   1.1.0
+%global packname  BayesSIM
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Publication
+Summary:          Integrated Interface of Bayesian Single Index Models using 'nimble'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fBasics 
-BuildRequires:    R-CRAN-forestploter 
+BuildRequires:    R-CRAN-nimble 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fBasics 
-Requires:         R-CRAN-forestploter 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-nimble 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-methods 
+Requires:         R-CRAN-MASS 
 
 %description
-Accelerate the process from clinical data to medical publication,
-including clinical data cleaning, significant result screening, and the
-generation of publish-ready tables and figures.
+Provides tools for fitting Bayesian single index models with flexible
+choices of priors for both the index and the link function. The package
+implements model estimation and posterior inference using efficient MCMC
+algorithms built on the 'nimble' framework, allowing users to specify,
+extend, and simulate models in a unified and reproducible manner. The
+following methods are implemented in the package: Antoniadis et al. (2004)
+<https://www.jstor.org/stable/24307224>, Wang (2009)
+<doi:10.1016/j.csda.2008.12.010>, Choi et al. (2011) <c>, Dhara et al.
+(2019) <doi:10.1214/19-BA1170>, McGee et al. (2023)
+<doi:10.1111/biom.13569>.
 
 %prep
 %setup -q -c -n %{packname}

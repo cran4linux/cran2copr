@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinpubr
-%global packver   1.1.0
+%global packname  lang
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Publication
+Summary:          Translates R Help Documentation using Large Language Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,39 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fBasics 
-BuildRequires:    R-CRAN-forestploter 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-mall 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fBasics 
-Requires:         R-CRAN-forestploter 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-mall 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
+Requires:         R-CRAN-withr 
 
 %description
-Accelerate the process from clinical data to medical publication,
-including clinical data cleaning, significant result screening, and the
-generation of publish-ready tables and figures.
+Translates R help documentation on the fly by using a Large Language model
+of your choice. If you are using 'RStudio' or 'Positron' the translated
+help will appear in the help pane.
 
 %prep
 %setup -q -c -n %{packname}

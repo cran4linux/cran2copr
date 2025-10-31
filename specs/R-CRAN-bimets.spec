@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dispersionIndicators
-%global packver   0.1.1
+%global packname  bimets
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Indicators for the Analysis of Dispersion of Datasets with Batched and Ordered Samples
+Summary:          Time Series and Econometric Modeling
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
-BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.5.2
-Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides methods for analyzing the dispersion of tabular datasets with
-batched and ordered samples. Based on convex hull or integrated covariance
-Mahalanobis, several indicators are implemented for inter and intra batch
-dispersion analysis. It is designed to facilitate robust statistical
-assessment of data variability, supporting applications in exploratory
-data analysis and quality control, for such datasets as the one found in
-metabololomics studies. For more details see Salanon (2024)
-<doi:10.1016/j.chemolab.2024.105148> and Salanon (2025)
-<doi:10.1101/2025.08.01.668073>.
+Time series analysis, (dis)aggregation and manipulation, e.g. time series
+extension, merge, projection, lag, lead, delta, moving and cumulative
+average and product, selection by index, date and year-period, conversion
+to daily, monthly, quarterly, (semi)annually. Simultaneous equation models
+definition, estimation, simulation and forecasting with coefficient
+restrictions, error autocorrelation, exogenization, add-factors, impact
+and interim multipliers analysis, conditional equation evaluation,
+rational expectations, endogenous targeting and model renormalization,
+structural stability, stochastic simulation and forecast, optimal control,
+by A. Luciani (2022) <doi:10.13140/RG.2.2.31160.83202>.
 
 %prep
 %setup -q -c -n %{packname}

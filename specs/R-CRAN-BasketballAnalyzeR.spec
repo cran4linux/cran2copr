@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BasketballAnalyzeR
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Basketball Data
 
@@ -71,8 +71,7 @@ Requires:         R-graphics
 %description
 Contains data and code to accompany the book P. Zuccolotto and M. Manisera
 (2020) Basketball Data Science. Applications with R. CRC Press. ISBN
-9781138600799. For more details, see the page
-bdsports.unibs.it/basketballanalyzer/.
+9781138600799.
 
 %prep
 %setup -q -c -n %{packname}

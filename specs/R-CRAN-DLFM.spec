@@ -1,55 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinpubr
-%global packver   1.1.0
+%global packname  DLFM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Publication
+Summary:          Distributed Laplace Factor Model
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fBasics 
-BuildRequires:    R-CRAN-forestploter 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fBasics 
-Requires:         R-CRAN-forestploter 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-FarmTest 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-relliptical 
+BuildRequires:    R-CRAN-LFM 
+Requires:         R-stats 
+Requires:         R-CRAN-FarmTest 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-relliptical 
+Requires:         R-CRAN-LFM 
 
 %description
-Accelerate the process from clinical data to medical publication,
-including clinical data cleaning, significant result screening, and the
-generation of publish-ready tables and figures.
+Distributed estimation method is based on a Laplace factor model to solve
+the estimates of load and specific variance. The philosophy of the package
+is described in Guangbao Guo. (2022). <doi:10.1007/s00180-022-01270-z>.
 
 %prep
 %setup -q -c -n %{packname}
