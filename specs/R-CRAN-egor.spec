@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  egor
-%global packver   1.24.2
+%global packver   1.25.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.2
+Version:          1.25.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import and Analyse Ego-Centered Network Data
 
@@ -14,12 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-pillar
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-srvyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-methods 

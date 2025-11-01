@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lgrExtra
-%global packver   0.2.2
+%global packname  tabler
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Appenders for 'lgr'
+Summary:          Create Dashboards with 'Tabler' and 'Shiny'
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lgr >= 0.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-lgr >= 0.5.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-htmltools 
 
 %description
-Additional appenders for the logging package 'lgr' that support logging to
-'Elasticsearch', 'Dynatrace', 'AWSCloudWatchLog', databases, 'syslog',
-email- and push notifications, and more.
+Provides functions to build interactive dashboards combining the 'Tabler
+UI Kit' with 'Shiny', making it easy to create professional-looking web
+applications. 'Tabler' is fully responsive and compatible with all modern
+browsers. Offers customizable layouts and components built with 'HTML5'
+and 'CSS3'. The underlying 'Tabler' (<https://github.com/tabler/tabler>)
+and 'Tabler Icons' (<https://github.com/tabler/tabler-icons>) were
+pre-built from source to eliminate the need for 'Node.js' and 'NPM' on
+package installation.
 
 %prep
 %setup -q -c -n %{packname}

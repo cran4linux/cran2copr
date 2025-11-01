@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tugboat
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Docker Image from a Directory or Project
 
@@ -24,7 +24,8 @@ Requires:         R-CRAN-here
 
 %description
 Simple utilities to generate a Dockerfile from a directory or project,
-build the corresponding Docker image, and push the image to DockerHub.
+build the corresponding Docker image, push the image to DockerHub, and
+publicly share the project via Binder.
 
 %prep
 %setup -q -c -n %{packname}

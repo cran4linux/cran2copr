@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lgrExtra
-%global packver   0.2.2
+%global packname  hirisplexr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Appenders for 'lgr'
+Summary:          From 'PLINK' to 'HIrisPlex'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lgr >= 0.5.0
+BuildRequires:    R-CRAN-BEDMatrix 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-lgr >= 0.5.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-BEDMatrix 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
+Requires:         R-utils 
 
 %description
-Additional appenders for the logging package 'lgr' that support logging to
-'Elasticsearch', 'Dynatrace', 'AWSCloudWatchLog', databases, 'syslog',
-email- and push notifications, and more.
+Read 'PLINK' 1.9 binary datasets (BED/BIM/FAM) and generate the CSV files
+required by the Erasmus MC 'HIrisPlex' / 'HIrisPlex-S' webtool
+<https://hirisplex.erasmusmc.nl/>. It maps 'PLINK' alleles to the
+webtool's required 'rsID_Allele' columns (0/1/2/NA). No external tools
+(e.g., 'PLINK CLI') are required.
 
 %prep
 %setup -q -c -n %{packname}

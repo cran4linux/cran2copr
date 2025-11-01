@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IRon
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Imbalanced Regression Tasks
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-scam 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-scam 
 
 %description
 Imbalanced domain learning has almost exclusively focused on solving

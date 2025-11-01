@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lgrExtra
-%global packver   0.2.2
+%global packname  amsSim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Appenders for 'lgr'
+Summary:          Adaptive Multilevel Splitting for Option Simulation and Pricing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lgr >= 0.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-lgr >= 0.5.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Additional appenders for the logging package 'lgr' that support logging to
-'Elasticsearch', 'Dynatrace', 'AWSCloudWatchLog', databases, 'syslog',
-email- and push notifications, and more.
+Simulation and pricing routines for rare-event options using Adaptive
+Multilevel Splitting and standard Monte Carlo under Black-Scholes and
+Heston models. Core routines are implemented in C++ via Rcpp and
+RcppArmadillo with lightweight R wrappers.
 
 %prep
 %setup -q -c -n %{packname}

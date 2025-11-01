@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReliaPlotR
-%global packver   0.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Reliability Probability Plots
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-WeibullR
 
 %description
 Build interactive Reliability Probability Plots with 'plotly' by Carson
-Sievert (2020) <https://plotly-r.com>, an interactive web-based graphing
+Sievert (2020) <https://plotly.com/r/>, an interactive web-based graphing
 library.
 
 %prep

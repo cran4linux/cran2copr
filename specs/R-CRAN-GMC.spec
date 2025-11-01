@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GMC
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Measure of Correlation (GMC)
 
@@ -26,7 +26,7 @@ Requires:         R-stats
 Provides tools to compute the Generalized Measure of Correlation (GMC), a
 dependence measure accounting for nonlinearity and asymmetry in the
 relationship between variables. Based on the method proposed by Zheng,
-Shi, and Zhang (2012).
+Shi, and Zhang (2012) <doi:10.1080/01621459.2012.710509>.
 
 %prep
 %setup -q -c -n %{packname}

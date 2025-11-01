@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lgrExtra
-%global packver   0.2.2
+%global packname  SEMsensitivity
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Appenders for 'lgr'
+Summary:          SEM Sensitivity Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lgr >= 0.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-lgr >= 0.5.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-semfindr 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-semfindr 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Additional appenders for the logging package 'lgr' that support logging to
-'Elasticsearch', 'Dynatrace', 'AWSCloudWatchLog', databases, 'syslog',
-email- and push notifications, and more.
+Performs sensitivity analysis for Structural Equation Modeling (SEM). It
+determines which sample points need to be removed for the sign of a
+specific path in the SEM model to change, thus assessing the robustness of
+the model. Methodological manuscript in preparation.
 
 %prep
 %setup -q -c -n %{packname}

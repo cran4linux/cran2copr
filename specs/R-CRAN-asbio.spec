@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asbio
-%global packver   1.11
+%global packver   1.12-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11
+Version:          1.12.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Statistical Tools for Biologists
 
@@ -33,6 +33,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gWidgets2 
 BuildRequires:    R-CRAN-gWidgets2tcltk 
+BuildRequires:    R-CRAN-tkrplot 
 Requires:         R-tcltk 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-pixmap 
@@ -47,6 +48,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-gWidgets2 
 Requires:         R-CRAN-gWidgets2tcltk 
+Requires:         R-CRAN-tkrplot 
 
 %description
 Contains functions from: Aho, K. (2014) Foundational and Applied

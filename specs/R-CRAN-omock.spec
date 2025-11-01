@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  omock
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creation of Mock Observational Medical Outcomes Partnership Common Data Model
 
@@ -17,30 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-omopgenerics >= 0.3.0
+BuildRequires:    R-CRAN-omopgenerics >= 1.3.1
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-omopgenerics >= 0.3.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-omopgenerics >= 1.3.1
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-clock 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-snakecase 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Creates mock data for testing and package development for the
