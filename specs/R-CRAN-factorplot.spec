@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  factorplot
-%global packver   1.2.4
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presenting Pairwise Comparisons
 
@@ -17,7 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-multcomp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-multcomp 
 
 %description

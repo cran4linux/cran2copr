@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdMTD
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference for High-Dimensional Mixture Transition Distribution Models
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-igraph 
 
 %description
 Estimates parameters in Mixture Transition Distribution (MTD) models, a

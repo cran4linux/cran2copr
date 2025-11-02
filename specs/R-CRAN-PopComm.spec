@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PopComm
-%global packver   0.1.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Population-Level Cell-Cell Communication Analysis Tools
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-reshape2 >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-Matrix >= 1.2.0
 BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-cowplot >= 1.1.1
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-pheatmap >= 1.0.12
 BuildRequires:    R-CRAN-broom >= 1.0.0
@@ -46,6 +47,7 @@ Requires:         R-CRAN-reshape2 >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-Matrix >= 1.2.0
 Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-cowplot >= 1.1.1
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-pheatmap >= 1.0.12
 Requires:         R-CRAN-broom >= 1.0.0
