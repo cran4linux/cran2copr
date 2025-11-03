@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spinner
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Graph Net Architecture Based on 'torch'
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-fastDummies >= 1.6.3
 BuildRequires:    R-CRAN-abind >= 1.4.5
 BuildRequires:    R-CRAN-igraph >= 1.3.5
 BuildRequires:    R-CRAN-entropy >= 1.3.1
-BuildRequires:    R-CRAN-tictoc >= 1.0
+BuildRequires:    R-CRAN-tictoc >= 1.0.1
 BuildRequires:    R-CRAN-torch >= 0.9.0
 BuildRequires:    R-CRAN-rlist >= 0.4.6.2
 BuildRequires:    R-CRAN-purrr >= 0.3.4
@@ -37,7 +37,7 @@ Requires:         R-CRAN-fastDummies >= 1.6.3
 Requires:         R-CRAN-abind >= 1.4.5
 Requires:         R-CRAN-igraph >= 1.3.5
 Requires:         R-CRAN-entropy >= 1.3.1
-Requires:         R-CRAN-tictoc >= 1.0
+Requires:         R-CRAN-tictoc >= 1.0.1
 Requires:         R-CRAN-torch >= 0.9.0
 Requires:         R-CRAN-rlist >= 0.4.6.2
 Requires:         R-CRAN-purrr >= 0.3.4

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SynthETIC
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Experience Tracking Insurance Claims
 
@@ -41,7 +41,8 @@ prove and/or disprove certain actuarial assumptions made in claims
 modelling. The distributional assumptions used to generate this data set
 can be easily modified by users to match their experiences. Reference:
 Avanzi B, Taylor G, Wang M, Wong B (2020) "SynthETIC: an individual
-insurance claim simulator with feature control" <arXiv:2008.05693>.
+insurance claim simulator with feature control"
+<doi:10.48550/arXiv.2008.05693>.
 
 %prep
 %setup -q -c -n %{packname}

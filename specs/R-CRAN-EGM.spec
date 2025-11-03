@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EGM
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intracardiac Electrograms
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-stats 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
@@ -47,7 +45,7 @@ Requires:         R-CRAN-signal
 %description
 A system for importing electrophysiological signal, based on the 'Waveform
 Database (WFDB)' software package, written by Moody et al 2022
-<doi:10.13026/gjvw-1m31>. A wrapper for utilizing 'WFDB' functions for
+<doi:10.13026/gjvw-1m31>. A R-based system to utilize 'WFDB' functions for
 reading and writing signal data, as well as functions for visualization
 and analysis are provided. A stable and broadly compatible class for
 working with signal data, supporting the reading in of cardiac

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  echoice2
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Choice Models with Economic Foundation
 
@@ -23,7 +23,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
@@ -38,7 +37,6 @@ Requires:         R-parallel
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
