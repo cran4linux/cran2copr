@@ -1,56 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  corx
-%global packver   1.0.7.3
+%global packname  barrel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create and Format Correlation Matrices
+Summary:          Covariance-Based Ellipses and Annotation Tools for Ordination Plots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ggcorrplot 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ppcor 
-BuildRequires:    R-CRAN-labelled 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ggcorrplot 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-ppcor 
-Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-vegan 
+Requires:         R-grid 
+Requires:         R-CRAN-rlang 
 
 %description
-Create correlation (or partial correlation) matrices. Correlation matrices
-are formatted with significance stars based on user preferences. Matrices
-of coefficients, p-values, and number of pairwise observations are
-returned. Send resultant formatted matrices to the clipboard to be pasted
-into excel and other programs. A plot method allows users to visualize
-correlation matrices created with 'corx'.
+Provides tools to visualize ordination results in 'R' by adding
+covariance-based ellipses, centroids, vectors, and confidence regions to
+plots created with 'ggplot2'. The package extends the 'vegan' framework
+and supports Principal Component Analysis (PCA), Redundancy Analysis
+(RDA), and Non-metric Multidimensional Scaling (NMDS). Ellipses can
+represent either group dispersion (standard deviation, SD) or centroid
+precision (standard error, SE), following Wang et al. (2015)
+<doi:10.1371/journal.pone.0118537>. Robust estimators of covariance are
+implemented, including the Minimum Covariance Determinant (MCD) method of
+Hubert et al. (2018) <doi:10.1002/wics.1421>. This approach reduces the
+influence of outliers. barrel is particularly useful for multivariate
+ecological datasets, promoting reproducible, publication-quality
+ordination graphics with minimal effort.
 
 %prep
 %setup -q -c -n %{packname}

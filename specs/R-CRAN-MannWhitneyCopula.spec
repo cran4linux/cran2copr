@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMsim
-%global packver   0.2.6
+%global packname  MannWhitneyCopula
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless 'Nonmem' Simulation Platform
+Summary:          Computing Mann-Whitney Effect Based on Copulas
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.2.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-NMdata >= 0.2.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
-A complete and seamless 'Nonmem' simulation interface within R. Turns
-'Nonmem' control streams into simulation control streams, executes them
-with specified simulation input data and returns the results. The
-simulation is performed by 'Nonmem', eliminating manual work and risks of
-re-implementation of models in other tools.
+Computing the Mann-Whitney effect based on copula models. Estimation of
+the association parameter in survival copula models. A description of the
+underlying methods is described in Nakazono et al. (2024)
+<doi:10.3390/math12101453> and Nakazono et al. (accepted for publication
+in Statistical Papers).
 
 %prep
 %setup -q -c -n %{packname}

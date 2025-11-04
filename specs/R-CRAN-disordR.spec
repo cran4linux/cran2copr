@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  disordR
-%global packver   0.9-8-4
+%global packver   0.9-8-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8.4
+Version:          0.9.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Ordered Vectors
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix >= 1.3.3
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Matrix >= 1.3.3
-Requires:         R-methods 
 Requires:         R-CRAN-digest 
+Requires:         R-methods 
 
 %description
 Functionality for manipulating values of associative maps.  The package is

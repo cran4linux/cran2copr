@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tfarima
-%global packver   0.3.2
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transfer Function and ARIMA Models
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-nnls 
+Requires:         R-CRAN-quadprog 
 
 %description
-Building customized transfer function and ARIMA models with multiple
-operators and parameter restrictions. Functions for model identification,
-model estimation (exact or conditional maximum likelihood), model
+Build customized transfer function and ARIMA models with multiple
+operators and parameter restrictions. Provides tools for model
+identification, estimation using exact or conditional maximum likelihood,
 diagnostic checking, automatic outlier detection, calendar effects,
-forecasting and seasonal adjustment. See Bell and Hillmer (1983)
-<doi:10.1080/01621459.1983.10478005>, Box, Jenkins, Reinsel and Ljung
-<ISBN:978-1-118-67502-1>, Box, Pierce and Newbold (1987)
-<doi:10.1080/01621459.1987.10478430>, Box and Tiao (1975)
-<doi:10.1080/01621459.1975.10480264>, Chen and Liu (1993)
-<doi:10.1080/01621459.1993.10594321>.
+forecasting, and seasonal adjustment. The new version also supports
+unobserved component ARIMA model specification and estimation for
+structural time series analysis.
 
 %prep
 %setup -q -c -n %{packname}

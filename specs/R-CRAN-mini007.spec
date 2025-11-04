@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mini007
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Framework for Orchestrating Multi-Agent Large Language Models
 
@@ -21,12 +21,12 @@ BuildRequires:    R-CRAN-cli >= 3.6.5
 BuildRequires:    R-CRAN-R6 >= 2.6.1
 BuildRequires:    R-CRAN-checkmate >= 2.3.1
 BuildRequires:    R-CRAN-uuid >= 1.2.0
-BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-DiagrammeR >= 1.0.11
 Requires:         R-CRAN-cli >= 3.6.5
 Requires:         R-CRAN-R6 >= 2.6.1
 Requires:         R-CRAN-checkmate >= 2.3.1
 Requires:         R-CRAN-uuid >= 1.2.0
-Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-DiagrammeR >= 1.0.11
 
 %description
 Provides tools for creating agents with persistent state using R6 classes

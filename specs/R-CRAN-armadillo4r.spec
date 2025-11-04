@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMsim
-%global packver   0.2.6
+%global packname  armadillo4r
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless 'Nonmem' Simulation Platform
+Summary:          An 'Armadillo' Interface
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.2.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-NMdata >= 0.2.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-cpp4r 
+Requires:         R-CRAN-cpp4r 
 
 %description
-A complete and seamless 'Nonmem' simulation interface within R. Turns
-'Nonmem' control streams into simulation control streams, executes them
-with specified simulation input data and returns the results. The
-simulation is performed by 'Nonmem', eliminating manual work and risks of
-re-implementation of models in other tools.
+Provides function declarations and inline function definitions that
+facilitate communication between R and the 'Armadillo' 'C++' library for
+linear algebra and scientific computing. This implementation is derived
+from Vargas Sepulveda and Schneider Malamud (2024)
+<doi:10.1016/j.softx.2025.102087>.
 
 %prep
 %setup -q -c -n %{packname}

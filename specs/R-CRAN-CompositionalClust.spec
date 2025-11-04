@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompositionalClust
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering with Compositional Data
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Compositional 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-factoextra 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lowmemtkmeans 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-Rfast2
 BuildRequires:    R-stats 
 Requires:         R-CRAN-Compositional 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-factoextra 
 Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
 Requires:         R-CRAN-lowmemtkmeans 

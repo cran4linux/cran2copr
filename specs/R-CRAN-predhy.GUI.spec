@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predhy.GUI
-%global packver   2.1
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genomic Prediction of Hybrid Performance with Graphical User Interface
 
@@ -53,7 +53,10 @@ absolute shrinkage and selection operator, XGBoost: extreme gradient
 boosting, LightGBM: light gradient boosting machine. It also provides fast
 cross-validation and mating design scheme for training population (Xu S et
 al (2016) <doi:10.1111/tpj.13242>; Xu S (2017)
-<doi:10.1534/g3.116.038059>).
+<doi:10.1534/g3.116.038059>). A complete manual for this package is
+provided in the manual folder of the package installation directory. You
+can locate the manual by running the following command in R:
+system.file("manual", package = "predhy.GUI").
 
 %prep
 %setup -q -c -n %{packname}

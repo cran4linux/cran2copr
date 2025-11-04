@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMsim
-%global packver   0.2.6
+%global packname  GGenemy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless 'Nonmem' Simulation Platform
+Summary:          Audit 'ggplot2' Visualizations for Accessibility and Best Practices
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.2.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-NMdata >= 0.2.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-colorspace 
+Requires:         R-grDevices 
 
 %description
-A complete and seamless 'Nonmem' simulation interface within R. Turns
-'Nonmem' control streams into simulation control streams, executes them
-with specified simulation input data and returns the results. The
-simulation is performed by 'Nonmem', eliminating manual work and risks of
-re-implementation of models in other tools.
+Audits 'ggplot2' visualizations for accessibility issues, misleading
+practices, and readability problems. Checks for color accessibility
+concerns including colorblind-unfriendly palettes, misleading scale
+manipulations such as truncated axes and dual y-axes, text readability
+issues like small fonts and overlapping labels, and general accessibility
+barriers. Provides comprehensive audit reports with actionable suggestions
+for improvement. Color vision deficiency simulation uses methods from the
+'colorspace' package Zeileis et al. (2020) <doi:10.18637/jss.v096.i01>.
+Contrast calculations follow WCAG 2.1 guidelines (W3C 2018
+<https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum>).
 
 %prep
 %setup -q -c -n %{packname}

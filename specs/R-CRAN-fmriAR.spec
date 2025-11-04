@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMsim
-%global packver   0.2.6
+%global packname  fmriAR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless 'Nonmem' Simulation Platform
+Summary:          Fast AR and ARMA Noise Whitening for Functional MRI (fMRI) Design and Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.2.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-NMdata >= 0.2.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-A complete and seamless 'Nonmem' simulation interface within R. Turns
-'Nonmem' control streams into simulation control streams, executes them
-with specified simulation input data and returns the results. The
-simulation is performed by 'Nonmem', eliminating manual work and risks of
-re-implementation of models in other tools.
+Lightweight utilities to estimate autoregressive (AR) and autoregressive
+moving average (ARMA) noise models from residuals and apply matched
+generalized least squares to whiten functional magnetic resonance imaging
+(fMRI) design and data matrices. The ARMA estimator follows a classic 1982
+approach <doi:10.1093/biomet/69.1.81>, and a restricted AR family mirrors
+workflows described by Cox (2012) <doi:10.1016/j.neuroimage.2011.08.056>.
 
 %prep
 %setup -q -c -n %{packname}

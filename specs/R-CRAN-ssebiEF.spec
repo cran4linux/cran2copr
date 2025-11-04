@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMsim
-%global packver   0.2.6
+%global packname  ssebiEF
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless 'Nonmem' Simulation Platform
+Summary:          Calculation of SSEBI and Evaporative Fraction from Raster Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.2.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-NMdata >= 0.2.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-xfun 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
-A complete and seamless 'Nonmem' simulation interface within R. Turns
-'Nonmem' control streams into simulation control streams, executes them
-with specified simulation input data and returns the results. The
-simulation is performed by 'Nonmem', eliminating manual work and risks of
-re-implementation of models in other tools.
+Calculates a modified Simplified Surface Energy Balance Index (SSEBI) and
+the Evaporative Fraction (EF) using geospatial raster data such as albedo
+and surface-air temperature difference (TS–TA). The SSEBI is computed from
+albedo and TS–TA to estimate surface moisture and evaporative dynamics,
+providing a robust assessment of surface dryness while accounting for
+atmospheric variations. Based on Roerink, Su, and Menenti (2000)
+<doi:10.1016/S1464-1909(99)00128-8>.
 
 %prep
 %setup -q -c -n %{packname}

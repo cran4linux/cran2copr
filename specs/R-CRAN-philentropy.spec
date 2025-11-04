@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  philentropy
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Similarity and Distance Quantification Between Probability Functions
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-poorman 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-poorman 
 

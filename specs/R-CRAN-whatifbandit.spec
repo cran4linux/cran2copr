@@ -1,58 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BFS
-%global packver   0.7.0
+%global packname  whatifbandit
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Data from the Swiss Federal Statistical Office
+Summary:          Analyzing Randomized Experiments as Multi-Arm Bandits
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pxweb 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-bandit 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-randomizr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-pxweb 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-bandit 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-zip 
-Requires:         R-CRAN-fs 
-Requires:         R-tools 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-randomizr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Search and download data from the Swiss Federal Statistical Office (BFS)
-APIs <https://www.bfs.admin.ch/>.
+Simulates the results of completed randomized controlled trials, as if
+they had been conducted as adaptive Multi-Arm Bandit (MAB) trials instead.
+Augmented inverse probability weighted estimation (AIPW), outlined by
+Hadad et al. (2021) <doi:10.1073/pnas.2014602118>, is used to robustly
+estimate the probability of success for each treatment arm under the
+adaptive design. Provides customization options to simulate
+perfect/imperfect information, stationary/non-stationary bandits, blocked
+treatment assignments, along with control augmentation, and other hybrid
+strategies for assigning treatment arms. The methods used in simulation
+were inspired by Offer-Westort et al.  (2021) <doi:10.1111/ajps.12597>.
 
 %prep
 %setup -q -c -n %{packname}
