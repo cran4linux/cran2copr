@@ -1,46 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cvdprevent
-%global packver   0.2.2
+%global packname  abwm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'CVD Prevent' Application Programming Interface
+Summary:          Ansari-Bradley Test with Arbitrarily Missing Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides an R wrapper to the 'CVD Prevent' application programming
-interface (API). Users can make API requests through built-in R functions.
-The Cardiovascular Disease Prevention Audit (CVDPREVENT) is an
-England-wide primary care audit that automatically extracts routinely held
-GP health data.
-<https://bmchealthdocs.atlassian.net/wiki/spaces/CP/pages/317882369/CVDPREVENT+API+Documentation>.
+Performs the two-sample Ansari–Bradley test (Ansari & Bradley, 1960
+<https://www.jstor.org/stable/2237814>) for univariate, distinct data in
+the presence of missing values, as described in Zeng et al. (2025)
+<doi:10.48550/arXiv.2509.20332>. This method does not make any assumptions
+about the missingness mechanisms and controls the Type I error regardless
+of the missing values by taking all possible missing values into account.
 
 %prep
 %setup -q -c -n %{packname}

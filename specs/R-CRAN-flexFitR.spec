@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BlueCarbon
-%global packver   0.1.1
+%global packname  flexFitR
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Organic Carbon Stocks and Sequestration Rates from Soil Core Data
+Summary:          Flexible Non-Linear Least Square Model Fitting
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-agriutilities 
+BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-subplex 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-agriutilities 
+Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-subplex 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Tools to estimate soil organic carbon stocks and sequestration rates in
-blue carbon ecosystems. 'BlueCarbon' contains functions to estimate and
-correct for core compaction, estimate sample thickness, estimate organic
-carbon content from organic matter content, estimate organic carbon stocks
-and sequestration rates, and visualize the error of carbon stock
-extrapolation.
+Provides tools for flexible non-linear least squares model fitting using
+general-purpose optimization techniques. The package supports a variety of
+optimization algorithms, including those provided by the 'optimx' package,
+making it suitable for handling complex non-linear models. Features
+include parallel processing support via the 'future' and 'foreach'
+packages, comprehensive model diagnostics, and visualization capabilities.
+Implements methods described in Nash and Varadhan (2011,
+<doi:10.18637/jss.v043.i09>).
 
 %prep
 %setup -q -c -n %{packname}

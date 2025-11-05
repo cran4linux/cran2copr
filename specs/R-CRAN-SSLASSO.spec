@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sidra
-%global packver   0.1.9
+%global packname  SSLASSO
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Acesso aos Dados do 'SIDRA' do IBGE
+Summary:          The Spike-and-Slab LASSO
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Functions for accessing and manipulating data from Brazilian Institute of
-Geography and Statistics (IBGE)'s API 'SIDRA' (acronym for IBGE System of
-Automatic Retrieval) from the new endpoints at
-<https://servicodados.ibge.gov.br/api/docs/agregados?versao=3>.
-Ferramentas para acessar e manipular dados via API do Sistema IBGE De
-Recuperação Automática 'SIDRA' do Instituto Brasileiro de Geografia e
-Estatística (IBGE).
+Efficient coordinate ascent algorithm for fitting regularization paths for
+linear models penalized by Spike-and-Slab LASSO of Rockova and George
+(2018) <doi:10.1080/01621459.2016.1260469>.
 
 %prep
 %setup -q -c -n %{packname}

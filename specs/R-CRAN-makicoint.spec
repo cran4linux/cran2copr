@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sspse
-%global packver   1.1.0-3
+%global packname  makicoint
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Hidden Population Size using Respondent Driven Sampling Data
+Summary:          Maki Cointegration Test with Structural Breaks
 
-License:          GPL-3 + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RDS 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-scam 
-BuildRequires:    R-CRAN-coda 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-RDS 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-scam 
-Requires:         R-CRAN-coda 
+BuildArch:        noarch
 
 %description
-Estimate the size of a networked population based on respondent-driven
-sampling data. The package is part of the "RDS Analyst" suite of packages
-for the analysis of respondent-driven sampling data. See Handcock, Gile
-and Mar (2014) <doi:10.1214/14-EJS923>, Handcock, Gile and Mar (2015)
-<doi:10.1111/biom.12255>, Kim and Handcock (2021)
-<doi:10.1093/jssam/smz055>, and McLaughlin, et. al. (2023)
-<doi:10.1214/23-AOAS1807>.
+Implements the Maki (2012) <doi:10.1016/j.econmod.2012.05.006>
+cointegration test that allows for an unknown number of structural breaks.
+The test detects cointegration relationships in the presence of up to five
+structural breaks in the intercept and/or slope coefficients. Four
+different model specifications are supported: level shifts, level shifts
+with trend, regime shifts, and trend with regime shifts. The method is
+described in Maki (2012) "Tests for cointegration allowing for an unknown
+number of breaks" <doi:10.1016/j.econmod.2012.05.006>.
 
 %prep
 %setup -q -c -n %{packname}

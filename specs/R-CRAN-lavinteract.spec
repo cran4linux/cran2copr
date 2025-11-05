@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sspse
-%global packver   1.1.0-3
+%global packname  lavinteract
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Hidden Population Size using Respondent Driven Sampling Data
+Summary:          Post-Estimation Utilities for 'lavaan' Fitted Models
 
-License:          GPL-3 + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RDS 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-scam 
-BuildRequires:    R-CRAN-coda 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-RDS 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-scam 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
-Estimate the size of a networked population based on respondent-driven
-sampling data. The package is part of the "RDS Analyst" suite of packages
-for the analysis of respondent-driven sampling data. See Handcock, Gile
-and Mar (2014) <doi:10.1214/14-EJS923>, Handcock, Gile and Mar (2015)
-<doi:10.1111/biom.12255>, Kim and Handcock (2021)
-<doi:10.1093/jssam/smz055>, and McLaughlin, et. al. (2023)
-<doi:10.1214/23-AOAS1807>.
+Companion toolbox for structural equation models fitted with 'lavaan'.
+Provides post-estimation diagnostics and graphics that operate directly on
+a fitted object using its estimates and covariance, and refits auxiliary
+models when needed. The package relies on 'lavaan' (Rosseel, 2012)
+<doi:10.18637/jss.v048.i02>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cancensus
-%global packver   0.5.7
+%global packname  azr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with Canadian Census Data and Geography
+Summary:          Credential Chain for Seamless 'OAuth 2.0' Authentication to 'Azure Services'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.7
-BuildRequires:    R-CRAN-digest >= 0.1
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 1.0
-Requires:         R-CRAN-dplyr >= 0.7
-Requires:         R-CRAN-digest >= 0.1
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
 
 %description
-Integrated, convenient, and uniform access to Canadian Census data and
-geography retrieved using the 'CensusMapper' API. This package produces
-analysis-ready tidy data frames and spatial data in multiple formats, as
-well as convenience functions for working with Census variables, variable
-hierarchies, and region selection. API keys are freely available with free
-registration at <https://censusmapper.ca/api>. Census data and boundary
-geometries are reproduced and distributed on an "as is" basis with the
-permission of Statistics Canada (Statistics Canada 2001; 2006; 2011; 2016;
-2021).
+Implements a credential chain for 'Azure OAuth 2.0' authentication based
+on the package 'httr2''s 'OAuth' framework. Sequentially attempts
+authentication methods until one succeeds. During development allows
+interactive browser-based flows ('Device Code' and 'Auth Code' flows) and
+non-interactive flow ('Client Secret') in batch mode.
 
 %prep
 %setup -q -c -n %{packname}

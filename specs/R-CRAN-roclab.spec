@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  roclab
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          ROC-Optimizing Binary Classifiers
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-pROC 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-pROC 
 
 %description
 Implements ROC (Receiver Operating Characteristic)–Optimizing Binary

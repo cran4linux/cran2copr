@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sspse
-%global packver   1.1.0-3
+%global packname  DataFusionGDM
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.3
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Hidden Population Size using Respondent Driven Sampling Data
+Summary:          Machine Learning for Integrating Partially Overlapped Genetic Datasets
 
-License:          GPL-3 + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RDS 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-scam 
-BuildRequires:    R-CRAN-coda 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-RDS 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-scam 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-mice 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Estimate the size of a networked population based on respondent-driven
-sampling data. The package is part of the "RDS Analyst" suite of packages
-for the analysis of respondent-driven sampling data. See Handcock, Gile
-and Mar (2014) <doi:10.1214/14-EJS923>, Handcock, Gile and Mar (2015)
-<doi:10.1111/biom.12255>, Kim and Handcock (2021)
-<doi:10.1093/jssam/smz055>, and McLaughlin, et. al. (2023)
-<doi:10.1214/23-AOAS1807>.
+Tools to simulate genetic distance matrices, align and compare them via
+multidimensional scaling (MDS) and Procrustes, and evaluate imputation
+with the Bootstrapping Evaluation for Structural Missingness Imputation
+(BESMI) framework. Methods align with Zhu et al. (2025)
+<doi:10.3389/fpls.2025.1543956> and the associated software resource Zhu
+(2025) <doi:10.26188/28602953>.
 
 %prep
 %setup -q -c -n %{packname}
