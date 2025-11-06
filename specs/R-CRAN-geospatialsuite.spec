@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geospatialsuite
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Geospatiotemporal Analysis and Multimodal Integration Toolkit
 
@@ -65,13 +65,13 @@ research, environmental monitoring, remote sensing applications, and
 publication-quality mapping with support for any geographic region and
 robust error handling. Methods include vegetation indices calculations
 (Rouse et al. 1974), NDVI and enhanced vegetation indices (Huete et al.
-1997) <doi:10.1016/S0034-4257(97)00104-1>, spatial interpolation
-techniques (Cressie 1993, ISBN:9780471002556), water quality indices
-(McFeeters 1996) <doi:10.1080/01431169608948714>, and crop data layer
-analysis (USDA NASS 2024)
-<https://www.nass.usda.gov/Research_and_Science/Cropland/>.  Funding: This
-material is based upon financial support by the National Science
-Foundation, EEC Division of Engineering Education and Centers, NSF
+1997) <doi:10.1016/S0034-4257(97)00104-1>, (Akanbi et al. 2024)
+<doi:10.1007/s41651-023-00164-y>, spatial interpolation techniques
+(Cressie 1993, ISBN:9780471002556), water quality indices (McFeeters 1996)
+<doi:10.1080/01431169608948714>, and crop data layer analysis (USDA NASS
+2024) <https://www.nass.usda.gov/Research_and_Science/Cropland/>.
+Funding: This material is based upon financial support by the National
+Science Foundation, EEC Division of Engineering Education and Centers, NSF
 Engineering Research Center for Advancing Sustainable and Distributed
 Fertilizer production (CASFER), NSF 20-553 Gen-4 Engineering Research
 Centers award 2133576.

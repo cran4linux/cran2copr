@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  summarytabl
-%global packver   0.2.0
+%global packname  cvdprevent
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Summary Tables for Categorical, Ordinal, and Continuous Data
+Summary:          Access and Analyse Data from the 'CVD Prevent' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.4.2
-BuildRequires:    R-CRAN-cli >= 3.6.5
-BuildRequires:    R-CRAN-tibble >= 3.3.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
-BuildRequires:    R-CRAN-rlang >= 1.1.6
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-purrr >= 1.1.0
-Requires:         R-stats >= 4.4.2
-Requires:         R-CRAN-cli >= 3.6.5
-Requires:         R-CRAN-tibble >= 3.3.0
-Requires:         R-CRAN-tidyr >= 1.3.1
-Requires:         R-CRAN-rlang >= 1.1.6
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides functions for tabulating and summarizing categorical, multiple
-response, ordinal, and continuous variables in R data frames. Makes it
-easy to create clear, structured summary tables, so you spend less time
-wrangling data and more time interpreting it.
+Provides an R interface to the 'CVD Prevent' application programming
+interface (API), allowing users to retrieve and analyse cardiovascular
+disease prevention data from primary care records across England. The
+Cardiovascular Disease Prevention Audit (CVDPREVENT) automatically
+extracts routinely held GP health data to support national reporting and
+improvement initiatives.  See the API documentation for details:
+<https://bmchealthdocs.atlassian.net/wiki/spaces/CP/pages/317882369/CVDPREVENT+API+Documentation>.
 
 %prep
 %setup -q -c -n %{packname}

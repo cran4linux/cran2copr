@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  candisc
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Generalized Canonical Discriminant and Canonical Correlation Analysis
 
@@ -14,17 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-heplots >= 0.8.6
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-heplots >= 0.8.6
 Requires:         R-CRAN-car 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Functions for computing and visualizing generalized canonical discriminant
@@ -38,7 +44,8 @@ multivariate linear model, computing canonical scores and vectors for each
 term. The graphic functions provide low-rank (1D, 2D, 3D) visualizations
 of terms in an 'mlm' via the 'plot.candisc' and 'heplot.candisc' methods.
 Related plots are now provided for canonical correlation analysis when all
-predictors are quantitative.
+predictors are quantitative. Methods for linear discriminant analysis are
+now included.
 
 %prep
 %setup -q -c -n %{packname}

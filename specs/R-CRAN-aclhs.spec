@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  summarytabl
-%global packver   0.2.0
+%global packname  aclhs
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Summary Tables for Categorical, Ordinal, and Continuous Data
+Summary:          Autocorrelated Conditioned Latin Hypercube Sampling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.4.2
-BuildRequires:    R-CRAN-cli >= 3.6.5
-BuildRequires:    R-CRAN-tibble >= 3.3.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
-BuildRequires:    R-CRAN-rlang >= 1.1.6
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-purrr >= 1.1.0
-Requires:         R-stats >= 4.4.2
-Requires:         R-CRAN-cli >= 3.6.5
-Requires:         R-CRAN-tibble >= 3.3.0
-Requires:         R-CRAN-tidyr >= 1.3.1
-Requires:         R-CRAN-rlang >= 1.1.6
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-graphics >= 4.5.1
+BuildRequires:    R-stats >= 4.5.1
+BuildRequires:    R-utils >= 4.5.1
+BuildRequires:    R-CRAN-DEoptim >= 2.2.8
+BuildRequires:    R-CRAN-geoR >= 1.9.6
+Requires:         R-graphics >= 4.5.1
+Requires:         R-stats >= 4.5.1
+Requires:         R-utils >= 4.5.1
+Requires:         R-CRAN-DEoptim >= 2.2.8
+Requires:         R-CRAN-geoR >= 1.9.6
 
 %description
-Provides functions for tabulating and summarizing categorical, multiple
-response, ordinal, and continuous variables in R data frames. Makes it
-easy to create clear, structured summary tables, so you spend less time
-wrangling data and more time interpreting it.
+Implementation of the autocorrelated conditioned Latin Hypercube Sampling
+(acLHS) algorithm for 1D (time-series) and 2D (spatial) data. The acLHS
+algorithm is an extension of the conditioned Latin Hypercube Sampling
+(cLHS) algorithm that allows sampled data to have similar correlative and
+statistical features of the original data. Only a properly formatted
+dataframe needs to be provided to yield subsample indices from the primary
+function. For more details about the cLHS algorithm, see Minasny and
+McBratney (2006), <doi:10.1016/j.cageo.2005.12.009>. For acLHS, see Le and
+Vargas (2024) <doi:10.1016/j.cageo.2024.105539>.
 
 %prep
 %setup -q -c -n %{packname}

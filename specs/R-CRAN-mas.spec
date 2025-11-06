@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mas
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Marker Association Studies
+Summary:          Multi-Population Association Studies
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,8 +25,9 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-truncdist 
 
 %description
-Genome-wide association analysis that accommodate membership information,
-variance adjustment, and correlated responses.
+Mixed model-based genome-wide association analysis that accommodate
+population membership information, variance adjustment, and correlated
+responses.
 
 %prep
 %setup -q -c -n %{packname}

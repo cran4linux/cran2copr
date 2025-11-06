@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epikit
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Helper Tools for Epidemiologists
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-binom 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-forcats 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-sf
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-binom 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-forcats 
@@ -44,8 +42,8 @@ Requires:         R-CRAN-sf
 Contains tools for formatting inline code, renaming redundant columns,
 aggregating age categories, adding survey weights, finding the earliest
 date of an event, plotting z-curves, generating population counts and
-calculating proportions with confidence intervals. This is part of the
-'R4Epis' project <https://r4epis.netlify.app/>.
+formatting proportions with confidence intervals. This is part of the
+'R4Epis' project <https://r4epi.github.io/sitrep/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  summarytabl
-%global packver   0.2.0
+%global packname  insulin.secretion
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Summary Tables for Categorical, Ordinal, and Continuous Data
+Summary:          Insulin Secretion Rate Deconvolution
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.4.2
-BuildRequires:    R-CRAN-cli >= 3.6.5
-BuildRequires:    R-CRAN-tibble >= 3.3.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
-BuildRequires:    R-CRAN-rlang >= 1.1.6
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-purrr >= 1.1.0
-Requires:         R-stats >= 4.4.2
-Requires:         R-CRAN-cli >= 3.6.5
-Requires:         R-CRAN-tibble >= 3.3.0
-Requires:         R-CRAN-tidyr >= 1.3.1
-Requires:         R-CRAN-rlang >= 1.1.6
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-npreg 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-npreg 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides functions for tabulating and summarizing categorical, multiple
-response, ordinal, and continuous variables in R data frames. Makes it
-easy to create clear, structured summary tables, so you spend less time
-wrangling data and more time interpreting it.
+Calculates insulin secretion rates from C-peptide values based on the
+methods described in Van Cauter et al. (1992) <doi:10.2337/diab.41.3.368>.
+Includes functions to calculate estimated insulin secretion rates using
+linear or cubic spline interpolation of c-peptide values (see Eaton et
+al., 1980 <doi:10.1210/jcem-51-3-520> and Polonsky et al., 1986
+<doi:10.1172/JCI112308>) and to calculate estimates of input coefficients
+(volume of distribution, short half life, long half life, and fraction
+attributed to short half life) as described by Van Cauter. Although the
+generated coefficients are specific to insulin secretion, the
+two-compartment secretion model used here is useful for certain
+applications beyond insulin.
 
 %prep
 %setup -q -c -n %{packname}

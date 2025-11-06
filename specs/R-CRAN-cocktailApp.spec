@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cocktailApp
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' App to Discover Cocktails
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggtern 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-shiny 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggtern 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-DT 
 

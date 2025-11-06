@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  summarytabl
-%global packver   0.2.0
+%global packname  odbc.resourcer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Summary Tables for Categorical, Ordinal, and Continuous Data
+Summary:          Open Database Connectivity Resource Resolver
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2.1)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.4.2
-BuildRequires:    R-CRAN-cli >= 3.6.5
-BuildRequires:    R-CRAN-tibble >= 3.3.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
-BuildRequires:    R-CRAN-rlang >= 1.1.6
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-purrr >= 1.1.0
-Requires:         R-stats >= 4.4.2
-Requires:         R-CRAN-cli >= 3.6.5
-Requires:         R-CRAN-tibble >= 3.3.0
-Requires:         R-CRAN-tidyr >= 1.3.1
-Requires:         R-CRAN-rlang >= 1.1.6
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-resourcer 
+BuildRequires:    R-CRAN-odbc 
+BuildRequires:    R-CRAN-DBI 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-resourcer 
+Requires:         R-CRAN-odbc 
+Requires:         R-CRAN-DBI 
 
 %description
-Provides functions for tabulating and summarizing categorical, multiple
-response, ordinal, and continuous variables in R data frames. Makes it
-easy to create clear, structured summary tables, so you spend less time
-wrangling data and more time interpreting it.
+A database resource that is accessible through the Open Database
+Connectivity ('ODBC') API. This package uses the Resource model, with URL
+"resolver" and "client", to dynamically discover and make accessible
+tables stored in a 'MS SQL Server' database. For more details see Marcon
+(2021) <doi:10.1371/journal.pcbi.1008880>.
 
 %prep
 %setup -q -c -n %{packname}

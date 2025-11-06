@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sate
-%global packver   2.4.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scientific Analysis of Trial Errors (SATE)
 
@@ -31,11 +31,17 @@ Requires:         R-CRAN-survey
 %description
 Bundles functions used to analyze the harmfulness of trial errors in
 criminal trials. Functions in the Scientific Analysis of Trial Errors
-('SATE') package help users estimate the probability that a jury will find
+('sate') package help users estimate the probability that a jury will find
 a defendant guilty given jurors' preferences for a guilty verdict and the
 uncertainty of that estimate. Users can also compare actual and
 hypothetical trial conditions to conduct harmful error analysis. The
-relationship between individual jurors' verdict preferences and the
+conceptual framework is discussed by Barry Edwards, A Scientific Framework
+for Analyzing the Harmfulness of Trial Errors, UCLA Criminal Justice Law
+Review (2024) <doi:10.5070/CJ88164341> and Barry Edwards, If The Jury Only
+Knew: The Effect Of Omitted Mitigation Evidence On The Probability Of A
+Death Sentence, Virginia Journal of Social Policy & the Law (2025)
+<https://vasocialpolicy.org/wp-content/uploads/2025/05/Edwards-If-The-Jury-Only-Knew.pdf>.
+The relationship between individual jurors' verdict preferences and the
 probability that a jury returns a guilty verdict has been studied by Davis
 (1973) <doi:10.1037/h0033951>; MacCoun & Kerr (1988)
 <doi:10.1037/0022-3514.54.1.21>, and Devine et el. (2001)

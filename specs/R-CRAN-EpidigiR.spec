@@ -1,45 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  comets
-%global packver   0.2-2
+%global packname  EpidigiR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Covariance Measure Tests for Conditional Independence
+Summary:          Digital Epidemiological Analysis and Visualization Tools
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-coin 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-tm 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-coin 
-Requires:         R-CRAN-Rcpp 
 
 %description
-Covariance measure tests for conditional independence testing against
-conditional covariance and nonlinear conditional mean alternatives. The
-package implements versions of the generalised covariance measure test
-(Shah and Peters, 2020, <doi:10.1214/19-aos1857>) and projected covariance
-measure test (Lundborg et al., 2023, <doi:10.1214/24-AOS2447>). The
-tram-GCM test, for censored responses, is implemented including the Cox
-model and survival forests (Kook et al., 2024,
-<doi:10.1080/01621459.2024.2395588>). Application examples to variable
-significance testing and modality selection can be found in Kook and
-Lundborg (2024, <doi:10.1093/bib/bbae475>).
+Integrates methods for epidemiological analysis, modeling, and
+visualization, including functions for summary statistics, SIR
+(Susceptible-Infectious-Recovered) modeling, DALY (Disability-Adjusted
+Life Years) estimation, age standardization, diagnostic test evaluation,
+NLP (Natural Language Processing) keyword extraction, clinical trial power
+analysis, survival analysis, SNP (Single Nucleotide Polymorphism)
+association, and machine learning methods such as logistic regression,
+k-means clustering, Random Forest, and Support Vector Machine (SVM).
+Includes datasets for prevalence estimation, SIR modeling, genomic
+analysis, clinical trials, DALY, diagnostic tests, and survival analysis.
+Methods are based on Gelman et al. (2013) <doi:10.1201/b16018> and Wickham
+et al. (2019, ISBN:9781492052040>.
 
 %prep
 %setup -q -c -n %{packname}

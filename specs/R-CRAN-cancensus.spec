@@ -1,44 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phsopendata
-%global packver   1.0.1
+%global packname  cancensus
+%global packver   0.5.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.5.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract from the Scottish Health and Social Care Open Data Platform
+Summary:          Access, Retrieve, and Work with Canadian Census Data and Geography
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.2.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-magrittr >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-stringdist 
-Requires:         R-CRAN-cli >= 3.2.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-jsonlite >= 1.0
+BuildRequires:    R-CRAN-digest >= 0.1
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-magrittr >= 1.0.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-jsonlite >= 1.0
+Requires:         R-CRAN-digest >= 0.1
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readr 
 
 %description
-Extract and interact with data from the Scottish Health and Social Care
-Open Data platform <https://www.opendata.nhs.scot>.
+Integrated, convenient, and uniform access to Canadian Census data and
+geography retrieved using the 'CensusMapper' API. This package produces
+analysis-ready tidy data frames and spatial data in multiple formats, as
+well as convenience functions for working with Census variables, variable
+hierarchies, and region selection. API keys are freely available with free
+registration at <https://censusmapper.ca/api>. Census data and boundary
+geometries are reproduced and distributed on an "as is" basis with the
+permission of Statistics Canada (Statistics Canada 1996; 2001; 2006; 2011;
+2016; 2021).
 
 %prep
 %setup -q -c -n %{packname}

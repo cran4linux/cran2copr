@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ds4psy
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Science for Psychologists
 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-unikn
 %description
 All datasets and functions required for the examples and exercises of the
 book "Data Science for Psychologists" (by Hansjoerg Neth, Konstanz
-University, 2025), freely available at
+University, 2025, <doi:10.5281/zenodo.7229812>), freely available at
 <https://bookdown.org/hneth/ds4psy/>. The book and corresponding courses
 introduce principles and methods of data science to students of psychology
 and other biological or social sciences. The 'ds4psy' package primarily
