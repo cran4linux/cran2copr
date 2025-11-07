@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  facilityepimath
-%global packver   0.2.1
+%global packname  releaser
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Mathematical Models of Healthcare Facility Transmission
+Summary:          Help with Preparing a New Version of an R Package
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-base64enc 
 
 %description
-Calculate useful quantities for a user-defined differential equation model
-of infectious disease transmission among individuals in a healthcare
-facility. Input rates of transition between states of individuals with and
-without the disease-causing organism, distributions of states at facility
-admission, relative infectivity of transmissible states, and the facility
-length of stay distribution. Calculate the model equilibrium and the basic
-facility reproduction number, as described in Toth et al. (2025)
-<doi:10.1371/journal.pcbi.1013577>.
+Helps to prepare a release. Before releasing an R package it is important
+to update the DESCRIPTION file and the changelog. This package prepares
+these files and also updates the versions according to the branches. It
+relies heavily on the 'desc' packages.
 
 %prep
 %setup -q -c -n %{packname}

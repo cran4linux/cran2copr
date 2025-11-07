@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  facilityepimath
-%global packver   0.2.1
+%global packname  brand.yml
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Mathematical Models of Healthcare Facility Transmission
+Summary:          Unified Branding with a Simple YAML File
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
-Calculate useful quantities for a user-defined differential equation model
-of infectious disease transmission among individuals in a healthcare
-facility. Input rates of transition between states of individuals with and
-without the disease-causing organism, distributions of states at facility
-admission, relative infectivity of transmissible states, and the facility
-length of stay distribution. Calculate the model equilibrium and the basic
-facility reproduction number, as described in Toth et al. (2025)
-<doi:10.1371/journal.pcbi.1013577>.
+Read and process 'brand.yml' 'YAML' files. 'brand.yml' is a simple,
+portable 'YAML' file that codifies your company's brand guidelines into a
+format that can be used by 'Quarto', 'Shiny' and 'R' tooling to create
+branded outputs. Maintain unified, branded theming for web applications to
+printed reports to dashboards and presentations with a consistent look and
+feel.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trtswitch
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Treatment Switching
 
@@ -22,11 +22,11 @@ Requires:         R-CRAN-data.table >= 1.14.10
 Requires:         R-CRAN-Rcpp >= 1.0.9
 
 %description
-Implements rank-preserving structural failure time model (RPSFTM),
+Implements rank preserving structural failure time model (RPSFTM),
 iterative parameter estimation (IPE), inverse probability of censoring
 weights (IPCW), marginal structural model (MSM), simple two-stage
-estimation (TSEsimp), and improved two-stage with g-estimation (TSEgest)
-methods for treatment switching in randomized clinical trials.
+estimation (TSEsimp), and improved two-stage estimation with g-estimation
+(TSEgest) methods for treatment switching in randomized clinical trials.
 
 %prep
 %setup -q -c -n %{packname}

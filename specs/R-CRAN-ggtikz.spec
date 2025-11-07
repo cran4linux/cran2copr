@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggtikz
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Post-Process 'ggplot2' Plots with 'TikZ' Code Using Plot Coordinates
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.2.9002
+BuildRequires:    R-CRAN-stringr >= 1.6.0
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tikzDevice 
 Requires:         R-CRAN-ggplot2 >= 3.5.2.9002
+Requires:         R-CRAN-stringr >= 1.6.0
 Requires:         R-grid 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tikzDevice 
 
 %description

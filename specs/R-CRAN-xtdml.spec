@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtdml
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double Machine Learning for Static Panel Models with Fixed Effects
 
@@ -19,10 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-data.table >= 1.12.8
-BuildRequires:    R-CRAN-mlr3 >= 0.5.0
-BuildRequires:    R-CRAN-mlr3tuning >= 0.3.0
 BuildRequires:    R-CRAN-mlr3learners >= 0.3.0
-BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-CRAN-mlr3tuning >= 0.20.0
+BuildRequires:    R-CRAN-mlr3 >= 0.19.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.19.0
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-clusterGeneration 
@@ -34,10 +34,10 @@ BuildRequires:    R-CRAN-MLmetrics
 BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-data.table >= 1.12.8
-Requires:         R-CRAN-mlr3 >= 0.5.0
-Requires:         R-CRAN-mlr3tuning >= 0.3.0
 Requires:         R-CRAN-mlr3learners >= 0.3.0
-Requires:         R-CRAN-mlr3misc 
+Requires:         R-CRAN-mlr3tuning >= 0.20.0
+Requires:         R-CRAN-mlr3 >= 0.19.0
+Requires:         R-CRAN-mlr3misc >= 0.19.0
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-utils 
 Requires:         R-CRAN-clusterGeneration 

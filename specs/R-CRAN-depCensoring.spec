@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  depCensoring
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Survival Data with Dependent Censoring
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-foreach 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-pbivnorm
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-OpenMx 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-EnvStats 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-rafalib
 BuildRequires:    R-CRAN-rvinecopulib 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-R6 
@@ -48,7 +46,6 @@ Requires:         R-CRAN-pbivnorm
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-OpenMx 
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-EnvStats 
@@ -57,7 +54,6 @@ Requires:         R-CRAN-rafalib
 Requires:         R-CRAN-rvinecopulib 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-R6 
@@ -75,8 +71,9 @@ methods, refer to Deresa and Van Keilegom (2021)
 <doi:10.1093/biomet/asaa095>, Czado and Van Keilegom (2023)
 <doi:10.1093/biomet/asac067>, Crommen et al. (2024)
 <doi:10.1007/s11749-023-00903-9>, Deresa and Van Keilegom (2024)
-<doi:10.1080/01621459.2022.2161387>, Rutten et al. (2024+)
-<doi:10.48550/arXiv.2403.11860> and Ding and Van Keilegom (2024).
+<doi:10.1080/01621459.2022.2161387>, Willems et al. (2025)
+<doi:10.48550/arXiv.2403.11860>, Ding and Van Keilegom (2025) and D'Haen
+et al. (2025) <doi:10.1007/s10985-025-09647-0>.
 
 %prep
 %setup -q -c -n %{packname}

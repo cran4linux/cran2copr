@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PathwaySpace
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Projection of Network Signals along Geodesic Paths
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4
 Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RGraphSpace >= 1.0.9
+BuildRequires:    R-CRAN-RGraphSpace >= 1.1.0
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-RGraphSpace >= 1.0.9
+Requires:         R-CRAN-RGraphSpace >= 1.1.0
 Requires:         R-methods 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -44,13 +44,12 @@ the vertices, the 'PathwaySpace' package performs a convolution operation,
 which involves a weighted combination of neighboring vertices and their
 associated signals. The package then uses a decay function to project
 these signals, creating geodesic paths on a 2D-image space. 'PathwaySpace'
-could have various applications, such as visualizing and analyzing network
-data in a graphical format that highlights the relationships and signal
-strengths between vertices. It can be particularly useful for
-understanding the influence of signals through complex networks. By
-combining graph theory, signal processing, and visualization, the
-'PathwaySpace' package provides a novel way of representing and analyzing
-graph data.
+could have various applications, such as visualizing network data in a
+graphical format that highlights the relationships and signal strengths
+between vertices. It can be particularly useful for understanding the
+influence of signals through complex networks. By combining graph theory,
+signal processing, and visualization, the 'PathwaySpace' package provides
+a novel way of representing graph data.
 
 %prep
 %setup -q -c -n %{packname}

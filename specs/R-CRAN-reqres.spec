@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reqres
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Powerful Classes for HTTP Requests and Responses
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-sodium 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-mirai 
+BuildRequires:    R-CRAN-otel 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-urltools 
@@ -48,6 +49,7 @@ Requires:         R-CRAN-base64enc
 Requires:         R-CRAN-sodium 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-mirai 
+Requires:         R-CRAN-otel 
 
 %description
 In order to facilitate parsing of http requests and creating appropriate

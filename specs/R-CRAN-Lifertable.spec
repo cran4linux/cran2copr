@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Lifertable
-%global packver   0.1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Life and Fertility Tables Specially for Insects
 
@@ -31,11 +31,8 @@ Life and Fertility Tables are appropriate to study the dynamics of
 arthropods populations. This package provides utilities for constructing
 Life Tables and Fertility Tables, related demographic parameters, and some
 simple graphs of interest. It also offers functions to transform the
-obtained data into a known format for better manipulation. This document
-is based on the article by Maia, Luiz, and Campanhola "Statistical
-Inference on Associated Fertility Life Table Parameters Using Jackknife
-Technique Computational Aspects" (April 2000, Journal of Economic
-Entomology, Volume 93, Issue 2) <doi:10.1603/0022-0493-93.2.511>.
+obtained data into a known format for better manipulation. In addition,
+two methods for obtaining the confidence interval are included.
 
 %prep
 %setup -q -c -n %{packname}

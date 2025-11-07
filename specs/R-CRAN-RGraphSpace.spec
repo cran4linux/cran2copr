@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RGraphSpace
-%global packver   1.0.9
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          A Lightweight Interface Between 'igraph' and 'ggplot2' Graphics
 
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,11 +33,11 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-lifecycle 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+Interface to integrate 'igraph' and 'ggplot2' graphics in a normalized
+coordinate system. 'RGraphSpace' implements new geometric objects using
+'ggplot2' prototypes, customized for side-by-side visualization of
+multiple graphs. By scaling shapes and graph elements, 'RGraphSpace' can
+provide a framework for layered visualizations.
 
 %prep
 %setup -q -c -n %{packname}

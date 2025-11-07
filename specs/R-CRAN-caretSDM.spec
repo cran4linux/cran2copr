@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caretSDM
-%global packver   1.1.4
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build Species Distribution Modeling using 'caret'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-blockCV 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-CoordinateCleaner
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ecospat 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-future 
@@ -34,6 +36,7 @@ BuildRequires:    R-CRAN-gtools
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-pdp 
@@ -52,6 +55,7 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-usdm 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-blockCV 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
@@ -59,6 +63,7 @@ Requires:         R-CRAN-CoordinateCleaner
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ecospat 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
@@ -69,6 +74,7 @@ Requires:         R-CRAN-gtools
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-maxnet 
 Requires:         R-methods 
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-pdp 

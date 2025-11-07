@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bndesr
-%global packver   1.0.4
+%global packname  etsi
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the Brazilian Development Bank (BNDES)
+Summary:          Efficient Testing Using Surrogate Information
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-hetsurr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-hetsurr 
+Requires:         R-stats 
 
 %description
-Allows access to data on BNDES disbursements and contracts since 1995. The
-package makes it easy to import data from the bank into
-R.<https://www.bndes.gov.br/SiteBNDES/bndes/bndes_en>.
+Provides functions for treatment effect estimation, hypothesis testing,
+and future study design for settings where the surrogate is used in place
+of the primary outcome for individuals for whom the surrogate is valid,
+and the primary outcome is purposefully measured in the remaining
+patients. More details are available in: Knowlton, R., Parast, L. (2024)
+``Efficient Testing Using Surrogate Information," Biometrical Journal,
+67(6): e70086, <doi:10.1002/bimj.70086>. A tutorial for this package can
+be found at <https://www.laylaparast.com/etsi>.
 
 %prep
 %setup -q -c -n %{packname}

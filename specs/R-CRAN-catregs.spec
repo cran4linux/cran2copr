@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tind
-%global packver   0.2.1
+%global packname  catregs
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Common Representation of Time Indices of Different Types
+Summary:          Post-Estimation Functions for Generalized Linear Mixed Models
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Provides an easy-to-use tind class representing time indices of different
-types (years, quarters, months, ISO 8601 weeks, dates, time of day,
-date-time, and arbitrary integer/numeric indices). Includes an extensive
-collection of functions for calendrical computations (including business
-applications), index conversions, index parsing, and other operations.
-Auxiliary classes representing time differences and time intervals (with
-set operations and index matching functionality) are also provided. All
-routines have been optimised for speed in order to facilitate computations
-on large datasets. More details regarding calendars in general and
-calendrical algorithms can be found in "Calendar FAQ" by Claus Tøndering
-<https://www.tondering.dk/claus/calendar.html>.
+Several functions for working with mixed effects regression models for
+limited dependent variables. The functions facilitate post-estimation of
+model predictions or margins, and comparisons between model predictions
+for assessing or probing moderation. Additional helper functions
+facilitate model comparisons and implements simulation-based inference for
+model predictions of alternative-specific outcome models. See also,
+Melamed and Doan (2024, ISBN: 978-1032509518).
 
 %prep
 %setup -q -c -n %{packname}

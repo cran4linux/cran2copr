@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  summarytabl
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Summary Tables for Categorical, Ordinal, and Continuous Data
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.4.2
-BuildRequires:    R-CRAN-cli >= 3.6.5
-BuildRequires:    R-CRAN-tibble >= 3.3.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
-BuildRequires:    R-CRAN-rlang >= 1.1.6
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-purrr >= 1.1.0
-Requires:         R-stats >= 4.4.2
-Requires:         R-CRAN-cli >= 3.6.5
-Requires:         R-CRAN-tibble >= 3.3.0
-Requires:         R-CRAN-tidyr >= 1.3.1
-Requires:         R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-purrr >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
 Provides functions for tabulating and summarizing categorical, multiple

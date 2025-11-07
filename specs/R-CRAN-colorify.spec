@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  facilityepimath
-%global packver   0.2.1
+%global packname  colorify
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Mathematical Models of Healthcare Facility Transmission
+Summary:          Intuitive Color and Palette Generation and Modification
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
 
 %description
-Calculate useful quantities for a user-defined differential equation model
-of infectious disease transmission among individuals in a healthcare
-facility. Input rates of transition between states of individuals with and
-without the disease-causing organism, distributions of states at facility
-admission, relative infectivity of transmissible states, and the facility
-length of stay distribution. Calculate the model equilibrium and the basic
-facility reproduction number, as described in Toth et al. (2025)
-<doi:10.1371/journal.pcbi.1013577>.
+A one-stop shop for intuitive and dependency-free color and palette
+creation and modification. Includes palettes and functionality from
+popular packages such as 'viridis', 'RColorBrewer', and base R
+'grDevices', as well as 'ggplot2' plot bindings. Users can generate
+perceptually uniform and colorblind-friendly palettes, adjust palettes in
+HSL and RGB color spaces, map color gradients to value ranges, and create
+color-generating functions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  refineR
-%global packver   1.6.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Interval Estimation using Real-World Data
 
@@ -33,17 +33,19 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 
 %description
-Indirect method for the estimation of reference intervals using Real-World
-Data ('RWD'). It takes routine measurements of diagnostic tests,
-containing pathological and non-pathological samples as input and uses
-sophisticated statistical methods to derive a model describing the
-distribution of the non-pathological samples. This distribution can then
-be used to derive reference intervals. Furthermore, the package offers
-functions for printing and plotting the results of the algorithm. See
-?refineR for a more comprehensive description of the features. Version 1.0
-of the algorithm is described in detail in 'Ammer et al. (2021)'
-<doi:10.1038/s41598-021-95301-2>. Additional guidance on the usage of the
-algorithm is given in 'Ammer et al. (2023)' <doi:10.1093/jalm/jfac101>.
+Indirect method for the estimation of reference intervals (RIs) using
+Real-World Data ('RWD') and methods for comparing and verifying RIs.
+Estimates RIs by applying advanced statistical methods to routine
+diagnostic test measurements, which include both pathological and
+non-pathological samples, to model the distribution of non-pathological
+samples. This distribution is then used to derive reference intervals and
+support RI verification, i.e., deciding if a specific RI is suitable for
+the local population. The package also provides functions for printing and
+plotting algorithm results. See ?refineR for a detailed description of
+features. Version 1.0 of the algorithm is described in 'Ammer et al.
+(2021)' <doi:10.1038/s41598-021-95301-2>. Additional guidance is in 'Ammer
+et al. (2023)' <doi:10.1093/jalm/jfac101>. The verification method is
+described in 'Beck et al. (2025)' <doi:10.1515/cclm-2025-0728>.
 
 %prep
 %setup -q -c -n %{packname}
