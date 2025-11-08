@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fishgrowth
-%global packver   1.0.4
+%global packname  repsim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Growth Curves to Fish Data
+Summary:          Measures of Representational Similarity Across Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB 
-Requires:         R-CRAN-RTMB 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-Rdpack 
 
 %description
-Fit growth models to otoliths and/or tagging data, using the 'RTMB'
-package and maximum likelihood. The otoliths (or similar measurements of
-age) provide direct observed coordinates of age and length. The tagging
-data provide information about the observed length at release and length
-at recapture at a later time, where the age at release is unknown and
-estimated as a vector of parameters. The growth models provided by this
-package can be fitted to otoliths only, tagging data only, or a
-combination of the two. Growth variability can be modelled as constant or
-increasing with length.
+Provides a collection of methods for quantifying representational
+similarity between learned features or multivariate data. The package
+offers an efficient 'C++' backend, designed for applications in machine
+learning, computational neuroscience, and multivariate statistics. See
+Klabunde et al. (2025) <doi:10.1145/3728458> for a comprehensive overview
+of the topic.
 
 %prep
 %setup -q -c -n %{packname}

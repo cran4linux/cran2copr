@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fishgrowth
-%global packver   1.0.4
+%global packname  EstemPMM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Growth Curves to Fish Data
+Summary:          Polynomial Maximization Method for Non-Gaussian Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB 
-Requires:         R-CRAN-RTMB 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Fit growth models to otoliths and/or tagging data, using the 'RTMB'
-package and maximum likelihood. The otoliths (or similar measurements of
-age) provide direct observed coordinates of age and length. The tagging
-data provide information about the observed length at release and length
-at recapture at a later time, where the age at release is unknown and
-estimated as a vector of parameters. The growth models provided by this
-package can be fitted to otoliths only, tagging data only, or a
-combination of the two. Growth variability can be modelled as constant or
-increasing with length.
+Implements the Polynomial Maximization Method ('PMM') for parameter
+estimation in linear and time series models when error distributions
+deviate from normality. The 'PMM2' variant achieves lower variance
+parameter estimates compared to ordinary least squares ('OLS') when errors
+exhibit significant skewness. Includes methods for linear regression,
+'AR'/'MA'/'ARMA'/'ARIMA' models, and bootstrap inference. Methodology
+described in Zabolotnii, Warsza, and Tkachenko (2018)
+<doi:10.1007/978-3-319-77179-3_75>, Zabolotnii, Tkachenko, and Warsza
+(2022) <doi:10.1007/978-3-031-03502-9_37>, and Zabolotnii, Tkachenko, and
+Warsza (2023) <doi:10.1007/978-3-031-25844-2_21>.
 
 %prep
 %setup -q -c -n %{packname}

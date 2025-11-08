@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huxtable
-%global packver   5.7.0
+%global packver   5.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.7.0
+Version:          5.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 
@@ -67,11 +67,11 @@ Requires:         R-CRAN-xml2
 
 %description
 Creates styled tables for data presentation. Export to HTML, LaTeX, RTF,
-'Word', 'Excel', and 'PowerPoint'. Simple, modern interface to manipulate
-borders, size, position, captions, colours, text styles and number
-formatting. Table cells can span multiple rows and/or columns. Includes a
-'huxreg' function for creation of regression tables, and 'quick_*'
-one-liners to print data to a new document.
+'Word', 'Excel', 'PowerPoint', 'typst', SVG and PNG. Simple, modern
+interface to manipulate borders, size, position, captions, colours, text
+styles and number formatting. Table cells can span multiple rows and/or
+columns. Includes a 'huxreg' function to create regression tables, and
+'quick_*' one-liners to print tables to a new document.
 
 %prep
 %setup -q -c -n %{packname}

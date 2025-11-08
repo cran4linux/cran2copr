@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fishgrowth
-%global packver   1.0.4
+%global packname  tout
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Growth Curves to Fish Data
+Summary:          Optimal Sample Size and Progression Criteria for Three-Outcome Trials
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB 
-Requires:         R-CRAN-RTMB 
 
 %description
-Fit growth models to otoliths and/or tagging data, using the 'RTMB'
-package and maximum likelihood. The otoliths (or similar measurements of
-age) provide direct observed coordinates of age and length. The tagging
-data provide information about the observed length at release and length
-at recapture at a later time, where the age at release is unknown and
-estimated as a vector of parameters. The growth models provided by this
-package can be fitted to otoliths only, tagging data only, or a
-combination of the two. Growth variability can be modelled as constant or
-increasing with length.
+Find the optimal decision rules (AKA progression criteria) and sample size
+for clinical trials with three (stop/pause/go) outcomes. Both binary and
+continuous endpoints can be accommodated, as can cases where an adjustment
+is planned following a pause outcome. For more details see Wilson et al.
+(2024) <doi:10.1186/s12874-024-02351-x>.
 
 %prep
 %setup -q -c -n %{packname}

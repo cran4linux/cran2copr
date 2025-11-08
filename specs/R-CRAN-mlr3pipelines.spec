@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3pipelines
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preprocessing Operators and Pipelines for 'mlr3'
 
@@ -14,29 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-paradox >= 1.0.0
 BuildRequires:    R-CRAN-mlr3 >= 0.20.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.17.0
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-paradox >= 1.0.0
 Requires:         R-CRAN-mlr3 >= 0.20.0
 Requires:         R-CRAN-mlr3misc >= 0.17.0
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-lgr 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-withr 
 
 %description
 Dataflow programming toolkit that enriches 'mlr3' with a diverse set of

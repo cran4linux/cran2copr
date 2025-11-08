@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SurrogateOutcome
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Proportion of Treatment Effect Explained by Surrogate Outcome Information
 
@@ -22,18 +23,14 @@ Requires:         R-stats
 Requires:         R-CRAN-survival 
 
 %description
-Provides functions to estimate the proportion of treatment effect on a
-censored primary outcome that is explained by the treatment effect on a
-censored surrogate outcome/event. All methods are described in detail in
-Parast, Tian, Cai (2020) "Assessing the Value of a Censored Surrogate
-Outcome" <doi:10.1007/s10985-019-09473-1>. The main functions are (1)
-R.q.event() which calculates the proportion of the treatment effect (the
-difference in restricted mean survival time at time t) explained by
-surrogate outcome information observed up to a selected landmark time, (2)
-R.t.estimate() which calculates the proportion of the treatment effect
-explained by primary outcome information only observed up to a selected
-landmark time, and (3) IV.event() which calculates the incremental value
-of the surrogate outcome information.
+Estimates the proportion of treatment effect on a censored primary outcome
+that is explained by the treatment effect on a censored surrogate
+outcome/event. All methods are described in detail in Parast, et al (2020)
+"Assessing the Value of a Censored Surrogate Outcome"
+<doi:10.1007/s10985-019-09473-1> and Wang et al (2025) "Model-free
+Approach to Evaluate a Censored Intermediate Outcome as a Surrogate for
+Overall Survival" <doi:10.1002/sim.70268>.  A tutorial for this package
+can be found at <https://www.laylaparast.com/surrogateoutcome>.
 
 %prep
 %setup -q -c -n %{packname}

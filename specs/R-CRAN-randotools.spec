@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fishgrowth
-%global packver   1.0.4
+%global packname  randotools
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Growth Curves to Fish Data
+Summary:          Create Randomization Lists
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB 
-Requires:         R-CRAN-RTMB 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-Fit growth models to otoliths and/or tagging data, using the 'RTMB'
-package and maximum likelihood. The otoliths (or similar measurements of
-age) provide direct observed coordinates of age and length. The tagging
-data provide information about the observed length at release and length
-at recapture at a later time, where the age at release is unknown and
-estimated as a vector of parameters. The growth models provided by this
-package can be fitted to otoliths only, tagging data only, or a
-combination of the two. Growth variability can be modelled as constant or
-increasing with length.
+Randomization lists are an integral component of randomized clinical
+trials. 'randotools' provides tools to easily create such lists.
 
 %prep
 %setup -q -c -n %{packname}

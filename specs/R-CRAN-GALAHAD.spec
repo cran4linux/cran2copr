@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fishgrowth
-%global packver   1.0.4
+%global packname  GALAHAD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Growth Curves to Fish Data
+Summary:          Geometry-Adaptive Lyapunov-Assured Hybrid Optimizer
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB 
-Requires:         R-CRAN-RTMB 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Fit growth models to otoliths and/or tagging data, using the 'RTMB'
-package and maximum likelihood. The otoliths (or similar measurements of
-age) provide direct observed coordinates of age and length. The tagging
-data provide information about the observed length at release and length
-at recapture at a later time, where the age at release is unknown and
-estimated as a vector of parameters. The growth models provided by this
-package can be fitted to otoliths only, tagging data only, or a
-combination of the two. Growth variability can be modelled as constant or
-increasing with length.
+Implements the GALAHAD algorithm (Geometry-Adaptive 'Lyapunov'-Assured
+Hybrid Optimizer), combining 'Riemannian' metrics, 'Lyapunov' stability
+checks, and trust-region methods for stable optimization of mixed-geometry
+parameters. Designed for biological modeling (germination, dose-response,
+survival) where rates, concentrations, and unconstrained variables
+coexist. Developed at the Minnesota Center for Prion Research and Outreach
+(MNPRO), University of Minnesota. Based on Conn et al. (2000)
+<doi:10.1137/1.9780898719857>, Amari (1998)
+<doi:10.1162/089976698300017746>, Beck & Teboulle (2003)
+<doi:10.1016/S0167-6377(02)00231-6>, Nesterov (2017)
+<https://www.jstor.org/stable/resrep30722>, and Walne et al. (2020)
+<doi:10.1002/agg2.20098>.
 
 %prep
 %setup -q -c -n %{packname}

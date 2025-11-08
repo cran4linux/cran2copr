@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funMoDisco
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Motif Discovery in Functional Data
 
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-fda 
@@ -29,22 +29,17 @@ BuildRequires:    R-CRAN-ggtext
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-shinybusy 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-dplyr 
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-fda 
@@ -52,10 +47,6 @@ Requires:         R-CRAN-ggtext
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-shinybusy 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-zoo 
 Requires:         R-utils 
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-combinat 

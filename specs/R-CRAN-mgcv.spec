@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mgcv
-%global packver   1.9-3
+%global packver   1.9-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
+Version:          1.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed GAM Computation Vehicle with Automatic Smoothness Estimation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildRequires:    R-CRAN-nlme >= 3.1.64
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -34,11 +34,11 @@ Requires:         R-utils
 %description
 Generalized additive (mixed) models, some of their extensions and other
 generalized ridge regression with multiple smoothing parameter estimation
-by (Restricted) Marginal Likelihood, Generalized Cross Validation and
-similar, or using iterated nested Laplace approximation for fully Bayesian
-inference. See Wood (2017) <doi:10.1201/9781315370279> for an overview.
-Includes a gam() function, a wide variety of smoothers, 'JAGS' support and
-distributions beyond the exponential family.
+by (Restricted) Marginal Likelihood, Cross Validation and similar, or
+using iterated nested Laplace approximation for fully Bayesian inference.
+See Wood (2025) <doi:10.1146/annurev-statistics-112723-034249> for an
+overview. Includes a gam() function, a wide variety of smoothers, 'JAGS'
+support and distributions beyond the exponential family.
 
 %prep
 %setup -q -c -n %{packname}

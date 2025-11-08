@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wizaRdry
-%global packver   0.2.6
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Magical Framework for Collaborative & Reproducible Data Analysis
 
@@ -30,13 +30,18 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-mongolite 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-qualtRics 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-REDCapR 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RMariaDB 
+BuildRequires:    R-CRAN-odbc 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-openxlsx2 
 Requires:         R-CRAN-beepr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-config 
@@ -50,24 +55,29 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-mongolite 
 Requires:         R-parallel 
 Requires:         R-CRAN-qualtRics 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-REDCapR 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RMariaDB 
+Requires:         R-CRAN-odbc 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-openxlsx2 
 
 %description
 A comprehensive data analysis framework for NIH-funded research that
-streamlines workflows for both data cleaning and preparing NIH Data
-Archive ('NDA') submission templates. Provides unified access to multiple
-data sources ('REDCap', 'MongoDB', 'Qualtrics') through interfaces to
-their APIs, with specialized functions for data cleaning, filtering,
-merging, and parsing. Features automatic validation, field harmonization,
-and memory-aware processing to enhance reproducibility in multi-site
-collaborative research as described in Mittal et al. (2021)
-<doi:10.20900/jpbs.20210011>.
+streamlines workflows for both data cleaning and preparing and modifying
+NIH Data Archive ('NDA') data structures and submission templates.
+Provides unified access to multiple data sources ('REDCap', 'MongoDB',
+'Qualtrics', 'SQL', 'ORACLE') through interfaces to their APIs, with
+specialized functions for data cleaning, filtering, merging, and parsing.
+Features automatic validation, field harmonization, and memory-aware
+processing to enhance reproducibility in multi-site collaborative research
+as described in Mittal et al. (2021) <doi:10.20900/jpbs.20210011>.
 
 %prep
 %setup -q -c -n %{packname}

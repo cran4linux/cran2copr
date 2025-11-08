@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fishgrowth
-%global packver   1.0.4
+%global packname  PNC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Growth Curves to Fish Data
+Summary:          Phylogenetic Niche Conservatism Analysis for Ecological Communities
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB 
-Requires:         R-CRAN-RTMB 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-geiger 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phytools 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-geiger 
 
 %description
-Fit growth models to otoliths and/or tagging data, using the 'RTMB'
-package and maximum likelihood. The otoliths (or similar measurements of
-age) provide direct observed coordinates of age and length. The tagging
-data provide information about the observed length at release and length
-at recapture at a later time, where the age at release is unknown and
-estimated as a vector of parameters. The growth models provided by this
-package can be fitted to otoliths only, tagging data only, or a
-combination of the two. Growth variability can be modelled as constant or
-increasing with length.
+Provides functions for testing phylogenetic niche conservatism, a key
+prerequisite in community assembly studies. The package integrates global
+functional trait data across major taxonomic groups and implements methods
+such as Pagel's Lambda and Blomberg's K to quantify phylogenetic signals
+in ecological communities. Methods are described in Münkemüller et al.
+(2012) <doi:10.1111/j.2041-210X.2012.00196.x>.
 
 %prep
 %setup -q -c -n %{packname}
