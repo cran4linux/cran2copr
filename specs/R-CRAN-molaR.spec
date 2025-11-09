@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  molaR
-%global packver   5.3
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3
+Version:          6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dental Surface Complexity Measurement Tools
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-alphahull 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Rvcg 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-alphahull 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Rvcg 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-htmltools 
 
 %description
 Surface topography calculations of Dirichlet's normal energy, relief

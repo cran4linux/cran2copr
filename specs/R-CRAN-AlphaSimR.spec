@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AlphaSimR
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Breeding Program Simulations
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.500.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.7
+Requires:         R-CRAN-Rdpack 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rdpack 
 
 %description
 The successor to the 'AlphaSim' software for breeding program simulation

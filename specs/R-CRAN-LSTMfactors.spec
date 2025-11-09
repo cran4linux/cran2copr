@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MBSGS
-%global packver   1.2.0
+%global packname  LSTMfactors
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Bayesian Sparse Group Selection with Spike and Slab
+Summary:          Determining the Number of Factors in Exploratory Factor Analysis by LSTM
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-EFAfactors 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-EFAfactors 
 
 %description
-An implementation of a Bayesian sparse group model using spike and slab
-priors in a regression context. It is designed for regression with a
-multivariate response variable, but also provides an implementation for
-univariate response.
+A method for factor retention using a pre-trained Long Short Term Memory
+(LSTM) Network, which is originally developed by Hochreiter and
+Schmidhuber (1997) <doi:10.1162/neco.1997.9.8.1735>, is provided. The
+sample size of the dataset used to train the LSTM model is 1,000,000. Each
+sample is a batch of simulated response data with a specific latent factor
+structure. The eigenvalues of these response data will be used as
+sequential data to train the LSTM. The pre-trained LSTM is capable of
+factor retention for real response data with a true latent factor number
+ranging from 1 to 10, that is, determining the number of factors.
 
 %prep
 %setup -q -c -n %{packname}

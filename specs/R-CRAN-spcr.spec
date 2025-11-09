@@ -1,38 +1,25 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MBSGS
-%global packver   1.2.0
+%global packname  spcr
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Bayesian Sparse Group Selection with Spike and Slab
+Summary:          Sparse Principal Component Regression
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-truncnorm 
 
 %description
-An implementation of a Bayesian sparse group model using spike and slab
-priors in a regression context. It is designed for regression with a
-multivariate response variable, but also provides an implementation for
-univariate response.
+The sparse principal component regression is computed. The regularization
+parameters are optimized by cross-validation.
 
 %prep
 %setup -q -c -n %{packname}

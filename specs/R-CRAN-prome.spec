@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prome
-%global packver   2.0.1.9
+%global packver   3.0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1.9
+Version:          3.0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Patient-Reported Outcome Data Analysis with Stan
 
@@ -22,14 +22,14 @@ BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-BI 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-posterior 
 Requires:         R-methods 
+Requires:         R-CRAN-BI 
 Requires:         R-CRAN-rstantools
 
 %description

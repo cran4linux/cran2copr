@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastJM
-%global packver   1.5.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-survival 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
@@ -43,14 +45,19 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-future.apply 
 
 %description
-Maximum likelihood estimation for the semi-parametric joint modeling of
-competing risks and (multivariate) longitudinal data applying customized
-linear scan algorithms, proposed by Li and colleagues (2022)
-<doi:10.1155/2022/1362913>. The time-to-event data is modelled using a
-(cause-specific) Cox proportional hazards regression model with time-fixed
-covariates. The longitudinal outcome is modelled using a linear mixed
-effects model. The association is captured by shared random effects. The
-model is estimated using an Expectation Maximization algorithm.
+A joint model for large-scale, competing risks time-to-event data with
+singular or multiple longitudinal biomarkers, implemented with the
+efficient algorithms developed by Li and colleagues (2022)
+<doi:10.1155/2022/1362913> and <doi:10.48550/arXiv.2506.12741>. The
+time-to-event data is modelled using a (cause-specific) Cox proportional
+hazards regression model with time-fixed covariates. The longitudinal
+biomarkers are modelled using a linear mixed effects model. The
+association between the longitudinal submodel and the survival submodel is
+captured through shared random effects. It allows researchers to analyze
+large-scale data to model biomarker trajectories, estimate their effects
+on event outcomes, and dynamically predict future events from patients’
+past histories. A function for simulating survival and longitudinal data
+for multiple biomarkers is also included alongside built-in datasets.
 
 %prep
 %setup -q -c -n %{packname}

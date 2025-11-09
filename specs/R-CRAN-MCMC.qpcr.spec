@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MBSGS
-%global packver   1.2.0
+%global packname  MCMC.qpcr
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Bayesian Sparse Group Selection with Spike and Slab
+Summary:          Bayesian Analysis of qRT-PCR Data
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-MCMCglmm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-MCMCglmm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-coda 
 
 %description
-An implementation of a Bayesian sparse group model using spike and slab
-priors in a regression context. It is designed for regression with a
-multivariate response variable, but also provides an implementation for
-univariate response.
+Quantitative RT-PCR data are analyzed using generalized linear mixed
+models based on lognormal-Poisson error distribution, fitted using MCMC.
+Control genes are not required but can be incorporated as Bayesian priors
+or, when template abundances correlate with conditions, as trackers of
+global effects (common to all genes). The package also implements a
+lognormal model for higher-abundance data and a "classic" model involving
+multi-gene normalization on a by-sample basis. Several plotting functions
+are included to extract and visualize results. The detailed tutorial is
+available here:
+<https://matzlab.weebly.com/uploads/7/6/2/2/76229469/mcmc.qpcr.tutorial.v1.2.4.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  guideR
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Statistical Functions Used in 'guide-R'
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-labelled 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-renv 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-stats 
@@ -35,8 +36,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-labelled 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-renv 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-srvyr 
 Requires:         R-stats 

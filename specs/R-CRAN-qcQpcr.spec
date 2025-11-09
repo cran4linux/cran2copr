@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MBSGS
-%global packver   1.2.0
+%global packname  qcQpcr
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Bayesian Sparse Group Selection with Spike and Slab
+Summary:          Histone ChIP-Seq qPCR Analyzer
 
-License:          GPL (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-An implementation of a Bayesian sparse group model using spike and slab
-priors in a regression context. It is designed for regression with a
-multivariate response variable, but also provides an implementation for
-univariate response.
+Quality control of chromatin immunoprecipitation libraries (ChIP-seq) by
+quantitative polymerase chain reaction (qPCR). This function calculates
+Enrichment value with respect to reference for each histone modification
+(specific to 'Vii7' software
+<http://www.thermofisher.com/ca/en/home/life-science/pcr/real-time-pcr/real-time-pcr-instruments/viia-7-real-time-pcr-system/viia-7-software.html>).
+This function is applicable to full panel of histone modifications
+described by International Human Epigenomic Consortium (IHEC).
 
 %prep
 %setup -q -c -n %{packname}

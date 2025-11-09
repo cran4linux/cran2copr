@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MBSGS
-%global packver   1.2.0
+%global packname  gspcr
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Bayesian Sparse Group Selection with Spike and Slab
+Summary:          Generalized Supervised Principal Component Regression
 
-License:          GPL (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-MLmetrics 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-PCAmixdata 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-MLmetrics 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-PCAmixdata 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 
 %description
-An implementation of a Bayesian sparse group model using spike and slab
-priors in a regression context. It is designed for regression with a
-multivariate response variable, but also provides an implementation for
-univariate response.
+Generalization of supervised principal component regression (SPCR; Bair et
+al., 2006, <doi:10.1198/016214505000000628>) to support continuous,
+binary, and discrete variables as outcomes and predictors (inspired by the
+'superpc' R package <https://cran.r-project.org/package=superpc>).
 
 %prep
 %setup -q -c -n %{packname}

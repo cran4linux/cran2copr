@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MBSGS
-%global packver   1.2.0
+%global packname  freqpcr
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Bayesian Sparse Group Selection with Spike and Slab
+Summary:          Estimates Allele Frequency on qPCR DeltaDeltaCq from Bulk Samples
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-truncnorm 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-cubature 
+Requires:         R-methods 
 
 %description
-An implementation of a Bayesian sparse group model using spike and slab
-priors in a regression context. It is designed for regression with a
-multivariate response variable, but also provides an implementation for
-univariate response.
+Interval estimation of the population allele frequency from qPCR analysis
+based on the restriction enzyme digestion (RED)-DeltaDeltaCq method
+(Osakabe et al. 2017, <doi:10.1016/j.pestbp.2017.04.003>), as well as
+general DeltaDeltaCq analysis. Compatible with the Cq measurement of DNA
+extracted from multiple individuals at once, so called "group-testing",
+this model assumes that the quantity of DNA extracted from an individual
+organism follows a gamma distribution. Therefore, the point estimate is
+robust regarding the uncertainty of the DNA yield.
 
 %prep
 %setup -q -c -n %{packname}
