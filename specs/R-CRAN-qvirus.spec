@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qvirus
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantum Computing for Analyzing CD4 Lymphocytes and Antiretroviral Therapy
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 
 %description
 Resources, tutorials, and code snippets dedicated to exploring the

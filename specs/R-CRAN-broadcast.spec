@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  broadcast
-%global packver   0.1.5.3
+%global packver   0.1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.3
+Version:          0.1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadcasted Array Operations Like 'NumPy'
 
@@ -24,21 +24,21 @@ Requires:         R-methods
 %description
 Implements efficient 'NumPy'-like broadcasted operations for atomic and
 recursive arrays. In the context of operations involving 2 (or more)
-arrays, “broadcasting” refers to efficiently recycling array dimensions
-without allocating additional memory. Besides linking to 'Rcpp',
-'broadcast' does not use any external libraries in any way; 'broadcast'
-was essentially made from scratch and can be installed out-of-the-box. The
-implementations available in 'broadcast' include, but are not limited to,
-the following. 1) Broadcasted element-wise operations on any 2 arrays;
-they support a large set of relational, arithmetic, Boolean, string, and
-bit-wise operations. 2) A faster, more memory efficient, and broadcasted
-abind-like function, for binding arrays along an arbitrary dimension. 3)
-Broadcasted ifelse-like, and apply-like functions. 4) Casting functions,
-that cast subset-groups of an array to a new dimension, cast nested lists
-to dimensional lists, and vice-versa. 5) A few linear algebra functions
-for statistics. The functions in the 'broadcast' package strive to
-minimize computation time and memory usage (which is not just better for
-efficient computing, but also for the environment).
+arrays, “broadcasting” refers to efficiently recycling array dimensions,
+without making copies. Besides linking to 'Rcpp', 'broadcast' does not use
+any external libraries in any way; 'broadcast' was essentially made from
+scratch and can be installed out-of-the-box. The implementations available
+in 'broadcast' include, but are not limited to, the following. 1)
+Broadcasted element-wise operations on any 2 arrays; they support a large
+set of relational, arithmetic, Boolean, string, and bit-wise operations.
+2) A faster, more memory efficient, and broadcasted abind-like function,
+for binding arrays along an arbitrary dimension. 3) Broadcasted
+ifelse-like, and apply-like functions. 4) Casting functions, that cast
+subset-groups of an array to a new dimension, cast nested lists to
+dimensional lists, and vice-versa. 5) A few linear algebra functions for
+statistics. The functions in the 'broadcast' package strive to minimize
+computation time and memory usage (which is not just better for efficient
+computing, but also for the environment).
 
 %prep
 %setup -q -c -n %{packname}

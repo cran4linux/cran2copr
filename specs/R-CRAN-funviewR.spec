@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hashmapR
-%global packver   1.0.1
+%global packname  funviewR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast, Vectorized Hashmap
+Summary:          Visualize Function Call Dependencies in R Source Code
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-codetools 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-magrittr 
 
 %description
-A fast, vectorized hashmap that is built on top of 'C++'
-std::unordered_map
-<https://en.cppreference.com/w/cpp/container/unordered_map.html>. The map
-can hold any 'R' object as key / value as long as it is serializable and
-supports vectorized insertion, lookup, and deletion.
+Provides tools to analyze R source code and detect function definitions
+and their internal dependencies across multiple files. Creates interactive
+network visualizations using 'visNetwork' to display function call
+relationships, with detailed tooltips showing function arguments, return
+values, and documentation. Supports both individual files and
+directory-based analysis with automatic file detection. Useful for
+understanding code structure, identifying dependencies, and documenting R
+projects.
 
 %prep
 %setup -q -c -n %{packname}

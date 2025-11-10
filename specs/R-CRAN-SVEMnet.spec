@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   2.3.1
+%global packver   2.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Validated Ensemble Models with Lasso and Relaxed Elastic Net Regression
 
@@ -14,26 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 4.1.4
+BuildRequires:    R-CRAN-glmnet >= 4.1.6
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
-Requires:         R-CRAN-glmnet >= 4.1.4
+Requires:         R-CRAN-glmnet >= 4.1.6
 Requires:         R-stats 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
 Requires:         R-parallel 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
@@ -44,8 +48,10 @@ Implements Self-Validated Ensemble Models (SVEM; Lemkus et al. (2021)
 'glmnet' (Friedman et al. (2010) <doi:10.18637/jss.v033.i01>). SVEM
 averages predictions from multiple models fitted to fractionally weighted
 bootstraps of the data, tuned with anti-correlated validation weights.
-Also implements the randomized permutation whole-model test for SVEM (Karl
-(2024) <doi:10.1016/j.chemolab.2024.105122>).
+Supports Gaussian and binomial responses. Also implements the randomized
+permutation whole-model test for SVEM with Gaussian responses (Karl (2024)
+<doi:10.1016/j.chemolab.2024.105122>). Some parts of the package code were
+drafted with assistance from generative AI tools.
 
 %prep
 %setup -q -c -n %{packname}

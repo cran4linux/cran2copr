@@ -1,50 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  covr
-%global packver   3.6.5
+%global packname  npANCOVA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Coverage for Packages
+Summary:          Nonparametric ANCOVA Methods
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-withr >= 1.0.2
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rex 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-withr >= 1.0.2
-Requires:         R-methods 
-Requires:         R-CRAN-digest 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rex 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-yaml 
 
 %description
-Track and report code coverage for your package and (optionally) upload
-the results to a coverage service like 'Codecov'
-<https://about.codecov.io> or 'Coveralls' <https://coveralls.io>. Code
-coverage is a measure of the amount of code being exercised by a set of
-tests. It is an indirect measure of test quality and completeness. This
-package is compatible with any testing methodology or framework and tracks
-coverage of both R code and compiled C/C++/FORTRAN code.
+Nonparametric methods for analysis of covariance (ANCOVA) are
+distribution-free and provide a flexible statistical framework for
+situations where the assumptions of parametric ANCOVA are violated or when
+the response variable is ordinal. This package implements several
+well-known nonparametric ANCOVA procedures, including Quade, Puri and Sen,
+McSweeney and Porter, Burnett and Barr, Hettmansperger and McKean,
+Shirley, and Puri-Sen-Harwell-Serlin. The package provides user-friendly
+functions to apply these methods in practice.
 
 %prep
 %setup -q -c -n %{packname}

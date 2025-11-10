@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tican
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot and Analyse Time-Intensity Data
 
@@ -21,7 +21,7 @@ BuildArch:        noarch
 %description
 Plots and analyzes time-intensity curve data, such as data from
 (contrast-enhanced) ultrasound. Values such as peak intensity, time to
-peak and area under the curve are calculated.
+peak, area under the curve, wash in rate and wash out rate are calculated.
 
 %prep
 %setup -q -c -n %{packname}

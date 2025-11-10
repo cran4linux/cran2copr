@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  covr
-%global packver   3.6.5
+%global packname  ffm
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Coverage for Packages
+Summary:          Download Official Spatial Data from Germany
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-withr >= 1.0.2
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rex 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-withr >= 1.0.2
-Requires:         R-methods 
-Requires:         R-CRAN-digest 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rex 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-sf 
 
 %description
-Track and report code coverage for your package and (optionally) upload
-the results to a coverage service like 'Codecov'
-<https://about.codecov.io> or 'Coveralls' <https://coveralls.io>. Code
-coverage is a measure of the amount of code being exercised by a set of
-tests. It is an indirect measure of test quality and completeness. This
-package is compatible with any testing methodology or framework and tracks
-coverage of both R code and compiled C/C++/FORTRAN code.
+Provides quick and easy access to official spatial data from Germany’s
+Federal Agency for Cartography and Geodesy (BKG)
+<https://gdz.bkg.bund.de/>. Interfaces various web feature services (WFS)
+and download servers. Allows retrieval, caching and filtering with a wide
+range of open geodata products, including administrative or
+non-administrative boundaries, land cover, elevation models, geographic
+names, and points of interest covering Germany. Can be particularly useful
+for linking regional statistics to their spatial representations and
+streamlining workflows that involve spatial data of Germany.
 
 %prep
 %setup -q -c -n %{packname}

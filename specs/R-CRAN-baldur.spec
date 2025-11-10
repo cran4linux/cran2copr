@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baldur
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Modeling for Label-Free Proteomics
 
@@ -70,7 +70,7 @@ distribution (by Hamiltonian Monte Carlo) for the differences in means for
 each peptide in the data. Once the posterior is inferred, it integrates
 the tails to estimate the probability of error from which a statistical
 decision can be made. See Berg and Popescu for details
-(<doi:10.1101/2023.05.11.540411>).
+(<doi:10.1016/j.mcpro.2023.100658>).
 
 %prep
 %setup -q -c -n %{packname}

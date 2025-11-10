@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  longsurr
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Longitudinal Surrogate Marker Analysis
 
@@ -40,6 +40,8 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-refund 
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-fda.usc 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-stringr 
 Requires:         R-splines 
 Requires:         R-CRAN-mgcv 
@@ -63,11 +65,16 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-refund 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-fda.usc 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MASS 
 
 %description
 Assess the proportion of treatment effect explained by a longitudinal
 surrogate marker as described in Agniel D and Parast L (2021)
-<doi:10.1111/biom.13310>.
+<doi:10.1111/biom.13310>; and estimate the treatment effect on a
+longitudinal surrogate marker as described in Wang et al. (2025)
+<doi:10.1093/biomtc/ujaf104>. A tutorial for this package can be found at
+<https://www.laylaparast.com/longsurr>.
 
 %prep
 %setup -q -c -n %{packname}

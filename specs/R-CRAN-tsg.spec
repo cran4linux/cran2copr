@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  infectiousR
-%global packver   0.1.1
+%global packname  tsg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Infectious and Epidemiological Data via 'disease.sh API'
+Summary:          Generate Publication-Ready Statistical Tables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-yaml >= 2.3.10
+BuildRequires:    R-CRAN-jsonlite >= 2.0.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-yaml >= 2.3.10
+Requires:         R-CRAN-jsonlite >= 2.0.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-glue 
 
 %description
-Provides functions to access real-time infectious disease data from the
-'disease.sh API', including COVID-19 global, US states, continent, and
-country statistics, vaccination coverage, influenza-like illness data from
-the Centers for Disease Control and Prevention (CDC), and more. Also
-includes curated datasets on a variety of infectious diseases such as
-influenza, measles, dengue, Ebola, tuberculosis, meningitis, AIDS, and
-others. The package supports epidemiological research and data analysis by
-combining API access with high-quality historical and survey datasets on
-infectious diseases. For more details on the 'disease.sh API', see
-<https://disease.sh/>.
+A collection of functions for generating frequency tables and
+cross-tabulations of categorical variables. The resulting tables can be
+exported to various formats (Excel, PDF, HTML, etc.) with extensive
+formatting and layout customization options.
 
 %prep
 %setup -q -c -n %{packname}

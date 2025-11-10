@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyseurat
-%global packver   0.8.4
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Brings Seurat to the Tidyverse
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-Seurat >= 4.3.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.4
@@ -59,6 +60,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fansi 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-generics 
 
 %description
 It creates an invisible layer that allow to see the 'Seurat' object as

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDatanet
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Econometrics of Network Data
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-ddpcr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-foreach 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-RcppEigen
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-ddpcr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-foreach 
@@ -47,7 +45,7 @@ Simulating and estimating peer effect models and network formation models.
 The class of peer effect models includes linear-in-means models (Lee,
 2004; <doi:10.1111/j.1468-0262.2004.00558.x>), Tobit models (Xu and Lee,
 2015; <doi:10.1016/j.jeconom.2015.05.004>), and discrete numerical data
-models (Houndetoungan, 2024; <doi:10.2139/ssrn.3721250>). The network
+models (Houndetoungan, 2025; <doi:10.48550/arXiv.2405.17290>). The network
 formation models include pair-wise regressions with degree heterogeneity
 (Graham, 2017; <doi:10.3982/ECTA12679>) and exponential random graph
 models (Mele, 2017; <doi:10.3982/ECTA10400>).

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hashmapR
-%global packver   1.0.1
+%global packname  shinyfa
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast, Vectorized Hashmap
+Summary:          Analyze the File Contents of 'shiny' Directories
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,13 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringr 
 
 %description
-A fast, vectorized hashmap that is built on top of 'C++'
-std::unordered_map
-<https://en.cppreference.com/w/cpp/container/unordered_map.html>. The map
-can hold any 'R' object as key / value as long as it is serializable and
-supports vectorized insertion, lookup, and deletion.
+Provides tools for analyzing and understanding the file contents of large
+'shiny' application directories. The package extracts key information
+about render functions, reactive functions, and their inputs from app
+files, organizing them into structured data frames for easy reference.
+This streamlines the onboarding process for new contributors and helps
+identify areas for optimization in complex 'shiny' codebases with multiple
+files and sourcing chains.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaquant
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Means, Standard Deviations and Visualising Distributions using Quantiles
+Summary:          Meta-Analysis of Quantiles and Functions of Quantiles
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-estmeansd 
+BuildRequires:    R-CRAN-metafor 
 Requires:         R-CRAN-gld 
 Requires:         R-CRAN-sld 
 Requires:         R-stats 
@@ -33,14 +34,16 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-estmeansd 
+Requires:         R-CRAN-metafor 
 
 %description
-Implements a novel density-based approach for estimating unknown means,
-visualizing distributions, and meta-analyses of quantiles. A detailed
-vignettes with example datasets and code to prepare data and analyses is
-available at <https://bookdown.org/a2delivera/metaquant/>. The methods are
-described in the pre-print by De Livera, Prendergast and Kumaranathunga
-(2024, <doi:10.48550/arXiv.2411.10971>).
+Implements a novel density-based approach for estimating unknown
+parameters, distribution visualisations and meta-analyses of quantiles and
+ther functions. A detailed vignettes with example datasets and code to
+prepare data and analyses is available at
+<https://bookdown.org/a2delivera/metaquant/>. The methods are described in
+the pre-print by De Livera, Prendergast and Kumaranathunga (2024,
+<doi:10.48550/arXiv.2411.10971>).
 
 %prep
 %setup -q -c -n %{packname}
