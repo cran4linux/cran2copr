@@ -130,7 +130,8 @@ available_packages <- function(...) {
   cran[!duplicated(cran[, "Package"]), ]
 }
 
-with_deps <- function(pkgs, cran=available_packages(), reverse=FALSE) {
+with_deps <- function(pkgs, cran=available_packages(),
+                      which="strong", recursive=TRUE, reverse=FALSE) {
   if (!length(pkgs)) return(list())
 
   base <- rownames(installed.packages(priority="base"))
@@ -155,7 +156,8 @@ with_deps <- function(pkgs, cran=available_packages(), reverse=FALSE) {
     pkgs <- pkgs[avail]
   }
 
-  deps <- tools::package_dependencies(pkgs, db=cran, recursive=TRUE, reverse=reverse)
+  deps <- tools::package_dependencies(
+    pkgs, db=cran, which=which, recursive=recursive, reverse=reverse)
 
   avail <- sapply(deps, function(i) all(setdiff(i, base) %in% cran[,"Package"]))
   if (any(!avail))
@@ -174,6 +176,15 @@ with_deps <- function(pkgs, cran=available_packages(), reverse=FALSE) {
   }
 
   setdiff(unique(c(names(deps), unlist(deps))), base)
+}
+
+with_rebuild_deps <- function(pkgs, cran=available_packages()) {
+  if (!length(pkgs)) return(list())
+
+  rebl <- intersect(pkgs, readLines("rebuild-deps.txt"))
+  deps <- with_deps(rebl, cran, which="LinkingTo", recursive=FALSE, reverse=TRUE)
+
+  unique(c(pkgs, deps))
 }
 
 get_build_list <- function(pkgs, cran=available_packages()) {

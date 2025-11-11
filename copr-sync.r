@@ -10,6 +10,7 @@ copr <- get_copr_list()
 pkgs.del <- copr[!copr %in% cran[,"Package"]]
 pkgs <- with_deps(cran[,"Package"], cran)
 pkgs.add <- pkgs[need_update(pkgs, cran)]
+pkgs.add <- with_rebuild_deps(pkgs.add, cran)
 
 if (length(pkgs.del))
   script_call("./copr-delete.r", paste(pkgs.del, collapse=" "))
