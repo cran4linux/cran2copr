@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prioritizr
-%global packver   8.0.6
+%global packver   8.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.6
+Version:          8.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Conservation Prioritization in R
 
@@ -24,16 +24,16 @@ BuildRequires:    R-CRAN-withr >= 2.3.0
 BuildRequires:    R-CRAN-igraph >= 2.0.3
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-tibble >= 2.0.0
+BuildRequires:    R-CRAN-terra >= 1.8.54
 BuildRequires:    R-CRAN-BH >= 1.75.0.0
-BuildRequires:    R-CRAN-terra >= 1.6.53
 BuildRequires:    R-CRAN-Matrix >= 1.3.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-sf >= 1.0.12
+BuildRequires:    R-CRAN-units >= 0.8.7
 BuildRequires:    R-CRAN-exactextractr >= 0.8.1
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.3.0
-BuildRequires:    R-CRAN-slam >= 0.1.48
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
@@ -45,13 +45,13 @@ Requires:         R-CRAN-withr >= 2.3.0
 Requires:         R-CRAN-igraph >= 2.0.3
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-tibble >= 2.0.0
-Requires:         R-CRAN-terra >= 1.6.53
+Requires:         R-CRAN-terra >= 1.8.54
 Requires:         R-CRAN-Matrix >= 1.3.0
-Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.12
+Requires:         R-CRAN-units >= 0.8.7
 Requires:         R-CRAN-exactextractr >= 0.8.1
 Requires:         R-CRAN-assertthat >= 0.2.0
-Requires:         R-CRAN-slam >= 0.1.48
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-parallel 
@@ -77,7 +77,7 @@ and the 'cplexAPI' R package (available at
 (available at <https://github.com/dirkschumacher/rcbc>) can be used to
 generate solutions using the CBC optimization software
 (<https://github.com/coin-or/Cbc>). For further details, see Hanson et al.
-(2024) <doi:10.1111/cobi.14376>.
+(2025) <doi:10.1111/cobi.14376>.
 
 %prep
 %setup -q -c -n %{packname}

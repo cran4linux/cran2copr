@@ -1,48 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CIpostSelect
-%global packver   0.2.2
+%global packname  clifford
+%global packver   1.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confidence Interval Post-Selection of Variable
+Summary:          Arbitrary Dimensional Clifford Algebras
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-partitions >= 1.10.4
+BuildRequires:    R-CRAN-freealg >= 1.0.4
+BuildRequires:    R-CRAN-disordR >= 0.9.8.4
+BuildRequires:    R-CRAN-Rcpp >= 0.12.5
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mlbench 
-BuildRequires:    R-CRAN-tictoc 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-partitions >= 1.10.4
+Requires:         R-CRAN-freealg >= 1.0.4
+Requires:         R-CRAN-disordR >= 0.9.8.4
+Requires:         R-CRAN-Rcpp >= 0.12.5
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mlbench 
-Requires:         R-CRAN-tictoc 
+Requires:         R-methods 
 
 %description
-Calculates confidence intervals after variable selection using repeated
-data splits. The package offers methods to address the challenges of
-post-selection inference, ensuring more accurate confidence intervals in
-models involving variable selection. The two main functions are 'lmps',
-which records the different models selected across multiple data splits as
-well as the corresponding coefficient estimates, and 'cips', which takes
-the lmps object as input to select variables and perform inferences using
-two types of voting.
+A suite of routines for Clifford algebras, using the 'Map' class of the
+Standard Template Library.  Canonical reference: Hestenes (1987, ISBN
+90-277-1673-0, "Clifford algebra to geometric calculus").  Special cases
+including Lorentz transforms, quaternion multiplication, and Grassmann
+algebra, are discussed. Vignettes presenting conformal geometric algebra,
+quaternions and split quaternions, dual numbers, and Lorentz transforms
+are included.  The package follows 'disordR' discipline.
 
 %prep
 %setup -q -c -n %{packname}

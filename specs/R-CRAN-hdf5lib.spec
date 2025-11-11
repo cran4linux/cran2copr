@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  elliptic
-%global packver   1.5-1
+%global packname  hdf5lib
+%global packver   1.14.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.14.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weierstrass and Jacobi Elliptic Functions
+Summary:          Headers and Static Libraries for 'HDF5'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pari-gp
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 
 %description
-A suite of elliptic and related functions including Weierstrass and Jacobi
-forms.  Also includes various tools for manipulating and visualizing
-complex functions.
+'HDF5' (Hierarchical Data Format 5) is a high-performance library and file
+format for storing and managing large, complex data. This package provides
+the static libraries and headers for the 'HDF5' 'C' library (release
+1.14.6). It is intended for R package developers to use in the 'LinkingTo'
+field, which eliminates the need for users to install system-level 'HDF5'
+dependencies. This build is compiled with thread-safety enabled and
+supports dynamic loading of external compression filters. 'HDF5' is
+developed by 'The HDF Group' <https://www.hdfgroup.org/>.
 
 %prep
 %setup -q -c -n %{packname}

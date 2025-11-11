@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dipm
-%global packver   1.11
+%global packver   1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11
+Version:          1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Depth Importance in Precision Medicine (DIPM) Method
 
@@ -21,12 +21,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grid 
 Requires:         R-CRAN-partykit >= 1.2.6
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 Requires:         R-grid 
 
 %description

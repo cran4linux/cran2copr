@@ -1,43 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggmosaic
-%global packver   0.3.3
+%global __requires_exclude ^libmpi
+%global packname  worldbank
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mosaic Plots in the 'ggplot2' Framework
+Summary:          Client for World Banks's 'Indicators' and 'Poverty and Inequality Platform (PIP)' APIs
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly >= 4.5.5
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-productplots 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-plotly >= 4.5.5
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-productplots 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-tools 
+Requires:         R-CRAN-httr2 >= 1.1.0
+Requires:         R-tools 
 
 %description
-Mosaic plots in the 'ggplot2' framework. Mosaic plot functionality is
-provided in a single 'ggplot2' layer by calling the geom 'mosaic'.
+Download and search data from the 'World Bank Indicators API', which
+provides access to nearly 16,000 time series indicators. See
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation>
+for further details about the API.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

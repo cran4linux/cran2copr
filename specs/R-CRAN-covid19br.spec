@@ -1,68 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nzilbb.vowels
-%global packver   0.4.1
+%global packname  covid19br
+%global packver   1.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vowel Covariation Tools
+Summary:          Brazilian COVID-19 Pandemic Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gghalves 
-BuildRequires:    R-CRAN-smacof 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rsample 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gghalves 
-Requires:         R-CRAN-smacof 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-vegan 
 
 %description
-Tools to support research on vowel covariation. Methods are provided to
-support Principal Component Analysis workflows (as in Brand et al. (2021)
-<doi:10.1016/j.wocn.2021.101096> and Wilson Black et al. (2023)
-<doi:10.1515/lingvan-2022-0086>).
+Set of functions to import COVID-19 pandemic data into R. The Brazilian
+COVID-19 data, obtained from the official Brazilian repository at
+<https://covid.saude.gov.br/>, is available at the country, region, state,
+and city levels. The package also downloads world-level COVID-19 data from
+Johns Hopkins University's repository. COVID-19 data is available from the
+start of follow-up until to May 5, 2023, when the World Health
+Organization (WHO) declared an end to the Public Health Emergency of
+International Concern (PHEIC) for COVID-19.
 
 %prep
 %setup -q -c -n %{packname}

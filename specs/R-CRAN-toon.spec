@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tvmediation
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  toon
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Varying Mediation Analysis
+Summary:          Token-Oriented Object Notation (TOON)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.0.2
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-locpol >= 0.7.0
-Requires:         R-stats >= 4.0.2
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-locpol >= 0.7.0
 
 %description
-Provides functions for estimating mediation effects that vary over time as
-described in Cai X, Coffman DL, Piper ME, Li R. Estimation and inference
-for the mediation effect in a time-varying mediation model. BMC Med Res
-Methodol. 2022;22(1):1-12.
+Token-Oriented Object Notation (TOON) is a compact, human-readable
+serialization format designed for passing structured data to Large
+Language Models with significantly reduced token usage. It's intended for
+LLM input as a lossless, drop-in representation of JSON data.
 
 %prep
 %setup -q -c -n %{packname}

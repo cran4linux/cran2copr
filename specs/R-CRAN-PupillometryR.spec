@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PupillometryR
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Pipeline for Pupillometry Data
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-itsadug 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-stats 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-fda 
-Requires:         R-CRAN-itsadug 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-signal 
 Requires:         R-stats 

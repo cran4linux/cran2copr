@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riemtan
-%global packver   0.1.0
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Riemannian Metrics for Symmetric Positive Definite Matrices
 
@@ -16,31 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-expm 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Implements various Riemannian metrics for symmetric positive definite
-matrices, including AIRM (Affine Invariant Riemannian Metric, see Pennec,
-Fillard, and Ayache (2006) <doi:10.1007/s11263-005-3222-z>), Log-Euclidean
-(see Arsigny, Fillard, Pennec, and Ayache (2006) <doi:10.1002/mrm.20965>),
-Euclidean, Log-Cholesky (see Lin (2019) <doi:10.1137/18M1221084>), and
-Bures-Wasserstein metrics (see Bhatia, Jain, and Lim (2019)
-<doi:10.1016/j.exmath.2018.01.002>). Provides functions for computing
-logarithmic and exponential maps, vectorization, and statistical
+matrices, including AIRM (Affine Invariant Riemannian Metric,
+<doi:10.1007/s11263-005-3222-z>), Log-Euclidean (<doi:10.1002/mrm.20965>),
+Euclidean, Log-Cholesky (<doi:10.1137/18M1221084>), and Bures-Wasserstein
+metrics (<doi:10.1016/j.exmath.2018.01.002>). Provides functions for
+computing logarithmic and exponential maps, vectorization, and statistical
 operations on the manifold of positive definite matrices.
 
 %prep

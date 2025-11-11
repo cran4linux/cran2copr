@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gsl
-%global packver   2.1-8
+%global packver   2.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.8
+Version:          2.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper for the Gnu Scientific Library
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    gsl-devel
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 
 %description
 An R wrapper for some of the functionality of the Gnu Scientific Library.

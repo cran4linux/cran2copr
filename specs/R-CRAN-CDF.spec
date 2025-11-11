@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bcfrailph
-%global packver   0.1.1
+%global packname  CDF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semiparametric Bivariate Correlated Frailty Models Fit
+Summary:          Centroid Decision Forest for High-Dimensional Classification
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-survival 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-utils 
 
 %description
-Fit and simulate a semiparametric bivariate correlated frailty models with
-proportional hazard structure. Frailty distributions, such as gamma and
-lognormal models are supported. Bivariate gamma fit is obtained using the
-approach given in Iachine (1995) and lognormal fit is based on the
-approach by Ripatti and Palmgren (2000)
-<doi:10.1111/j.0006-341X.2000.01016.x>.
+Implements the Centroid Decision Forest (CDF) as a single user-facing
+function CDF(). The method selects discriminative features via a
+multi-class class separability score (CSS), splits by nearest class
+centroid, and aggregates tree votes to produce predictions and class
+probabilities. Returns CSS-based feature importance as well. Amjad Ali,
+Saeed Aldahmani, Zardad Khan (2025) <doi:10.48550/arXiv.2503.19306>.
 
 %prep
 %setup -q -c -n %{packname}
