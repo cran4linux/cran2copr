@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  ReliaShiny
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          A 'Shiny' App for Reliability Analysis
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ReliaGrowR 
+BuildRequires:    R-CRAN-ReliaPlotR 
+BuildRequires:    R-CRAN-WeibullR 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyWidgets 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ReliaGrowR 
+Requires:         R-CRAN-ReliaPlotR 
+Requires:         R-CRAN-WeibullR 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyWidgets 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+An interactive web application for reliability analysis using the 'shiny'
+<https://shiny.posit.co/> framework. The app provides an easy-to-use
+interface for performing reliability analysis using 'WeibullR'
+<https://cran.r-project.org/package=WeibullR> and 'ReliaGrowR'
+<https://cran.r-project.org/package=ReliaGrowR>.
 
 %prep
 %setup -q -c -n %{packname}

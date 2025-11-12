@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  OmicsPrepR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          Unified Preprocessing Toolkit for Proteomics and Metabolomics
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+Provides unified workflows for quality control, normalization, and
+visualization of proteomic and metabolomic data. The package simplifies
+preprocessing through automated imputation, scaling, and principal
+component analysis (PCA)-based exploratory analysis, enabling researchers
+to prepare omics datasets efficiently for downstream statistical and
+machine learning analyses.
 
 %prep
 %setup -q -c -n %{packname}

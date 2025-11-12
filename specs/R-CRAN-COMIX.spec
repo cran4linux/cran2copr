@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  COMIX
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coarsened Mixtures of Hierarchical Skew Kernels
 
@@ -39,7 +39,7 @@ Requires:         R-methods
 %description
 Bayesian fit of a Dirichlet Process Mixture with hierarchical multivariate
 skew normal kernels and coarsened posteriors. For more information, see
-Gorsky, Chan and Ma (2020) <arXiv:2001.06451>.
+Gorsky, Chan and Ma (2024) <doi:10.1214/22-BA1356>.
 
 %prep
 %setup -q -c -n %{packname}

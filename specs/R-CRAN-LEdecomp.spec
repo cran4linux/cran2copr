@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  LEdecomp
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          Decompose Life Expectancy by Age (and Cause)
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-DemoDecomp 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-DemoDecomp 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+A set of all-cause and cause-specific life expectancy sensitivity and
+decomposition methods, including Arriaga (1984) <doi:10.2307/2061029>,
+others documented by Ponnapalli (2005) <doi:10.4054/DemRes.2005.12.7>,
+lifetable, numerical, and other algorithmic approaches such as Horiuchi et
+al (2008) <doi:10.1353/dem.0.0033>, or Andreev et al (2002)
+<doi:10.4054/DemRes.2002.7.14>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hdf5lib
-%global packver   1.14.6.4
+%global packname  fwtraits
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14.6.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Headers and Static Libraries for 'HDF5'
+Summary:          Extract Species Ecological Parameters from Www.freshwaterecology.info
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-R.cache 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-R.cache 
 
 %description
-'HDF5' (Hierarchical Data Format 5) is a high-performance library and file
-format for storing and managing large, complex data. This package provides
-the static libraries and headers for the 'HDF5' 'C' library (release
-1.14.6). It is intended for R package developers to use in the 'LinkingTo'
-field, which eliminates the need for users to install system-level 'HDF5'
-dependencies. This build is compiled with thread-safety enabled and
-supports dynamic loading of external compression filters. 'HDF5' is
-developed by 'The HDF Group' <https://www.hdfgroup.org/>.
+Support the extraction and seamless integration of species ecological
+traits or preferences from the www.freshwaterecology.info into several
+ecological model workflows. During data extraction, different taxonomic
+levels are acceptable, including species, genus, and family, based on the
+availability of data in the database. The data is cached after the first
+search and can be accessed during and after online interactions. Only
+scientific names are acceptable in the search; local or English names are
+not allowed. A user API key is required to start using the package.
 
 %prep
 %setup -q -c -n %{packname}

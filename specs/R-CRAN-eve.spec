@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  eve
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          The Eigenvalues Entropy as a Classifier Evaluation Measure
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+The confusion matrix (CM) is used to get a classifier's evaluation measure
+in order to select a method among many. A stochastic matrix and its
+transformation are computed from the CM. The eigenvalues of the
+transformed symmetric matrix are used to get an entropy which appears to
+be a good evaluation measure. Many other measures, commonly used, are
+provided for comparison purpose.
 
 %prep
 %setup -q -c -n %{packname}

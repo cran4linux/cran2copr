@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  ISCAM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          Companion to the Book "Investigating Statistical Concepts, Applications, and Methods"
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-stats 
 Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+Introductory statistics methods to accompany "Investigating Statistical
+Concepts, Applications, and Methods" (ISCAM) by Beth Chance & Allan
+Rossman (2024) <https://rossmanchance.com/iscam4/>. Tools to introduce
+statistical concepts with a focus on simulation approaches. Functions are
+verbose, designed to provide ample output for students to understand what
+each function does. Additionally, most functions are accompanied with
+plots. The package is designed to be used in an educational setting
+alongside the ISCAM textbook.
 
 %prep
 %setup -q -c -n %{packname}

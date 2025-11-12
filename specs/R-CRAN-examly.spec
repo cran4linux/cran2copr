@@ -1,46 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FSinR
-%global packver   2.0.10
+%global packname  examly
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Feature Selection in R
+Summary:          Statistical Metrics and Reporting Tool
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-prodlim 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-e1071 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-GA 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-prodlim 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-htmltools 
 
 %description
-Feature subset selection algorithms modularized in search algorithms and
-measure utilities.
+A 'Shiny'-based toolkit for item/test analysis. It is designed for
+multiple-choice, true-false, and open-ended questions. The toolkit is
+usable with datasets in 1-0 or other formats. Key analyses include
+difficulty, discrimination, response-option analysis, reports. The
+classical test theory methods used are described in Ebel & Frisbie (1991,
+ISBN:978-0132892314).
 
 %prep
 %setup -q -c -n %{packname}

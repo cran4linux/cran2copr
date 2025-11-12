@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  baserater
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          Base-Rate Item Evaluation and Typicality Scoring Using Large Language Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr2 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+Download typicality rating datasets, generate new stereotype-based
+typicality ratings using large language models via the Inference Providers
+API (<https://huggingface.co/docs/inference-providers>), and evaluate them
+against human-annotated validation data. Also includes functions to
+extract stereotype strength and base-rate items from typicality matrices.
+For more details see Beucler et al. (2025) <doi:10.31234/osf.io/eqrfu_v1>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  xRing
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify and Measure Tree Rings on X-Ray Micro-Density Profiles
 
@@ -18,11 +19,11 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplR 
 BuildRequires:    R-CRAN-imager 
-BuildRequires:    R-CRAN-tcltk2 
+BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-tkRplotR 
 Requires:         R-CRAN-dplR 
 Requires:         R-CRAN-imager 
-Requires:         R-CRAN-tcltk2 
+Requires:         R-tcltk 
 Requires:         R-CRAN-tkRplotR 
 
 %description

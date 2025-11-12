@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FSinR
-%global packver   2.0.10
+%global packname  powerprior
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Feature Selection in R
+Summary:          Conjugate Power Priors for Bayesian Analysis of Normal Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-prodlim 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-e1071 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-GA 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-prodlim 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-e1071 
 
 %description
-Feature subset selection algorithms modularized in search algorithms and
-measure utilities.
+Implements conjugate power priors for efficient Bayesian analysis of
+normal data. Power priors allow principled incorporation of historical
+information while controlling the degree of borrowing through a
+discounting parameter (Ibrahim and Chen (2000)
+<doi:10.1214/ss/1009212519>). This package provides closed-form conjugate
+representations for both univariate and multivariate normal data using
+Normal-Inverse-Chi-squared and Normal-Inverse-Wishart distributions,
+eliminating the need for MCMC sampling. The conjugate framework builds
+upon standard Bayesian methods described in Gelman et al. (2013,
+ISBN:978-1439840955).
 
 %prep
 %setup -q -c -n %{packname}

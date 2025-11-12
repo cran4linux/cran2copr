@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  vws
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          Vertical Weighted Strips
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-fntl 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-fntl 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+A reference implementation of the Vertical Weighted Strips method explored
+by Raim, Livsey, and Irimata (2025) <doi:10.48550/arXiv.2401.09696> for
+rejection sampling.
 
 %prep
 %setup -q -c -n %{packname}

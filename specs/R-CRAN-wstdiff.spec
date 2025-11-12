@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  wstdiff
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          Welch-Satterthwaite Approximation for t-Distribution Differences
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+Implements the Welch-Satterthwaite approximation for differences of
+non-standardized t-distributed random variables in both univariate and
+multivariate settings. The package provides methods for computing
+effective degrees of freedom and scale parameters, as well as distribution
+functions for the approximated difference distribution. The methodology
+extends the classical Welch-Satterthwaite framework from variance
+combinations to t-distribution differences through careful moment
+matching. Methods build on the classical Welch-Satterthwaite approach
+described in Welch (1947) <doi:10.1093/biomet/34.1-2.28> and Satterthwaite
+(1946) <doi:10.2307/3002019>.
 
 %prep
 %setup -q -c -n %{packname}

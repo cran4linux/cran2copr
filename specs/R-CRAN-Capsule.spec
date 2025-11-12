@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  Capsule
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          Comprehensive Reproducibility Framework for R and Bioinformatics Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-cli 
 Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+A comprehensive reproducibility framework designed for R and
+bioinformatics workflows. Automatically captures the entire analysis
+environment including R session info, package versions, external tool
+versions ('Samtools', 'STAR', 'BWA', etc.), 'conda' environments,
+reference genomes, data provenance with smart checksumming for large
+files, parameter choices, random seeds, and hardware specifications.
+Generates executable scripts with 'Docker', 'Singularity', and 'renv'
+configurations. Integrates with workflow managers ('Nextflow',
+'Snakemake', 'WDL', 'CWL') to ensure complete reproducibility of
+computational research workflows.
 
 %prep
 %setup -q -c -n %{packname}

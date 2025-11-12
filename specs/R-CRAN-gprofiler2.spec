@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gprofiler2
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'g:Profiler' Toolset
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-RCurl 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-grid 
 Requires:         R-CRAN-viridisLite 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-curl 
 
 %description
 A toolset for functional enrichment analysis and visualization,

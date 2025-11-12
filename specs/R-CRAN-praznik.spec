@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  praznik
-%global packver   11.0.0
+%global packver   12.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.0.0
+Version:          12.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Information-Based Feature Selection and Scoring
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 
 %description
 A toolbox of fast, native and parallel implementations of various

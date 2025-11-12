@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcifer
-%global packver   1.5.0
+%global packname  MRStdCRT
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Relatedness Between Polyclonal Infections
+Summary:          Model-Robust Standardization in Cluster-Randomized Trials
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nlme >= 3.1.150
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-geepack >= 1.3.2
+BuildRequires:    R-CRAN-lme4 >= 1.1.25
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+Requires:         R-CRAN-nlme >= 3.1.150
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-geepack >= 1.3.2
+Requires:         R-CRAN-lme4 >= 1.1.25
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
-An implementation of Dcifer (Distance for complex infections: fast
-estimation of relatedness), an identity by descent (IBD) based method to
-calculate genetic relatedness between polyclonal infections from biallelic
-and multiallelic data. The package includes functions that format and
-preprocess the data, implement the method, and visualize the results.
-Gerlovina et al. (2022) <doi:10.1093/genetics/iyac126>.
+Implements model-robust standardization for cluster-randomized trials
+(CRTs). Provides functions that standardize user-specified regression
+models to estimate marginal treatment effects. The targets include the
+cluster-average and individual-average treatment effects, with utilities
+for variance estimation and example simulation datasets. Methods are
+described in Li, Tong, Fang, Cheng, Kahan, and Wang (2025)
+<doi:10.1002/sim.70270>.
 
 %prep
 %setup -q -c -n %{packname}

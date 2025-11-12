@@ -1,65 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quollr
-%global packver   1.0.1
+%global packname  DIVINE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualising How Nonlinear Dimension Reduction Warps Your Data
+Summary:          Curated Datasets and Tools for Epidemiological Data Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-interp >= 1.1.6
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fmsb 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-langevitour 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-interp >= 1.1.6
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fmsb 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-langevitour 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rsample 
-Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 
 %description
-To construct a model in 2-D space from 2-D nonlinear dimension reduction
-data and then lift it to the high-dimensional space. Additionally,
-provides tools to visualise the model overlay the data in 2-D and
-high-dimensional space. Furthermore, provides summaries and diagnostics to
-evaluate the nonlinear dimension reduction layout.
+Curated datasets and intuitive data management functions to streamline
+epidemiological data workflows. It is designed to support researchers in
+quickly accessing clean, structured data and applying essential cleaning,
+summarizing, visualization, and export operations with minimal effort.
+Whether you're preparing a cohort for analysis or creating reports,
+'DIVINE' makes the process more efficient, transparent, and reproducible.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wbids
-%global packver   1.1.1
+%global packname  sdstudio
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless Access to World Bank International Debt Statistics (IDS)
+Summary:          Companion Application for the 'surveydown' Survey Platform
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-tibble >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-tibble >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dotenv 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-pool 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyAce 
+BuildRequires:    R-CRAN-surveydown 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dotenv 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-pool 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyAce 
+Requires:         R-CRAN-surveydown 
 
 %description
-Access and analyze the World Bank's International Debt Statistics (IDS)
-<https://www.worldbank.org/en/programs/debt-statistics/ids>. IDS provides
-creditor-debtor relationships between countries, regions, and
-institutions. 'wbids' enables users to download, process and work with IDS
-series across multiple geographies, counterparts, and time periods.
+Companion package that supports the 'surveydown' survey platform
+(<https://surveydown.org>). The default method for working with a
+'surveydown' survey is to edit the plain text 'survey.qmd' and 'app.R'
+files. With 'sdstudio', you can create, preview and manage surveys with a
+'shiny' application as a graphical user interface.
 
 %prep
 %setup -q -c -n %{packname}
