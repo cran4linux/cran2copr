@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epizootic
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Population Models of Disease Transmission in Wildlife
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.3
 BuildRequires:    R-CRAN-poems >= 1.1.0
 BuildRequires:    R-CRAN-doParallel >= 1.0.16
 BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-qs >= 0.25.7
+BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-cli >= 3.6.1
@@ -37,7 +37,7 @@ Requires:         R-CRAN-dplyr >= 1.1.3
 Requires:         R-CRAN-poems >= 1.1.0
 Requires:         R-CRAN-doParallel >= 1.0.16
 Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-qs >= 0.25.7
+Requires:         R-CRAN-qs2 
 Requires:         R-CRAN-Rcpp 
 
 %description

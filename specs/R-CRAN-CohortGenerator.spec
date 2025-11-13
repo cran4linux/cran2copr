@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortGenerator
-%global packver   0.12.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cohort Generation for the OMOP Common Data Model
 
@@ -14,38 +14,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
 BuildRequires:    R-CRAN-ParallelLogger >= 3.0.0
 BuildRequires:    R-CRAN-readr >= 2.1.0
 BuildRequires:    R-CRAN-stringi >= 1.7.6
 BuildRequires:    R-CRAN-SqlRender >= 1.11.1
+BuildRequires:    R-CRAN-ResultModelManager >= 0.6.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ResultModelManager 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-DatabaseConnector >= 5.0.0
 Requires:         R-CRAN-ParallelLogger >= 3.0.0
 Requires:         R-CRAN-readr >= 2.1.0
 Requires:         R-CRAN-stringi >= 1.7.6
 Requires:         R-CRAN-SqlRender >= 1.11.1
+Requires:         R-CRAN-ResultModelManager >= 0.6.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ResultModelManager 
 Requires:         R-CRAN-tibble 
 
 %description

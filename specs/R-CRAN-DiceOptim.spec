@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataSum
-%global packver   0.1.1
+%global packname  DiceOptim
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comprehensive Data Summarization for Statistical Analysis
+Summary:          Kriging-Based Optimization for Computer Experiments
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nortest 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-DiceKriging >= 1.2
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-DiceDesign 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-DiceKriging >= 1.2
+Requires:         R-methods 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-pbivnorm 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-DiceDesign 
+Requires:         R-parallel 
 
 %description
-Summarizes data frames by calculating various statistics including central
-tendency, dispersion, shape, and normality diagnostics. Handles numeric,
-character, and factor columns with NA-aware computations.
+Efficient Global Optimization (EGO) algorithm as described in "Roustant et
+al. (2012)" <doi:10.18637/jss.v051.i01> and adaptations for problems with
+noise ("Picheny and Ginsbourger, 2012") <doi:10.1016/j.csda.2013.03.018>,
+parallel infill, and problems with constraints.
 
 %prep
 %setup -q -c -n %{packname}

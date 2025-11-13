@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hyper2
-%global packver   3.1-0
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Hyperdirichlet Distribution, Mark 2
 
@@ -14,28 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-disordR >= 0.0.9
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-calibrator 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-frab 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-disordR >= 0.0.9
-Requires:         R-methods 
-Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-calibrator 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-frab 
+Requires:         R-CRAN-cubature 
+Requires:         R-methods 
 
 %description
 A suite of routines for the hyperdirichlet distribution and reified

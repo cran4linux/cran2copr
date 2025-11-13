@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datetoiso
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modify Dates to ISO Standard ("International Organization for Standardization")
+Summary:          Convert and Impute Dates to ISO Standard ("International Organization for Standardization")
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,13 +19,20 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
 
 %description
-Transfer any date type to ISO standard. Package recognizes dates in given
-data frame and transform to ISO format. Only one date format can be
-applied within one data frame column.
+Provides functions to convert and impute date values to the ISO 8601
+standard format. The package automatically recognizes date patterns within
+a data frame and transforms them into consistent ISO-formatted dates. It
+also supports imputing missing month or day components in partial date
+strings using user-defined rules. Only one date format can be applied
+within a single data frame column.
 
 %prep
 %setup -q -c -n %{packname}

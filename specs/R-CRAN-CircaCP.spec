@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataSum
-%global packver   0.1.1
+%global packname  CircaCP
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comprehensive Data Summarization for Statistical Analysis
+Summary:          Sleep and Circadian Metrics Estimation from Actigraphy Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nortest 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-pracma 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Summarizes data frames by calculating various statistics including central
-tendency, dispersion, shape, and normality diagnostics. Handles numeric,
-character, and factor columns with NA-aware computations.
+A generic sleep–wake cycle detection algorithm for analyzing unlabeled
+actigraphy data. The algorithm has been validated against event markers
+using data from the Multi-Ethnic Study of Atherosclerosis (MESA) Sleep
+study, and its methodological details are described in Chen and Sun (2024)
+<doi:10.1098/rsos.231468>. The package provides functions to estimate
+sleep metrics (e.g., sleep and wake onset times) and circadian rhythm
+metrics (e.g., mesor, phasor, interdaily stability, intradaily
+variability), as well as tools for screening actigraphy quality, fitting
+cosinor models, and performing parametric change point detection. The
+workflow can also be used to segment long actigraphy sequences into
+regularized structures for physical activity research.
 
 %prep
 %setup -q -c -n %{packname}

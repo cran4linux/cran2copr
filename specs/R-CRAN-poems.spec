@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  poems
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pattern-Oriented Ensemble Modeling System
 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-truncnorm >= 1.0
 BuildRequires:    R-CRAN-metRology >= 0.9.28.1
 BuildRequires:    R-CRAN-fossil >= 0.4.0
 BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-qs 
+BuildRequires:    R-CRAN-qs2 
 Requires:         R-CRAN-raster >= 3.6
 Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-abc >= 2.1
@@ -40,7 +40,7 @@ Requires:         R-CRAN-truncnorm >= 1.0
 Requires:         R-CRAN-metRology >= 0.9.28.1
 Requires:         R-CRAN-fossil >= 0.4.0
 Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-qs 
+Requires:         R-CRAN-qs2 
 
 %description
 A framework of interoperable R6 classes (Chang, 2020,

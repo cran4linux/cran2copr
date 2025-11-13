@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataSum
-%global packver   0.1.1
+%global packname  trendseries
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comprehensive Data Summarization for Statistical Analysis
+Summary:          Extract Trends from Time Series
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dlm 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-hpfilter 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-mFilter 
+BuildRequires:    R-CRAN-RcppRoll 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nortest 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tsbox 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dlm 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-hpfilter 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-mFilter 
+Requires:         R-CRAN-RcppRoll 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tsbox 
 
 %description
-Summarizes data frames by calculating various statistics including central
-tendency, dispersion, shape, and normality diagnostics. Handles numeric,
-character, and factor columns with NA-aware computations.
+Extract trends from monthly and quarterly economic time series. Provides
+two main functions: augment_trends() for pipe-friendly 'tibble' workflows
+and extract_trends() for direct time series analysis. Includes key
+econometric filters and modern parameter experimentation tools.
 
 %prep
 %setup -q -c -n %{packname}

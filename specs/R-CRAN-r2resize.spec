@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2resize
-%global packver   1.9.2
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          In-Text Resize for Images, Tables and Fancy Resize Containers in 'shiny', 'rmarkdown' and 'quarto' Documents
 
@@ -29,9 +29,23 @@ Requires:         R-CRAN-quickcode
 Requires:         R-CRAN-DT 
 
 %description
-Automatic resizing toolbar for containers, images and tables. Various
-resizer or expandable container functionalities are also included. Most
-suitable to include in 'shiny', 'markdown' and 'quarto' documents.
+Offers a suite of tools designed to enhance the responsiveness and
+interactivity of web-based documents and applications created with R. It
+provides an automatic, configurable resizing toolbar that can be
+seamlessly integrated with HTML elements such as containers, images, and
+tables, allowing end-users to dynamically adjust their dimensions. Beyond
+the toolbar, the package includes a rich collection of flexible,
+expandable, and interactive container functionalities, such as highly
+customizable split-screen layouts (splitCard), versatile sizeable cards
+(sizeableCard), dynamic window-like elements (windowCard), visually
+engaging emphasis cards (empahsisCard), and sophisticated flexible and
+elastic card layouts (flexCard, elastiCard). Furthermore, it offers an
+elegant image viewer and resizer (shinyExpandImage) perfect for
+interactive galleries. r2resize is particularly well-suited for developers
+and data scientists looking to create modern, responsive, and
+user-friendly 'shiny' applications, 'markdown' reports, and 'quarto'
+documents that adapt gracefully to different screen sizes and user
+preferences, significantly improving the user experience.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DER
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Income Polarization Index
 
@@ -28,12 +28,12 @@ Requires:         R-CRAN-RcppParallel
 Requires:         R-stats 
 
 %description
-The DER (or PaF) income polarization index as proposed by Duclos J. Y.,
-Esteban, J. and Ray D. (2004). "Polarization: concepts, measurement,
-estimation". Econometrica, 72(6): 1737--1772.
-<doi:10.1111/j.1468-0262.2004.00552.x>. The index may be computed for a
-single or for a range of values of the alpha-parameter. Bootstrapping is
-also available.
+Extremely fast and memory efficient computation of the DER (or PaF) income
+polarization index as proposed by Duclos J. Y., Esteban, J. and Ray D.
+(2004). "Polarization: concepts, measurement, estimation". Econometrica,
+72(6): 1737--1772. <doi:10.1111/j.1468-0262.2004.00552.x>. The index may
+be computed for a single or for a range of values of the alpha-parameter
+and bootstrapping is also available.
 
 %prep
 %setup -q -c -n %{packname}

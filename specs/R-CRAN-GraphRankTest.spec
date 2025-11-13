@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataSum
-%global packver   0.1.1
+%global packname  GraphRankTest
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comprehensive Data Summarization for Statistical Analysis
+Summary:          Rank in Similarity Graph Edge-Count Two-Sample Test (RISE)
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nortest 
+BuildRequires:    R-CRAN-ade4 
+BuildRequires:    R-CRAN-nbpMatching 
 Requires:         R-stats 
+Requires:         R-CRAN-ade4 
+Requires:         R-CRAN-nbpMatching 
 
 %description
-Summarizes data frames by calculating various statistics including central
-tendency, dispersion, shape, and normality diagnostics. Handles numeric,
-character, and factor columns with NA-aware computations.
+Implements the Rank In Similarity Graph Edge-count two-sample test (RISE)
+for high-dimensional and non-Euclidean data. The method constructs
+similarity-based graphs, such as k-nearest neighbor graph (k-NNG),
+k-minimum spanning tree (k-MST), and k-minimum distance non-bipartite
+pairing (k-MDP), and evaluates rank-based within-sample edge counts with
+asymptotic and permutation p-values. For methodological details, see Zhou
+and Chen (2023) <https://proceedings.mlr.press/v195/zhou23a.html>.
 
 %prep
 %setup -q -c -n %{packname}

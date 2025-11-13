@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phenology
-%global packver   10.3
+%global packver   2025.11.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.3
+Version:          2025.11.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Manage a Parametric Function that Describes Phenology and More
 

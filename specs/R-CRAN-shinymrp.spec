@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinymrp
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for Multilevel Regression and Poststratification
 
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-qs 
+BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-readr 
@@ -64,7 +64,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-qs 
+Requires:         R-CRAN-qs2 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-readr 

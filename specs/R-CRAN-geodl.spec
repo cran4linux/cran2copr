@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geodl
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geospatial Semantic Segmentation with Torch and Terra
 
@@ -14,31 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-psych >= 2.3.3
-BuildRequires:    R-CRAN-readr >= 2.1.3
-BuildRequires:    R-CRAN-terra >= 1.7.55
-BuildRequires:    R-CRAN-dplyr >= 1.1.3
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-coro >= 1.0.3
-BuildRequires:    R-CRAN-MultiscaleDTM >= 0.8.2
-BuildRequires:    R-CRAN-torchvision >= 0.5.1
-BuildRequires:    R-CRAN-luz >= 0.4.0
-BuildRequires:    R-CRAN-torch >= 0.11.0
-Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-psych >= 2.3.3
-Requires:         R-CRAN-readr >= 2.1.3
-Requires:         R-CRAN-terra >= 1.7.55
-Requires:         R-CRAN-dplyr >= 1.1.3
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-coro >= 1.0.3
-Requires:         R-CRAN-MultiscaleDTM >= 0.8.2
-Requires:         R-CRAN-torchvision >= 0.5.1
-Requires:         R-CRAN-luz >= 0.4.0
-Requires:         R-CRAN-torch >= 0.11.0
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-luz 
+BuildRequires:    R-CRAN-torchvision 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-MultiscaleDTM 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-luz 
+Requires:         R-CRAN-torchvision 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-MultiscaleDTM 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 
 %description
 Provides tools for semantic segmentation of geospatial data using

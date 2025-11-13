@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  digest
-%global packver   0.6.37
+%global packver   0.6.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.37
+Version:          0.6.38
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Compact Hash Digests of R Objects
 
@@ -24,7 +24,7 @@ Implementation of a function 'digest()' for the creation of hash digests
 of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
 'xxhash', 'murmurhash', 'spookyhash', 'blake3', 'crc32c', 'xxh3_64', and
 'xxh3_128' algorithms) permitting easy comparison of R language objects,
-as well as functions such as'hmac()' to create hash-based message
+as well as functions such as 'hmac()' to create hash-based message
 authentication code. Please note that this package is not meant to be
 deployed for cryptographic purposes for which more comprehensive (and
 widely tested) libraries such as 'OpenSSL' should be used.
