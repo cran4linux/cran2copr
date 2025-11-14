@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T4transport
-%global packver   0.1.5
+%global packname  cld
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Computational Optimal Transport
+Summary:          Create Compact Letter Display (CLD) for Statistical Comparisons
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-multcompView 
+Requires:         R-CRAN-rlang 
 
 %description
-Transport theory has seen much success in many fields of statistics and
-machine learning. We provide a variety of algorithms to compute
-Wasserstein distance, barycenter, and others. See Peyré and Cuturi (2019)
-<doi:10.1561/2200000073> for the general exposition to the study of
-computational optimal transport.
+Creates compact letter displays (CLDs) for pairwise comparisons from
+statistical post-hoc tests. Groups sharing the same letter are not
+significantly different from each other. Supports multiple input formats
+including results from 'stats' pairwise tests, 'DescTools', 'PMCMRplus',
+'rstatix', symmetric matrices of p-values, and data frames. Provides a
+consistent interface for visualizing statistical groupings across
+different testing frameworks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T4transport
-%global packver   0.1.5
+%global packname  biostats
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Computational Optimal Transport
+Summary:          Biostatistics and Clinical Data Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-gt 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-gt 
 
 %description
-Transport theory has seen much success in many fields of statistics and
-machine learning. We provide a variety of algorithms to compute
-Wasserstein distance, barycenter, and others. See Peyré and Cuturi (2019)
-<doi:10.1561/2200000073> for the general exposition to the study of
-computational optimal transport.
+Biostatistical and clinical data analysis, including descriptive
+statistics, exploratory data analysis, sample size and power calculations,
+statistical inference, and data visualization. Normality tests are
+implemented following Mishra et al. (2019) <doi:10.4103/aca.ACA_157_18>,
+omnibus test procedures are based on Blanca et al. (2017)
+<doi:10.3758/s13428-017-0918-2> and Field et al. (2012,
+ISBN:9781446200469), while sample size and power calculation methods
+follow Chow et al. (2017) <doi:10.1201/9781315183084>.
 
 %prep
 %setup -q -c -n %{packname}

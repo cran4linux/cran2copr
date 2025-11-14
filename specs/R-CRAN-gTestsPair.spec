@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T4transport
-%global packver   0.1.5
+%global packname  gTestsPair
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Computational Optimal Transport
+Summary:          New Nonparametric Tests for Multivariate Paired Data and Pair Matching
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ade4 
+Requires:         R-CRAN-ade4 
 
 %description
-Transport theory has seen much success in many fields of statistics and
-machine learning. We provide a variety of algorithms to compute
-Wasserstein distance, barycenter, and others. See Peyré and Cuturi (2019)
-<doi:10.1561/2200000073> for the general exposition to the study of
-computational optimal transport.
+Implements three nonparametric two-sample tests for multivariate paired
+data and pair matching. Methods are described in the associated preprint:
+<doi:10.48550/arXiv.2007.01497>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstpm2
-%global packver   1.7.0
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smooth Survival Models, Including Generalized Survival Models
 
@@ -29,6 +29,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-lsoda 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-bbmle >= 1.0.20
 Requires:         R-CRAN-Rcpp >= 0.10.2
@@ -43,6 +44,7 @@ Requires:         R-utils
 Requires:         R-parallel 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-lsoda 
 
 %description
 R implementation of generalized survival models (GSMs), smooth accelerated

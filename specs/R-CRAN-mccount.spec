@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cookiemonster
-%global packver   0.0.5
+%global packname  mccount
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Your Friendly Solution to Managing Browser Cookies
+Summary:          Estimate Recurrent Event Burden with Competing Risks
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cards 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cards 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyr 
 
 %description
-A convenient tool to store and format browser cookies and use them in
-'HTTP' requests (for example, through 'httr2', 'httr' or 'curl').
+Calculates mean cumulative count (MCC) to estimate the expected cumulative
+number of recurrent events per person over time in the presence of
+competing risks and censoring. Implements both the Dong-Yasui equation
+method and sum of cumulative incidence method described in Dong, et al.
+(2015) <doi:10.1093/aje/kwu289>. Supports inverse probability weighting
+for causal inference as outlined in Gaber, et al. (2023)
+<doi:10.1093/aje/kwad031>. Provides S3 methods for printing, summarizing,
+plotting, and extracting results. Handles grouped analyses and integrates
+with 'ggplot2' <https://ggplot2.tidyverse.org/> for visualization.
 
 %prep
 %setup -q -c -n %{packname}

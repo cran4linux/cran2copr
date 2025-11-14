@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesSIM
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrated Interface of Bayesian Single Index Models using 'nimble'
 
@@ -44,9 +44,9 @@ algorithms built on the 'nimble' framework, allowing users to specify,
 extend, and simulate models in a unified and reproducible manner. The
 following methods are implemented in the package: Antoniadis et al. (2004)
 <https://www.jstor.org/stable/24307224>, Wang (2009)
-<doi:10.1016/j.csda.2008.12.010>, Choi et al. (2011) <c>, Dhara et al.
-(2019) <doi:10.1214/19-BA1170>, McGee et al. (2023)
-<doi:10.1111/biom.13569>.
+<doi:10.1016/j.csda.2008.12.010>, Choi et al. (2011)
+<doi:10.1080/10485251003768019>, Dhara et al. (2019)
+<doi:10.1214/19-BA1170>, McGee et al. (2023) <doi:10.1111/biom.13569>.
 
 %prep
 %setup -q -c -n %{packname}

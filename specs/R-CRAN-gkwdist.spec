@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T4transport
-%global packver   0.1.5
+%global packname  gkwdist
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Computational Optimal Transport
+Summary:          Generalized Kumaraswamy Distribution Family
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Transport theory has seen much success in many fields of statistics and
-machine learning. We provide a variety of algorithms to compute
-Wasserstein distance, barycenter, and others. See Peyré and Cuturi (2019)
-<doi:10.1561/2200000073> for the general exposition to the study of
-computational optimal transport.
+Implements the five-parameter Generalized Kumaraswamy ('gkw') distribution
+proposed by 'Carrasco, Ferrari and Cordeiro (2010)'
+<doi:10.48550/arXiv.1004.0911> and its seven nested sub-families for
+modeling bounded continuous data on the unit interval (0,1). The 'gkw'
+distribution extends the Kumaraswamy distribution described by Jones
+(2009) <doi:10.1016/j.stamet.2008.04.001>. Provides density, distribution,
+quantile, and random generation functions, along with analytical
+log-likelihood, gradient, and Hessian functions implemented in 'C++' via
+'RcppArmadillo' for maximum computational efficiency. Suitable for
+modeling proportions, rates, percentages, and indices exhibiting complex
+features such as asymmetry, or heavy tails and other shapes not adequately
+captured by standard distributions like simple Beta or Kumaraswamy.
 
 %prep
 %setup -q -c -n %{packname}

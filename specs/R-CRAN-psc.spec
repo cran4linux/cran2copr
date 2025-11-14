@@ -1,39 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T4transport
-%global packver   0.1.5
+%global packname  psc
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Computational Optimal Transport
+Summary:          Personalised Synthetic Controls
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-enrichwith 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-enrichwith 
 Requires:         R-stats 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-parallel 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-lme4 
 Requires:         R-utils 
 
 %description
-Transport theory has seen much success in many fields of statistics and
-machine learning. We provide a variety of algorithms to compute
-Wasserstein distance, barycenter, and others. See Peyré and Cuturi (2019)
-<doi:10.1561/2200000073> for the general exposition to the study of
-computational optimal transport.
+Allows the comparison of data cohorts (DC) against a Counter Factual Model
+(CFM) and measures the difference in terms of an efficacy parameter.
+Allows the application of Personalised Synthetic Controls.
 
 %prep
 %setup -q -c -n %{packname}

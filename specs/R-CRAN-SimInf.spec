@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimInf
-%global packver   9.8.1
+%global packver   10.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.8.1
+Version:          10.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Data-Driven Stochastic Disease Spread Simulations
 
@@ -51,7 +51,9 @@ details see the paper by Widgren, Bauer, Eriksson and Engblom (2019)
 <doi:10.18637/jss.v091.i12>. The package also provides functionality to
 fit models to time series data using the Approximate Bayesian Computation
 Sequential Monte Carlo ('ABC-SMC') algorithm of Toni and others (2009)
-<doi:10.1098/rsif.2008.0172>.
+<doi:10.1098/rsif.2008.0172> or the Particle Markov Chain Monte Carlo
+('PMCMC') algorithm of 'Andrieu' and others (2010)
+<doi:10.1111/j.1467-9868.2009.00736.x>.
 
 %prep
 %setup -q -c -n %{packname}

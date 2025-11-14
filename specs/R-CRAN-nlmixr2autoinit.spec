@@ -1,60 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  examly
-%global packver   0.1.2
+%global packname  nlmixr2autoinit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Metrics and Reporting Tool
+Summary:          Automatic Generation of Initial Estimates for Population Pharmacokinetic Modeling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-nlmixr2data 
+BuildRequires:    R-CRAN-nlmixr2 
+BuildRequires:    R-CRAN-nlmixr2est 
+BuildRequires:    R-CRAN-rxode2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-vpc 
+Requires:         R-CRAN-nlmixr2data 
+Requires:         R-CRAN-nlmixr2 
+Requires:         R-CRAN-nlmixr2est 
+Requires:         R-CRAN-rxode2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-vpc 
 
 %description
-A 'Shiny'-based toolkit for item/test analysis. It is designed for
-multiple-choice, true-false, and open-ended questions. The toolkit is
-usable with datasets in 1-0 or other formats. Key analyses include
-difficulty, discrimination, response-option analysis, reports. The
-classical test theory methods used are described in Ebel & Frisbie (1991,
-ISBN:978-0132892314).
+Provides automated methods for generating initial parameter estimates in
+population pharmacokinetic modeling. The pipeline integrates adaptive
+single-point methods, naive pooled graphic approaches, noncompartmental
+analysis methods, and parameter sweeping across pharmacokinetic models. It
+estimates residual unexplained variability using either data-driven or
+fixed-fraction approaches and assigns pragmatic initial values for
+inter-individual variability. These strategies are designed to improve
+model robustness and convergence in 'nlmixr2' workflows. For more details
+see Huang Z, Fidler M, Lan M, Cheng IL, Kloprogge F, Standing JF (2025)
+<doi:10.1007/s10928-025-10000-z>.
 
 %prep
 %setup -q -c -n %{packname}

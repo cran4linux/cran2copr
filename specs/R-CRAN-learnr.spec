@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  learnr
-%global packver   0.11.5
+%global packver   0.11.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.5
+Version:          0.11.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Tutorials for R
 
@@ -20,10 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr >= 1.31
 BuildRequires:    R-CRAN-markdown >= 1.3
 BuildRequires:    R-CRAN-rmarkdown >= 1.12
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-shiny >= 1.0
 BuildRequires:    R-CRAN-renv >= 0.8.0
 BuildRequires:    R-CRAN-htmltools >= 0.3.5
-BuildRequires:    R-CRAN-ellipsis >= 0.2.0.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-evaluate 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -41,10 +40,10 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-knitr >= 1.31
 Requires:         R-CRAN-markdown >= 1.3
 Requires:         R-CRAN-rmarkdown >= 1.12
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-shiny >= 1.0
 Requires:         R-CRAN-renv >= 0.8.0
 Requires:         R-CRAN-htmltools >= 0.3.5
-Requires:         R-CRAN-ellipsis >= 0.2.0.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-evaluate 
@@ -54,7 +53,6 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-parallel 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-stats 
 Requires:         R-utils 

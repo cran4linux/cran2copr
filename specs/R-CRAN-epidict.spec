@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cookiemonster
-%global packver   0.0.5
+%global packname  epidict
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Your Friendly Solution to Managing Browser Cookies
+Summary:          Epidemiology Data Dictionaries and Random Data Generators
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-A convenient tool to store and format browser cookies and use them in
-'HTTP' requests (for example, through 'httr2', 'httr' or 'curl').
+The 'R4EPIs' project <https://r4epi.github.io/sitrep/> seeks to provide a
+set of standardized tools for analysis of outbreak and survey data in
+humanitarian aid settings. This package currently provides standardized
+data dictionaries from Medecins Sans Frontieres Operational Centre
+Amsterdam for outbreak scenarios (Acute Jaundice Syndrome, Cholera,
+Diphtheria, Measles, Meningitis) and surveys (Retrospective mortality and
+access to care, Malnutrition, Vaccination coverage and Event Based
+Surveillance) - as described in the following
+<https://scienceportal.msf.org/assets/standardised-mortality-surveys?utm_source=chatgpt.com>.
+In addition, a data generator from these dictionaries is provided. It is
+also possible to read in any Open Data Kit format data dictionary.
 
 %prep
 %setup -q -c -n %{packname}

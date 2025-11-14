@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T4transport
-%global packver   0.1.5
+%global packname  ggsmc
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Computational Optimal Transport
+Summary:          Visualising Output from Sequential Monte Carlo and Ensemble-Based Methods
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
+BuildArch:        noarch
+BuildRequires:    R-CRAN-poorman 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gganimate 
+Requires:         R-CRAN-poorman 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gganimate 
 
 %description
-Transport theory has seen much success in many fields of statistics and
-machine learning. We provide a variety of algorithms to compute
-Wasserstein distance, barycenter, and others. See Peyré and Cuturi (2019)
-<doi:10.1561/2200000073> for the general exposition to the study of
-computational optimal transport.
+Functions for plotting, and animating, the output of importance samplers,
+sequential Monte Carlo samplers (SMC) and ensemble-based methods. The
+package can be used to plot and animate histograms, densities, scatter
+plots and time series, and to plot the genealogy of an SMC or
+ensemble-based algorithm. These functions all rely on algorithm output to
+be supplied in tidy format. A function is provided to transform algorithm
+output from matrix format (one Monte Carlo point per row) to the tidy
+format required by the plotting and animating functions.
 
 %prep
 %setup -q -c -n %{packname}

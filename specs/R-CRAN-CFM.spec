@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CFM
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Censored Factor Models
 
@@ -22,11 +22,25 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-crch 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-truncnorm 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-crch 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-truncnorm 
 
 %description
 Provides generation and estimation of censored factor models for

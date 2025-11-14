@@ -1,50 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CatPredi
-%global packver   1.4
+%global packname  unifiedml
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Categorisation of Continuous Variables in Prediction Models
+Summary:          Unified Interface for Machine Learning Models
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-CPE 
-BuildRequires:    R-CRAN-rgenoud 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-CPE 
-Requires:         R-CRAN-rgenoud 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp >= 1.1.0
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Allows the user to categorise a continuous predictor variable in a
-logistic or a Cox proportional hazards regression setting, by maximising
-the discriminative ability of the model. I Barrio, I Arostegui, MX
-Rodriguez-Alvarez, JM Quintana (2015) <doi:10.1177/0962280215601873>. I
-Barrio, MX Rodriguez-Alvarez, L Meira-Machado, C Esteban, I Arostegui
-(2017) <https://www.idescat.cat/sort/sort411/41.1.3.barrio-etal.pdf>.
+Provides a unified R6-based interface for various machine learning models
+with automatic interface detection, consistent cross-validation, model
+interpretations via numerical derivatives, and visualization. Supports
+both regression and classification tasks with any model function that
+follows R's standard modeling conventions (formula or matrix interface).
 
 %prep
 %setup -q -c -n %{packname}
