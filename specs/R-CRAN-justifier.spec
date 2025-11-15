@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  justifier
-%global packver   0.2.6
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Human and Machine-Readable Justifications and Justified Decisions Based on 'YAML'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.2.0
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
@@ -33,7 +33,7 @@ Requires:         R-CRAN-yum >= 0.0.1
 %description
 Leverages the 'yum' package to implement a 'YAML' ('YAML Ain't Markup
 Language', a human friendly standard for data serialization; see
-<https:yaml.org>) standard for documenting justifications, such as for
+<https://yaml.org>) standard for documenting justifications, such as for
 decisions taken during the planning, execution and analysis of a study or
 during the development of a behavior change intervention as illustrated by
 Marques & Peters (2019) <doi:10.17605/osf.io/ndxha>. These justifications

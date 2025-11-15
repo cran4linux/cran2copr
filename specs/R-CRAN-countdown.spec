@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  countdown
-%global packver   0.4.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Countdown Timer for HTML Presentations, Documents, and Web Apps
 
@@ -20,11 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-prismatic >= 1.1.0
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whisker 
 Requires:         R-CRAN-prismatic >= 1.1.0
 Requires:         R-CRAN-htmltools 
 Requires:         R-utils 
-Requires:         R-CRAN-whisker 
 
 %description
 A simple countdown timer for slides and HTML documents written in 'R

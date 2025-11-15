@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  growfunctions
-%global packver   0.16
+%global packver   0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16
+Version:          0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Non-Parametric Dependent Models for Time-Indexed Functional Data
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildRequires:    R-CRAN-spam >= 2.7.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.2
 BuildRequires:    R-CRAN-reshape2 >= 1.2.2
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.400.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-spam >= 2.7.0
 Requires:         R-CRAN-reshape2 >= 1.2.2
+Requires:         R-CRAN-Rcpp >= 1.1.0
 Requires:         R-CRAN-ggplot2 >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 0.12.16
 
 %description
 Estimates a collection of time-indexed functions under either of Gaussian

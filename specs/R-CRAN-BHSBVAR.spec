@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BHSBVAR
-%global packver   3.1.2
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Bayesian Vector Autoregression Models
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.14
+Requires:         R-CRAN-Rcpp >= 1.1.0
 
 %description
 Provides a function for estimating the parameters of Structural Bayesian

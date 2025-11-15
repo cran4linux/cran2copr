@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  froggeR
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhance 'Quarto' Project Workflows and Standards
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-quarto >= 1.3.0
 BuildRequires:    R-CRAN-here >= 1.0.1
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-cli >= 3.0.0
@@ -37,6 +38,7 @@ Requires:         R-CRAN-quarto >= 1.3.0
 Requires:         R-CRAN-here >= 1.0.1
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-yaml 
 

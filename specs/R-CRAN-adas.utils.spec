@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adas.utils
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design of Experiments and Factorial Plans Utilities
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gghalfnorm 
 Requires:         R-CRAN-ggplot2 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 A number of functions to create and analyze factorial plans according to

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clustcurv
-%global packver   2.0.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Determining Groups in Multiples Curves
 
@@ -27,6 +27,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-npregfast 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-foreach 
@@ -37,14 +38,16 @@ Requires:         R-grDevices
 Requires:         R-CRAN-npregfast 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
 
 %description
 A method for determining groups in multiple curves with an automatic
 selection of their number based on k-means or k-medians algorithms. The
-selection of the optimal number is provided by bootstrap methods. The
-methodology can be applied both in regression and survival framework.
-Implemented methods are: Grouping multiple survival curves described by
-Villanueva et al. (2018) <doi:10.1002/sim.8016>.
+selection of the optimal number is provided by bootstrap methods or other
+approaches with lower computational cost. The methodology can be applied
+both in regression and survival framework. Implemented methods are:
+Grouping multiple survival curves described by Villanueva et al. (2018)
+<doi:10.1002/sim.8016>.
 
 %prep
 %setup -q -c -n %{packname}

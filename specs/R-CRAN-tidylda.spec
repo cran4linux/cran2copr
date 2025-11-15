@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidylda
-%global packver   0.0.5
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Dirichlet Allocation Using 'tidyverse' Conventions
 
@@ -53,8 +53,7 @@ style conventions from the 'tidyverse', Wickham et al.
 (2019)<doi:10.21105/joss.01686>, and 'tidymodels', Kuhn et
 al.<https://tidymodels.github.io/model-implementation-principles/>.
 Fitting is done via collapsed Gibbs sampling. Also implements several
-novel features for LDA such as guided models and transfer learning based
-on ongoing and, as yet, unpublished research.
+novel features for LDA such as guided models and transfer learning.
 
 %prep
 %setup -q -c -n %{packname}
