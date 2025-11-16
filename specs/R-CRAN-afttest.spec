@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  afttest
-%global packver   4.3.2.3
+%global packver   4.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.2.3
+Version:          4.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Diagnostics for Accelerated Failure Time Models
 
@@ -37,7 +37,12 @@ omnibus test. The p-value offered in this package is based on the
 Kolmogorov-type supremum test and the variance of the proposed test
 statistics is estimated through the re-sampling method. Furthermore, a
 graphical technique to compare the shape of the observed residual to a
-number of the approximated realizations is provided.
+number of the approximated realizations is provided. See the following
+references; A general model-checking procedure for semiparametric
+accelerated failure time models, Statistics and Computing, 34 (3), 117
+<doi:10.1007/s11222-024-10431-7>; Diagnostics for semiparametric
+accelerated failure time models with R package 'afttest', arXiv,
+<doi:10.48550/arXiv.2511.09823>.
 
 %prep
 %setup -q -c -n %{packname}

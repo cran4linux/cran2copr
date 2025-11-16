@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdbayes
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Generalized Linear Models with Historical Data
 
@@ -23,9 +23,9 @@ BuildRequires:    R-CRAN-formula.tools
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-enrichwith 
-BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-loo 
 Requires:         R-CRAN-instantiate >= 0.1.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-fs 
@@ -33,25 +33,36 @@ Requires:         R-CRAN-formula.tools
 Requires:         R-stats 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-enrichwith 
-Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-loo 
 
 %description
 User-friendly functions for leveraging (multiple) historical data set(s)
-for generalized linear models. The package contains functions for sampling
-from the posterior distribution of a generalized linear model using the
-prior induced by the Bayesian hierarchical model, power prior by Ibrahim
-and Chen (2000) <doi:10.1214/ss/1009212673>, normalized power prior by
-Duan et al. (2006) <doi:10.1002/env.752>, normalized asymptotic power
-prior by Ibrahim et al. (2015) <doi:10.1002/sim.6728>, commensurate prior
-by Hobbs et al. (2011) <doi:10.1111/j.1541-0420.2011.01564.x>, robust
-meta-analytic-predictive prior by Schmidli et al. (2014)
-<doi:10.1111/biom.12242>, the latent exchangeability prior by Alt et al.
-(2023) <doi:10.48550/arXiv.2303.05223>, and a normal (or half-normal)
-prior. Functions for computing the marginal log-likelihood under each of
-the implemented priors are also included. The package compiles all the
-'CmdStan' models once during installation using the 'instantiate' package.
+in Bayesian analysis of generalized linear models (GLMs) and survival
+models, along with support for Bayesian model averaging (BMA). The package
+provides functions for sampling from posterior distributions under various
+informative priors, including the prior induced by the Bayesian
+hierarchical model, power prior by Ibrahim and Chen (2000)
+<doi:10.1214/ss/1009212673>, normalized power prior by Duan et al. (2006)
+<doi:10.1002/env.752>, normalized asymptotic power prior by Ibrahim et al.
+(2015) <doi:10.1002/sim.6728>, commensurate prior by Hobbs et al. (2011)
+<doi:10.1111/j.1541-0420.2011.01564.x>, robust meta-analytic-predictive
+prior by Schmidli et al. (2014) <doi:10.1111/biom.12242>, latent
+exchangeability prior by Alt et al. (2024) <doi:10.1093/biomtc/ujae083>,
+and a normal (or half-normal) prior. The package also includes functions
+for computing model averaging weights, such as BMA, pseudo-BMA, pseudo-BMA
+with the Bayesian bootstrap, and stacking (Yao et al., 2018
+<doi:10.1214/17-BA1091>), as well as for generating posterior samples from
+the ensemble distributions to reflect model uncertainty. In addition to
+GLMs, the package supports survival models including: (1) accelerated
+failure time (AFT) models, (2) piecewise exponential (PWE) models, i.e.,
+proportional hazards models with piecewise constant baseline hazards, and
+(3) mixture cure rate models that assume a common probability of cure
+across subjects, paired with a PWE model for the non-cured population.
+Functions for computing marginal log-likelihoods under each implemented
+prior are also included. The package compiles all the 'CmdStan' models
+once during installation using the 'instantiate' package.
 
 %prep
 %setup -q -c -n %{packname}

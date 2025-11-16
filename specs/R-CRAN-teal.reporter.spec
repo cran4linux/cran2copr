@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.reporter
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reporting Tools for 'shiny' Modules
 
@@ -19,12 +19,19 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.23
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-shinyjs >= 2.1.0
+BuildRequires:    R-CRAN-gtsummary >= 2.0.0
+BuildRequires:    R-CRAN-commonmark >= 1.9.2
+BuildRequires:    R-CRAN-jsonlite >= 1.8.9
 BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-knitr >= 1.42
 BuildRequires:    R-CRAN-yaml >= 1.1.0
 BuildRequires:    R-CRAN-zip >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-flextable >= 0.9.2
 BuildRequires:    R-CRAN-bslib >= 0.8.0
+BuildRequires:    R-CRAN-teal.data >= 0.8.0
+BuildRequires:    R-CRAN-teal.code >= 0.7.0
 BuildRequires:    R-CRAN-rtables >= 0.6.11
 BuildRequires:    R-CRAN-htmltools >= 0.5.4
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
@@ -35,16 +42,25 @@ BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-rtables.officer >= 0.0.2
 BuildRequires:    R-CRAN-bsicons 
 BuildRequires:    R-grid 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-rmarkdown >= 2.23
 Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-shinyjs >= 2.1.0
+Requires:         R-CRAN-gtsummary >= 2.0.0
+Requires:         R-CRAN-commonmark >= 1.9.2
+Requires:         R-CRAN-jsonlite >= 1.8.9
 Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-knitr >= 1.42
 Requires:         R-CRAN-yaml >= 1.1.0
 Requires:         R-CRAN-zip >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-flextable >= 0.9.2
 Requires:         R-CRAN-bslib >= 0.8.0
+Requires:         R-CRAN-teal.data >= 0.8.0
+Requires:         R-CRAN-teal.code >= 0.7.0
 Requires:         R-CRAN-rtables >= 0.6.11
 Requires:         R-CRAN-htmltools >= 0.5.4
 Requires:         R-CRAN-shinyWidgets >= 0.5.1
@@ -55,8 +71,10 @@ Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-rtables.officer >= 0.0.2
 Requires:         R-CRAN-bsicons 
 Requires:         R-grid 
+Requires:         R-methods 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Prebuilt 'shiny' modules containing tools for the generation of

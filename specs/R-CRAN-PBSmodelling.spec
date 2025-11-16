@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PBSmodelling
-%global packver   2.69.3
+%global packver   2.70.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.69.3
+Version:          2.70.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          GUI Tools Made Easy: Interact with Models and Explore Data
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    xorg-x11-server-Xvfb
 Recommends:       bwidget
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-XML 

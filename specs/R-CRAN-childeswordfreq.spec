@@ -1,49 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  childeswordfreq
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Word Frequency Extraction and Summarization
+Summary:          Word and Phrase Frequency Tools for CHILDES
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-childesr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-childesr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-writexl 
 
 %description
-Provides tools to extract word frequencies from the CHILDES (Child
-Language Data Exchange System) corpus. The main function allows users to
-input a list of words and receive speaker-role-specific frequency counts
-and a summary of the dataset. The output includes Excel-formatted tables
-of word counts and metadata summaries such as number of speakers,
-transcripts, children, and token counts. Useful for researchers studying
-early language acquisition, corpus linguistics, and speaker role
-variation. The CHILDES database is maintained at
-<https://childes.talkbank.org/>.
+Tools for extracting word and phrase frequencies from the Child Language
+Data Exchange System (CHILDES) database via the 'childesr' API. Supports
+type-level word counts, token-mode searches with simple wildcard patterns
+and part-of-speech filters, optional stemming, and Zipf-scaled
+frequencies. Provides normalization per number of tokens or utterances,
+speaker-role breakdowns, dataset summaries, and export to Excel workbooks
+for reproducible child language research. The CHILDES database is
+maintained at <https://talkbank.org/childes/>.
 
 %prep
 %setup -q -c -n %{packname}

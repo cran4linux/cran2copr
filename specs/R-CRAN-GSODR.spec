@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GSODR
-%global packver   4.1.4
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.4
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Surface Summary of the Day ('GSOD') Weather Data Client
 
@@ -18,15 +18,15 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.15.4
-BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-data.table >= 1.15.4
-Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R.utils 
 Requires:         R-stats 
 Requires:         R-utils 
