@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OmopViewer
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualise OMOP Results using 'shiny' Applications
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-visOmopResults >= 0.5.0
+BuildRequires:    R-CRAN-visOmopResults >= 1.4.0
 BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-cli 
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-styler
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-visOmopResults >= 0.5.0
+Requires:         R-CRAN-visOmopResults >= 1.4.0
 Requires:         R-CRAN-omopgenerics >= 0.4.0
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-cli 

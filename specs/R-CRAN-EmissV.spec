@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EmissV
-%global packver   0.665.9.0
+%global packver   0.666.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.665.9.0
+Version:          0.666.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Create Emissions for Air Quality Models
 

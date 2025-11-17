@@ -1,46 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SNPannotator
-%global packver   0.2.6.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Investigating the Functional Characteristics of Selected SNPs and Their Vicinity Genomic Region
+Summary:          Investigating the Functional Characteristics of Selected Variants and Their Vicinity Genomic Region
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-methods 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-openxlsx >= 4.2.5.2
+BuildRequires:    R-methods >= 4.2.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-rmarkdown >= 2.26
+BuildRequires:    R-CRAN-ggraph >= 2.2.1
+BuildRequires:    R-CRAN-readr >= 2.1.5
+BuildRequires:    R-CRAN-igraph >= 2.0.3
+BuildRequires:    R-CRAN-jsonlite >= 1.8.8
+BuildRequires:    R-CRAN-httr >= 1.4.7
+BuildRequires:    R-CRAN-futile.logger >= 1.4.3
+BuildRequires:    R-CRAN-kableExtra >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.6
+BuildRequires:    R-CRAN-progress >= 1.2.3
+BuildRequires:    R-CRAN-data.table >= 1.15.4
+BuildRequires:    R-CRAN-ini >= 0.3.1
+BuildRequires:    R-CRAN-png 
+Requires:         R-CRAN-openxlsx >= 4.2.5.2
+Requires:         R-methods >= 4.2.0
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-rmarkdown >= 2.26
+Requires:         R-CRAN-ggraph >= 2.2.1
+Requires:         R-CRAN-readr >= 2.1.5
+Requires:         R-CRAN-igraph >= 2.0.3
+Requires:         R-CRAN-jsonlite >= 1.8.8
+Requires:         R-CRAN-httr >= 1.4.7
+Requires:         R-CRAN-futile.logger >= 1.4.3
+Requires:         R-CRAN-kableExtra >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.6
+Requires:         R-CRAN-progress >= 1.2.3
+Requires:         R-CRAN-data.table >= 1.15.4
+Requires:         R-CRAN-ini >= 0.3.1
+Requires:         R-CRAN-png 
 
 %description
 To investigate the functional characteristics of selected SNPs and their
