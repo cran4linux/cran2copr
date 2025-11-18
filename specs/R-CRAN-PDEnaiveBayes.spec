@@ -1,48 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SDPDmod
-%global packver   0.0.7
+%global packname  PDEnaiveBayes
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Dynamic Panel Data Modeling
+Summary:          Plausible Naive Bayes Classifier Using PDE
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plm 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-plm 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spdep 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DatabionicSwarm 
+BuildRequires:    R-CRAN-memshare 
+Requires:         R-CRAN-RcppParallel >= 5.1.4
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-plotly 
+Requires:         R-utils 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DatabionicSwarm 
+Requires:         R-CRAN-memshare 
 
 %description
-Spatial model calculation for static and dynamic panel data models,
-weights matrix creation and Bayesian model comparison. Bayesian model
-comparison methods were described by 'LeSage' (2014)
-<doi:10.1016/j.spasta.2014.02.002>. The 'Lee'-'Yu' transformation approach
-is described in 'Yu', 'De Jong' and 'Lee' (2008)
-<doi:10.1016/j.jeconom.2008.08.002>, 'Lee' and 'Yu' (2010)
-<doi:10.1016/j.jeconom.2009.08.001> and 'Lee' and 'Yu' (2010)
-<doi:10.1017/S0266466609100099>.
+A nonparametric, multicore-capable plausible naive Bayes classifier based
+on the Pareto density estimation (PDE) featuring a plausible approach to a
+pitfall in the Bayesian theorem covering low evidence cases. Stier, Q.,
+Hoffmann, J., and Thrun, M.C.: "Classifying with the Fine Structure of
+Distributions: Leveraging Distributional Information for Robust and
+Plausible Naïve Bayes" (2025).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tikatuwq
-%global packver   0.7.3
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water Quality Assessment and Environmental Compliance in Brazil
 
@@ -58,7 +58,11 @@ and the National Sanitation Foundation Water Quality Index (NSF WQI)
 <doi:10.1007/s11157-023-09650-7>. The package also checks compliance with
 Brazilian standard CONAMA Resolution 357/2005
 <https://conama.mma.gov.br/?id=450&option=com_sisconama&task=arquivo.download>
-and generates reproducible reports for routine monitoring workflows.
+and generates reproducible reports for routine monitoring workflows. The
+example dataset (`wq_demo`) is now a real subset from monitoring data
+(BURANHEM river, 2020-2024, 4 points, 20 rows, 14 columns including extra
+`rio`, `lat`, `lon`). All core examples and vignettes use this realistic
+sample, improving reproducibility and documentation value for users.
 
 %prep
 %setup -q -c -n %{packname}

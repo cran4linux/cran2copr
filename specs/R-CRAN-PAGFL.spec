@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PAGFL
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Estimation of Latent Groups and Group-Specific Coefficients in Panel Data Models
+Summary:          Joint Estimation of Latent Groups and Group-Specific Coefficients in (Time-Varying) Panel Data Models
 
 License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -36,7 +36,9 @@ issue of unobservable group structures by implementing the pairwise
 adaptive group fused Lasso (PAGFL) by Mehrabani (2023)
 <doi:10.1016/j.jeconom.2022.12.002>. PAGFL identifies latent group
 structures and group-specific coefficients in a single step. On top of
-that, we extend the PAGFL to time-varying coefficient functions.
+that, we extend the PAGFL to time-varying coefficient functions
+(FUSE-TIME), following Haimerl et al. (2025)
+<doi:10.48550/arXiv.2503.23165>.
 
 %prep
 %setup -q -c -n %{packname}

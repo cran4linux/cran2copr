@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matsindf
-%global packver   0.4.10
+%global packver   0.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.4.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrices in Data Frames
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-matsbyname 
+BuildRequires:    R-CRAN-openxlsx2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-matsbyname 
+Requires:         R-CRAN-openxlsx2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 

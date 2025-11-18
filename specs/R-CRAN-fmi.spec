@@ -1,46 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortExplorer
-%global packver   0.1.0
+%global packname  fmi
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Explorer of Profiles of Patients in a Cohort
+Summary:          Hierarchical Permutation Tests for Functional Measurement Invariance
 
-License:          Apache License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-ParallelLogger 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-refund 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-DatabaseConnector >= 5.0.0
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-ParallelLogger 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-refund 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-This software tool is designed to extract data from a randomized subset of
-individuals within a cohort and make it available for exploration in a
-shiny application environment. It retrieves date-stamped, event-level
-records from one or more data sources that represent patient data in the
-Observational Medical Outcomes Partnership (OMOP) data model format. This
-tool features a user-friendly interface that enables users to efficiently
-explore the extracted profiles, thereby facilitating applications, such as
-reviewing structured profiles.
+Provides a suite of functions to test for Functional Measurement
+Invariance (FMI) between two groups. Implements hierarchical permutation
+tests for configural, metric, and scalar invariance, adapting concepts
+from Multi-Group Confirmatory Factor Analysis (MGCFA) to functional data.
+Methods are based on concepts from: Meredith, W. (1993)
+<doi:10.1007/BF02294825>,5 Yao, F., Müller, H. G., & Wang, J. L. (2005)
+<doi:10.1198/016214504000001745>, and Lee, K. Y., & Li, L. (2022)
+<doi:10.1111/rssb.12471>.
 
 %prep
 %setup -q -c -n %{packname}

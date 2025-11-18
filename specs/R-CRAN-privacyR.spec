@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdb
-%global packver   1.4.2
+%global packname  privacyR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Privacy-Preserving Data Anonymization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-lubridate 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and an R Database Interface (DBI) connector.
+Tools for anonymizing sensitive patient and research data. Helps protect
+privacy while keeping data useful for analysis. Anonymizes IDs, names,
+dates, locations, and ages while maintaining referential integrity.
+Methods based on: Sweeney (2002) <doi:10.1142/S0218488502001648>, Dwork et
+al. (2006) <doi:10.1007/11681878_14>, El Emam et al. (2011)
+<doi:10.1371/journal.pone.0028071>, Fung et al. (2010)
+<doi:10.1145/1749603.1749605>.
 
 %prep
 %setup -q -c -n %{packname}

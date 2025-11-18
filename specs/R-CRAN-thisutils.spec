@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thisutils
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Utility Functions for Data Analysis and Computing
 
@@ -24,6 +24,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
@@ -32,6 +33,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides utility functions for data analysis and scientific computing.

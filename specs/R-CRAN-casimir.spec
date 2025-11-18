@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdb
-%global packver   1.4.2
+%global packname  casimir
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Comparing Automated Subject Indexing Methods in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-collapse >= 2.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-options 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-collapse >= 2.1.0
+Requires:         R-CRAN-dplyr >= 1.1.1
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-options 
+Requires:         R-CRAN-withr 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and an R Database Interface (DBI) connector.
+Perform evaluation of automatic subject indexing methods. The main focus
+of the package is to enable efficient computation of set retrieval and
+ranked retrieval metrics across multiple dimensions of a dataset, e.g.
+document strata or subsets of the label set. The package also provides the
+possibility of computing bootstrap confidence intervals for all major
+metrics, with seamless integration of parallel computation and propensity
+scored variants of standard metrics.
 
 %prep
 %setup -q -c -n %{packname}

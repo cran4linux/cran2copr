@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSDforR
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Analyze Single System Data
 
@@ -27,7 +27,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-MAd 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-SingleCaseES 
-BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-modifiedmk 
 BuildRequires:    R-CRAN-retrodesign 
 Requires:         R-CRAN-psych 
@@ -40,7 +39,6 @@ Requires:         R-utils
 Requires:         R-CRAN-MAd 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-SingleCaseES 
-Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-modifiedmk 
 Requires:         R-CRAN-retrodesign 
 

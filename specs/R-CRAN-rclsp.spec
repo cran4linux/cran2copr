@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortAlgebra
-%global packver   0.3.1
+%global packname  rclsp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use of Interval Algebra to Create New Cohort(s) from Existing Cohorts
+Summary:          A Modular Two-Step Convex Optimization Estimator for Ill-Posed Problems
 
-License:          Apache License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-SqlRender 
-Requires:         R-CRAN-DatabaseConnector >= 5.0.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-SqlRender 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-MASS 
 
 %description
-This software tool is designed to generate new cohorts utilizing data from
-previously instantiated cohorts. It employs interval algebra operators
-such as UNION, INTERSECT, and MINUS to manipulate the data within the
-instantiated cohorts and create new cohorts.
+Convex Least Squares Programming (CLSP) is a two-step estimator for
+solving underdetermined, ill-posed, or structurally constrained
+least-squares problems. It combines pseudoinverse-based estimation with
+convex-programming correction methods inspired by Lasso, Ridge, and
+Elastic Net to ensure numerical stability, constraint enforcement, and
+interpretability. The package also provides numerical stability analysis
+and CLSP-specific diagnostics, including partial R^2, normalized RMSE
+(NRMSE), Monte Carlo t-tests for mean NRMSE, and condition-number-based
+confidence bands.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Web Apps for Analyzing Clinical Trials Data
 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-teal.data >= 0.8.0
 BuildRequires:    R-CRAN-bslib >= 0.8.0
 BuildRequires:    R-CRAN-teal.slice >= 0.7.0
 BuildRequires:    R-CRAN-teal.code >= 0.7.0
-BuildRequires:    R-CRAN-teal.reporter >= 0.5.0
+BuildRequires:    R-CRAN-teal.reporter >= 0.5.0.9001
 BuildRequires:    R-CRAN-teal.widgets >= 0.5.0
 BuildRequires:    R-CRAN-teal.logger >= 0.4.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
@@ -45,7 +45,7 @@ Requires:         R-CRAN-teal.data >= 0.8.0
 Requires:         R-CRAN-bslib >= 0.8.0
 Requires:         R-CRAN-teal.slice >= 0.7.0
 Requires:         R-CRAN-teal.code >= 0.7.0
-Requires:         R-CRAN-teal.reporter >= 0.5.0
+Requires:         R-CRAN-teal.reporter >= 0.5.0.9001
 Requires:         R-CRAN-teal.widgets >= 0.5.0
 Requires:         R-CRAN-teal.logger >= 0.4.0
 Requires:         R-CRAN-lifecycle >= 0.2.0

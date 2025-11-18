@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cardinalR
-%global packver   0.2.6
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Data Structures
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geozoo 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
 
 %description
 A collection of functions to generate a large variety of structures in

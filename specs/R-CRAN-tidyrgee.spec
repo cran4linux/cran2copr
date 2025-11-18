@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyrgee
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'tidyverse' Methods for 'Earth Engine'
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.24
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-reticulate >= 1.24
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 

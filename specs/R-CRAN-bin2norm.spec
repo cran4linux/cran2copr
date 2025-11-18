@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xtune
-%global packver   2.0.0
+%global packname  bin2norm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Regression with Feature-Specific Penalties Integrating External Information
+Summary:          Hierarchical Probit Estimation for Dichotomized Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-selectiveInference 
-BuildRequires:    R-CRAN-lbfgs 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-rstan 
 Requires:         R-stats 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-selectiveInference 
-Requires:         R-CRAN-lbfgs 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-rstantools
 
 %description
-Extends standard penalized regression (Lasso, Ridge, and Elastic-net) to
-allow feature-specific shrinkage based on external information with the
-goal of achieving a better prediction accuracy and variable selection.
-Examples of external information include the grouping of predictors, prior
-knowledge of biological importance, external p-values, function
-annotations, etc. The choice of multiple tuning parameters is done using
-an Empirical Bayes approach. A majorization-minimization algorithm is
-employed for implementation.
+Provides likelihood-based and hierarchical estimation methods for
+thresholded (binomial-probit) data. Supports fixed-mean and random-mean
+models with maximum likelihood estimation (MLE), generalized linear mixed
+model (GLMM), and Bayesian Markov chain Monte Carlo (MCMC)
+implementations. For methodological background, see Albert and Chib (1993)
+<doi:10.1080/01621459.1993.10476321> and McCulloch (1994)
+<doi:10.2307/2297959>.
 
 %prep
 %setup -q -c -n %{packname}

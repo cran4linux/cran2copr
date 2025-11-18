@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  farr
-%global packver   0.3.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Code for Financial Accounting Research
+Summary:          Data and Code for Empirical Research in Accounting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -41,9 +41,9 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-rpart 
 
 %description
-Handy functions and data to support a course book for accounting research.
-Gow, Ian D. and Tongqing Ding (2024) 'Empirical Research in Accounting:
-Tools and Methods' <https://iangow.github.io/far_book/>.
+Handy functions and data to support the course book 'Empirical Research in
+Accounting: Tools and Methods' (1st ed.). Chapman and Hall/CRC.
+<doi:10.1201/9781003456230> and <https://iangow.github.io/far_book/>.
 
 %prep
 %setup -q -c -n %{packname}

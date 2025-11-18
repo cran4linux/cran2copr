@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pda
-%global packver   1.2.8
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Privacy-Preserving Distributed Algorithms
 
@@ -22,39 +22,55 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-cobalt 
+BuildRequires:    R-CRAN-EmpiricalCalibration 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-minqa 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ordinal 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geex 
+BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.12.19
 Requires:         R-stats 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-cobalt 
+Requires:         R-CRAN-EmpiricalCalibration 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-minqa 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ordinal 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geex 
+Requires:         R-CRAN-data.tree 
 
 %description
-A collection of privacy-preserving distributed algorithms for conducting
-multi-site data analyses. The regression analyses can be linear regression
-for continuous outcome, logistic regression for binary outcome, Cox
-proportional hazard regression for time-to event outcome, Poisson
-regression for count outcome, or multi-categorical regression for nominal
-or ordinal outcome. The PDA algorithm runs on a lead site and only
-requires summary statistics from collaborating sites, with one or few
-iterations. The package can be used together with the online system
+A collection of privacy-preserving distributed algorithms (PDAs) for
+conducting federated statistical learning across multiple data sites. The
+PDA framework includes models for various tasks such as regression, trial
+emulation, causal inference, design-specific analysis, and clustering. The
+PDA algorithms run on a lead site and only require summary statistics from
+collaborating sites, with one or few iterations. The package can be used
+together with the online data transfer system
 (<https://pda-ota.pdamethods.org/>) for safe and convenient collaboration.
 For more information, please visit our software websites:
 <https://github.com/Penncil/pda>, and <https://pdamethods.org/>.

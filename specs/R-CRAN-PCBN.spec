@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortPathways
-%global packver   0.0.1
+%global packname  PCBN
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Pathways from Target to Event Cohorts
+Summary:          Inference of Pair-Copula Bayesian Networks
 
-License:          Apache License
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-SqlRender 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-DatabaseConnector >= 5.0.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-SqlRender 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-bnlearn 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-r2r 
+BuildRequires:    R-CRAN-VineCopula 
+Requires:         R-CRAN-bnlearn 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-r2r 
+Requires:         R-CRAN-VineCopula 
 
 %description
-Software tool designed to compute the temporal relationship defined as
-pathways between any two instantiated cohorts. The cohorts are input as
-Target and event cohorts.
+Creates, fits and samples Pair-Copula Bayesian networks (PCBN) under some
+restrictions on the underlying Directed Acyclic Graph (DAG), that is, no
+active cycles nor interfering v-structures, following Derumigny, Horsman
+and Kurowicka (2025) <doi:10.48550/arXiv.2510.03518>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PublicationBiasBenchmark
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Benchmark for Publication Bias Correction Methods
 
@@ -43,7 +43,7 @@ Requires:         R-CRAN-Rdpack
 %description
 Implements a unified interface for benchmarking meta-analytic publication
 bias correction methods through simulation studies (see Bartoš et al.,
-2022, <doi:10.48550/arXiv.2510.19489>). It provides 1) predefined
+2025, <doi:10.48550/arXiv.2510.19489>). It provides 1) predefined
 data-generating mechanisms from the literature, 2) functions for running
 meta-analytic methods on simulated data, 3) pre-simulated datasets and
 pre-computed results for reproducible benchmarks, 4) tools for visualizing

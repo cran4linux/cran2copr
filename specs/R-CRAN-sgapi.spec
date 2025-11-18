@@ -1,32 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdb
-%global packver   1.4.2
+%global packname  sgapi
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Aid Querying 'nomis' and 'Office for National Statistics Open Geography' APIs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-xml2 
 Requires:         R-methods 
-Requires:         R-utils 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and an R Database Interface (DBI) connector.
+Facilitates extraction of geospatial data from the 'Office for National
+Statistics Open Geography' and 'nomis' Application Programming Interfaces
+(APIs). Simplifies process of querying 'nomis' datasets
+<https://www.nomisweb.co.uk/> and extracting desired datasets in dataframe
+format. Extracts area shapefiles at chosen resolution from 'Office for
+National Statistics Open Geography'
+<https://geoportal.statistics.gov.uk/>.
 
 %prep
 %setup -q -c -n %{packname}

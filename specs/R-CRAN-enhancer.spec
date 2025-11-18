@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdb
-%global packver   1.4.2
+%global packname  enhancer
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Mixed-Effects Models Enhancing Functions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.0
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-Matrix >= 1.0
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-crayon 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and an R Database Interface (DBI) connector.
+Special functions that enhance other mixed effect model packages by
+creating overlayed, reduced rank, and reduced model matrices together with
+multiple data sets to practice the use of these models. For more details
+see Covarrubias-Pazaran (2016) <doi:10.1371/journal.pone.0156744>.
 
 %prep
 %setup -q -c -n %{packname}
