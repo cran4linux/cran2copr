@@ -1,48 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mixedCCA
-%global packver   1.6.3
+%global packname  UComp
+%global packver   5.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          5.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Canonical Correlation Analysis for High-Dimensional Mixed Data
+Summary:          Automatic Univariate Time Series Modelling of many Kinds
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
-BuildRequires:    R-CRAN-latentcor >= 2.0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-tsoutliers 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-pcaPP 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-fMultivar 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-latentcor >= 2.0.1
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-tsoutliers 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-pcaPP 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-fMultivar 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-ggforce 
+Requires:         R-utils 
+Requires:         R-parallel 
 
 %description
-Semi-parametric approach for sparse canonical correlation analysis which
-can handle mixed data types: continuous, binary and truncated continuous.
-Bridge functions are provided to connect Kendall's tau to latent
-correlation under the Gaussian copula model. The methods are described in
-Yoon, Carroll and Gaynanova (2020) <doi:10.1093/biomet/asaa007> and Yoon,
-Mueller and Gaynanova (2021) <doi:10.1080/10618600.2021.1882468>.
+Comprehensive analysis and forecasting of univariate time series using
+automatic time series models of many kinds. Harvey AC (1989)
+<doi:10.1017/CBO9781107049994>. Pedregal DJ and Young PC (2002)
+<doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
+<doi:10.1093/acprof:oso/9780199641178.001.0001>. Hyndman RJ, Koehler AB,
+Ord JK, and Snyder RD (2008) <doi:10.1007/978-3-540-71918-2>. Gómez V,
+Maravall A (2000) <doi:10.1002/9781118032978>. Pedregal DJ, Trapero JR and
+Holgado E (2024) <doi:10.1016/j.ijforecast.2023.09.004>.
 
 %prep
 %setup -q -c -n %{packname}

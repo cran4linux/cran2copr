@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   7.8
+%global packver   7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.8
+Version:          7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -110,7 +110,10 @@ response data with zeros". Statistics and Computing, 33(106).
 least squares simplicial-simplicial regression". Statistics and Computing,
 35(27). <doi:10.1007/s11222-024-10560-z>. o) Sevinc V. and Tsagris. M.
 (2024). "Energy Based Equality of Distributions Testing for Compositional
-Data". <doi:10.48550/arXiv.2412.05199>.
+Data". <doi:10.48550/arXiv.2412.05199>. p) Tsagris M. (2025).
+"Transformation-free linear simplicial-simplicial regression via
+constrained iterative reweighted least squares".
+<doi:10.48550/arXiv.2511.13296>.
 
 %prep
 %setup -q -c -n %{packname}

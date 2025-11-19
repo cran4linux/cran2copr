@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daiR
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface with Google Cloud Document AI API
 
@@ -62,7 +62,7 @@ Requires:         R-CRAN-xml2
 
 %description
 R interface for the Google Cloud Services 'Document AI API'
-<https://cloud.google.com/document-ai/> with additional tools for output
+<https://cloud.google.com/document-ai> with additional tools for output
 file parsing and text reconstruction. 'Document AI' is a powerful
 server-based OCR service that extracts text and tables from images and PDF
 files with high accuracy. 'daiR' gives R users programmatic access to this

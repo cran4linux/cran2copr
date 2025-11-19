@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PHEindicatormethods
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Public Health Statistics and their Confidence Intervals
 
@@ -54,7 +54,7 @@ are referenced in the following publications. Breslow NE, Day NE (1987)
 <doi:10.1136/jech.2003.009654>. Silcocks PBS et al (2001)
 <doi:10.1136/jech.55.1.38>. Low and Low (2004)
 <doi:10.1093/pubmed/fdh175>. Fingertips Public Health Technical Guide:
-<https://fingertips.phe.org.uk/static-reports/public-health-technical-guidance/>.
+<https://fingertips.phe.org.uk/profile/guidance/supporting-information/PH-methods/>.
 
 %prep
 %setup -q -c -n %{packname}

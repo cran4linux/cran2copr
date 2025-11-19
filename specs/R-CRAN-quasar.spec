@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tbm
-%global packver   0.3-9
+%global packname  quasar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation Boosting Machines
+Summary:          Valid Inference on Multiple Quantile Regressions
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mboost >= 2.8.2
-BuildRequires:    R-CRAN-mlt >= 1.7.0
-BuildRequires:    R-CRAN-variables 
-BuildRequires:    R-CRAN-basefun 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-coneproj 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mboost >= 2.8.2
-Requires:         R-CRAN-mlt >= 1.7.0
-Requires:         R-CRAN-variables 
-Requires:         R-CRAN-basefun 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-coneproj 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
 
 %description
-Boosting the likelihood of conditional and shift transformation models as
-introduced in <DOI:10.1007/s11222-019-09870-4>.
+The approach is based on the closed testing procedure to control
+familywise error rate in a strong sense. The local tests implemented are
+Wald-type and rank-score. The method is described in De Santis, et al.,
+(2025), <doi:10.48550/arXiv.2511.07999>.
 
 %prep
 %setup -q -c -n %{packname}

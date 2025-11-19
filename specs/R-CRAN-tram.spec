@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tram
-%global packver   1.2-5
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlt >= 1.6.6
+BuildRequires:    R-CRAN-mlt >= 1.7.0
 BuildRequires:    R-CRAN-mvtnorm >= 1.3.2
 BuildRequires:    R-CRAN-basefun >= 1.1.2
 BuildRequires:    R-CRAN-variables >= 1.0.4
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-mlt >= 1.6.6
+Requires:         R-CRAN-mlt >= 1.7.0
 Requires:         R-CRAN-mvtnorm >= 1.3.2
 Requires:         R-CRAN-basefun >= 1.1.2
 Requires:         R-CRAN-variables >= 1.0.4
@@ -52,12 +52,14 @@ models, and continuous outcome logistic regression (Lohse et al., 2017,
 <DOI:10.12688/f1000research.12934.1>). The underlying theory is described
 in Hothorn et al. (2018) <DOI:10.1111/sjos.12291>. An extension to
 transformation models for clustered data is provided (Barbanti and
-Hothorn, 2022, <DOI:10.1093/biostatistics/kxac048>). Multivariate
-conditional transformation models (Klein et al, 2022,
-<DOI:10.1111/sjos.12501>) and shift-scale transformation models (Siegfried
-et al, 2023, <DOI:10.1080/00031305.2023.2203177>) can be fitted as well.
-The package contains an implementation of a doubly robust score test,
-described in Kook et al. (2024, <DOI:10.1080/01621459.2024.2395588>).
+Hothorn, 2022, <DOI:10.1093/biostatistics/kxac048>) and a tutorial
+explains applications in survival analysis (Siegfried et al., 2025,
+<DOI:10.48550/arXiv.2402.06428>). Multivariate conditional transformation
+models (Klein et al, 2022, <DOI:10.1111/sjos.12501>) and shift-scale
+transformation models (Siegfried et al, 2023,
+<DOI:10.1080/00031305.2023.2203177>) can be fitted as well. The package
+contains an implementation of a doubly robust score test, described in
+Kook et al. (2024, <DOI:10.1080/01621459.2024.2395588>).
 
 %prep
 %setup -q -c -n %{packname}

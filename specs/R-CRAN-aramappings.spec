@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tbm
-%global packver   0.3-9
+%global packname  aramappings
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation Boosting Machines
+Summary:          Computes Adaptable Radial Axes Mappings
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mboost >= 2.8.2
-BuildRequires:    R-CRAN-mlt >= 1.7.0
-BuildRequires:    R-CRAN-variables 
-BuildRequires:    R-CRAN-basefun 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-coneproj 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mboost >= 2.8.2
-Requires:         R-CRAN-mlt >= 1.7.0
-Requires:         R-CRAN-variables 
-Requires:         R-CRAN-basefun 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-coneproj 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-clarabel 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-glpkAPI 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-clarabel 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-glpkAPI 
+Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-slam 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-stats 
 
 %description
-Boosting the likelihood of conditional and shift transformation models as
-introduced in <DOI:10.1007/s11222-019-09870-4>.
+Computes low-dimensional point representations of high-dimensional
+numerical data according to the data visualization method Adaptable Radial
+Axes described in: Manuel Rubio-Sánchez, Alberto Sanchez, and Dirk J.
+Lehmann (2017) "Adaptable radial axes plots for improved multivariate data
+visualization" <doi:10.1111/cgf.13196>.
 
 %prep
 %setup -q -c -n %{packname}

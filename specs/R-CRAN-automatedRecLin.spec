@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dawaR
-%global packver   0.3.1
+%global packname  automatedRecLin
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Wrapper for 'DAWA' - 'The Danish Address Web API'
+Summary:          Record Linkage Based on an Entropy-Maximizing Classifier
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-memoise >= 2.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyRSS 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-densityratio 
+BuildRequires:    R-CRAN-FixedPoint 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reclin2 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-memoise >= 2.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyRSS 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-densityratio 
+Requires:         R-CRAN-FixedPoint 
+Requires:         R-methods 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reclin2 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Functions for interacting with all sections of the official 'Danish
-Address Web API' (also known as 'DAWA') <https://api.dataforsyningen.dk>.
-The development of this package is completely independent from the
-government agency, Klimadatastyrelsen, who maintains the API.
+The goal of 'automatedRecLin' is to perform record linkage (also known as
+entity resolution) in unsupervised or supervised settings. It compares
+pairs of records from two datasets using selected comparison functions to
+estimate the probability or density ratio between matched and non-matched
+records. Based on these estimates, it predicts a set of matches that
+maximizes entropy. For details see: Lee et al. (2022)
+<https://www150.statcan.gc.ca/n1/pub/12-001-x/2022001/article/00007-eng.htm>,
+Vo et al. (2023)
+<https://ideas.repec.org/a/eee/csdana/v179y2023ics0167947322002365.html>,
+Sugiyama et al. (2008) <doi:10.1007/s10463-008-0197-x>.
 
 %prep
 %setup -q -c -n %{packname}

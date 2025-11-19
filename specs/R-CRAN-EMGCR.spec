@@ -1,51 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IDMIR
-%global packver   0.1.1
+%global packname  EMGCR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identification of Dysregulated MiRNAs Based on MiRNA-MiRNA Interaction Network
+Summary:          Fit a Mixture Cure Rate Model with Custom Link Function
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-egg 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-forestplot 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survminer 
-Requires:         R-CRAN-egg 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-forestplot 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A systematic biology tool was developed to identify dysregulated miRNAs
-via a miRNA-miRNA interaction network. 'IDMIR' first constructed a
-weighted miRNA interaction network through integrating miRNA-target
-interaction information, molecular function data from Gene Ontology (GO)
-database and gene transcriptomic data in specific-disease context, and
-then, it used a network propagation algorithm on the network to identify
-significantly dysregulated miRNAs.
+Tools to fit Mixture Cure Rate models via the Expectation-Maximization
+(EM) algorithm, allowing for flexible link functions in the cure component
+and various survival distributions in the latency part. The package
+supports user-specified link functions, includes methods for parameter
+estimation and model diagnostics, and provides residual analysis tailored
+for cure models. The classical theory methods used are described in
+Berkson, J. and Gage, R. P. (1952) <doi:10.2307/2281318>, Dempster, A. P.,
+Laird, N. M. and Rubin, D. B. (1977)
+<https://www.jstor.org/stable/2984875>, Bazán, J., Torres-Avilés, F.,
+Suzuki, A. and Louzada, F. (2017)<doi:10.1002/asmb.2215>.
 
 %prep
 %setup -q -c -n %{packname}
