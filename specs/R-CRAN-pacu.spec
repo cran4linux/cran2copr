@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pacu
-%global packver   0.1.72
+%global packver   0.1.74
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.72
+Version:          0.1.74
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precision Agriculture Computational Utilities
 

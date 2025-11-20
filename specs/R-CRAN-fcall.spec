@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbmiUtils
-%global packver   0.1.6
+%global packname  fcall
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions to Support and Extend the 'rbmi' Package
+Summary:          Parse Farm Credit Administration Call Report Data into Tidy Data Frames
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbmi >= 1.4
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-beeca 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rbmi >= 1.4
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-waldo 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-beeca 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-waldo 
 
 %description
-Provides utility functions that extend the capabilities of the
-reference-based multiple imputation package 'rbmi'. It supports clinical
-trial analysis workflows with functions for managing imputed datasets,
-applying analysis methods across imputations, and tidying results for
-reporting.
+Parses financial condition and performance data (Call Reports) for
+institutions in the United States Farm Credit System. Contains functions
+for downloading files from the Farm Credit Administration (FCA) Call
+Report archive website and reading the files into tidy data frame format.
+The archive website can be found at
+<https://www.fca.gov/bank-oversight/call-report-data-for-download>.
 
 %prep
 %setup -q -c -n %{packname}

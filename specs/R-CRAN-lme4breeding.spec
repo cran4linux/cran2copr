@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lme4breeding
-%global packver   1.0.90
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.90
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Breeding-Related Mixed-Effects Models
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-lme4 >= 1.0
 BuildRequires:    R-CRAN-Matrix >= 1.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-enhancer 
 Requires:         R-CRAN-lme4 >= 1.0
 Requires:         R-CRAN-Matrix >= 1.0
 Requires:         R-methods 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-enhancer 
 
 %description
 Fit relationship-based and customized mixed-effects models with complex

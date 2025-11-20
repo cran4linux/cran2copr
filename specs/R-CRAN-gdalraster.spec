@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalraster
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to 'GDAL'
 
@@ -27,6 +27,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-wk 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-yyjsonr 
 BuildRequires:    R-CRAN-RcppInt64 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-bit64 
@@ -39,6 +40,7 @@ Requires:         R-tools
 Requires:         R-utils 
 Requires:         R-CRAN-wk 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yyjsonr 
 
 %description
 API bindings to the Geospatial Data Abstraction Library ('GDAL',

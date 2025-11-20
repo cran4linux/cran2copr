@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoxPlus
-%global packver   1.5.7
+%global packname  CensRegSMSN
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cox Regression (Proportional Hazards Model) with Multiple Causes and Mixed Effects
+Summary:          Censored Linear Regression Models under Heavy‑tailed Distributions
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Extends the Cox model to events with more than one causes. Also supports
-random and fixed effects, tied events, and time-varying variables. Model
-details are provided in Peng et al. (2018) <doi:10.1509/jmr.14.0643>.
+Functions for fitting univariate linear regression models under Scale
+Mixtures of Skew-Normal (SMSN) distributions, considering left, right or
+interval censoring and missing responses. Estimation is performed via an
+EM-type algorithm. Includes selection criteria, sample generation and
+envelope. For details, see Gil, Y.A., Garay, A.M., and Lachos, V.H. (2025)
+<doi:10.1007/s10260-025-00797-x>.
 
 %prep
 %setup -q -c -n %{packname}

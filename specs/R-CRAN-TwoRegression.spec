@@ -1,42 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  difNLR
-%global packver   1.5.2-2
+%global packname  TwoRegression
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DIF and DDF Detection by Non-Linear Regression Models
+Summary:          Develop and Apply Two-Regression Algorithms
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-calculus 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-pROC >= 1.16.0
+BuildRequires:    R-CRAN-PAutilities >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 0.5.0
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-calculus 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-pROC >= 1.16.0
+Requires:         R-CRAN-PAutilities >= 1.1.0
+Requires:         R-CRAN-dplyr >= 0.5.0
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-RcppRoll 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-tidyr 
 
 %description
-Detection of differential item functioning (DIF) among dichotomously
-scored items and differential distractor functioning (DDF) among unscored
-items with non-linear regression procedures based on generalized logistic
-regression models (Hladka & Martinkova, 2020, <doi:10.32614/RJ-2020-014>).
+Facilitates development and application of two-regression algorithms for
+research-grade wearable devices. It provides an easy way for users to
+access previously-developed algorithms, and also to develop their own.
+Initial motivation came from Hibbing PR, LaMunion SR, Kaplan AS, & Crouter
+SE (2018) <doi:10.1249/MSS.0000000000001532>. However, other algorithms
+are now supported. Please see the associated references in the package
+documentation for full details of the algorithms that are supported.
 
 %prep
 %setup -q -c -n %{packname}

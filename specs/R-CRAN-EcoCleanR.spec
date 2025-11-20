@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BSTZINB
-%global packver   2.0.1
+%global packname  EcoCleanR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Association Among Disease Counts and Socio-Environmental Factors
+Summary:          Automated and Controlled Extraction, Cleaning, and Processing of Occurrence Data for Generating Biogeographic Ranges of Marine Organisms
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,44 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesLogit 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geodata 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-gtsummary 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-BayesLogit 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-mregions2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sdmpredictors 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geodata 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-gtsummary 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-methods 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-mregions2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sdmpredictors 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tidyr 
 
 %description
-Estimation of association between disease or death counts (e.g. COVID-19)
-and socio-environmental risk factors using a zero-inflated Bayesian
-spatiotemporal model. Non-spatiotemporal models and/or models without
-zero-inflation are also included for comparison. Functions to produce
-corresponding maps are also included. See Chakraborty et al. (2022)
-<doi:10.1007/s13253-022-00487-1> for more details on the method.
+Provides step-by-step automation for integrating biodiversity data from
+multiple online aggregators, merging and cleaning datasets while
+addressing challenges such as taxonomic inconsistencies, georeferencing
+issues, and spatial or environmental outliers. Includes functions to
+extract environmental data and to define the biogeographic ranges in which
+species are most likely to occur.
 
 %prep
 %setup -q -c -n %{packname}

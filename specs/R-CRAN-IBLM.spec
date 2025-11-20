@@ -1,49 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DYNATE
-%global packver   0.1
+%global packname  IBLM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Aggregation Testing
+Summary:          Interpretable Boosted Linear Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-reshape2 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-ggExtra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-ggExtra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-statmod 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xgboost 
 
 %description
-A multiple testing procedure aims to find the rare-variant association
-regions. When variants are rare, the single variant association test
-approach suffers from low power. To improve testing power, the procedure
-dynamically and hierarchically aggregates smaller genome regions to larger
-ones and performs multiple testing for disease associations with a
-controlled node-level false discovery rate. This method are members of the
-family of ancillary information assisted recursive testing introduced in
-Pura, Li, Chan and Xie (2021) <arXiv:1906.07757v2> and Li, Sung and Xie
-(2021) <arXiv:2103.11085v2>.
+Implements Interpretable Boosted Linear Models (IBLMs). These combine a
+conventional generalized linear model (GLM) with a machine learning
+component, such as XGBoost. The package also provides tools within for
+explaining and analyzing these models. For more details see Gawlowski and
+Wang (2025)
+<https://ifoa-adswp.github.io/IBLM/reference/figures/iblm_paper.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

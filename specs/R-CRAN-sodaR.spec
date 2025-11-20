@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoxPlus
-%global packver   1.5.7
+%global packname  sodaR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cox Regression (Proportional Hazards Model) with Multiple Causes and Mixed Effects
+Summary:          Download or Upload 'Socrata' Data Sets
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.10.0
+BuildRequires:    R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.16
+BuildRequires:    R-CRAN-mime >= 0.3
+Requires:         R-CRAN-data.table >= 1.10.0
+Requires:         R-CRAN-httr >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 0.9.16
+Requires:         R-CRAN-mime >= 0.3
 
 %description
-Extends the Cox model to events with more than one causes. Also supports
-random and fixed effects, tied events, and time-varying variables. Model
-details are provided in Peng et al. (2018) <doi:10.1509/jmr.14.0643>.
+Provides easier interaction with 'Socrata' open data portals
+<https://dev.socrata.com>. Users can provide a 'Socrata' data set resource
+URL, or a 'Socrata' Open Data API (SODA) web query, or a 'Socrata'
+"human-friendly" URL, returns an R data frame. Converts dates to 'POSIX'
+format and manages throttling by 'Socrata'. Users can upload data to
+'Socrata' portals directly from R.
 
 %prep
 %setup -q -c -n %{packname}

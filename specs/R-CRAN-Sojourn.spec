@@ -1,46 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tern.rbmi
-%global packver   0.1.6
+%global packname  Sojourn
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interface for 'RBMI' and 'tern'
+Summary:          Apply Sojourn Methods for Processing ActiGraph Accelerometer Data
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-nnet >= 7.3
+BuildRequires:    R-CRAN-zoo >= 1.8
+BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-rbmi >= 1.2.5
-BuildRequires:    R-CRAN-tern >= 0.9.7
-BuildRequires:    R-CRAN-rtables >= 0.6.11
-BuildRequires:    R-CRAN-broom >= 0.5.4
-BuildRequires:    R-CRAN-formatters >= 0.5.10
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-svDialogs >= 1.0
+BuildRequires:    R-CRAN-dplyr >= 0.7
+BuildRequires:    R-CRAN-PAutilities >= 0.2.0
+BuildRequires:    R-CRAN-rlang >= 0.2
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-nnet >= 7.3
+Requires:         R-CRAN-zoo >= 1.8
+Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-rbmi >= 1.2.5
-Requires:         R-CRAN-tern >= 0.9.7
-Requires:         R-CRAN-rtables >= 0.6.11
-Requires:         R-CRAN-broom >= 0.5.4
-Requires:         R-CRAN-formatters >= 0.5.10
-Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-svDialogs >= 1.0
+Requires:         R-CRAN-dplyr >= 0.7
+Requires:         R-CRAN-PAutilities >= 0.2.0
+Requires:         R-CRAN-rlang >= 0.2
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-'RBMI' implements standard and reference based multiple imputation methods
-for continuous longitudinal endpoints (Gower-Page et al. (2022)
-<doi:10.21105/joss.04251>). This package provides an interface for 'RBMI'
-uses the 'tern' <https://cran.r-project.org/package=tern> framework by Zhu
-et al. (2023) and tabulate results easily using 'rtables'
-<https://cran.r-project.org/package=rtables> by Becker et al. (2023).
+Provides a simple way for utilizing Sojourn methods for accelerometer
+processing, as detailed in Lyden K, Keadle S, Staudenmayer J, & Freedson P
+(2014) <doi:10.1249/MSS.0b013e3182a42a2d>, Ellingson LD, Schwabacher IJ,
+Kim Y, Welk GJ, & Cook DB (2016) <doi:10.1249/MSS.0000000000000915>, and
+Hibbing PR, Ellingson LD, Dixon PM, & Welk GJ (2018)
+<doi:10.1249/MSS.0000000000001486>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PCRedux
-%global packver   1.2-0
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Polymerase Chain Reaction (qPCR) Data Mining and Machine Learning Toolkit as Described in Burdukiewicz (2022) <doi:10.21105/Joss.04407>
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OmopSketch
-%global packver   0.5.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Characterise Tables of an OMOP Common Data Model Instance
 
@@ -17,33 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PatientProfiles >= 1.3.1
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.1
+BuildRequires:    R-CRAN-PatientProfiles >= 1.4.3
+BuildRequires:    R-CRAN-omopgenerics >= 1.3.1
 BuildRequires:    R-CRAN-CohortConstructor >= 0.3.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-PatientProfiles >= 1.3.1
-Requires:         R-CRAN-CDMConnector >= 1.3.0
-Requires:         R-CRAN-omopgenerics >= 0.4.1
+Requires:         R-CRAN-PatientProfiles >= 1.4.3
+Requires:         R-CRAN-omopgenerics >= 1.3.1
 Requires:         R-CRAN-CohortConstructor >= 0.3.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clock 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description

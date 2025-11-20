@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reddPrec
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reconstruction of Daily Data - Precipitation
 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-qmap 
 BuildRequires:    R-CRAN-BreakPoints 
-BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-trend 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-gridExtra 
@@ -44,7 +44,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-qmap 
 Requires:         R-CRAN-BreakPoints 
-Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-trend 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-gridExtra 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bridgesampling
-%global packver   1.1-2
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bridge Sampling for Marginal Likelihoods and Bayes Factors
 
@@ -39,8 +40,8 @@ Requires:         R-methods
 Provides functions for estimating marginal likelihoods, Bayes factors,
 posterior model probabilities, and normalizing constants in general, via
 different versions of bridge sampling (Meng & Wong, 1996,
-<http://www3.stat.sinica.edu.tw/statistica/j6n4/j6n43/j6n43.htm>). Gronau,
-Singmann, & Wagenmakers (2020) <doi:10.18637/jss.v092.i10>.
+<https://www3.stat.sinica.edu.tw/statistica/j6n4/j6n43/j6n43.htm>).
+Gronau, Singmann, & Wagenmakers (2020) <doi:10.18637/jss.v092.i10>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bidux
-%global packver   0.3.3
+%global packname  fairGATE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Behavioral Insight Design: A Toolkit for Integrating Behavioral Science in UI/UX Design
+Summary:          Fair Gated Algorithm for Targeted Equity
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,42 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-readr >= 2.1.5
-BuildRequires:    R-CRAN-stringdist >= 0.9.15
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-readr >= 2.1.5
-Requires:         R-CRAN-stringdist >= 0.9.15
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggalluvial 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-stats 
-Requires:         R-tools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-ggalluvial 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides a framework and toolkit to guide R dashboard developers in
-implementing the Behavioral Insight Design (BID) framework. The package
-offers functions for documenting each of the five stages (Interpret,
-Notice, Anticipate, Structure, and Validate), along with a comprehensive
-concept dictionary. Works with both 'shiny' applications and 'Quarto'
-dashboards.
+Tools for training and analysing fairness-aware gated neural networks for
+subgroup-aware prediction and interpretation in clinical datasets. Methods
+draw on prior work in mixture-of-experts neural networks by Jordan and
+Jacobs (1994) <doi:10.1007/978-1-4471-2097-1_113>, fairness-aware learning
+by Hardt, Price, and Srebro (2016) <doi:10.48550/arXiv.1610.02413>, and
+personalised treatment prediction for depression by Iniesta, Stahl, and
+McGuffin (2016) <doi:10.1016/j.jpsychires.2016.03.016>.
 
 %prep
 %setup -q -c -n %{packname}

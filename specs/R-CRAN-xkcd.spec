@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoxPlus
-%global packver   1.5.7
+%global packname  xkcd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cox Regression (Proportional Hazards Model) with Multiple Causes and Mixed Effects
+Summary:          Plotting 'ggplot2' Graphics in an 'XKCD' Style
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-stats 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-extrafont 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-Hmisc 
+Requires:         R-stats 
+Requires:         R-grid 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-extrafont 
 
 %description
-Extends the Cox model to events with more than one causes. Also supports
-random and fixed effects, tied events, and time-varying variables. Model
-details are provided in Peng et al. (2018) <doi:10.1509/jmr.14.0643>.
+Provides custom geoms and themes to create charts and graphics in the
+distinctive, hand-drawn 'XKCD' webcomic style using the 'ggplot2'
+framework. The package utilizes custom layers for jittered lines,
+segments, circles, and figures, and includes a theme that supports the
+necessary 'XKCD' font.
 
 %prep
 %setup -q -c -n %{packname}
