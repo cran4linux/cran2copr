@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3resampling
-%global packver   2025.6.23
+%global packver   2025.11.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.6.23
+Version:          2025.11.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Algorithms for 'mlr3' Framework
 
@@ -17,22 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.21.1
+BuildRequires:    R-CRAN-mlr3 >= 1.0.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-mlr3misc 
-BuildRequires:    R-CRAN-batchtools 
-BuildRequires:    R-CRAN-filelock 
-Requires:         R-CRAN-mlr3 >= 0.21.1
+BuildRequires:    R-CRAN-pbdMPI 
+Requires:         R-CRAN-mlr3 >= 1.0.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-mlr3misc 
-Requires:         R-CRAN-batchtools 
-Requires:         R-CRAN-filelock 
+Requires:         R-CRAN-pbdMPI 
 
 %description
 A supervised learning algorithm inputs a train set, and outputs a

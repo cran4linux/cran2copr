@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  numbers
-%global packver   0.9-2
+%global packname  RastaRocket
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Number-Theoretic Functions
+Summary:          Rocket-Fast Clinical Research Reporting
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,12 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-cardx 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-cardx 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggh4x 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-viridis 
 
 %description
-Provides number-theoretic functions for factorization, prime numbers, twin
-primes, primitive roots, modular logarithm and inverses, extended GCD,
-Farey series and continued fractions. Includes Legendre and Jacobi
-symbols, some divisor functions, Euler's Phi function, etc.
+Description of the tables, both grouped and not grouped, with some
+associated data management actions, such as sorting the terms of the
+variables and deleting terms with zero numbers.
 
 %prep
 %setup -q -c -n %{packname}

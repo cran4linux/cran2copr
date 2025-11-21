@@ -1,44 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MCDA
-%global packver   0.1.0
+%global packname  evolution
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for the Multicriteria Decision Aiding Process
+Summary:          A Client for 'Evolution Cloud API'
 
-License:          EUPL (>= 1.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-glpkAPI 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-glpkAPI 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-triangle 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-base64enc 
 
 %description
-Support for the analyst in a Multicriteria Decision Aiding (MCDA) process
-with algorithms, preference elicitation and data visualisation functions.
-Sébastien Bigaret, Richard Hodgett, Patrick Meyer, Tatyana Mironova,
-Alexandru Olteanu (2017) Supporting the multi-criteria decision aiding
-process : R and the MCDA package, Euro Journal On Decision Processes,
-Volume 5, Issue 1 - 4, pages 169 - 194 <doi:10.1007/s40070-017-0064-1>.
+Provides an 'R' interface to the 'Evolution API'
+<https://evoapicloud.com>, enabling sending and receiving 'WhatsApp'
+messages directly from 'R'. Functions include sending text, images,
+documents, stickers, geographic locations, and interactive messages
+(lists). Also includes 'webhook' parsing utilities and channel health
+checks.
 
 %prep
 %setup -q -c -n %{packname}

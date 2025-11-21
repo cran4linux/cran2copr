@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FBMS
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayesian Model Selection and Model Averaging
 
@@ -16,26 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-fastglm 
 BuildRequires:    R-CRAN-GenSA 
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-r2r 
 BuildRequires:    R-CRAN-BAS 
 BuildRequires:    R-CRAN-tolerance 
-BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-fastglm 
 Requires:         R-CRAN-GenSA 
 Requires:         R-parallel 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
 Requires:         R-CRAN-r2r 
 Requires:         R-CRAN-BAS 
 Requires:         R-CRAN-tolerance 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Implements the Mode Jumping Markov Chain Monte Carlo algorithm described

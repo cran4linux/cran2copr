@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctmva
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous-Time Multivariate Analysis
 
@@ -14,13 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-polynom 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-Matrix 
 
 %description
 Implements a basis function or functional data analysis framework for
@@ -28,9 +34,9 @@ several techniques of multivariate analysis in continuous-time setting.
 Specifically, we introduced continuous-time analogues of several classical
 techniques of multivariate analysis, such as principal component analysis,
 canonical correlation analysis, Fisher linear discriminant analysis,
-K-means clustering, and so on. Details are in Biplab Paul, Philip T. Reiss
-and Erjia Cui (2023) "Continuous-time multivariate analysis"
-<doi:10.48550/arXiv.2307.09404>.
+K-means clustering, and so on. Details are in Biplab Paul, Philip T.
+Reiss, Erjia Cui and Noemi Foa (2025) "Continuous-time multivariate
+analysis" <doi: 10.1080/10618600.2024.2374570>.
 
 %prep
 %setup -q -c -n %{packname}

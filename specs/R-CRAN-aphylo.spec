@@ -1,51 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simtrial
-%global packver   1.0.2
+%global packname  aphylo
+%global packver   0.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Simulation
+Summary:          Statistical Inference and Prediction of Annotations in Phylogenetic Trees
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-ape >= 5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.1
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-fmcmc 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-future 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-ape >= 5.0
+Requires:         R-CRAN-Rcpp >= 0.12.1
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-fmcmc 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-xml2 
 
 %description
-Provides some basic routines for simulating a clinical trial. The primary
-intent is to provide some tools to generate trial simulations for trials
-with time to event outcomes. Piecewise exponential failure rates and
-piecewise constant enrollment rates are the underlying mechanism used to
-simulate a broad range of scenarios such as those presented in Lin et al.
-(2020) <doi:10.1080/19466315.2019.1697738>. However, the basic generation
-of data is done using pipes to allow maximum flexibility for users to meet
-different needs.
+Implements a parsimonious evolutionary model to analyze and predict
+gene-functional annotations in phylogenetic trees as described in Vega Yon
+et al. (2021) <doi:10.1371/journal.pcbi.1007948>. Focusing on
+computational efficiency, 'aphylo' makes it possible to estimate pooled
+phylogenetic models, including thousands (hundreds) of annotations (trees)
+in the same run. The package also provides the tools for visualization of
+annotated phylogenies, calculation of posterior probabilities (prediction)
+and goodness-of-fit assessment featured in Vega Yon et al. (2021).
 
 %prep
 %setup -q -c -n %{packname}

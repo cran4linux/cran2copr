@@ -1,62 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMediation
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation Analysis Confidence Intervals
 
-License:          GPL-2
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3
-BuildRequires:    R-base >= 3.5.0
-BuildRequires:    R-stats >= 3.5.0
-BuildRequires:    R-graphics >= 3.5.0
-BuildRequires:    R-methods >= 3.5.0
-BuildRequires:    R-grDevices >= 3.5
+BuildRequires:    R-base >= 4.1.0
+BuildRequires:    R-stats >= 4.1.0
+BuildRequires:    R-graphics >= 4.1.0
+BuildRequires:    R-grDevices >= 4.1.0
 BuildRequires:    R-CRAN-OpenMx >= 2.13
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-e1071 >= 1.6.7
-BuildRequires:    R-CRAN-foreach >= 1.5.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-doParallel >= 1.0.0
-BuildRequires:    R-CRAN-iterators >= 1.0.0
 BuildRequires:    R-CRAN-lavaan >= 0.5.20
-BuildRequires:    R-CRAN-modelr >= 0.1.4
+BuildRequires:    R-CRAN-modelr >= 0.1.8
+BuildRequires:    R-CRAN-generics >= 0.0.2
 Requires:         R-CRAN-MASS >= 7.3
-Requires:         R-base >= 3.5.0
-Requires:         R-stats >= 3.5.0
-Requires:         R-graphics >= 3.5.0
-Requires:         R-methods >= 3.5.0
-Requires:         R-grDevices >= 3.5
+Requires:         R-base >= 4.1.0
+Requires:         R-stats >= 4.1.0
+Requires:         R-graphics >= 4.1.0
+Requires:         R-grDevices >= 4.1.0
 Requires:         R-CRAN-OpenMx >= 2.13
+Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-e1071 >= 1.6.7
-Requires:         R-CRAN-foreach >= 1.5.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-doParallel >= 1.0.0
-Requires:         R-CRAN-iterators >= 1.0.0
 Requires:         R-CRAN-lavaan >= 0.5.20
-Requires:         R-CRAN-modelr >= 0.1.4
+Requires:         R-CRAN-modelr >= 0.1.8
+Requires:         R-CRAN-generics >= 0.0.2
 
 %description
-We provide functions to compute confidence intervals for a well-defined
-nonlinear function of the model parameters (e.g., product of k
-coefficients) in single--level and multilevel structural equation models.
-It also computes a chi-square test statistic for a function of indirect
-effects. 'Tofighi', D. and 'MacKinnon', D. P. (2011). 'RMediation' An R
-package for mediation analysis confidence intervals. Behavior Research
-Methods, 43, 692--700. <doi:10.3758/s13428-011-0076-x>. 'Tofighi', D.
-(2020). Bootstrap Model-Based Constrained Optimization Tests of Indirect
-Effects. Frontiers in Psychology, 10, 2989.
-<doi:10.3389/fpsyg.2019.02989>.
+Computes confidence intervals for nonlinear functions of model parameters
+(e.g., product of k coefficients) in single-level and multilevel
+structural equation models. Methods include the distribution of the
+product, Monte Carlo simulation, and bootstrap methods. It also performs
+the Model-Based Constrained Optimization (MBCO) procedure for hypothesis
+testing of indirect effects. References: Tofighi, D., and MacKinnon, D. P.
+(2011). RMediation: An R package for mediation analysis confidence
+intervals. Behavior Research Methods, 43, 692-700.
+<doi:10.3758/s13428-011-0076-x>; Tofighi, D., and Kelley, K. (2020).
+Improved inference in mediation analysis: Introducing the model-based
+constrained optimization procedure. Psychological Methods, 25(4), 496-515.
+<doi:10.1037/met0000259>; Tofighi, D. (2020). Bootstrap Model-Based
+Constrained Optimization Tests of Indirect Effects. Frontiers in
+Psychology, 10, 2989. <doi:10.3389/fpsyg.2019.02989>.
 
 %prep
 %setup -q -c -n %{packname}

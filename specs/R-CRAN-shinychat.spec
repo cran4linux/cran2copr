@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinychat
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chat UI Component for 'shiny'
 
@@ -19,22 +19,30 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-promises >= 1.3.2
 BuildRequires:    R-CRAN-shiny >= 1.10.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-ellmer >= 0.3.0
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-coro 
-BuildRequires:    R-CRAN-ellmer 
 BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-S7 
 Requires:         R-CRAN-promises >= 1.3.2
 Requires:         R-CRAN-shiny >= 1.10.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-ellmer >= 0.3.0
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-coro 
-Requires:         R-CRAN-ellmer 
 Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-S7 
 
 %description
 Provides a scrolling chat interface with multiline input, suitable for

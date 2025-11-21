@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ferrn
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Exploration of touRR optimisatioN
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-dplyr 
@@ -59,7 +59,7 @@ multiple ways: by reducing the dimension using principal component
 analysis, and also using the tour to show the path on the high-dimensional
 space. Several botanical colour palettes are included, reflecting the name
 of the package. A paper describing the methodology can be found at
-<https://journal.r-project.org/archive/2021/RJ-2021-105/index.html>.
+<https://journal.r-project.org/articles/RJ-2021-105/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

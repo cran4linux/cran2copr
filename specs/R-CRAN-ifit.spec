@@ -1,45 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scf
-%global packver   1.0.5
+%global packname  ifit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyzing the Survey of Consumer Finances
+Summary:          Simulation-Based Fitting of Parametric Models with Minimum Prior Information
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-parallel 
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-parallel 
+Requires:         R-splines 
 Requires:         R-stats 
-Requires:         R-CRAN-survey 
-Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Analyze public-use micro data from the Survey of Consumer Finances.
-Provides tools to download prepared data files, construct
-replicate-weighted multiply imputed survey designs, compute descriptive
-statistics and model estimates, and produce plots and tables. Methods
-follow design-based inference for complex surveys and pooling across
-multiple imputations. See the package website and the code book for
-background.
+Implements an algorithm for fitting a generative model with an intractable
+likelihood using only box constraints on the parameters.  The implemented
+algorithm consists of two phases. The first phase (global search) aims to
+identify the region containing the best solution, while the second phase
+(local search) refines this solution using a trust-region version of the
+Fisher scoring method to solve a quasi-likelihood equation. See Guido
+Masarotto (2025) <doi:10.48550/arXiv.2511.08180> for the details of the
+algorithm and supporting results.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAtools
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functionalities for the 'INLA' Package
 
@@ -17,21 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-inlabru 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-inlabru 
 Requires:         R-methods 
 Requires:         R-utils 
 
 %description
-Contain code to work with latent Gaussian Markov random field (GMRF)
-models. Queries for the 'cgeneric' interface, specified as a way to
-implement new GMRF models to be fitted as model components in the 'INLA'
-package (<https://www.r-inla.org>). The implemented functionalities
-leverage the use of 'cgeneric' models and provide a way to debug the code
-as well to work with the prior for the model parameters and to sample from
-it. A Kronecker product method is also implemented to work with the four
-possible combinations between a 'cgeneric' and a 'rgeneric' model.
+Contain code to work with a C struct, in short cgeneric, to define a
+Gaussian Markov random (GMRF) model. The cgeneric contain code to specify
+GMRF elements such as the graph and the precision matrix, and also the
+initial and prior for its parameters, useful for model inference. It can
+be accessed from a C program and is the recommended way to implement new
+GMRF models in the 'INLA' package (<https://www.r-inla.org>). The
+'INLAtools' implement functions to evaluate each one of the model
+specifications from R. The implemented functionalities leverage the use of
+'cgeneric' models and provide a way to debug the code as well to work with
+the prior for the model parameters and to sample from it. A very useful
+functionality is the Kronecker product method that creates a new model
+from multiple cgeneric models. It also works with the rgeneric, the R
+version of the cgeneric intended to easy try implementation of new GMRF
+models. The Kronecker between two cgeneric models was used in Sterrantino
+et. al. (2024) <doi:10.1007/s10260-025-00788-y>, and can be used to build
+the spatio-temporal intrinsic interaction models for what the needed
+constraints are automatically set.
 
 %prep
 %setup -q -c -n %{packname}

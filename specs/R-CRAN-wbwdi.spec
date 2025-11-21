@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wbwdi
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless Access to World Bank World Development Indicators (WDI)
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-tibble 
 
 %description
-Access and analyze the World Bank’s World Development Indicators (WDI)
+Access and analyze the World Bank's World Development Indicators (WDI)
 using the corresponding API
 <https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation>.
 WDI provides more than 24,000 country or region-level indicators for

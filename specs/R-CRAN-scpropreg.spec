@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  danstat
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  scpropreg
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Client for the Statistics Denmark Databank API
+Summary:          Simplicially Constrained Regression Models for Proportions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 
 %description
-The purpose of the package is to enable an R function interface into the
-Statistics Denmark Databank API mainly for research purposes. The
-Statistics Denmark Databank API has four endpoints, see here for more
-information and testing the API in their console:
-<https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api>.
-This package mimics the structure of the API and provides four main
-functions to match the functionality of the API endpoints.
+Simplicially constrained regression models for proportions in both sides.
+The constraint is always that the betas are non-negative and sum to 1.
+References: Iverson S.J.., Field C., Bowen W.D. and Blanchard W. (2004)
+"Quantitative Fatty Acid Signature Analysis: A New Method of Estimating
+Predator Diets". Ecological Monographs, 74(2): 211-235.
+<doi:10.1890/02-4105>.
 
 %prep
 %setup -q -c -n %{packname}
