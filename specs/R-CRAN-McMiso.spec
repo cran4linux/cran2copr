@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kstMatrix
-%global packver   2.1-0
+%global packname  McMiso
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Functions in Knowledge Space Theory Using Matrix Representation
+Summary:          Multicore Multivariable Isotonic Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-future >= 1.33.0
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-CRAN-pks 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-DiagrammeRsvg 
-BuildRequires:    R-CRAN-rsvg 
+Requires:         R-CRAN-future >= 1.33.0
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-CRAN-sets 
-Requires:         R-CRAN-pks 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-DiagrammeRsvg 
-Requires:         R-CRAN-rsvg 
 
 %description
-Knowledge space theory by Doignon and Falmagne (1999)
-<doi:10.1007/978-3-642-58625-5> is a set- and order-theoretical framework,
-which proposes mathematical formalisms to operationalize knowledge
-structures in a particular domain. The 'kstMatrix' package provides basic
-functionalities to generate, handle, and manipulate knowledge structures
-and knowledge spaces. Opposed to the 'kst' package, 'kstMatrix' uses
-matrix representations for knowledge structures. Furthermore, 'kstMatrix'
-contains several knowledge spaces developed by the research group around
-Cornelia Dowling through querying experts.
+The goal of 'McMiso' is to provide functions for isotonic regression when
+there are multiple independent variables.  The functions solve the
+optimization problem using recursion and leverage parallel computing to
+improve speed, and are useful for situations with relatively large number
+of covariates.  The estimation method follows the projective Bayes
+solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
 
 %prep
 %setup -q -c -n %{packname}

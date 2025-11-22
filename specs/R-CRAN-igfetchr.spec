@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaPlotR
-%global packver   0.4.1
+%global packname  igfetchr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Reliability Probability Plots
+Summary:          Access the 'IG Trading REST API'
 
-License:          Apache License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-ReliaGrowR 
-BuildRequires:    R-CRAN-WeibullR 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-ReliaGrowR 
-Requires:         R-CRAN-WeibullR 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
 
 %description
-Build interactive Reliability Probability Plots with 'plotly' by Carson
-Sievert (2020) <https://plotly.com/r/>, an interactive web-based graphing
-library.
+Provides functions to fetch market data, search historical prices, execute
+trades, and get account details from the 'IG Trading REST API'
+<https://labs.ig.com>. Returns tidy tibbles for easy analysis. Trading
+contracts for difference (CFDs), options and spread bets carries a high
+risk of losing money. This package is not financial or trading advice.
 
 %prep
 %setup -q -c -n %{packname}

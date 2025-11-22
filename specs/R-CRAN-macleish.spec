@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  macleish
-%global packver   0.3.9
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Data from MacLeish Field Station
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-etl 
 BuildRequires:    R-CRAN-dplyr 
@@ -41,9 +42,9 @@ Whately, MA. The Ada and Archibald MacLeish Field Station is a 260-acre
 patchwork of forest and farmland located in West Whately, MA that provides
 opportunities for faculty and students to pursue environmental research,
 outdoor education, and low-impact recreation (see
-<https://www.smith.edu/about-smith/sustainable-smith/macleish> for more
-information). This package contains weather data over several years, and
-spatial data on various man-made and natural structures.
+<https://www.smith.edu/discover-smith/smith-action/sustainable-smith/macleish-field-station>
+for more information). This package contains weather data over several
+years, and spatial data on various man-made and natural structures.
 
 %prep
 %setup -q -c -n %{packname}

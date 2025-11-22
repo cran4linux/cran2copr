@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  selectr
-%global packver   0.5-0
+%global packname  pwlapprox2d
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate CSS Selectors to XPath Expressions
+Summary:          Approximates Univariate Continuous Functions Through Piecewise Linear Regression
 
-License:          BSD_3_clause + file LICENCE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-nloptr 
+Requires:         R-CRAN-nloptr 
 
 %description
-Translates a CSS selector into an equivalent XPath expression. This allows
-us to use CSS selectors when working with the XML package as it can only
-evaluate XPath expressions. Also provided are convenience functions useful
-for using CSS selectors on XML nodes. This package is a port of the Python
-package 'cssselect' (<https://cssselect.readthedocs.io/>).
+Allows users to find a piecewise linear regression approximation to a
+given continuous univariate function within a specified error tolerance.
+Methods based on Warwicker and Rebennack (2025) "Efficient continuous
+piecewise linear regression for linearising univariate non-linear
+functions" <doi:10.1080/24725854.2023.2299809>.
 
 %prep
 %setup -q -c -n %{packname}

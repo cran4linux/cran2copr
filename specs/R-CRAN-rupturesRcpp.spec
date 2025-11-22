@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaShiny
-%global packver   0.4
+%global packname  rupturesRcpp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Shiny' App for Reliability Analysis
+Summary:          Object-Oriented Interface for Offline Change-Point Detection
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ReliaGrowR 
-BuildRequires:    R-CRAN-ReliaPlotR 
-BuildRequires:    R-CRAN-WeibullR 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyWidgets 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ReliaGrowR 
-Requires:         R-CRAN-ReliaPlotR 
-Requires:         R-CRAN-WeibullR 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-methods 
 
 %description
-An interactive web application for reliability analysis using the 'shiny'
-<https://shiny.posit.co/> framework. The app provides an easy-to-use
-interface for performing reliability analysis using 'WeibullR'
-<https://cran.r-project.org/package=WeibullR> and 'ReliaGrowR'
-<https://cran.r-project.org/package=ReliaGrowR>.
+A collection of efficient implementations of popular offline change-point
+detection algorithm, featuring a consistent, object-oriented interface for
+practical use.
 
 %prep
 %setup -q -c -n %{packname}

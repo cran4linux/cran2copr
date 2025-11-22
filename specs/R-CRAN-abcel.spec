@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TidyConsultant
-%global packver   0.1.1
+%global packname  abcel
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Consultant Universe
+Summary:          Empirical Likelihood-Based Approximate Bayesian Computation
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-badger 
-BuildRequires:    R-CRAN-pacman 
-BuildRequires:    R-CRAN-framecleaner 
-BuildRequires:    R-CRAN-validata 
-BuildRequires:    R-CRAN-presenter 
-BuildRequires:    R-CRAN-autostats 
-BuildRequires:    R-CRAN-tidybins 
-BuildRequires:    R-CRAN-Ckmeans.1d.dp 
-Requires:         R-CRAN-badger 
-Requires:         R-CRAN-pacman 
-Requires:         R-CRAN-framecleaner 
-Requires:         R-CRAN-validata 
-Requires:         R-CRAN-presenter 
-Requires:         R-CRAN-autostats 
-Requires:         R-CRAN-tidybins 
-Requires:         R-CRAN-Ckmeans.1d.dp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-emplik 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-corpcor 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-emplik 
+Requires:         R-methods 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-corpcor 
 
 %description
-Loads the 5 packages in the Tidy Consultant Universe. This collection of
-packages is useful for anyone doing data science, data analysis, or
-quantitative consulting. The functions in these packages range from data
-cleaning, data validation, data binning, statistical modeling, and file
-exporting.
+Empirical likelihood-based approximate Bayesian Computation.  Approximates
+the required posterior using empirical likelihood and estimated
+differential entropy.  This is achieved without requiring any
+specification of the likelihood or estimating equations that connects the
+observations with the underlying parameters. The procedure is known to be
+posterior consistent.  More details can be found in Chaudhuri, Ghosh, and
+Kim (2024) <doi:10.1002/SAM.11711>.
 
 %prep
 %setup -q -c -n %{packname}

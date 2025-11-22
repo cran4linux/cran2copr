@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WeibullR.plotly
-%global packver   0.3.2
+%global packname  rbranding
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Weibull Probability Plots
+Summary:          Manage Branding and Accessibility of R Projects
 
-License:          Apache License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-ReliaGrowR 
-BuildRequires:    R-CRAN-WeibullR 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-ReliaGrowR 
-Requires:         R-CRAN-WeibullR 
+BuildRequires:    R-CRAN-credentials 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-credentials 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
-Build interactive Weibull Probability Plots with 'WeibullR' by David
-Silkworth and Jurgen Symynck (2022)
-<https://CRAN.R-project.org/package=WeibullR>, an R package for Weibull
-analysis, and 'plotly' by Carson Sievert (2020) <https://plotly-r.com>, an
-interactive web-based graphing library.
+A tool for building projects that are visually consistent, accessible, and
+easy to maintain. It provides functions for managing branding assets,
+applying organization-wide themes using 'brand.yml', and setting up new
+projects with accessibility features and correct branding. It supports
+'quarto', 'shiny', and 'rmarkdown' projects, and integrates with
+'ggplot2'. The accessibility features are based on the Web Content
+Accessibility Guidelines
+<https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1> and Accessible Rich
+Internet Applications (ARIA) specifications
+<https://www.w3.org/WAI/ARIA/apg/>. The branding framework implements the
+'brand.yml' specification <https://posit-dev.github.io/brand-yml/>.
 
 %prep
 %setup -q -c -n %{packname}

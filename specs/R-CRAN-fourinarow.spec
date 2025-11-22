@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WeibullR.shiny
-%global packver   0.3.1
+%global packname  fourinarow
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Shiny' App for Weibull Analysis
+Summary:          Play "Four in a Row"
 
-License:          Apache License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ReliaGrowR 
-BuildRequires:    R-CRAN-WeibullR 
-BuildRequires:    R-CRAN-WeibullR.plotly 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyWidgets 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ReliaGrowR 
-Requires:         R-CRAN-WeibullR 
-Requires:         R-CRAN-WeibullR.plotly 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyWidgets 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-A 'Shiny' web application for life data analysis that depends on
-'WeibullR' by David Silkworth and Jurgen Symynck (2022)
-<https://CRAN.R-project.org/package=WeibullR>, an R package for Weibull
-analysis.
+Play or simulate games of "Four in a Row" in the R console. This package
+is designed for educational purposes, encouraging users to write their own
+functions to play the game automatically. It contains a collection of
+built-in functions that play the game at various skill levels, for users
+to test their own functions against.
 
 %prep
 %setup -q -c -n %{packname}

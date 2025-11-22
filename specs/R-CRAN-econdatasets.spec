@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WeibullR.learnr
-%global packver   0.2.1
+%global packname  econdatasets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interactive Introduction to Life Data Analysis
+Summary:          Easily Download 'EconDataverse' Datasets
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-learnr 
-BuildRequires:    R-CRAN-ReliaGrowR 
-BuildRequires:    R-CRAN-WeibullR 
-BuildRequires:    R-CRAN-WeibullR.ALT 
-Requires:         R-CRAN-learnr 
-Requires:         R-CRAN-ReliaGrowR 
-Requires:         R-CRAN-WeibullR 
-Requires:         R-CRAN-WeibullR.ALT 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 
 %description
-An interactive introduction to Life Data Analysis that depends on
-'WeibullR' by David Silkworth and Jurgen Symynck (2022)
-<https://CRAN.R-project.org/package=WeibullR>, a R package for Weibull
-Analysis, and 'learnr' by Garrick Aden-Buie et al. (2023)
-<https://CRAN.R-project.org/package=learnr>, a framework for building
-interactive learning modules in R.
+The 'EconDataverse' is a universe of open-source packages to work
+seamlessly with economic data. This package is designed to make it easy to
+download selected datasets that are preprocessed by 'EconDataverse'
+packages and publicly hosted on 'Hugging Face'. Learn more about the
+'EconDataverse' at <https://www.econdataverse.org>.
 
 %prep
 %setup -q -c -n %{packname}

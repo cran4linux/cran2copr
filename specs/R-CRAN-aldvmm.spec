@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aldvmm
-%global packver   0.8.8
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adjusted Limited Dependent Variable Mixture Models
 

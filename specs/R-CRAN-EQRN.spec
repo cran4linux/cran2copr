@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EQRN
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extreme Quantile Regression Neural Networks for Risk Forecasting
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-coro >= 1.0.2
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-foreach 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-coro 
+Requires:         R-CRAN-coro >= 1.0.2
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-foreach 

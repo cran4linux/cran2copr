@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  selectr
-%global packver   0.5-0
+%global packname  twoCoprimary
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate CSS Selectors to XPath Expressions
+Summary:          Sample Size and Power Calculation for Two Co-Primary Endpoints
 
-License:          BSD_3_clause + file LICENCE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-fpCompare 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pbivnorm 
+Requires:         R-CRAN-fpCompare 
+Requires:         R-stats 
 
 %description
-Translates a CSS selector into an equivalent XPath expression. This allows
-us to use CSS selectors when working with the XML package as it can only
-evaluate XPath expressions. Also provided are convenience functions useful
-for using CSS selectors on XML nodes. This package is a port of the Python
-package 'cssselect' (<https://cssselect.readthedocs.io/>).
+Comprehensive functions to calculate sample size and power for clinical
+trials with two co-primary endpoints. The package supports five endpoint
+combinations: two continuous endpoints (Sozu et al. 2011
+<doi:10.1080/10543406.2011.551329>), two binary endpoints using asymptotic
+methods (Sozu et al. 2010 <doi:10.1002/sim.3972>) and exact methods (Homma
+and Yoshida 2025 <doi:10.1177/09622802251368697>), mixed continuous and
+binary endpoints (Sozu et al. 2012 <doi:10.1002/bimj.201100221>), and
+mixed count and continuous endpoints (Homma and Yoshida 2024
+<doi:10.1002/pst.2337>). All methods appropriately account for correlation
+between endpoints and provide both sample size and power calculation
+capabilities.
 
 %prep
 %setup -q -c -n %{packname}
