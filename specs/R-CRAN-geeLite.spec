@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geeLite
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Building and Managing Local Databases from 'Google Earth Engine'
 
@@ -29,10 +29,10 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-tidyrgee 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-gargle 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-h3jsr 
 BuildRequires:    R-CRAN-knitr 
@@ -55,10 +55,10 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-tidyrgee 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-gargle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-h3jsr 
 Requires:         R-CRAN-knitr 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mpspline2
-%global packver   0.1.6
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mass-Preserving Spline Functions for Soil Data
 

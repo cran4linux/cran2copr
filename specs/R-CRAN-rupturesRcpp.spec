@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rupturesRcpp
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Object-Oriented Interface for Offline Change-Point Detection
 
@@ -30,8 +30,8 @@ Requires:         R-methods
 
 %description
 A collection of efficient implementations of popular offline change-point
-detection algorithm, featuring a consistent, object-oriented interface for
-practical use.
+detection algorithms, featuring a consistent, object-oriented interface
+for practical use.
 
 %prep
 %setup -q -c -n %{packname}

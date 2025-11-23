@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  command
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Command Line Arguments
 
@@ -27,10 +27,10 @@ Requires:         R-methods
 Requires:         R-tools 
 
 %description
-Process command line arguments, as part of a data analysis pipeline. The
-pipeline is controlled by a Makefile or shell script. Functions to
-construct Makefiles and shell scripts are included in a the package. The
-aim is a pipeline that is modular, transparent, and reliable.
+Process command line arguments, as part of a data analysis workflow.
+'command' makes it easier to construct a workflow consisting of lots of
+small, self-contained scripts, all run from a Makefile or shell script.
+The aim is a workflow that is modular, transparent, and reliable.
 
 %prep
 %setup -q -c -n %{packname}

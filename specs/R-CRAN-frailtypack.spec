@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  frailtypack
-%global packver   3.7.1
+%global packver   3.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.1
+Version:          3.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shared, Joint (Generalized) Frailty Models; Surrogate Endpoints
 
@@ -30,6 +30,9 @@ BuildRequires:    R-splines
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-marqLevAlg 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-doBy 
 Requires:         R-CRAN-MASS 
@@ -44,6 +47,9 @@ Requires:         R-splines
 Requires:         R-CRAN-statmod 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-marqLevAlg 
+Requires:         R-CRAN-tidyr 
 
 %description
 The following several classes of frailty models using a penalized
@@ -91,9 +97,13 @@ Gamma-frailty-based designs: Shared Frailty Models, Nested Frailty Models,
 Joint Frailty Models, and General Joint Frailty Models. Each design
 includes two primary functions: a power function, which computes power
 given a specified sample size; and a sample size function, which computes
-the required sample size to achieve a specified power. Moreover, the
-package can be used with its shiny application, in a local mode or by
-following the link below.
+the required sample size to achieve a specified power. 16) Weibull
+Illness-Death model with or without shared frailty between transitions.
+Left-truncated and right-censored data are allowed. 17) Weibull Competing
+risks model with or without shared frailty between the transitions.
+Left-truncated and right-censored data are allowed. Moreover, the package
+can be used with its shiny application, in a local mode or by following
+the link below.
 
 %prep
 %setup -q -c -n %{packname}

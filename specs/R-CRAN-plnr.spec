@@ -1,54 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plnr
-%global packver   2022.11.23
+%global packver   2025.11.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.11.23
+Version:          2025.11.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          A System for Planing Analyses
+Summary:          A Framework for Planning and Executing Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-usethis 
+Requires:         R-utils 
+Requires:         R-CRAN-uuid 
 
 %description
-A system to plan analyses within the mental model where you have one (or
-more) datasets and want to run either A) the same function multiple times
-with different arguments, or B) multiple functions. This is appropriate
-when you have multiple strata (e.g. locations, age groups) that you want
-to apply the same function to, or you have multiple variables (e.g.
-exposures) that you want to apply the same statistical method to, or when
-you are creating the output for a report and you need multiple different
-tables or graphs.
+A comprehensive framework for planning and executing analyses in R. It
+provides a structured approach to running the same function multiple times
+with different arguments, executing multiple functions on the same
+datasets, and creating systematic analyses across multiple strata or
+variables. The framework is particularly useful for applying the same
+analysis across multiple strata (e.g., locations, age groups), running
+statistical methods on multiple variables (e.g., exposures, outcomes),
+generating multiple tables or graphs for reports, and creating systematic
+surveillance analyses. Key features include efficient data management,
+structured analysis planning, flexible execution options, built-in
+debugging tools, and hash-based caching.
 
 %prep
 %setup -q -c -n %{packname}

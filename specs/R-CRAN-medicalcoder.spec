@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  medicalcoder
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Working with ICD Codes and Comorbidity Algorithms
+Summary:          A Package for Working with ICD Codes and Comorbidity Algorithms
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
