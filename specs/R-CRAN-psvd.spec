@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BRBVS
-%global packver   0.2.1
+%global packname  psvd
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Selection and Ranking in Copula Survival Models Affected by General Censoring Scheme
+Summary:          Eigendecomposition, Singular-Values and the Power Method
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.3
-BuildRequires:    R-CRAN-mvtnorm >= 1.2.4
-BuildRequires:    R-CRAN-copent >= 0.4
-BuildRequires:    R-CRAN-GJRM >= 0.2.6.4
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.4.3
-Requires:         R-CRAN-mvtnorm >= 1.2.4
-Requires:         R-CRAN-copent >= 0.4
-Requires:         R-CRAN-GJRM >= 0.2.6.4
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 
 %description
-Performs variable selection and ranking based on several measures for the
-class of copula survival model(s) in high dimensional domain. The package
-is based on the class of copula survival model(s) implemented in the
-'GJRM' package.
+For a data matrix with m rows and n columns (m>=n), the power method is
+used to compute, simultaneously, the eigendecomposition of a square
+symmetric matrix. This result is used to obtain the singular value
+decomposition (SVD) and the principal component analysis (PCA) results.
+Compared to the classical SVD method, the first r singular values can be
+computed.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pedsuite
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Installation of the 'pedsuite' Packages for Pedigree Analysis
 
@@ -22,24 +22,28 @@ BuildRequires:    R-CRAN-pedprobr
 BuildRequires:    R-CRAN-pedtools 
 BuildRequires:    R-CRAN-ribd 
 BuildRequires:    R-CRAN-verbalisr 
-BuildRequires:    R-CRAN-pedmut 
 BuildRequires:    R-CRAN-dvir 
+BuildRequires:    R-CRAN-ibdfindr 
 BuildRequires:    R-CRAN-ibdsim2 
+BuildRequires:    R-CRAN-norSTR 
 BuildRequires:    R-CRAN-paramlink2 
-BuildRequires:    R-CRAN-pedbuildr 
 BuildRequires:    R-CRAN-pedFamilias 
+BuildRequires:    R-CRAN-pedbuildr 
+BuildRequires:    R-CRAN-pedmut 
 BuildRequires:    R-CRAN-segregatr 
 Requires:         R-CRAN-forrel 
 Requires:         R-CRAN-pedprobr 
 Requires:         R-CRAN-pedtools 
 Requires:         R-CRAN-ribd 
 Requires:         R-CRAN-verbalisr 
-Requires:         R-CRAN-pedmut 
 Requires:         R-CRAN-dvir 
+Requires:         R-CRAN-ibdfindr 
 Requires:         R-CRAN-ibdsim2 
+Requires:         R-CRAN-norSTR 
 Requires:         R-CRAN-paramlink2 
-Requires:         R-CRAN-pedbuildr 
 Requires:         R-CRAN-pedFamilias 
+Requires:         R-CRAN-pedbuildr 
+Requires:         R-CRAN-pedmut 
 Requires:         R-CRAN-segregatr 
 
 %description

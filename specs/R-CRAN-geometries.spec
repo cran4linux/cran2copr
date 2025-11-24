@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geometries
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Between R Objects and Geometric Structures
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-Rcpp >= 1.1.0
 
 %description
 Geometry shapes in 'R' are typically represented by matrices (points,

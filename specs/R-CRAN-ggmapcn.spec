@@ -1,24 +1,24 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmapcn
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Customizable China Map Visualizations
+Summary:          Customizable China and Global Map Visualizations
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.0.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-terra >= 1.7
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-grid 
 Requires:         R-CRAN-curl >= 5.0.0
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-terra >= 1.7
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.0
@@ -37,10 +37,10 @@ Requires:         R-CRAN-digest
 Requires:         R-grid 
 
 %description
-A 'ggplot2' extension for visualizing China’s map, offering customizable
-projections, boundary styles, and buffer zones for thematic maps. Suitable
-for spatial data analysis and enhancing map visualization with flexible
-styling options.
+A 'ggplot2' extension centered on map visualization of China and the
+globe. Provides customizable projections, boundary styles, coordinate
+grids, scale bars, and buffer zones for thematic maps, suitable for
+spatial data analysis and cartographic visualization.
 
 %prep
 %setup -q -c -n %{packname}

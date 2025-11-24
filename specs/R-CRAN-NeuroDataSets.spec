@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NeuroDataSets
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Collection of Neuroscience and Brain-Related Datasets
 
@@ -24,13 +24,22 @@ Requires:         R-utils
 Offers a rich and diverse collection of datasets focused on the brain,
 nervous system, and related disorders. The package includes clinical,
 experimental, neuroimaging, behavioral, cognitive, and simulated data on
-conditions such as Parkinson's disease, Alzheimer's, epilepsy,
-schizophrenia, gliomas, and mental health. Datasets cover structural and
-functional brain data, neurotransmission, gene expression, cognitive
-performance, and treatment outcomes. Designed for researchers,
-neuroscientists, clinicians, psychologists, data scientists, and students,
-this package facilitates exploratory data analysis, statistical modeling,
-and hypothesis testing in neuroscience and neuroepidemiology.
+conditions such as Parkinson's disease, Alzheimer's disease, dementia,
+epilepsy, schizophrenia, autism spectrum disorder, attention deficit,
+hyperactivity disorder, Tourette's syndrome, traumatic brain injury,
+gliomas, migraines, headaches, sleep disorders, concussions, encephalitis,
+subarachnoid hemorrhage, and mental health conditions. Datasets cover
+structural and functional brain data, cross-sectional and longitudinal MRI
+imaging studies, neurotransmission, gene expression, cognitive
+performance, intelligence metrics, sleep deprivation effects, treatment
+outcomes, brain-body relationships across species, neurological injury
+patterns, and acupuncture interventions. Data sources include
+peer-reviewed studies, clinical trials, military health records, sports
+injury databases, and international comparative studies. Designed for
+researchers, neuroscientists, clinicians, psychologists, data scientists,
+and students, this package facilitates exploratory data analysis,
+statistical modeling, and hypothesis testing in neuroscience and
+neuroepidemiology.
 
 %prep
 %setup -q -c -n %{packname}

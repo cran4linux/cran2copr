@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqlm
-%global packver   2.3-1
+%global packver   3.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modified Poisson and Least-Squares Regressions for Binary Outcome and Their Generalizations
+Summary:          Modified Poisson, Logistic and Least-Squares Regressions for Binary Outcome and Their Generalizations
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,23 +21,26 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-mice 
+Requires:         R-CRAN-lme4 
 
 %description
-Modified Poisson and least-squares regression analyses for binary outcomes
-of Zou (2004) <doi:10.1093/aje/kwh090> and Cheung (2007)
-<doi:10.1093/aje/kwm223> have been standard multivariate analysis methods
-to estimate risk ratio and risk difference in clinical and epidemiological
-studies. This R package involves an easy-to-handle function to implement
-these analyses by simple commands. Missing data analysis tools (multiple
-imputation) are also involved. In addition, recent studies have shown the
-ordinary robust variance estimator possibly has serious bias under small
-or moderate sample size situations for these methods. This package also
-provides computational tools to calculate alternative accurate confidence
-intervals (Noma and Gosho (2024) <Forthcoming>).
+Modified Poisson, logistic and least-squares regression analyses for
+binary outcomes of Zou (2004) <doi:10.1093/aje/kwh090>, Noma
+(2025)<Forthcoming>, and Cheung (2007) <doi:10.1093/aje/kwm223> have been
+standard multivariate analysis methods to estimate risk ratio and risk
+difference in clinical and epidemiological studies. This R package
+involves an easy-to-handle function to implement these analyses by simple
+commands. Missing data analysis tools (multiple imputation) are also
+involved. In addition, recent studies have shown the ordinary robust
+variance estimator possibly has serious bias under small or moderate
+sample size situations for these methods. This package also provides
+computational tools to calculate alternative accurate confidence
+intervals.
 
 %prep
 %setup -q -c -n %{packname}

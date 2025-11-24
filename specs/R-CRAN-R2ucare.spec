@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vetr
-%global packver   0.2.19
+%global packname  R2ucare
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.19
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Trust, but Verify
+Summary:          Goodness-of-Fit Tests for Capture-Recapture Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RMark 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-Requires:         R-methods 
+Requires:         R-CRAN-RMark 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 
 %description
-Declarative template-based framework for verifying that objects meet
-structural requirements, and auto-composing error messages when they do
-not.
+Performs goodness-of-fit tests for capture-recapture models as described
+by Gimenez et al. (2018) <doi:10.1111/2041-210X.13014>. Also contains
+several functions to process capture-recapture data.
 
 %prep
 %setup -q -c -n %{packname}
