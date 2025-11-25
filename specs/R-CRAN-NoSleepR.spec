@@ -1,38 +1,25 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sodaR
-%global packver   0.1.0
+%global packname  NoSleepR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download or Upload 'Socrata' Data Sets
+Summary:          Prevent System Sleep During Long R Tasks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.10.0
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.16
-BuildRequires:    R-CRAN-mime >= 0.3
-Requires:         R-CRAN-data.table >= 1.10.0
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9.16
-Requires:         R-CRAN-mime >= 0.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Provides easier interaction with 'Socrata' open data portals
-<https://dev.socrata.com>. Users can provide a 'Socrata' data set resource
-URL, or a 'Socrata' Open Data API (SODA) web query, or a 'Socrata'
-"human-friendly" URL, returns an R data frame. Converts dates to 'POSIX'
-format and manages throttling by 'Socrata'. Users can upload data to
-'Socrata' portals directly from R.
+Provides a cross-platform interface to prevent the operating system from
+going to sleep while long-running R tasks are executing.
 
 %prep
 %setup -q -c -n %{packname}

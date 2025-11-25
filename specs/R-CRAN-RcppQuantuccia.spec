@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppQuantuccia
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Bindings to the Calendaring Functionality of 'QuantLib'
 
@@ -25,7 +25,10 @@ Requires:         R-CRAN-Rcpp
 of the header-only 'Quantuccia' project (put together initially by Peter
 Caspers) offering an essential subset of 'QuantLib' (and now maintained
 separately for the calendaring subset). See the included file 'AUTHORS'
-for a full list of contributors to both 'QuantLib' and 'Quantuccia'.
+for a full list of contributors to both 'QuantLib' and 'Quantuccia'. Note
+that this package provided an initial viability proof, current work is
+done (via approximately quarterly releases tracking 'QuantLib') in the
+smaller package 'qlcal' which is generally preferred.
 
 %prep
 %setup -q -c -n %{packname}

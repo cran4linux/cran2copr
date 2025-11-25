@@ -1,51 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  writeAlizer
-%global packver   1.7.2
+%global packname  nomisdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Predicted Writing Quality Scores
+Summary:          Access 'Nomis' UK Labour Market Data and Statistics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-tibble >= 3.2.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-tibble >= 3.2.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-utils 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-methods 
 
 %description
-Imports variables from 'ReaderBench' (Dascalu et al.,
-2018)<doi:10.1007/978-3-319-66610-5_48>, 'Coh-Metrix' (McNamara et al.,
-2014)<doi:10.1017/CBO9780511894664>, and/or 'GAMET' (Crossley et al.,
-2019) <doi:10.17239/jowr-2019.11.02.01> output files; downloads predictive
-scoring models described in Mercer & Cannon
-(2022)<doi:10.31244/jero.2022.01.03> and Mercer et
-al.(2021)<doi:10.1177/0829573520987753>; and generates predicted writing
-quality and curriculum-based measurement (McMaster & Espin,
-2007)<doi:10.1177/00224669070410020301> scores.
+Interface to the 'Nomis' database (<https://www.nomisweb.co.uk>), a
+comprehensive resource of United Kingdom labour market statistics provided
+by the Office for National Statistics (ONS). Facilitates programmatic
+access to census data, labour force surveys, benefit statistics, and
+socioeconomic indicators through a modern HTTP client with intelligent
+caching, automatic query pagination, and tidy data principles. Includes
+spatial data integration, interactive helpers, and visualization
+utilities. Independent implementation unaffiliated with ONS or Durham
+University.
 
 %prep
 %setup -q -c -n %{packname}

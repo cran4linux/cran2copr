@@ -1,34 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrendLSW
-%global packver   1.0.4
+%global packname  banR
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wavelet Methods for Analysing Locally Stationary Time Series
+Summary:          Client for the 'BAN' API
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wavethresh 
-BuildRequires:    R-CRAN-locits 
-Requires:         R-CRAN-wavethresh 
-Requires:         R-CRAN-locits 
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Fitting models for, and simulation of, trend locally stationary wavelet
-(TLSW) time series models, which take account of time-varying trend and
-dependence structure in a univariate time series. The TLSW model, and its
-estimation, is described in McGonigle, Killick and Nunes (2022a)
-<doi:10.1111/jtsa.12643>, (2022b) <doi:10.1214/22-EJS2044>. New users will
-likely want to start with the TLSW function.
+A client for the 'Base Adresses Nationale' ('BAN') API, which allows to
+(batch) geocode and reverse-geocode French addresses. For more information
+about the 'BAN' and its API, please see
+<https://adresse.data.gouv.fr/outils/api-doc/adresse>.
 
 %prep
 %setup -q -c -n %{packname}

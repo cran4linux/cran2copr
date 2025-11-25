@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  org
-%global packver   2024.6.5
+%global packver   2025.11.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.6.5
+Version:          2025.11.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Organising Projects
 
@@ -21,10 +21,15 @@ BuildRequires:    R-utils
 Requires:         R-utils 
 
 %description
-A system to help you organize projects. Most analyses have three (or more)
-main sections: code, results, and data, each with different requirements
-(version control/sharing/encryption). You provide folder locations and
-'org' helps you take care of the details.
+A framework for organizing R projects with a standardized structure. Most
+analyses consist of three main components: code, results, and data, each
+with different requirements such as version control, sharing, and
+encryption. This package provides tools to set up and manage project
+directories, handle file paths consistently across operating systems,
+organize results using date-based structures, source code from specified
+directories, create and manage Quarto documents, and perform file
+operations safely. It ensures consistency across projects while
+accommodating different requirements for various types of content.
 
 %prep
 %setup -q -c -n %{packname}

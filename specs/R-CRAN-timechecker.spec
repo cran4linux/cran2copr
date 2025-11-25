@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrendLSW
-%global packver   1.0.4
+%global packname  timechecker
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wavelet Methods for Analysing Locally Stationary Time Series
+Summary:          Visualization of Processing Time with Standard Output
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wavethresh 
-BuildRequires:    R-CRAN-locits 
-Requires:         R-CRAN-wavethresh 
-Requires:         R-CRAN-locits 
 
 %description
-Fitting models for, and simulation of, trend locally stationary wavelet
-(TLSW) time series models, which take account of time-varying trend and
-dependence structure in a univariate time series. The TLSW model, and its
-estimation, is described in McGonigle, Killick and Nunes (2022a)
-<doi:10.1111/jtsa.12643>, (2022b) <doi:10.1214/22-EJS2044>. New users will
-likely want to start with the TLSW function.
+Displays processing time in a clear and structured way. One function
+supports iterative workflows by predicting and showing the total time
+required, while another reports the time taken for individual steps within
+a process.
 
 %prep
 %setup -q -c -n %{packname}

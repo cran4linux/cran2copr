@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrendLSW
-%global packver   1.0.4
+%global packname  QuanDA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wavelet Methods for Analysing Locally Stationary Time Series
+Summary:          Quantile-Based Discriminant Analysis for High-Dimensional Imbalanced Classification
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wavethresh 
-BuildRequires:    R-CRAN-locits 
-Requires:         R-CRAN-wavethresh 
-Requires:         R-CRAN-locits 
+BuildRequires:    R-CRAN-hdqr 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-hdqr 
+Requires:         R-CRAN-pROC 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Fitting models for, and simulation of, trend locally stationary wavelet
-(TLSW) time series models, which take account of time-varying trend and
-dependence structure in a univariate time series. The TLSW model, and its
-estimation, is described in McGonigle, Killick and Nunes (2022a)
-<doi:10.1111/jtsa.12643>, (2022b) <doi:10.1214/22-EJS2044>. New users will
-likely want to start with the TLSW function.
+Implements quantile-based discriminant analysis (QuanDA) for imbalanced
+classification in high-dimensional, low-sample-size settings. The method
+fits penalized quantile regression directly on discrete class labels and
+tunes the quantile level to reflect class imbalance.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   2.5.4
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.4
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Validated Ensemble Models with Lasso and Relaxed Elastic Net Regression
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-glmnet >= 4.1.6
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-glmnet >= 4.1.6
 Requires:         R-stats 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
@@ -43,13 +41,18 @@ Requires:         R-CRAN-gamlss
 Requires:         R-CRAN-gamlss.dist 
 
 %description
-Implements Self-Validated Ensemble Models (SVEM; Lemkus et al. (2021)
-<doi:10.1016/j.chemolab.2021.104439>) using elastic net regression via
-'glmnet' (Friedman et al. (2010) <doi:10.18637/jss.v033.i01>). SVEM
-averages predictions from multiple models fitted to fractionally weighted
-bootstraps of the data, tuned with anti-correlated validation weights.
-Supports Gaussian and binomial responses. Also implements the randomized
-permutation whole-model test for SVEM with Gaussian responses (Karl (2024)
+Tools for fitting self-validated ensemble models (SVEM; Lemkus et al.
+(2021) <doi:10.1016/j.chemolab.2021.104439>) in small-sample
+design-of-experiments and related chemometric workflows, using elastic net
+and relaxed elastic net regression via 'glmnet' (Friedman et al. (2010)
+<doi:10.18637/jss.v033.i01>). Fractional random-weight bootstraps with
+anti-correlated validation copies are used to tune penalty paths by
+validation-weighted AIC/BIC. Supports Gaussian and binomial responses,
+deterministic expansion helpers for shared factor spaces, prediction with
+bootstrap uncertainty, and a random-search optimizer that respects
+mixture/simplex constraints and combines multiple responses via
+Derringer-Suich desirability functions. Also includes a permutation-based
+whole-model test for Gaussian SVEM fits (Karl (2024)
 <doi:10.1016/j.chemolab.2024.105122>). Some parts of the package code were
 drafted with assistance from generative AI tools.
 

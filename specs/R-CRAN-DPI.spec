@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DPI
-%global packver   2025.10-1
+%global packver   2025.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.10.1
+Version:          2025.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Directed Prediction Index for Causal Inference from Observational Data
+Summary:          The Directed Prediction Index for Causal Direction Inference from Observational Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -41,10 +41,10 @@ endogeneity (relative dependence) of outcome (Y) versus predictor (X)
 variables in regression models. By comparing the proportion of variance
 explained (R-squared) between the Y-as-outcome model and the X-as-outcome
 model while controlling for a sufficient number of possible confounders,
-it can suggest a plausible (admissible) direction of influence from a more
-exogenous variable (X) to a more endogenous variable (Y). Methodological
+it can suggest a plausible (admissible) direction of influence from a less
+endogenous variable (X) to a more endogenous variable (Y). Methodological
 details are provided at <https://psychbruce.github.io/DPI/>. This package
-also provides functions for data simulation and network analysis
+also includes functions for data simulation and network analysis
 (correlation, partial correlation, and Bayesian networks).
 
 %prep

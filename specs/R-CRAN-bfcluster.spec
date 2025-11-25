@@ -1,34 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrendLSW
-%global packver   1.0.4
+%global packname  bfcluster
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wavelet Methods for Analysing Locally Stationary Time Series
+Summary:          Buttler-Fickel Distance and R2 for Mixed-Scale Cluster Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wavethresh 
-BuildRequires:    R-CRAN-locits 
-Requires:         R-CRAN-wavethresh 
-Requires:         R-CRAN-locits 
 
 %description
-Fitting models for, and simulation of, trend locally stationary wavelet
-(TLSW) time series models, which take account of time-varying trend and
-dependence structure in a univariate time series. The TLSW model, and its
-estimation, is described in McGonigle, Killick and Nunes (2022a)
-<doi:10.1111/jtsa.12643>, (2022b) <doi:10.1214/22-EJS2044>. New users will
-likely want to start with the TLSW function.
+Implements the distance measure for mixed-scale variables proposed by
+Buttler and Fickel (1995), based on normalized mean pairwise distances
+(Gini mean difference), and an R2 statistic to assess clustering quality.
 
 %prep
 %setup -q -c -n %{packname}

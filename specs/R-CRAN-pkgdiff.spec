@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgdiff
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identifies Package Differences
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-common
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cranlogs 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-common 
 Requires:         R-CRAN-crayon 
 Requires:         R-utils 
 Requires:         R-CRAN-cranlogs 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
 Identifies differences between versions of a package.  Specifically, the

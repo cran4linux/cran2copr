@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrendLSW
-%global packver   1.0.4
+%global packname  MaddisonData
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wavelet Methods for Analysing Locally Stationary Time Series
+Summary:          Maddison Project Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wavethresh 
-BuildRequires:    R-CRAN-locits 
-Requires:         R-CRAN-wavethresh 
-Requires:         R-CRAN-locits 
 
 %description
-Fitting models for, and simulation of, trend locally stationary wavelet
-(TLSW) time series models, which take account of time-varying trend and
-dependence structure in a univariate time series. The TLSW model, and its
-estimation, is described in McGonigle, Killick and Nunes (2022a)
-<doi:10.1111/jtsa.12643>, (2022b) <doi:10.1214/22-EJS2044>. New users will
-likely want to start with the TLSW function.
+Relatively easy access is provided to Maddison project data, which
+collates all the credible data on population and GDP for 169 countries,
+with some dating back to the year 1. 'MaddisonLeaders' makes it easy to
+find the leaders for each year, allowing users to delete countries like
+OPEC with narrow economies to focus on the technology leaders.
+'ggplotPath' makes it easy to plot data for only selected countries or
+years.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  chirps
-%global packver   0.1.4
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Client for CHIRPS and CHIRTS
 
@@ -30,7 +31,7 @@ Requires:         R-CRAN-sf
 Requires:         R-stats 
 
 %description
-API Client for the Climate Hazards Center 'CHIRPS' and 'CHIRTS'. The
+API Client for the Climate Hazards Center 'CHIRPS' and 'CHIRTS'.  The
 'CHIRPS' data is a quasi-global (50°S – 50°N) high-resolution (0.05
 arc-degrees) rainfall data set, which incorporates satellite imagery and
 in-situ station data to create gridded rainfall time series for trend

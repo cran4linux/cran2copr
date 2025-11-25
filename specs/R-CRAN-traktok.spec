@@ -1,60 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sspm
-%global packver   1.0.3
+%global packname  traktok
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Surplus Production Model Framework for Northern Shrimp Populations
+Summary:          Collecting 'TikTok' Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-askpass 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-cookiemonster 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lobstr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-askpass 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-cookiemonster 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lobstr 
+Requires:         R-methods 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Implement a GAM-based (Generalized Additive Models) spatial surplus
-production model (spatial SPM), aimed at modeling northern shrimp
-population in Atlantic Canada but potentially to any stock in any
-location. The package is opinionated in its implementation of SPMs as it
-internally makes the choice to use penalized spatial gams with time lags.
-However, it also aims to provide options for the user to customize their
-model. The methods are described in Pedersen et al. (2022,
-<https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ResDocs-DocRech/2022/2022_062-eng.html>).
+Getting 'TikTok' data (<https://www.tiktok.com/>) through the official and
+unofficial APIs—in other words, you can track 'TikTok'.
 
 %prep
 %setup -q -c -n %{packname}

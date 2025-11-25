@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TrendLSW
-%global packver   1.0.4
+%global packname  autotab
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wavelet Methods for Analysing Locally Stationary Time Series
+Summary:          Variational Autoencoders for Heterogeneous Tabular Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-wavethresh 
-BuildRequires:    R-CRAN-locits 
-Requires:         R-CRAN-wavethresh 
-Requires:         R-CRAN-locits 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-tensorflow 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-tensorflow 
 
 %description
-Fitting models for, and simulation of, trend locally stationary wavelet
-(TLSW) time series models, which take account of time-varying trend and
-dependence structure in a univariate time series. The TLSW model, and its
-estimation, is described in McGonigle, Killick and Nunes (2022a)
-<doi:10.1111/jtsa.12643>, (2022b) <doi:10.1214/22-EJS2044>. New users will
-likely want to start with the TLSW function.
+Build and train a variational autoencoder (VAE) for mixed-type tabular
+data (continuous, binary, categorical). Models are implemented using
+'TensorFlow' and 'Keras' via the 'reticulate' interface, enabling
+reproducible VAE training for heterogeneous tabular datasets.
 
 %prep
 %setup -q -c -n %{packname}

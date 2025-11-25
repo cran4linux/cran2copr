@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggrain
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Rainclouds Geom for 'ggplot2'
 
@@ -17,18 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-ggpp >= 0.5.6
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gghalves 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-ggpp >= 0.5.6
 Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-grid 
-Requires:         R-CRAN-gghalves 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hetcorFS
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unsupervised Feature Selection using the Heterogeneous Correlation Matrix
 
@@ -36,7 +36,12 @@ polyserial correlations between numerical and ordinal features, and
 polychoric correlations between ordinal features. Tortora C., Madhvani S.,
 Punzo A. (2025). "Designing unsupervised mixed-type feature selection
 techniques using the heterogeneous correlation matrix." International
-Statistical Review. Forthcoming.
+Statistical Review <doi:10.1111/insr.70016>. This work was supported by
+the National Science foundation NSF Grant N 2209974 (Tortora) and by the
+Italian Ministry of University and Research (MUR) under the PRIN 2022
+grant number 2022XRHT8R (CUP: E53D23005950006), as part of ‘The SMILE
+Project: Statistical Modelling and Inference to Live the Environment’,
+funded by the European Union – Next Generation EU (Punzo).
 
 %prep
 %setup -q -c -n %{packname}

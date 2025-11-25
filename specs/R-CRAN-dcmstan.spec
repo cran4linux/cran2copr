@@ -1,51 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  writeAlizer
-%global packver   1.7.2
+%global packname  dcmstan
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Predicted Writing Quality Scores
+Summary:          Generate 'Stan' Code for Diagnostic Classification Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dagitty 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggdag 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rdcmchecks 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dagitty 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggdag 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rdcmchecks 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Imports variables from 'ReaderBench' (Dascalu et al.,
-2018)<doi:10.1007/978-3-319-66610-5_48>, 'Coh-Metrix' (McNamara et al.,
-2014)<doi:10.1017/CBO9780511894664>, and/or 'GAMET' (Crossley et al.,
-2019) <doi:10.17239/jowr-2019.11.02.01> output files; downloads predictive
-scoring models described in Mercer & Cannon
-(2022)<doi:10.31244/jero.2022.01.03> and Mercer et
-al.(2021)<doi:10.1177/0829573520987753>; and generates predicted writing
-quality and curriculum-based measurement (McMaster & Espin,
-2007)<doi:10.1177/00224669070410020301> scores.
+Diagnostic classification models are psychometric models used to
+categorically estimate respondents mastery, or proficiency, on a set of
+predefined skills (Bradshaw, 2016, <doi:10.1002/9781118956588.ch13>).
+Diagnostic models can be estimated with 'Stan'; however, the necessary
+scripts can be long and complicated. This package automates the creation
+of 'Stan' scripts for diagnostic classification models. Specify different
+types of diagnostic models, define prior distributions, and automatically
+generate the necessary 'Stan' code for estimating the model.
 
 %prep
 %setup -q -c -n %{packname}
