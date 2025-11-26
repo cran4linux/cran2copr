@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlrx
-%global packver   0.4.5
+%global packver   0.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Setup, Run and Analyze 'NetLogo' Model Simulations from 'R' via 'XML'
 
@@ -67,8 +67,8 @@ Requires:         R-CRAN-progressr
 Requires:         R-CRAN-EasyABC 
 
 %description
-Setup, run and analyze 'NetLogo' (<https://ccl.northwestern.edu/netlogo/>)
-model simulations in 'R'. 'nlrx' experiments use a similar structure as
+Setup, run and analyze 'NetLogo' (<https://www.netlogo.org>) model
+simulations in 'R'. 'nlrx' experiments use a similar structure as
 'NetLogos' Behavior Space experiments. However, 'nlrx' offers more
 flexibility and additional tools for running and analyzing complex
 simulation designs and sensitivity analyses. The user defines all

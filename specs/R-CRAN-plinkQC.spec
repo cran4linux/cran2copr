@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  plinkQC
-%global packver   0.3.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genotype Quality Control with 'PLINK'
 
@@ -22,24 +23,28 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-optparse 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-UpSetR 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sys 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-igraph >= 1.2.4
 Requires:         R-CRAN-data.table >= 1.11.0
 Requires:         R-methods 
 Requires:         R-CRAN-optparse 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-UpSetR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sys 
+Requires:         R-CRAN-randomForest 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
 Genotyping arrays enable the direct measurement of an individuals genotype
@@ -52,7 +57,8 @@ generates a per-individual and per-marker quality control report.
 Individuals and markers that fail the quality control can subsequently be
 removed to generate a new, clean dataset. Removal of individuals based on
 relationship status is optimised to retain as many individuals as possible
-in the study.
+in the study. Additionally, there is a trained classifier to predict
+genomic ancestry of human samples.
 
 %prep
 %setup -q -c -n %{packname}

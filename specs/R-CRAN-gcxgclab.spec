@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gcxgclab
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          GCxGC Preprocessing and Analysis
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-stats >= 4.2.0
 BuildRequires:    R-utils >= 4.2.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-Rdpack >= 2.4.0
 BuildRequires:    R-CRAN-ptw >= 1.9.16
 BuildRequires:    R-CRAN-zoo >= 1.8.11
 BuildRequires:    R-CRAN-nls.multstart >= 1.3.0
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.8
 Requires:         R-stats >= 4.2.0
 Requires:         R-utils >= 4.2.0
 Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-Rdpack >= 2.4.0
 Requires:         R-CRAN-ptw >= 1.9.16
 Requires:         R-CRAN-zoo >= 1.8.11
 Requires:         R-CRAN-nls.multstart >= 1.3.0

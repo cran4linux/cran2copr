@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  candisc
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Generalized Canonical Discriminant and Canonical Correlation Analysis
 
@@ -24,6 +24,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-heplots >= 0.8.6
 Requires:         R-CRAN-car 
 Requires:         R-graphics 
@@ -31,6 +32,7 @@ Requires:         R-stats
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
 
 %description
 Functions for computing and visualizing generalized canonical discriminant

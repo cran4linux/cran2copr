@@ -1,41 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivo.table
-%global packver   0.7.1
+%global packname  diversityArch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nicely Formatted Contingency Tables and Frequency Tables
+Summary:          Computes Diversity Indices with Archaeological Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Nicely formatted frequency tables and contingency tables (1-way, 2-way,
-3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents. Designed to work with pipes.
+Companion package of Arnaud Barat, Andreu Sansó, Maite Arilla-Osuna, Ruth
+Blasco, Iñaki Pérez-Fernández, Gabriel Cifuentes-Alcobenda, Rubén
+Llorente, Daniel Vivar-Ríos, Ella Assaf, Ran Barkai, Avi Gopher, & Jordi
+Rosell-Ardèvol (2025), "Quantifying Diversity through Entropy
+Decomposition. Insights into Hominin Occupation and Carcass Processing at
+Qesem cave".
 
 %prep
 %setup -q -c -n %{packname}

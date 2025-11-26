@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivo.table
-%global packver   0.7.1
+%global packname  organik
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nicely Formatted Contingency Tables and Frequency Tables
+Summary:          Multi-Horizon Probabilistic Ensemble with Copulas for Time Series Forecasting
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-MASS >= 7.3.65
+BuildRequires:    R-CRAN-rpart >= 4.1.24
+BuildRequires:    R-CRAN-glmnet >= 4.1.10
+BuildRequires:    R-CRAN-imputeTS >= 3.4
+BuildRequires:    R-CRAN-Matrix >= 1.7.3
+Requires:         R-CRAN-MASS >= 7.3.65
+Requires:         R-CRAN-rpart >= 4.1.24
+Requires:         R-CRAN-glmnet >= 4.1.10
+Requires:         R-CRAN-imputeTS >= 3.4
+Requires:         R-CRAN-Matrix >= 1.7.3
 
 %description
-Nicely formatted frequency tables and contingency tables (1-way, 2-way,
-3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents. Designed to work with pipes.
+Trains per-horizon probabilistic ensembles from a univariate time series.
+It supports 'rpart', 'glmnet', and 'kNN' engines with flexible residual
+distributions and heteroscedastic scale models, weighting variants by
+calibration-aware scores. A Gaussian/t copula couples the marginals to
+simulate joint forecast paths, returning quantiles, means, and step
+increments across horizons.
 
 %prep
 %setup -q -c -n %{packname}

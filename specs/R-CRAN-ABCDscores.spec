@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ABCDscores
-%global packver   6.0.1
+%global packver   6.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.1
+Version:          6.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Scores of the Adolescent Brain Cognitive Development (ABCD) Study
 
@@ -47,9 +47,7 @@ Requires:         R-utils
 %description
 Provides functions to compute summary scores (besides proprietary ones)
 reported in the tabulated data resource that is released by the Adolescent
-Brain Cognitive Development (ABCD) study. Feldstein Ewing and Luciana
-(2018)
-<https://www.sciencedirect.com/journal/developmental-cognitive-neuroscience/vol/32>.
+Brain Cognitive Development (ABCD) study.
 
 %prep
 %setup -q -c -n %{packname}

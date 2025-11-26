@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qval
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Q-Matrix Validation Methods Framework
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-nloptr
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-gtools 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-GDINA 
 Requires:         R-CRAN-MASS 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-nloptr
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-gtools 
 
 %description
 Provide a variety of Q-matrix validation methods for the generalized

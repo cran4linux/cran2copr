@@ -1,51 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GeoThinneR
-%global packver   2.1.0
+%global packname  r5rgui
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Spatial Thinning of Species Occurrences
+Summary:          Graphical User Interface for 'r5r' Router
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-mapgl 
+BuildRequires:    R-CRAN-r5r 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-foreach 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-nabor 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-mapgl 
+Requires:         R-CRAN-r5r 
 Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-CRAN-terra 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides efficient geospatial thinning algorithms to reduce the density of
-coordinate data while maintaining spatial relationships. Implements K-D
-Tree and brute-force distance-based thinning, as well as grid-based and
-precision-based thinning methods. For more information on the methods, see
-Elseberg et al. (2012) <https://hdl.handle.net/10446/86202>.
+Interactively build and explore public transit routes with 'r5r' package
+via a graphical user interface in a 'shiny' app. The underlying routing
+methods are described in Pereira et al. (2021) <doi:10.32866/001c.21262>.
 
 %prep
 %setup -q -c -n %{packname}

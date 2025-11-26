@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HRTnomaly
-%global packver   25.2.25
+%global packver   25.11.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          25.2.25
+Version:          25.11.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Historical, Relational, and Tail Anomaly-Detection Algorithms
 

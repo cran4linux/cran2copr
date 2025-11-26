@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deepspat
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Compositional Spatial Models
 
@@ -49,11 +49,12 @@ implements two cases for the univariate setting; first, when these warping
 functions are known up to some weights that need to be estimated, and,
 second, when the weights in each layer are random. In the multivariate
 setting only the former case is available. Estimation and inference is
-done using 'tensorflow', which makes use of graphics processing units. For
+done using `tensorflow`, which makes use of graphics processing units. For
 more details see Zammit-Mangion et al. (2022)
 <doi:10.1080/01621459.2021.1887741>, Vu et al. (2022)
-<doi:10.5705/ss.202020.0156>, and Vu et al. (2023)
-<doi:10.1016/j.spasta.2023.100742>.
+<doi:10.5705/ss.202020.0156>, Vu et al. (2023)
+<doi:10.1016/j.spasta.2023.100742>, and Shao et al. (2025)
+<doi:10.48550/arXiv.2505.12548>.
 
 %prep
 %setup -q -c -n %{packname}

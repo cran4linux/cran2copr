@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  edar
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenient Functions for Exploratory Data Analysis
 
@@ -19,36 +19,43 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-listr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xgxr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-listr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xgxr 
 
 %description
 A collection of convenient functions to facilitate common tasks in
 exploratory data analysis. Some common tasks include generating summary
 tables of variables, displaying tables as a 'flextable' or a 'kable' and
-showing distributions of variables using 'ggplot2'. Labels stating the
-source file with run time can be easily generated for annotation in tables
-and plots.
+visualising variables using 'ggplot2'. Labels stating the source file with
+run time can be easily generated for annotation in tables and plots.
 
 %prep
 %setup -q -c -n %{packname}

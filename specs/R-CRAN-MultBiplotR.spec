@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultBiplotR
-%global packver   23.11.0
+%global packver   25.11.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.11.0
+Version:          25.11.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Analysis Using Biplots in R
 
@@ -35,6 +35,8 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-ThreeWay 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-vcd 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-geometry 
@@ -53,6 +55,8 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-ThreeWay 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-vcd 
 
 %description
 Several multivariate techniques from a biplot perspective. It is the

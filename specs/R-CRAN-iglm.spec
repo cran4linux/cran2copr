@@ -1,37 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lmDiallel
-%global packver   1.0.2
+%global packname  iglm
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Fixed/Mixed Effects Models for Diallel Crosses
+Summary:          Regression under Network Interference
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-sommer 
-BuildRequires:    R-CRAN-enhancer 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-sommer 
-Requires:         R-CRAN-enhancer 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-RcppProgress 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-methods 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-igraph 
 
 %description
-Several service functions to be used to analyse datasets obtained from
-diallel experiments within the frame of linear models in R, as described
-in Onofri et al (2020) <DOI:10.1007/s00122-020-03716-8>.
+An implementation of generalized linear models (GLMs) for studying
+relationships among attributes in connected populations, where responses
+of connected units can be dependent, as introduced by Fritz et al. (2025)
+<doi:10.1080/01621459.2025.2565851>. 'igml' extends GLMs for independent
+responses to dependent responses and can be used for studying spillover in
+connected populations and other network-mediated phenomena.
 
 %prep
 %setup -q -c -n %{packname}

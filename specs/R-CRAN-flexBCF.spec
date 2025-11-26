@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivo.table
-%global packver   0.7.1
+%global packname  flexBCF
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nicely Formatted Contingency Tables and Frequency Tables
+Summary:          Fast & Flexible Implementation of Bayesian Causal Forests
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Nicely formatted frequency tables and contingency tables (1-way, 2-way,
-3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents. Designed to work with pipes.
+A faster implementation of Bayesian Causal Forests (BCF; Hahn et al.
+(2020) <doi:10.1214/19-BA1195>), which uses regression tree ensembles to
+estimate the conditional average treatment effect of a binary treatment on
+a scalar output as a function of many covariates. This implementation
+avoids many redundant computations and memory allocations present in the
+original BCF implementation, allowing the model to be fit to larger
+datasets. The implementation was originally developed for the 2022
+American Causal Inference Conference's Data Challenge. See Kokandakar et
+al. (2023) <doi:10.1353/obs.2023.0024> for more details.
 
 %prep
 %setup -q -c -n %{packname}

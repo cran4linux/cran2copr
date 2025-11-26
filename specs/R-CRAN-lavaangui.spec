@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lavaangui
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical User Interface with Integrated 'Diagrammer' for 'Lavaan'
 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-readxl >= 1.4.3
 BuildRequires:    R-CRAN-future >= 1.33.0
 BuildRequires:    R-CRAN-promises >= 1.2.0.1
 BuildRequires:    R-CRAN-digest >= 0.6.35
-BuildRequires:    R-CRAN-lavaan >= 0.6.15
+BuildRequires:    R-CRAN-lavaan >= 0.6.20
 BuildRequires:    R-CRAN-DT >= 0.33
 BuildRequires:    R-CRAN-base64enc >= 0.1.3
 Requires:         R-methods >= 4.3.3
@@ -48,7 +48,7 @@ Requires:         R-CRAN-readxl >= 1.4.3
 Requires:         R-CRAN-future >= 1.33.0
 Requires:         R-CRAN-promises >= 1.2.0.1
 Requires:         R-CRAN-digest >= 0.6.35
-Requires:         R-CRAN-lavaan >= 0.6.15
+Requires:         R-CRAN-lavaan >= 0.6.20
 Requires:         R-CRAN-DT >= 0.33
 Requires:         R-CRAN-base64enc >= 0.1.3
 
@@ -59,7 +59,7 @@ functions: first, lavaangui() launches a web application that allows users
 to specify models by drawing path diagrams, fitting them, assessing model
 fit, and more; second, plot_lavaan() creates interactive path diagrams
 from models specified in 'lavaan'. Karch (2024) <doi:
-10.31234/osf.io/f4ary> contains a tutorial.
+10.1080/10705511.2024.2420678> contains a tutorial.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivo.table
-%global packver   0.7.1
+%global packname  mangoro
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nicely Formatted Contingency Tables and Frequency Tables
+Summary:          'R'/'Go' 'IPC' using 'Nanomsg' Next Gen
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-nanonext 
+BuildRequires:    R-CRAN-nanoarrow 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-nanonext 
+Requires:         R-CRAN-nanoarrow 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Nicely formatted frequency tables and contingency tables (1-way, 2-way,
-3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents. Designed to work with pipes.
+The tools provide an interface for inter-process communication ('IPC')
+between 'R' and 'Go' using the 'Nanomsg' library. It vendors on the 'Go'
+side the 'mangos' library <https://github.com/nanomsg/mangos> and
+'arrow-go' <https://github.com/apache/arrow-go> and uses 'nanonext' and
+'nanoarrow' on the 'R' side.
 
 %prep
 %setup -q -c -n %{packname}
