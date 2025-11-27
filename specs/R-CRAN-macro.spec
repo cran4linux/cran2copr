@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lazy
-%global packver   1.2-18
+%global packname  macro
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.18
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lazy Learning for Local Regression
+Summary:          A Macro Language for 'R' Programs
 
-License:          GPL (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-common 
+BuildRequires:    R-CRAN-fmtr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-common 
+Requires:         R-CRAN-fmtr 
+Requires:         R-utils 
+Requires:         R-CRAN-crayon 
 
 %description
-By combining constant, linear, and quadratic local models, lazy estimates
-the value of an unknown multivariate function on the basis of a set of
-possibly noisy samples of the function itself.  This implementation of
-lazy learning automatically adjusts the bandwidth on a query-by-query
-basis through a leave-one-out cross-validation.
+A macro language for 'R' programs, which provides a macro facility similar
+to 'SAS®'.  This package contains basic macro capabilities like defining
+macro variables, executing conditional logic, and defining macro
+functions.
 
 %prep
 %setup -q -c -n %{packname}

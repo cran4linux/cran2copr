@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  galamm
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Additive Latent and Mixed Models
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-lme4 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description

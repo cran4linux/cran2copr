@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sumR
-%global packver   0.4.15
+%global packname  opendataformat
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.15
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate Summation of Series
+Summary:          Reading and Writing Open Data Format Files
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Application of theoretical results which ensure that the summation of an
-infinite discrete series is within an arbitrary margin of error of its
-true value. The C code under the hood is shared through header files to
-allow users to sum their own low level functions as well. Based on the
-paper by Braden (1992) <doi: 10.2307/2324995>.
+The Open Data Format (ODF) is a new, non-proprietary, multilingual,
+metadata enriched, and zip-compressed data format with metadata structured
+in the Data Documentation Initiative (DDI) Codebook standard. This package
+allows reading and writing of data files in the Open Data Format (ODF) in
+R, and displaying metadata in different languages. For further information
+on the Open Data Format, see <https://opendataformat.github.io/>.
 
 %prep
 %setup -q -c -n %{packname}

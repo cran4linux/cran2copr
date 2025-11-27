@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MMAD
-%global packver   2.0
+%global packname  pmxNODE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Package of Minorization-Maximization Algorithm via the Assembly--Decomposition Technology
+Summary:          Application of NODEs in 'Monolix', 'NONMEM', and 'nlmixr2'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-checkmate 
 
 %description
-The minorization-maximization (MM) algorithm is a powerful tool for
-maximizing nonconcave target function. However, for most existing MM
-algorithms, the surrogate function in the minorization step is constructed
-in a case-specific manner and requires manual programming. To address this
-limitation, we develop the R package MMAD, which systematically integrates
-the assembly--decomposition technology in the MM framework. This new
-package provides a comprehensive computational toolkit for one-stop
-inference of complex target functions, including function construction,
-evaluation, minorization and optimization via MM algorithm. By
-representing the target function through a hierarchical composition of
-assembly functions, we design a hierarchical algorithmic structure that
-supports both bottom-up operations (construction, evaluation) and top-down
-operation (minorization).
+An easy-to-use tool for implementing Neural Ordinary Differential
+Equations (NODEs) in pharmacometric software such as 'Monolix', 'NONMEM',
+and 'nlmixr2', see Bräm et al. (2024) <doi:10.1007/s10928-023-09886-4> and
+Bräm et al. (2025) <doi:10.1002/psp4.13265>. The main functionality is to
+automatically generate structural model code describing computations
+within a neural network. Additionally, parameters and software settings
+can be initialized automatically. For using these additional
+functionalities with 'Monolix', 'pmxNODE' interfaces with 'MonolixSuite'
+via the 'lixoftConnectors' package. The 'lixoftConnectors' package is
+distributed with 'MonolixSuite'
+(<https://monolixsuite.slp-software.com/r-functions/2024R1/package-lixoftconnectors>)
+and is not available from public repositories.
 
 %prep
 %setup -q -c -n %{packname}

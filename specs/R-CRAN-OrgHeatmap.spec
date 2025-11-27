@@ -1,23 +1,24 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OrgHeatmap
-%global packver   0.1.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization Tool for Human Organ Data
+Summary:          Visualization Tool for Numerical Data on Human/Mouse Organs and Organelles
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-viridis >= 0.6.0
 BuildRequires:    R-CRAN-ggpolypath >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -26,10 +27,14 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-viridis >= 0.6.0
 Requires:         R-CRAN-ggpolypath >= 0.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
@@ -38,18 +43,24 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-grDevices 
 
 %description
-A tool for visualizing numerical data (such as gene expression levels) on
-human organ maps. It supports custom color schemes, organ system
-filtering, and optional bar charts for quantitative comparison. The
-package integrates organ coordinate data to plot anatomical contours and
-map data values to specific organs, facilitating intuitive visualization
-of biological data distribution. The underlying method was described in
-the preprint by Zhou et al. (2022) <doi:10.1101/2022.09.07.506938>.
+A tool for visualizing numerical data (e.g., gene expression, protein
+abundance) on predefined anatomical maps of human/mouse organs and
+subcellular organelles. It supports customization of color schemes,
+filtering by organ systems (for organisms) or organelle types, and
+generation of optional bar charts for quantitative comparison. The package
+integrates coordinate data for organs and organelles to plot
+anatomical/subcellular contours, mapping data values to specific
+structures for intuitive visualization of biological data distribution.The
+underlying method was described in the preprint by Zhou et al. (2022)
+<doi:10.1101/2022.09.07.506938>.
 
 %prep
 %setup -q -c -n %{packname}

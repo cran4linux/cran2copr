@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SNPannotator
-%global packver   1.4.0
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Investigating the Functional Characteristics of Selected Variants and Their Vicinity Genomic Region
+Summary:          Automated Functional Annotation of Genetic Variants and Linked Proxies
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -51,10 +51,9 @@ Requires:         R-CRAN-ini >= 0.3.1
 Requires:         R-CRAN-png 
 
 %description
-To investigate the functional characteristics of selected SNPs and their
-vicinity genomic region. Linked SNPs in moderate to high linkage
-disequilibrium (e.g. r2>0.50) with the corresponding index SNPs will be
-selected for further analysis.
+To automated functional annotation of genetic variants and linked proxies.
+Linked SNPs in moderate to high linkage disequilibrium (e.g. r2>0.50) with
+the corresponding index SNPs will be selected for further analysis.
 
 %prep
 %setup -q -c -n %{packname}

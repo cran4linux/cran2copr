@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geojsonsf
-%global packver   2.0.5
+%global packname  kuzuR
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          GeoJSON to Simple Feature Converter
+Summary:          Interface to 'kuzu' Graph Database
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-jsonify >= 1.2.3
-BuildRequires:    R-CRAN-rapidjsonr >= 1.2.1
-BuildRequires:    R-CRAN-Rcpp >= 1.1.0
-BuildRequires:    R-CRAN-sfheaders >= 0.4.5
-BuildRequires:    R-CRAN-geometries >= 0.2.5
-Requires:         R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidygraph 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidygraph 
 
 %description
-Converts Between GeoJSON and simple feature objects.
+Provides a high-performance 'R' interface to the 'kuzu' graph database. It
+uses the 'reticulate' package to wrap the official 'Python' client
+('kuzu', 'pandas', and 'networkx'), allowing users to interact with 'kuzu'
+seamlessly from within 'R'. Key features include managing database
+connections, executing 'Cypher' queries, and efficiently loading data from
+'R' data frames. It also provides seamless integration with the 'R'
+ecosystem by converting query results directly into popular 'R' data
+structures, including 'tibble', 'igraph', 'tidygraph', and 'g6R' objects,
+making 'kuzu's powerful graph computation capabilities readily available
+for data analysis and visualization workflows in 'R'. The 'kuzu'
+documentation can be found at <https://kuzudb.github.io/docs/>.
 
 %prep
 %setup -q -c -n %{packname}

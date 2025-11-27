@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LAGOSNE
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Lake Multi-Scaled Geospatial and Temporal Database
 
@@ -30,8 +30,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-qs 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-qs2 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-curl >= 2.7.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.2.0
@@ -45,8 +45,8 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-qs 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-qs2 
+Requires:         R-CRAN-xml2 
 
 %description
 Client for programmatic access to the Lake Multi-scaled Geospatial and

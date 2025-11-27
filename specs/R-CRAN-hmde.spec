@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmde
-%global packver   1.2.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Methods for Differential Equations
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstantools >= 2.3.1.1
@@ -38,10 +39,11 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-rstantools
 
 %description
-Wrapper for Stan that offers a number of in-built models to implement a
+Wrapper for 'Stan' that offers a number of in-built models to implement a
 hierarchical Bayesian longitudinal model for repeat observation data.
 Model choice selects the differential equation that is fit to the
 observations. Single and multi-individual models are available. O'Brien et

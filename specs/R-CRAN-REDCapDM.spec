@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapDM
-%global packver   0.9.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'REDCap' Data Management
 
@@ -14,12 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-REDCapR 
@@ -28,14 +27,14 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-REDCapR 
@@ -44,24 +43,25 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-labelled 
 Requires:         R-utils 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-lifecycle 
 
 %description
-REDCap Data Management - REDCapDM is an R package that allows users to
-manage data exported directly from REDCap or using an API connection. This
-package includes several functions designed for pre-processing data,
-generating reports of queries such as outliers or missing values, and
-following up on the identified queries. 'REDCap' (Research Electronic Data
-CAPture; <https://projectredcap.org>) is a web application developed at
-Vanderbilt University, designed for creating and managing online surveys
-and databases and the REDCap API is an interface that allows external
+REDCap Data Management - 'REDCap' (Research Electronic Data CAPture;
+<https://projectredcap.org>) is a web application developed at Vanderbilt
+University, designed for creating and managing online surveys and
+databases and the REDCap API is an interface that allows external
 applications to connect to REDCap remotely, and is used to
 programmatically retrieve or modify project data or settings within
-REDCap, such as importing or exporting data.
+REDCap, such as importing or exporting data. REDCapDM is an R package that
+allows users to manage data exported directly from REDCap or using an API
+connection. This package includes several functions designed for
+pre-processing data, generating reports of queries such as outliers or
+missing values, and following up on previously identified queries.
 
 %prep
 %setup -q -c -n %{packname}

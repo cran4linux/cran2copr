@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jellyfisher
-%global packver   1.1.1
+%global packname  flassomsm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Spatiotemporal Tumor Evolution with Jellyfish Plots
+Summary:          Penalized Estimation for Multi-State Models with Lasso and Fused Penalties
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-mstate 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-penalized 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-mstate 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-penalized 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-survival 
 
 %description
-Generates interactive Jellyfish plots to visualize spatiotemporal tumor
-evolution by integrating sample and phylogenetic trees into a unified
-plot. This approach provides an intuitive way to analyze tumor
-heterogeneity and evolution over time and across anatomical locations. The
-Jellyfish plot visualization design was first introduced by Lahtinen,
-Lavikka, et al. (2023, <doi:10.1016/j.ccell.2023.04.017>). This package
-also supports visualizing ClonEvol results, a tool developed by Dang, et
-al. (2017, <doi:10.1093/annonc/mdx517>), for analyzing clonal evolution
-from multi-sample sequencing data. The 'clonevol' package is not available
-on CRAN but can be installed from its GitHub repository
-(<https://github.com/hdng/clonevol>).
+Provides a suite of methods for detecting influential subjects in
+longitudinal datasets, particularly when observations occur at irregular
+time points. The methods identify individuals whose response trajectories
+deviate significantly from the population pattern, enabling detection of
+anomalies or subjects exerting undue influence on model outcomes.
 
 %prep
 %setup -q -c -n %{packname}

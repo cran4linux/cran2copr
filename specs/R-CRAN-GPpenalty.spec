@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPpenalty
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Likelihood in Gaussian Processes
 
@@ -28,10 +28,12 @@ Requires:         R-CRAN-foreach
 Implements maximum likelihood estimation for Gaussian processes,
 supporting both isotropic and separable models with predictive
 capabilities. Includes penalized likelihood estimation following Li and
-Sudjianto (2005, <doi:10.1198/004017004000000671>), using decorrelated
-prediction error (DPE)-based metrics, motivated by Mahalanobis distance,
-that account for uncertainty. Includes cross validation techniques for
-tuning parameter selection. Designed specifically for small datasets.
+Sudjianto (2005, <doi:10.1198/004017004000000671>), with cross-validation
+guided by decorrelated prediction error (DPE) metric. DPE metric,
+motivated by Mahalanobis distance, serves as evaluation criteria that
+accounts for predictive uncertainty in tuning parameter selection (Mutoh,
+Booth, and Stallrich, 2025, <doi:10.48550/arXiv.2511.18111>). Designed
+specifically for small datasets.
 
 %prep
 %setup -q -c -n %{packname}

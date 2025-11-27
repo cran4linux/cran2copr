@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastbioclim
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable and Efficient Derivation of Bioclimatic Variables
 
@@ -23,9 +23,8 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-qs 
+BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-terra >= 1.7.0
 Requires:         R-CRAN-exactextractr 
@@ -33,9 +32,8 @@ Requires:         R-CRAN-future.apply
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-qs 
+Requires:         R-CRAN-qs2 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 
 %description
@@ -45,9 +43,9 @@ features a dual-backend architecture that intelligently switches between
 fast in-memory processing for smaller datasets (via the 'terra' package)
 and a memory-safe tiled approach for massive datasets that do not fit in
 RAM (via 'exactextractr' and 'Rfast'). The main functions,
-'derive_bioclim()' and 'derive_statistics()', offer a unified interface
-with advanced options for custom time periods and static indices, making
-it suitable for a wide range of ecological and environmental modeling
+derive_bioclim() and derive_statistics(), offer a unified interface with
+advanced options for custom time periods and static indices, making it
+suitable for a wide range of ecological and environmental modeling
 applications. A software note is in preparation. In the meantime, you can
 visit the package website <https://gepinillab.github.io/fastbioclim/> to
 find tutorials in English and Spanish.

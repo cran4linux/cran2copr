@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dynwrap
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Representing and Inferring Single-Cell Trajectories
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dynutils >= 1.0.3
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-babelwhale 
 BuildRequires:    R-CRAN-crayon 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-dynutils >= 1.0.3
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-babelwhale 
 Requires:         R-CRAN-crayon 
@@ -47,7 +48,6 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 

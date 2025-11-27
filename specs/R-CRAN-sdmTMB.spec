@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdmTMB
-%global packver   0.7.4
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatiotemporal SPDE-Based GLMMs with 'TMB'
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-TMB >= 1.8.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-fmesher 
 BuildRequires:    R-CRAN-fishMod 
 BuildRequires:    R-CRAN-generics 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-TMB >= 1.8.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-fmesher 
 Requires:         R-CRAN-fishMod 
 Requires:         R-CRAN-generics 

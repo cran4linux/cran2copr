@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  latentcor
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of Latent Correlations for Mixed Data
 
@@ -58,11 +58,12 @@ correlation estimation almost as fast as rank-based correlation
 estimation. The estimation is based on latent copula Gaussian models. For
 continuous/binary types, see Fan, J., Liu, H., Ning, Y., and Zou, H.
 (2017). For ternary type, see Quan X., Booth J.G. and Wells M.T. (2018)
-<arXiv:1809.06255>. For truncated type or zero-inflated type, see Yoon G.,
-Carroll R.J. and Gaynanova I. (2020) <doi:10.1093/biomet/asaa007>. For
-approximation method of computation, see Yoon G., Müller C.L. and
-Gaynanova I. (2021) <doi:10.1080/10618600.2021.1882468>. The latter method
-uses multi-linear interpolation originally implemented in the R package
+<doi:10.48550/arXiv.1809.06255>. For truncated type or zero-inflated type,
+see Yoon G., Carroll R.J. and Gaynanova I. (2020)
+<doi:10.1093/biomet/asaa007>. For approximation method of computation, see
+Yoon G., Müller C.L. and Gaynanova I. (2021)
+<doi:10.1080/10618600.2021.1882468>. The latter method uses multi-linear
+interpolation originally implemented in the R package
 <https://cran.r-project.org/package=chebpol>.
 
 %prep

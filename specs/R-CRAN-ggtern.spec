@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggtern
-%global packver   3.5.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Extension to 'ggplot2', for the Creation of Ternary Diagrams
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-compositions >= 2.0.2
 BuildRequires:    R-CRAN-plyr >= 1.8.3
@@ -33,7 +33,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-compositions >= 2.0.2
 Requires:         R-CRAN-plyr >= 1.8.3
@@ -54,8 +54,7 @@ Requires:         R-methods
 Extends the functionality of 'ggplot2', providing the capability to plot
 ternary diagrams for (subset of) the 'ggplot2' geometries. Additionally,
 'ggtern' has implemented several NEW geometries which are unavailable to
-the standard 'ggplot2' release. For further examples and documentation,
-please proceed to the 'ggtern' website.
+the standard 'ggplot2' release.
 
 %prep
 %setup -q -c -n %{packname}

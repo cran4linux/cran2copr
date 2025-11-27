@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PFIM
-%global packver   7.0
+%global packver   7.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0
+Version:          7.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Population Fisher Information Matrix
 

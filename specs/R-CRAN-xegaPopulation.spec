@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xegaPopulation
-%global packver   1.0.0.10
+%global packver   1.0.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.10
+Version:          1.0.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Population Level Functions
 
@@ -46,7 +46,8 @@ E., and Korst, J. (1989, ISBN:0-471-92146-7) offer simulated annealing or
 greedy randomized approximate search procedure elements. Adaptive
 crossover and mutation rates depending on population statistics generalize
 the approach of Stanhope, S. A. and Daida, J. M. (1996,
-ISBN:0-18-201-031-7).
+ISBN:0-18-201-031-7). For xega's architecture, see Geyer-Schulz, A. (2025)
+<doi:10.5445/IR/1000187255>.
 
 %prep
 %setup -q -c -n %{packname}

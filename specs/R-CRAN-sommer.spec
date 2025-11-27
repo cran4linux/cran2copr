@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sommer
-%global packver   4.4.3
+%global packver   4.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.3
+Version:          4.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solving Mixed Model Equations in R
 
@@ -22,6 +22,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-enhancer 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-Matrix >= 1.1.1
@@ -30,6 +31,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-enhancer 
 
 %description
 Structural multivariate-univariate linear mixed model solver for

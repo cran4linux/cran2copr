@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MCMCvis
-%global packver   0.16.3
+%global packver   0.16.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.3
+Version:          0.16.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Visualize, Manipulate, and Summarize MCMC Output
 
@@ -35,8 +35,8 @@ Performs key functions for MCMC analysis using minimal code - visualizes,
 manipulates, and summarizes MCMC output. Functions support simple and
 straightforward subsetting of model parameters within the calls, and
 produce presentable and 'publication-ready' output. MCMC output may be
-derived from Bayesian model output fit with 'Stan', 'NIMBLE', 'JAGS', and
-other software.
+derived from Bayesian model output fit with Stan, NIMBLE, JAGS, and other
+software.
 
 %prep
 %setup -q -c -n %{packname}

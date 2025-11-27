@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  charlesschwabapi
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Functions Around 'Charles Schwab Individual Trader API'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-anytime 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-stringr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-anytime 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-tibble 
 
 %description
 For those wishing to interact with the 'Charles Schwab Individual Trader

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeneScoreR
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene Scoring from Count Tables
 
@@ -17,14 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides two methods for automatic calculation of gene scores from gene
-count tables: the z-score method, which requires a table of samples being
-scored and a count table with control samples, and the geometric mean
-method, which does not rely on control samples. The mathematical methods
-implemented are described by Kim et al. (2018)
-<doi:10.1089/jir.2017.0127>.
+Provides methods for automatic calculation of gene scores from gene count
+tables, including a Z-score method that requires a table of samples being
+scored and a count table with control samples; a geometric mean method
+that does not rely on control samples; and a principal component-based
+method that summarizes gene expression using user-selected principal
+components. The Z-score and geometric mean approaches are described in Kim
+et al. (2018) <doi:10.1089/jir.2017.0127>.
 
 %prep
 %setup -q -c -n %{packname}

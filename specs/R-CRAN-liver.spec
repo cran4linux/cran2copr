@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  liver
-%global packver   1.25
+%global packver   1.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.25
+Version:          1.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit and Datasets for Data Science
 
@@ -32,7 +32,7 @@ Functions include tools for data partitioning, performance evaluation, and
 data transformations (e.g., z-score and min-max scaling). The included
 datasets are curated to highlight practical applications in data
 exploration, modeling, and multivariate analysis. An early inspiration for
-the package came from an ancient Persian idiom about "eating the liver,"
+the package came from an ancient Persian idiom about "eating the liveR,"
 symbolizing deep and immersive engagement with knowledge.
 
 %prep
