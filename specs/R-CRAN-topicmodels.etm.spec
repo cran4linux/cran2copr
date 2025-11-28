@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  topicmodels.etm
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topic Modelling in Embedding Spaces
 
@@ -32,7 +33,7 @@ categorical distribution whose natural parameter is the inner product
 between a word embedding and an embedding of its assigned topic. The
 techniques are explained in detail in the paper 'Topic Modeling in
 Embedding Spaces' by Adji B. Dieng, Francisco J. R. Ruiz, David M. Blei
-(2019), available at <arXiv:1907.04907>.
+(2019), available at <doi:10.48550/arXiv.1907.04907>.
 
 %prep
 %setup -q -c -n %{packname}

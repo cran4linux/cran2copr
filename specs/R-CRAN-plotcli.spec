@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotcli
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Command Line Interface Plotting
 
@@ -19,26 +19,27 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-utils 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
 The 'plotcli' package provides terminal-based plotting in R. It supports
-colored scatter plots, line plots, bar plots, and box plots. The package
-allows users to customize plot appearance, add titles, labels, ticks, and
-legends, and output the plot as a text-based visualization.
+colored scatter plots, line plots, bar plots, boxplots, histograms,
+density plots, and more. The 'ggplotcli()' function is a universal
+converter that renders any 'ggplot2' plot in the terminal using Unicode
+Braille characters or ASCII. Features include support for 15+ geom types,
+faceting (facet_wrap/facet_grid), automatic theme detection, legends,
+optimized color mapping, and multiple canvas types.
 
 %prep
 %setup -q -c -n %{packname}

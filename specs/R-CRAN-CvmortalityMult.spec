@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CvmortalityMult
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validation for Multi-Population Mortality Models
 
@@ -37,14 +37,14 @@ multi-population includes several multi-population mortality models
 proposed through the actuarial and demography literature. The package
 includes functions for fitting and forecast the mortality rates of several
 populations. Additionally, we include functions for testing the
-forecasting accuracy of different multi-population models. References.
-Atance, D., Debon, A., and Navarro, E. (2020) <doi:10.3390/math8091550>.
-Bergmeir, C. & Benitez, J.M. (2012) <doi:10.1016/j.ins.2011.12.028>.
-Debon, A., Montes, F., & Martinez-Ruiz, F. (2011)
-<doi:10.1007/s13385-011-0043-z>. Lee, R.D. & Carter, L.R. (1992)
-<doi:10.1080/01621459.1992.10475265>. Russolillo, M., Giordano, G., &
-Haberman, S. (2011) <doi:10.1080/03461231003611933>. Santolino, M. (2023)
-<doi:10.3390/risks11100170>.
+forecasting accuracy of different multi-population models. References,
+<https://journal.r-project.org/articles/RJ-2025-018/>. Atance, D., Debon,
+A., and Navarro, E. (2020) <doi:10.3390/math8091550>. Bergmeir, C. &
+Benitez, J.M. (2012) <doi:10.1016/j.ins.2011.12.028>. Debon, A., Montes,
+F., & Martinez-Ruiz, F. (2011) <doi:10.1007/s13385-011-0043-z>. Lee, R.D.
+& Carter, L.R. (1992) <doi:10.1080/01621459.1992.10475265>. Russolillo,
+M., Giordano, G., & Haberman, S. (2011) <doi:10.1080/03461231003611933>.
+Santolino, M. (2023) <doi:10.3390/risks11100170>.
 
 %prep
 %setup -q -c -n %{packname}

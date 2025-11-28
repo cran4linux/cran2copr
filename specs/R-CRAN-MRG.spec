@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRG
-%global packver   0.3.10
+%global packver   0.3.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Non-Confidential Multi-Resolution Grids
 
@@ -22,7 +22,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sjmisc 
@@ -35,12 +34,12 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sjmisc 
@@ -53,6 +52,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-viridis 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-CRAN-units 
 
 %description
 The need for anonymization of individual survey responses often leads to

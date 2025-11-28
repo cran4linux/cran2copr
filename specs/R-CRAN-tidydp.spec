@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cookiemonster
-%global packver   0.0.5
+%global packname  tidydp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Your Friendly Solution to Managing Browser Cookies
+Summary:          Tidy Differential Privacy
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 
 %description
-A convenient tool to store and format browser cookies and use them in
-'HTTP' requests (for example, through 'httr2', 'httr' or 'curl').
+A tidy-style interface for applying differential privacy to data frames.
+Provides pipe-friendly functions to add calibrated noise, compute private
+statistics, and track privacy budgets using the epsilon-delta differential
+privacy framework. Implements the Laplace mechanism (Dwork et al. 2006
+<doi:10.1007/11681878_14>) and the Gaussian mechanism for achieving
+differential privacy as described in Dwork and Roth (2014)
+<doi:10.1561/0400000042>.
 
 %prep
 %setup -q -c -n %{packname}

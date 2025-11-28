@@ -1,58 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  traktok
-%global packver   0.1.0
+%global packname  parquetize
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collecting 'TikTok' Data
+Summary:          Convert Files to Parquet Format
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-askpass 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-cookiemonster 
+BuildRequires:    R-CRAN-haven >= 2.4.0
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lobstr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-askpass 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-cookiemonster 
+Requires:         R-CRAN-haven >= 2.4.0
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lobstr 
-Requires:         R-methods 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-tools 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fst 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 
 %description
-Getting 'TikTok' data (<https://www.tiktok.com/>) through the official and
-unofficial APIs—in other words, you can track 'TikTok'.
+Collection of functions to get files in parquet format. Parquet is a
+columnar storage file format <https://parquet.apache.org/>. The files to
+convert can be of several formats ("csv", "RData", "rds", "RSQLite",
+"json", "ndjson", "SAS", "SPSS"...).
 
 %prep
 %setup -q -c -n %{packname}

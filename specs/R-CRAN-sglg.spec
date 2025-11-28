@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sglg
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Semi-Parametric Generalized log-Gamma Regression Models
 
@@ -50,16 +50,17 @@ Requires:         R-CRAN-TeachingSampling
 
 %description
 Set of tools to fit a linear multiple or semi-parametric regression models
-with the possibility of non-informative random right-censoring. Under this
-setup, the localization parameter of the response variable distribution is
-modeled by using linear multiple regression or semi-parametric functions,
-whose non-parametric components may be approximated by natural cubic
-spline or P-splines. The supported distribution for the model error is a
-generalized log-gamma distribution which includes the generalized extreme
-value and standard normal distributions as important special cases.
-Inference is based on penalized likelihood and bootstrap methods. Also,
-some numerical and graphical devices for diagnostic of the fitted models
-are offered.
+with the possibility of non-informative random right or left censoring.
+Under this setup, the localization parameter of the response variable
+distribution is modeled by using linear multiple regression or
+semi-parametric functions, whose non-parametric components may be
+approximated by natural cubic spline or P-splines. The supported
+distribution for the model error is a generalized log-gamma distribution
+which includes the generalized extreme value and standard normal
+distributions as important special cases. Inference is based on
+likelihood, penalized likelihood and bootstrap methods. Lastly, some
+numerical and graphical devices for diagnostic of the fitted models are
+offered.
 
 %prep
 %setup -q -c -n %{packname}

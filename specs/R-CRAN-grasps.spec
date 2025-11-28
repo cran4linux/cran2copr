@@ -1,33 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eHOF
-%global packver   1.16
+%global packname  grasps
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended HOF (Huisman-Olff-Fresco) Models
+Summary:          Groupwise Regularized Adaptive Sparse Precision Solution
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-lattice 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-lattice 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-scales 
 
 %description
-Extended and enhanced hierarchical logistic regression models (called
-Huisman-Olff-Fresco in biology, see Huisman et al. 1993 Journal of
-Vegetation Science <doi:10.1111/jvs.12050>) models. Response curves along
-one-dimensional gradients including no response, monotone, plateau,
-unimodal and bimodal models.
+Provides a unified framework for sparse-group regularization and precision
+matrix estimation in Gaussian graphical models. It implements multiple
+sparse-group penalties, including sparse-group lasso, sparse-group
+adaptive lasso, sparse-group SCAD, and sparse-group MCP, and solves them
+efficiently using ADMM-based optimization. The package is designed for
+high-dimensional network inference where both sparsity and group structure
+are present.
 
 %prep
 %setup -q -c -n %{packname}

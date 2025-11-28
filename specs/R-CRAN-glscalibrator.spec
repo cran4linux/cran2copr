@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lifecontingencies
-%global packver   1.4.4
+%global packname  glscalibrator
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Financial and Actuarial Mathematics for Life Contingencies
+Summary:          Automated Calibration and Analysis of 'GLS' (Global Location Sensor) Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,25 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-markovchain 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-methods 
-Requires:         R-parallel 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
-Requires:         R-CRAN-markovchain 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Classes and methods that allow the user to manage life table, actuarial
-tables (also multiple decrements tables). Moreover, functions to easily
-perform demographic, financial and actuarial mathematics on life
-contingencies insurances calculations are contained therein. See Spedicato
-(2013) <doi:10.18637/jss.v055.i10>.
+Provides a fully automated workflow for calibrating and analyzing
+light-level geolocation ('GLS') data from seabirds and other wildlife. The
+'glscalibrator' package auto-discovers birds from directory structures,
+automatically detects calibration periods from the first days of
+deployment, processes multiple individuals in batch mode, and generates
+standardized outputs including position estimates, diagnostic plots, and
+quality control metrics. Implements the established threshold workflow
+internally, following the methods described in 'SGAT' (Wotherspoon et al.
+(2016) <https://github.com/SWotherspoon/SGAT>), 'GeoLight' (Lisovski et
+al. (2012) <doi:10.1111/j.2041-210X.2012.00185.x>), and 'TwGeos' (Lisovski
+et al. (2019) <https://github.com/slisovski/TwGeos>).
 
 %prep
 %setup -q -c -n %{packname}

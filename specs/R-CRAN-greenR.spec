@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greenR
-%global packver   0.0.1.4
+%global packver   0.0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.4
+Version:          0.0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Green Index Quantification, Analysis and Visualization
 
@@ -57,6 +57,9 @@ BuildRequires:    R-CRAN-moments
 BuildRequires:    R-CRAN-ineq 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-rstac 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
@@ -97,6 +100,9 @@ Requires:         R-CRAN-moments
 Requires:         R-CRAN-ineq 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-rstac 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-scales 
 
 %description
 Quantification, analysis, and visualization of urban greenness within city

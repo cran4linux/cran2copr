@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  touch
-%global packver   0.1-6
+%global packver   0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools of Utilization and Cost in Healthcare
 
@@ -20,12 +21,12 @@ Requires:         R-CRAN-Rcpp
 
 %description
 R implementation of the software tools developed in the H-CUP (Healthcare
-Cost and Utilization Project) <https://www.hcup-us.ahrq.gov> and AHRQ
-(Agency for Healthcare Research and Quality) <https://www.ahrq.gov>.  It
-currently contains functions for mapping ICD-9 codes to the AHRQ
-comorbidity measures and translating ICD-9 (resp. ICD-10) codes to ICD-10
-(resp. ICD-9) codes based on GEM (General Equivalence Mappings) from CMS
-(Centers for Medicare and Medicaid Services).
+Cost and Utilization Project) <https://hcup-us.ahrq.gov> and AHRQ (Agency
+for Healthcare Research and Quality) <https://www.ahrq.gov>.  It currently
+contains functions for mapping ICD-9 codes to the AHRQ comorbidity
+measures and translating ICD-9 (resp. ICD-10) codes to ICD-10 (resp.
+ICD-9) codes based on GEM (General Equivalence Mappings) from CMS (Centers
+for Medicare and Medicaid Services).
 
 %prep
 %setup -q -c -n %{packname}

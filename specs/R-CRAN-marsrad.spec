@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  manifold
-%global packver   0.1.1
+%global packname  marsrad
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Operations for Riemannian Manifolds
+Summary:          Mars Solar Radiation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Implements operations for Riemannian manifolds, e.g., geodesic distance,
-Riemannian metric, exponential and logarithm maps, etc. Also incorporates
-random object generator on the manifolds. See Dai, Lin, and Müller (2021)
-<doi:10.1111/biom.13385>.
+A set of functions to calculate solar irradiance and insolation on Mars
+horizontal and inclined surfaces. Based on NASA Technical Memoranda
+102299, 103623, 105216, 106321, and 106700, i.e. the canonical Mars solar
+radiation papers.
 
 %prep
 %setup -q -c -n %{packname}

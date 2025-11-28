@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Spower
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses using Monte Carlo Simulations
 
@@ -55,7 +55,8 @@ analysis by way of Bayes factors or posterior probability evaluations.
 Additional functions for building empirical power curves, reanalyzing
 simulation information, and for increasing the precision of the resulting
 power estimates are also included, each of which utilize similar API
-structures.
+structures. For further details see the associated publication in Chalmers
+(2025) <doi:10.3758/s13428-025-02787-z>.
 
 %prep
 %setup -q -c -n %{packname}
