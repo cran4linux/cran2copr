@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modelgrid
+%global packname  rflexscan
 %global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Creating, Managing and Training Multiple 'caret' Models
+Summary:          The Flexible Spatial Scan Statistic
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sf 
+Requires:         R-grDevices 
 
 %description
-A minimalistic but flexible framework that facilitates the creation,
-management and training of multiple 'caret' models. A model grid consists
-of two components, (1) a set of settings that is shared by all models by
-default, and (2) specifications that apply only to the individual models.
-When the model grid is trained, model and training specifications are
-first consolidated from the shared and the model specific settings into
-complete 'caret' model configurations. These models are then trained with
-the 'train()' function from the 'caret' package.
+Provides functions for detecting spatial clusters using the flexible
+spatial scan statistic developed by Tango and Takahashi (2005)
+<doi:10.1186/1476-072X-4-11>. This package implements a wrapper for the
+'C' routine used in the 'FleXScan' 3.1.2
+<https://sites.google.com/site/flexscansoftware/home> developed by
+Takahashi, Yokoyama, and Tango. For details, see Otani et al. (2021)
+<doi:10.18637/jss.v099.i13>.
 
 %prep
 %setup -q -c -n %{packname}

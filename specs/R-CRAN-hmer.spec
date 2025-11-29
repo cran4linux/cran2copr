@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmer
-%global packver   1.6.0
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          History Matching and Emulation Package
 
@@ -30,8 +30,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-pdist 
-BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -45,8 +45,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-isoband 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-pdist 
-Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
 
 %description
 A set of objects and functions for Bayes Linear emulation and history

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gfcanalysis
-%global packver   1.8.0
+%global packname  factorEx
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Working with Hansen et al. Global Forest Change Dataset
+Summary:          Design and Analysis for Factorial Experiments
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-CRAN-genlasso 
+BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-animation 
-BuildRequires:    R-CRAN-rasterVis 
-Requires:         R-CRAN-raster 
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-estimatr 
+Requires:         R-CRAN-arm 
+Requires:         R-CRAN-genlasso 
+Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-animation 
-Requires:         R-CRAN-rasterVis 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-estimatr 
 
 %description
-Supports analyses using the Global Forest Change dataset released by
-Hansen et al. gfcanalysis was originally written for the Tropical Ecology
-Assessment and Monitoring (TEAM) Network. For additional details on the
-Global Forest Change dataset, see: Hansen, M. et al. 2013.
-"High-Resolution Global Maps of 21st-Century Forest Cover Change." Science
-342 (15 November): 850-53. The forest change data and more information on
-the product is available at <http://earthenginepartners.appspot.com>.
+Provides design-based and model-based estimators for the population
+average marginal component effects in general factorial experiments,
+including conjoint analysis. The package also implements a series of
+recommendations offered in de la Cuesta, Egami, and Imai (2022)
+<doi:10.1017/pan.2020.40>, and Egami and Imai (2019)
+<doi:10.1080/01621459.2018.1476246>.
 
 %prep
 %setup -q -c -n %{packname}

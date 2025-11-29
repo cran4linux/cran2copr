@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  risk.assessr
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Package Risk Metrics
 
@@ -22,11 +22,11 @@ BuildRequires:    R-CRAN-callr
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-covr 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rcmdcheck 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xml2 
@@ -34,18 +34,19 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-BiocManager 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-covr 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rcmdcheck 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xml2 
@@ -53,14 +54,16 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-gh 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-BiocManager 
 
 %description
-Provides a structured approach to assess the quality and trustworthiness
-of R packages (documentation, testing, popularity, dependencies),
-supporting informed decisions in production or research by highlighting
-strengths and potential risks in adoption or development.
+A reliable and validated tool that captures detailed risk metrics such as
+R 'CMD' check, test coverage, traceability matrix, documentation,
+dependencies, reverse dependencies, suggested dependency analysis,
+repository data, and enhanced reporting for R packages that are local or
+stored on remote repositories such as GitHub, CRAN, and Bioconductor.
 
 %prep
 %setup -q -c -n %{packname}

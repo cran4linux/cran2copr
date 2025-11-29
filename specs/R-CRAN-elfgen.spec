@@ -1,50 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PStrata
-%global packver   0.0.5
+%global packname  elfgen
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Stratification Analysis in R
+Summary:          Ecological Limit Function Model Generation and Analysis Toolkit
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rstan 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-sbtools 
+BuildRequires:    R-CRAN-nhdplusTools 
+Requires:         R-utils 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-quantreg 
 Requires:         R-stats 
-Requires:         R-CRAN-rstantools
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-sbtools 
+Requires:         R-CRAN-nhdplusTools 
 
 %description
-Estimating causal effects in the presence of post-treatment confounding
-using principal stratification. 'PStrata' allows for customized
-monotonicity assumptions and exclusion restriction assumptions, with
-automatic full Bayesian inference supported by 'Stan'. The main function
-to use in this package is PStrata(), which provides posterior estimates of
-principal causal effect with uncertainty quantification. Visualization
-tools are also provided for diagnosis and interpretation. See Liu and Li
-(2023) <arXiv:2304.02740> for details.
+A toolset for generating Ecological Limit Function (ELF) models and
+evaluating potential species loss resulting from flow change, based on the
+'elfgen' framework. ELFs describe the relation between aquatic species
+richness (fish or benthic macroinvertebrates) and stream size
+characteristics (streamflow or drainage area). Journal publications are
+available outlining framework methodology (Kleiner et al. (2020)
+<doi:10.1111/1752-1688.12876>) and application (Rapp et al. (2020)
+<doi:10.1111/1752-1688.12877>).
 
 %prep
 %setup -q -c -n %{packname}

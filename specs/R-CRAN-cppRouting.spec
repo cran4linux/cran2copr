@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cppRouting
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithms for Routing and Solving the Traffic Assignment Problem
 
@@ -31,8 +31,8 @@ using several variants of Dijkstra algorithm. Proposed algorithms are
 unidirectional Dijkstra (Dijkstra, E. W. (1959) <doi:10.1007/BF01386390>),
 bidirectional Dijkstra (Goldberg, Andrew & Fonseca F. Werneck, Renato
 (2005)
-<https://archive.siam.org/meetings/alenex05/papers/03agoldberg.pdf>), A*
-search (P. E. Hart, N. J. Nilsson et B. Raphael (1968)
+<https://www.cs.princeton.edu/courses/archive/spr06/cos423/Handouts/EPP%%20shortest%%20path%%20algorithms.pdf>),
+A* search (P. E. Hart, N. J. Nilsson et B. Raphael (1968)
 <doi:10.1109/TSSC.1968.300136>), new bidirectional A* (Pijls & Post (2009)
 <https://repub.eur.nl/pub/16100/ei2009-10.pdf>), Contraction hierarchies
 (R. Geisberger, P. Sanders, D. Schultes and D. Delling (2008)

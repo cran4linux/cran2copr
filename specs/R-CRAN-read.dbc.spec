@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flexOR
-%global packver   1.0.0
+%global packname  read.dbc
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Odds Ratio Curves
+Summary:          Read Data Stored in 'DBC' (Compressed 'DBF') Files
 
-License:          GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-gam 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-gam 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-mgcv 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-foreign 
+Requires:         R-CRAN-foreign 
 
 %description
-Provides flexible odds ratio curves that enable modeling non-linear
-relationships between continuous predictors and binary outcomes. This
-package facilitates a deeper understanding of the impact of each
-continuous predictor on the outcome by presenting results in terms of odds
-ratio (OR) curves based on splines. These curves allow for comparison
-against a specified reference value, aiding in the interpretation of the
-predictor's effect.
+Functions for reading and decompressing the 'DBC' (compressed 'DBF')
+files. Please note that this is the file format used by the Brazilian
+Ministry of Health ('DATASUS') to publish healthcare datasets. It is not
+related to the 'FoxPro' or 'CANdb' 'DBC' file formats.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RLRsim
-%global packver   3.1-8
+%global packver   3.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.8
+Version:          3.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact (Restricted) Likelihood Ratio Tests for Mixed and Additive Models
 
@@ -27,8 +28,8 @@ Requires:         R-CRAN-nlme
 %description
 Rapid, simulation-based exact (restricted) likelihood ratio tests for
 testing the presence of variance components/nonparametric terms for models
-fit with nlme::lme(),lme4::lmer(), lmeTest::lmer(), gamm4::gamm4(),
-mgcv::gamm() and SemiPar::spm().
+fit with nlme::lme(),lme4::lmer(), lmerTest::lmer(), gamm4::gamm4() and
+mgcv::gamm().
 
 %prep
 %setup -q -c -n %{packname}

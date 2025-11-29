@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ips
-%global packver   0.0.12
+%global packname  ADSIHT
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interfaces to Phylogenetic Software in R
+Summary:          Adaptive Double Sparse Iterative Hard Thresholding
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-snowfall 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-snowfall 
 
 %description
-Functions that wrap popular phylogenetic software for sequence alignment,
-masking of sequence alignments, and estimation of phylogenies and
-ancestral character states.
+Solving high-dimensional double sparse linear regression via an iterative
+hard thresholding algorithm. Furthermore, the method is extended to
+jointly estimate multiple graphical models.  For more details, please see
+<https://www.jmlr.org/papers/v25/23-0653.html> and
+<doi:10.48550/arXiv.2503.18722>.
 
 %prep
 %setup -q -c -n %{packname}

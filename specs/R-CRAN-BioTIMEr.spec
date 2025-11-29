@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BioTIMEr
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Use and Explore the 'BioTIME' Database
 
@@ -18,17 +18,23 @@ BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dggridR >= 3.1.0
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dggridR >= 3.1.0
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lifecycle 
 
 %description
 The 'BioTIME' database was first published in 2018 and inspired ideas,

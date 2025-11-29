@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2
-%global packver   4.1.1
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilities for Simulating from ODE-Based Models
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-lotri >= 1.0.2
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
 BuildRequires:    R-CRAN-PreciseSums >= 0.7
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.2
-BuildRequires:    R-CRAN-qs >= 0.26.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
@@ -38,6 +37,7 @@ BuildRequires:    R-CRAN-rex
 BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-sitmo 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppParallel 
@@ -48,7 +48,6 @@ Requires:         R-CRAN-dparser >= 1.3.1.12
 Requires:         R-CRAN-data.table >= 1.12.4
 Requires:         R-CRAN-lotri >= 1.0.2
 Requires:         R-CRAN-PreciseSums >= 0.7
-Requires:         R-CRAN-qs >= 0.26.3
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 
@@ -60,6 +59,7 @@ Requires:         R-CRAN-rex
 Requires:         R-CRAN-sys 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-qs2 
 
 %description
 Facilities for running simulations from ordinary differential equation

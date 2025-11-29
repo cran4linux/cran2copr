@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xega
-%global packver   0.9.0.17
+%global packver   0.9.0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.17
+Version:          0.9.0.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Evolutionary and Genetic Algorithms
 
@@ -54,9 +54,11 @@ ISBN:978-3-7908-0830-X)), grammatical evolution (Ryan, C., O'Neill, M.,
 and Collins, J. J. (2018) <doi:10.1007/978-3-319-78717-6>), and
 grammatical differential evolution (O'Neill, M. and Brabazon, A. (2006) in
 Arabinia, H. (2006, ISBN:978-193-241596-3). All algorithms reuse basic
-adaptive mechanisms for performance optimization. Sequential or parallel
-execution (on multi-core machines, local clusters, and high-performance
-computing environments) is available for all algorithms. See
+adaptive mechanisms for performance optimization. For xega's architecture,
+see Geyer-Schulz, A. (2025) <doi:10.5445/IR/1000187255>. Sequential or
+parallel execution (on multi-core machines, local clusters, and
+high-performance computing environments) is available for all algorithms.
+See
 <https://github.com/ageyerschulz/xega/tree/main/examples/executionModel>.
 
 %prep

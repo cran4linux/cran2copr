@@ -1,44 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KODAMA
-%global packver   3.0
+%global packname  sumR
+%global packver   0.4.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          0.4.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Knowledge Discovery by Accuracy Maximization
+Summary:          Approximate Summation of Series
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-umap 
-BuildRequires:    R-CRAN-Rnanoflann 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-stats 
-Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-umap 
-Requires:         R-CRAN-Rnanoflann 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-matrixStats 
 
 %description
-A self-guided, weakly supervised learning algorithm for feature extraction
-from noisy and high-dimensional data. It facilitates the identification of
-patterns that reflect underlying group structures across all samples in a
-dataset. The method incorporates a novel strategy to integrate spatial
-information, improving the interpretability of results in spatially
-resolved data.
+Application of theoretical results which ensure that the summation of an
+infinite discrete series is within an arbitrary margin of error of its
+true value. The C code under the hood is shared through header files to
+allow users to sum their own low level functions as well. Based on the
+paper by Braden (1992) <doi: 10.2307/2324995>.
 
 %prep
 %setup -q -c -n %{packname}

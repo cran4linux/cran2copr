@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GCPBayes
-%global packver   4.2.0
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Meta-Analysis of Pleiotropic Effects Using Group Structure
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-invgamma 
 BuildRequires:    R-CRAN-gdata 
 BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-postpack 
-BuildRequires:    R-CRAN-wiqid 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-MASS 
@@ -31,8 +31,8 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-invgamma 
 Requires:         R-CRAN-gdata 
 Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-postpack 
-Requires:         R-CRAN-wiqid 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-posterior 
 
 %description
 Run a Gibbs sampler for a multivariate Bayesian sparse group selection

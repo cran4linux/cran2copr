@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vroom
-%global packver   1.6.6
+%global packver   1.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write Rectangular Text Data Quickly
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-cli >= 3.2.0
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-progress >= 1.2.3

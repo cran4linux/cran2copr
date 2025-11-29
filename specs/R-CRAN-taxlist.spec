@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxlist
-%global packver   0.3.0
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Taxonomic Lists
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegdata 
 Requires:         R-CRAN-biblio >= 0.0.8
 Requires:         R-CRAN-foreign 
 Requires:         R-methods 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-stringr 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-vegdata 
 
 %description
 Handling taxonomic lists through objects of class 'taxlist'. This package

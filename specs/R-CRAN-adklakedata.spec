@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fixedpointproperty
-%global packver   1.0
+%global packname  adklakedata
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Determine and Test the Fixed-Point Property in Binary Mixture Data
+Summary:          Adirondack Long-Term Lake Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BayesFactor 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-BayesFactor 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-tibble 
 
 %description
-Determine and test the fixed-point property in binary mixture data. This
-package was originally developed in the context of detecting mixture of
-cognitive processing strategies, based on observed response time
-distributions. The method is explain in more detail by Van Maanen, De
-Jong, Van Rijn (2014) <doi:10.1371/journal.pone.0106113> and Van Maanen,
-Couto, Lebreton, (2016) <doi:10.1371/journal.pone.0167377>.
+Package for the access and distribution of long-term lake datasets from
+lakes in the Adirondack Park, northern New York state. Includes a wide
+variety of physical, chemical, and biological parameters from 28 lakes.
+Data are from multiple collection organizations and have been harmonized
+in both time and space for ease of reuse.
 
 %prep
 %setup -q -c -n %{packname}
