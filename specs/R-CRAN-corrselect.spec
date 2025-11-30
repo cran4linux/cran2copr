@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corrselect
-%global packver   2.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Correlation-Based Variable Subset Selection
+Summary:          Correlation-Based and Model-Based Predictor Pruning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -24,10 +24,12 @@ Requires:         R-methods
 Requires:         R-stats 
 
 %description
-Provides functions to extract low-correlation variable subsets using exact
-graph-theoretic algorithms (e.g., Eppstein–Löffler–Strash, Bron–Kerbosch)
-as well as greedy and spectral heuristics. Supports both numeric and
-mixed-type data using generalized association measures.
+Provides functions for predictor pruning using association-based and
+model-based approaches. Includes corrPrune() for fast correlation-based
+pruning, modelPrune() for VIF-based regression pruning, and exact
+graph-theoretic algorithms (Eppstein–Löffler–Strash, Bron–Kerbosch) for
+exhaustive subset enumeration. Supports linear models, GLMs, and mixed
+models ('lme4', 'glmmTMB').
 
 %prep
 %setup -q -c -n %{packname}

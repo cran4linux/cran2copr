@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OptimalDesign
-%global packver   1.0.2.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Computing Efficient Designs of Experiments
 
@@ -41,10 +41,11 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Algorithms for D-, A-, I-, and c-optimal designs. Some of the functions in
-this package require the 'gurobi' software and its accompanying R package.
-For their installation, please follow the instructions at
-<https://www.gurobi.com> and the file gurobi_inst.txt, respectively.
+Algorithms for D-, A-, I-, and c-optimal designs. For more details, see
+the package description. Some of the functions in this package require the
+'gurobi' software and its accompanying R package. For their installation,
+please follow the instructions at <https://www.gurobi.com> and the file
+gurobi_inst.txt, respectively.
 
 %prep
 %setup -q -c -n %{packname}

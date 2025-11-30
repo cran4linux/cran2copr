@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kimisc
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kirill's Miscellaneous Functions
 
@@ -19,10 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-pryr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-pryr 
 
 %description
 A collection of useful functions not found anywhere else, mainly for

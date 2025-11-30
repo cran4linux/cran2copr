@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  difR
-%global packver   6.0.0
+%global packver   6.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          6.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Methods to Detect Dichotomous and Polytomous Differential Item Functioning (DIF)
+Summary:          Collection of Methods to Detect Dichotomous, Polytomous, and Continuous Differential Item Functioning (DIF)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,10 @@ BuildRequires:    R-CRAN-deltaPlotR
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-mirt 
 Requires:         R-CRAN-ltm 
 Requires:         R-CRAN-lme4 
@@ -31,17 +35,22 @@ Requires:         R-CRAN-deltaPlotR
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Methods to detect differential item functioning (DIF) in dichotomous and
-polytomous items, using both classical and modern approaches. These
-include Mantel-Haenszel procedures, logistic regression (including ordinal
-models), and regularization-based methods such as LASSO. Uniform and
-non-uniform DIF effects can be detected, and some methods support multiple
-focal groups. The package also provides tools for anchor purification,
-rest score matching, effect size estimation, and DIF simulation. See
-Magis, Beland, Tuerlinckx, and De Boeck (2010, Behavior Research Methods,
-42, 847–862, <doi:10.3758/BRM.42.3.847>) for a general overview.
+Methods to detect differential item functioning (DIF) in dichotomous,
+polytomous, and continuous items, using both classical and modern
+approaches. These include Mantel-Haenszel procedures, logistic regression
+(including ordinal models), and regularization-based methods such as
+LASSO. Uniform and non-uniform DIF effects can be detected, and some
+methods support multiple focal groups. The package also provides tools for
+anchor purification, rest score matching, effect size estimation, and DIF
+simulation. See Magis, Beland, Tuerlinckx, and De Boeck (2010, Behavior
+Research Methods, 42, 847–862, <doi:10.3758/BRM.42.3.847>) for a general
+overview.
 
 %prep
 %setup -q -c -n %{packname}

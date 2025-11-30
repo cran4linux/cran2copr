@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lpanda
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Political Actor Network Diachronic Analysis Tools
 
@@ -35,7 +35,10 @@ of local party systems and identification of actor groups. Formalizes and
 automates a continuity diagram method that has been previously applied in
 research on Czech local politics, e.g. Bubenicek and Kubalek (2010,
 ISSN:1803-8220), Kubalek and Bubenicek (2012, ISSN:1803-8220), and
-Cmejrek, Bubenicek, and Copik (2010, ISBN:978-80-247-3061-5).
+Cmejrek, Bubenicek, and Copik (2010, ISBN:978-80-247-3061-5). The package
+also includes several example datasets derived from Czech municipal
+elections, compiled from official election results, field research, and
+previously published case studies on Czech local politics.
 
 %prep
 %setup -q -c -n %{packname}

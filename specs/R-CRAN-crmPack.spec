@@ -1,57 +1,81 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crmPack
-%global packver   1.0.6
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Object-Oriented Implementation of CRM Designs
+Summary:          Object-Oriented Implementation of Dose Escalation Designs
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-checkmate >= 2.2.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-checkmate >= 2.2.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-parallel 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rjags 
-Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
 Requires:         R-tools 
-Requires:         R-CRAN-MASS 
+Requires:         R-utils 
 
 %description
-Implements a wide range of model-based dose escalation designs, ranging
-from classical and modern continual reassessment methods (CRMs) based on
-dose-limiting toxicity endpoints to dual-endpoint designs taking into
-account a biomarker/efficacy outcome. The focus is on Bayesian inference,
-making it very easy to setup a new design with its own JAGS code. However,
-it is also possible to implement 3+3 designs for comparison or models with
-non-Bayesian estimation. The whole package is written in a modular form in
-the S4 class system, making it very flexible for adaptation to new models,
-escalation or stopping rules.
+Implements a wide range of dose escalation designs. The focus is on
+model-based designs, ranging from classical and modern continual
+reassessment methods (CRMs) based on dose-limiting toxicity endpoints to
+dual-endpoint designs taking into account a biomarker/efficacy outcome.
+Bayesian inference is performed via MCMC sampling in JAGS, and it is easy
+to setup a new design with custom JAGS code. However, it is also possible
+to implement 3+3 designs for comparison or models with non-Bayesian
+estimation. The whole package is written in a modular form in the S4 class
+system, making it very flexible for adaptation to new models, escalation
+or stopping rules. Further details are presented in Sabanes Bove et al.
+(2019) <doi:10.18637/jss.v089.i10>.
 
 %prep
 %setup -q -c -n %{packname}

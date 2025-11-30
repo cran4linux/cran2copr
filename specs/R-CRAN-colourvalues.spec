@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colourvalues
-%global packver   0.3.9
+%global packver   0.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assigns Colours to Values
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-CRAN-BH >= 1.81.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Rcpp >= 1.1.0
 Requires:         R-graphics 
 
 %description

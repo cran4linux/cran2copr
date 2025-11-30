@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  edeaR
-%global packver   0.9.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory and Descriptive Event-Based Data Analysis
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-bupaR >= 0.5.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-shiny 
@@ -37,13 +36,13 @@ BuildRequires:    R-CRAN-zoo
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-cli >= 3.2.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-bupaR >= 0.5.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-shiny 
@@ -57,6 +56,7 @@ Requires:         R-CRAN-zoo
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rstudioapi 
 
 %description
 Exploratory and descriptive analysis of event based data. Provides methods

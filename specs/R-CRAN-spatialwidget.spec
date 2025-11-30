@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialwidget
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formats Spatial Data for Use in Htmlwidgets
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-geojsonsf >= 2.0.3
-BuildRequires:    R-CRAN-BH >= 1.84.0
-BuildRequires:    R-CRAN-jsonify >= 1.2.2
-BuildRequires:    R-CRAN-sfheaders >= 0.4.4
+BuildRequires:    R-CRAN-geojsonsf >= 2.0.5
+BuildRequires:    R-CRAN-BH >= 1.87.0.1
+BuildRequires:    R-CRAN-jsonify >= 1.2.3
+BuildRequires:    R-CRAN-rapidjsonr >= 1.2.1
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-sfheaders >= 0.4.5
 BuildRequires:    R-CRAN-colourvalues >= 0.3.9
-BuildRequires:    R-CRAN-geometries >= 0.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-geometries >= 0.2.5
 BuildRequires:    R-CRAN-interleave >= 0.1.2
-BuildRequires:    R-CRAN-rapidjsonr 
-Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-Rcpp >= 1.1.0
 
 %description
 Many packages use 'htmlwidgets'

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anticlust
-%global packver   0.8.12
+%global packver   0.8.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.12
+Version:          0.8.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subset Partitioning via Anticlustering
 
@@ -34,7 +34,7 @@ anticlustering is accomplished by maximizing instead of minimizing a
 clustering objective function, such as the intra-cluster variance (used in
 k-means clustering) or the sum of pairwise distances within clusters. The
 main function anticlustering() gives access to optimal and heuristic
-anticlustering methods described in Papenberg and Klau Klau (2021;
+anticlustering methods described in Papenberg and Klau (2021;
 <doi:10.1037/met0000301>), Brusco et al. (2020; <doi:10.1111/bmsp.12186>),
 Papenberg (2024; <doi:10.1111/bmsp.12315>), Papenberg, Wang, et al. (2025;
 <doi:10.1016/j.crmeth.2025.101137>), Papenberg, Breuer, et al. (2025;
