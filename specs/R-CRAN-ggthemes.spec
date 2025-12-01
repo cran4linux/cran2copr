@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggthemes
-%global packver   5.1.0
+%global packver   5.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.0
+Version:          5.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Themes, Scales and Geoms for 'ggplot2'
 

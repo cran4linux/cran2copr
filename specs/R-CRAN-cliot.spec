@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cliot
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Indices and Outcomes Tools
 
@@ -19,12 +19,13 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Collection of indices and tools relating to cardiovascular, nephrology,
-and hepatic research that aid epidemiological chort or retrospective chart
-review with big data. All indices and tools take commonly used lab values
-and patient demographics and measurements to compute various risk and
-predictive values for survival. References to original literature and
-validation contained in each function documentation.
+Collection of indices and tools relating to clinical research that aid
+epidemiological cohort or retrospective chart review with big data. All
+indices and tools take commonly used lab values, patient demographics, and
+clinical measurements to compute various risk and predictive values for
+survival or further classification/stratification. References to original
+literature and validation contained in each function documentation.
+Includes all commonly available calculators available online.
 
 %prep
 %setup -q -c -n %{packname}

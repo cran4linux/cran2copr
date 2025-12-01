@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spEDM
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Empirical Dynamic Modeling
 
@@ -37,7 +37,9 @@ Inferring causation from spatial cross-sectional data through empirical
 dynamic modeling (EDM), with methodological extensions including
 geographical convergent cross mapping from Gao et al. (2023)
 <doi:10.1038/s41467-023-41619-6>, as well as the spatial causality test
-following the approach of Herrera et al. (2016) <doi:10.1111/pirs.12144>.
+following the approach of Herrera et al. (2016) <doi:10.1111/pirs.12144>,
+together with geographical pattern causality proposed in Zhang et al.
+(2025) <doi:10.1080/13658816.2025.2581207>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nhlscraper
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scraper for National Hockey League Data
 
@@ -14,28 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.3.0
 BuildRequires:    R-CRAN-jsonlite >= 2.0.0
-BuildRequires:    R-CRAN-magrittr >= 2.0.0
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-tibble >= 3.3.0
+BuildRequires:    R-CRAN-httr2 >= 1.2.0
 Requires:         R-CRAN-jsonlite >= 2.0.0
-Requires:         R-CRAN-magrittr >= 2.0.0
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.2.0
 
 %description
-Scrapes data from the 'NHL' and 'ESPN' APIs into 'tibble's. It primarily
-wraps endpoints documented by Zach Maludzinski (2023)
-<https://github.com/Zmalski/NHL-API-Reference>, Drew Hynes (2018)
-<https://gitlab.com/dword4/nhlapi/>, and Joseph Wilson (2023)
-<https://github.com/pseudo-r/Public-ESPN-API>, covering data from
-high-level multi-season summaries and award winners to low-level
-play-by-play logs and sports books' odds.
+Scrapes and cleans data from the 'NHL' and 'ESPN' APIs into data.frames
+and lists. Wraps 125+ endpoints documented in
+<https://github.com/RentoSaijo/nhlscraper/wiki> from high-level
+multi-season summaries and award winners to low-level decisecond replays
+and bookmakers' odds, making them more accessible. Features cleaning and
+visualization tools, primarily for play-by-plays.
 
 %prep
 %setup -q -c -n %{packname}

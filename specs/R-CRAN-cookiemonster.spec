@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcdk
-%global packver   3.8.2
+%global packname  cookiemonster
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'CDK' Libraries
+Summary:          Your Friendly Solution to Managing Browser Cookies
 
-License:          LGPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcdklibs >= 2.9
-BuildRequires:    R-CRAN-fingerprint 
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-itertools 
-Requires:         R-CRAN-rcdklibs >= 2.9
-Requires:         R-CRAN-fingerprint 
-Requires:         R-CRAN-rJava 
-Requires:         R-methods 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-itertools 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-vctrs 
 
 %description
-Allows the user to access functionality in the 'CDK', a Java framework for
-cheminformatics. This allows the user to load molecules, evaluate
-fingerprints, calculate molecular descriptors and so on. In addition, the
-'CDK' API allows the user to view structures in 2D.
+A convenient tool to store and format browser cookies and use them in
+'HTTP' requests (for example, through 'httr2', 'httr' or 'curl').
 
 %prep
 %setup -q -c -n %{packname}

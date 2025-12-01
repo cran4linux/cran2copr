@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmixr2
-%global packver   4.0.1
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models in Population PK/PD
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlmixr2est >= 2.2.2
-BuildRequires:    R-CRAN-rxode2 >= 2.1.3
-BuildRequires:    R-CRAN-nlmixr2plot >= 2.0.8
-BuildRequires:    R-CRAN-nlmixr2extra >= 2.0.10
+BuildRequires:    R-CRAN-nlmixr2est >= 5.0.0
+BuildRequires:    R-CRAN-nlmixr2extra >= 5.0.0
+BuildRequires:    R-CRAN-rxode2 >= 5.0.0
+BuildRequires:    R-CRAN-nlmixr2plot >= 5.0.0
 BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-cli >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
@@ -29,10 +29,10 @@ BuildRequires:    R-CRAN-lotri >= 0.4.3
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-nlmixr2est >= 2.2.2
-Requires:         R-CRAN-rxode2 >= 2.1.3
-Requires:         R-CRAN-nlmixr2plot >= 2.0.8
-Requires:         R-CRAN-nlmixr2extra >= 2.0.10
+Requires:         R-CRAN-nlmixr2est >= 5.0.0
+Requires:         R-CRAN-nlmixr2extra >= 5.0.0
+Requires:         R-CRAN-rxode2 >= 5.0.0
+Requires:         R-CRAN-nlmixr2plot >= 5.0.0
 Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-cli >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.4

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpedigree
-%global packver   0.9.0
+%global packver   1.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Pedigrees with 'ggplot2' and 'plotly'
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-BGmisc >= 1.4.1
-BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-BGmisc >= 1.4.1
-Requires:         R-CRAN-kinship2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 

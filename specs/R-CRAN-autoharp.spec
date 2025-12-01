@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoharp
-%global packver   0.0.12
+%global packver   0.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Automatic Grading of R and Rmd Scripts
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-lintr 
 BuildRequires:    R-methods 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-lintr 
 Requires:         R-methods 

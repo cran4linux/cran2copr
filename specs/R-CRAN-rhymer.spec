@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcdk
-%global packver   3.8.2
+%global packname  rhymer
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.2
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'CDK' Libraries
+Summary:          Wrapper for the 'Datamuse' API to Find Rhyming and Associated Words
 
-License:          LGPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcdklibs >= 2.9
-BuildRequires:    R-CRAN-fingerprint 
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-itertools 
-Requires:         R-CRAN-rcdklibs >= 2.9
-Requires:         R-CRAN-fingerprint 
-Requires:         R-CRAN-rJava 
-Requires:         R-methods 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-itertools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
 
 %description
-Allows the user to access functionality in the 'CDK', a Java framework for
-cheminformatics. This allows the user to load molecules, evaluate
-fingerprints, calculate molecular descriptors and so on. In addition, the
-'CDK' API allows the user to view structures in 2D.
+Wrapper for 'Datamuse' API to find rhyming and other associated words.
+This includes words of similar meaning, spelling, or other related words.
+Learn more about the 'Datamuse' API here <https://www.datamuse.com/api/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trouBBlme4SolveR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Troubles Solver for 'lme4'
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 >= 1.1.28
-Requires:         R-CRAN-lme4 >= 1.1.28
+BuildRequires:    R-CRAN-lme4 >= 1.1.36
+BuildRequires:    R-CRAN-reformulas 
+Requires:         R-CRAN-lme4 >= 1.1.36
+Requires:         R-CRAN-reformulas 
 
 %description
 The main function of the package aims to update 'lmer()'/'glmer()' models
