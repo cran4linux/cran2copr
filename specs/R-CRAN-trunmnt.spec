@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dfdr
-%global packver   0.2.0
+%global packname  trunmnt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Differentiation of Simple Functions
+Summary:          Moments of Truncated Multivariate Normal Distribution
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-pryr 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-pryr 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-fastGHQuad 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fastGHQuad 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 
 %description
-Implementation of automatically computing derivatives of functions (see
-Mailund Thomas (2017) <doi:10.1007/978-1-4842-2881-4>). Moreover,
-calculating gradients, Hessian and Jacobian matrices is possible.
+Computes the product moments of the truncated multivariate normal
+distribution, particularly for cases involving patterned
+variance-covariance matrices. It also has the capability to calculate
+these moments with arbitrary positive-definite matrices, although
+performance may degrade for high-dimensional variables.
 
 %prep
 %setup -q -c -n %{packname}

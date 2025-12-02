@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BoundEdgeworth
-%global packver   0.1.2.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bound on the Error of the First-Order Edgeworth Expansion
 
@@ -18,15 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-expint 
-BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-expint 
-Requires:         R-CRAN-mathjaxr 
 
 %description
 Computes uniform bounds on the distance between the cumulative
 distribution function of a standardized sum of random variables and its
 first-order Edgeworth expansion, following the article Derumigny, Girard,
-Guyonvarch (2021) <arXiv:2101.05780>.
+Guyonvarch (2023) <doi:10.1007/s13171-023-00320-y>.
 
 %prep
 %setup -q -c -n %{packname}

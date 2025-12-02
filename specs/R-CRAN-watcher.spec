@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  watcher
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Watch the File System for Changes
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-rlang
 
 %description
 R binding for 'libfswatch', a file system monitoring library. Watch files,
-or directories recursively, for changes in the background. Log activity,
-or run an R function every time a change event occurs.
+or directories recursively, for changes in the background.  Log activity,
+or call an R function, upon every change event.
 
 %prep
 %setup -q -c -n %{packname}

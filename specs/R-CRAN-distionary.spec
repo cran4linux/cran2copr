@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yulab.utils
-%global packver   0.2.2
+%global packname  distionary
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
+Summary:          Create and Evaluate Probability Distributions
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-rlang 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-vctrs 
 
 %description
-Miscellaneous functions commonly used by 'YuLab-SMU'.
+Create and evaluate probability distribution objects from a variety of
+families or define custom distributions. Automatically compute
+distributional properties, even when they have not been specified. This
+package supports statistical modeling and simulations, and forms the core
+of the probaverse suite of R packages.
 
 %prep
 %setup -q -c -n %{packname}

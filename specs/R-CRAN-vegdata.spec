@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vegdata
-%global packver   0.9.12
+%global packver   1.9.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.12
+Version:          1.9.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Vegetation Databases and Treat Taxonomy
 
@@ -19,39 +19,39 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 2.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-xml2 >= 1.3.0
 BuildRequires:    R-CRAN-RSQLite >= 1.1.2
 BuildRequires:    R-CRAN-dbplyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-DBI >= 0.6.1
 BuildRequires:    R-CRAN-hoardr >= 0.1.0
 BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-indicspecies 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-curl >= 2.4
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-xml2 >= 1.3.0
 Requires:         R-CRAN-RSQLite >= 1.1.2
 Requires:         R-CRAN-dbplyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-DBI >= 0.6.1
 Requires:         R-CRAN-hoardr >= 0.1.0
 Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-indicspecies 
-Requires:         R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
 Handling of vegetation data from different sources ( Turboveg 2.0
 <https://www.synbiosys.alterra.nl/turboveg/>; the German national
 repository <https://www.vegetweb.de> and others. Taxonomic harmonization
-(given appropriate taxonomic lists, e.g. the German taxonomic standard
-list "GermanSL", <https://germansl.infinitenature.org>).
+(given appropriate taxonomic lists, e.g. the Euro+Med list
+<https://eurosl.infinitenature.org>).
 
 %prep
 %setup -q -c -n %{packname}

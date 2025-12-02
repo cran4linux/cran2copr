@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  risk.assessr
-%global packver   3.0.1
+%global packname  stoichUtilities
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Package Risk Metrics
+Summary:          User Tools for Accessing the STOICH Project Database
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,53 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-covr 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rcmdcheck 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-BiocManager 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-covr 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rcmdcheck 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-units 
+Requires:         R-stats 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-BiocManager 
 
 %description
-A reliable and validated tool that captures detailed risk metrics such as
-R 'CMD' check, test coverage, traceability matrix, documentation,
-dependencies, reverse dependencies, suggested dependency analysis,
-repository data, and enhanced reporting for R packages that are local or
-stored on remote repositories such as GitHub, CRAN, and Bioconductor.
+User tools for working with The STOICH (Stoichiometric Traits of Organisms
+in their Chemical Habitats) Project database
+<https://snr-stoich.unl.edu/>. This package is designed to aid in data
+discovery, filtering, pairing water samples with organism samples, and
+merging data tables to assist users in preparing data for analyses. For
+additional examples see "Additional Examples" and the readme file at
+<https://github.com/STOICH-project/STOICH-utilities>.
 
 %prep
 %setup -q -c -n %{packname}

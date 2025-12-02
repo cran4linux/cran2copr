@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yulab.utils
-%global packver   0.2.2
+%global packname  MLFDR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
+Summary:          High Dimensional Mediation Analysis using Local False Discovery Rates
 
-License:          Artistic-2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-NMOF 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-NMOF 
+Requires:         R-stats 
 
 %description
-Miscellaneous functions commonly used by 'YuLab-SMU'.
+Implements a high dimensional mediation analysis algorithm using Local
+False Discovery Rates. The methodology is described in Roy and Zhang
+(2024) <doi:10.48550/arXiv.2402.13933>.
 
 %prep
 %setup -q -c -n %{packname}

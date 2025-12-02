@@ -1,45 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  performance
-%global packver   0.15.3
+%global packname  PSPI
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.3
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessment of Regression Models Performance
+Summary:          Propensity Score Predictive Inference for Generalizability
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.4.2
-BuildRequires:    R-CRAN-datawizard >= 1.3.0
-BuildRequires:    R-CRAN-bayestestR >= 0.17.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.4.2
-Requires:         R-CRAN-datawizard >= 1.3.0
-Requires:         R-CRAN-bayestestR >= 0.17.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-pg 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-arm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-stringr 
 Requires:         R-stats 
+Requires:         R-CRAN-nnet 
 Requires:         R-methods 
-Requires:         R-utils 
 
 %description
-Utilities for computing measures to assess model quality, which are not
-directly provided by R's 'base' or 'stats' packages. These include e.g.
-measures like r-squared, intraclass correlation coefficient (Nakagawa,
-Johnson & Schielzeth (2017) <doi:10.1098/rsif.2017.0213>), root mean
-squared error or functions to check models for overdispersion, singularity
-or zero-inflation and more. Functions apply to a large variety of
-regression models, including generalized linear models, mixed effects
-models and Bayesian models. References: Lüdecke et al. (2021)
-<doi:10.21105/joss.03139>.
+Provides a suite of Propensity Score Predictive Inference (PSPI) methods
+to generalize treatment effects in trials to target populations. The
+package includes an existing model Bayesian Causal Forest (BCF) and four
+PSPI models (BCF-PS, FullBART, SplineBART, DSplineBART). These methods
+leverage Bayesian Additive Regression Trees (BART) to adjust for
+high-dimensional covariates and nonlinear associations, while SplineBART
+and DSplineBART further use propensity score based splines to address
+covariate shift between trial data and target population.
 
 %prep
 %setup -q -c -n %{packname}

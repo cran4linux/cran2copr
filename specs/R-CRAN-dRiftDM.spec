@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dRiftDM
-%global packver   0.2.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating (Time-Dependent) Drift Diffusion Models
 
@@ -18,6 +18,9 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-mirai 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-dfoptim 
 BuildRequires:    R-CRAN-Rcpp 
@@ -25,8 +28,12 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-coda 
 Requires:         R-CRAN-withr 
 Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-mirai 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-dfoptim 
 Requires:         R-CRAN-Rcpp 
@@ -34,6 +41,7 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-progress 
 Requires:         R-stats 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-coda 
 
 %description
 Fit and explore Drift Diffusion Models (DDMs), a common tool in psychology

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CBPS
-%global packver   0.23
+%global packver   0.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23
+Version:          0.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Balancing Propensity Score
 

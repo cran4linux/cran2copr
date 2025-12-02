@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yulab.utils
-%global packver   0.2.2
+%global packname  TopicTestlet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
+Summary:          A Topic Testlet Model for Calibrating Testlet Constructed Responses
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-topicmodels 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-topicmodels 
+Requires:         R-CRAN-tm 
+Requires:         R-stats 
 
 %description
-Miscellaneous functions commonly used by 'YuLab-SMU'.
+Implements the Topic Testlet Model (TTM) as described by Xiong et al.
+(2025) <doi:10.1111/jedm.70001>. The package integrates Latent Dirichlet
+Allocation (LDA) with the Partial Credit Model to account for local item
+dependence in testlets using latent topics from student textual responses.
 
 %prep
 %setup -q -c -n %{packname}

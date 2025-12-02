@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vecmatch
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Propensity Score Estimation and Matching for Multiple Groups
 
@@ -17,49 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brglm2 
-BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpp 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matching 
-BuildRequires:    R-CRAN-mclogit 
-BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-optmatch 
 BuildRequires:    R-CRAN-productplots 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-brglm2 
-Requires:         R-CRAN-callr 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpp 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matching 
-Requires:         R-CRAN-mclogit 
-Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-optmatch 
 Requires:         R-CRAN-productplots 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstatix 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-withr 
 
 %description

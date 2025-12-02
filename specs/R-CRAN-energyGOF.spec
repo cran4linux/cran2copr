@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emend
-%global packver   0.1.0
+%global packname  energyGOF
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cleaning Text Data with an AI Assistant
+Summary:          Goodness-of-Fit Tests for Univariate Data via Energy
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ellmer 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ellmer 
+BuildRequires:    R-CRAN-energy 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-statmod 
+Requires:         R-CRAN-energy 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-statmod 
 
 %description
-Provides functions to clean and standardize messy data, including textual
-categories and free-text addresses, using Large Language Models. The
-package corrects typos, expands abbreviations, and maps inconsistent
-entries to standardized values. Ideal for Bioinformatics, business, and
-general data cleaning tasks.
+Conduct one- and two-sample goodness-of-fit tests for univariate data. In
+the one-sample case, normal, uniform, exponential, Bernoulli, binomial,
+geometric, beta, Poisson, lognormal, Laplace, asymmetric Laplace, inverse
+Gaussian, half-normal, chi-squared, gamma, F, Weibull, Cauchy, and Pareto
+distributions are supported. egof.test() can also test goodness-of-fit to
+any distribution with a continuous distribution function. A subset of the
+available distributions can be tested for the composite goodness-of-fit
+hypothesis, that is, one can test for distribution fit with unknown
+parameters. P-values are calculated via parametric bootstrap.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ast2ast
-%global packver   0.3.2
+%global packname  barry
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translates an R Function to a C++ Function
+Summary:          Your Go-to Motif Accountant
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dfdr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-methods 
-Requires:         R-CRAN-dfdr 
-Requires:         R-CRAN-rlang 
 
 %description
-Enable translation of a tiny subset of R to C++. The user has to define a
-R function which gets translated. For a full list of possible functions
-check the documentation. After translation an R function is returned which
-is a shallow wrapper around the C++ code. Alternatively an external
-pointer to the C++ function is returned to the user. The intention of the
-package is to generate fast functions which can be used as ode-system or
-during optimization.
+Provides the 'C++' header-only library 'barry' for use in R packages.
+'barry' is a 'C++' template library for counting sufficient statistics on
+binary arrays and building discrete exponential-family models. It provides
+tools for sparse arrays, user-defined count statistics, support set
+constraints, power set generation, and includes modules for Discrete
+Exponential Family Models (DEFMs) and network statistics. By placing these
+headers in this package, we offer an efficient distribution system for
+CRAN as replication of this code in the sources of other packages is
+avoided. This package follows the same approach as the 'BH' package which
+provides 'Boost' headers for R packages.
 
 %prep
 %setup -q -c -n %{packname}

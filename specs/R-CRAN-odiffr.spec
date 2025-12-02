@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yulab.utils
-%global packver   0.2.2
+%global packname  odiffr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
+Summary:          Fast Pixel-by-Pixel Image Comparison Using 'odiff'
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
 Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-Miscellaneous functions commonly used by 'YuLab-SMU'.
+R bindings to 'odiff', a blazing-fast pixel-by-pixel image comparison tool
+<https://github.com/dmtrKovalenko/odiff>. Supports PNG, JPEG, WEBP, and
+TIFF with configurable thresholds, antialiasing detection, and region
+ignoring. Requires system installation of 'odiff'. Ideal for visual
+regression testing in automated workflows.
 
 %prep
 %setup -q -c -n %{packname}

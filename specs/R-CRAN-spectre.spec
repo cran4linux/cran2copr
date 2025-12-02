@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spectre
-%global packver   1.0.2
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predict Regional Community Composition
 
@@ -24,9 +25,9 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Predict regional community composition at a fine spatial resolution using
-only sparse biological and environmental data. The package is based on the
-DynamicFOAM algorithm described in Mokany et al. (2011)
-<doi:10.1111/j.1461-0248.2011.01675.x>.
+only sparse biological and environmental data. See Simpkins et al. (2022)
+<doi:10.1111/ecog.06272> for full details on the algorithm underlying the
+package.
 
 %prep
 %setup -q -c -n %{packname}

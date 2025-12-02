@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yulab.utils
-%global packver   0.2.2
+%global packname  manifold
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
+Summary:          Operations for Riemannian Manifolds
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
 
 %description
-Miscellaneous functions commonly used by 'YuLab-SMU'.
+Implements operations for Riemannian manifolds, e.g., geodesic distance,
+Riemannian metric, exponential and logarithm maps, etc. Also incorporates
+random object generator on the manifolds. See Dai, Lin, and Müller (2021)
+<doi:10.1111/biom.13385>.
 
 %prep
 %setup -q -c -n %{packname}

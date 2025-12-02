@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fracture
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Decimals to Fractions
 
@@ -20,7 +21,7 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Provides functions for converting decimals to a matrix of numerators and
-denominators or a character vector of fractions.  Supports mixed or
+denominators or a character vector of fractions. Supports mixed or
 improper fractions, finding common denominators for vectors of fractions,
 limiting denominators to powers of ten, and limiting denominators to a
 maximum value.  Also includes helper functions for finding the least

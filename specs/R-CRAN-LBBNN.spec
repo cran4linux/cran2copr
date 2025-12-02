@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yulab.utils
-%global packver   0.2.2
+%global packname  LBBNN
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
+Summary:          Latent Binary Bayesian Neural Networks Using 'torch'
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-svglite 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-svglite 
 
 %description
-Miscellaneous functions commonly used by 'YuLab-SMU'.
+Latent binary Bayesian neural networks (LBBNNs) are implemented using
+'torch', an R interface to the LibTorch backend. Supports mean-field
+variational inference as well as flexible variational posteriors using
+normalizing flows. The standard LBBNN implementation follows Hubin and
+Storvik (2024) <doi:10.3390/math12060788>, using the local
+reparametrization trick as in Skaaret-Lund et al. (2024)
+<https://openreview.net/pdf?id=d6kqUKzG3V>. Input-skip connections are
+also supported, as described in Høyheim et al. (2025)
+<doi:10.48550/arXiv.2503.10496>.
 
 %prep
 %setup -q -c -n %{packname}

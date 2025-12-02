@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yulab.utils
-%global packver   0.2.2
+%global packname  SpuriousMemory
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'YuLab-SMU'
+Summary:          Testing True Long Memory Against Spurious Long Memory
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rlang 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-fracdiff 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fracdiff 
+Requires:         R-stats 
 
 %description
-Miscellaneous functions commonly used by 'YuLab-SMU'.
+Implements a test for distinguishing between true long memory and spurious
+long memory. Reference: Qu, Z. (2011). "A Test Against Spurious Long
+Memory." Journal of Business & Economic Statistics, 29(3), 423–438.
+<doi:10.1198/jbes.2010.09153>.
 
 %prep
 %setup -q -c -n %{packname}
