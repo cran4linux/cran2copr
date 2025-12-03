@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivolcano
-%global packver   0.0.4
+%global packname  Sobol4R
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Volcano Plot
+Summary:          Sobol Indices for Models with Fixed and Stochastic Parameters
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggiraph 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sensitivity 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggiraph 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sensitivity 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Generate interactive volcano plots for exploring gene expression data.
-Built with 'ggplot2', the plots are rendered interactive using 'ggiraph',
-enabling users to hover over points to display detailed information or
-click to trigger custom actions.
+Tools to design experiments, compute Sobol sensitivity indices, and
+summarise stochastic responses inspired by the strategy described by Zhu
+and Sudret (2021) <doi:10.1016/j.ress.2021.107815>. Includes helpers to
+optimise toy models implemented in C++, visualise indices with uncertainty
+quantification, and derive reliability-oriented sensitivity measures based
+on failure probabilities. It is further detailed in Logosha, Maumy and
+Bertrand (2022) <doi:10.1063/5.0246026> and (2023) <doi:10.1063/5.0246024>
+or in Bertrand, Logosha and Maumy (2024)
+<https://hal.science/hal-05371803>, <https://hal.science/hal-05371795> and
+<https://hal.science/hal-05371798>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  skytrackr
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Sky Illuminance Location Tracker
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-circular
 BuildRequires:    R-CRAN-BayesianTools 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-sfdep 
+BuildRequires:    R-CRAN-tidyterra 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -39,11 +41,13 @@ Requires:         R-CRAN-circular
 Requires:         R-CRAN-BayesianTools 
 Requires:         R-CRAN-cli 
 Requires:         R-utils 
-Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-zoo 
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-sfdep 
+Requires:         R-CRAN-tidyterra 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 

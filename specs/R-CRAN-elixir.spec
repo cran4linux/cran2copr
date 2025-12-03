@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  elixir
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transmutation of Languages
 
@@ -17,14 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-glue 
 

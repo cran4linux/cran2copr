@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PPRL
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Privacy Preserving Record Linkage
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.7
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-settings 
-Requires:         R-CRAN-Rcpp >= 0.12.7
+Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-settings 
 
 %description

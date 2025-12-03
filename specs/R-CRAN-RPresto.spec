@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPresto
-%global packver   1.4.7
+%global packver   1.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          1.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          DBI Connector to Presto
 
@@ -29,12 +29,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-stringdist 
 Requires:         R-CRAN-dbplyr >= 2.3.3
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-httr >= 0.6
@@ -47,12 +49,14 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-stringdist 
 
 %description
 Implements a 'DBI' compliant interface to Presto. Presto is an open source

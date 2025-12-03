@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actuaRE
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Hierarchically Structured Risk Factors using Random Effects Models
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-reformulas 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-cplm 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-reformulas 
 
 %description
 Using this package, you can fit a random effects model using either the

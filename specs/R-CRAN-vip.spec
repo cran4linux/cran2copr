@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vip
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Importance Plots
 
@@ -39,9 +39,9 @@ algorithm. These include 1) an efficient permutation-based variable
 importance measure, 2) variable importance based on Shapley values
 (Strumbelj and Kononenko, 2014) <doi:10.1007/s10115-013-0679-x>, and 3)
 the variance-based approach described in Greenwell et al. (2018)
-<arXiv:1805.04755>. A variance-based method for quantifying the relative
-strength of interaction effects is also included (see the previous
-reference for details).
+<doi:10.48550/arXiv.1805.04755>. A variance-based method for quantifying
+the relative strength of interaction effects is also included (see the
+previous reference for details).
 
 %prep
 %setup -q -c -n %{packname}

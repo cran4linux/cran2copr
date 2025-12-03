@@ -1,53 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nser
-%global packver   1.5.6
+%global packname  motherduck
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
+Summary:          Utilities for Managing a 'Motherduck' Database
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-duckdb >= 1.4.1
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-googleVis 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-duckdb >= 1.4.1
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-tibble 
 
 %description
-Download Current & Historical Bhavcopy. Get Live Market data from NSE
-India of Equities and Derivatives (F&O) segment. Data source
-<https://www.nseindia.com/>.
+Provides helper functions, metadata utilities, and workflows for
+administering and managing databases on the 'Motherduck' cloud platform.
+Some features require a 'Motherduck' account (<https://motherduck.com/>).
 
 %prep
 %setup -q -c -n %{packname}

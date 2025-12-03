@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivolcano
-%global packver   0.0.4
+%global packname  hdf5lib
+%global packver   2.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          2.0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Volcano Plot
+Summary:          Headers and Static Libraries for 'HDF5'
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggiraph 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggiraph 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 
 %description
-Generate interactive volcano plots for exploring gene expression data.
-Built with 'ggplot2', the plots are rendered interactive using 'ggiraph',
-enabling users to hover over points to display detailed information or
-click to trigger custom actions.
+'HDF5' (Hierarchical Data Format 5) is a high-performance library and file
+format for storing and managing large, complex data. This package provides
+the static libraries and headers for the 'HDF5' 'C' library (release
+2.0.0). It is intended for R package developers to use in the 'LinkingTo'
+field, which eliminates the need for users to install system-level 'HDF5'
+dependencies. This build is compiled with thread-safety enabled and
+supports dynamic loading of external compression filters. 'HDF5' is
+developed by 'The HDF Group' <https://www.hdfgroup.org/>.
 
 %prep
 %setup -q -c -n %{packname}
