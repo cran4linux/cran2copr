@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openesm
-%global packver   0.1.2
+%global packname  rtmpinv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Open Experience Sampling Method Database
+Summary:          Tabular Matrix Problems via Pseudoinverse Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-rclsp 
+Requires:         R-CRAN-rclsp 
 
 %description
-Provides programmatic access to the Open Experience Sampling Method
-('openESM') database (<https://openesmdata.org>), a collection of
-harmonized experience sampling datasets. The package enables researchers
-to discover, download, and work with the datasets while ensuring proper
-citation and license compliance.
+The Tabular Matrix Problems via Pseudoinverse Estimation (TMPinv) is a
+two-stage estimation method that reformulates structured table-based
+systems - such as allocation problems, transaction matrices, and
+input-output tables - as structured least-squares problems. Based on the
+Convex Least Squares Programming (CLSP) framework, TMPinv solves systems
+with row and column constraints, block structure, and optionally reduced
+dimensionality by (1) constructing a canonical constraint form and
+applying a pseudoinverse-based projection, followed by (2) a
+convex-programming refinement stage to improve fit, coherence, and
+regularization (e.g., via Lasso, Ridge, or Elastic Net).
 
 %prep
 %setup -q -c -n %{packname}

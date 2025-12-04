@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  statcanR
-%global packver   0.2.6
+%global packname  osrm.backend
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for Statistics Canada's Open Economic Data
+Summary:          Bindings for 'Open Source Routing Machine'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-qs 
-BuildRequires:    R-CRAN-qpdf 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-qs 
-Requires:         R-CRAN-qpdf 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-ps 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-ps 
 
 %description
-An easy connection with R to Statistics Canada's Web Data Service. Open
-economic data (formerly known as CANSIM tables, now identified by Product
-IDs (PID)) are accessible as a data frame, directly in the user's R
-environment. Warin, Le Duc (2019) <doi:10.6084/m9.figshare.10544735>.
+Install and control 'Open Source Routing Machine' ('OSRM') backend
+executables to prepare routing data and run/stop a local 'OSRM' server.
+For computations with the running server use the 'osrm' R package
+(<https://cran.r-project.org/package=osrm>).
 
 %prep
 %setup -q -c -n %{packname}

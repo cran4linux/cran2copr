@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ICSKAT
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interval-Censored Sequence Kernel Association Test
 
@@ -45,7 +46,10 @@ checkup and the date of the age 30 checkup. Interval-censored data include
 right- and left-censored data as special cases. This package also
 implements the interval-censored Burden test and the ICSKATO test, which
 is the optimal combination of the ICSKAT and Burden tests. Please see the
-vignette for a quickstart guide.
+vignette for a quickstart guide. The paper describing these methods is "
+Inference for Set-Based Effects in Genetic Association Studies with
+Interval-Censored Outcomes" by Sun R, Zhu L, Li Y, Yasui Y, & Robison L
+(Biometrics 2023, <doi:10.1111/biom.13636>).
 
 %prep
 %setup -q -c -n %{packname}

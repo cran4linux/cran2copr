@@ -1,56 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  romic
-%global packver   1.1.3
+%global packname  sspm
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R for High-Dimensional Omic Data
+Summary:          Spatial Surplus Production Model Framework for Northern Shrimp Populations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.5.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-shiny >= 1.5.0
-Requires:         R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-units 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
-Represents high-dimensional data as tables of features, samples and
-measurements, and a design list for tracking the meaning of individual
-variables. Using this format, filtering, normalization, and other
-transformations of a dataset can be carried out in a flexible manner.
-'romic' takes advantage of these transformations to create interactive
-'shiny' apps for exploratory data analysis such as an interactive heatmap.
+Implement a GAM-based (Generalized Additive Models) spatial surplus
+production model (spatial SPM), aimed at modeling northern shrimp
+population in Atlantic Canada but potentially to any stock in any
+location. The package is opinionated in its implementation of SPMs as it
+internally makes the choice to use penalized spatial gams with time lags.
+However, it also aims to provide options for the user to customize their
+model. The methods are described in Pedersen et al. (2022,
+<https://www.dfo-mpo.gc.ca/csas-sccs/Publications/ResDocs-DocRech/2022/2022_062-eng.html>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matrixCorr
-%global packver   0.6.2
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Correlation and Association Estimators
 
@@ -19,11 +19,15 @@ Requires:         R-core
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-Matrix >= 1.7.2
 BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cpp11 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-Matrix >= 1.7.2
 Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
 Compute correlation and other association matrices from small to

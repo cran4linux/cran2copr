@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rdistance
-%global packver   4.0.5
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density and Abundance from Distance-Sampling Surveys
 
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-dfoptim 
+BuildRequires:    R-CRAN-expint 
 Requires:         R-CRAN-units 
 Requires:         R-graphics 
 Requires:         R-stats 
@@ -39,25 +41,25 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dfoptim 
+Requires:         R-CRAN-expint 
 
 %description
-Distance-sampling (<doi:10.1007/978-3-319-19219-2>) estimates density and
-abundance of survey targets (e.g., animals) when detection probability
-declines with distance. Distance-sampling is popular in ecology,
-especially when survey targets are observed from aerial platforms (e.g.,
-airplane or drone), surface vessels (e.g., boat or truck), or along
-walking transects. Distance-sampling includes line-transect studies that
-measure observation distances as the closest approach of the sample route
-(transect) to the target (i.e., perpendicular off-transect distance), and
-point-transect studies that measure observation distances from stationary
-observers to the target (i.e., radial distance). The routines included
-here fit smooth (parametric) curves to histograms of observation distances
-and use those functions to compute effective sampling distances, density
-of targets in the surveyed area, and abundance of targets in a surrounding
-study area. Curve shapes include the half-normal, hazard rate, and
-negative exponential functions. Physical measurement units are required
-and used throughout to ensure density is reported correctly. The help
-files are extensive and have been vetted by multiple authors.
+Distance-sampling (<doi:10.1007/978-3-319-19219-2>) is a field survey and
+analytical method that estimates density and abundance of survey targets
+(e.g., animals) when detection probability declines with observation
+distance. Distance-sampling is popular in ecology, especially when survey
+targets are observed from aerial platforms (e.g., airplane or drone),
+surface vessels (e.g., boat or truck), or along walking transects.
+Analysis involves fitting smooth (parametric) curves to histograms of
+observation distances and using those functions to adjust density
+estimates for missed targets.  Routines included here fit curves to
+observation distance histograms, estimate effective sampling area, density
+of targets in surveyed areas, and the abundance of targets in a
+surrounding study area. Confidence interval estimation uses built-in
+bootstrap resampling. Help files are extensive and have been vetted by
+multiple authors. Many tutorials are available on the package's website
+(URL below).
 
 %prep
 %setup -q -c -n %{packname}

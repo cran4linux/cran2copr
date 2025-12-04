@@ -1,47 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ARpLMEC
-%global packver   2.4.1
+%global __requires_exclude ^libmpi
+%global packname  MultiRFM
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Censored Mixed-Effects Models with Different Correlation Structures
+Summary:          High-Dimensional Multi-Study Robust Factor Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14
-Requires:         R-core >= 2.14
-BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-TruncatedNormal 
+BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mnormt 
-Requires:         R-tcltk 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-TruncatedNormal 
+Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Left, right or interval censored mixed-effects linear model with
-autoregressive errors of order p or DEC correlation structure using the
-type-EM algorithm. The error distribution can be Normal or t-Student. It
-provides the parameter estimates, the standard errors and prediction of
-future observations (available only for the normal case). Olivari et all
-(2021) <doi:10.1080/10543406.2020.1852246>.
+We introduce a high-dimensional multi-study robust factor model, which
+learns latent features and accounts for the heterogeneity among source. It
+could be used for analyzing heterogeneous RNA sequencing data. More
+details can be referred to Jiang et al. (2025)
+<doi:10.48550/arXiv.2506.18478>.
 
 %prep
 %setup -q -c -n %{packname}

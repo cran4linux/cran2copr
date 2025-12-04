@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny
-%global packver   1.11.1
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.1
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Application Framework for R
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-commonmark >= 2.0.0
 BuildRequires:    R-CRAN-R6 >= 2.0
-BuildRequires:    R-CRAN-commonmark >= 1.7
 BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-promises >= 1.3.2
+BuildRequires:    R-CRAN-promises >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.3.2
 BuildRequires:    R-CRAN-fastmap >= 1.1.1
 BuildRequires:    R-CRAN-cachem >= 1.1.0
@@ -33,17 +33,18 @@ BuildRequires:    R-CRAN-fontawesome >= 0.4.0
 BuildRequires:    R-CRAN-mime >= 0.3
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-otel 
 BuildRequires:    R-CRAN-sourcetools 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-commonmark >= 2.0.0
 Requires:         R-CRAN-R6 >= 2.0
-Requires:         R-CRAN-commonmark >= 1.7
 Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-promises >= 1.3.2
+Requires:         R-CRAN-promises >= 1.5.0
 Requires:         R-CRAN-glue >= 1.3.2
 Requires:         R-CRAN-fastmap >= 1.1.1
 Requires:         R-CRAN-cachem >= 1.1.0
@@ -56,13 +57,14 @@ Requires:         R-CRAN-fontawesome >= 0.4.0
 Requires:         R-CRAN-mime >= 0.3
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-grDevices 
-Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-otel 
 Requires:         R-CRAN-sourcetools 
 Requires:         R-tools 
-Requires:         R-CRAN-cli 
+Requires:         R-utils 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xtable 
 
 %description
 Makes it incredibly easy to build interactive web applications with R.
