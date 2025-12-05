@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SDModels
-%global packver   1.0.13
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spectrally Deconfounded Models
 
@@ -17,15 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GPUmatrix 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-locatexec 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-Rdpack 
@@ -33,15 +31,13 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-grplasso 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GPUmatrix 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-locatexec 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-Rdpack 

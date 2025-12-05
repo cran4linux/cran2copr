@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIDmultiplegtDYN
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation in Difference-in-Difference Designs with Multiple Groups and Periods
 
@@ -18,6 +18,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-matlib 
@@ -31,6 +33,8 @@ BuildRequires:    R-CRAN-haven
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-rnames 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-matlib 

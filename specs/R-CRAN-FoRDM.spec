@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mini007
-%global packver   0.2.2
+%global packname  FoRDM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Framework for Orchestrating Multi-Agent Large Language Models
+Summary:          Forest Many-Objective Robust Decision Making ('FoRDM')
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.5
-BuildRequires:    R-CRAN-R6 >= 2.6.1
-BuildRequires:    R-CRAN-checkmate >= 2.3.1
-BuildRequires:    R-CRAN-glue >= 1.8.0
-BuildRequires:    R-CRAN-uuid >= 1.2.0
-BuildRequires:    R-CRAN-DiagrammeR >= 1.0.11
-BuildRequires:    R-CRAN-ellmer >= 0.4.0
-Requires:         R-CRAN-cli >= 3.6.5
-Requires:         R-CRAN-R6 >= 2.6.1
-Requires:         R-CRAN-checkmate >= 2.3.1
-Requires:         R-CRAN-glue >= 1.8.0
-Requires:         R-CRAN-uuid >= 1.2.0
-Requires:         R-CRAN-DiagrammeR >= 1.0.11
-Requires:         R-CRAN-ellmer >= 0.4.0
+BuildRequires:    R-CRAN-plotly >= 4.10.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-emoa >= 0.5.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-plotly >= 4.10.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-emoa >= 0.5.0
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-stats 
 
 %description
-Provides tools for creating agents with persistent state using R6 classes
-<https://cran.r-project.org/package=R6> and the 'ellmer' package
-<https://cran.r-project.org/package=ellmer>. Tracks prompts, messages, and
-agent metadata for reproducible, multi-turn large language model sessions.
+Forest Many-Objective Robust Decision Making ('FoRDM') is a R toolkit for
+supporting robust forest management under deep uncertainty. It provides a
+forestry-focused application of Many-Objective Robust Decision Making
+('MORDM') to forest simulation outputs, enabling users to evaluate
+robustness using regret- and 'satisficing'-based measures. 'FoRDM'
+identifies robust solutions, generates Pareto fronts, and offers
+interactive 2D, 3D, and parallel-coordinate visualizations.
 
 %prep
 %setup -q -c -n %{packname}

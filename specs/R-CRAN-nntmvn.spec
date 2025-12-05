@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nntmvn
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Samples of Truncated Multivariate Normal Distributions
 
@@ -19,10 +19,20 @@ Requires:         R-core
 BuildRequires:    R-CRAN-GpGp 
 BuildRequires:    R-CRAN-TruncatedNormal 
 BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-GpGp 
 Requires:         R-CRAN-TruncatedNormal 
 Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-lhs 
 
 %description
 Draw samples from truncated multivariate normal distribution using the

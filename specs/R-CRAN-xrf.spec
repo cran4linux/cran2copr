@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xrf
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          eXtreme RuleFit
 
@@ -14,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xgboost >= 3.1.2.1
 BuildRequires:    R-CRAN-glmnet >= 3.0
-BuildRequires:    R-CRAN-xgboost >= 0.71.2
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-xgboost >= 3.1.2.1
 Requires:         R-CRAN-glmnet >= 3.0
-Requires:         R-CRAN-xgboost >= 0.71.2
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 An implementation of the RuleFit algorithm as described in Friedman &

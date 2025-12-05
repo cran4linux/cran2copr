@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmapshaper
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for 'mapshaper' for 'Geospatial' Operations
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 >= 4.0.0
+BuildRequires:    R-CRAN-V8 >= 6.0.0
 BuildRequires:    R-CRAN-readr >= 2.1.0
-BuildRequires:    R-CRAN-geojsonsf >= 2.0.2
+BuildRequires:    R-CRAN-geojsonsf >= 2.0.5
 BuildRequires:    R-CRAN-sp >= 1.4.0
-BuildRequires:    R-CRAN-jsonify >= 1.2.0
+BuildRequires:    R-CRAN-jsonify >= 1.2.3
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-V8 >= 4.0.0
+Requires:         R-CRAN-V8 >= 6.0.0
 Requires:         R-CRAN-readr >= 2.1.0
-Requires:         R-CRAN-geojsonsf >= 2.0.2
+Requires:         R-CRAN-geojsonsf >= 2.0.5
 Requires:         R-CRAN-sp >= 1.4.0
-Requires:         R-CRAN-jsonify >= 1.2.0
+Requires:         R-CRAN-jsonify >= 1.2.3
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-methods 
 

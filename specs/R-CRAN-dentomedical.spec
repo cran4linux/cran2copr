@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gghalves
-%global packver   0.1.4
+%global packname  dentomedical
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compose Half-Half Plots Using Your Favourite Geoms
+Summary:          Publication-Ready Descriptive, Bivariate, Regression, and Diagnostic Accuracy Tools for Medical and Dental Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-tidyr 
 
 %description
-A 'ggplot2' extension for easy plotting of half-half geom combinations.
-Think half boxplot and half jitterplot, or half violinplot and half
-dotplot.
+The 'dentomedical' package provides a comprehensive suite of tools for
+medical and dental research. It includes automated descriptive statistics,
+bivariate analysis with intelligent test selection, logistic regression,
+and diagnostic accuracy assessment. All functions generate structured,
+publication-ready tables using 'flextable', ensuring reproducibility and
+clarity suitable for manuscripts, reports, and clinical research
+workflows.
 
 %prep
 %setup -q -c -n %{packname}

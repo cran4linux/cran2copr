@@ -1,51 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metajam
-%global packver   0.3.1
+%global packname  blockedFF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Download Data and Metadata from 'DataONE'
+Summary:          Generation of Blocked Fractional Factorial Designs (Two-Level and Three-Level)
 
-License:          Apache License (== 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dataone 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-EML 
-BuildRequires:    R-CRAN-emld 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-dataone 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-EML 
-Requires:         R-CRAN-emld 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-XML 
 
 %description
-A set of tools to foster the development of reproducible analytical
-workflow by simplifying the download of data and metadata from 'DataONE'
-(<https://www.dataone.org>) and easily importing this information into R.
+Provides computational tools to generate efficient blocked and unblocked
+fractional factorial designs for two-level and three-level factors using
+the generalized Minimum Aberration (MA) criterion and related optimization
+algorithms. Methodological foundations include the general theory of
+minimum aberration as described by Cheng and Tang (2005)
+<doi:10.1214/009053604000001228>, and the catalogue of three-level regular
+fractional factorial designs developed by Xu (2005)
+<doi:10.1007/s00184-005-0408-x>. The main functions dol2() and dol3()
+generate blocked two-level and three-level fractional factorial designs,
+respectively, using beam search, optimization-based ranking, confounding
+assessment, and structured output suitable for complete factorial
+situations.
 
 %prep
 %setup -q -c -n %{packname}

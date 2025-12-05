@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.modules.clinical
-%global packver   0.11.1
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'teal' Modules for Standard Clinical Outputs
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-rmarkdown >= 2.23
@@ -24,8 +24,8 @@ BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-scales >= 1.4.0
 BuildRequires:    R-CRAN-vistime >= 1.2.3
 BuildRequires:    R-CRAN-shinyjs >= 1.10.0
+BuildRequires:    R-CRAN-teal >= 1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.5
-BuildRequires:    R-CRAN-teal >= 1.0.0
 BuildRequires:    R-CRAN-tern >= 0.9.9
 BuildRequires:    R-CRAN-ggrepel >= 0.9.6
 BuildRequires:    R-CRAN-bslib >= 0.8.0
@@ -35,9 +35,9 @@ BuildRequires:    R-CRAN-teal.transform >= 0.7.0
 BuildRequires:    R-CRAN-cowplot >= 0.7.0
 BuildRequires:    R-CRAN-teal.code >= 0.7.0
 BuildRequires:    R-CRAN-rtables >= 0.6.13
+BuildRequires:    R-CRAN-teal.reporter >= 0.6.0
 BuildRequires:    R-CRAN-formatters >= 0.5.11
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
-BuildRequires:    R-CRAN-teal.reporter >= 0.5.0
 BuildRequires:    R-CRAN-teal.widgets >= 0.5.0
 BuildRequires:    R-CRAN-teal.logger >= 0.4.0
 BuildRequires:    R-CRAN-tern.mmrm >= 0.3.3
@@ -56,8 +56,8 @@ Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-scales >= 1.4.0
 Requires:         R-CRAN-vistime >= 1.2.3
 Requires:         R-CRAN-shinyjs >= 1.10.0
+Requires:         R-CRAN-teal >= 1.1
 Requires:         R-CRAN-dplyr >= 1.0.5
-Requires:         R-CRAN-teal >= 1.0.0
 Requires:         R-CRAN-tern >= 0.9.9
 Requires:         R-CRAN-ggrepel >= 0.9.6
 Requires:         R-CRAN-bslib >= 0.8.0
@@ -67,9 +67,9 @@ Requires:         R-CRAN-teal.transform >= 0.7.0
 Requires:         R-CRAN-cowplot >= 0.7.0
 Requires:         R-CRAN-teal.code >= 0.7.0
 Requires:         R-CRAN-rtables >= 0.6.13
+Requires:         R-CRAN-teal.reporter >= 0.6.0
 Requires:         R-CRAN-formatters >= 0.5.11
 Requires:         R-CRAN-shinyWidgets >= 0.5.1
-Requires:         R-CRAN-teal.reporter >= 0.5.0
 Requires:         R-CRAN-teal.widgets >= 0.5.0
 Requires:         R-CRAN-teal.logger >= 0.4.0
 Requires:         R-CRAN-tern.mmrm >= 0.3.3

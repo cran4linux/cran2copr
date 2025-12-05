@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  joyn
-%global packver   0.2.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tool for Diagnosis of Tables Joins and Complementary Join Features
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-collapse >= 2.0.15
 BuildRequires:    R-CRAN-rlang 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-collapse >= 2.0.15
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-cli 
 Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-glue 
 
 %description
 Tool for diagnosing table joins. It combines the speed of `collapse` and

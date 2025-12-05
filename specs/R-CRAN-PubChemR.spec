@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PubChemR
-%global packver   2.1.7
+%global packver   2.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'PubChem' Database for Chemical Data Retrieval
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-RCurl
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-RCurl
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-testthat 
 
 %description
 Provides an interface to the 'PubChem' database via the PUG REST

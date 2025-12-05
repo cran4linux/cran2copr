@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drhutools
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Political Science Academic Research Gears
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -30,7 +30,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-webshot 
 BuildRequires:    R-CRAN-animation 
 BuildRequires:    R-CRAN-png 
@@ -48,7 +47,6 @@ Requires:         R-stats
 Requires:         R-methods 
 Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-magick 
-Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-webshot 
 Requires:         R-CRAN-animation 
 Requires:         R-CRAN-png 

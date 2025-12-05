@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  itsadug
-%global packver   2.4.1
+%global __requires_exclude ^libmpi
+%global packname  dauR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpreting Time Series and Autocorrelated Data Using GAMMs
+Summary:          Datasets for "Sampling and Data Analysis Using R: Theory and Practice"
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv >= 1.8
-BuildRequires:    R-CRAN-plotfunctions >= 1.4
-Requires:         R-CRAN-mgcv >= 1.8
-Requires:         R-CRAN-plotfunctions >= 1.4
 
 %description
-GAMM (Generalized Additive Mixed Modeling; Lin & Zhang, 1999) as
-implemented in the R package 'mgcv' (Wood, S.N., 2006; 2011) is a
-nonlinear regression analysis which is particularly useful for time course
-data such as EEG, pupil dilation, gaze data (eye tracking), and
-articulography recordings, but also for behavioral data such as reaction
-times and response data. As time course measures are sensitive to
-autocorrelation problems, GAMMs implements methods to reduce the
-autocorrelation problems. This package includes functions for the
-evaluation of GAMM models (e.g., model comparisons, determining regions of
-significance, inspection of autocorrelational structure in residuals) and
-interpreting of GAMMs (e.g., visualization of complex interactions, and
-contrasts).
+Provides several datasets used throughout the book "Sampling and Data
+Analysis Using R: Theory and Practice" by Islam (2025,
+ISBN:978-984-35-8644-5). The datasets support teaching and learning of
+statistical concepts such as sampling methods, descriptive analysis,
+estimation and basic data handling. These curated data objects allow
+instructors, students and researchers to reproduce examples, practice data
+manipulation and perform hands-on analysis using R.
 
 %prep
 %setup -q -c -n %{packname}

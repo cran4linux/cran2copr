@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   7.9
+%global packver   8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.9
+Version:          8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Rnanoflann 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
@@ -58,6 +59,7 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
+Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Rnanoflann 
 Requires:         R-CRAN-sn 
 Requires:         R-stats 
@@ -110,9 +112,9 @@ response data with zeros". Statistics and Computing, 33(106).
 least squares simplicial-simplicial regression". Statistics and Computing,
 35(27). <doi:10.1007/s11222-024-10560-z>. o) Sevinc V. and Tsagris. M.
 (2024). "Energy Based Equality of Distributions Testing for Compositional
-Data". <doi:10.48550/arXiv.2412.05199>. p) Tsagris M. (2025).
-"Transformation-free linear simplicial-simplicial regression via
-constrained iterative reweighted least squares".
+Data". <doi:10.48550/arXiv.2412.05199>. p) Tsagris M. (2025). "Scalable
+approximation of the transformation-free linear simplicial-simplicial
+regression via constrained iterative reweighted least squares".
 <doi:10.48550/arXiv.2511.13296>.
 
 %prep

@@ -1,40 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggcorset
-%global packver   0.5.0
+%global packname  MIC
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Corset Plot
+Summary:          Analysis of Antimicrobial Minimum Inhibitory Concentration Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-AMR 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gghalves 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-AMR 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gghalves 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
-Corset plots are a visualization technique used strictly to visualize
-repeat measures at 2 time points (such as pre- and post- data). The
-distribution of measurements are visualized at each time point, whilst the
-trajectories of individual change are visualized by connecting the pre-
-and post- values linearly. These lines can be coloured to represent the
-magnitude of change, or other user-defined value. This method of
-visualization is ideal for showing the heterogeneity of data, including
-differences by sub-groups. The package relies on 'ggplot2' allowing for
-easy integration so that users can customize their visualizations as
-required. Users can create corset plots using data in either wide or long
-format using the functions gg_corset() or gg_corset_elongated(),
-respectively.
+Analyse, plot, and tabulate antimicrobial minimum inhibitory concentration
+(MIC) data. Validate the results of an MIC experiment by comparing
+observed MIC values to a gold standard assay, in line with standards from
+the International Organization for Standardization (2021)
+<https://www.iso.org/standard/79377.html>.
 
 %prep
 %setup -q -c -n %{packname}

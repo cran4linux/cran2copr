@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HQM
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Superefficient Estimation of Future Conditional Hazards Based on Marker Information
 
@@ -33,12 +33,12 @@ Requires:         R-CRAN-nlme
 Requires:         R-CRAN-JM 
 
 %description
-Provides a nonparametric smoothed kernel estimator for the future
-conditional hazard rate function when time-dependent covariates are
-present, a bandwidth selector for the estimator's implementation and
-pointwise and uniform confidence bands. Methods used in the package refer
-to Bagkavos, Isakson, Mammen, Nielsen and Proust-Lima (2025)
-<doi:10.1093/biomet/asaf008>.
+Provides univariate and indexed (multivariate) nonparametric smoothed
+kernel estimators for the future conditional hazard rate function when
+time-dependent covariates are present, a bandwidth selector for the
+estimator's implementation and pointwise and uniform confidence bands.
+Methods used in the package refer to Bagkavos, Isakson, Mammen, Nielsen
+and Proust-Lima (2025) <doi:10.1093/biomet/asaf008>.
 
 %prep
 %setup -q -c -n %{packname}

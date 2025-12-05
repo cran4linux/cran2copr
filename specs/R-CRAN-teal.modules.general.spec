@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.modules.general
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Modules for 'teal' Applications
 
@@ -18,8 +18,9 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.60
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-rmarkdown >= 2.23
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-shinyjs >= 2.1.0
 BuildRequires:    R-CRAN-tibble >= 2.0.0
@@ -31,8 +32,8 @@ BuildRequires:    R-CRAN-stringr >= 1.4.1
 BuildRequires:    R-CRAN-colourpicker >= 1.3.0
 BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-goftest >= 1.2.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.5
-BuildRequires:    R-CRAN-teal >= 1.0.0
+BuildRequires:    R-CRAN-teal >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-tern >= 0.9.7
 BuildRequires:    R-CRAN-ggrepel >= 0.9.6
@@ -42,10 +43,10 @@ BuildRequires:    R-CRAN-teal.data >= 0.8.0
 BuildRequires:    R-CRAN-teal.transform >= 0.7.0
 BuildRequires:    R-CRAN-teal.code >= 0.7.0
 BuildRequires:    R-CRAN-rtables >= 0.6.11
+BuildRequires:    R-CRAN-teal.reporter >= 0.6.0
 BuildRequires:    R-CRAN-ggpp >= 0.5.8.1
 BuildRequires:    R-CRAN-ggpmisc >= 0.5.6
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.1
-BuildRequires:    R-CRAN-teal.reporter >= 0.5.0
 BuildRequires:    R-CRAN-teal.widgets >= 0.5.0
 BuildRequires:    R-CRAN-teal.logger >= 0.4.0
 BuildRequires:    R-CRAN-shinyTree >= 0.2.8
@@ -60,8 +61,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS >= 7.3.60
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-rmarkdown >= 2.23
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-shinyjs >= 2.1.0
 Requires:         R-CRAN-tibble >= 2.0.0
@@ -73,8 +75,8 @@ Requires:         R-CRAN-stringr >= 1.4.1
 Requires:         R-CRAN-colourpicker >= 1.3.0
 Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-goftest >= 1.2.3
-Requires:         R-CRAN-dplyr >= 1.0.5
-Requires:         R-CRAN-teal >= 1.0.0
+Requires:         R-CRAN-teal >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-tern >= 0.9.7
 Requires:         R-CRAN-ggrepel >= 0.9.6
@@ -84,10 +86,10 @@ Requires:         R-CRAN-teal.data >= 0.8.0
 Requires:         R-CRAN-teal.transform >= 0.7.0
 Requires:         R-CRAN-teal.code >= 0.7.0
 Requires:         R-CRAN-rtables >= 0.6.11
+Requires:         R-CRAN-teal.reporter >= 0.6.0
 Requires:         R-CRAN-ggpp >= 0.5.8.1
 Requires:         R-CRAN-ggpmisc >= 0.5.6
 Requires:         R-CRAN-shinyWidgets >= 0.5.1
-Requires:         R-CRAN-teal.reporter >= 0.5.0
 Requires:         R-CRAN-teal.widgets >= 0.5.0
 Requires:         R-CRAN-teal.logger >= 0.4.0
 Requires:         R-CRAN-shinyTree >= 0.2.8

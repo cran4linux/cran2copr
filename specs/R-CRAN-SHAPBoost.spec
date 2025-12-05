@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SHAPBoost
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The SHAPBoost Feature Selection Algorithm
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-xgboost >= 3.1
 BuildRequires:    R-CRAN-SHAPforxgboost 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-xgboost >= 3.1
 Requires:         R-CRAN-SHAPforxgboost 
 Requires:         R-methods 
 Requires:         R-CRAN-caret 

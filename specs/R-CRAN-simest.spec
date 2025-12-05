@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Tlasso
-%global packver   1.0.2
+%global __requires_exclude ^libmpi
+%global packname  simest
+%global packver   0.4-1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.4.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Convex Optimization and Statistical Inference for Sparse Tensor Graphical Models
+Summary:          Constrained Single Index Model Estimation
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-huge 
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-rTensor 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-huge 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-rTensor 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-nnls 
+Requires:         R-CRAN-cobs 
 Requires:         R-stats 
 Requires:         R-graphics 
 
 %description
-An optimal alternating optimization algorithm for estimation of precision
-matrices of sparse tensor graphical models, and an efficient inference
-procedure for support recovery of the precision matrices.
+Estimation of function and index vector in single index model ('sim') with
+(and w/o) shape constraints including different smoothness conditions.
+See, e.g., Kuchibhotla and Patra (2020) <doi:10.3150/19-BEJ1183>.
 
 %prep
 %setup -q -c -n %{packname}

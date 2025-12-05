@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggheatmap
-%global packver   2.2
+%global packname  SFOCDs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Heatmap
+Summary:          Space Filling Optimal Covariate Designs
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-aplot 
-BuildRequires:    R-CRAN-factoextra 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-patchwork 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-aplot 
-Requires:         R-CRAN-factoextra 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-patchwork 
 
 %description
-The flexibility and excellence of 'ggplot2' is unquestionable, so many
-drawing tools basically need 'ggplot2' as the operating object. In order
-to develop a heatmap drawing system based on ggplot2, we developed this
-tool, mainly to solve the heatmap puzzle problem and the flexible
-connection between the heatmap and the 'ggplot2' object. The advantages of
-this tool are as follows: 1. More flexible label settings; 2. Realize the
-linkage of heatmap and 'ggplot2' drawing system, which is helpful for
-operations such as puzzles; 3. Simple and easy to operate; 4. Optimization
-of clustering tree visualization.
+We have designed this package to address experimental scenarios involving
+multiple covariates. It focuses on construction of Optimal Covariate
+Designs (OCDs), checking space filling property of the developed design.
+The primary objective of the package is to generate OCDs using four
+methods viz., M array method, Juxtapose method, Orthogonal Integer Array
+and Hadamard method. The package also evaluates space filling properties
+of both the base design and OCDs using the MaxPro criterion, providing a
+meaningful basis for comparison. In addition, it includes tool to
+visualize the spread offered by the design points in the form of
+scatterplot, which help users to assess distribution and coverage of
+design points.
 
 %prep
 %setup -q -c -n %{packname}

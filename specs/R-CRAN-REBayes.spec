@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REBayes
-%global packver   2.56
+%global packver   2.59
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.56
+Version:          2.59
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Bayes Estimation and Inference
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-deconvolveR 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-deconvolveR 
 
 %description
 Kiefer-Wolfowitz maximum likelihood estimation for mixture models and some

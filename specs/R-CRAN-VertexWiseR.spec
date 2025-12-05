@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VertexWiseR
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Vertex-Wise Analyses of Whole-Brain and Hippocampal Surface
 
@@ -31,6 +31,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -50,6 +51,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

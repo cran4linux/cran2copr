@@ -1,53 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cellpypes
-%global packver   0.3.0
+%global packname  tidyEdSurvey
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cell Type Pipes for Single-Cell RNA Sequencing Data
+Summary:          Integration of 'dplyr' and 'ggplot2' with 'EdSurvey'
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scUtils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-EdSurvey >= 4.0.1
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scattermore 
-Requires:         R-CRAN-scUtils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-EdSurvey >= 4.0.1
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 Requires:         R-methods 
-Requires:         R-CRAN-scattermore 
 
 %description
-Annotate single-cell RNA sequencing data manually based on marker gene
-thresholds. Find cell type rules (gene+threshold) through exploration, use
-the popular piping operator '%%>%%' to reconstruct complex cell type
-hierarchies. 'cellpypes' models technical noise to find positive and
-negative cells for a given expression threshold and returns cell type
-labels or pseudobulks. Cite this package as Frauhammer (2022)
-<doi:10.5281/zenodo.6555728> and visit
-<https://github.com/FelixTheStudent/cellpypes> for tutorials and newest
-features.
+Takes objects of class edsurvey.data.frame and converts them to a
+data.frame within the calling environment of 'dplyr' and 'ggplot2'
+functions. Additionally, for plotting with 'ggplot2', users can map
+aesthetics to subject scales and all plausible values will be used. This
+package supports student level data; to work with school or teacher level
+data, see '?EdSurvey::getData'.
 
 %prep
 %setup -q -c -n %{packname}

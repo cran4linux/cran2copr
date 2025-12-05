@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlmi
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Multiple Imputation
 
@@ -37,12 +37,14 @@ Requires:         R-utils
 Requires:         R-CRAN-nlme 
 
 %description
-Implements so called Maximum Likelihood Multiple Imputation as described
-by von Hippel and Bartlett (2021) <doi:10.1214/20-STS793>. A number of
-different imputations are available, by utilising the 'norm', 'cat' and
-'mix' packages. Inferences can be performed either using combination rules
-similar to Rubin's or using a likelihood score based approach based on
-theory by Wang and Robins (1998) <doi:10.1093/biomet/85.4.935>.
+Implements proper and so-called Maximum Likelihood Multiple Imputation as
+described by von Hippel and Bartlett (2021) <doi:10.1214/20-STS793>. A
+number of different imputation methods are available, by utilising the
+'norm', 'cat' and 'mix' packages. Inferences can be performed either using
+Rubin's rules (for proper imputation), or a modified version for maximum
+likelihood imputation. For maximum likelihood imputations a likelihood
+score based approach based on theory by Wang and Robins (1998)
+<doi:10.1093/biomet/85.4.935> is also available.
 
 %prep
 %setup -q -c -n %{packname}

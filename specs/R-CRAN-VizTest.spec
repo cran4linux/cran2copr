@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VizTest
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Confidence Intervals for Visual Testing
 
@@ -18,12 +18,18 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-tidyr 
 
 %description

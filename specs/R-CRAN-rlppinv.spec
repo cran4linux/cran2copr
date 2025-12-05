@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  I14Y
-%global packver   0.1.7
+%global packname  rlppinv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Get Data from the I14Y Interoperability Platform of Switzerland
+Summary:          Linear Programming via Regularized Least Squares
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-rclsp 
+Requires:         R-CRAN-rclsp 
 
 %description
-Search and download Swiss data and metadata from the I14Y interoperability
-platform of Switzerland using its public APIs
-<https://www.i14y.admin.ch/api/index.html>.
+The Linear Programming via Regularized Least Squares (LPPinv) is a
+two-stage estimation method that reformulates linear programs as
+structured least-squares problems. Based on the Convex Least Squares
+Programming (CLSP) framework, LPPinv solves linear inequality, equality,
+and bound constraints by (1) constructing a canonical constraint system
+and computing a pseudoinverse projection, followed by (2) a
+convex-programming correction stage to refine the solution under
+additional regularization (e.g., Lasso, Ridge, or Elastic Net). LPPinv is
+intended for underdetermined and ill-posed linear problems, for which
+standard solvers fail.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qdap
-%global packver   2.4.6
+%global packver   2.4.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.6
+Version:          2.4.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bridging the Gap Between Qualitative Data and Quantitative Analysis
 

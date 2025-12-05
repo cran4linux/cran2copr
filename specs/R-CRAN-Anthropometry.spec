@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Anthropometry
-%global packver   1.20
+%global packver   1.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          1.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Anthropometric Data
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ddalpha
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-ICGE 
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-biclust 
 Requires:         R-CRAN-shapes 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-archetypes 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-ddalpha
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-ICGE 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-biclust 
 
 %description
 Statistical methodologies especially developed to analyze anthropometric

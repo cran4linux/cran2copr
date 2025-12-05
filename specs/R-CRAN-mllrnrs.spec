@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mllrnrs
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          R6-Based ML Learners for 'mlexperiments'
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlexperiments >= 0.0.6
+BuildRequires:    R-CRAN-mlexperiments >= 0.0.8
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-kdry 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-mlexperiments >= 0.0.6
+Requires:         R-CRAN-mlexperiments >= 0.0.8
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-kdry 
 Requires:         R-CRAN-R6 

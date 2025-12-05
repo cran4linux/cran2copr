@@ -1,50 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scipub
-%global packver   1.2.3
+%global packname  taskqueue
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarize Data for Scientific Publication
+Summary:          Task Queue for Parallel Computing Based on PostgreSQL
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gghalves 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-settings 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gghalves 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-ssh 
+Requires:         R-CRAN-settings 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-ssh 
 
 %description
-Create and format tables and APA statistics for scientific publication.
-This includes making a 'Table 1' to summarize demographics across groups,
-correlation tables with significance indicated by stars, and extracting
-formatted statistical summarizes from simple tests for in-text notation.
-The package also includes functions for Winsorizing data based on a
-Z-statistic cutoff.
+Implements a task queue system for asynchronous parallel computing using
+'PostgreSQL' <https://www.postgresql.org/> as a backend. Designed for
+embarrassingly parallel problems where tasks do not communicate with each
+other. Dynamically distributes tasks to workers, handles uneven load
+balancing, and allows new workers to join at any time. Particularly useful
+for running large numbers of independent tasks on high-performance
+computing (HPC) clusters with 'SLURM' <https://slurm.schedmd.com/> job
+schedulers.
 
 %prep
 %setup -q -c -n %{packname}

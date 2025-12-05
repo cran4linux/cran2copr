@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wiqid
-%global packver   0.3.3
+%global packname  snic
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quick and Dirty Estimates for Wildlife Populations
+Summary:          Superpixel Segmentation with the Simple Non-Iterative Clustering Algorithm
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-mcmcOutput 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-mcmcOutput 
-Requires:         R-stats 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Provides simple, fast functions for maximum likelihood and Bayesian
-estimates of wildlife population parameters, suitable for use with
-simulated data or bootstraps. Early versions were indeed quick and dirty,
-but optional error-checking routines and meaningful error messages have
-been added. Includes single and multi-season occupancy, closed capture
-population estimation, survival, species richness and distance measures.
+Implements the Simple Non-Iterative Clustering algorithm for superpixel
+segmentation of multi-band images, as introduced by Achanta and Susstrunk
+(2017) <doi:10.1109/CVPR.2017.520>. Supports both standard image arrays
+and geospatial raster objects, with a design that can be extended to other
+spatial data frameworks. The algorithm groups adjacent pixels into
+compact, coherent regions based on spectral similarity and spatial
+proximity. A high-performance implementation supports images with
+arbitrary spectral bands.
 
 %prep
 %setup -q -c -n %{packname}

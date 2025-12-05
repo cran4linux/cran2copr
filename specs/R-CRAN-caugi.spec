@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  gapfill
-%global packver   0.9.6-1
+%global __requires_exclude ^libmpi
+%global packname  caugi
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fill Missing Values in Satellite Data
+Summary:          Causal Graph Interface
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-quantreg >= 5.0
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-foreach >= 1.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.1
-BuildRequires:    R-CRAN-fields 
-Requires:         R-CRAN-quantreg >= 5.0
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-foreach >= 1.4
-Requires:         R-CRAN-Rcpp >= 0.12.1
-Requires:         R-CRAN-fields 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fastmap 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fastmap 
+Requires:         R-CRAN-S7 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Tools to fill missing values in satellite data and to develop new gap-fill
-algorithms. The methods are tailored to data (images) observed at
-equally-spaced points in time. The package is illustrated with MODIS NDVI
-data.
+Create, query, and modify causal graphs. 'caugi' (Causal Graph Interface)
+is a causality-first, high performance graph package that provides a
+simple interface to build, structure, and examine causal relationships.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

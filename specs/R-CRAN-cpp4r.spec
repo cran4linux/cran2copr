@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpp4r
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Header-Only 'C++' and 'R' Interface
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brio 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-decor 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-glue 
@@ -27,8 +25,6 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-brio 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-decor 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-glue 

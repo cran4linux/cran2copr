@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nse
-%global packver   1.21
+%global packname  MHD
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.21
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numerical Standard Errors Computation in R
+Summary:          Metric Halfspace Depth
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-mcmc 
-BuildRequires:    R-CRAN-mcmcse 
-BuildRequires:    R-CRAN-np 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-mcmc 
-Requires:         R-CRAN-mcmcse 
-Requires:         R-CRAN-np 
-Requires:         R-CRAN-sandwich 
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-manifold 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-distory 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-manifold 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-distory 
+Requires:         R-CRAN-plyr 
 
 %description
-Collection of functions designed to calculate numerical standard error
-(NSE) of univariate time series as described in Ardia et al. (2018)
-<doi:10.1515/jtse-2017-0011> and Ardia and Bluteau (2017)
-<doi:10.21105/joss.00172>.
+Metric halfspace depth for object data, generalizing Tukey's depth for
+Euclidean data. Implementing the method described in Dai and Lopez-Pintado
+(2022) <doi:10.1080/01621459.2021.2011298>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vaRiskScore
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          VA CVD Risk Score
 
@@ -20,12 +20,13 @@ BuildArch:        noarch
 
 %description
 Estimates the predicted 10-year cardiovascular (CVD) risk score (in
-probability) for women military service members and veterans by inputting
-patient profiles. The proposed women CVD risk score improves the accuracy
-of the existing American College of Cardiology/American Heart Association
-CVD risk assessment tool in predicting long‐term CVD risk for VA women,
-particularly in young and racial/ethnic minority women. See the reference:
-Jeon‐Slaughter, H., Chen, X., Tsai, S., Ramanan, B., & Ebrahimi, R. (2021)
+probability) for civilian women, women military service members and
+veterans by inputting patient profiles. The proposed women CVD risk score
+improves the accuracy of the existing American College of
+Cardiology/American Heart Association CVD risk assessment tool in
+predicting long‐term CVD risk for VA women, particularly in young and
+racial/ethnic minority women. See the reference: Jeon‐Slaughter, H., Chen,
+X., Tsai, S., Ramanan, B., & Ebrahimi, R. (2021)
 <doi:10.1161/JAHA.120.019217>.
 
 %prep

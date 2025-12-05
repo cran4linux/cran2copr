@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggpol
-%global packver   0.0.7
+%global packname  GitAI
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing Social Science Data with 'ggplot2'
+Summary:          Extracts Knowledge from 'Git' Repositories
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-GitStats >= 2.2.0
+BuildRequires:    R-CRAN-ellmer >= 0.4.0
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-grDevices 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-GitStats >= 2.2.0
+Requires:         R-CRAN-ellmer >= 0.4.0
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-glue 
 
 %description
-A 'ggplot2' extension for implementing parliament charts and several other
-useful visualizations.
+Scan multiple 'Git' repositories, pull specified files content and process
+it with large language models. You can summarize the content in specific
+way, extract information and data, or find answers to your questions about
+the repositories. The output can be stored in vector database and used for
+semantic search or as a part of a RAG (Retrieval Augmented Generation)
+prompt.
 
 %prep
 %setup -q -c -n %{packname}

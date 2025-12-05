@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  convdistr
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convolute Probabilistic Distributions
 
@@ -19,7 +19,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-shiny 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 

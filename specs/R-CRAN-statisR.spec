@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  orbital
-%global packver   0.4.0
+%global packname  statisR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict with 'tidymodels' Workflows in Databases
+Summary:          STATIS and STATIS DUAL Multivariate Methods
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-generics >= 0.1.2
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-generics >= 0.1.2
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Turn 'tidymodels' workflows into objects containing the sufficient
-sequential equations to perform predictions. These smaller objects allow
-for low dependency prediction locally or directly in databases.
+Provides tools for the integration and exploration of data tables measured
+on the same set of observational units. The package includes methods to
+assess similarities among tables, extract common patterns across variable
+blocks, and create visual summaries that highlight shared structures in
+multiblock data.
 
 %prep
 %setup -q -c -n %{packname}

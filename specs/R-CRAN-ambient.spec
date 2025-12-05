@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ambient
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Generator of Multidimensional Noise
 
@@ -16,14 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cpp11 >= 0.4.2
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rlang 
-Requires:         R-grDevices 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
 
 %description
