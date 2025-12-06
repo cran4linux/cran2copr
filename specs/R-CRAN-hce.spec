@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hce
-%global packver   0.8.5
+%global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis of Hierarchical Composite Endpoints
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-base 
 BuildRequires:    R-stats 
@@ -36,14 +36,18 @@ win probability analysis is based on the Brunner-Munzel test and uses the
 DeLong-DeLong-Clarke-Pearson variance estimator, as described by Brunner
 and Konietschke (2025) in “An unbiased rank-based estimator of the
 Mann–Whitney variance including the case of ties” (Statistical Papers 66
-(1): 20, <doi:10.1007/s00362-024-01635-0>). Stratification and covariate
-adjustment are performed based on the methodology presented by Koch GG et
-al. in “Issues for covariance analysis of dichotomous and ordered
-categorical data from randomized clinical trials and non-parametric
-strategies for addressing them” (Statistics in Medicine 17 (15-16):
-1863–92). For a review, see Gasparyan SB et al (2021) “Adjusted win ratio
-with stratification: Calculation methods and interpretation” (Statistical
-Methods in Medical Research 30 (2): 580–611,
+(1): 20, <doi:10.1007/s00362-024-01635-0>). Includes implementation of a
+new Wilson-type, compatible confidence interval for the win odds, as
+proposed by Schüürhuis, Konietschke, Brunner (2025) in “A new approach to
+the nonparametric Behrens–Fisher problem with compatible confidence
+intervals.” (Biometrical Journal 67 (6), <doi:10.1002/bimj.70096>).
+Stratification and covariate adjustment are performed based on the
+methodology presented by Koch GG et al. in “Issues for covariance analysis
+of dichotomous and ordered categorical data from randomized clinical
+trials and non-parametric strategies for addressing them” (Statistics in
+Medicine 17 (15-16): 1863–92). For a review, see Gasparyan SB et al (2021)
+“Adjusted win ratio with stratification: Calculation methods and
+interpretation” (Statistical Methods in Medical Research 30 (2): 580–611,
 <doi:10.1177/0962280220942558>).
 
 %prep

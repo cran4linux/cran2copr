@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GRAB
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genome-Wide Robust Analysis for Biobank Data (GRAB)
 
@@ -43,14 +43,19 @@ Requires:         R-CRAN-igraph
 
 %description
 Provides a comprehensive suite of genome-wide association study (GWAS)
-methods specifically designed for biobank-scale data. The package offers
-computationally efficient and robust association tests for time-to-event
-traits (e.g., Bi et al., 2020 <doi:10.1016/j.ajhg.2020.06.003>), ordinal
-categorical traits (e.g., Bi et al., 2021
-<doi:10.1016/j.ajhg.2021.03.019>), and longitudinal traits (Xu et al.,
-2025 <doi:10.1038/s41467-025-56669-1>). Additionally, it includes
-functions for simulating genotype and phenotype data to support research
-and method development.
+methods specifically designed for biobank-scale data, including but not
+limited to, robust approaches for time-to-event traits (Li et al., 2025
+<doi:10.1038/s43588-025-00864-z>) and ordinal categorical traits (Bi et
+al., 2021 <doi:10.1016/j.ajhg.2021.03.019>). The package also offers
+general frameworks for GWAS of any trait type (Bi et al., 2020
+<doi:10.1016/j.ajhg.2020.06.003>), while accounting for sample relatedness
+(Xu et al., 2025 <doi:10.1038/s41467-025-56669-1>) or population structure
+(Ma et al., 2025 <doi:10.1186/s13059-025-03827-9>). By accurately
+approximating score statistic distributions using saddlepoint
+approximation (SPA), these methods can effectively control type I error
+rates for rare variants and in the presence of unbalanced phenotype
+distributions. Additionally, the package includes functions for simulating
+genotype and phenotype data to support research and method development.
 
 %prep
 %setup -q -c -n %{packname}

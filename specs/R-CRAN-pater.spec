@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LMMsolver
-%global packver   1.0.12
+%global packname  pater
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Mixed Models with Sparse Matrix Methods and Smoothing
+Summary:          Turn a URL Pathname into a Regular Expression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-splines 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-spam 
-Requires:         R-splines 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Provides tools for fitting linear mixed models using sparse matrix methods
-and variance component estimation. Applications include spline-based
-modeling of spatial and temporal trends using penalized splines (Boer,
-2023) <doi:10.1177/1471082X231178591>.
+R's implementation of the JavaScript library 'path-to-regexp', it aims to
+provide R web frameworks features such as parameter handling among other
+URL path utilities.
 
 %prep
 %setup -q -c -n %{packname}

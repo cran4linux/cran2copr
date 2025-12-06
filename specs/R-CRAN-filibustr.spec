@@ -1,46 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  excessmort
-%global packver   0.8.2
+%global packname  filibustr
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Excess Mortality
+Summary:          Data Utilities for Congressional Research
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-datasets 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lubridate 
-Requires:         R-splines 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
 
 %description
-Implementation of method for estimating excess mortality and other health
-related outcomes from weekly or daily count data described in Acosta and
-Irizarry (2021) "A Flexible Statistical Framework for Estimating Excess
-Mortality".
+Provides easy-to-understand and consistent interfaces for accessing data
+on the U.S. Congress. The functions in 'filibustr' streamline the process
+for importing data on Congress into R, removing the need to download and
+work from CSV files and the like. Data sources include 'Voteview'
+(<https://voteview.com/>), the U.S. Senate website
+(<https://www.senate.gov/>), and more.
 
 %prep
 %setup -q -c -n %{packname}

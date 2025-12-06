@@ -1,47 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  citmre
-%global packver   0.1.0
+%global packname  Ditwah
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Colombian Index Tool Market Rate Exchange
+Summary:          Ditwah Storm Data and Tools for Storm Monitoring and Early Warning November 2025, Sri Lanka
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rvest 
-Requires:         R-stats 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xts 
+Requires:         R-CRAN-tibble 
 
 %description
-Downloads the Representative Market Rate Exchange (RMRE) from the
-<www.datos.gov.co> source. Allows setting the data series in time
-frequencies, splitting the time series through start and end functions,
-transforming the data set in log returns or levels, and making a Dynamic
-graph.
+The Ditwah storm began impacting Sri Lanka on 25 November 2025. Ditwah
+provides a collection of tidy, well-structured datasets to support storm
+data management, monitoring, and early warning applications in Sri Lanka.
+The publicly available data were converted to tidy data format for easy
+analysis. The package processes weather data, flood data and situation
+report data (families affected, etc.). The package also includes functions
+for analyzing river level progression and load dashboard visualizations to
+enhance situational awareness. This is also developed for educational
+purposes to support learning in data wrangling, visualization, and
+disaster analytics.
 
 %prep
 %setup -q -c -n %{packname}

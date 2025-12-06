@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DNAtools
-%global packver   0.2-4
+%global packver   0.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analysing Forensic Genetic DNA Data
 
@@ -15,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RcppParallel >= 4.3.20
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.11.1
 BuildRequires:    R-CRAN-Rsolnp >= 1.16
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-RcppProgress >= 0.4.2
 BuildRequires:    R-CRAN-multicool >= 0.1.10
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-RcppParallel >= 4.3.20
+Requires:         R-CRAN-RcppParallel >= 5.1.11.1
 Requires:         R-CRAN-Rsolnp >= 1.16
-Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-Rcpp >= 1.1.0
 Requires:         R-CRAN-multicool >= 0.1.10
 
 %description

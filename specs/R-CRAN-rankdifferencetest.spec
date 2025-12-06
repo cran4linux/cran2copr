@@ -1,28 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rankdifferencetest
-%global packver   2025.4.21
+%global packver   2025.12.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.4.21
+Version:          2025.12.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kornbrot's Rank Difference Test
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-coin 
-BuildRequires:    R-CRAN-modeltools 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-exactRankTests 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-coin 
-Requires:         R-CRAN-modeltools 
+Requires:         R-stats 
+Requires:         R-CRAN-exactRankTests 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-generics 
 
 %description
 Implements Kornbrot's rank difference test as described in

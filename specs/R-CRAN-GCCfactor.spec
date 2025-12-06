@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GCCfactor
-%global packver   1.1.2
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          GCC Estimation of the Multilevel Factor Model
 
@@ -21,10 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-reshape2 
 
 %description
 Provides methods for model selection, estimation, inference, and
