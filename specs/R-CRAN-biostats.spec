@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biostats
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biostatistics and Clinical Data Analysis
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-nortest 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-gt 
+Requires:         R-CRAN-nortest 
 
 %description
 Biostatistical and clinical data analysis, including descriptive

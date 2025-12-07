@@ -1,52 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IPEDSuploadables
-%global packver   3.0.0
+%global packname  traktok
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transforms Institutional Data into Text Files for IPEDS Automated Import/Upload
+Summary:          Collecting 'TikTok' Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cookiemonster 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lobstr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-svDialogs 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-cookiemonster 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lobstr 
+Requires:         R-methods 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-svDialogs 
-Requires:         R-utils 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Starting from user-supplied institutional data, these scripts transform,
-aggregate, and reshape the information to produce key-value pair data
-files that are able to be uploaded to IPEDS (Integrated Postsecondary
-Education Data System) through their submission portal
-<https://surveys.nces.ed.gov/ipeds/>. Starting data specifications can be
-found in the vignettes. Final files are saved locally to a location of the
-user's choice. User-friendly readable files can also be produced for
-purposes of data review and validation.
+Getting 'TikTok' data (<https://www.tiktok.com/>) through the official and
+unofficial APIs—in other words, you can track 'TikTok'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FAfA
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor Analysis for All
 
@@ -82,8 +82,10 @@ wrangling (variable exclusion, data splitting), factor retention analysis
 (EFA) with various rotation and extraction methods, Confirmatory Factor
 Analysis (CFA) for model testing, Reliability Analysis (e.g., Cronbach's
 Alpha, McDonald's Omega), Measurement Invariance testing across groups,
-and item weighting techniques. Results are presented in user-friendly
-tables and plots, with options for downloading outputs.
+and item weighting techniques. The application leverages established R
+packages such as 'lavaan' and 'psych' to perform these analyses, offering
+an accessible platform for researchers and students. Results are presented
+in user-friendly tables and plots, with options for downloading outputs.
 
 %prep
 %setup -q -c -n %{packname}

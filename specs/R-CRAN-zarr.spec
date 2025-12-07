@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesSSM
-%global packver   0.7.1
+%global packname  zarr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Methods for State Space Models
+Summary:          Native and Extensible R Driver for 'Zarr'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-checkmate 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
 
 %description
-Implements methods for Bayesian analysis of State Space Models. Includes
-implementations of the Particle Marginal Metropolis-Hastings algorithm
-described in Andrieu et al. (2010) <doi:10.1111/j.1467-9868.2009.00736.x>
-and automatic tuning inspired by Pitt et al. (2012)
-<doi:10.1016/j.jeconom.2012.06.004> and J. Dahlin and T. B. Schön (2019)
-<doi:10.18637/jss.v088.c02>.
+The 'Zarr' specification is widely used to build libraries for the storage
+and retrieval of n-dimensional array data from data stores ranging from
+local file systems to the cloud. This package is a native 'Zarr'
+implementation in R with support for all required features of 'Zarr'
+version 3. It is designed to be extensible such that new stores, codecs
+and extensions can be added easily.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sugarbag
-%global packver   0.1.6
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Tessellated Hexagon Maps
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-sf >= 1.0.8
 BuildRequires:    R-CRAN-rlang >= 1.0.4
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rmapshaper >= 0.4.6
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-tibble >= 3.1.7
 Requires:         R-CRAN-geosphere >= 1.5
@@ -33,7 +32,6 @@ Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-sf >= 1.0.8
 Requires:         R-CRAN-rlang >= 1.0.4
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rmapshaper >= 0.4.6
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description

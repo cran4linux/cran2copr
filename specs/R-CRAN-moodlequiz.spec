@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesSSM
-%global packver   0.7.1
+%global packname  moodlequiz
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Methods for State Space Models
+Summary:          R Markdown format for 'Moodle' XML cloze quizzes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-checkmate 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-yaml 
 
 %description
-Implements methods for Bayesian analysis of State Space Models. Includes
-implementations of the Particle Marginal Metropolis-Hastings algorithm
-described in Andrieu et al. (2010) <doi:10.1111/j.1467-9868.2009.00736.x>
-and automatic tuning inspired by Pitt et al. (2012)
-<doi:10.1016/j.jeconom.2012.06.004> and J. Dahlin and T. B. Schön (2019)
-<doi:10.18637/jss.v088.c02>.
+Enables the creation of 'Moodle' quiz questions using literate programming
+with R Markdown. This makes it easy to quickly create a quiz that can be
+randomly replicated with new datasets, questions, and options for answers.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flevr
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible, Ensemble-Based Variable Selection with Potentially Missing Data
 
@@ -42,7 +42,7 @@ extrinsic (algorithm-specific) and intrinsic (population-level) variable
 importance. Uses a Super Learner ensemble to estimate the underlying
 prediction functions that give rise to estimates of variable importance.
 For more information about the methods, please see Williamson and Huang
-(2023+) <arXiv:2202.12989>.
+(2024) <doi:10.1515/ijb-2023-0059>.
 
 %prep
 %setup -q -c -n %{packname}

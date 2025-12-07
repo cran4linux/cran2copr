@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GrFA
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Factor Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,12 +21,14 @@ BuildRequires:    R-CRAN-mvtnorm
 Requires:         R-CRAN-mvtnorm 
 
 %description
-Several group factor analysis algorithms are implemented, including
-Canonical Correlation-based Estimation by Choi et al. (2021)
-<doi:10.1016/j.jeconom.2021.09.008> , Generalised Canonical Correlation
-Estimation by Lin and Shin (2023) <doi:10.2139/ssrn.4295429>, Circularly
-Projected Estimation by Chen (2022) <doi:10.1080/07350015.2022.2051520>,
-and Aggregated projection method.
+Implements statistical methods for group factor analysis, focusing on
+estimating the number of global and local factors and extracting them.
+Several algorithms are implemented, including Canonical Correlation-based
+Estimation by Choi et al. (2021) <doi:10.1016/j.jeconom.2021.09.008>,
+Generalised Canonical Correlation Estimation by Lin and Shin (2023)
+<doi:10.2139/ssrn.4295429>, Circularly Projected Estimation by Chen (2022)
+<doi:10.1080/07350015.2022.2051520>, and the Aggregated Projection Method
+by Hu et al. (2025) <doi:10.1080/01621459.2025.2491154>.
 
 %prep
 %setup -q -c -n %{packname}

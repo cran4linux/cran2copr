@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crane
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplements the 'gtsummary' Package for Pharmaceutical Reporting
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.4
 BuildRequires:    R-CRAN-survival >= 3.6.4
-BuildRequires:    R-CRAN-gtsummary >= 2.4.0
+BuildRequires:    R-CRAN-gtsummary >= 2.5.0
 BuildRequires:    R-CRAN-glue >= 1.8.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.5
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-gt >= 0.11.1
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli >= 3.6.4
 Requires:         R-CRAN-survival >= 3.6.4
-Requires:         R-CRAN-gtsummary >= 2.4.0
+Requires:         R-CRAN-gtsummary >= 2.5.0
 Requires:         R-CRAN-glue >= 1.8.0
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.1.5

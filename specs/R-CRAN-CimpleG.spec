@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CimpleG
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Method to Identify Single CpG Sites for Classification and Deconvolution
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-butcher 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggExtra 
@@ -61,7 +60,6 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-butcher 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggExtra 

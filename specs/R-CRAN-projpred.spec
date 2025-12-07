@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projpred
-%global packver   2.9.1
+%global packver   2.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          2.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Predictive Feature Selection
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-ordinal 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-mclogit 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-loo >= 2.0.0
@@ -51,6 +52,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-ordinal 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-mclogit 
+Requires:         R-CRAN-reformulas 
 
 %description
 Performs projection predictive feature selection for generalized linear

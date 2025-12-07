@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinydrive
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          File Sharing Shiny Module
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shiny 
 Requires:         R-tools 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-yaml
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-zip 
 
 %description
 Shiny module for easily sharing files between users. Admin can add,

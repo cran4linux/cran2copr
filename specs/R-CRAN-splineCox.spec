@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  splineCox
-%global packver   0.0.5
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-joint.Cox 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-joint.Cox 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
 Implements a two-stage estimation approach for Cox regression using

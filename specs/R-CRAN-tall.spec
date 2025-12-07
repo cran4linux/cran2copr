@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tall
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Analysis for All
 
@@ -28,7 +28,9 @@ BuildRequires:    R-CRAN-chromote
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-fontawesome 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-ggwordcloud 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-igraph 
@@ -40,6 +42,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readtext 
 BuildRequires:    R-CRAN-readxl 
@@ -72,7 +75,9 @@ Requires:         R-CRAN-chromote
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-fontawesome 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-ggwordcloud 
 Requires:         R-graphics 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-igraph 
@@ -84,6 +89,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readtext 
 Requires:         R-CRAN-readxl 

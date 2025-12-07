@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  disclapmix
-%global packver   1.7.4
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Laplace Mixture Inference using the EM Algorithm
 
@@ -17,7 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-disclap >= 1.4
 BuildRequires:    R-CRAN-cluster >= 1.14.4
-BuildRequires:    R-CRAN-Rcpp >= 0.11
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -26,7 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-disclap >= 1.4
 Requires:         R-CRAN-cluster >= 1.14.4
-Requires:         R-CRAN-Rcpp >= 0.11
+Requires:         R-CRAN-Rcpp >= 1.0.13
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-graphics 

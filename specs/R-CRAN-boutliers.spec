@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boutliers
-%global packver   2.1-2
+%global packver   2.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Outlier Detection and Influence Diagnostics for Meta-Analysis
 
@@ -30,7 +30,7 @@ meta-analysis (Noma et al. (2025) <doi:10.1101/2025.09.18.25336125>).
 Bootstrap distributions of influence statistics are computed, and explicit
 thresholds for identifying outliers are provided. These methods can also
 be applied to the analysis of influential centers or regions in
-multicenter or multiregional clinical trials (Aoki and Noma (2021)
+multicenter or multiregional clinical trials (Aoki, Noma and Gosho (2021)
 <doi:10.1080/24709360.2021.1921944>, Nakamura and Noma (2021)
 <doi:10.5691/jjb.41.117>).
 

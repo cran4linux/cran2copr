@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EGAnet
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Graph Analysis – a Framework for Estimating the Number of Dimensions in Multivariate Data using Network Psychometrics
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-igraph >= 1.3.0
+BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-fungible 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-GGally 
@@ -37,8 +37,8 @@ BuildRequires:    R-CRAN-semPlot
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-igraph >= 1.3.0
+Requires:         R-CRAN-clue 
 Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-fungible 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-GGally 

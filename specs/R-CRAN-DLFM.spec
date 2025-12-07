@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DLFM
-%global packver   0.1.1
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributed Laplace Factor Model
 
@@ -18,14 +18,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FarmTest 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-relliptical 
 BuildRequires:    R-CRAN-LFM 
 Requires:         R-stats 
-Requires:         R-CRAN-FarmTest 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-matrixcalc 

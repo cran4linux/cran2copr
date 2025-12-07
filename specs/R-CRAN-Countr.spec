@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Countr
-%global packver   3.5.8
+%global packver   3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.8
+Version:          3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Univariate Count Models Based on Renewal Processes
 
@@ -16,53 +16,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-VGAM >= 1.1.1
+BuildRequires:    R-CRAN-Rdpack >= 0.7.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-car 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-standardize 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-VGAM >= 1.1.1
+Requires:         R-CRAN-Rdpack >= 0.7.0
 Requires:         R-CRAN-Rcpp >= 0.11.3
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-car 
 Requires:         R-utils 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-standardize 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
 Flexible univariate count models based on renewal processes. The models
 may include covariates and can be specified with familiar formula syntax
 as in glm() and package 'flexsurv'.  The methodology is described by
 Kharrat et all (2019) <doi:10.18637/jss.v090.i13> (included as vignette
-'Countr_guide' in the package). If the suggested package 'pscl' is not
-available from CRAN, it can be installed with
-'remotes::install_github("cran/pscl")'. It is no longer used by the
-functions in this package but is needed for some of the extended examples.
+'Countr_guide' in the package).
 
 %prep
 %setup -q -c -n %{packname}

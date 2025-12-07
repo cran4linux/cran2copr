@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdibbler
-%global packver   0.1.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Uncertainty to Data Visualisations
 
@@ -21,11 +21,21 @@ BuildRequires:    R-CRAN-distributional
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-distributional 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-sf 
 
 %description
@@ -35,7 +45,7 @@ uncertainty as a distribution or probability, whereas 'ggdibbler'
 differentiates itself by viewing an uncertainty visualisation as an
 adjustment to an existing graphic that incorporates the inherent
 uncertainty in the estimates.  You provide the code for an existing plot,
-but replace one of the variables with a vector of distributions, and it
+but replace any of the variables with a vector of distributions, and it
 will convert the visualisation into it's signal suppression counterpart.
 
 %prep
