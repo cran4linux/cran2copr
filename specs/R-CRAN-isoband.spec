@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isoband
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Isolines and Isobands from Regularly Spaced Elevation Grids
 
@@ -16,9 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-cli 
 Requires:         R-grid 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
 %description

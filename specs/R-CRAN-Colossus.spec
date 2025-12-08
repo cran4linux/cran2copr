@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Colossus
-%global packver   1.4.3
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Risk Model Regression and Analysis with Complex Non-Linear Models"
 
@@ -50,13 +50,17 @@ Performs survival analysis using general non-linear models. Risk models
 can be the sum or product of terms. Each term is the product of
 exponential/linear functions of covariates. Additionally sub-terms can be
 defined as a sum of exponential, linear threshold, and step functions. Cox
-Proportional hazards, Poisson, and Fine-Gray competing risks regression
-are supported. This work was sponsored by NASA Grants 80NSSC19M0161 and
-80NSSC23M0129 through a subcontract from the National Council on Radiation
-Protection and Measurements (NCRP). The computing for this project was
-performed on the Beocat Research Cluster at Kansas State University, which
-is funded in part by NSF grants CNS-1006860, EPS-1006860, EPS-0919443,
-ACI-1440548, CHE-1726332, and NIH P20GM113109.
+Proportional hazards
+<https://en.wikipedia.org/wiki/Proportional_hazards_model>, Poisson
+<https://en.wikipedia.org/wiki/Poisson_regression>, and Fine-Gray
+competing risks
+<https://www.publichealth.columbia.edu/research/population-health-methods/competing-risk-analysis>
+regression are supported. This work was sponsored by NASA Grants
+80NSSC19M0161 and 80NSSC23M0129 through a subcontract from the National
+Council on Radiation Protection and Measurements (NCRP). The computing for
+this project was performed on the Beocat Research Cluster at Kansas State
+University, which is funded in part by NSF grants CNS-1006860,
+EPS-1006860, EPS-0919443, ACI-1440548, CHE-1726332, and NIH P20GM113109.
 
 %prep
 %setup -q -c -n %{packname}
