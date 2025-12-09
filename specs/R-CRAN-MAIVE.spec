@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tgver
-%global packver   0.3.0
+%global packname  MAIVE
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Turing Geovisualization Engine R package
+Summary:          Meta Analysis Instrumental Variable Estimator
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-geojsonsf 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-geojsonsf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-clubSandwich 
+Requires:         R-stats 
+Requires:         R-CRAN-clubSandwich 
 
 %description
-Turing Geovisualization Engine R package for geospatial visualization and
-analysis.
+Meta-analysis traditionally assigns more weight to studies with lower
+standard errors, assuming higher precision. However, in observational
+research, precision must be estimated and is vulnerable to manipulation,
+such as p-hacking, to achieve statistical significance. This can lead to
+spurious precision, invalidating inverse-variance weighting and
+bias-correction methods like funnel plots. Common methods for addressing
+publication bias, including selection models, often fail or exacerbate the
+problem. This package introduces an instrumental variable approach to
+limit bias caused by spurious precision in meta-analysis. Methods are
+described in 'Irsova et al.' (2025) <doi:10.1038/s41467-025-63261-0>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phylospatial
-%global packver   1.1.1
+%global packname  distplyr
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Phylogenetic Analysis
+Summary:          Manipulate and Combine Probability Distributions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-distionary 
+Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-distionary 
 
 %description
-Analyze spatial phylogenetic diversity patterns. Use your data on an
-evolutionary tree and geographic distributions of the terminal taxa to
-compute diversity and endemism metrics, test significance with null model
-randomization, analyze community turnover and biotic regionalization, and
-perform spatial conservation prioritizations. All functions support
-quantitative community data in addition to binary data.
+Go beyond standard probability distributions such as the Normal or
+Exponential by combining, shifting, maximizing, and otherwise transforming
+distributions with simple, verb-based functions. Provides easy access to a
+broader space of distributions more representative of real-world systems
+such as river flows or insurance claims. Part of the probaverse framework
+of packages to support advanced statistical modeling and simulations with
+an intuitive workflow.
 
 %prep
 %setup -q -c -n %{packname}

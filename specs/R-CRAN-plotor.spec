@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotor
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Produces an Odds Ratio Plot from a Logistic Regression Model
+Summary:          Odds Ratio Tools for Logistic Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
@@ -50,13 +51,15 @@ Requires:         R-CRAN-scales
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 
 %description
-Produces an Odds Ratio (OR) Plot to visualise the result of a logistic
-regression analysis. Provide it with a binomial regression model produced
-by 'glm()' and it will convert the estimates to odds ratios with a 95%%
-confidence interval and plot the results using 'ggplot2'.
+Produces odds ratio analyses with comprehensive reporting tools. Generates
+plots, summary tables, and diagnostic checks for logistic regression
+models fitted with 'glm()' using binomial family. Provides visualisation
+methods, formatted reporting tables via 'gt', and tools to assess logistic
+regression model assumptions.
 
 %prep
 %setup -q -c -n %{packname}

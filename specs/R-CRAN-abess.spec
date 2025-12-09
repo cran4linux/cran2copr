@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  abess
-%global packver   0.4.10
+%global packver   0.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.4.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Best Subset Selection
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-igraph 
 
 %description
 Extremely efficient toolkit for solving the best subset selection problem
@@ -36,11 +38,12 @@ globally optimal solution in polynomial times for linear model. It also
 supports best subset selection for logistic regression, Poisson
 regression, Cox proportional hazard model, Gamma regression,
 multiple-response regression, multinomial logistic regression, ordinal
-regression, (sequential) principal component analysis, and robust
-principal component analysis. The other valuable features such as the best
-subset of group selection <doi:10.1287/ijoc.2022.1241> and sure
-independence screening <doi:10.1111/j.1467-9868.2008.00674.x> are also
-provided.
+regression, Ising model reconstruction
+<doi:10.1080/01621459.2025.2571245>, (sequential) principal component
+analysis, and robust principal component analysis. The other valuable
+features such as the best subset of group selection
+<doi:10.1287/ijoc.2022.1241> and sure independence screening
+<doi:10.1111/j.1467-9868.2008.00674.x> are also provided.
 
 %prep
 %setup -q -c -n %{packname}

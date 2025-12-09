@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdiceplot
-%global packver   0.1.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dice Plot Visualization for 'ggplot2'
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-legendry 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-dplyr 
 Requires:         R-grid 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-legendry 
 Requires:         R-CRAN-scales 
 

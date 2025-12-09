@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geosed
-%global packver   0.1.1
+%global packname  rdcor
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Smallest Enclosing Disc for Latitude and Longitude Points
+Summary:          Rank Distance Correlation Coefficient
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-dcov 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
+Requires:         R-CRAN-dcov 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 
 %description
-Find the smallest circle that contains all longitude and latitude input
-points. From the generated center and radius, variable side polygons can
-be created, navigation based on bearing and distance can be applied, and
-more. Based on a modified version of Welzl's algorithm for smallest
-circle. Distance calculations are based on the haversine formula.
-Calculations for distance, midpoint, bearing and more are derived from
-<https://www.movable-type.co.uk>.
+The rank distance correlation <doi:10.1080/01621459.2020.1782223> is
+computed. Included also is a function to perform permutation based
+testing.
 
 %prep
 %setup -q -c -n %{packname}

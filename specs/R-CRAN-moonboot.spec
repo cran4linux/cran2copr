@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moonboot
-%global packver   1.0.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          m-Out-of-n Bootstrap Functions
 
@@ -27,8 +27,8 @@ Functions and examples based on the m-out-of-n bootstrap suggested by
 Politis, D.N. and Romano, J.P. (1994) <doi:10.1214/aos/1176325770>.
 Additionally there are functions to estimate the scaling factor tau and
 the subsampling size m. For a detailed description and a full list of
-references, see Dalitz, C. and Lögler, F. (2024)
-<doi:10.48550/arXiv.2412.05032>.
+references, see Dalitz, C. and Lögler, F. (2025)
+<doi:10.32614/RJ-2025-031>.
 
 %prep
 %setup -q -c -n %{packname}

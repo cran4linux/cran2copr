@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  collinear
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Multicollinearity Management
 
@@ -14,30 +14,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-recipes >= 1.0.9
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-recipes >= 1.0.9
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-rlang 
 
 %description
-Effortless multicollinearity management in data frames with both numeric
-and categorical variables for statistical and machine learning
-applications. The package simplifies multicollinearity analysis by
-combining four robust methods: 1) target encoding for categorical
-variables (Micci-Barreca, D. 2001 <doi:10.1145/507533.507538>); 2)
-automated feature prioritization to prevent key variable loss during
-filtering; 3) pairwise correlation for all variable combinations
-(numeric-numeric, numeric-categorical, categorical-categorical); and 4)
-fast computation of variance inflation factors.
+Provides a comprehensive and automated workflow for managing
+multicollinearity in data frames with numeric and/or categorical
+variables. The package integrates five robust methods into a single
+function: (1) target encoding of categorical variables based on response
+values (Micci-Barreca, 2001 (Micci-Barreca, D. 2001
+<doi:10.1145/507533.507538>); (2) automated feature prioritization to
+preserve key predictors during filtering; (3 and 4) pairwise correlation
+and VIF filtering across all variable types (numeric–numeric,
+numeric–categorical, and categorical–categorical); (5) adaptive
+correlation and VIF thresholds. Together, these methods enable a reliable
+multicollinearity management in most use cases while maintaining model
+integrity. The package also supports parallel processing and progress
+tracking via the packages 'future' and 'progressr', and provides seamless
+integration with the 'tidymodels' ecosystem through a dedicated recipe
+step.
 
 %prep
 %setup -q -c -n %{packname}

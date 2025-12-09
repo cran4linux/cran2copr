@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easybgm
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracting and Visualizing Bayesian Graphical Models
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bgms >= 0.1.3
+BuildRequires:    R-CRAN-bgms >= 0.1.4
 BuildRequires:    R-CRAN-BDgraph 
 BuildRequires:    R-CRAN-BGGM 
 BuildRequires:    R-CRAN-dplyr 
@@ -25,7 +25,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-HDInterval 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-qgraph 
-Requires:         R-CRAN-bgms >= 0.1.3
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-bgms >= 0.1.4
 Requires:         R-CRAN-BDgraph 
 Requires:         R-CRAN-BGGM 
 Requires:         R-CRAN-dplyr 
@@ -33,11 +34,13 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-HDInterval 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-coda 
 
 %description
 Fit and visualize the results of a Bayesian analysis of networks commonly
 found in psychology. The package supports fitting cross-sectional network
-models fitted using the packages 'BDgraph', 'bgms' and 'BGGM'. The package
+models fitted using the packages 'BDgraph', 'bgms' and 'BGGM', as well as
+network comparison fitted using the 'bgms' and 'BBGM'. The package
 provides the parameter estimates, posterior inclusion probabilities,
 inclusion Bayes factor, and the posterior density of the parameters. In
 addition, for 'BDgraph' and 'bgms' it allows to assess the posterior

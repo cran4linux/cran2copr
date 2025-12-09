@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  d3po
-%global packver   1.0.3
+%global packname  famish
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Beautiful Interactive Visualization for 'Markdown' and 'Shiny'
+Summary:          Flexibly Tune Families of Probability Distributions
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-distionary 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-ismev 
+BuildRequires:    R-CRAN-lmom 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-distionary 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-ismev 
+Requires:         R-CRAN-lmom 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-vctrs 
 
 %description
-Apache licensed alternative to 'Highcharter' which provides functions for
-both fast and beautiful interactive visualization for 'Markdown' and
-'Shiny'.
+Fits probability distributions to data and plugs into the 'probaverse'
+suite of R packages so distribution objects are ready for further
+manipulation and evaluation. Supports methods such as maximum likelihood
+and L-moments, and provides diagnostics including empirical ranking and
+quantile score.
 
 %prep
 %setup -q -c -n %{packname}

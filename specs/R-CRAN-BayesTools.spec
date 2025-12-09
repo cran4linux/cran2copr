@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesTools
-%global packver   0.2.22
+%global packver   0.2.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.22
+Version:          0.2.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Bayesian Analyses
 

@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  amerifluxr
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  micvar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'AmeriFlux' Data Services
+Summary:          Order Selection in Vector Autoregression by Mean Square Information Criteria
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-heatmaply 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-heatmaply 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-readxl 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 
 %description
-Programmatic interface to the 'AmeriFlux' database
-(<https://ameriflux.lbl.gov/>). Provide query, download, and data summary
-tools.
+Implements order selection for Vector Autoregressive (VAR) models using
+the Mean Square Information Criterion (MIC). Unlike standard methods such
+as AIC and BIC, MIC is likelihood-free. This method consistently estimates
+VAR order and has robust performance under model misspecification. For
+more details, see Hellstern and Shojaie (2025)
+<doi:10.48550/arXiv.2511.19761>.
 
 %prep
 %setup -q -c -n %{packname}

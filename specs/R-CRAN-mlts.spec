@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlts
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Latent Time Series Models with 'R' and 'Stan'
 
@@ -32,6 +32,10 @@ BuildRequires:    R-CRAN-pdftools
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shape 
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstantools >= 2.4.0
@@ -46,6 +50,10 @@ Requires:         R-CRAN-pdftools
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 
+Requires:         R-CRAN-shape 
+Requires:         R-CRAN-diagram 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-CRAN-rstantools
 
 %description

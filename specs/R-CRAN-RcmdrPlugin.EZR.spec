@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.EZR
-%global packver   1.68
+%global packver   1.70
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.68
+Version:          1.70
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for the EZR (Easy R) Package
 
@@ -30,12 +30,12 @@ to the R commander. EZR enables point-and-click easy access to statistical
 functions, especially for medical statistics. EZR is platform-independent
 and runs on Windows, Mac OS X, and UNIX. Its complete manual is available
 only in Japanese (Chugai Igakusha, ISBN: 978-4-498-10918-6, Nankodo, ISBN:
-978-4-524-26158-1, Ohmsha, ISBN: 978-4-274-22632-8), but an report that
+978-4-524-21861-5, Ohmsha, ISBN: 978-4-274-22632-8), but an report that
 introduced the investigation of EZR was published in Bone Marrow
 Transplantation (Nature Publishing Group) as an Open article. This report
 can be used as a simple manual. It can be freely downloaded from the
 journal website as shown below. This report has been cited in more than
-10,000 scientific articles.
+14,000 scientific articles.
 
 %prep
 %setup -q -c -n %{packname}

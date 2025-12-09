@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TriMatch
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Propensity Score Matching of Non-Binary Treatments
 
@@ -17,26 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ez 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-PSAgraphics 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ez 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-car 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-PSAgraphics 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-randomForest 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
 Propensity score matching for non-binary treatments.
