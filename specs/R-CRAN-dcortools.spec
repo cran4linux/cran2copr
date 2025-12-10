@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dcortools
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Providing Fast and Flexible Functions for Distance Correlation Analysis
 
@@ -37,11 +37,11 @@ Requires:         R-stats
 Provides methods for distance covariance and distance correlation
 (Szekely, et al. (2007) <doi:10.1214/009053607000000505>), generalized
 version thereof (Sejdinovic, et al. (2013) <doi:10.1214/13-AOS1140>) and
-corresponding tests (Berschneider, Bottcher (2018) <arXiv:1808.07280>.
-Distance standard deviation methods (Edelmann, et al. (2020)
-<doi:10.1214/19-AOS1935>) and distance correlation methods for survival
-endpoints (Edelmann, et al. (2021) <doi:10.1111/biom.13470>) are also
-included.
+corresponding tests (Berschneider, Bottcher (2018)
+<doi:10.48550/arXiv.1808.07280>. Distance standard deviation methods
+(Edelmann, et al. (2020) <doi:10.1214/19-AOS1935>) and distance
+correlation methods for survival endpoints (Edelmann, et al. (2021)
+<doi:10.1111/biom.13470>) are also included.
 
 %prep
 %setup -q -c -n %{packname}

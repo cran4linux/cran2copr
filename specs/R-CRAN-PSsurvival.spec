@@ -1,49 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.linters
-%global packver   0.10.7
+%global packname  PSsurvival
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linters for 'box' Modules
+Summary:          Propensity Score Methods for Survival Analysis
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lintr >= 3.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
-Requires:         R-CRAN-lintr >= 3.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Static code analysis of 'box' modules. The package enhances code quality
-by providing linters that check for common issues, enforce best practices,
-and ensure consistent coding standards.
+Implements propensity score weighting methods for estimating
+counterfactual survival functions and marginal hazard ratios in
+observational studies with time-to-event outcomes. Supports binary and
+multiple treatment groups with average treatment effect on the combined
+full population (ATE), average treatment effect on the treated or target
+group (ATT), and overlap weighting estimands. Includes symmetric (Crump)
+and asymmetric (Sturmer) trimming options for extreme propensity scores.
+Variance estimation via analytical M-estimation or bootstrap. Methods
+based on Cheng et al. (2022) <doi:10.1093/aje/kwac043> and Li & Li (2019)
+<doi:10.1214/19-AOAS1282>.
 
 %prep
 %setup -q -c -n %{packname}

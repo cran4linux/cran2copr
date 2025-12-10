@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecotrends
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal Trends in Ecological Niche Models
 
@@ -19,13 +19,11 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fuzzySim >= 4.26
 BuildRequires:    R-CRAN-modEvA >= 3.21
-BuildRequires:    R-CRAN-collinear >= 2.0.0
 BuildRequires:    R-CRAN-terra >= 1.4.19
 BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-CRAN-trend 
 Requires:         R-CRAN-fuzzySim >= 4.26
 Requires:         R-CRAN-modEvA >= 3.21
-Requires:         R-CRAN-collinear >= 2.0.0
 Requires:         R-CRAN-terra >= 1.4.19
 Requires:         R-CRAN-maxnet 
 Requires:         R-CRAN-trend 

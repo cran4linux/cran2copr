@@ -1,49 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gdim
-%global packver   0.1.1
+%global packname  SIP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Graph Dimension using Cross-Validated Eigenvalues
+Summary:          Single-Iteration Permutation for Large-Scale Biobank Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-irlba 
-Requires:         R-methods 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Cross-validated eigenvalues are estimated by splitting a graph into two
-parts, the training and the test graph. The training graph is used to
-estimate eigenvectors, and the test graph is used to evaluate the
-correlation between the training eigenvectors and the eigenvectors of the
-test graph. The correlations follow a simple central limit theorem that
-can be used to estimate graph dimension via hypothesis testing, see Chen
-et al. (2021) <doi:10.48550/arXiv.2108.03336> for details.
+A single, phenome-wide permutation of large-scale biobank data. When a
+large number of phenotypes are analyzed in parallel, a single permutation
+across all phenotypes followed by genetic association analyses of the
+permuted data enables estimation of false discovery rates (FDRs) across
+the phenome. These FDR estimates provide a significance criterion for
+interpreting genetic associations in a biobank context. For the basic
+permutation of unrelated samples, this package takes a sample-by-variable
+file with ID, genotypic covariates, phenotypic covariates, and phenotypes
+as input. For data with related samples, it also takes a file with sample
+pair-wise identity-by-descent information. The function outputs a permuted
+sample-by-variable file ready for genome-wide association analysis. See
+Annis et al. (2021) <doi:10.21203/rs.3.rs-873449/v1> for details.
 
 %prep
 %setup -q -c -n %{packname}

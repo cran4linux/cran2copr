@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scCustomize
-%global packver   3.2.2
+%global packver   3.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Visualizations & Functions for Streamlined Analyses of Single Cell Sequencing
 
@@ -39,6 +39,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mcprogress 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-paletteer 
 BuildRequires:    R-CRAN-patchwork 
@@ -72,6 +73,7 @@ Requires:         R-grid
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mcprogress 
 Requires:         R-methods 
 Requires:         R-CRAN-paletteer 
 Requires:         R-CRAN-patchwork 

@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.linters
-%global packver   0.10.7
+%global packname  crownsegmentr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linters for 'box' Modules
+Summary:          Tree Crown Segmentation in Airborne LiDAR Point Clouds
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lintr >= 3.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
-Requires:         R-CRAN-lintr >= 3.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-lidR >= 4.0.0
+BuildRequires:    R-CRAN-BH >= 1.75.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-lidR >= 4.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dbscan 
+Requires:         R-methods 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
 
 %description
-Static code analysis of 'box' modules. The package enhances code quality
-by providing linters that check for common issues, enforce best practices,
-and ensure consistent coding standards.
+Provides a function that performs the adaptive mean shift algorithm for
+individual tree crown delineation in 3D point clouds as proposed by Ferraz
+et al. (2016) <doi:10.1016/j.rse.2016.05.028>, as well as supporting
+functions.
 
 %prep
 %setup -q -c -n %{packname}

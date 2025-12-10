@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robustHD
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Methods for High-Dimensional Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-perry >= 0.3.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-robustbase >= 0.9.5
@@ -33,6 +34,7 @@ Requires:         R-CRAN-perry >= 0.3.0
 Requires:         R-CRAN-MASS 
 Requires:         R-grDevices 
 Requires:         R-parallel 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 

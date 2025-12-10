@@ -1,49 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gdim
-%global packver   0.1.1
+%global packname  SSLfmm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Graph Dimension using Cross-Validated Eigenvalues
+Summary:          Semi-Supervised Learning under a Mixed-Missingness Mechanism in Finite Mixture Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-irlba 
-Requires:         R-methods 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Cross-validated eigenvalues are estimated by splitting a graph into two
-parts, the training and the test graph. The training graph is used to
-estimate eigenvectors, and the test graph is used to evaluate the
-correlation between the training eigenvectors and the eigenvectors of the
-test graph. The correlations follow a simple central limit theorem that
-can be used to estimate graph dimension via hypothesis testing, see Chen
-et al. (2021) <doi:10.48550/arXiv.2108.03336> for details.
+Implements a semi-supervised learning framework for finite mixture models
+under a mixed-missingness mechanism. The approach models both missing
+completely at random (MCAR) and entropy-based missing at random (MAR)
+processes using a logistic–entropy formulation. Estimation is carried out
+via an Expectation–-Conditional Maximisation (ECM) algorithm with robust
+initialisation routines for stable convergence. The methodology relates to
+the statistical perspective and informative missingness behaviour
+discussed in Ahfock and McLachlan (2020) <doi:10.1007/s11222-020-09971-5>
+and Ahfock and McLachlan (2023) <doi:10.1016/j.ecosta.2022.03.007>. The
+package provides functions for data simulation, model estimation,
+prediction, and theoretical Bayes error evaluation for analysing partially
+labelled data under a mixed-missingness mechanism.
 
 %prep
 %setup -q -c -n %{packname}

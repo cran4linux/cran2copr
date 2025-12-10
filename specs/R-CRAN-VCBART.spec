@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.linters
-%global packver   0.10.7
+%global packname  VCBART
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linters for 'box' Modules
+Summary:          Fit Varying Coefficient Models with Bayesian Additive Regression Trees
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lintr >= 3.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
-Requires:         R-CRAN-lintr >= 3.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
 
 %description
-Static code analysis of 'box' modules. The package enhances code quality
-by providing linters that check for common issues, enforce best practices,
-and ensure consistent coding standards.
+Fits linear varying coefficient (VC) models, which assert a linear
+relationship between an outcome and several covariates but allow that
+relationship (i.e., the coefficients or slopes in the linear regression)
+to change as functions of additional variables known as effect modifiers,
+by approximating the coefficient functions with Bayesian Additive
+Regression Trees. Implements a Metropolis-within-Gibbs sampler to simulate
+draws from the posterior over coefficient function evaluations. VC models
+with independent observations or repeated observations can be fit. For
+more details see Deshpande et al. (2024) <doi:10.1214/24-BA1470>.
 
 %prep
 %setup -q -c -n %{packname}

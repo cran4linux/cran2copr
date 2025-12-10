@@ -1,49 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.linters
-%global packver   0.10.7
+%global packname  gvcAnalyzer
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linters for 'box' Modules
+Summary:          Global Value Chain Decomposition for Value-Added Trade
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lintr >= 3.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
-Requires:         R-CRAN-lintr >= 3.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Static code analysis of 'box' modules. The package enhances code quality
-by providing linters that check for common issues, enforce best practices,
-and ensure consistent coding standards.
+Provides tools for decomposing Global Value Chain (GVC) participation and
+value-added trade. It implements the frameworks proposed by Borin and
+Mancini (2023) 10.1080/09535314.2022.2153221> for source-based and
+sink-based decompositions, and by Borin, Mancini, and Taglioni (2025)
+10.1093/wber/lhaf017> for tripartite and output-based GVC measures.
 
 %prep
 %setup -q -c -n %{packname}

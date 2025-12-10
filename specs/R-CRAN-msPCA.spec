@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kDGLM
-%global packver   1.2.7
+%global packname  msPCA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of Dynamic Generalized Linear Models
+Summary:          Sparse Principal Component Analysis with Multiple Principal Components
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast >= 2.0.8
-BuildRequires:    R-CRAN-extraDistr >= 1.9.1
-BuildRequires:    R-CRAN-generics >= 0.1.3
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Rfast >= 2.0.8
-Requires:         R-CRAN-extraDistr >= 1.9.1
-Requires:         R-CRAN-generics >= 0.1.3
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.11
 
 %description
-Provide routines for filtering and smoothing, forecasting, sampling and
-Bayesian analysis of Dynamic Generalized Linear Models using the
-methodology described in Alves et al.
-(2024)<doi:10.48550/arXiv.2201.05387> and dos Santos Jr. et al.
-(2024)<doi:10.48550/arXiv.2403.13069>.
+Implements an algorithm for computing multiple sparse principal components
+of a dataset. The method is based on Cory-Wright and Pauphilet "Sparse PCA
+with Multiple Principal Components" (2022)
+<doi:10.48550/arXiv.2209.14790>. The algorithm uses an iterative deflation
+heuristic with a truncated power method applied at each iteration to
+compute sparse principal components with controlled sparsity.
 
 %prep
 %setup -q -c -n %{packname}

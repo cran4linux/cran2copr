@@ -1,49 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.linters
-%global packver   0.10.7
+%global packname  RealSurvSim
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linters for 'box' Modules
+Summary:          Simulate Survival Data
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lintr >= 3.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
-Requires:         R-CRAN-lintr >= 3.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-kdensity 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-univariateML 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-FAdist 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-kdensity 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-univariateML 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-stats 
+Requires:         R-CRAN-FAdist 
 
 %description
-Static code analysis of 'box' modules. The package enhances code quality
-by providing linters that check for common issues, enforce best practices,
-and ensure consistent coding standards.
+Provides tools for simulating synthetic survival data using a variety of
+methods, including kernel density estimation, parametric distribution
+fitting, and bootstrap resampling techniques for a desired sample size.
 
 %prep
 %setup -q -c -n %{packname}

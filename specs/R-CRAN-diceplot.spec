@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diceplot
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Categorical Data Visualization
 
@@ -42,10 +42,13 @@ Requires:         R-CRAN-ggrepel
 
 %description
 Easy visualization for datasets with more than two categorical variables
-and additional continuous variables. 'diceplot' is particularly useful for
-exploring complex categorical data in the context of pathway analysis
-across multiple conditions. For a detailed documentation please visit
-<https://dice-and-domino-plot.readthedocs.io/en/latest/>.
+and additional continuous variables. The package is particularly useful
+for exploring complex categorical data in the context of pathway analysis
+across multiple conditions. This package is now in maintenance-only mode
+and kept for legacy compatibility; for new projects and active
+development, please use the successor package 'ggdiceplot' (see
+<https://github.com/maflot/ggdiceplot> and
+<https://dice-and-domino-plot.readthedocs.io/en/latest/>).
 
 %prep
 %setup -q -c -n %{packname}

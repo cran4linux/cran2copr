@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CalibrationCurves
-%global packver   2.0.7
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration Performance
 
@@ -30,6 +30,13 @@ BuildRequires:    R-CRAN-bookdown
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-timeROC 
 BuildRequires:    R-CRAN-riskRegression 
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-merTools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-rms >= 7.0.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
@@ -43,11 +50,19 @@ Requires:         R-CRAN-bookdown
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-timeROC 
 Requires:         R-CRAN-riskRegression 
+Requires:         R-CRAN-meta 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-merTools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
 Plots calibration curves and computes statistics for assessing calibration
-performance. See De Cock Campo (2023) <doi:10.48550/arXiv.2309.08559> and
-Van Calster et al. (2016) <doi:10.1016/j.jclinepi.2015.12.005>.
+performance. See Lasai et al. (2025) <doi:10.48550/arXiv.2503.08389>, De
+Cock Campo (2023) <doi:10.48550/arXiv.2309.08559> and Van Calster et al.
+(2016) <doi:10.1016/j.jclinepi.2015.12.005>.
 
 %prep
 %setup -q -c -n %{packname}

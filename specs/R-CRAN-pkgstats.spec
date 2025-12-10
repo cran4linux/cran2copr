@@ -1,49 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.linters
-%global packver   0.10.7
+%global packname  pkgstats
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linters for 'box' Modules
+Summary:          Metrics of R Packages
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lintr >= 3.1.0
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ami 
+BuildRequires:    R-CRAN-brio 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
-Requires:         R-CRAN-lintr >= 3.1.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-ami 
+Requires:         R-CRAN-brio 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-memoise 
+Requires:         R-methods 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-sys 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
 
 %description
-Static code analysis of 'box' modules. The package enhances code quality
-by providing linters that check for common issues, enforce best practices,
-and ensure consistent coding standards.
+Static code analyses for R packages using the external code-tagging
+libraries 'ctags' and 'gtags'. Static analyses enable packages to be
+analysed very quickly, generally a couple of seconds at most. The package
+also provides access to a database generating by applying the main
+function to the full 'CRAN' archive, enabling the statistical properties
+of any package to be compared with all other 'CRAN' packages.
 
 %prep
 %setup -q -c -n %{packname}

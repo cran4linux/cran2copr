@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chores
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Large Language Model Assistants
 
@@ -21,18 +21,18 @@ BuildRequires:    R-CRAN-cli >= 3.6.3
 BuildRequires:    R-CRAN-shiny >= 1.9.1
 BuildRequires:    R-CRAN-glue >= 1.8.0
 BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-ellmer >= 0.4.0
+BuildRequires:    R-CRAN-streamy >= 0.2.1
 BuildRequires:    R-CRAN-rstudioapi >= 0.17.1
 BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
-BuildRequires:    R-CRAN-ellmer 
-BuildRequires:    R-CRAN-streamy 
 Requires:         R-CRAN-cli >= 3.6.3
 Requires:         R-CRAN-shiny >= 1.9.1
 Requires:         R-CRAN-glue >= 1.8.0
 Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-ellmer >= 0.4.0
+Requires:         R-CRAN-streamy >= 0.2.1
 Requires:         R-CRAN-rstudioapi >= 0.17.1
 Requires:         R-CRAN-miniUI >= 0.1.1.1
-Requires:         R-CRAN-ellmer 
-Requires:         R-CRAN-streamy 
 
 %description
 Provides a collection of ergonomic large language model assistants

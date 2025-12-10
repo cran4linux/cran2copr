@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmrm
-%global packver   0.3.15
+%global packver   0.3.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.15
+Version:          0.3.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed Models for Repeated Measures
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-checkmate >= 2.0
 BuildRequires:    R-CRAN-TMB >= 1.9.1
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-checkmate >= 2.0
 Requires:         R-CRAN-TMB >= 1.9.1
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-nlme 

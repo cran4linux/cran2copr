@@ -1,49 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.linters
-%global packver   0.10.7
+%global packname  ReliaGrowR
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linters for 'box' Modules
+Summary:          Reliability Growth Analysis
 
-License:          LGPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lintr >= 3.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
-Requires:         R-CRAN-lintr >= 3.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-plumber 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-plumber 
+Requires:         R-CRAN-segmented 
+Requires:         R-stats 
 
 %description
-Static code analysis of 'box' modules. The package enhances code quality
-by providing linters that check for common issues, enforce best practices,
-and ensure consistent coding standards.
+Modeling and plotting functions for Reliability Growth Analysis (RGA).
+Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
+Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
+Piecewise Weibull NHPP by Guo et al. (2010)
+<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
+Point Detection based on the 'segmented' package by Muggeo (2024)
+<https://cran.r-project.org/package=segmented>.
 
 %prep
 %setup -q -c -n %{packname}

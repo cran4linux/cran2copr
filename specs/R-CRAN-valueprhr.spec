@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  drugprepr
-%global packver   0.0.4
+%global __requires_exclude ^libmpi
+%global packname  valueprhr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prepare Electronic Prescription Record Data to Estimate Drug Exposure
+Summary:          Value-Price Analysis with Bayesian and Panel Data Methods
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-doseminer 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-doseminer 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-DescTools 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Metrics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-Metrics 
 
 %description
-Prepare prescription data (such as from the Clinical Practice Research
-Datalink) into an analysis-ready format, with start and stop dates for
-each patient's prescriptions. Based on Pye et al (2018)
-<doi:10.1002/pds.4440>.
+Provides tools for analyzing the relationship between direct prices (based
+on labor values) and prices of production using Bayesian generalized
+linear models, panel data methods, partial least squares regression,
+canonical correlation analysis, and panel vector autoregression. Includes
+functions for model comparison, out-of-sample validation, and structural
+break detection. Here, methods use raw accounting data with explicit
+temporal structure, following Gomez Julian (2023)
+<doi:10.17605/OSF.IO/7J8KF> and standard econometric techniques for panel
+data analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StableEstim
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate the Four Parameters of Stable Laws using Different Methods
 
@@ -21,25 +21,19 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-fBasics 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-stabledist 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-fBasics 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-stabledist 
-Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-Rdpack 
 
 %description
