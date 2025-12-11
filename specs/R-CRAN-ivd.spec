@@ -1,47 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  twbparser
-%global packver   0.3.1
+%global packname  ivd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'Tableau' Workbooks into Functional Data
+Summary:          Individual Variance Detection
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-nimble >= 1.1.0
+BuildRequires:    R-CRAN-coda >= 0.19.4
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-nimble >= 1.1.0
+Requires:         R-CRAN-coda >= 0.19.4
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-utils 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rstantools
 
 %description
-High-performance parsing of 'Tableau' workbook files into tidy data frames
-and dependency graphs for other visualization tools like R 'Shiny' or
-'Power BI' replication.
+Fit mixed-effects location scale models with spike-and-slab priors on the
+location random effects to identify units with unusual residual variances.
+The method is described in detail in Carmo, Williams and Rast (2025)
+<https://osf.io/sh6ne>.
 
 %prep
 %setup -q -c -n %{packname}

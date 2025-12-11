@@ -1,47 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  twbparser
-%global packver   0.3.1
+%global packname  factree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'Tableau' Workbooks into Functional Data
+Summary:          Factor-Augmented Clustering Tree
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-High-performance parsing of 'Tableau' workbook files into tidy data frames
-and dependency graphs for other visualization tools like R 'Shiny' or
-'Power BI' replication.
+Implements the Factor-Augmented Clustering Tree (FACT) algorithm for
+clustering time series data. The method constructs a classification tree
+where splits are determined by covariates, and the splitting criterion is
+based on a group factor model representation of the time series within
+each node. Both threshold-based and permutation-based tests are supported
+for splitting decisions, with an option for parallel computation. For
+methodological details, see Hu, Li, Luo, and Wang (2025, in preparation),
+Factor-Augmented Clustering Tree for Time Series.
 
 %prep
 %setup -q -c -n %{packname}

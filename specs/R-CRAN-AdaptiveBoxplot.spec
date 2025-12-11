@@ -1,47 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  twbparser
-%global packver   0.3.1
+%global packname  AdaptiveBoxplot
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'Tableau' Workbooks into Functional Data
+Summary:          FDR(BH) Boxplot and FWER(Holm) Boxplot
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xml2 
 
 %description
-High-performance parsing of 'Tableau' workbook files into tidy data frames
-and dependency graphs for other visualization tools like R 'Shiny' or
-'Power BI' replication.
+Implements a framework for creating boxplots where the whisker lengths are
+determined by formal multiple testing procedures, making them adaptive to
+sample size and data characteristics. The function bh_boxplot() generates
+boxplots that control the False Discovery Rate (FDR) via the
+Benjamini-Hochberg procedure, and the function holm_boxplot() generates
+boxplots that control the Family-Wise Error Rate (FWER) via the Holm
+procedure. The methods are based on the framework in Gang, Lin, and Tong
+(2025) <doi:10.48550/arXiv.2510.20259>.
 
 %prep
 %setup -q -c -n %{packname}

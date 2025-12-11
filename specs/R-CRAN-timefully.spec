@@ -1,47 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  twbparser
-%global packver   0.3.1
+%global packname  timefully
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'Tableau' Workbooks into Functional Data
+Summary:          Time-Series Management Made Easy
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dygraphs 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dygraphs 
 
 %description
-High-performance parsing of 'Tableau' workbook files into tidy data frames
-and dependency graphs for other visualization tools like R 'Shiny' or
-'Power BI' replication.
+Manage time-series data frames across time zones, resolutions, and date
+ranges, while filling gaps using weekday/hour patterns or simple fill
+helpers or plotting them interactively. It is designed to work seamlessly
+with the tidyverse and dygraphs environments.
 
 %prep
 %setup -q -c -n %{packname}

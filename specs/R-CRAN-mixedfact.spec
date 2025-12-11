@@ -1,47 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  twbparser
-%global packver   0.3.1
+%global packname  mixedfact
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse 'Tableau' Workbooks into Functional Data
+Summary:          Generate and Analyze Mixed-Level Blocked Factorial Designs
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xml2 
 
 %description
-High-performance parsing of 'Tableau' workbook files into tidy data frames
-and dependency graphs for other visualization tools like R 'Shiny' or
-'Power BI' replication.
+Generates blocked designs for mixed-level factorial experiments for a
+given block size. Internally, it uses finite-field based, collapsed, and
+heuristic methods to construct block structures that minimize confounding
+between block effects and factorial effects. The package creates the full
+treatment combination table, partitions runs into blocks, and computes
+detailed confounding diagnostics for main effects and two-factor
+interactions. It also checks orthogonal factorial structure (OFS) and
+computes efficiencies of factorial effects using the methods of Nair and
+Rao (1948) <doi:10.1111/j.2517-6161.1948.tb00005.x>. When OFS is not
+satisfied but the design has equal treatment replications and equal block
+sizes, a general method based on the C-matrix and custom contrast vectors
+is used to compute efficiencies. The output includes the generated design,
+finite-field metadata, confounding summaries, OFS diagnostics, and
+efficiency results.
 
 %prep
 %setup -q -c -n %{packname}

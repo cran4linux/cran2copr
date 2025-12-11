@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  networkscaleup
-%global packver   0.1-2
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Scale-Up Models for Aggregated Relational Data
 
@@ -14,33 +14,62 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-rstan >= 2.26.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-LaplacesDemon >= 16.1.6
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-trialr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-RMTstat 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.26.0
-Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-LaplacesDemon >= 16.1.6
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-graphics 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-trialr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-RMTstat 
 Requires:         R-CRAN-rstantools
 
 %description
 Provides a variety of Network Scale-up Models for researchers to analyze
-Aggregated Relational Data, mostly through the use of Stan. In this
-version, the package implements models from Laga, I., Bao, L., and Niu, X
-(2021) <arXiv:2109.10204>, Zheng, T., Salganik, M. J., and Gelman, A.
-(2006) <doi:10.1198/016214505000001168>, Killworth, P. D., Johnsen, E. C.,
-McCarty, C., Shelley, G. A., and Bernard, H. R. (1998)
+Aggregated Relational Data, through the use of Stan and 'glmmTMB'. Also
+provides tools for model checking In this version, the package implements
+models from Laga, I., Bao, L., and Niu, X (2023)
+<doi:10.1080/01621459.2023.2165929>, Zheng, T., Salganik, M. J., and
+Gelman, A. (2006) <doi:10.1198/016214505000001168>, Killworth, P. D.,
+Johnsen, E. C., McCarty, C., Shelley, G. A., and Bernard, H. R. (1998)
 <doi:10.1016/S0378-8733(96)00305-X>, and Killworth, P. D., McCarty, C.,
 Bernard, H. R., Shelley, G. A., and Johnsen, E. C. (1998)
 <doi:10.1177/0193841X9802200205>.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  targeted
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Targeted Inference
 
@@ -16,31 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-lava >= 1.8.0
+BuildRequires:    R-CRAN-lava >= 1.8.2
+BuildRequires:    R-CRAN-mets >= 1.3.8
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mets 
-BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-lava >= 1.8.0
+Requires:         R-CRAN-lava >= 1.8.2
+Requires:         R-CRAN-mets >= 1.3.8
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-future.apply 
 Requires:         R-methods 
-Requires:         R-CRAN-mets 
-Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-rlang 

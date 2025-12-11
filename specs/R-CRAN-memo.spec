@@ -1,28 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  memo
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          In-Memory Caching of Repeated Computations (Memoization)
+Summary:          Hashmaps and Memoization (in-Memory Caching of Repeated Computations)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-digest 
 
 %description
 A simple in-memory, LRU cache that can be wrapped around any function to
 memoize it. The cache is keyed on a hash of the input data (using
-'digest') or on pointer equivalence.
+'digest') or on pointer equivalence. Also includes a generic hashmap
+object that can key on any object type.
 
 %prep
 %setup -q -c -n %{packname}

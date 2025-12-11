@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gam
-%global packver   1.22-6
+%global packver   1.22-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.22.6
+Version:          1.22.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Additive Models
 

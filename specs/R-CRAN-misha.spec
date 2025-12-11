@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  misha
-%global packver   4.3.12
+%global packver   5.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.12
+Version:          5.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Analysis of Genomic Data
 
@@ -18,9 +18,15 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-ps 
+BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-ps 
+Requires:         R-parallel 
 Requires:         R-utils 
 
 %description

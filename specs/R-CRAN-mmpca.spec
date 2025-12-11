@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmpca
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrative Analysis of Several Related Data Matrices
 
@@ -28,7 +28,7 @@ A generalization of principal component analysis for integrative analysis.
 The method finds principal components that describe single matrices or
 that are common to several matrices. The solutions are sparse. Rank of
 solutions is automatically selected using cross validation. The method is
-described in Kallus et al. (2019) <arXiv:1911.04927>.
+described in Kallus et al. (2019) <doi:10.48550/arXiv.1911.04927>.
 
 %prep
 %setup -q -c -n %{packname}

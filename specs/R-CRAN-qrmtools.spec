@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qrmtools
-%global packver   0.0-18
+%global packver   0.0-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.18
+Version:          0.0.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Quantitative Risk Management
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.2.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-quantmod 
-BuildRequires:    R-CRAN-Quandl 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-methods 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-ADGofTest
 Requires:         R-graphics 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-quantmod 
-Requires:         R-CRAN-Quandl 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-xts 
 Requires:         R-methods 

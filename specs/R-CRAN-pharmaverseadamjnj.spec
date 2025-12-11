@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pharmaverseadamjnj
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          J&J Innovative Medicine ADaM Test Data
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pharmaverseadam 
-Requires:         R-CRAN-pharmaverseadam 
+BuildRequires:    R-CRAN-pharmaverseadam >= 1.2.0
+Requires:         R-CRAN-pharmaverseadam >= 1.2.0
 
 %description
 A set of Analysis Data Model (ADaM) datasets constructed by modifying the

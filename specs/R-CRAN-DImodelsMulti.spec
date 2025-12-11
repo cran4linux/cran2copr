@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DImodelsMulti
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Multivariate Diversity-Interactions Models with Repeated Measures
 
@@ -25,6 +25,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-DImodels 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
@@ -33,6 +34,7 @@ Requires:         R-stats
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-shiny 
 
 %description
 An add-on package to 'DImodels' for the fitting of biodiversity and

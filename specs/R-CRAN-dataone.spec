@@ -1,55 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  omopgenerics
-%global packver   1.3.5
+%global packname  dataone
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods and Classes for the OMOP Common Data Model
+Summary:          R Interface to the 'DataONE' REST API
 
-License:          Apache License (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.5.1
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-XML >= 3.95.0.1
+BuildRequires:    R-CRAN-datapack >= 1.4.0
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-dbplyr >= 2.5.1
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-XML >= 3.95.0.1
+Requires:         R-CRAN-datapack >= 1.4.0
+Requires:         R-CRAN-httr 
 Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides definitions of core classes and methods used by analytic
-pipelines that query the OMOP (Observational Medical Outcomes Partnership)
-common data model.
+Provides read and write access to data and metadata from the 'DataONE'
+network <https://www.dataone.org> of data repositories. Each 'DataONE'
+repository implements a consistent repository application programming
+interface. Users call methods in R to access these remote repository
+functions, such as methods to query the metadata catalog, get access to
+metadata for particular data packages, and read the data objects from the
+data repository. Users can also insert and update data objects on
+repositories that support these methods.
 
 %prep
 %setup -q -c -n %{packname}

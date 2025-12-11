@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arima2
-%global packver   3.4.2
+%global packver   3.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.2
+Version:          3.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood Based Inference for ARIMA Modeling
 
@@ -32,7 +32,7 @@ package. This package enables proper optimization of model likelihoods,
 which is a necessary condition for performing likelihood ratio tests. This
 package relies heavily on the source code of the arima() function of the
 'stats' package. For more information, please see Jesse Wheeler and Edward
-L. Ionides (2025) <doi:10.1371/journal.pcbi.1012032>.
+L. Ionides (2025) <doi:10.1371/journal.pone.0333993>.
 
 %prep
 %setup -q -c -n %{packname}
