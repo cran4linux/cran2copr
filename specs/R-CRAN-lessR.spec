@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lessR
-%global packver   4.4.5
+%global packver   4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.5
+Version:          4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Less Code, More Results
+Summary:          Less Code with More Comprehensive Results
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-plotly >= 4.11.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -35,6 +36,10 @@ BuildRequires:    R-CRAN-kableExtra
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-conflicted 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-plotly >= 4.11.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -53,22 +58,25 @@ Requires:         R-CRAN-kableExtra
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-conflicted 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
 
 %description
 Each function replaces multiple standard R functions. For example, two
 function calls, Read() and CountAll(), generate summary statistics for all
-variables in the data frame, plus histograms and bar charts as
-appropriate. Other functions provide for summary statistics via pivot
-tables, a comprehensive regression analysis, ANOVA and t-test,
-visualizations including the Violin/Box/Scatter plot for a numerical
-variable, bar chart, histogram, box plot, density curves, calibrated power
-curve, reading multiple data formats with the same function call, variable
-labels, time series with aggregation and forecasting, color themes, and
-Trellis (facet) graphics. Also includes a confirmatory factor analysis of
-multiple indicator measurement models, pedagogical routines for data
-simulation such as for the Central Limit Theorem, generation and rendering
-of regression instructions for interpretative output, and interactive
-visualizations.
+variables in the data frame, plus histograms and bar charts. Other
+functions provide data aggregation via pivot tables; comprehensive
+regression, ANOVA, and t-test; visualizations including integrated
+Violin/Box/Scatter plot for a numerical variable, bar chart, histogram,
+box plot, density curves, calibrated power curve; reading multiple data
+formats with the same call; variable labels; time series with aggregation
+and forecasting; color themes; and Trellis (facet) graphics. Also includes
+a confirmatory factor analysis of multiple-indicator measurement models,
+pedagogical routines for data simulation (e.g., Central Limit Theorem),
+generation and rendering of regression instructions for interpretative
+output, and both interactive construction of visualizations and
+interactive visualizations with plotly.
 
 %prep
 %setup -q -c -n %{packname}

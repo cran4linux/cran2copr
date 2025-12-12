@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codalm
-%global packver   0.1.3
+%global packname  fjoin
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation-Free Linear Regression for Compositional Outcomes and Predictors
+Summary:          Data Frame Joins Leveraging 'data.table'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SQUAREM >= 2020
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-SQUAREM >= 2020
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Implements the expectation-maximization (EM) algorithm as described in
-Fiksel et al. (2022) <doi:10.1111/biom.13465> for transformation-free
-linear regression for compositional outcomes and predictors.
+Extends 'data.table' join functionality, lets it work with any data frame
+class, and provides a familiar 'x'/'y'-style interface, enabling broad use
+across R. Offers NA-safe matching by default, on-the-fly column selection,
+multiple match-handling on both sides, 'x' or 'y' row order, and a row
+origin indicator. Performs inner, left, right, full, semi- and anti-joins
+with equality and inequality conditions, plus cross joins. Specific
+support for 'data.table', (grouped) tibble, and 'sf'/'sfc' objects and
+their attributes; returns a plain data frame otherwise. Avoids
+data-copying of inputs and outputs. Allows displaying the 'data.table'
+code instead of (or as well as) executing it.
 
 %prep
 %setup -q -c -n %{packname}

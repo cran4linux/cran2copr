@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codalm
-%global packver   0.1.3
+%global packname  nadaverse
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation-Free Linear Regression for Compositional Outcomes and Predictors
+Summary:          Browse Microdata Catalogs Using 'NADA' REST API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SQUAREM >= 2020
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-SQUAREM >= 2020
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
 
 %description
-Implements the expectation-maximization (EM) algorithm as described in
-Fiksel et al. (2022) <doi:10.1111/biom.13465> for transformation-free
-linear regression for compositional outcomes and predictors.
+Provides a unified, programmatic interface for searching, browsing, and
+retrieving metadata from various international organization data
+repositories that use the National Data Archive ('NADA') software, such as
+the World Bank, 'FAO', and the International Household Survey Network
+('IHSN'). Functions allow users to discover available data collections,
+country codes, and access types, perform complex searches using keyword
+and spatial/temporal filters, and retrieve detailed study information,
+including file lists and variable-level data dictionaries. It simplifies
+access to microdata for researchers and policy analysts globally.
 
 %prep
 %setup -q -c -n %{packname}

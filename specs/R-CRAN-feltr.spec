@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  feltr
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the Felt API
 
@@ -14,11 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-httr2 
@@ -31,6 +32,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-httr2 
@@ -44,11 +46,11 @@ Requires:         R-CRAN-tidyr
 
 %description
 Upload, download, and edit internet maps with the Felt API
-(<https://feltmaps.notion.site/Felt-Public-API-reference-c01e0e6b0d954a678c608131b894e8e1>).
-Allows users to create new maps, edit existing maps, and extract data.
-Provides tools for working with layers, which represent geographic data,
-and elements, which are interactive annotations. Spatial data accessed
-from the API is transformed to work with 'sf'.
+(<https://developers.felt.com/rest-api/getting-started>). Allows users to
+create new maps, edit existing maps, and extract data. Provides tools for
+working with layers, which represent geographic data, and elements, which
+are interactive annotations. Spatial data accessed from the API is
+transformed to work with 'sf'.
 
 %prep
 %setup -q -c -n %{packname}

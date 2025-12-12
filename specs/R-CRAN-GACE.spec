@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bartCause
-%global packver   1.0-10
+%global packname  GACE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Inference using Bayesian Additive Regression Trees
+Summary:          Generalized Adaptive Capped Estimator for Time Series Forecasting
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbarts >= 0.9.16
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-dbarts >= 0.9.16
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
 Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Contains a variety of methods to generate typical causal inference
-estimates using Bayesian Additive Regression Trees (BART) as the
-underlying regression model (Hill (2012) <doi:10.1198/jcgs.2010.08162>).
+Provides deterministic forecasting for weekly, monthly, quarterly, and
+yearly time series using the Generalized Adaptive Capped Estimator. The
+method includes preprocessing for missing and extreme values, extraction
+of multiple growth components (including long-term, short-term, rolling,
+and drift-based signals), volatility-aware asymmetric capping, optional
+seasonal adjustment via damped and normalized seasonal factors, and a
+recursive forecast formulation with moderated growth. The package includes
+a user-facing forecasting interface and a plotting helper for
+visualization. Related forecasting background is discussed in Hyndman and
+Athanasopoulos (2021) <https://otexts.com/fpp3/> and Hyndman and Khandakar
+(2008) <doi:10.18637/jss.v027.i03>. The method extends classical
+extrapolative forecasting approaches and is suited for operational and
+business planning contexts where stability and interpretability are
+important.
 
 %prep
 %setup -q -c -n %{packname}

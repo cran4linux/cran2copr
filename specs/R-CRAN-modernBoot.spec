@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codalm
-%global packver   0.1.3
+%global packname  modernBoot
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation-Free Linear Regression for Compositional Outcomes and Predictors
+Summary:          Modern Resampling Methods: Bootstraps, Wild, Block, Permutation, and Selection Guidance
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SQUAREM >= 2020
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-SQUAREM >= 2020
+Requires:         R-stats 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 
 %description
-Implements the expectation-maximization (EM) algorithm as described in
-Fiksel et al. (2022) <doi:10.1111/biom.13465> for transformation-free
-linear regression for compositional outcomes and predictors.
+Implements modern resampling and permutation methods for robust
+statistical inference without restrictive parametric assumptions. Provides
+bias-corrected and accelerated (BCa) bootstrap (Efron and Tibshirani
+(1993) <doi:10.1201/9780429246593>), wild bootstrap for heteroscedastic
+regression (Liu (1988) <doi:10.1214/aos/1176351062>, Davidson and
+Flachaire (2008) <doi:10.1016/j.jeconom.2008.08.003>), block bootstrap for
+time series (Politis and Romano (1994)
+<doi:10.1080/01621459.1994.10476870>), and permutation-based multiple
+testing correction (Westfall and Young (1993) <ISBN:0-471-55761-7>).
+Methods handle non-normal data, heteroscedasticity, time series
+correlation, and multiple comparisons.
 
 %prep
 %setup -q -c -n %{packname}

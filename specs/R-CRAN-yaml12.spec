@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codalm
-%global packver   0.1.3
+%global packname  yaml12
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation-Free Linear Regression for Compositional Outcomes and Predictors
+Summary:          Fast 'YAML' 1.2 Parser and Formatter
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-SQUAREM >= 2020
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-SQUAREM >= 2020
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Implements the expectation-maximization (EM) algorithm as described in
-Fiksel et al. (2022) <doi:10.1111/biom.13465> for transformation-free
-linear regression for compositional outcomes and predictors.
+A fast, correct, safe, and ergonomic 'YAML' 1.2 parser and generator
+written in 'Rust'. Convert between 'YAML' and simple 'R' objects with full
+support for multi-document streams, tags, anchors, and aliases. Offers
+opt-in handlers for custom tag behavior and round-trips common 'R' data
+structures. Implements the 'YAML' 1.2.2 specification from the 'YAML'
+Language Development Team (2021) <https://yaml.org/spec/1.2.2/>. Proudly
+supported by Posit.
 
 %prep
 %setup -q -c -n %{packname}

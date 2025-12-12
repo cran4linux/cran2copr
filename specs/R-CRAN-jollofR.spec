@@ -1,58 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomander
-%global packver   2.5.2
+%global packname  jollofR
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic Tools for Studying Gerrymandering
+Summary:          Small Area Population Estimation by Demographics
 
-License:          MIT + file LICENCE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-baf 
-BuildRequires:    R-CRAN-censable 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dataverse 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geos 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tinytiger 
-Requires:         R-CRAN-baf 
-Requires:         R-CRAN-censable 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dataverse 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geos 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tinytiger 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-utils 
 
 %description
-A compilation of tools to complete common tasks for studying
-gerrymandering. This focuses on the geographic tool side of common
-problems, such as linking different levels of spatial units or estimating
-how to break up units. Functions exist for creating redistricting-focused
-data for the US.
+Automatic disaggregation of small1area population estimates by demographic
+groups (e.g., age, sex, race, marital status, educational level, etc)
+along with the estimates of uncertainty, using advanced Bayesian
+statistical modelling approaches based on integrated nested Laplace
+approximation (INLA) Rue et al. (2009)
+<doi:10.1111/j.1467-9868.2008.00700.x> and stochastic partial differential
+equation (SPDE) methods Lindgren et al. (2011)
+<doi:10.1111/j.1467-9868.2011.00777.x>. The package implements
+hierarchical Bayesian modeling frameworks for small area estimation as
+described in Leasure et al. (2020) <doi:10.1073/pnas.1913050117> and
+Nnanatu et al. (2025) <doi:10.1038/s41467-025-59862-4>.
 
 %prep
 %setup -q -c -n %{packname}

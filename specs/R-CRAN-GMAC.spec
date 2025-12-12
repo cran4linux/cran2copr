@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GMAC
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genomic Mediation Analysis with Adaptive Confounding Adjustment
 
@@ -21,8 +22,8 @@ Requires:         R-parallel
 
 %description
 Performs genomic mediation analysis with adaptive confounding adjustment
-(GMAC) proposed by Yang et al. (2017) <doi:10.1101/078683>. It implements
-large scale mediation analysis and adaptively selects potential
+(GMAC) proposed by Yang et al. (2017) <doi:10.1101/gr.216754.116>. It
+implements large scale mediation analysis and adaptively selects potential
 confounding variables to adjust for each mediation test from a pool of
 candidate confounders. The package is tailored for but not limited to
 genomic mediation analysis (e.g., cis-gene mediating trans-gene regulation

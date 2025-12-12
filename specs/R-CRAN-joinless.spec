@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codalm
-%global packver   0.1.3
+%global packname  joinless
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation-Free Linear Regression for Compositional Outcomes and Predictors
+Summary:          Exploratory Analysis of Relationships Between Variables
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SQUAREM >= 2020
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-SQUAREM >= 2020
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 
 %description
-Implements the expectation-maximization (EM) algorithm as described in
-Fiksel et al. (2022) <doi:10.1111/biom.13465> for transformation-free
-linear regression for compositional outcomes and predictors.
+Provides tools to explore and summarize relationship patterns between
+variables across one or multiple datasets. The package relies on efficient
+sampling strategies to estimate pairwise associations and supports quick
+exploratory data analysis for large or heterogeneous data sources.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codalm
-%global packver   0.1.3
+%global packname  survlab
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation-Free Linear Regression for Compositional Outcomes and Predictors
+Summary:          Survival Model-Based Imputation for Laboratory Non-Detect Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SQUAREM >= 2020
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-SQUAREM >= 2020
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-CRAN-survival >= 3.0.0
+BuildRequires:    R-CRAN-data.table >= 1.17.0
+BuildRequires:    R-CRAN-truncnorm >= 1.0.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival >= 3.0.0
+Requires:         R-CRAN-data.table >= 1.17.0
+Requires:         R-CRAN-truncnorm >= 1.0.0
+Requires:         R-stats 
 
 %description
-Implements the expectation-maximization (EM) algorithm as described in
-Fiksel et al. (2022) <doi:10.1111/biom.13465> for transformation-free
-linear regression for compositional outcomes and predictors.
+Implements survival-model-based imputation for censored laboratory
+measurements, including Tobit-type models with several distribution
+options. Suitable for data with values below detection or quantification
+limits, the package identifies the best-fitting distribution and produces
+realistic imputations that respect the censoring thresholds.
 
 %prep
 %setup -q -c -n %{packname}

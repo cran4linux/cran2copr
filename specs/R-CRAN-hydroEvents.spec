@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hydroEvents
-%global packver   0.12.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Event Statistics in Hydrologic Time Series
 
@@ -14,17 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
 Events from individual hydrologic time series are extracted, and events
-from multiple time series can be matched to each other. Tang, W. & Carey,
-S. K. (2017) <doi:10.1002/hyp.11185>. Kaur, S., Horne, A., Stewardson,
-M.J., Nathan, R., Costa, A.M., Szemis, J.M., & Webb, J.A. (2017)
-<doi:10.1080/24705357.2016.1276418>. Ladson, A., Brown, R., Neal, B., &
-Nathan, R. J. (2013) <doi:10.7158/W12-028.2013.17.1>.
+are matched across multiple time series. The package has been applied in
+studies such as Wasko and Guo (2022) <doi:10.1002/hyp.14563> and
+Mohammadpour Khoie, Guo and Wasko (2025)
+<doi:10.1016/j.envsoft.2025.106521>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vip
-%global packver   0.4.3
+%global packname  FRCI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Importance Plots
+Summary:          Fuzzy & Randomized Confidence Intervals
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 0.9.0
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-calculus 
+BuildRequires:    R-CRAN-ump 
+BuildRequires:    R-CRAN-zipfR 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yardstick 
-Requires:         R-CRAN-ggplot2 >= 0.9.0
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-calculus 
+Requires:         R-CRAN-ump 
+Requires:         R-CRAN-zipfR 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-yardstick 
 
 %description
-A general framework for constructing variable importance plots from
-various types of machine learning models in R. Aside from some standard
-model- specific variable importance measures, this package also provides
-model- agnostic approaches that can be applied to any supervised learning
-algorithm. These include 1) an efficient permutation-based variable
-importance measure, 2) variable importance based on Shapley values
-(Strumbelj and Kononenko, 2014) <doi:10.1007/s10115-013-0679-x>, and 3)
-the variance-based approach described in Greenwell et al. (2018)
-<doi:10.48550/arXiv.1805.04755>. A variance-based method for quantifying
-the relative strength of interaction effects is also included (see the
-previous reference for details).
+Contains the methods proposed by Geyer and Meeden
+(2005)<doi:10.1214/088342305000000340> and Trigo et al. (2025)
+<doi:10.47749/T/UNICAMP.2025.1500297> to construct fuzzy confidence
+intervals. Compute and plot the fuzzy membership functions of the methods,
+and the expected length compared with the infimum.
 
 %prep
 %setup -q -c -n %{packname}

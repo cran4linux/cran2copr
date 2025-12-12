@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codalm
-%global packver   0.1.3
+%global packname  svgedit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transformation-Free Linear Regression for Compositional Outcomes and Predictors
+Summary:          Insert Graphs, Images and Text in SVG Files
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SQUAREM >= 2020
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-Requires:         R-CRAN-SQUAREM >= 2020
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-base64enc 
 
 %description
-Implements the expectation-maximization (EM) algorithm as described in
-Fiksel et al. (2022) <doi:10.1111/biom.13465> for transformation-free
-linear regression for compositional outcomes and predictors.
+Edit SVG files created in 'Inkscape' by replacing placeholders (e.g. a
+rectangle element or {} in a text box) by 'ggplot2' objects, images or
+text. This helps automate the creation of figures with complex layouts.
 
 %prep
 %setup -q -c -n %{packname}

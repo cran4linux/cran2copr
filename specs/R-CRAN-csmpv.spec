@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csmpv
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biomarker Confirmation, Selection, Modelling, Prediction, and Validation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
@@ -71,7 +71,8 @@ al. (2010) <doi:10.18637/jss.v033.i01>, - Simon et al. (2011)
 <doi:10.18637/jss.v039.i05>, - Harrell (2023)
 <https://CRAN.R-project.org/package=rms>, - Harrell (2023)
 <https://CRAN.R-project.org/package=Hmisc>, - Chen and Guestrin (2016)
-<arXiv:1603.02754>, - Aoki et al. (2023) <doi:10.1200/JCO.23.01115>.
+<doi:10.48550/arXiv.1603.02754>, - Aoki et al. (2023)
+<doi:10.1200/JCO.23.01115>.
 
 %prep
 %setup -q -c -n %{packname}

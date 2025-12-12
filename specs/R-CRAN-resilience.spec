@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  resilience
-%global packver   2024.1.2
+%global packver   2025.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.2
+Version:          2025.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictors of Resilience to a Stressor in a Single-Arm Study
 
@@ -14,17 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nptest 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-nptest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-nptest 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-stats 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-nptest 
 
 %description
 Studies of resilience in older adults employ a single-arm design where
@@ -33,7 +37,7 @@ change versus baseline yields biased estimates due to
 regression-to-the-mean. This package provides a method to correct the
 bias. It also allows covariates to be included. The method implemented in
 the package is described in Varadhan, R., Zhu, J., and Bandeen-Roche, K
-(2023), Biostatistics (To appear).
+(2024), Biostatistics 25(4): 1094-1111.
 
 %prep
 %setup -q -c -n %{packname}

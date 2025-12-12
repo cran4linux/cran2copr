@@ -1,41 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bartCause
-%global packver   1.0-10
+%global packname  wsMed
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Causal Inference using Bayesian Additive Regression Trees
+Summary:          Within-Subject Mediation Analysis Using Structural Equation Modeling
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbarts >= 0.9.16
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-semmcci 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-semboottools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-dbarts >= 0.9.16
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-semmcci 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-semboottools 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Contains a variety of methods to generate typical causal inference
-estimates using Bayesian Additive Regression Trees (BART) as the
-underlying regression model (Hill (2012) <doi:10.1198/jcgs.2010.08162>).
+Within-subject mediation analysis using structural equation modeling.
+Examine how changes in an outcome variable between two conditions are
+mediated through one or more variables. Supports within-subject mediation
+analysis using the 'lavaan' package by Rosseel (2012)
+<doi:10.18637/jss.v048.i02>, and extends Monte Carlo confidence interval
+estimation to missing data scenarios using the 'semmcci' package by
+Pesigan and Cheung (2023) <doi:10.3758/s13428-023-02114-4>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vcdExtra
-%global packver   0.8-6
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'vcd' Extensions and Additions
 
@@ -17,36 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-gnm >= 1.0.3
 BuildRequires:    R-CRAN-vcd 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ca 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-rgl 
 Requires:         R-CRAN-gnm >= 1.0.3
 Requires:         R-CRAN-vcd 
-Requires:         R-grid 
 Requires:         R-CRAN-MASS 
 Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-ca 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rgl 
 
 %description
 Provides additional data sets, methods and documentation to complement the

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BayesNSGP
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Non-Stationary Gaussian Process Models
 
@@ -36,10 +37,10 @@ either deterministically (using covariates or basis functions) or
 stochastically (using approximate Gaussian processes). Stationary Gaussian
 processes are a special case of our methodology, and we furthermore
 implement approximate Gaussian process inference to account for very large
-spatial data sets (Finley, et al (2017) <arXiv:1702.00434v2>). Bayesian
-inference is carried out using Markov chain Monte Carlo methods via the
-'nimble' package, and posterior prediction for the Gaussian process at
-unobserved locations is provided as a post-processing step.
+spatial data sets (Finley, et al (2017) <doi:10.48550/arXiv.1702.00434>).
+Bayesian inference is carried out using Markov chain Monte Carlo methods
+via the "nimble" package, and posterior prediction for the Gaussian
+process at unobserved locations is provided as a post-processing step.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lime
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Interpretable Model-Agnostic Explanations
 
@@ -14,31 +14,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gower 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-glmnet 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-tools 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-assertthat 
-Requires:         R-methods 
-Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gower 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
+Requires:         R-tools 
 
 %description
 When building complex models, it is often difficult to explain why the
@@ -48,7 +54,7 @@ prediction. 'lime' (a port of the 'lime' 'Python' package) is a method for
 explaining the outcome of black box models by fitting a local model around
 the point in question an perturbations of this point. The approach is
 described in more detail in the article by Ribeiro et al. (2016)
-<arXiv:1602.04938>.
+<doi:10.48550/arXiv.1602.04938>.
 
 %prep
 %setup -q -c -n %{packname}

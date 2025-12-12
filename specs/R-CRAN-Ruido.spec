@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  radiant
-%global packver   1.6.6
+%global packname  Ruido
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Business Analytics using R and Shiny
+Summary:          Soundscape Background Noise, Power, and Saturation
 
-License:          AGPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.8.1
-BuildRequires:    R-CRAN-radiant.data >= 1.6.6
-BuildRequires:    R-CRAN-radiant.design >= 1.6.6
-BuildRequires:    R-CRAN-radiant.basics >= 1.6.6
-BuildRequires:    R-CRAN-radiant.model >= 1.6.6
-BuildRequires:    R-CRAN-radiant.multivariate >= 1.6.6
-BuildRequires:    R-CRAN-import >= 1.1.0
-Requires:         R-CRAN-shiny >= 1.8.1
-Requires:         R-CRAN-radiant.data >= 1.6.6
-Requires:         R-CRAN-radiant.design >= 1.6.6
-Requires:         R-CRAN-radiant.basics >= 1.6.6
-Requires:         R-CRAN-radiant.model >= 1.6.6
-Requires:         R-CRAN-radiant.multivariate >= 1.6.6
-Requires:         R-CRAN-import >= 1.1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-nortest 
+Requires:         R-methods 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-nortest 
 
 %description
-A platform-independent browser-based interface for business analytics in
-R, based on the shiny package. The application combines the functionality
-of 'radiant.data', 'radiant.design', 'radiant.basics', 'radiant.model',
-and 'radiant.multivariate'.
+Accessible and flexible implementation of three ecoacoustic indices that
+are less commonly available in existing R frameworks: Background Noise,
+Soundscape Power and Soundscape Saturation. The functions were design to
+accommodate a variety of sampling designs. Users can tailor calculations
+by specifying spectrogram time bin size, amplitude thresholds and
+normality tests. By simplifying computation and standardizing reproducible
+methods, the package aims to support ecoacoustics studies. For more
+details about the indices read Towsey (2014)
+<doi:10.1016/j.procs.2014.05.063> and Burivalova (2017)
+<doi:10.1111/cobi.12968>.
 
 %prep
 %setup -q -c -n %{packname}
