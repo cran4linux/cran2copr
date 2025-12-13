@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  timeSeries
-%global packver   4041.111
+%global packver   4052.112
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4041.111
+Version:          4052.112
 Release:          1%{?dist}%{?buildtag}
 Summary:          Financial Time Series Objects (Rmetrics)
 

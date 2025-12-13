@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GridOnClusters
-%global packver   0.3.2
+%global packname  gpyramid
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Joint Grid Discretization
+Summary:          Identify Efficient Crossing Schemes for Gene Pyramiding
 
-License:          LGPL (>= 3)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Ckmeans.1d.dp 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fossil 
-BuildRequires:    R-CRAN-dqrng 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Ckmeans.1d.dp 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fossil 
-Requires:         R-CRAN-dqrng 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ape 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ape 
 
 %description
-Discretize multivariate continuous data using a grid to capture the joint
-distribution that preserves clusters in original data. It can handle both
-labeled or unlabeled data. Both published methods (Wang et al 2020)
-<doi:10.1145/3388440.3412415> and new methods are included. Joint grid
-discretization can prepare data for model-free inference of association,
-function, or causality.
+Calculates the cost of crossing in terms of the number of individuals and
+generations, which is theoretically formulated by Servin et al. (2004)
+<DOI:10.1534/genetics.103.023358>. This package has been designed for
+selecting appropriate parental genotypes and find the most efficient
+crossing scheme for gene pyramiding, especially for plant breeding.
 
 %prep
 %setup -q -c -n %{packname}

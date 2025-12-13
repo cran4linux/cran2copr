@@ -1,43 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PriceIndices
-%global packver   0.2.6
+%global packname  nser
+%global packver   1.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.5.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Bilateral and Multilateral Price Indexes
+Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-reclin2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-strex 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-reclin2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-strex 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-googleVis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-xml2 
 
 %description
-Preparing a scanner data set for price dynamics calculations (data
-selecting, data classification, data matching, data filtering). Computing
-bilateral and multilateral indexes. For details on these methods see:
-Diewert and Fox (2020) <doi:10.1080/07350015.2020.1816176>, Białek (2019)
-<doi:10.2478/jos-2019-0014> or Białek (2020) <doi:10.2478/jos-2020-0037>.
+Download Current & Historical Bhavcopy. Get Live Market data from NSE
+India of Equities and Derivatives (F&O) segment. Data source
+<https://www.nseindia.com/>.
 
 %prep
 %setup -q -c -n %{packname}

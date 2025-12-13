@@ -1,46 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GridOnClusters
-%global packver   0.3.2
+%global packname  FactChar
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Joint Grid Discretization
+Summary:          Characterization and Diagnostic Tools for Factorial Block Designs
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Ckmeans.1d.dp 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fossil 
-BuildRequires:    R-CRAN-dqrng 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Ckmeans.1d.dp 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fossil 
-Requires:         R-CRAN-dqrng 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
-Discretize multivariate continuous data using a grid to capture the joint
-distribution that preserves clusters in original data. It can handle both
-labeled or unlabeled data. Both published methods (Wang et al 2020)
-<doi:10.1145/3388440.3412415> and new methods are included. Joint grid
-discretization can prepare data for model-free inference of association,
-function, or causality.
+Description: Provides comprehensive tools for analysing and characterizing
+mixed-level factorial designs arranged in blocks. Includes construction
+and validation of incidence structures, computation of C-matrices,
+evaluation of A-, D-, E-, and MV-efficiencies, checking of orthogonal
+factorial structure (OFS), diagnostics based on Hamming distance,
+discrepancy measures, B-criterion, Es^2 statistics, J2-distance and
+J2-efficiency, Phi-p optimality, and symmetry conditions for universal
+optimality. The methodological framework follows foundational work on
+factorial and mixed-level design assessment by Xu and Wu (2001)
+<doi:10.1214/aos/1013699993>, and Gupta (1983)
+<doi:10.1111/j.2517-6161.1983.tb01253.x>. These methods assist in
+selecting, comparing, and studying factorial block designs across a range
+of experimental situations.
 
 %prep
 %setup -q -c -n %{packname}

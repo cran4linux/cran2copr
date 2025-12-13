@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funcharts
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Control Charts
 
@@ -17,50 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-roahd 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-fda.usc 
+BuildRequires:    R-CRAN-roahd 
 BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-rofanova 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-scam 
+BuildRequires:    R-CRAN-fdapace 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rofanova 
 BuildRequires:    R-CRAN-spatstat.univar 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-patchwork 
 Requires:         R-parallel 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-roahd 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-fda.usc 
+Requires:         R-CRAN-roahd 
 Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-rofanova 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-scam 
+Requires:         R-CRAN-fdapace 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rofanova 
 Requires:         R-CRAN-spatstat.univar 
 Requires:         R-methods 
 
@@ -69,9 +63,10 @@ Provides functional control charts for statistical process monitoring of
 functional data, using the methods of Capezza et al. (2020)
 <doi:10.1002/asmb.2507>, Centofanti et al. (2021)
 <doi:10.1080/00401706.2020.1753581>, Capezza et al. (2024)
-<doi:10.1080/00401706.2024.2327346>, Capezza et al. (2024)
-<doi:10.1080/00224065.2024.2383674>, Centofanti et al. (2022)
-<doi:10.48550/arXiv.2205.06256>. The package is thoroughly illustrated in
+<doi:10.1080/00224065.2024.2383674>, Capezza et al. (2024)
+<doi:10.1080/00401706.2024.2327346>, Centofanti et al. (2025)
+<doi:10.1080/00224065.2024.2430978>, Capezza et al. (2025)
+<doi:10.48550/arXiv.2410.20138>. The package is thoroughly illustrated in
 the paper of Capezza et al (2023) <doi:10.1080/00224065.2023.2219012>.
 
 %prep

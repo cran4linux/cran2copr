@@ -1,46 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GridOnClusters
-%global packver   0.3.2
+%global packname  CHAPGWAS
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Joint Grid Discretization
+Summary:          CHAP-GWAS: Leveraging Chromosomal Haplotypes to Improve Genome-Wide Association Studies
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Ckmeans.1d.dp 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fossil 
-BuildRequires:    R-CRAN-dqrng 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Ckmeans.1d.dp 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fossil 
-Requires:         R-CRAN-dqrng 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-plyr 
 
 %description
-Discretize multivariate continuous data using a grid to capture the joint
-distribution that preserves clusters in original data. It can handle both
-labeled or unlabeled data. Both published methods (Wang et al 2020)
-<doi:10.1145/3388440.3412415> and new methods are included. Joint grid
-discretization can prepare data for model-free inference of association,
-function, or causality.
+CHAP-GWAS (Chromosomal Haplotype-Integrated Genome-Wide Association Study)
+provides a dynamically adaptive framework for genome-wide association
+studies (GWAS) that integrates chromosome-scale haplotypes with single
+nucleotide polymorphism (SNP) analysis. The method identifies and extends
+haplotype variants based on their phenotypic associations rather than
+predefined linkage blocks, enabling high-resolution detection of
+quantitative trait loci (QTL). By leveraging long-range phased haplotype
+information, CHAP-GWAS improves statistical power and offers a more
+comprehensive view of the genetic architecture underlying complex traits.
 
 %prep
 %setup -q -c -n %{packname}

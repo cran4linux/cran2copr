@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GridOnClusters
-%global packver   0.3.2
+%global packname  klassR
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Joint Grid Discretization
+Summary:          Classifications for Statistics Norway
 
-License:          LGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Ckmeans.1d.dp 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fossil 
-BuildRequires:    R-CRAN-dqrng 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Ckmeans.1d.dp 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fossil 
-Requires:         R-CRAN-dqrng 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-plotrix 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 2.1.1
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-igraph >= 2.1.1
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
 
 %description
-Discretize multivariate continuous data using a grid to capture the joint
-distribution that preserves clusters in original data. It can handle both
-labeled or unlabeled data. Both published methods (Wang et al 2020)
-<doi:10.1145/3388440.3412415> and new methods are included. Joint grid
-discretization can prepare data for model-free inference of association,
-function, or causality.
+Functions to search, retrieve, apply and update classification standards
+and code lists using Statistics Norway's API <https://www.ssb.no/klass>
+from the system 'KLASS'. Retrieves classifications by date with options to
+choose language, hierarchical level and formatting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IVDML
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double Machine Learning with Instrumental Variables and Heterogeneity
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xgboost >= 3.1.2.1
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-xgboost >= 3.1.2.1
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-ranger 
 Requires:         R-stats 
-Requires:         R-CRAN-xgboost 
 
 %description
 Instrumental variable (IV) estimators for homogeneous and heterogeneous

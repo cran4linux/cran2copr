@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shinystan
-%global packver   2.6.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Visual and Numerical Diagnostics and Posterior Analysis for Bayesian Models
 
@@ -16,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-rstan >= 2.17.1
-BuildRequires:    R-CRAN-ggplot2 >= 2.1.1
 BuildRequires:    R-CRAN-bayesplot >= 1.5.0
 BuildRequires:    R-CRAN-dygraphs >= 1.1.1.2
 BuildRequires:    R-CRAN-shiny >= 1.0.3
@@ -36,8 +37,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-rstan >= 2.17.1
-Requires:         R-CRAN-ggplot2 >= 2.1.1
 Requires:         R-CRAN-bayesplot >= 1.5.0
 Requires:         R-CRAN-dygraphs >= 1.1.1.2
 Requires:         R-CRAN-shiny >= 1.0.3

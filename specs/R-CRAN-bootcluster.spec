@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bootcluster
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrapping Estimates of Clustering Stability
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-igraph >= 1.2.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-flexclust 
 BuildRequires:    R-CRAN-fpc 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-igraph >= 1.2.0
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-flexclust 
 Requires:         R-CRAN-fpc 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 

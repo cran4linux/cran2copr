@@ -1,46 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GridOnClusters
-%global packver   0.3.2
+%global packname  ume
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Joint Grid Discretization
+Summary:          Ultrahigh-Resolution Mass Spectrometry Data Evaluation for Complex Organic Matter
 
-License:          LGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Ckmeans.1d.dp 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fossil 
-BuildRequires:    R-CRAN-dqrng 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Ckmeans.1d.dp 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fossil 
-Requires:         R-CRAN-dqrng 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-viridis 
 
 %description
-Discretize multivariate continuous data using a grid to capture the joint
-distribution that preserves clusters in original data. It can handle both
-labeled or unlabeled data. Both published methods (Wang et al 2020)
-<doi:10.1145/3388440.3412415> and new methods are included. Joint grid
-discretization can prepare data for model-free inference of association,
-function, or causality.
+Provides tools for assigning molecular formulas from exact masses obtained
+by ultrahigh-resolution mass spectrometry. The methodology follows the
+workflow described in Leefmann et al. (2019) <doi:10.1002/rcm.8315>. The
+package supports the inspection, filtering and visualization of molecular
+formula data and includes utilities for calculating common molecular
+parameters (e.g., double bond equivalents, DBE). A graphical user
+interface is available via the 'shiny'-based 'ume' application.
 
 %prep
 %setup -q -c -n %{packname}

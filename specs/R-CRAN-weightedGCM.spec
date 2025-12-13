@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  weightedGCM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Generalised Covariance Measure Conditional Independence Test
 
@@ -16,28 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GeneralisedCovarianceMeasure 
+BuildRequires:    R-CRAN-xgboost >= 3.1.2.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-xgboost 
-Requires:         R-CRAN-GeneralisedCovarianceMeasure 
+Requires:         R-CRAN-xgboost >= 3.1.2.1
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-stats 
-Requires:         R-CRAN-xgboost 
 
 %description
 A conditional independence test that can be applied both to univariate and
 multivariate random variables. The test is based on a weighted form of the
 sample covariance of the residuals after a nonlinear regression on the
 conditioning variables. Details are described in Scheidegger, Hoerrmann
-and Buehlmann (2021) "The Weighted Generalised Covariance Measure"
-<arXiv:2111.04361>. The test is a generalisation of the Generalised
-Covariance Measure (GCM) implemented in the R package
+and Buehlmann (2022) "The Weighted Generalised Covariance Measure"
+<http://jmlr.org/papers/v23/21-1328.html>. The test is a generalisation of
+the Generalised Covariance Measure (GCM) implemented in the R package
 'GeneralisedCovarianceMeasure' by Jonas Peters and Rajen D. Shah based on
 Shah and Peters (2020) "The Hardness of Conditional Independence Testing
-and the Generalised Covariance Measure" <arXiv:1804.07203>.
+and the Generalised Covariance Measure" <doi:10.1214/19-AOS1857>.
 
 %prep
 %setup -q -c -n %{packname}

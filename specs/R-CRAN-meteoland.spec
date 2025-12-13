@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meteoland
-%global packver   2.2.3
+%global packver   2.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Meteorology Tools
 
