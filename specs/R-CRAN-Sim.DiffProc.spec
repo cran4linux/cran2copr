@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Sim.DiffProc
-%global packver   4.9
+%global packver   5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9
+Version:          5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Diffusion Processes
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.30
 BuildRequires:    R-CRAN-Deriv >= 3.8.0
 BuildRequires:    R-parallel 

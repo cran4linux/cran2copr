@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pakret
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'
 
@@ -17,21 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr >= 2.5.0
 BuildRequires:    R-CRAN-readr >= 1.0.0
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-readr >= 1.0.0
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-utils 
 
 %description
 References and cites 'R' and 'R' packages on the fly in 'R Markdown' and
-'Quarto'. 'pakret' provides a minimalistic API that generates preformatted
-citations of 'R' and 'R' packages, and adds their reference to a '.bib'
+'Quarto'. 'pakret' provides a minimalist API that generates preformatted
+citations for 'R' and 'R' packages, and adds their references to a '.bib'
 file directly from within your document.
 
 %prep

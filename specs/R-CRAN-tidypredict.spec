@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidypredict
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run Predictions Inside the Database
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 0.7
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-dplyr >= 0.7
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 

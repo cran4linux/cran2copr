@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SHAPforxgboost
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          SHAP Plots for 'XGBoost'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-xgboost >= 0.81.0.0
 BuildRequires:    R-CRAN-ggExtra >= 0.8
 BuildRequires:    R-CRAN-ggforce >= 0.2.1.9000
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-BBmisc 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
@@ -33,6 +34,7 @@ Requires:         R-CRAN-xgboost >= 0.81.0.0
 Requires:         R-CRAN-ggExtra >= 0.8
 Requires:         R-CRAN-ggforce >= 0.2.1.9000
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-BBmisc 
 
@@ -40,9 +42,7 @@ Requires:         R-CRAN-BBmisc
 Aid in visual data investigations using SHAP (SHapley Additive
 exPlanation) visualization plots for 'XGBoost' and 'LightGBM'. It provides
 summary plot, dependence plot, interaction plot, and force plot and relies
-on the SHAP implementation provided by 'XGBoost' and 'LightGBM'. Please
-refer to 'slundberg/shap' for the original implementation of SHAP in
-'Python'.
+on the SHAP implementation provided by 'XGBoost' and 'LightGBM'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sparvaride
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance Identification in Sparse Factor Analysis
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-Rcpp
 
 %description
 This is an implementation of the algorithm described in Section 3 of
-Hosszejni and Frühwirth-Schnatter (2022) <doi:10.48550/arXiv.2211.00671>.
+Hosszejni and Frühwirth-Schnatter (2026) <doi:10.1016/j.jmva.2025.105536>.
 The algorithm is used to verify that the counting rule CR(r,1) holds for
 the sparsity pattern of the transpose of a factor loading matrix. As
 detailed in Section 2 of the same paper, if CR(r,1) holds, then the

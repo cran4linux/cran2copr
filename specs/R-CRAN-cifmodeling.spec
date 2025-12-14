@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cifmodeling
-%global packver   0.9.4
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Polytomous Modeling of Survival and Competing Risks
 
@@ -41,7 +41,7 @@ analysis with a minimal, formula-based interface. Both nonparametric
 estimation and direct polytomous regression of cumulative incidence
 functions (CIFs) are supported. The main functions 'cifcurve()',
 'cifplot()', and 'cifpanel()' estimate survival and CIF curves and produce
-high-quality graphics with risk tables, censoring and competing-event
+high-quality graphics with risk tables, censoring and competing-risk
 marks, and multi-panel or inset layouts built on 'ggplot2' and
 'ggsurvfit'. The modeling function 'polyreg()' performs direct polytomous
 regression for coherent joint modeling of all cause-specific CIFs to

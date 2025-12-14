@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plumber
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An API Generator for R
 
@@ -27,9 +27,9 @@ BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.16
 BuildRequires:    R-CRAN-stringi >= 0.3.0
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-sodium 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-sodium 
 Requires:         R-CRAN-swagger >= 3.33.0
 Requires:         R-CRAN-R6 >= 2.0.0
 Requires:         R-CRAN-httpuv >= 1.5.5
@@ -40,9 +40,9 @@ Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.16
 Requires:         R-CRAN-stringi >= 0.3.0
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-sodium 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mime 
+Requires:         R-CRAN-sodium 
 
 %description
 Gives the ability to automatically generate and serve an HTTP API from R

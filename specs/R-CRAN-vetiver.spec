@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vetiver
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Version, Share, Deploy, and Monitor Models
 
@@ -14,15 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-readr >= 1.4.0
 BuildRequires:    R-CRAN-pins >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-butcher >= 0.3.1
-BuildRequires:    R-CRAN-bundle 
+BuildRequires:    R-CRAN-butcher >= 0.4.0
+BuildRequires:    R-CRAN-bundle >= 0.1.3
 BuildRequires:    R-CRAN-cereal 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fs 
@@ -35,12 +34,11 @@ BuildRequires:    R-CRAN-rapidoc
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-readr >= 1.4.0
 Requires:         R-CRAN-pins >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-butcher >= 0.3.1
-Requires:         R-CRAN-bundle 
+Requires:         R-CRAN-butcher >= 0.4.0
+Requires:         R-CRAN-bundle >= 0.1.3
 Requires:         R-CRAN-cereal 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 

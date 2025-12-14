@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  did
-%global packver   2.1.2
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Treatment Effects with Multiple Periods and Groups
 
@@ -13,27 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-BMisc >= 1.4.4
+BuildRequires:    R-CRAN-dreamerr >= 1.4.0
+BuildRequires:    R-CRAN-data.table >= 1.15.4
+BuildRequires:    R-CRAN-DRDID >= 1.1.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-DRDID 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-fastglm 
 Requires:         R-CRAN-BMisc >= 1.4.4
+Requires:         R-CRAN-dreamerr >= 1.4.0
+Requires:         R-CRAN-data.table >= 1.15.4
+Requires:         R-CRAN-DRDID >= 1.1.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-DRDID 
 Requires:         R-CRAN-generics 
 Requires:         R-methods 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-fastglm 
 
 %description
 The standard Difference-in-Differences (DID) setup involves two periods
