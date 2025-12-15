@@ -1,49 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boiwsa
-%global packver   1.1.4
+%global packname  PowRPriori
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seasonal Adjustment of Weekly Data
+Summary:          Power Analysis via Data Simulation for (Generalized) Linear Mixed Effects Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-tibble 
 
 %description
-Perform seasonal adjustment and forecasting of weekly data. The package
-provides a user-friendly interface for computing seasonally adjusted
-estimates and forecasts of weekly time series and includes functions for
-the construction of country-specific prior adjustment variables, as well
-as diagnostic tools to assess the quality of the adjustments. The
-methodology is described in more detail in Ginker (2024)
-<doi:10.13140/RG.2.2.12221.44000>.
+Conduct a priori power analyses via Monte-Carlo style data simulation for
+linear and generalized linear mixed-effects models (LMMs/GLMMs). Provides
+a user-friendly workflow with helper functions to easily define fixed and
+random effects as well as diagnostic functions to evaluate the adequacy of
+the results of the power analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PGRdup
-%global packver   0.2.3.9
+%global packver   0.2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3.9
+Version:          0.2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discover Probable Duplicates in Plant Genetic Resources Collections
 

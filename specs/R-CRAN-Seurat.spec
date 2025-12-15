@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Seurat
-%global packver   5.3.1
+%global packver   5.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.1
+Version:          5.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -44,7 +44,6 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-leidenbase 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-MASS 
@@ -100,7 +99,6 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-leidenbase 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-MASS 

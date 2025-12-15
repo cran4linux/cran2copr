@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hdf5lib
-%global packver   2.0.0.3
+%global packname  probaverse
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Headers and Static Libraries for 'HDF5'
+Summary:          Install and Load the 'probaverse' Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-distionary 
+BuildRequires:    R-CRAN-distplyr 
+BuildRequires:    R-CRAN-famish 
+Requires:         R-CRAN-distionary 
+Requires:         R-CRAN-distplyr 
+Requires:         R-CRAN-famish 
 
 %description
-'HDF5' (Hierarchical Data Format 5) is a high-performance library and file
-format for storing and managing large, complex data. This package provides
-the static libraries and headers for the 'HDF5' 'C' library (release
-2.0.0). It is intended for R package developers to use in the 'LinkingTo'
-field, which eliminates the need for users to install system-level 'HDF5'
-dependencies. This build is compiled with thread-safety enabled and
-supports dynamic loading of external compression filters. 'HDF5' is
-developed by 'The HDF Group' <https://www.hdfgroup.org/>.
+The 'probaverse' is a suite of packages designed to facilitate creating
+advanced statistical models through probability distributions. These
+packages work best when loaded together because they share a common design
+philosophy and focus on different aspects of developing statistical
+models. Inspired by the 'tidyverse' package, the 'probaverse' package
+makes it easy to load the entire suite of 'probaverse' packages together.
 
 %prep
 %setup -q -c -n %{packname}

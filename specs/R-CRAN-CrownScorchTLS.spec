@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hdf5lib
-%global packver   2.0.0.3
+%global packname  CrownScorchTLS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Headers and Static Libraries for 'HDF5'
+Summary:          Estimate Crown Scorch from Terrestrial LiDAR Scans
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-lidR 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-lidR 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Rcpp 
 
 %description
-'HDF5' (Hierarchical Data Format 5) is a high-performance library and file
-format for storing and managing large, complex data. This package provides
-the static libraries and headers for the 'HDF5' 'C' library (release
-2.0.0). It is intended for R package developers to use in the 'LinkingTo'
-field, which eliminates the need for users to install system-level 'HDF5'
-dependencies. This build is compiled with thread-safety enabled and
-supports dynamic loading of external compression filters. 'HDF5' is
-developed by 'The HDF Group' <https://www.hdfgroup.org/>.
+Estimates tree crown scorch from terrestrial lidar scans collected with a
+RIEGL vz400i. The methods follow those described in Cannon et al. (2025,
+Fire Ecology 21:71, <doi:10.1186/s42408-025-00420-0>).
 
 %prep
 %setup -q -c -n %{packname}

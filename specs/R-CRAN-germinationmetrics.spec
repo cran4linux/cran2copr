@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  germinationmetrics
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seed Germination Indices and Curve Fitting
 
@@ -18,23 +18,31 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-gslnls 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-gslnls 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-methods 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 

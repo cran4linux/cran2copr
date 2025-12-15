@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  soundgen
-%global packver   2.7.4
+%global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.4
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sound Synthesis and Acoustic Analysis
 
@@ -14,12 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-CRAN-seewave >= 2.1.6
-BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tuneR 
@@ -30,13 +29,13 @@ BuildRequires:    R-CRAN-phonTools
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-nonlinearTseries 
 BuildRequires:    R-CRAN-data.table 
 Requires:         R-stats >= 4.0.0
 Requires:         R-CRAN-seewave >= 2.1.6
-Requires:         R-CRAN-shinyBS 
 Requires:         R-graphics 
 Requires:         R-utils 
 Requires:         R-CRAN-tuneR 
@@ -47,6 +46,7 @@ Requires:         R-CRAN-phonTools
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-nonlinearTseries 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gggenes
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Gene Arrow Maps in 'ggplot2'
 
@@ -17,14 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-grid >= 3.3.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-ggfittext >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-grid >= 3.3.0
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-ggfittext >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.2.0
+Requires:         R-CRAN-lifecycle 
 
 %description
 A 'ggplot2' extension for drawing gene arrow maps.

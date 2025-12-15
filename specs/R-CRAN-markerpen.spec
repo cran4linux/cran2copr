@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  markerpen
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marker Gene Detection via Penalized Principal Component Analysis
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
@@ -26,8 +27,8 @@ Requires:         R-stats
 %description
 Implementation of the 'MarkerPen' algorithm, short for marker gene
 detection via penalized principal component analysis, described in the
-paper by Qiu, Wang, Lei, and Roeder (2020,
-<doi:10.1101/2020.11.07.373043>). 'MarkerPen' is a semi-supervised
+paper by Qiu, Wang, Lei, and Roeder (2021,
+<doi:10.1093/bioinformatics/btab257>). 'MarkerPen' is a semi-supervised
 algorithm for detecting marker genes by combining prior marker information
 with bulk transcriptome data.
 
@@ -39,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

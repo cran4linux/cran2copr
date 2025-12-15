@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sortable
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drag-and-Drop in 'shiny' Apps with 'SortableJS'
 
@@ -17,29 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.9.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-learnr >= 0.10.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ellipsis 
-BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-shiny >= 1.9.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-learnr >= 0.10.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-utils 
-Requires:         R-CRAN-ellipsis 
-Requires:         R-CRAN-rlang 
 
 %description
 Enables drag-and-drop behaviour in Shiny apps, by exposing the
 functionality of the 'SortableJS' <https://sortablejs.github.io/Sortable/>
-JavaScript library as an 'htmlwidget'. You can use this in Shiny apps and
+JavaScript library as an 'htmlwidget'.  You can use this in Shiny apps and
 widgets, 'learnr' tutorials as well as R Markdown. In addition, provides a
 custom 'learnr' question type - 'question_rank()' - that allows ranking
 questions with drag-and-drop.

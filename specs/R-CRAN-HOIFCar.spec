@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HOIFCar
-%global packver   0.2.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Adjustment in RCT by Higher-Order Influence Functions
 
@@ -17,6 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-brglm2 
+BuildRequires:    R-CRAN-BB 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-brglm2 
+Requires:         R-CRAN-BB 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
 Estimates treatment effects using covariate adjustment methods in

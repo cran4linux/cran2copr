@@ -1,53 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nser
-%global packver   1.5.7
+%global packname  pubrplot
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
+Summary:          Publication-Ready Plots and Statistical Visualizations
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-googleVis 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rstatix 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tibble 
 
 %description
-Download Current & Historical Bhavcopy. Get Live Market data from NSE
-India of Equities and Derivatives (F&O) segment. Data source
-<https://www.nseindia.com/>.
+Provides functions to create high-quality, publication-ready plots for
+numeric and categorical data, including bar plots, violin plots, boxplots,
+line plots, error bars, correlation plots, linear model plots, odds ratio
+plots, and normality plots.
 
 %prep
 %setup -q -c -n %{packname}

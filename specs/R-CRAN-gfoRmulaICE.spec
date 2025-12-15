@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gfoRmulaICE
-%global packver   0.1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Iterative Conditional Expectation G-Formula
 
@@ -50,10 +50,10 @@ Requires:         R-splines
 
 %description
 Implements iterative conditional expectation (ICE) estimators of the
-plug-in g-formula (Wen, Young, Robins, and Hernán (2020)
-<doi:10.1111/biom.13321>). Both singly robust and doubly robust ICE
-estimators based on parametric models are available. The package can be
-used to estimate survival curves under sustained treatment strategies
+plug-in g-formula (Wen, Young, Robins, and Hernán (2020) <doi:
+10.1111/biom.13321>). Both singly robust and doubly robust ICE estimators
+based on parametric models are available. The package can be used to
+estimate survival curves under sustained treatment strategies
 (interventions) using longitudinal data with time-varying treatments,
 time-varying confounders, censoring, and competing events. The
 interventions can be static or dynamic, and deterministic or stochastic

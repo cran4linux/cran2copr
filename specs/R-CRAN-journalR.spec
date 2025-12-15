@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  read.dbc
-%global packver   1.2.0
+%global packname  journalR
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Data Stored in 'DBC' (Compressed 'DBF') Files
+Summary:          Formatting Tools for Scientific Journal Writing
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-foreign 
-Requires:         R-CRAN-foreign 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-glue 
 
 %description
-Functions for reading and decompressing the 'DBC' (compressed 'DBF')
-files. Please note that this is the file format used by the Brazilian
-Ministry of Health ('DATASUS') to publish healthcare datasets. It is not
-related to the 'FoxPro' or 'CANdb' 'DBC' file formats.
+Scientific journal numeric formatting policies implemented in code.
+Emphasis on formatting mean/upper/lower sets of values.  Convert raw
+numeric triplet value vectors to formatted text for journal submission.
+For example c(2e6, 1e6, 3e6) becomes "2.00 million (1.00--3.00)". Lancet
+and Nature have built-in styles for rounding and punctuation marks. Users
+may extend journal styles arbitrarily. Three metrics are supported;
+proportions, percentage points, and counts. Magnitudes for all metrics are
+discovered automatically.
 
 %prep
 %setup -q -c -n %{packname}

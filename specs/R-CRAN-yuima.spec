@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yuima
-%global packver   1.15.30
+%global packver   1.15.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.30
+Version:          1.15.34
 Release:          1%{?dist}%{?buildtag}
 Summary:          The YUIMA Project Package for SDEs
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-boot >= 1.3.2
 BuildRequires:    R-CRAN-calculus >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.1

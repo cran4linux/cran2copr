@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  broadcast
-%global packver   0.1.6.1
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Broadcasted Array Operations Like 'NumPy'
 
@@ -33,7 +33,7 @@ Broadcasted element-wise operations on any 2 arrays; they support a large
 set of relational, arithmetic, Boolean, string, and bit-wise operations.
 2) A faster, more memory efficient, and broadcasted abind-like function,
 for binding arrays along an arbitrary dimension. 3) Broadcasted
-ifelse-like, and apply-like functions. 4) Casting functions, that cast
+ifelse-like and apply-like functions. 4) Casting functions, that cast
 subset-groups of an array to a new dimension, cast nested lists to
 dimensional lists, and vice-versa. 5) A few linear algebra functions for
 statistics. The functions in the 'broadcast' package strive to minimize
