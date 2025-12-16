@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rserve
-%global packver   1.8-15
+%global packver   1.8-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.15
+Version:          1.8.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Versatile R Server
 
@@ -18,14 +18,17 @@ BuildRequires:    R-devel >= 1.5.0
 Requires:         R-core >= 1.5.0
 
 %description
-Rserve acts as a socket server (TCP/IP or local sockets) which allows
-binary requests to be sent to R. Every connection has a separate workspace
-and working directory. Client-side implementations are available for
-popular languages such as C/C++ and Java, allowing any application to use
-facilities of R without the need of linking to R code. Rserve supports
-remote connection, user authentication and file transfer. A simple R
-client is included in this package as well. In addition, it can also act
-as a secure WebSockets and HTTP/HTTPS server.
+Rserve is a versatile, scalable server enabling the efficient use of R
+from other applications through variety of protocols including QAP,
+WebSockets, HTTP and HTTPS. It acts as a server (TCP/IP or local sockets)
+which allows binary requests to be sent to R. Every connection has a
+separate workspace and working directory. Client-side implementations are
+available for many popular languages allowing applications to use
+facilities of R without the need of linking to the R binary. Rserve
+supports remote connections, user authentication and file transfer. A
+simple R client is included in this package as well. It also supports OCAP
+mode for secure remote procedure calls, including support for full event
+loop, asynchronous results/graphics and console I/O.
 
 %prep
 %setup -q -c -n %{packname}

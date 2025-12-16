@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  excursions
-%global packver   2.5.8
+%global packver   2.5.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.8
+Version:          2.5.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Excursion Sets and Contour Credibility Regions for Random Fields
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    gsl-devel
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-fmesher >= 0.1.2
+BuildRequires:    R-CRAN-fmesher >= 0.5.0
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-fmesher >= 0.1.2
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-fmesher >= 0.5.0
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sp 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Functions that compute probabilistic excursion sets, contour credibility

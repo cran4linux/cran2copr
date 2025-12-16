@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boostmath
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'R' Bindings for the 'Boost' Math Functions
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-BH >= 1.87.0
+BuildRequires:    R-CRAN-BH >= 1.90.0
 BuildRequires:    R-CRAN-cpp11 
 
 %description

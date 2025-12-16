@@ -1,25 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ox
+%global __requires_exclude ^libmpi
+%global packname  linktree
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shorthand if-Else
+Summary:          Estimate Transmission Assortativity Coefficients
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
-Short hand if-else function to easily switch the values depending on a
-logical condition.
+Estimates group transmission assortativity coefficients from transmission
+trees. Group transmission assortativity coefficients measure the tendency
+for individuals to transmit within their own group (e.g. age group,
+vaccination status, or location) compared to other groups. The package
+requires information on who infected whom, group membership for all
+individuals, and the relative sizes of each group in the population. For
+more details see Geismar et al. (2024) <doi:10.1371/journal.pone.0313037>.
 
 %prep
 %setup -q -c -n %{packname}

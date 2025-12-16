@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  interfacer
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Define and Enforce Contracts for Dataframes as Function Parameters
 
@@ -27,8 +27,9 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
@@ -39,8 +40,9 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-lobstr 
 Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-lifecycle 
 
 %description
 A dataframe validation framework for package builders who use dataframes

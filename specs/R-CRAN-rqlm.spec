@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqlm
-%global packver   4.1-1
+%global packver   4.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modified Poisson Regression for Binary Outcome and Related Methods
 
@@ -19,11 +19,13 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-lme4 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpfa
-%global packver   1.2-3
+%global packver   1.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Parallel Factor Analysis
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-rda
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
 Requires:         R-CRAN-multiway 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-e1071 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-rda
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
 
 %description
 Classification using Richard A. Harshman's Parallel Factor Analysis-1
@@ -48,8 +50,8 @@ logistic regression, support vector machine, random forest, feed-forward
 neural network, regularized discriminant analysis, and gradient boosting
 machine. Supports binary and multiclass classification. Predicts class
 labels or class probabilities and calculates multiple classification
-performance measures. Implements parallel computing via the 'parallel' and
-'doParallel' packages.
+performance measures. Implements parallel computing via the 'parallel',
+'doParallel', and 'doRNG' packages.
 
 %prep
 %setup -q -c -n %{packname}

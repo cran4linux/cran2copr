@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsTidyverse
-%global packver   1.0.4
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DataSHIELD' 'Tidyverse' Serverside Package
 
-License:          LGPL (>= 2.1)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -32,7 +32,7 @@ grouping, and renaming variables. This is the serverside package which
 should be installed on the server holding the data, and is used in
 conjuncture with the clientside package 'dsTidyverseClient' which is
 installed in the local R environment of the analyst. For more information,
-see <https://www.tidyverse.org/> and <https://datashield.org/>.
+see <https://tidyverse.org/> and <https://datashield.org/>.
 
 %prep
 %setup -q -c -n %{packname}

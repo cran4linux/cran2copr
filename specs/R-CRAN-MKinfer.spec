@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MKinfer
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inferential Statistics
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-MKdescr 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-arrangements 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-exactRankTests 
 BuildRequires:    R-CRAN-miceadds 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-MKdescr 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-arrangements 
@@ -45,9 +47,11 @@ Sachs (2018), ISBN:978-3-662-56657-2), permutation (Janssen (1997),
 ISBN:978-3-319-22005-5) and multiple imputation (Barnard and Rubin (1999),
 <doi:10.1093/biomet/86.4.948>) t-test; furthermore, computation of
 intersection-union z-test as well as multiple imputation Wilcoxon tests.
-Graphical visualization by volcano and Bland-Altman plots (Bland and
+Graphical visualizations: volcano plot, Bland-Altman plots (Bland and
 Altman (1986), <doi:10.1016/S0140-6736(86)90837-8>; Shieh (2018),
-<doi:10.1186/s12874-018-0505-y>).
+<doi:10.1186/s12874-018-0505-y>), mean difference plot (Boehning et al.
+(2008), <doi:10.1177/0962280207081867>), plot of test statistic for
+permutation and bootstrap tests as well as objects of class htest.
 
 %prep
 %setup -q -c -n %{packname}

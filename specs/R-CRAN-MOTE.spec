@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MOTE
-%global packver   1.0.2
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
-Release:          2%{?dist}%{?buildtag}
+Version:          1.2.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Effect Size and Confidence Interval Calculator
 
 License:          LGPL-3
@@ -16,14 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MBESS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-reshape 
-Requires:         R-CRAN-MBESS 
 Requires:         R-stats 
-Requires:         R-CRAN-ez 
-Requires:         R-CRAN-reshape 
 
 %description
 Measure of the Effect ('MOTE') is an effect size calculator, including a
@@ -43,15 +38,20 @@ Inference, 1999 <doi:10.1037/0003-066X.54.8.594>), the vast majority of
 peer-reviewed, published academic studies stop short of reporting effect
 sizes and confidence intervals (Cumming, 2013,
 <doi:10.1177/0956797613504966>). 'MOTE' simplifies the use and
-interpretation of effect sizes and confidence intervals. For more
-information, visit <https://www.aggieerin.com/shiny-server>.
+interpretation of effect sizes and confidence intervals.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -59,9 +59,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

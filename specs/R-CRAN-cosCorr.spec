@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  landpred
-%global packver   2.0
+%global packname  cosCorr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landmark Prediction of a Survival Outcome
+Summary:          Cosine-Correlation Coefficient for Vector Variables
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-sm 
-Requires:         R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-CRAN-quantreg 
-Requires:         R-splines 
-Requires:         R-CRAN-sm 
 
 %description
-Nonparametric methods for landmark prediction of long-term survival
-outcomes, incorporating covariate and short-term event information. The
-package supports the construction of flexible varying-coefficient models
-that use discrete covariates, as well as multiple continuous covariates.
-The goal is to improve prediction accuracy when censored short-term events
-are available as predictors, using robust nonparametric procedures that do
-not require correct model specification and avoid restrictive parametric
-assumptions found in alternative methods. More information on these
-methods can be found in Parast et al. 2012
-<doi:10.1080/01621459.2012.721281>, Parast et al. 2011
-<doi:10.1002/bimj.201000150>, and Parast and Cai 2013
-<doi:10.1002/sim.5776>. A tutorial for this package is available here:
-<https://www.laylaparast.com/landpred>.
+Computes the cosine-correlation coefficient for measuring the degree of
+linear dependence among variables in a multidimensional context. The
+package implements the generalized cosine-correlation theorem for p-1
+variables, providing a quantitative assessment of interrelationships
+within experimental frameworks. This methodology extends classical
+correlation measures to higher-dimensional spaces using a dimensional
+exploration approach based on time scale calculus.
 
 %prep
 %setup -q -c -n %{packname}

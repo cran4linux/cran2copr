@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jollofR
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Population Estimation by Demographics
 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-utils 
 
 %description
-Automatic disaggregation of small1area population estimates by demographic
+Automatic disaggregation of small-area population estimates by demographic
 groups (e.g., age, sex, race, marital status, educational level, etc)
 along with the estimates of uncertainty, using advanced Bayesian
 statistical modelling approaches based on integrated nested Laplace

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  landpred
-%global packver   2.0
+%global packname  FIND
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landmark Prediction of a Survival Outcome
+Summary:          Objective Comparison of Phase I Dose-Finding Designs
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-sm 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-quantreg 
-Requires:         R-splines 
-Requires:         R-CRAN-sm 
 
 %description
-Nonparametric methods for landmark prediction of long-term survival
-outcomes, incorporating covariate and short-term event information. The
-package supports the construction of flexible varying-coefficient models
-that use discrete covariates, as well as multiple continuous covariates.
-The goal is to improve prediction accuracy when censored short-term events
-are available as predictors, using robust nonparametric procedures that do
-not require correct model specification and avoid restrictive parametric
-assumptions found in alternative methods. More information on these
-methods can be found in Parast et al. 2012
-<doi:10.1080/01621459.2012.721281>, Parast et al. 2011
-<doi:10.1002/bimj.201000150>, and Parast and Cai 2013
-<doi:10.1002/sim.5776>. A tutorial for this package is available here:
-<https://www.laylaparast.com/landpred>.
+Generate decision tables and simulate operating characteristics for phase
+I dose-finding designs to enable objective comparison across methods.
+Supported designs include the traditional 3+3, Bayesian Optimal Interval
+(BOIN) (Liu and Yuan (2015) <doi:10.1158/1078-0432.CCR-14-1526>), modified
+Toxicity Probability Interval-2 (mTPI-2) (Guo et al. (2017)
+<doi:10.1002/sim.7185>), interval 3+3 (i3+3) (Liu et al. (2020)
+<doi:10.1177/0962280220939123>), and Generalized 3+3 (G3). Provides
+visualization tools for comparing decision rules and operating
+characteristics across multiple designs simultaneously.
 
 %prep
 %setup -q -c -n %{packname}

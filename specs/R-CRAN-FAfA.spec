@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FAfA
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor Analysis for All
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,60 +17,82 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Amelia 
 BuildRequires:    R-CRAN-EFA.MRFA 
 BuildRequires:    R-CRAN-EFA.dimensions 
 BuildRequires:    R-CRAN-EFAtools 
 BuildRequires:    R-CRAN-EGAnet 
+BuildRequires:    R-CRAN-ItemRest 
 BuildRequires:    R-CRAN-MBESS 
+BuildRequires:    R-CRAN-bsicons 
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-ggcorrplot 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mctest 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-missForest 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-mvnormalTest 
+BuildRequires:    R-CRAN-naniar 
 BuildRequires:    R-CRAN-pastecs 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-psychometric 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-semPlot 
 BuildRequires:    R-CRAN-semTools 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-sirt 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Amelia 
 Requires:         R-CRAN-EFA.MRFA 
 Requires:         R-CRAN-EFA.dimensions 
 Requires:         R-CRAN-EFAtools 
 Requires:         R-CRAN-EGAnet 
+Requires:         R-CRAN-ItemRest 
 Requires:         R-CRAN-MBESS 
+Requires:         R-CRAN-bsicons 
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-energy 
 Requires:         R-CRAN-ggcorrplot 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-golem 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mctest 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-missForest 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-mvnormalTest 
+Requires:         R-CRAN-naniar 
 Requires:         R-CRAN-pastecs 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-psychometric 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-semPlot 
 Requires:         R-CRAN-semTools 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-sirt 
 Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-readxl 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Provides a comprehensive Shiny-based graphical user interface for

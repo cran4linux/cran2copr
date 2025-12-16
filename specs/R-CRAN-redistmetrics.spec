@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redistmetrics
-%global packver   1.0.9
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Redistricting Metrics
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-geos 
 BuildRequires:    R-CRAN-wk 
+BuildRequires:    R-CRAN-libgeos 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-sf 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-geos 
 Requires:         R-CRAN-wk 
+Requires:         R-CRAN-libgeos 
 
 %description
 Reliable and flexible tools for scoring redistricting plans using common

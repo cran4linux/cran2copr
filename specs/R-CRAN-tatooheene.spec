@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tatooheene
-%global packver   0.19.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Technology Appraisal Toolbox for Health Economic Evaluations in the Netherlands
 
@@ -14,22 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
 Functions to support economic modelling in R based on the methods of the
 Dutch guideline for economic evaluations in healthcare
-<https://www.zorginstituutnederland.nl/publicaties/publicatie/2024/01/16/richtlijn-voor-het-uitvoeren-van-economische-evaluaties-in-de-gezondheidszorg>,
+<https://www.zorginstituutnederland.nl/documenten/2024/01/16/richtlijn-voor-het-uitvoeren-van-economische-evaluaties-in-de-gezondheidszorg>,
 CBS data <https://www.cbs.nl/>, and OECD data
 <https://www.oecd.org/en.html>.
 
