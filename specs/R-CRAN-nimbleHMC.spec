@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nimbleHMC
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hamiltonian Monte Carlo and Other Gradient-Based MCMC Sampling Algorithms for 'nimble'
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble >= 1.0.0
+BuildRequires:    R-CRAN-nimble >= 1.4.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble >= 1.0.0
+Requires:         R-CRAN-nimble >= 1.4.0
 Requires:         R-methods 
 
 %description
@@ -32,7 +32,8 @@ original HMC-NUTS algorithm as described in Hoffman and Gelman (2014)
 HMC-NUTS sampling matching the HMC sampler available in version 2.32.2 of
 Stan (Stan Development Team, 2023). In addition, convenience functions are
 provided for generating and modifying MCMC configuration objects which
-employ HMC sampling.
+employ HMC sampling. Functionality of the 'nimbleHMC' package is described
+further in Turek, et al (2024) <doi: 10.21105/joss.06745>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mvabund
-%global packver   4.2.1
+%global packver   4.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.1
+Version:          4.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Analysing Multivariate Abundance Data
 
@@ -18,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tweedie 
 BuildRequires:    R-CRAN-statmod 
@@ -26,6 +28,7 @@ BuildRequires:    R-CRAN-RcppGSL
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
 Requires:         R-stats 
 Requires:         R-CRAN-tweedie 
 Requires:         R-CRAN-statmod 

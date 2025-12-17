@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmnetr
-%global packver   0.6-2
+%global packver   0.6-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross Validation for the Relaxed Lasso and Other Machine Learning Models
 
@@ -28,8 +28,6 @@ BuildRequires:    R-CRAN-randomForestSRC
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-CRAN-aorsf 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-rgenoud 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Matrix 
@@ -41,8 +39,6 @@ Requires:         R-CRAN-randomForestSRC
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-torch 
 Requires:         R-CRAN-aorsf 
-Requires:         R-CRAN-DiceKriging 
-Requires:         R-CRAN-rgenoud 
 
 %description
 Cross validation informed Relaxed LASSO (or more generally elastic net),
@@ -53,19 +49,22 @@ Cross validation leave out samples (leading to nested cross validation) or
 bootstrap out-of-bag samples are used to evaluate and compare performances
 between these models with results presented in tabular or graphical means.
 Calibration plots can also be generated, again based upon (outer nested)
-cross validation or bootstrap leave out (out of bag) samples. For some
-datasets, for example when the design matrix is not of full rank, 'glmnet'
-may have very long run times when fitting the relaxed lasso model, from
-our experience when fitting Cox models on data with many predictors and
-many patients, making it difficult to get solutions from either glmnet()
-or cv.glmnet().  This may be remedied by using the 'path=TRUE' option when
-calling glmnet() and cv.glmnet().  Within the 'glmnetr' package the
-approach of path=TRUE is taken by default. other packages doing similar
-include 'nestedcv' <https://cran.r-project.org/package=nestedcv>,
-'glmnetSE' <https://cran.r-project.org/package=glmnetSE> which may provide
-different functionality when performing a nested CV. Use of the 'glmnetr'
-has many similarities to the 'glmnet' package and it could be helpful for
-the user of 'glmnetr' also become familiar with the 'glmnet' package
+cross validation or bootstrap leave out (out of bag) samples. Note, at the
+time of this writing, in order to fit gradient boosting machine models one
+must install the packages 'DiceKriging' and 'rgenoud' using the
+install.packages() function. For some datasets, for example when the
+design matrix is not of full rank, 'glmnet' may have very long run times
+when fitting the relaxed lasso model, from our experience when fitting Cox
+models on data with many predictors and many patients, making it difficult
+to get solutions from either glmnet() or cv.glmnet().  This may be
+remedied by using the 'path=TRUE' option when calling glmnet() and
+cv.glmnet().  Within the 'glmnetr' package the approach of path=TRUE is
+taken by default. other packages doing similar include 'nestedcv'
+<https://cran.r-project.org/package=nestedcv>, 'glmnetSE'
+<https://cran.r-project.org/package=glmnetSE> which may provide different
+functionality when performing a nested CV. Use of the 'glmnetr' has many
+similarities to the 'glmnet' package and it could be helpful for the user
+of 'glmnetr' also become familiar with the 'glmnet' package
 <https://cran.r-project.org/package=glmnet>, with the "An Introduction to
 'glmnet'" and "The Relaxed Lasso" being especially useful in this regard.
 

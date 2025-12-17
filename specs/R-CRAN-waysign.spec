@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DLFM
-%global packver   0.1.4
+%global packname  waysign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributed Laplace Factor Model
+Summary:          Multi-Purpose and High-Performance Routing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-LFM 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-LFM 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
 
 %description
-Distributed estimation method is based on a Laplace factor model to solve
-the estimates of load and specific variance. The philosophy of the package
-is described in Guangbao Guo. (2022). <doi:10.1007/s00180-022-01270-z>.
+Provides routing based on the 'path-tree' 'Rust' crate. The routing is
+general purpose in the sense that any type of R object can be associated
+with a path, not just a handler function.
 
 %prep
 %setup -q -c -n %{packname}

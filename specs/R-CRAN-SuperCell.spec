@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SuperCell
-%global packver   1.0.1
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplification of scRNA-Seq Data by Merging Together Similar Cells
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-WeightedCluster 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-weights 
 BuildRequires:    R-CRAN-Hmisc 
@@ -41,7 +40,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-WeightedCluster 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-weights 
 Requires:         R-CRAN-Hmisc 
@@ -66,8 +64,10 @@ Requires:         R-CRAN-rlang
 Aggregates large single-cell data into metacell dataset by merging
 together gene expression of very similar cells. 'SuperCell' uses
 'velocyto.R' <doi:10.1038/s41586-018-0414-6>
-<https://github.com/velocyto-team/velocyto.R> for RNA velocity. We also
-recommend installing 'scater' Bioconductor package
+<https://github.com/velocyto-team/velocyto.R> for RNA velocity and
+'WeightedCluster' <doi:10.12682/lives.2296-1658.2013.24>
+<https://mephisto.unige.ch/weightedcluster/> for weighted clustering on
+metacells. We also recommend installing 'scater' Bioconductor package
 <doi:10.18129/B9.bioc.scater>
 <https://bioconductor.org/packages/release/bioc/html/scater.html>.
 

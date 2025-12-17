@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datetoiso
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert and Impute Dates to ISO Standard ("International Organization for Standardization")
+Summary:          Convert and Impute Dates to ISO 8601 Format and Reconcile Data Sets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,12 +33,15 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-magrittr 
 
 %description
-Provides functions to convert and impute date values to the ISO 8601
-standard format. The package automatically recognizes date patterns within
-a data frame and transforms them into consistent ISO-formatted dates. It
-also supports imputing missing month or day components in partial date
-strings using user-defined rules. Only one date format can be applied
-within a single data frame column.
+Provides tools for converting and imputing date values to the ISO 8601
+standard format and for reconciling differences between two versions of a
+data set. The package automatically detects date patterns within data
+frame columns and converts them to consistent ISO-formatted dates, with
+optional imputation of missing day or month components based on
+user-defined rules. It also includes functionality to identify inserted,
+deleted, and updated records, as well as column- and value-level changes,
+when comparing old and new versions of a data frame. Only one date format
+may be applied within a single column.
 
 %prep
 %setup -q -c -n %{packname}

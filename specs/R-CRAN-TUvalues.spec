@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TUvalues
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Calculating Allocations in Game Theory using Exact and Approximated Methods
 
@@ -19,19 +19,23 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-highs 
 Requires:         R-utils 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-highs 
 
 %description
-The main objective of cooperative games is to allocate a good among the
-agents involved. This package includes the most well-known allocation
-rules, i.e., the Shapley value, the Banzhaf value, the egalitarian rule,
-and the equal surplus division value. In addition, it considers the point
-of view of a priori unions (situations in which agents can form
-coalitions). For this purpose, the package includes the Owen value, the
-Banzhaf-Owen value, and the corresponding extensions of the egalitarian
-rules. All these values can be calculated exactly or estimated by
-sampling.
+The main objective of cooperative Transferable-Utility games (TU-games) is
+to allocate a good among the agents involved. The package implements major
+solution concepts including the Shapley value, Banzhaf value, and
+egalitarian rules, alongside their extensions for structured games: the
+Owen value and Banzhaf-Owen value for games with a priori unions, and the
+Myerson value for communication games on networks. To address the inherent
+exponential computational complexity of exact evaluation, the package
+offers both exact algorithms and linear approximation methods based on
+sampling, enabling the analysis of large-scale games. Additionally, it
+supports core set-based solutions, allowing computation of the vertices
+and the centroid of the core.
 
 %prep
 %setup -q -c -n %{packname}

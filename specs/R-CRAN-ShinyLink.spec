@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ShinyLink
-%global packver   0.2.2
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Shiny' Based Record Linkage Tool
 
@@ -17,46 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.3
 BuildRequires:    R-CRAN-shiny >= 1.7.2
 BuildRequires:    R-CRAN-golem >= 0.3.5
 BuildRequires:    R-CRAN-config >= 0.3.1
 BuildRequires:    R-CRAN-DT >= 0.25
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fastLink 
-BuildRequires:    R-CRAN-gender 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggvenn 
-BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinydashboardPlus 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-shinydashboardPlus >= 2.0.3
 Requires:         R-CRAN-shiny >= 1.7.2
 Requires:         R-CRAN-golem >= 0.3.5
 Requires:         R-CRAN-config >= 0.3.1
 Requires:         R-CRAN-DT >= 0.25
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fastLink 
-Requires:         R-CRAN-gender 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggvenn 
-Requires:         R-CRAN-haven 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinydashboardPlus 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-tibble 
 
 %description
 A bridge is created between existing robust open-source record linkage

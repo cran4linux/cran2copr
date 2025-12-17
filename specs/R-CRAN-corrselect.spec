@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corrselect
-%global packver   3.0.2
+%global packver   3.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correlation-Based and Model-Based Predictor Pruning
 

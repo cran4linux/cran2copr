@@ -1,33 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spectre
-%global packver   1.0.5
+%global packname  iccCompare
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict Regional Community Composition
+Summary:          Comparison of Dependent Intraclass Correlation Coefficients
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-bbmle 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-bbmle 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Predict regional community composition at a fine spatial resolution using
-only sparse biological and environmental data. See Simpkins et al. (2022)
-<doi:10.1111/ecog.06272> for full details on the algorithm underlying the
-package.
+Provides methods for testing the equality of dependent intraclass
+correlation coefficients (ICCs) estimated using linear mixed-effects
+models. Several of the implemented approaches are based on the work of
+Donner and Zou (2002) <doi:10.1111/1467-9884.00324>.
 
 %prep
 %setup -q -c -n %{packname}

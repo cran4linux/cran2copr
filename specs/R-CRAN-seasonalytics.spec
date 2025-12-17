@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Ryacas0
-%global packver   0.4.5
+%global packname  seasonalytics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Legacy 'Ryacas' (Interface to 'Yacas' Computer Algebra System)
+Summary:          Compute Seasonality Index, Seasonalized and Deseaonalised the Time Series Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-settings 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-settings 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-seastests 
+Requires:         R-CRAN-seastests 
 
 %description
-A legacy version of 'Ryacas', an interface to the 'yacas' computer algebra
-system (<http://www.yacas.org/>).
+The computation of a seasonal index is a fundamental step in time-series
+forecasting when the data exhibits seasonality. Specifically, a seasonal
+index quantifies — for each season (e.g. month, quarter, week) — the
+relative magnitude of the seasonal effect compared to the overall average
+level of the series. This package has been developed to compute seasonal
+index for time series data and it also seasonalise and desesaonalise the
+time series data.
 
 %prep
 %setup -q -c -n %{packname}

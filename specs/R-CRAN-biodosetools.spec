@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biodosetools
-%global packver   3.7.1.2
+%global packver   3.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.1.2
+Version:          3.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Application for Biological Dosimetry
 

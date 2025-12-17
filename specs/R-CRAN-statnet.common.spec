@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statnet.common
-%global packver   4.12.0
+%global packver   4.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.12.0
+Version:          4.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common R Scripts and Utilities Used by the Statnet Project Software
 

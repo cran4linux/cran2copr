@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpact
-%global packver   4.2.1
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.1
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confirmatory Adaptive Clinical Trial Design and Analysis
 
@@ -38,8 +38,8 @@ Requires:         R-CRAN-rlang
 %description
 Design and analysis of confirmatory adaptive clinical trials with
 continuous, binary, and survival endpoints according to the methods
-described in the monograph by Wassmer and Brannath (2016)
-<doi:10.1007/978-3-319-32562-0>. This includes classical group sequential
+described in the monograph by Wassmer and Brannath (2025)
+<doi:10.1007/978-3-031-89669-9>. This includes classical group sequential
 as well as multi-stage adaptive hypotheses tests that are based on the
 combination testing principle.
 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mclogit
-%global packver   0.9.6
+%global packver   0.9.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multinomial Logit Models, with or without Random Effects or Overdispersion
+Summary:          Multinomial Logit Models for Categorical Responses and Discrete Choices
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,20 +19,25 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-memisc 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlme 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-memisc 
 Requires:         R-methods 
+Requires:         R-CRAN-nlme 
 
 %description
 Provides estimators for multinomial logit models in their conditional
-logit and baseline logit variants, with or without random effects, with or
-without overdispersion. Random effects models are estimated using the PQL
-technique (based on a Laplace approximation) or the MQL technique (based
-on a Solomon-Cox approximation). Estimates should be treated with caution
-if the group sizes are small.
+logit (for discrete choices) and baseline logit variants (for categorical
+responses), optionally with overdispersion or random effects. Random
+effects models are estimated using the PQL technique (based on a Laplace
+approximation) or the MQL technique (based on a Solomon-Cox
+approximation). Estimates should be treated with caution if the group
+sizes are small.
 
 %prep
 %setup -q -c -n %{packname}

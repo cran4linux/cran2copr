@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsem
-%global packver   0.2.4
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactively Visualize Structural Equation Modeling Diagrams
 
@@ -14,45 +14,54 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-blavaan 
+BuildRequires:    R-CRAN-DiagrammeRsvg 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-colourpicker 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-smplot2 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-semPlot 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidySEM 
 BuildRequires:    R-CRAN-umap 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-blavaan 
+Requires:         R-CRAN-DiagrammeRsvg 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-colourpicker 
-Requires:         R-grid 
-Requires:         R-CRAN-svglite 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-smplot2 
-Requires:         R-utils 
 Requires:         R-CRAN-lavaan 
+Requires:         R-methods 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-semPlot 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidySEM 
 Requires:         R-CRAN-umap 
+Requires:         R-CRAN-xml2 
 
 %description
-It is an R package and web-based application, allowing users to perform
-interactive and reproducible visualizations of path diagrams for
-structural equation modeling (SEM) and networks using the 'ggplot2'
-engine. Its app (built with 'shiny') provides an interface that allows
-extensive customization, and creates CSV outputs, which can then be used
-to recreate the figures either using the web app or script-based workflow.
+It enables users to perform interactive and reproducible visualizations of
+path diagrams for structural equation modeling (SEM) and networks using
+interactive parameter visualization. Meta-data of figure outputs can be
+either reloaded, replayed or reproduced as objects with figure outputs or
+images.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snazzieR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chic and Sleek Functions for Beautiful Statisticians
 
@@ -34,8 +34,8 @@ color palette and kable styling to make your regression results look
 sharper than they are. Includes support for Partial Least Squares (PLS)
 regression via both the SVD and NIPALS algorithms, along with a unified
 interface for model fitting and fabulous LaTeX and console output
-formatting. See the package manual at
-<https://github.com/JesusButForGayPeople/snazzieR/releases/download/v0.1.1/snazzieR_0.1.1.pdf>.
+formatting. See the package website at
+<https://finitesample.space/snazzier>.
 
 %prep
 %setup -q -c -n %{packname}

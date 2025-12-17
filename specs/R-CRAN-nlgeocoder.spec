@@ -1,44 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LFM
-%global packver   0.3.3
+%global packname  nlgeocoder
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Laplace Factor Model Analysis and Evaluation
+Summary:          Geocoding for the Netherlands
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-elasticnet 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-elasticnet 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Enables the generation of Laplace factor models across diverse Laplace
-distributions and facilitates the application of Sparse Online Principal
-Component (SOPC), Incremental Principal Component (IPC), Perturbation
-Principal Component (PPC), Stochastic Approximation Principal Component
-(SAPC), Sparse Principal Component (SPC) and other PC methods and Farm
-Test methods to these models. Evaluates the efficacy of these methods
-within the context of Laplace factor models by scrutinizing parameter
-estimation accuracy, mean square error, and the degree of sparsity.
+Interface to the open location server API of 'Publieke Diensten Op de
+Kaart' (<http://www.pdok.nl>). It offers geocoding, address suggestions
+and lookup of geographical objects. Included is an utility function for
+displaying leaflet tiles restricted to the Netherlands.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LLIC
-%global packver   3.0.0
+%global packname  msce
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood Criterion (LIC) Analysis for Laplace Regression Model
+Summary:          Hazard of Multi-Stage Clonal Expansion Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-RcppParallel >= 5.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.3
 
 %description
-Performs likelihood criterion analysis using the Laplace regression model
-to determine its optimal subset of variables. The methodology is based on
-Guo et al. (2023), LIC criterion for optimal subset selection in
-distributed interval estimation <doi:10.1080/02331888.2020.1823979>.
+Functions to calculate hazard and survival function of Multi-Stage Clonal
+Expansion Models used in cancer epidemiology. For the Two-Stage Clonal
+Expansion Model an exact solution is implemented assuming piecewise
+constant parameters, see Heidenreich, Luebeck, Moolgavkar (1997)
+<doi:10.1111/j.1539-6924.1997.tb00878.x>. Numerical solutions are provided
+for its extensions, see also Little, Vineis, Li (2008)
+<doi:10.1016/j.jtbi.2008.05.027>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  resourcecode
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the 'RESOURCECODE' Hindcast Database
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridtext 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-patchwork 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-grid 
 Requires:         R-CRAN-gridtext 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-patchwork 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggeffects
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Tidy Data Frames of Marginal Effects for 'ggplot' from Model Outputs
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-datawizard >= 1.2.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-reformulas 
 Requires:         R-CRAN-insight >= 1.3.0
 Requires:         R-CRAN-datawizard >= 1.2.0
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-reformulas 
 
 %description
 Compute marginal effects and adjusted predictions from statistical models
