@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastRet
-%global packver   1.1.4
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retention Time Prediction in Liquid Chromatography
 
@@ -19,42 +19,38 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-rcdk 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-shinybusy 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shinyhelper 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-xlsx 
 Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-rcdk 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-shinybusy 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shinyhelper 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-xlsx 
 
 %description
 A framework for predicting retention times in liquid chromatography. Users

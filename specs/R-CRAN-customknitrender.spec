@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localLLM
-%global packver   1.1.0
+%global packname  customknitrender
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Running Local LLMs with 'llama.cpp' Backend
+Summary:          Easily Switch Output Format of 'Rmarkdown' Files with Shared Frontmatter
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.14
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-Rcpp >= 1.0.14
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R.utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Provides R bindings to the 'llama.cpp' library for running large language
-models. The package uses a lightweight architecture where the C++ backend
-library is downloaded at runtime rather than bundled with the package.
-Package features include text generation, reproducible generation, and
-parallel inference.
+Define the output format of 'rmarkdown' files with shared output 'yaml'
+frontmatter content. Rather than modifying a shared 'yaml' file, use
+integers to easily switch output formats for 'rmarkdown' files.
 
 %prep
 %setup -q -c -n %{packname}

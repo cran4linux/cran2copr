@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  volcano3D
-%global packver   2.0.9
+%global packname  emreliability
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          3D Volcano Plots and Polar Plots for Three-Class Data
+Summary:          Test Reliability and CSEM in Educational Measurement
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-matrixTests 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-matrixTests 
 
 %description
-Generates interactive plots for analysing and visualising three-class high
-dimensional data. It is particularly suited to visualising differences in
-continuous attributes such as gene/protein/biomarker expression levels
-between three groups. Differential gene/biomarker expression analysis
-between two classes is typically shown as a volcano plot. However, with
-three groups this type of visualisation is particularly difficult to
-interpret. This package generates 3D volcano plots and 3-way polar plots
-for easier interpretation of three-class data.
+Provides functions for computing test reliability and conditional standard
+error of measurement (CSEM) based on the methods described in the
+Reliability in Educational Measurement chapter of the 5th edition of
+"Educational Measurement" by Lee and Harris (2025, ISBN:9780197654965).
 
 %prep
 %setup -q -c -n %{packname}

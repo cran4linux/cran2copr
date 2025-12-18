@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localLLM
-%global packver   1.1.0
+%global packname  quanteda.tidy
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Running Local LLMs with 'llama.cpp' Backend
+Summary:          'tidyverse' Extensions for 'quanteda'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.14
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-Rcpp >= 1.0.14
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R.utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quanteda >= 3.0.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-quanteda >= 3.0.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides R bindings to the 'llama.cpp' library for running large language
-models. The package uses a lightweight architecture where the C++ backend
-library is downloaded at runtime rather than bundled with the package.
-Package features include text generation, reproducible generation, and
-parallel inference.
+Enables 'tidyverse' operations on 'quanteda' corpus objects by extending
+'dplyr' verbs to work directly with corpus objects and their
+document-level variables ('docvars'). Implements row operations for
+'subsetting' and reordering documents; column operations for managing
+document variables; grouped operations; and two-table verbs for merging
+external data. For more on 'quanteda' see 'Benoit et al.' (2018)
+<doi:10.21105/joss.00774>. For 'dplyr' see 'Wickham et al.' (2023)
+<doi:10.32614/CRAN.package.dplyr>.
 
 %prep
 %setup -q -c -n %{packname}

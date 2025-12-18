@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treeshap
-%global packver   0.3.1
+%global packname  shinyfilters
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute SHAP Values for Your Tree-Based Models Using the 'TreeSHAP' Algorithm
+Summary:          Use 'shiny' to Filter Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-S7 >= 0.2.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-S7 >= 0.2.0
+Requires:         R-methods 
+Requires:         R-CRAN-shiny 
 
 %description
-An efficient implementation of the 'TreeSHAP' algorithm introduced by
-Lundberg et al., (2020) <doi:10.1038/s42256-019-0138-9>. It is capable of
-calculating SHAP (SHapley Additive exPlanations) values for tree-based
-models in polynomial time.  Currently supported models include 'gbm',
-'randomForest', 'ranger', 'xgboost', 'lightgbm'.
+Provides an interface to 'shiny' inputs used for filtering vectors,
+data.frames, and other objects. 'S7'-based implementation allows for
+seamless extensibility.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  r2pmml
-%global packver   0.30.0
+%global packname  algebraic.dist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert R Models to PMML
+Summary:          Algebra over Probability Distributions
 
-License:          AGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       R-java
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-R6 
 
 %description
-R wrapper for the JPMML-R library <https://github.com/jpmml/jpmml-r>,
-which converts R models to Predictive Model Markup Language (PMML).
+Provides an algebra over probability distributions enabling composition,
+sampling, and automatic simplification to closed forms. Supports normal,
+exponential, multivariate normal, and empirical distributions with
+operations like addition and subtraction that automatically simplify when
+mathematical identities apply (e.g., the sum of independent normal
+distributions is normal). Uses S3 classes for distributions and R6 for
+support objects.
 
 %prep
 %setup -q -c -n %{packname}

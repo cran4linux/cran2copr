@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shinyBS
-%global packver   0.61.1
+%global packver   0.63.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.61.1
+Version:          0.63.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Twitter Bootstrap Components for Shiny
+Summary:          Extra Twitter Bootstrap Components for Shiny
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,13 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 0.11
+BuildRequires:    R-CRAN-shiny >= 0.13.2
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-shiny >= 0.11
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-shiny >= 0.13.2
 Requires:         R-CRAN-htmltools 
+Requires:         R-stats 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Adds additional Twitter Bootstrap components to Shiny.
+Adds easy access to additional Twitter Bootstrap components to Shiny.
 
 %prep
 %setup -q -c -n %{packname}

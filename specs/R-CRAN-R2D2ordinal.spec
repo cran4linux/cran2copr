@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R2D2ordinal
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implements Pseudo-R2D2 Prior for Ordinal Regression
 
@@ -40,11 +40,11 @@ Requires:         R-CRAN-rstantools
 
 %description
 Implements the pseudo-R2D2 prior for ordinal regression from the paper
-"Psuedo-R2D2 prior for high-dimensional ordinal regression" by Yanchenko
-(2025) <doi:10.48550/arXiv.2502.17491>. In particular, it provides code to
-evaluate the probability distribution function for the cut-points, compute
-the log-likelihood, calculate the hyper-parameters for the global variance
-parameter, find the distribution of McFadden's
+"Pseudo-R2D2 prior for high-dimensional ordinal regression" by Yanchenko
+(2025) <doi:10.1007/s11222-025-10667-x>. In particular, it provides code
+to evaluate the probability distribution function for the cut-points,
+compute the log-likelihood, calculate the hyper-parameters for the global
+variance parameter, find the distribution of McFadden's
 coefficient-of-determination, and fit the model in 'rstan'. Please cite
 the paper if you use these codes.
 

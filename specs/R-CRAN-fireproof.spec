@@ -1,42 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localLLM
-%global packver   1.1.0
+%global packname  fireproof
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Running Local LLMs with 'llama.cpp' Backend
+Summary:          Authentication and Authorization for 'fiery' Servers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.14
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reqres >= 1.1.0
+BuildRequires:    R-CRAN-routr >= 1.0.0
+BuildRequires:    R-CRAN-firesale >= 0.1.1
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-Rcpp >= 1.0.14
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-fiery 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sodium 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-reqres >= 1.1.0
+Requires:         R-CRAN-routr >= 1.0.0
+Requires:         R-CRAN-firesale >= 0.1.1
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-fiery 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sodium 
+Requires:         R-CRAN-urltools 
 
 %description
-Provides R bindings to the 'llama.cpp' library for running large language
-models. The package uses a lightweight architecture where the C++ backend
-library is downloaded at runtime rather than bundled with the package.
-Package features include text generation, reproducible generation, and
-parallel inference.
+Provides a plugin for 'fiery' that supports various forms of authorization
+and authentication schemes. Schemes can be required in various
+combinations or by themselves and can be combined with scopes to provide
+fine-grained access control to the server.
 
 %prep
 %setup -q -c -n %{packname}

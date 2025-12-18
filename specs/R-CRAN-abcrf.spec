@@ -1,34 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RPEGLMEN
-%global packver   1.1.3
+%global packname  abcrf
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gamma and Exponential Generalized Linear Models with Elastic Net Penalty
+Summary:          Approximate Bayesian Computation via Random Forests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-RPEIF 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-RPEIF 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.2
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-stringr 
 
 %description
-Implements the fast iterative shrinkage-thresholding algorithm (FISTA)
-algorithm to fit a Gamma distribution with an elastic net penalty as
-described in Chen, Arakvin and Martin (2018)
-<doi:10.48550/arXiv.1804.07780>. An implementation for the case of the
-exponential distribution is also available, with details available in Chen
-and Martin (2018) <doi:10.2139/ssrn.3085672>.
+Performs Approximate Bayesian Computation (ABC) model choice and parameter
+inference via random forests. Pudlo P., Marin J.-M., Estoup A., Cornuet
+J.-M., Gautier M. and Robert C. P. (2016)
+<doi:10.1093/bioinformatics/btv684>. Raynal L., Marin J.-M., Pudlo P.,
+Ribatet M., Robert C. P. and Estoup A. (2019)
+<doi:10.1093/bioinformatics/bty867>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfishbase
-%global packver   5.0.1
+%global packver   5.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.1
+Version:          5.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'FishBase'
 
@@ -14,29 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-duckdbfs >= 0.0.9
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-duckdbfs >= 0.0.9
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-xml2 
 
 %description
 A programmatic interface to 'FishBase', re-written based on an

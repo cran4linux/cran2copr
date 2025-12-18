@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rangr
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mechanistic Simulation of Species Range Dynamics
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-assertthat 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-assertthat 
 
 %description
 Integrates population dynamics and dispersal into a mechanistic virtual

@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RPESE
-%global packver   1.2.6
+%global packname  thisplot
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimates of Standard Errors for Risk and Performance Measures
+Summary:          Utility Functions for Plotting
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-RPEIF 
-BuildRequires:    R-CRAN-RPEGLMEN 
-BuildRequires:    R-CRAN-RobStatTM 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-RPEIF 
-Requires:         R-CRAN-RPEGLMEN 
-Requires:         R-CRAN-RobStatTM 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-thisutils 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-igraph 
+Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
+Requires:         R-stats 
+Requires:         R-CRAN-thisutils 
+Requires:         R-utils 
 
 %description
-Estimates of standard errors of popular risk and performance measures for
-asset or portfolio returns using methods as described in Chen and Martin
-(2021) <doi:10.21314/JOR.2020.446>.
+Provides utility functions for plotting. Includes functions for color
+manipulation, plot customization, panel size control, data optimization
+for plots, and layout adjustments.
 
 %prep
 %setup -q -c -n %{packname}

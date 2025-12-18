@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.3
+%global packname  simFastBOIN
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.3
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Fast Bayesian Optimal Interval Design for Phase I Dose-Finding Trials
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-Iso 
+Requires:         R-stats 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Conducting Bayesian Optimal Interval (BOIN) design for phase I
+dose-finding trials. 'simFastBOIN' provides functions for pre-computing
+decision tables, conducting trial simulations, and evaluating operating
+characteristics. The package uses vectorized operations and the
+Iso::pava() function for isotonic regression to achieve efficient
+performance while maintaining full compatibility with BOIN methodology.
+Version 1.3.2 adds p_saf and p_tox parameters for customizable safety and
+toxicity thresholds. Version 1.3.1 fixes Date field. Version 1.2.1 adds
+comprehensive 'roxygen2' documentation and enhanced print formatting with
+flexible table output options. Version 1.2.0 integrated C-based PAVA for
+isotonic regression. Version 1.1.0 introduced conservative MTD selection
+(boundMTD) and flexible early stopping rules (n_earlystop_rule). Methods
+are described in Liu and Yuan (2015) <doi:10.1111/rssc.12089>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extraSuperpower
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculation for Two-Way Factorial Designs
 
@@ -57,13 +57,13 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-The basic use of this package is with 3 sequential functions. One to
-generate expected cell means and standard deviations, along with
-correlation and covariance matrices in the case of repeated measurements.
-This is followed by experiment simulation i number of times. Finally,
-power is calculated from the simulated data. Features that may be
-considered in the model are interaction, measure correlation and
-non-normal distributions.
+The basic use of this package is with 3 sequential functions. First to
+generate a cell mean matrix. In case of a repeated measurements design
+also generate correlation and covariance matrices. This is followed by
+iterative experiment simulation. Finally, power is calculated from the
+simulated data. Features that may be considered in the model are
+interaction, measure correlation, non-normal and unbalanced designs
+distributions.
 
 %prep
 %setup -q -c -n %{packname}

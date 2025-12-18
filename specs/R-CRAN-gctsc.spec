@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shapr
-%global packver   1.0.6
+%global packname  gctsc
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prediction Explanation with Dependence-Aware Shapley Values
+Summary:          Modeling Count Time Series Data via Gaussian Copula Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table >= 1.15.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-TruncatedNormal 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-data.table >= 1.15.0
-Requires:         R-CRAN-Rcpp >= 0.12.15
-Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-future.apply 
-Requires:         R-methods 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-TruncatedNormal 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-truncnorm 
 
 %description
-Complex machine learning models are often hard to interpret. However, in
-many situations it is crucial to understand and explain why a model made a
-specific prediction. Shapley values is the only method for such prediction
-explanation framework with a solid theoretical foundation. Previously
-known methods for estimating the Shapley values do, however, assume
-feature independence. This package implements methods which accounts for
-any feature dependence, and thereby produces more accurate estimates of
-the true Shapley values. An accompanying 'Python' wrapper ('shaprpy') is
-available through the GitHub repository.
+Gaussian copula models for count time series. Includes simulation
+utilities, likelihood approximation, maximum-likelihood estimation,
+residual diagnostics, and predictive inference. Implements the Time Series
+Minimax Exponential Tilting (TMET) method, an adaptation of Minimax
+Exponential Tilting (Botev, 2017) <doi:10.1111/rssb.12162> and the
+Vecchia-based tilting framework of Cao and Katzfuss (2025)
+<doi:10.1080/01621459.2025.2546586>. Also provides a linear-cost
+implementation of the Geweke–Hajivassiliou–Keane (GHK) simulator inspired
+by Masarotto and Varin (2012) <doi:10.1214/12-EJS721>, and the Continuous
+Extension (CE) approximation of Nguyen and De Oliveira (2025)
+<doi:10.1080/02664763.2025.2498502>. The package follows the S3 structure
+of 'gcmr', but all code in 'gctsc' was developed independently.
 
 %prep
 %setup -q -c -n %{packname}

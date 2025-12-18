@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CepReg
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Cepstral Model for Covariate-Dependent Time Series
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-rrpack 
 BuildRequires:    R-CRAN-Renvlp 
 BuildRequires:    R-CRAN-psych 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-rrpack 
 Requires:         R-CRAN-Renvlp 
 Requires:         R-CRAN-psych 
 

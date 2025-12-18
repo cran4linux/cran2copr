@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SchoolDataIT
-%global packver   0.2.10
+%global packver   0.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve, Harmonise and Map Open Data Regarding the Italian School System
 
@@ -24,7 +24,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
@@ -40,7 +39,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OhdsiReportGenerator
-%global packver   1.1.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Observational Health Data Sciences and Informatics Report Generator
 
@@ -17,10 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-reactable >= 0.4.4
 BuildRequires:    R-CRAN-CirceR 
 BuildRequires:    R-CRAN-DatabaseConnector 
 BuildRequires:    R-CRAN-forestplot 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-gt 
@@ -28,15 +30,16 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-ParallelLogger 
 BuildRequires:    R-CRAN-quarto 
-BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-reactable >= 0.4.4
 Requires:         R-CRAN-CirceR 
 Requires:         R-CRAN-DatabaseConnector 
 Requires:         R-CRAN-forestplot 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-gt 
@@ -44,7 +47,6 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-ParallelLogger 
 Requires:         R-CRAN-quarto 
-Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-tibble 

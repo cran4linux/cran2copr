@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VBphenoR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variational Bayes for Latent Patient Phenotypes in EHR
 
@@ -42,7 +42,8 @@ implemented by Coordinate Ascent Variational Inference algorithms.
 Variational methods are used to enable Bayesian analysis of very large
 Electronic Health Records data. For VB GMM details see Bishop
 (2006,ISBN:9780-387-31073-2). For Logistic VB see Jaakkola and Jordan
-(2000) <doi:10.1023/A:1008932416310>.
+(2000) <doi:10.1023/A:1008932416310>. Please see preprint of JSS-submitted
+paper <doi:10.48550/arXiv.2512.14272>.
 
 %prep
 %setup -q -c -n %{packname}
