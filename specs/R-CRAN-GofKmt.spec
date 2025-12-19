@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GofKmt
-%global packver   2.2.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Khmaladze Martingale Transformation Goodness-of-Fit Test
 
@@ -13,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -31,13 +32,12 @@ Requires:         R-CRAN-Rsolnp
 Consider a goodness-of-fit (GOF) problem of testing whether a random
 sample comes from one sample location-scale model where location and scale
 parameters are unknown. It is well known that Khmaladze martingale
-transformation method - which was proposed by Khmaladze (1981)
-<DOI:10.1137/1126027> - provides asymptotic distribution free test for the
-GOF problem. This package contains one function: KhmaladzeTrans(). In this
-version, KhmaladzeTrans() provides test statistic and critical value of
-GOF test for normal, Cauchy, and logistic distributions. This package used
-the main algorithm proposed by Kim (2020) <DOI:10.1007/s00180-020-00971-7>
-and tests for other distributions will be available at the later version.
+transformation method proposed by Khmaladze (1981) <doi:10.1137/1126027>
+provides asymptotic distribution free test for the GOF problem. This
+package provides test statistic and critical value of GOF test for normal,
+Cauchy, and logistic distributions. This package used the main algorithm
+proposed by Kim (2020) <doi:10.1007/s00180-020-00971-7> and tests for
+other distributions will be available at the later version.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

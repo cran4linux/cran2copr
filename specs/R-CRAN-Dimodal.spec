@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wrassp
-%global packver   1.0.6
+%global packname  Dimodal
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'ASSP' Library
+Summary:          Spacing Tests for Multi-Modality
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildRequires:    R-CRAN-tibble >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-statmod 
+Requires:         R-CRAN-statmod 
 
 %description
-A wrapper around Michel Scheffers's 'libassp'
-(<https://libassp.sourceforge.net/>). The 'libassp' (Advanced Speech
-Signal Processor) library aims at providing functionality for handling
-speech signal files in most common audio formats and for performing
-analyses common in phonetic science/speech science. This includes the
-calculation of formants, fundamental frequency, root mean square, auto
-correlation, a variety of spectral analyses, zero crossing rate, filtering
-etc. This wrapper provides R with a large subset of 'libassp's signal
-processing functions and provides them to the user in a (hopefully)
-user-friendly manner.
+Tests for modality of data using its spacing.  The main approach evaluates
+features (peaks, flats) using a combination of parametric models and
+non-parametric tests, either after smoothing the spacing by a low-pass
+filter or by looking over larger intervals.  The library can also use any
+changepoint detectors available to look for transitions between features
+in the spacing.  The Suggested list of libraries is misnamed.  It contains
+all supported changepoint detectors, and all are considered optional.  A
+good minimal set would be the first three entries.  Some of the
+suggestions may no longer be current on CRAN, with the last source tarball
+found in its archives or at the additional repository.  These packages
+will be used if they are already installed on older installations, but
+will not be available to newer.
 
 %prep
 %setup -q -c -n %{packname}

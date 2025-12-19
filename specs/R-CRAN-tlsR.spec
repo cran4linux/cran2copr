@@ -1,41 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  litedown
-%global packver   0.9
+%global packname  tlsR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Version of R Markdown
+Summary:          Detection and Spatial Analysis of Tertiary Lymphoid Structures
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-commonmark >= 2.0.0
-BuildRequires:    R-CRAN-xfun >= 0.55
+BuildRequires:    R-CRAN-fastICA 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-commonmark >= 2.0.0
-Requires:         R-CRAN-xfun >= 0.55
+Requires:         R-CRAN-fastICA 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-RANN 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Render R Markdown to Markdown (without using 'knitr'), and Markdown to
-lightweight HTML or 'LaTeX' documents with the 'commonmark' package
-(instead of 'Pandoc'). Some missing Markdown features in 'commonmark' are
-also supported, such as raw HTML or 'LaTeX' blocks, 'LaTeX' math,
-superscripts, subscripts, footnotes, element attributes, and appendices,
-but not all 'Pandoc' Markdown features are (or will be) supported. With
-additional JavaScript and CSS, you can also create HTML slides and
-articles. This package can be viewed as a trimmed-down version of R
-Markdown and 'knitr'. It does not aim at rich Markdown features or a large
-variety of output formats (the primary formats are HTML and 'LaTeX'). Book
-and website projects of multiple input documents are also supported.
+Fast, reproducible detection and quantitative analysis of tertiary
+lymphoid structures (TLS) in multiplexed tissue imaging. Implements
+Independent Component Analysis Trace (ICAT) index, local Ripley's K
+scanning, automated K Nearest Neighbor (KNN)-based TLS detection, and
+T-cell clusters identification as described in Amiryousefi et al. (2025)
+<doi:10.1101/2025.09.21.677465>.
 
 %prep
 %setup -q -c -n %{packname}

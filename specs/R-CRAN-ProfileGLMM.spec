@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wrassp
-%global packver   1.0.6
+%global packname  ProfileGLMM
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'ASSP' Library
+Summary:          Bayesian Profile Regression using Generalised Linear Mixed Models
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildRequires:    R-CRAN-tibble >= 2.1.0
-Requires:         R-CRAN-tibble >= 2.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Spectrum 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Spectrum 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-A wrapper around Michel Scheffers's 'libassp'
-(<https://libassp.sourceforge.net/>). The 'libassp' (Advanced Speech
-Signal Processor) library aims at providing functionality for handling
-speech signal files in most common audio formats and for performing
-analyses common in phonetic science/speech science. This includes the
-calculation of formants, fundamental frequency, root mean square, auto
-correlation, a variety of spectral analyses, zero crossing rate, filtering
-etc. This wrapper provides R with a large subset of 'libassp's signal
-processing functions and provides them to the user in a (hopefully)
-user-friendly manner.
+Implements a Bayesian profile regression using a generalized linear mixed
+model as output model. The package allows for binary (probit mixed model)
+and continuous (linear mixed model) outcomes and both continuous and
+categorical clustering variables. The package utilizes 'RcppArmadillo' and
+'RcppDist' for high-performance statistical computing in C++. For more
+details see Amestoy & al. (2025) <doi:10.48550/arXiv.2510.08304>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  litedown
-%global packver   0.9
+%global packname  splinetrials
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Version of R Markdown
+Summary:          Facilitate Clinical Trials Analysis Using Natural Cubic Splines
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-commonmark >= 2.0.0
-BuildRequires:    R-CRAN-xfun >= 0.55
-BuildRequires:    R-utils 
-Requires:         R-CRAN-commonmark >= 2.0.0
-Requires:         R-CRAN-xfun >= 0.55
-Requires:         R-utils 
+BuildRequires:    R-CRAN-mmrm >= 0.3.16
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-splines 
+Requires:         R-CRAN-mmrm >= 0.3.16
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-rlang 
+Requires:         R-splines 
 
 %description
-Render R Markdown to Markdown (without using 'knitr'), and Markdown to
-lightweight HTML or 'LaTeX' documents with the 'commonmark' package
-(instead of 'Pandoc'). Some missing Markdown features in 'commonmark' are
-also supported, such as raw HTML or 'LaTeX' blocks, 'LaTeX' math,
-superscripts, subscripts, footnotes, element attributes, and appendices,
-but not all 'Pandoc' Markdown features are (or will be) supported. With
-additional JavaScript and CSS, you can also create HTML slides and
-articles. This package can be viewed as a trimmed-down version of R
-Markdown and 'knitr'. It does not aim at rich Markdown features or a large
-variety of output formats (the primary formats are HTML and 'LaTeX'). Book
-and website projects of multiple input documents are also supported.
+Create mixed models with repeated measures using natural cubic splines
+applied to an observed continuous time variable, as described by Donohue
+et al. (2023) <doi:10.1002/pst.2285>. Iterate through multiple covariance
+structure types until one converges. Categorize observed time according to
+scheduled visits. Perform subgroup analyses.
 
 %prep
 %setup -q -c -n %{packname}

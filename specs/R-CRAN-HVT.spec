@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HVT
-%global packver   25.2.7
+%global packver   25.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          25.2.7
+Version:          25.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constructing Hierarchical Voronoi Tessellations and Overlay Heatmaps for Data Analysis
 

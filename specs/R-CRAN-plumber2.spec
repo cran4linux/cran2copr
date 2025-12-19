@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plumber2
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy and Powerful Web Servers
+Summary:          Easy and Powerful Webservers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -63,9 +63,9 @@ Requires:         R-CRAN-webutils
 Requires:         R-CRAN-yaml 
 
 %description
-Automatically create a web server from annotated 'R' files or by building
+Automatically create a webserver from annotated 'R' files or by building
 it up programmatically. Provides automatic 'OpenAPI' documentation, input
-handling, asynchronous evaluation, and plugin support.
+handling, async support, and middleware support.
 
 %prep
 %setup -q -c -n %{packname}

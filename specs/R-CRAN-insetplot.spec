@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  litedown
-%global packver   0.9
+%global packname  insetplot
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Version of R Markdown
+Summary:          Inset Plots for Spatial Data Visualization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-commonmark >= 2.0.0
-BuildRequires:    R-CRAN-xfun >= 0.55
-BuildRequires:    R-utils 
-Requires:         R-CRAN-commonmark >= 2.0.0
-Requires:         R-CRAN-xfun >= 0.55
-Requires:         R-utils 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 
 %description
-Render R Markdown to Markdown (without using 'knitr'), and Markdown to
-lightweight HTML or 'LaTeX' documents with the 'commonmark' package
-(instead of 'Pandoc'). Some missing Markdown features in 'commonmark' are
-also supported, such as raw HTML or 'LaTeX' blocks, 'LaTeX' math,
-superscripts, subscripts, footnotes, element attributes, and appendices,
-but not all 'Pandoc' Markdown features are (or will be) supported. With
-additional JavaScript and CSS, you can also create HTML slides and
-articles. This package can be viewed as a trimmed-down version of R
-Markdown and 'knitr'. It does not aim at rich Markdown features or a large
-variety of output formats (the primary formats are HTML and 'LaTeX'). Book
-and website projects of multiple input documents are also supported.
+Tools for easily and flexibly creating 'ggplot2' maps with inset maps. One
+crucial feature of maps is that they have fixed coordinate ratios, i.e.,
+they cannot be distorted, which makes it difficult to manually place inset
+maps. This package provides functions to automatically position inset maps
+based on user-defined parameters, making it extremely easy to create maps
+with inset maps with minimal code.
 
 %prep
 %setup -q -c -n %{packname}

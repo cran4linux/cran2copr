@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tagtools
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Data from High-Resolution Biologging Tags
 
@@ -14,40 +14,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-gsignal 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-matlab 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-zoom 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-CircStats 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
-Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-gsignal 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-matlab 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-signal 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 

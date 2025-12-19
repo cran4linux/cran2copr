@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  litedown
-%global packver   0.9
+%global packname  ggrecipes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Version of R Markdown
+Summary:          Recipes for Data Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-commonmark >= 2.0.0
-BuildRequires:    R-CRAN-xfun >= 0.55
-BuildRequires:    R-utils 
-Requires:         R-CRAN-commonmark >= 2.0.0
-Requires:         R-CRAN-xfun >= 0.55
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Render R Markdown to Markdown (without using 'knitr'), and Markdown to
-lightweight HTML or 'LaTeX' documents with the 'commonmark' package
-(instead of 'Pandoc'). Some missing Markdown features in 'commonmark' are
-also supported, such as raw HTML or 'LaTeX' blocks, 'LaTeX' math,
-superscripts, subscripts, footnotes, element attributes, and appendices,
-but not all 'Pandoc' Markdown features are (or will be) supported. With
-additional JavaScript and CSS, you can also create HTML slides and
-articles. This package can be viewed as a trimmed-down version of R
-Markdown and 'knitr'. It does not aim at rich Markdown features or a large
-variety of output formats (the primary formats are HTML and 'LaTeX'). Book
-and website projects of multiple input documents are also supported.
+A collection of custom 'ggplot2'-based visualizations for data exploration
+and analysis. Each function handles data preprocessing and returns a
+object that can be further customized using standard 'ggplot2' syntax.
 
 %prep
 %setup -q -c -n %{packname}

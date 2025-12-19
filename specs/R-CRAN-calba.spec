@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tibblify
-%global packver   0.3.1
+%global packname  calba
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rectangle Nested Lists
+Summary:          Efficient Neighborhood Basal Area Metrics for Trees
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-cli >= 3.6.2
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-withr >= 2.5.2
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 1.1.3
-BuildRequires:    R-CRAN-lifecycle >= 1.0.4
-BuildRequires:    R-CRAN-purrr >= 1.0.2
-BuildRequires:    R-CRAN-vctrs >= 0.6.5
-Requires:         R-CRAN-cli >= 3.6.2
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-withr >= 2.5.2
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-rlang >= 1.1.3
-Requires:         R-CRAN-lifecycle >= 1.0.4
-Requires:         R-CRAN-purrr >= 1.0.2
-Requires:         R-CRAN-vctrs >= 0.6.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A tool to rectangle a nested list, that is to convert it into a tibble.
-This is done automatically or according to a given specification.  A
-common use case is for nested lists coming from parsing JSON files or the
-JSON response of REST APIs. It is supported by the 'vctrs' package and
-therefore offers a wide support of vector types.
+Fast 'C++'-backed tools for computing conspecific and total neighborhood
+basal area in mapped forest plots. Includes unweighted and
+distance-weighted neighborhoods, multiple radii, decay kernels, and basic
+edge correction. Outputs are model-ready covariates for forest
+competition, growth, and survival models, following neighborhood modeling
+workflows commonly used in spatial ecology (e.g., Hülsmann et al. 2024
+<doi:10.1038/s41586-024-07118-4>).
 
 %prep
 %setup -q -c -n %{packname}

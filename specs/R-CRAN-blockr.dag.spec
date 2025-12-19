@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openmeteo
-%global packver   0.2.4
+%global packname  blockr.dag
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Weather Data from the Open-Meteo API
+Summary:          A Directed Acyclic Graph Extension for 'blockr'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,25 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 3.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibblify 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-testthat >= 3.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibblify 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-g6R >= 0.5.0
+BuildRequires:    R-CRAN-blockr.core >= 0.1.1
+BuildRequires:    R-CRAN-blockr.dock 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-g6R >= 0.5.0
+Requires:         R-CRAN-blockr.core >= 0.1.1
+Requires:         R-CRAN-blockr.dock 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
 
 %description
-A client for the Open-Meteo API that retrieves Open-Meteo weather data in
-a tidy format. No API key is required. The API specification is located at
-<https://open-meteo.com/en/docs>.
+Building on the docking layout manager provided by 'blockr.dock', this
+provides an extension that allows for visualizing and manipulating a
+'blockr' board using a DAG-based user interface powered by the 'g6R' graph
+visualisation HTML widget.
 
 %prep
 %setup -q -c -n %{packname}

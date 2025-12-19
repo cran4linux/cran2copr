@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtiddlywiki
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface for 'TiddlyWiki'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.2.0
+BuildRequires:    R-CRAN-httr2 >= 1.2.2
 BuildRequires:    R-CRAN-settings 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pingr 
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-httr2 >= 1.2.0
+Requires:         R-CRAN-httr2 >= 1.2.2
 Requires:         R-CRAN-settings 
 Requires:         R-stats 
 Requires:         R-CRAN-pingr 
@@ -59,8 +59,8 @@ Requires:         R-grDevices
 %description
 'TiddlyWiki' is a unique non-linear notebook for capturing, organising and
 sharing complex information. 'rtiddlywiki' is a R interface of
-'TiddlyWiki' <https://tiddlywiki.com> to create new tiddler from Rmarkdown
-file, and then put into a local 'TiddlyWiki' node.js server if it is
+'TiddlyWiki' <https://tiddlywiki.com> to create new tiddler from 'R
+Markdown' file, and then put into a local 'TiddlyWiki' server if it is
 available.
 
 %prep

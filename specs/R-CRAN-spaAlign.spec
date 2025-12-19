@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  litedown
-%global packver   0.9
+%global packname  spaAlign
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Version of R Markdown
+Summary:          Stratigraphic Plug Alignment for Integrating Plug-Based and XRF Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-commonmark >= 2.0.0
-BuildRequires:    R-CRAN-xfun >= 0.55
-BuildRequires:    R-utils 
-Requires:         R-CRAN-commonmark >= 2.0.0
-Requires:         R-CRAN-xfun >= 0.55
-Requires:         R-utils 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Render R Markdown to Markdown (without using 'knitr'), and Markdown to
-lightweight HTML or 'LaTeX' documents with the 'commonmark' package
-(instead of 'Pandoc'). Some missing Markdown features in 'commonmark' are
-also supported, such as raw HTML or 'LaTeX' blocks, 'LaTeX' math,
-superscripts, subscripts, footnotes, element attributes, and appendices,
-but not all 'Pandoc' Markdown features are (or will be) supported. With
-additional JavaScript and CSS, you can also create HTML slides and
-articles. This package can be viewed as a trimmed-down version of R
-Markdown and 'knitr'. It does not aim at rich Markdown features or a large
-variety of output formats (the primary formats are HTML and 'LaTeX'). Book
-and website projects of multiple input documents are also supported.
+Implements the Stratigraphic Plug Alignment (SPA) procedure for
+integrating sparsely sampled plug-based measurements (e.g., total organic
+carbon, porosity, mineralogy) with high-resolution X-ray fluorescence
+(XRF) geochemical data. SPA uses linear interpolation via the base
+approx() function with constrained extrapolation (rule = 1) to preserve
+stratigraphic order and avoid estimation beyond observed depths. The
+method aligns all datasets to a common depth grid, enabling
+high-resolution multivariate analysis and stratigraphic interpretation of
+core-based datasets such as those from the Utica and Point Pleasant
+formations. See R Core Team (2025)
+<https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html>
+and Omodolor (2025)
+<http://rave.ohiolink.edu/etdc/view?acc_num=case175262671767524> for
+methodological background and geological context.
 
 %prep
 %setup -q -c -n %{packname}

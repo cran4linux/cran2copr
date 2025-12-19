@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exams.forge.data
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample and Precomputed Data for Use with 'exams.forge'
 
@@ -28,7 +28,7 @@ linear regression analysis. It includes the precomputed dataset 'sos100',
 with integer values summing to zero and squared sum equal to 100. For
 other values of 'n' and user-defined parameters, the 'sos()' function from
 the 'exams.forge' package can be used to generate datasets on the fly. In
-addition, the package contains around 500 R Markdown exercises that
+addition, the package contains around 500 german R Markdown exercises that
 illustrate the usage of 'exams.forge' commands.
 
 %prep

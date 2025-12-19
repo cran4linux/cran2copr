@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biogrowth
-%global packver   1.0.6
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling of Population Growth
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-formula.tools >= 1.7.1
 BuildRequires:    R-CRAN-FME >= 1.3.6
 BuildRequires:    R-CRAN-lamW >= 1.3.0
 BuildRequires:    R-CRAN-deSolve >= 1.28
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
 BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-cowplot >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
@@ -37,6 +38,7 @@ Requires:         R-CRAN-formula.tools >= 1.7.1
 Requires:         R-CRAN-FME >= 1.3.6
 Requires:         R-CRAN-lamW >= 1.3.0
 Requires:         R-CRAN-deSolve >= 1.28
+Requires:         R-CRAN-mvtnorm >= 1.1.3
 Requires:         R-CRAN-tidyr >= 1.0.2
 Requires:         R-CRAN-cowplot >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.5

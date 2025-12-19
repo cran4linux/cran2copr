@@ -1,48 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PupillometryR
-%global packver   0.0.6
+%global packname  havel
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified Pipeline for Pupillometry Data
+Summary:          Visualize and Tabulate 'R' Package Dependencies
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-cppRouting 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pak 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-cppRouting 
+Requires:         R-CRAN-data.table 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-methods 
+Requires:         R-CRAN-pak 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-signal 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-zoo 
 
 %description
-Provides a unified pipeline to clean, prepare, plot, and run basic
-analyses on pupillometry experiments.
+Plot an 'R' package's recursive dependency graph and tabulate the number
+of unique downstream dependencies added by top-level dependencies. This
+helps 'R' package developers identify which of their declared dependencies
+add the most downstream dependencies in order to prioritize them for
+removal if needed. Uses graph stress minimization adapted from Schoch
+(2023) <doi:10.21105/joss.05238> and originally reported in Gansner et al.
+(2004) <doi:10.1007/978-3-540-31843-9_25>.
 
 %prep
 %setup -q -c -n %{packname}

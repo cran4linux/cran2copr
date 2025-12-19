@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EasyABC
-%global packver   1.5.2
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Approximate Bayesian Computation Sampling Schemes
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-abc 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-MASS 
@@ -25,6 +25,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-tensorA 
 Requires:         R-CRAN-abc 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-MASS 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  routr
-%global packver   2.0.0
+%global packname  blockr.dplyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple Router for HTTP and WebSocket Requests
+Summary:          Interactive 'dplyr' Data Transformation Blocks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-promises >= 1.5.0
-BuildRequires:    R-CRAN-reqres >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-brio 
-BuildRequires:    R-CRAN-otel 
-BuildRequires:    R-CRAN-waysign 
+BuildRequires:    R-CRAN-blockr.core >= 0.1.1
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-promises >= 1.5.0
-Requires:         R-CRAN-reqres >= 1.2.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-brio 
-Requires:         R-CRAN-otel 
-Requires:         R-CRAN-waysign 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-utils 
+BuildRequires:    R-datasets 
+Requires:         R-CRAN-blockr.core >= 0.1.1
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-shinyAce 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-utils 
+Requires:         R-datasets 
 
 %description
-In order to make sure that web request ends up in the correct handler
-function a router is often used. 'routr' is a package implementing a
-simple but powerful routing functionality for R based servers. It is a
-fully functional 'fiery' plugin, but can also be used with other 'httpuv'
-based servers.
+Extends 'blockr.core' with interactive blocks for visual data wrangling
+using 'dplyr' and 'tidyr' operations. Users can build data transformation
+pipelines through a graphical interface without writing code directly.
+Includes blocks for filtering, selecting, mutating, summarizing, joining,
+and arranging data, with support for complex expressions, grouping
+operations, and real-time validation.
 
 %prep
 %setup -q -c -n %{packname}
