@@ -5,6 +5,7 @@ source("common.r")
 check_copr()
 
 df.mon <- get_monitor()
+df.mon <- df.mon[, c("Package", getOption("copr.chroots"))]
 df.mon <- subset(df.mon, grepl(getOption("copr.prefix"), Package))
 
 pkgs.mism <- subset_vmism(df.mon)$Package
