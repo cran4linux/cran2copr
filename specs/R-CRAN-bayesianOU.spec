@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ads
-%global packver   1.5-11
+%global packname  bayesianOU
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.11
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Point Patterns Analysis
+Summary:          Bayesian Nonlinear Ornstein-Uhlenbeck Models with Stochastic Volatility
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ade4 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-ade4 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Perform first- and second-order multi-scale analyses derived from Ripley
-K-function (Ripley B. D. (1977) <doi:10.1111/j.2517-6161.1977.tb01615.x>),
-for univariate, multivariate and marked mapped data in rectangular,
-circular or irregular shaped sampling windows, with tests of statistical
-significance based on Monte Carlo simulations.
+Fits Bayesian nonlinear Ornstein-Uhlenbeck models with cubic drift,
+stochastic volatility, and Student-t innovations. The package implements
+hierarchical priors for sector-specific parameters and supports parallel
+MCMC sampling via 'Stan'. Model comparison is performed using Pareto
+Smoothed Importance Sampling Leave-One-Out (PSIS-LOO) cross-validation
+following Vehtari, Gelman, and Gabry (2017)
+<doi:10.1007/s11222-016-9696-4>. Prior specifications follow
+recommendations from Gelman (2006) <doi:10.1214/06-BA117A> for scale
+parameters.
 
 %prep
 %setup -q -c -n %{packname}

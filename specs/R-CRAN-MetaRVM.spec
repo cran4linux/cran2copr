@@ -1,55 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  text2speech
+%global packname  MetaRVM
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Text to Speech Conversion
+Summary:          Meta-Population Compartmental Model for Respiratory Virus Diseases
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aws.signature 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-googleAuthR 
-BuildRequires:    R-CRAN-googleLanguageR 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-conrad 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-odin 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-aws.signature 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-googleAuthR 
-Requires:         R-CRAN-googleLanguageR 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-conrad 
+Requires:         R-methods 
+Requires:         R-CRAN-odin 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tuneR 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-yaml 
 
 %description
-Converts text into speech using various text-to-speech (TTS) engines and
-provides an unified interface for accessing their functionality. With this
-package, users can easily generate audio files of spoken words, phrases,
-or sentences from plain text data. The package supports multiple TTS
-engines, including Google's 'Cloud Text-to-Speech API', 'Amazon Polly',
-Microsoft's 'Cognitive Services Text to Speech REST API', and a free TTS
-engine called 'Coqui TTS'.
+Simulates respiratory virus epidemics using meta-population compartmental
+models following Fadikar et. al. (2025) <doi:10.1101/2025.05.05.25327021>.
+'MetaRVM' implements a stochastic SEIRD
+(Susceptible-Exposed-Infected-Recovered-Dead) framework with demographic
+stratification by age, race, and geographic zones. It supports complex
+epidemiological scenarios including asymptomatic and presymptomatic
+transmission, hospitalization dynamics, vaccination schedules, and
+time-varying contact patterns via mixing matrices.
 
 %prep
 %setup -q -c -n %{packname}

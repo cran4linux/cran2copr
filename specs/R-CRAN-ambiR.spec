@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  evsim
-%global packver   1.7.1
+%global packname  ambiR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Electric Vehicle Charging Sessions Simulation
+Summary:          Calculate AZTI’s Marine Biotic Index
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-magrittr 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Simulation of Electric Vehicles charging sessions using Gaussian models,
-together with time-series power demand calculations.
+Calculate AZTI’s Marine Biotic Index - AMBI. The included list of benthic
+fauna species according to their sensitivity to pollution. Matching
+species in sample data to the list allows the calculation of fractions of
+individuals in the different sensitivity categories and thereafter the
+AMBI index. The Shannon Diversity Index H' and the Danish benthic fauna
+quality index DKI (Dansk Kvalitetsindeks) can also be calculated, as well
+as the multivariate M-AMBI index. Borja, A., Franco, J. ,Pérez, V. (2000)
+"A marine biotic index to establish the ecological quality of soft bottom
+benthos within European estuarine and coastal environments"
+<doi:10.1016/S0025-326X(00)00061-8>.
 
 %prep
 %setup -q -c -n %{packname}

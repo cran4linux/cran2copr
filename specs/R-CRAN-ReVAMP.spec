@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GAS
-%global packver   0.3.4.1
+%global packname  ReVAMP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Autoregressive Score Models
+Summary:          Interface to 'Vamp' Audio Analysis Plugins
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.2
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.2
-Requires:         R-methods 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-cubature 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Simulate, estimate and forecast using univariate and multivariate GAS
-models as described in Ardia et al. (2019) <doi:10.18637/jss.v088.i06>.
+Provides an interface to the 'Vamp' audio analysis plugin system
+<https://www.vamp-plugins.org/> developed by Queen Mary University of
+London's Centre for Digital Music. Enables loading and running Vamp
+plugins for various audio analysis tasks including tempo detection, onset
+detection, spectral analysis, and audio feature extraction. Supports mono
+and stereo audio with automatic channel adaptation and domain conversion.
 
 %prep
 %setup -q -c -n %{packname}

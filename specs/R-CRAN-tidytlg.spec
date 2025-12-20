@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytlg
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create TLGs using the 'tidyverse'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-huxtable >= 5.1.0
 BuildRequires:    R-CRAN-cli >= 3.6.0
@@ -59,7 +59,7 @@ Requires:         R-CRAN-png >= 0.1.7
 Requires:         R-methods 
 
 %description
-Generate tables, listings, and graphs (TLG) using 'tidyverse.' Tables can
+Generate tables, listings, and graphs (TLG) using 'tidyverse'. Tables can
 be created functionally, using a standard TLG process, or by specifying
 table and column metadata to create generic analysis summaries. The
 'envsetup' package can also be leveraged to create environments for table

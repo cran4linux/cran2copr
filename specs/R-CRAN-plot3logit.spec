@@ -1,67 +1,69 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  guideR
-%global packver   0.8.1
+%global packname  plot3logit
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Statistical Functions Used in 'guide-R'
+Summary:          Ternary Plots for Trinomial Regression Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
+BuildRequires:    R-CRAN-ggtern >= 4.0.0
+BuildRequires:    R-CRAN-Ternary >= 2.3.5
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-pak 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-srvyr 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 >= 4.0.1
+Requires:         R-CRAN-ggtern >= 4.0.0
+Requires:         R-CRAN-Ternary >= 2.3.5
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-generics 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-pak 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-renv 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-srvyr 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description
-Companion package for the manual 'guide-R : Guide pour l’analyse de
-données d’enquêtes avec R' available at
-<https://larmarange.github.io/guide-R/>. 'guideR' implements miscellaneous
-functions introduced in 'guide-R' to facilitate statistical analysis and
-manipulation of survey data.
+An implementation of the ternary plot for interpreting regression
+coefficients of trinomial regression models, as proposed in Santi, Dickson
+and Espa (2019) <doi:10.1080/00031305.2018.1442368>. Ternary plots can be
+drawn using either 'ggtern' package (based on 'ggplot2') or 'Ternary'
+package (based on standard graphics). The package and its features are
+illustrated in Santi, Dickson, Espa and Giuliani (2022)
+<doi:10.18637/jss.v103.c01>.
 
 %prep
 %setup -q -c -n %{packname}

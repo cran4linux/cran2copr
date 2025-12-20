@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geos
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Source Geometry Engine ('GEOS') R API
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-libgeos >= 3.8.1.4
 BuildRequires:    R-CRAN-wk >= 0.4.1
+BuildRequires:    R-methods 
 Requires:         R-CRAN-libgeos >= 3.8.1.4
 Requires:         R-CRAN-wk >= 0.4.1
+Requires:         R-methods 
 
 %description
 Provides an R API to the Open Source Geometry Engine ('GEOS') library

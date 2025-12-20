@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialRF
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Spatial Modeling with Random Forest
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-huxtable >= 5.8.0
+BuildRequires:    R-CRAN-patchwork >= 1.3.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
@@ -29,9 +31,9 @@ BuildRequires:    R-CRAN-ranger
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-huxtable 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-huxtable >= 5.8.0
+Requires:         R-CRAN-patchwork >= 1.3.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
@@ -44,28 +46,21 @@ Requires:         R-CRAN-ranger
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-huxtable 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-viridis 
 
 %description
-Automatic generation and selection of spatial predictors for spatial
-regression with Random Forest. Spatial predictors are surrogates of
-variables driving the spatial structure of a response variable. The
-package offers two methods to generate spatial predictors from a distance
-matrix among training cases: 1) Moran's Eigenvector Maps (MEMs; Dray,
-Legendre, and Peres-Neto 2006 <DOI:10.1016/j.ecolmodel.2006.02.015>):
-computed as the eigenvectors of a weighted matrix of distances; 2) RFsp
-(Hengl et al. <DOI:10.7717/peerj.5518>): columns of the distance matrix
-used as spatial predictors. Spatial predictors help minimize the spatial
-autocorrelation of the model residuals and facilitate an honest assessment
-of the importance scores of the non-spatial predictors. Additionally,
-functions to reduce multicollinearity, identify relevant variable
-interactions, tune random forest hyperparameters, assess model
-transferability via spatial cross-validation, and explore model results
-via partial dependence curves and interaction surfaces are included in the
-package. The modelling functions are built around the highly efficient
-'ranger' package (Wright and Ziegler 2017 <DOI:10.18637/jss.v077.i01>).
+Automatic generation and selection of spatial predictors for Random Forest
+models fitted to spatially structured data. Spatial predictors are
+constructed from a distance matrix among training samples using Moran's
+Eigenvector Maps (MEMs; Dray, Legendre, and Peres-Neto 2006
+<DOI:10.1016/j.ecolmodel.2006.02.015>) or the RFsp approach (Hengl et al.
+<DOI:10.7717/peerj.5518>). These predictors are used alongside
+user-supplied explanatory variables in Random Forest models. The package
+provides functions for model fitting, multicollinearity reduction,
+interaction identification, hyperparameter tuning, evaluation via spatial
+cross-validation, and result visualization using partial dependence and
+interaction plots. Model fitting relies on the 'ranger' package (Wright
+and Ziegler 2017 <DOI:10.18637/jss.v077.i01>).
 
 %prep
 %setup -q -c -n %{packname}

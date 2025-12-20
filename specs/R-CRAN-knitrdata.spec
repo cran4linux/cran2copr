@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyDBScan
-%global packver   0.0.3
+%global packname  knitrdata
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Run and Predict a Fuzzy DBScan
+Summary:          Data Language Engine for 'knitr' / 'rmarkdown'
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel > 3.5.0
+Requires:         R-core > 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-xfun >= 0.16
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-xfun >= 0.16
+Requires:         R-CRAN-knitr 
 
 %description
-An interface for training Fuzzy DBScan with both Fuzzy Core and Fuzzy
-Border. Therefore, the package provides a method to initialize and run the
-algorithm and a function to predict new data w.t.h. of 'R6'. The package
-is build upon the paper "Fuzzy Extensions of the DBScan algorithm" from
-Ienco and Bordogna (2018) <doi:10.1007/s00500-016-2435-0>. A predict
-function assigns new data according to the same criteria as the algorithm
-itself. However, the prediction function freezes the algorithm to preserve
-the trained cluster structure and treats each new prediction object
-individually.
+Implements a data language engine for incorporating data directly in
+'rmarkdown' documents so that they can be made completely standalone.
 
 %prep
 %setup -q -c -n %{packname}

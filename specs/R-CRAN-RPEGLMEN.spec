@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RMaCzek
-%global packver   1.6.0
+%global packname  RPEGLMEN
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Czekanowski's Diagrams
+Summary:          Gamma and Exponential Generalized Linear Models with Elastic Net Penalty
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-GA >= 3.2
-BuildRequires:    R-CRAN-seriation >= 1.3.4
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ecp 
-BuildRequires:    R-CRAN-FuzzyDBScan 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-GA >= 3.2
-Requires:         R-CRAN-seriation >= 1.3.4
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ecp 
-Requires:         R-CRAN-FuzzyDBScan 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-RPEIF 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-RPEIF 
 
 %description
-Allows for production of Czekanowski's Diagrams with clusters. See K.
-Bartoszek, A. Vasterlund (2020) <doi:10.2478/bile-2020-0008> and K.
-Bartoszek, Y. Luo (2023) <doi:10.14708/ma.v51i2.7259>.
+Implements the fast iterative shrinkage-thresholding algorithm (FISTA)
+algorithm to fit a Gamma distribution with an elastic net penalty as
+described in Chen, Arakvin and Martin (2018)
+<doi:10.48550/arXiv.1804.07780>. An implementation for the case of the
+exponential distribution is also available, with details available in Chen
+and Martin (2018) <doi:10.2139/ssrn.3085672>.
 
 %prep
 %setup -q -c -n %{packname}

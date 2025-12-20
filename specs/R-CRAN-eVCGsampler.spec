@@ -1,49 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  biclust
-%global packver   2.0.3.1
+%global packname  eVCGsampler
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          BiCluster Algorithms
+Summary:          VCG Sampling using Energy-Based Covariate Balancing
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-flexclust 
-BuildRequires:    R-CRAN-additivityTests 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-grid 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-lattice 
-Requires:         R-methods 
-Requires:         R-CRAN-flexclust 
-Requires:         R-CRAN-additivityTests 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-osqp 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-osqp 
+Requires:         R-CRAN-patchwork 
 
 %description
-The main function biclust() provides several algorithms to find biclusters
-in two-dimensional data: Cheng and Church (2000, ISBN:1-57735-115-0),
-spectral (2003) <doi:10.1101/gr.648603>, plaid model (2005)
-<doi:10.1016/j.csda.2004.02.003>, xmotifs (2003)
-<doi:10.1142/9789812776303_0008> and bimax (2006)
-<doi:10.1093/bioinformatics/btl060>. In addition, the package provides
-methods for data preprocessing (normalization and discretisation),
-visualisation, and validation of bicluster solutions.
+Provides a principled framework for sampling Virtual Control Group (VCG)
+using energy distance-based covariate balancing. The package offers
+visualization tools to assess covariate balance and includes a permutation
+test to evaluate the statistical significance of observed deviations.
 
 %prep
 %setup -q -c -n %{packname}

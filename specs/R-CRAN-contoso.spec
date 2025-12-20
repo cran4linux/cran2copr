@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  contoso
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dataset of the 'Contoso' Company
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-duckdb >= 1.4.0
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-duckdb >= 1.4.0
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-assertthat 
 
 %description
 A collection of synthetic datasets simulating sales transactions from a

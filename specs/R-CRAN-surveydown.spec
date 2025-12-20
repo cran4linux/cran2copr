@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveydown
-%global packver   0.14.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markdown-Based Programmable Surveys Using 'Quarto' and 'shiny'
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-markdown
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-pool 
 BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-rvest 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-markdown
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-pool 
 Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-rvest 

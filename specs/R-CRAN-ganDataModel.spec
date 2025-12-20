@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ganDataModel
-%global packver   1.1.7
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Metric Subspaces Data Model for a Data Source
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  journalR
-%global packver   0.2.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formatting Tools for Scientific Journal Writing
 
@@ -26,13 +26,12 @@ Requires:         R-CRAN-glue
 
 %description
 Scientific journal numeric formatting policies implemented in code.
-Emphasis on formatting mean/upper/lower sets of values.  Convert raw
-numeric triplet value vectors to formatted text for journal submission.
-For example c(2e6, 1e6, 3e6) becomes "2.00 million (1.00--3.00)". Lancet
-and Nature have built-in styles for rounding and punctuation marks. Users
-may extend journal styles arbitrarily. Three metrics are supported;
-proportions, percentage points, and counts. Magnitudes for all metrics are
-discovered automatically.
+Emphasis on formatting mean/upper/lower sets of values to pasteable text
+for journal submission. For example c(2e6, 1e6, 3e6) becomes "2.00 million
+(1.00--3.00)".  Lancet and Nature have built-in styles for rounding and
+punctuation marks.  Users may extend journal styles arbitrarily. Four
+metrics are supported; proportions, percentage points, counts and rates.
+Magnitudes for all metrics are discovered automatically.
 
 %prep
 %setup -q -c -n %{packname}

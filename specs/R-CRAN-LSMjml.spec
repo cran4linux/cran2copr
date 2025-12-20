@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SpatialKWD
-%global packver   0.4.1
+%global packname  LSMjml
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial KWD for Large Spatial Maps
+Summary:          Fitting Latent Space Item Response Models using Joint Maximum Likelihood Estimation
 
-License:          EUPL (>= 1.2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-psych 
 
 %description
-Contains efficient implementations of Discrete Optimal Transport
-algorithms for the computation of Kantorovich-Wasserstein distances
-between pairs of large spatial maps (Bassetti, Gualandi, Veneroni (2020),
-<doi:10.1137/19M1261195>). All the algorithms are based on an ad-hoc
-implementation of the Network Simplex algorithm. The package has four main
-helper functions: compareOneToOne() (to compare two spatial maps),
-compareOneToMany() (to compare a reference map with a list of other maps),
-compareAll() (to compute a matrix of distances between a list of maps),
-and focusArea() (to compute the KWD distance within a focus area). In
-non-convex maps, the helper functions first build the convex-hull of the
-input bins and pad the weights with zeros.
+In Latent Space Item Response Models, subjects and items are embedded in a
+multidimensional Euclidean latent space. As such, interactions among
+persons, items, and person-item combinations can be revealed that are
+unmodelled in more conventional item response theory models. This package
+implements the methods from Molenaar & Jeon (in press) and can be used to
+fit Latent Space Item Response Models to data using joint maximum
+likelihood estimation. The package can handle binary data, ordinal data,
+and data with mixed scales. The package incorporates facilities for data
+simulation, rotation of the latent space, and K-fold cross-validation to
+select the number of dimensions of the latent space.
 
 %prep
 %setup -q -c -n %{packname}

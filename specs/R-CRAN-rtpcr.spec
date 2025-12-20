@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtpcr
-%global packver   2.0.5
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          qPCR Data Analysis
 
@@ -39,26 +39,20 @@ Requires:         R-grid
 Requires:         R-CRAN-emmeans 
 
 %description
-Various methods are employed for statistical analysis and graphical
-presentation of real-time PCR (quantitative PCR or qPCR) data. 'rtpcr'
-handles amplification efficiency calculation, statistical analysis and
-graphical representation of real-time PCR data based on up to two
-reference genes. By accounting for amplification efficiency values,
-'rtpcr' was developed using a general calculation method described by
-Ganger et al. (2017) <doi:10.1186/s12859-017-1949-5> and Taylor et al.
-(2019) <doi:10.1016/j.tibtech.2018.12.002>, covering both the Livak and
-Pfaffl methods. Based on the experimental conditions, the functions of the
+Amplification efficiency estimation, statistical analysis, and graphical
+representation of quantitative real-time PCR (qPCR) data using one or more
+specified reference genes is handled by 'rtpcr' package. By accounting for
+amplification efficiency values, 'rtpcr' was developed using a general
+calculation method described by Ganger et al. (2017)
+<doi:10.1186/s12859-017-1949-5> and Taylor et al. (2019)
+<doi:10.1016/j.tibtech.2018.12.002>, covering both the Livak and Pfaffl
+methods. Based on the experimental conditions, the functions of the
 'rtpcr' package use t-test (for experiments with a two-level factor),
 analysis of variance (ANOVA), analysis of covariance (ANCOVA) or analysis
-of repeated measure data to calculate the fold change (FC, Delta Delta Ct
-method) or relative expression (RE, Delta Ct method). The functions
-further provide standard errors and confidence intervals for means, apply
-statistical mean comparisons and present significance. To facilitate
-function application, different data sets were used as examples and the
-outputs were explained. ‘rtpcr’ package also provides bar plots using
-various controlling arguments. The 'rtpcr' package is user-friendly and
-easy to work with and provides an applicable resource for analyzing
-real-time PCR data.
+of repeated measure data to analyse the relative expression (Delta Delta
+Ct method or Delta Ct method). The functions further provide standard
+errors and confidence intervals for means, apply statistical mean
+comparisons and present significance.
 
 %prep
 %setup -q -c -n %{packname}

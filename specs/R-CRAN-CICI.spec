@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CICI
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference with Continuous (Multiple Time Point) Interventions
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-rngtools 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-ggplot2 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-rngtools 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-survival 
 
 %description
 Estimation of counterfactual outcomes for multiple values of continuous

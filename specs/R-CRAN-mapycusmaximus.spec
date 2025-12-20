@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smoother
-%global packver   1.3
+%global packname  mapycusmaximus
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions Relating to the Smoothing of Numerical Data
+Summary:          Focus-Glue-Context Fisheye Transformations for Spatial Visualization
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TTR >= 0.22
-Requires:         R-CRAN-TTR >= 0.22
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-lwgeom 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-lwgeom 
 
 %description
-A collection of methods for smoothing numerical data, commencing with a
-port of the Matlab gaussian window smoothing function. In addition,
-several functions typically used in smoothing of financial data are
-included.
+Focus-glue-context (FGC) fisheye transformations to two-dimensional
+coordinates and spatial vector geometries. Implements a smooth radial
+distortion that enlarges a focal region, transitions through a glue ring,
+and preserves outside context. Methods build on generalized fisheye views
+and focus+context mapping. For more details see Furnas (1986)
+<doi:10.1145/22339.22342>, Furnas (2006) <doi:10.1145/1124772.1124921> and
+Yamamoto et al. (2009) <doi:10.1145/1653771.1653788>.
 
 %prep
 %setup -q -c -n %{packname}

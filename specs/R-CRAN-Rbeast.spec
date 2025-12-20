@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rbeast
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Change-Point Detection and Time Series Decomposition
 
@@ -24,26 +24,25 @@ Requires:         R-utils
 Requires:         R-grid 
 
 %description
-Interpretation of time series data is affected by model choices. Different
-models can give different or even contradicting estimates of patterns,
-trends, and mechanisms for the same data--a limitation alleviated by the
-Bayesian estimator of abrupt change,seasonality, and trend (BEAST) of this
-package. BEAST seeks to improve time series decomposition by forgoing the
-"single-best-model" concept and embracing all competing models into the
-inference via a Bayesian model averaging scheme. It is a flexible tool to
-uncover abrupt changes (i.e., change-points, breakpoints, structural
-breaks, or join-points), cyclic variations (e.g., seasonality), and
-nonlinear trends in time-series observations. BEAST not just tells when
-changes occur but also quantifies how likely the detected changes are
-true. It detects not just piecewise linear trends but also arbitrary
-nonlinear trends. BEAST is applicable to real-valued time series data of
-all kinds, be it for remote sensing, economics, climate sciences, ecology,
-and hydrology. Example applications include its use to identify regime
-shifts in ecological data, map forest disturbance and land degradation
-from satellite imagery, detect market trends in economic data, pinpoint
-anomaly and extreme events in climate data, and unravel system dynamics in
-biological data. Details on BEAST are reported in Zhao et al. (2019)
-<doi:10.1016/j.rse.2019.04.034>.
+BEAST is a Bayesian estimator of abrupt change, seasonality, and trend for
+decomposing univariate time series and 1D sequential data. Interpretation
+of time series depends on model choice; different models can yield
+contrasting or contradicting estimates of patterns, trends, and
+mechanisms. BEAST alleviates this by abandoning the single-best-model
+paradigm and instead using Bayesian model averaging over many competing
+decompositions. It detects and characterizes abrupt changes (changepoints,
+breakpoints, structural breaks, joinpoints), cyclic or seasonal variation,
+and nonlinear trends. BEAST not only detects when changes occur but also
+quantifies how likely the changes are true. It estimates not just
+piecewise linear trends but also arbitrary nonlinear trends. BEAST is
+generically applicable to any real-valued time series, such as those from
+remote sensing, economics, climate science, ecology, hydrology, and other
+environmental and biological systems. Example applications include
+identifying regime shifts in ecological data, mapping forest disturbance
+and land degradation from satellite image time series, detecting market
+trends in economic indicators, pinpointing anomalies and extreme events in
+climate records, and analyzing system dynamics in biological time series.
+Details are given in Zhao et al. (2019) <doi:10.1016/j.rse.2019.04.034>.
 
 %prep
 %setup -q -c -n %{packname}
