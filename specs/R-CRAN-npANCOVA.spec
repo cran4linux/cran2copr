@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npANCOVA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric ANCOVA Methods
 
@@ -28,7 +28,9 @@ the response variable is ordinal. This package implements several
 well-known nonparametric ANCOVA procedures, including Quade, Puri and Sen,
 McSweeney and Porter, Burnett and Barr, Hettmansperger and McKean,
 Shirley, and Puri-Sen-Harwell-Serlin. The package provides user-friendly
-functions to apply these methods in practice.
+functions to apply these methods in practice. These methods are described
+in Olejnik et al. (1985) <doi:10.1177/0193841X8500900104> and Harwell et
+al. (1988) <doi:10.1037/0033-2909.104.2.268>.
 
 %prep
 %setup -q -c -n %{packname}

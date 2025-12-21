@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidypopgen
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Population Genetics
 
@@ -68,7 +68,7 @@ polymorphisms (SNPs). 'tidypopgen' scales to very large genetic datasets
 by storing genotypes on disk, and performing operations on them in chunks,
 without ever loading all data in memory. The full functionalities of the
 package are described in Carter et al. (2025)
-<doi:10.1101/2025.06.06.658325>.
+<doi:10.1111/2041-210x.70204>.
 
 %prep
 %setup -q -c -n %{packname}

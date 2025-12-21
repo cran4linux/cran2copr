@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AzureAuth
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Authentication Services for Azure Active Directory
 
@@ -33,8 +34,8 @@ Requires:         R-CRAN-rappdirs
 
 %description
 Provides Azure Active Directory (AAD) authentication functionality for R
-users of Microsoft's 'Azure' cloud <https://azure.microsoft.com/>. Use
-this package to obtain 'OAuth' 2.0 tokens for services including Azure
+users of Microsoft's 'Azure' cloud <https://azure.microsoft.com/en-us>.
+Use this package to obtain 'OAuth' 2.0 tokens for services including Azure
 Resource Manager, Azure Storage and others. It supports both AAD v1.0 and
 v2.0, as well as multiple authentication methods, including device code
 and resource owner grant. Tokens are cached in a user-specific directory

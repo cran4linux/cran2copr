@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmcmcBayes
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multistage MCMC Method for Detecting DMRs
 
@@ -18,15 +18,20 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MCMCpack >= 1.4.0
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-MCMCpack >= 1.4.0
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Implements a multi-stage MCMC Bayesian framework for detecting
-differentially methylated regions (DMRs) in epigenetic data. It uses
-Bayesian inference with Alpha-Skew Generalized Normal (ASGN) model and
-support Bayes Factor or Anderson-Darling Test for region selection. The
-methodology is based on Yang (2025)
-<https://www.proquest.com/docview/3218878972>.
+Implements differential methylation region (DMR) detection using a
+multistage Markov chain Monte Carlo (MCMC) algorithm based on the
+alpha-skew generalized normal (ASGN) distribution. Version 0.2.0 removes
+the Anderson-Darling test stage, improves computational efficiency of the
+core ASGN and multistage MCMC routines, and adds convenience functions for
+summarizing and visualizing detected DMRs. The methodology is based on
+Yang (2025) <https://www.proquest.com/docview/3218878972>.
 
 %prep
 %setup -q -c -n %{packname}

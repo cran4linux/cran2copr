@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emuR
-%global packver   2.5.2
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Main Package of the EMU Speech Database Management System
 
@@ -26,13 +26,13 @@ BuildRequires:    R-CRAN-httr >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-httpuv >= 1.3.2
 BuildRequires:    R-CRAN-readr >= 1.1.1
+BuildRequires:    R-CRAN-wrassp >= 1.0.6
 BuildRequires:    R-CRAN-tidyr >= 0.8.2
 BuildRequires:    R-CRAN-dplyr >= 0.7.8
 BuildRequires:    R-CRAN-mime >= 0.6
 BuildRequires:    R-CRAN-DBI >= 0.3.1
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-rstudioapi >= 0.10
-BuildRequires:    R-CRAN-wrassp >= 0.1.4
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
@@ -52,13 +52,13 @@ Requires:         R-CRAN-httr >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-httpuv >= 1.3.2
 Requires:         R-CRAN-readr >= 1.1.1
+Requires:         R-CRAN-wrassp >= 1.0.6
 Requires:         R-CRAN-tidyr >= 0.8.2
 Requires:         R-CRAN-dplyr >= 0.7.8
 Requires:         R-CRAN-mime >= 0.6
 Requires:         R-CRAN-DBI >= 0.3.1
 Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-rstudioapi >= 0.10
-Requires:         R-CRAN-wrassp >= 0.1.4
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-graphics 

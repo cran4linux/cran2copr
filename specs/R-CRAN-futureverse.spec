@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  futureverse
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Install and Load the 'Futureverse'
+Summary:          Install 'Futureverse' in One Go
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,10 +32,10 @@ Requires:         R-CRAN-progressr
 The 'Futureverse' is a set of packages for parallel and distributed
 process with the 'future' package at its core, cf. Bengtsson (2021)
 <doi:10.32614/RJ-2021-048>. This package is designed to make it easy to
-install and load multiple 'Futureverse' packages in a single step. This
-package is intended for end-users, interactive use, and R scripts.
-Packages must not list it as a dependency - instead, explicitly declare
-each 'Futureverse' package as a dependency as needed.
+install common 'Futureverse' packages in a single step. This package is
+intended for end-users, interactive use, and R scripts. Packages must not
+list it as a dependency - instead, explicitly declare each 'Futureverse'
+package as a dependency as needed.
 
 %prep
 %setup -q -c -n %{packname}
