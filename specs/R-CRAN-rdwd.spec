@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdwd
-%global packver   1.9.3
+%global packver   1.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
+Version:          1.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Select and Download Climate Data from 'DWD' (German Weather Service)
 
@@ -28,7 +28,7 @@ Handle climate data from the 'DWD' ('Deutscher Wetterdienst', see
 <https://www.dwd.de/EN/climate_environment/cdc/cdc_node_en.html> for more
 information). Choose observational time series from meteorological
 stations with 'selectDWD()'. Find raster data from radar and interpolation
-according to <https://bookdown.org/brry/rdwd/raster-data.html>. Download
+according to <https://brry.github.io/rdwd/raster-data.html>. Download
 (multiple) data sets with progress bars and no re-downloads through
 'dataDWD()'. Read both tabular observational data and binary gridded
 datasets with 'readDWD()'.

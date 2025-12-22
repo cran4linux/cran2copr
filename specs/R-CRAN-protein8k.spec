@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  protein8k
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Analysis and Create Visualizations of Proteins
 
@@ -16,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magick 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-lattice 
 Requires:         R-methods 
 Requires:         R-CRAN-magick 

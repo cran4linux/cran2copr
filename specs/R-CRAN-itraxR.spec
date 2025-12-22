@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  itraxR
-%global packver   1.12.2
+%global packver   1.13.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.2
+Version:          1.13.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Itrax Data Analysis Tools
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -32,6 +32,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-munsellinterpol 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-compositions 
@@ -47,6 +49,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-munsellinterpol 
 Requires:         R-utils 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Parse, trim, join, visualise and analyse data from Itrax sediment core

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spicy
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Statistics and Data Management Tools
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-haven 
@@ -34,6 +35,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-haven 

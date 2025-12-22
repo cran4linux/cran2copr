@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  audubon
-%global packver   0.5.2
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Japanese Text Processing Tools
 
@@ -14,26 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringi >= 1.8.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-stringi >= 1.8.3
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-V8 
 
 %description

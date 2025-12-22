@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  apcf
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adapted Pair Correlation Function
 
@@ -29,7 +29,7 @@ size and irregular shape (e.g. lakes within a country).  The pair
 correlation function describes the spatial distribution of objects, e.g.
 random, aggregated or regularly spaced. This is a reimplementation of the
 method suggested by Nuske et al. (2009) <doi:10.1016/j.foreco.2009.09.050>
-using the library 'GEOS'.
+using the library 'GEOS' <doi:10.5281/zenodo.11396894>.
 
 %prep
 %setup -q -c -n %{packname}

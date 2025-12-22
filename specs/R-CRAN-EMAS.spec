@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brfinance
-%global packver   0.6.0
+%global packname  EMAS
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplified Access to Brazilian Financial and Macroeconomic Data
+Summary:          Epigenome-Wide Mediation Analysis Study
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mediation 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-multilevel 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-sidrar 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-labelled 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lavaan 
+Requires:         R-CRAN-mediation 
+Requires:         R-parallel 
+Requires:         R-CRAN-multilevel 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-sidrar 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-lavaan 
 
 %description
-It offers simplified access to Brazilian macroeconomic and financial
-indicators selected from official sources, such as the 'IBGE' (Brazilian
-Institute of Geography and Statistics) via the 'SIDRA' API and the
-'Central Bank of Brazil' via the 'SGS' API. It allows users to quickly
-retrieve and visualize data series such as the unemployment rate and the
-Selic interest rate. This package was developed for data access and
-visualization purposes, without generating forecasts or statistical
-results. For more information, see the official APIs:
-<https://sidra.ibge.gov.br/> and
-<https://dadosabertos.bcb.gov.br/dataset/>.
+DNA methylation is essential for human, and environment can change the DNA
+methylation and affect body status. Epigenome-Wide Mediation Analysis
+Study (EMAS) can find potential mediator CpG sites between exposure (x)
+and outcome (y) in epigenome-wide. For more information on the methods we
+used, please see the following references: Tingley, D. (2014)
+<doi:10.18637/jss.v059.i05>, Turner, S. D. (2018)
+<doi:10.21105/joss.00731>, Rosseel, D. (2012) <doi:10.18637/jss.v048.i02>.
 
 %prep
 %setup -q -c -n %{packname}

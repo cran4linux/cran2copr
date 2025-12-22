@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  galamm
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Additive Latent and Mixed Models
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-gratia 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-memoise 
@@ -24,9 +26,11 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-gratia 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-memoise 
@@ -35,7 +39,7 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-reformulas 
 Requires:         R-stats 
 
 %description

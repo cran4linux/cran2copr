@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAspacetime
-%global packver   0.1.12
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatio-Temporal Models using 'INLA'
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-INLAtools >= 0.0.5
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-fmesher 
 BuildRequires:    R-graphics 
@@ -26,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-INLAtools >= 0.0.5
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-fmesher 
 Requires:         R-graphics 
@@ -43,9 +45,9 @@ with the 'INLA' package (<https://www.r-inla.org>). These objects contain
 data to for the 'cgeneric' interface in 'INLA', enabling fast parallel
 computations. We implemented the spatial barrier model, see Bakka et. al.
 (2019) <doi:10.1016/j.spasta.2019.01.002>, and some of the spatio-temporal
-models proposed in Lindgren et. al. (2023)
-<https://www.idescat.cat/sort/sort481/48.1.1.Lindgren-etal.pdf>. Details
-are provided in the available vignettes and from the URL bellow.
+models proposed in Lindgren et. al. (2024)
+<https://raco.cat/index.php/SORT/article/view/428665>. Details are
+provided in the available vignettes and from the URL bellow.
 
 %prep
 %setup -q -c -n %{packname}

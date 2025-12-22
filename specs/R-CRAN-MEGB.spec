@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MEGB
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gradient Boosting for Longitudinal Data
 
@@ -20,11 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-latex2exp 
 Requires:         R-stats 
 Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-latex2exp 
 
 %description
 Gradient boosting is a powerful statistical learning method known for its
