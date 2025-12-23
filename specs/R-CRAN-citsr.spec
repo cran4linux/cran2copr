@@ -1,55 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  psc
-%global packver   2.0.0
+%global packname  citsr
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Personalised Synthetic Controls
+Summary:          Controlled Interrupted Time Series Analysis and Visualization
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-clubSandwich 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-enrichwith 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-flexsurv 
-BuildRequires:    R-CRAN-survminer 
-BuildRequires:    R-CRAN-gtsummary 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-AICcmodavg 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-clubSandwich 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-enrichwith 
 Requires:         R-stats 
-Requires:         R-CRAN-flexsurv 
-Requires:         R-CRAN-survminer 
-Requires:         R-CRAN-gtsummary 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-parallel 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-lme4 
-Requires:         R-utils 
+Requires:         R-CRAN-AICcmodavg 
 
 %description
-Allows the comparison of data cohorts (DC) against a Counter Factual Model
-(CFM) and measures the difference in terms of an efficacy parameter.
-Allows the application of Personalised Synthetic Controls.
+Implements controlled interrupted time series (CITS) analysis for
+evaluating interventions in comparative time-series data. The package
+provides tools for preparing panel time-series datasets, fitting models
+using generalized least squares (GLS) with optional
+autoregressive–moving-average (ARMA) error structures, and computing
+fitted values and robust standard errors using cluster-robust variance
+estimators (CR2). Visualization functions enable clear presentation of
+estimated effects and counterfactual trajectories following interventions.
+Background on methods for causal inference in interrupted time series can
+be found in Linden and Adams (2011) <doi:10.1111/j.1365-2753.2010.01504.x>
+and Lopez Bernal, Cummins, and Gasparrini (2018) <doi:10.1093/ije/dyy135>.
 
 %prep
 %setup -q -c -n %{packname}

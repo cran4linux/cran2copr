@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  btw
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Connecting R and Large Language Models
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-ellmer >= 0.3.0
+BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-dplyr 
@@ -38,6 +39,7 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-ellmer >= 0.3.0
+Requires:         R-CRAN-brio 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-dplyr 

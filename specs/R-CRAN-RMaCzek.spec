@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shiny.benchmark
-%global packver   0.1.1
+%global packname  RMaCzek
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Benchmark the Performance of 'shiny' Applications
+Summary:          Czekanowski's Diagrams
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-GA >= 3.2
+BuildRequires:    R-CRAN-seriation >= 1.3.4
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-shinytest2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-ecp 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-GA >= 3.2
+Requires:         R-CRAN-seriation >= 1.3.4
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-renv 
-Requires:         R-CRAN-shinytest2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-fs 
+Requires:         R-stats 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-ecp 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-utils 
 
 %description
-Compare performance between different versions of a 'shiny' application
-based on 'git' references.
+Allows for production of Czekanowski's Diagrams with clusters. See K.
+Bartoszek, A. Vasterlund (2020) <doi:10.2478/bile-2020-0008> and K.
+Bartoszek, Y. Luo (2023) <doi:10.14708/ma.v51i2.7259>. The suggested
+'FuzzyDBScan' package (which allows for fuzzy clustering) can be obtained
+from <https://github.com/henrifnk/FuzzyDBScan/> (or from CRAN's Archive
+<https://cran.r-project.org/src/contrib/Archive/FuzzyDBScan/>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sde
-%global packver   2.0.18
+%global packver   2.0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.18
+Version:          2.0.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Inference for Stochastic Differential Equations
 
@@ -26,9 +26,10 @@ Requires:         R-CRAN-fda
 Requires:         R-CRAN-zoo 
 
 %description
-Companion package to the book Simulation and Inference for Stochastic
-Differential Equations With R Examples, ISBN 978-0-387-75838-1, Springer,
-NY.
+Description: Provides functions for simulation and inference for
+stochastic differential equations (SDEs). It accompanies the book
+"Simulation and Inference for Stochastic Differential Equations: With R
+Examples" (Iacus, 2008, Springer; ISBN: 978-0-387-75838-1).
 
 %prep
 %setup -q -c -n %{packname}

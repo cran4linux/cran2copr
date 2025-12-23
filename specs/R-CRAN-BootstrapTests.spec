@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  leanpubr
-%global packver   0.4.0
+%global packname  BootstrapTests
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Leanpub' API Interface
+Summary:          Bootstrap-Based Hypothesis Testing using Different Resampling Schemes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-stats >= 4.4.0
+BuildRequires:    R-CRAN-pbapply >= 1.7.2
+Requires:         R-stats >= 4.4.0
+Requires:         R-CRAN-pbapply >= 1.7.2
 
 %description
-Provides access to the 'Leanpub' API <https://leanpub.com/help/api> for
-gathering information about publications and submissions to the 'Leanpub'
-platform.
+Perform bootstrap-based hypothesis testing procedures on three statistical
+problems. In particular, it covers independence testing, testing the slope
+in a linear regression setting, and goodness-of-fit testing, following
+(Derumigny, Galanis, Schipper and Van der Vaart, 2025)
+<doi:10.48550/arXiv.2512.10546>.
 
 %prep
 %setup -q -c -n %{packname}

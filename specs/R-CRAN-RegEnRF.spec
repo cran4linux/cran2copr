@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  basksim
+%global packname  RegEnRF
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation-Based Calculation of Basket Trial Operating Characteristics
+Summary:          Regression-Enhanced Random Forests
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-bhmbasket 
-BuildRequires:    R-CRAN-bmabasket 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-progressr 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-bhmbasket 
-Requires:         R-CRAN-bmabasket 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-progressr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-randomForest 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-randomForest 
 
 %description
-Provides a unified syntax for the simulation-based comparison of different
-single-stage basket trial designs with a binary endpoint and equal sample
-sizes in all baskets. Methods include the designs by Baumann et al. (2024)
-<doi:10.48550/arXiv.2309.06988>, Fujikawa et al. (2020)
-<doi:10.1002/bimj.201800404>, Berry et al. (2020)
-<doi:10.1177/1740774513497539>, Neuenschwander et al. (2016)
-<doi:10.1002/pst.1730> and Psioda et al. (2021)
-<doi:10.1093/biostatistics/kxz014>. For the latter three designs, the
-functions are mostly wrappers for functions provided by the packages
-'bhmbasket' and 'bmabasket'.
+A novel generalized Random Forest method, that can improve on RFs by
+borrowing the strength of penalized parametric regression. Based on Zhang
+et al. (2019) <doi:10.48550/arXiv.1904.10416>.
 
 %prep
 %setup -q -c -n %{packname}

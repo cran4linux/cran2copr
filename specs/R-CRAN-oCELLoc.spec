@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  graphhopper
-%global packver   0.1.2
+%global packname  oCELLoc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Interface to the 'GraphHopper' Directions API
+Summary:          Predicts Suitable Cell Types in Spatial Transcriptomics and scRNA-seq Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-googlePolylines 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-googlePolylines 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-glmnet 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-reshape2 
 
 %description
-Provides a quick and easy access to the 'GraphHopper' Directions API.
-'GraphHopper' <https://www.graphhopper.com/> itself is a routing engine
-based on 'OpenStreetMap' data. API responses can be converted to simple
-feature (sf) objects in a convenient way.
+Picks the suitable cell types in spatial and scRNA-seq data using
+shrinkage methods. The package includes curated reference gene expression
+profiles for human and mouse cell types, facilitating immediate
+application to common spatial transcriptomics or scRNA datasets.
+Additionally, users can input custom reference data to support tissue- or
+experiment-specific analyses.
 
 %prep
 %setup -q -c -n %{packname}

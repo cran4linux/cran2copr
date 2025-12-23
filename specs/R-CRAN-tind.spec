@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  FRESHD
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  tind
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Robust Estimation of Signals in Heterogeneous Data
+Summary:          A Common Representation of Time Indices of Different Types
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-glamlasso 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-glamlasso 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 
 %description
-Procedure for solving the maximin problem for identical design across
-heterogeneous data groups. Particularly efficient when the design matrix
-is either orthogonal or has tensor structure. Orthogonal wavelets can be
-specified for 1d, 2d or 3d data simply by name. For tensor structured
-design the tensor components (two or three) may be supplied. The package
-also provides an efficient implementation of the generic magging
-estimator.
+Provides an easy-to-use tind class representing time indices of different
+types (years, quarters, months, ISO 8601 weeks, dates, time of day,
+date-time, and arbitrary integer/numeric indices). Includes an extensive
+collection of functions for calendrical computations (including business
+applications), index conversions, index parsing, and other operations.
+Auxiliary classes representing time differences and time intervals (with
+set operations and index matching functionality) are also provided. All
+routines have been optimised for speed in order to facilitate computations
+on large datasets. More details regarding calendars in general and
+calendrical algorithms can be found in "Calendar FAQ" by Claus Tøndering
+<https://www.tondering.dk/claus/calendar.html>.
 
 %prep
 %setup -q -c -n %{packname}

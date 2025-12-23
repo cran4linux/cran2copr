@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirtsvd
-%global packver   1.0.1
+%global packname  weightedsurv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          SVD-Based Estimation for Exploratory Item Factor Analysis
+Summary:          Survival Analysis with Subject-Specific (Case Weights) and Time-Dependent Weighting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-mirtjml 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-mirtjml 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-utils 
 
 %description
-Provides singular value decomposition based estimation algorithms for
-exploratory item factor analysis (IFA) based on multidimensional item
-response theory models. For more information, please refer to: Zhang, H.,
-Chen, Y., & Li, X. (2020). A note on exploratory item factor analysis by
-singular value decomposition. Psychometrika, 1-15,
-<DOI:10.1007/s11336-020-09704-7>.
+Provides survival analysis functions with support for time-dependent and
+subject-specific (e.g., propensity score) weighting. Implements weighted
+estimation for Cox models, Kaplan-Meier survival curves, and treatment
+differences with point-wise and simultaneous confidence bands. Includes
+restricted mean survival time (RMST) comparisons evaluated across all
+potential truncation times with both point-wise and simultaneous
+confidence bands. See Cole, S. R. & Hernán, M. A. (2004)
+<doi:10.1016/j.cmpb.2003.10.004> for methodological background.
 
 %prep
 %setup -q -c -n %{packname}

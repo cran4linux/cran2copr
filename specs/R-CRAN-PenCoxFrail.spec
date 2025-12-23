@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PenCoxFrail
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularization in Cox Frailty Models
 
@@ -30,7 +30,9 @@ Requires:         R-CRAN-coxme
 
 %description
 Different regularization approaches for Cox Frailty Models by penalization
-methods are provided.
+methods are provided. see Groll et al. (2017) <doi:10.1111/biom.12637> for
+effects selection. See also Groll and Hohberg (2024)
+<doi:10.1002/bimj.202300020> for classical LASSO approach.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BLA
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boundary Line Analysis
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-concaveman 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
+Requires:         R-CRAN-concaveman 
 
 %description
 Fits boundary line models to datasets as proposed by Webb (1972)

@@ -1,29 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  howzatR
-%global packver   1.0.1
+%global packname  pipr
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Useful Functions for Cricket Analysis
+Summary:          Client for the Poverty and Inequality Platform ('PIP') API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-attempt 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-vroom 
 
 %description
-Helping to calculate cricket specific problems in a tidy & simple manner.
+An interface to compute poverty and inequality indicators for more than
+160 countries and regions from the World Bank's database of household
+surveys, through the Poverty and Inequality Portal (PIP).
 
 %prep
 %setup -q -c -n %{packname}

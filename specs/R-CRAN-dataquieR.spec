@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataquieR
-%global packver   2.5.1
+%global packver   2.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-hms 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-patchwork >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.0.2
@@ -59,6 +60,7 @@ Requires:         R-CRAN-withr
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-units 
 Requires:         R-methods 
+Requires:         R-CRAN-hms 
 
 %description
 Data quality assessments guided by a 'data quality framework introduced by

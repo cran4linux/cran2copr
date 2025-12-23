@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dySEM
-%global packver   1.1.1
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dyadic Structural Equation Modeling
 
@@ -14,10 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-EGAnet 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-lifecycle 
@@ -26,7 +28,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-semPlot 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-EGAnet 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-lifecycle 
@@ -39,10 +43,7 @@ Requires:         R-CRAN-tibble
 %description
 Scripting of structural equation models via 'lavaan' for Dyadic Data
 Analysis, and helper functions for supplemental calculations, tabling, and
-model visualization.  Current models supported include Dyadic Confirmatory
-Factor Analysis, the Actor–Partner Interdependence Model (observed and
-latent), the Common Fate Model (observed and latent), Mutual Influence
-Model (latent), and the Bifactor Dyadic Model (latent).
+model visualization.
 
 %prep
 %setup -q -c -n %{packname}

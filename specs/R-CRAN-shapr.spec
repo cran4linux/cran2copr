@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NasdaqDataLink
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  shapr
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Wrapper for Nasdaq Data Link
+Summary:          Prediction Explanation with Dependence-Aware Shapley Values
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,25 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 0.9.14
-BuildRequires:    R-CRAN-httr >= 0.6.1
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.15
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-jsonlite >= 0.9.14
-Requires:         R-CRAN-httr >= 0.6.1
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-Rcpp >= 0.12.15
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-future.apply 
 Requires:         R-methods 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions for interacting directly with the Nasdaq Data Link API to offer
-data in a number of formats usable in R, downloading a zip with all data
-from a Nasdaq Data Link database, and the ability to search. This R
-package uses the Nasdaq Data Link API. For more information go to
-<https://docs.data.nasdaq.com/>. For more help on the package itself go to
-<https://data.nasdaq.com/tools/r>.
+Complex machine learning models are often hard to interpret. However, in
+many situations it is crucial to understand and explain why a model made a
+specific prediction. Shapley values is the only method for such prediction
+explanation framework with a solid theoretical foundation. Previously
+known methods for estimating the Shapley values do, however, assume
+feature independence. This package implements methods which accounts for
+any feature dependence, and thereby produces more accurate estimates of
+the true Shapley values. An accompanying 'Python' wrapper ('shaprpy') is
+available through PyPI.
 
 %prep
 %setup -q -c -n %{packname}

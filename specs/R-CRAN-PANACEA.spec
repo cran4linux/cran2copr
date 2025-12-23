@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EmbedSOM
-%global packver   2.2
+%global packname  PANACEA
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Embedding Guided by Self-Organizing Map
+Summary:          Personalized Network-Based Anti-Cancer Therapy Evaluation
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-umap 
-BuildRequires:    R-CRAN-uwot 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-umap 
-Requires:         R-CRAN-uwot 
+Requires:         R-CRAN-reshape2 
 
 %description
-Provides a smooth mapping of multidimensional points into low-dimensional
-space defined by a self-organizing map. Designed to work with 'FlowSOM'
-and flow-cytometry use-cases. See Kratochvil et al. (2019)
-<doi:10.12688/f1000research.21642.1>.
+Identification of the most appropriate pharmacotherapy for each patient
+based on genomic alterations is a major challenge in personalized
+oncology. 'PANACEA' is a collection of personalized anti-cancer drug
+prioritization approaches utilizing network methods. The methods utilize
+personalized "driverness" scores from 'driveR' to rank drugs, mapping
+these onto a protein-protein interaction network. The "distance-based"
+method scores each drug based on these scores and distances between drugs
+and genes to rank given drugs. The "RWR" method propagates these scores
+via a random-walk with restart framework to rank the drugs. The methods
+are described in detail in Ulgen E, Ozisik O, Sezerman OU. 2023. PANACEA:
+network-based methods for pharmacotherapy prioritization in personalized
+oncology. Bioinformatics <doi:10.1093/bioinformatics/btad022>.
 
 %prep
 %setup -q -c -n %{packname}

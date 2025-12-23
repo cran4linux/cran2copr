@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nodiv
-%global packver   1.4.3
+%global packname  PlateVision
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compares the Distribution of Sister Clades Through a Phylogeny
+Summary:          Automated qPCR Analysis and Visual Quality Control
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-vegan 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-plotly 
 
 %description
-An implementation of the nodiv algorithm, see Borregaard, M.K., Rahbek,
-C., Fjeldsaa, J., Parra, J.L., Whittaker, R.J. & Graham, C.H. 2014.
-Node-based analysis of species distributions. Methods in Ecology and
-Evolution 5(11): 1225-1235. <DOI:10.1111/2041-210X.12283>. Package for
-phylogenetic analysis of species distributions. The main function goes
-through each node in the phylogeny, compares the distributions of the two
-descendant nodes, and compares the result to a null model. This highlights
-nodes where major distributional divergence have occurred. The
-distributional divergence for these nodes is mapped.
+Directly pipes raw quantitative PCR (qPCR) machine outputs into downstream
+analyses using the comparative Ct (Delta-Delta Ct) method described by
+Livak and Schmittgen (2001) <doi:10.1006/meth.2001.1262>. Streamlines the
+workflow from 'Excel' export to publication-ready plots. Integrates unique
+visual quality control by reconstructing 96-well plate heatmaps, allowing
+users to instantly detect pipetting errors, edge effects, and outliers.
+Key features include automated error propagation, laboratory master mix
+calculations, and generation of bar charts and volcano plots.
 
 %prep
 %setup -q -c -n %{packname}

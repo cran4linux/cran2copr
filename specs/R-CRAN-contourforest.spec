@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pocketapi
-%global packver   0.1
+%global __requires_exclude ^libmpi
+%global packname  contourforest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper Around the 'Pocket' API
+Summary:          Contour-Enhanced Forest Plots for Meta-Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-stringr 
+Requires:         R-grid 
 
 %description
-Functions that interface with the 'Pocket' API
-(<https://getpocket.com/developer/>). Allows the user to get, add, and
-modify items in their own 'Pocket' account.
+Provides functions to create contour-enhanced forest plots for continuous
+and binary outcomes in meta-analysis, including options for prediction
+intervals, customized colors, and study labeling. Based on 'metafor' and
+'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

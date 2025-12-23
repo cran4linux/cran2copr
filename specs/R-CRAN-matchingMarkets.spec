@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matchingMarkets
-%global packver   1.0-4
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Stable Matchings
 
@@ -37,13 +37,12 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Implements structural estimators to correct for the sample selection bias
-from observed outcomes in matching markets. This includes one-sided
-matching of agents into groups (Klein, 2015)
-<https://www.econ.cam.ac.uk/research-files/repec/cam/pdf/cwpe1521.pdf> as
-well as two-sided matching of students to schools (Aue et al., 2020)
-<https://ftp.zew.de/pub/zew-docs/dp/dp20032.pdf>. The package also
-contains algorithms to find stable matchings in the three most common
+Implements structural estimators to estimate preferences and correct for
+the sample selection bias of observed outcomes in matching markets. This
+includes one-sided matching of agents into groups (Klein, 2015)
+<doi:10.17863/CAM.5812> as well as two-sided matching of students to
+schools (Klein et al., 2024) <doi:10.1016/j.geb.2024.07.003>. The package
+also contains algorithms to find stable matchings in the three most common
 matching problems: the stable roommates problem (Irving, 1985)
 <doi:10.1016/0196-6774(85)90033-1>, the college admissions problem (Gale
 and Shapley, 1962) <doi:10.2307/2312726>, and the house allocation problem

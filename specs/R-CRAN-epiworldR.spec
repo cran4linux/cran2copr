@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epiworldR
-%global packver   0.10.0.0
+%global packver   0.11.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0.0
+Version:          0.11.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Agent-Based Epi Models
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-utils 
 BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-utils 
 Requires:         R-parallel 
+Requires:         R-methods 
 
 %description
 A flexible framework for Agent-Based Models (ABM), the 'epiworldR' package

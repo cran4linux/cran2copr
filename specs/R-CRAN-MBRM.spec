@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phyloraster
-%global packver   2.2.0
+%global packname  MBRM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evolutionary Diversity Metrics for Raster Data
+Summary:          Mixed Regression Models with Generalized Log-Gamma Random Effects
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-SESraster 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-ape 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-SESraster 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Phylogenetic Diversity (PD, Faith 1992), Evolutionary Distinctiveness (ED,
-Isaac et al. 2007), Phylogenetic Endemism (PE, Rosauer et al. 2009; Laffan
-et al. 2016), and Weighted Endemism (WE, Laffan et al. 2016) for
-presence-absence raster.  Faith, D. P. (1992)
-<doi:10.1016/0006-3207(92)91201-3> Isaac, N. J. et al. (2007)
-<doi:10.1371/journal.pone.0000296> Laffan, S. W. et al. (2016)
-<doi:10.1111/2041-210X.12513> Rosauer, D. et al. (2009)
-<doi:10.1111/j.1365-294X.2009.04311.x>.
+Multivariate distribution derived from a Bernoulli mixed model under a
+marginal approach, incorporating a non-normal random intercept whose
+distribution is assumed to follow a generalized log-gamma (GLG)
+specification under a particular parameter setting. Estimation is
+performed by maximizing the log-likelihood using numerical optimization
+techniques (Lizandra C. Fabio, Vanessa Barros, Cristian Lobos, Jalmar M.
+F. Carrasco, Marginal multivariate approach: A novel strategy for handling
+correlated binary outcomes, 2025, under submission).
 
 %prep
 %setup -q -c -n %{packname}

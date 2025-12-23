@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataMetProcess
-%global packver   1.0.7
+%global packname  AsianOption
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meteorological Data Processing
+Summary:          Asian Option Pricing with Price Impact
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-base 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-base 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Set of tools aimed at processing meteorological data, converting hourly
-recorded data to daily, monthly and annual data.
+Implements binomial tree pricing for geometric and arithmetic Asian
+options incorporating market price impact from hedging activities. Uses
+the Cox-Ross-Rubinstein (CRR) model with the replicating portfolio method.
+Provides exact pricing for geometric Asian options and bounds for
+arithmetic Asian options based on Jensen's inequality. The price impact
+mechanism models how hedging volumes affect stock prices, leading to
+modified risk-neutral probabilities. Based on the methodology described in
+Tiwari and Majumdar (2025) <doi:10.48550/arXiv.2512.07154>.
 
 %prep
 %setup -q -c -n %{packname}

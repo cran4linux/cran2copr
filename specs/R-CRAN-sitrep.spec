@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ZillowR
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  sitrep
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to Zillow Real Estate and Mortgage Data API
+Summary:          Report Templates and Helper Functions for Applied Epidemiology
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-methods 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-apyramid >= 0.1.0
+BuildRequires:    R-CRAN-epidict >= 0.1.0
+BuildRequires:    R-CRAN-epitabulate >= 0.1.0
+BuildRequires:    R-CRAN-epikit 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-apyramid >= 0.1.0
+Requires:         R-CRAN-epidict >= 0.1.0
+Requires:         R-CRAN-epitabulate >= 0.1.0
+Requires:         R-CRAN-epikit 
+Requires:         R-utils 
 
 %description
-Zillow, an online real estate company, provides real estate and mortgage
-data for the United States through a REST API. The ZillowR package
-provides an R function for each API service, making it easy to make API
-calls and process the response into convenient, R-friendly data
-structures.  See <https://www.zillow.com/howto/api/APIOverview.htm> for
-the Zillow API Documentation. NOTE: Zillow deprecated their API on
-2021-09-30, and this package is now deprecated as a result.
+A meta-package that loads the complete sitrep ecosystem for applied
+epidemiology analysis. This package provides report templates and
+automatically loads companion packages, including 'epitabulate' (for
+epidemiological tables), 'epidict' (for data dictionaries), 'epikit' (for
+epidemiological utilities), and 'apyramid' (for age-sex pyramids). Simply
+load 'sitrep' to access all functions from the ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

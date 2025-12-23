@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GBOP2
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Bayesian Optimal Phase II Design (G-BOP2)
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-globpso
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
@@ -38,7 +37,6 @@ Requires:         R-stats
 Requires:         R-CRAN-globpso 
 Requires:         R-parallel 
 Requires:         R-utils 
-Requires:         R-CRAN-RcppArmadillo 
 
 %description
 Provides functions for implementing the Generalized Bayesian Optimal Phase
