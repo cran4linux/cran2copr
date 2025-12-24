@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imager
-%global packver   1.0.5
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Image Processing Library Based on 'CImg'
 
@@ -46,7 +46,7 @@ Fast image processing for images in up to 4 dimensions (two spatial
 dimensions, one time/depth dimension, one colour dimension). Provides most
 traditional image processing tools (filtering, morphology,
 transformations, etc.) as well as various functions for easily analysing
-image data using R. The package wraps 'CImg', <http://cimg.eu>, a simple,
+image data using R. The package wraps 'CImg', <https://cimg.eu>, a simple,
 modern C++ library for image processing.
 
 %prep

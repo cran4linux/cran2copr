@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  loo
-%global packver   2.8.0
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Leave-One-Out Cross-Validation and WAIC for Bayesian Models
 
@@ -34,7 +34,7 @@ Efficient approximate leave-one-out cross-validation (LOO) for Bayesian
 models fit using Markov chain Monte Carlo, as described in Vehtari,
 Gelman, and Gabry (2017) <doi:10.1007/s11222-016-9696-4>. The
 approximation uses Pareto smoothed importance sampling (PSIS), a new
-procedure for regularizing importance weights. As a byproduct of the
+procedure for regularizing importance weights.  As a byproduct of the
 calculations, we also obtain approximate standard errors for estimated
 predictive errors and for the comparison of predictive errors between
 models. The package also provides methods for using stacking and other
