@@ -1,55 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncaavolleyballr
-%global packver   0.5.1
+%global packname  DedooseR
+%global packver   2.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          2.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Data from NCAA Women's and Men's Volleyball Website
+Summary:          Monitoring and Analyzing Dedoose Qualitative Data Exports
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chromote 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-chromote 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-wordcloud2 
+BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-openxlsx 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-wordcloud2 
+Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Extracts team records/schedules and player statistics for the 2020-2025
-National Collegiate Athletic Association (NCAA) women's and men's
-divisions I, II, and III volleyball teams from <https://stats.ncaa.org>.
-Functions can aggregate statistics for teams, conferences, divisions, or
-custom groups of teams.
+Streamlines analysis of qualitative data exported from Dedoose. Supports
+monitoring thematic saturation, calculating code frequencies, organizing
+excerpts, generating dynamic codebooks, and producing code network maps
+within R.
 
 %prep
 %setup -q -c -n %{packname}

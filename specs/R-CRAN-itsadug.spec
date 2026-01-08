@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  apexcharter
-%global packver   0.4.5
+%global packname  itsadug
+%global packver   2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Chart with the JavaScript 'ApexCharts' Library
+Summary:          Interpreting Time Series and Autocorrelated Data Using GAMMs
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
-BuildRequires:    R-CRAN-shiny >= 1.1.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets >= 1.5.3
-Requires:         R-CRAN-shiny >= 1.1.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-mgcv >= 1.8
+BuildRequires:    R-CRAN-plotfunctions >= 1.4
+Requires:         R-CRAN-mgcv >= 1.8
+Requires:         R-CRAN-plotfunctions >= 1.4
 
 %description
-Provides an 'htmlwidgets' interface to 'apexcharts.js'. 'Apexcharts' is a
-modern JavaScript charting library to build interactive charts and
-visualizations with simple API. 'Apexcharts' examples and documentation
-are available here: <https://apexcharts.com/>.
+GAMM (Generalized Additive Mixed Modeling; Lin & Zhang, 1999) as
+implemented in the R package 'mgcv' (Wood, S.N., 2006; 2011) is a
+nonlinear regression analysis which is particularly useful for time course
+data such as EEG, pupil dilation, gaze data (eye tracking), and
+articulography recordings, but also for behavioral data such as reaction
+times and response data. As time course measures are sensitive to
+autocorrelation problems, GAMMs implements methods to reduce the
+autocorrelation problems. This package includes functions for the
+evaluation of GAMM models (e.g., model comparisons, determining regions of
+significance, inspection of autocorrelational structure in residuals) and
+interpreting of GAMMs (e.g., visualization of complex interactions, and
+contrasts).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  apexcharter
-%global packver   0.4.5
+%global packname  dsBaseClient
+%global packver   6.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          6.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Chart with the JavaScript 'ApexCharts' Library
+Summary:          'DataSHIELD' Client Side Base Functions
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
-BuildRequires:    R-CRAN-shiny >= 1.1.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-DSI >= 1.7.1
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets >= 1.5.3
-Requires:         R-CRAN-shiny >= 1.1.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-DSI >= 1.7.1
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-meta 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides an 'htmlwidgets' interface to 'apexcharts.js'. 'Apexcharts' is a
-modern JavaScript charting library to build interactive charts and
-visualizations with simple API. 'Apexcharts' examples and documentation
-are available here: <https://apexcharts.com/>.
+Base 'DataSHIELD' functions for the client side. 'DataSHIELD' is a
+software package which allows you to do non-disclosive federated analysis
+on sensitive data. 'DataSHIELD' analytic functions have been designed to
+only share non disclosive summary statistics, with built in automated
+output checking based on statistical disclosure control. With data sites
+setting the threshold values for the automated output checks. For more
+details, see citation('dsBaseClient').
 
 %prep
 %setup -q -c -n %{packname}

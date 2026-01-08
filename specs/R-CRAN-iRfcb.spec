@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iRfcb
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Managing Imaging FlowCytobot (IFCB) Data
 
@@ -55,7 +55,7 @@ A comprehensive suite of tools for managing, processing, and analyzing
 data from the IFCB. I R FlowCytobot ('iRfcb') supports quality control,
 geospatial analysis, and preparation of IFCB data for publication in
 databases like <https://www.gbif.org>, <https://www.obis.org>,
-<https://emodnet.ec.europa.eu/en>, <https://shark.smhi.se/>, and
+<https://emodnet.ec.europa.eu/en>, <https://shark.smhi.se/en/>, and
 <https://www.ecotaxa.org>. The package integrates with the MATLAB
 'ifcb-analysis' tool, which is described in Sosik and Olson (2007)
 <doi:10.4319/lom.2007.5.204>, and provides features for working with raw,

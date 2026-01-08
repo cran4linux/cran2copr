@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inteli
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interval Estimation by Likelihoodist (LI) Compared to Frequentist (CI)
+Summary:          Interval Estimation by Likelihood Method
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,11 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Parameter estimation via likelihood interval (LI) compared to traditional
-method (CI). This is the expanded version for 'LBI'- and 'wnl'-package,
-formulated by Kyun-Seop Bae <k@acr.kr>.
+Currently used CI method has its limitation when the test statistics are
+asymmetrical (chi-square test, F-test) or the model functions are
+non-linear. It can be overcome by using the likelihood functions for the
+interval estimation. 'inteli' package now supports interval estimation for
+the mean, variance, variance ratio, binomial distribution, Poisson
+distribution, odds ratio, risk difference, relative risk and their
+likelihood function plots. Testing functions are also provided.
 
 %prep
 %setup -q -c -n %{packname}

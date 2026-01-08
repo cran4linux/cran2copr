@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRAM
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Regression Association Measure
 
@@ -22,19 +22,20 @@ Requires:         R-CRAN-RANN
 
 %description
 Implementations of an estimator for the multivariate regression
-association measure (MRAM) proposed in Shih and Chen (2025) <in revision>
-and its associated variable selection algorithm. The MRAM quantifies the
-predictability of a random vector Y from a random vector X given a random
-vector Z. It takes the maximum value 1 if and only if Y is almost surely a
-measurable function of X and Z, and the minimum value of 0 if Y is
-conditionally independent of X given Z. The MRAM generalizes the Kendall's
-tau copula correlation ratio proposed in Shih and Emura (2021)
-<doi:10.1016/j.jmva.2020.104708> by employing the spatial sign function.
-The estimator is based on the nearest neighbor method, and the associated
-variable selection algorithm is adapted from the feature ordering by
-conditional independence (FOCI) algorithm of Azadkia and Chatterjee (2021)
-<doi:10.1214/21-AOS2073>. For further details, see the paper Shih and Chen
-(2025) <in revision>.
+association measure (MRAM) proposed in Shih and Chen (2026)
+<doi:10.1016/j.csda.2025.108288> and its associated variable selection
+algorithm. The MRAM quantifies the predictability of a random vector Y
+from a random vector X given a random vector Z. It takes the maximum value
+1 if and only if Y is almost surely a measurable function of X and Z, and
+the minimum value of 0 if Y is conditionally independent of X given Z. The
+MRAM generalizes the Kendall's tau copula correlation ratio proposed in
+Shih and Emura (2021) <doi:10.1016/j.jmva.2020.104708> by employing the
+spatial sign function. The estimator is based on the nearest neighbor
+method, and the associated variable selection algorithm is adapted from
+the feature ordering by conditional independence (FOCI) algorithm of
+Azadkia and Chatterjee (2021) <doi:10.1214/21-AOS2073>. For further
+details, see the paper Shih and Chen (2026)
+<doi:10.1016/j.csda.2025.108288>.
 
 %prep
 %setup -q -c -n %{packname}

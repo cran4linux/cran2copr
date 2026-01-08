@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simulariatools
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simularia Tools for the Analysis of Air Pollution Data
 
@@ -19,13 +19,11 @@ Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-ggplot2 >= 3.3
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-terra 

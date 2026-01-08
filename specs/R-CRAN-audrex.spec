@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  audrex
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Dynamic Regression using Extreme Gradient Boosting
 
@@ -17,42 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-parallel >= 4.1.1
-BuildRequires:    R-utils >= 4.1.1
-BuildRequires:    R-stats >= 4.1.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-imputeTS >= 3.2
-BuildRequires:    R-CRAN-modeest >= 2.4.0
-BuildRequires:    R-CRAN-readr >= 2.1.2
-BuildRequires:    R-CRAN-lubridate >= 1.7.10
-BuildRequires:    R-CRAN-xgboost >= 1.4.1.1
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-rBayesianOptimization >= 1.2.0
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-tictoc >= 1.0
-BuildRequires:    R-CRAN-fANCOVA >= 0.6.1
-BuildRequires:    R-CRAN-narray >= 0.4.1.1
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-moments >= 0.14
-BuildRequires:    R-CRAN-Metrics >= 0.1.4
-Requires:         R-parallel >= 4.1.1
-Requires:         R-utils >= 4.1.1
-Requires:         R-stats >= 4.1.1
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-imputeTS >= 3.2
-Requires:         R-CRAN-modeest >= 2.4.0
-Requires:         R-CRAN-readr >= 2.1.2
-Requires:         R-CRAN-lubridate >= 1.7.10
-Requires:         R-CRAN-xgboost >= 1.4.1.1
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-rBayesianOptimization >= 1.2.0
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-tictoc >= 1.0
-Requires:         R-CRAN-fANCOVA >= 0.6.1
-Requires:         R-CRAN-narray >= 0.4.1.1
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-moments >= 0.14
-Requires:         R-CRAN-Metrics >= 0.1.4
+BuildRequires:    R-graphics >= 4.5.1
+BuildRequires:    R-grDevices >= 4.5.1
+BuildRequires:    R-CRAN-imputeTS >= 3.4
+BuildRequires:    R-CRAN-xgboost >= 3.1.2.1
+Requires:         R-graphics >= 4.5.1
+Requires:         R-grDevices >= 4.5.1
+Requires:         R-CRAN-imputeTS >= 3.4
+Requires:         R-CRAN-xgboost >= 3.1.2.1
 
 %description
 Dynamic regression for time series using Extreme Gradient Boosting with

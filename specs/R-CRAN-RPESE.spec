@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  apexcharter
-%global packver   0.4.5
+%global packname  RPESE
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Chart with the JavaScript 'ApexCharts' Library
+Summary:          Estimates of Standard Errors for Risk and Performance Measures
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
-BuildRequires:    R-CRAN-shiny >= 1.1.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets >= 1.5.3
-Requires:         R-CRAN-shiny >= 1.1.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-RPEIF 
+BuildRequires:    R-CRAN-RPEGLMEN 
+BuildRequires:    R-CRAN-RobStatTM 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-RPEIF 
+Requires:         R-CRAN-RPEGLMEN 
+Requires:         R-CRAN-RobStatTM 
 
 %description
-Provides an 'htmlwidgets' interface to 'apexcharts.js'. 'Apexcharts' is a
-modern JavaScript charting library to build interactive charts and
-visualizations with simple API. 'Apexcharts' examples and documentation
-are available here: <https://apexcharts.com/>.
+Estimates of standard errors of popular risk and performance measures for
+asset or portfolio returns using methods as described in Chen and Martin
+(2021) <doi:10.21314/JOR.2020.446>.
 
 %prep
 %setup -q -c -n %{packname}

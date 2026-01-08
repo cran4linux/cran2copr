@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  apexcharter
-%global packver   0.4.5
+%global packname  vbracket
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Chart with the JavaScript 'ApexCharts' Library
+Summary:          Custom Legends with Statistical Comparison Brackets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
-BuildRequires:    R-CRAN-shiny >= 1.1.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets >= 1.5.3
-Requires:         R-CRAN-shiny >= 1.1.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-grid 
 
 %description
-Provides an 'htmlwidgets' interface to 'apexcharts.js'. 'Apexcharts' is a
-modern JavaScript charting library to build interactive charts and
-visualizations with simple API. 'Apexcharts' examples and documentation
-are available here: <https://apexcharts.com/>.
+Add publication-quality custom legends with vertical brackets. Designed
+for displaying statistical comparisons between groups, commonly used in
+scientific publications for showing significance levels. Features include
+adaptive positioning, automatic bracket spacing for overlapping
+comparisons, font family inheritance, and support for asterisks, p-values,
+or custom labels. Compatible with 'ggplot2' graphics.
 
 %prep
 %setup -q -c -n %{packname}

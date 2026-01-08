@@ -1,42 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  apexcharter
-%global packver   0.4.5
+%global packname  mr.mashr
+%global packver   0.3.44
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.3.44
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Chart with the JavaScript 'ApexCharts' Library
+Summary:          Multiple Regression with Multivariate Adaptive Shrinkage
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.5.3
-BuildRequires:    R-CRAN-shiny >= 1.1.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets >= 1.5.3
-Requires:         R-CRAN-shiny >= 1.1.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.10
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-flashier >= 1.0.7
+BuildRequires:    R-CRAN-mashr >= 0.2.73
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.4.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-ebnm 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-RcppParallel >= 5.1.10
+Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-flashier >= 1.0.7
+Requires:         R-CRAN-mashr >= 0.2.73
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-ebnm 
+Requires:         R-parallel 
 
 %description
-Provides an 'htmlwidgets' interface to 'apexcharts.js'. 'Apexcharts' is a
-modern JavaScript charting library to build interactive charts and
-visualizations with simple API. 'Apexcharts' examples and documentation
-are available here: <https://apexcharts.com/>.
+Provides an implementation of methods for multivariate multiple regression
+with adaptive shrinkage priors as described in F. Morgante et al (2023)
+<doi:10.1371/journal.pgen.1010539>.
 
 %prep
 %setup -q -c -n %{packname}

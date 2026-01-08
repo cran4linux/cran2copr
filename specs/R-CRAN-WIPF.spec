@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WIPF
-%global packver   0.1.0-1
+%global packver   0.1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.1
+Version:          0.1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Iterative Proportional Fitting
 
@@ -20,13 +20,13 @@ BuildArch:        noarch
 
 %description
 Implementation of the weighted iterative proportional fitting (WIPF)
-procedure for updating/adjusting a N-dimensional array (currently N<=3)
-given a weight structure and some target marginals. Acknowledgements: The
-author wish to thank Ministerio de Ciencia, Innovación y Universidades
-(grant PID2021-128228NB-I00) and Fundación Mapfre (grant 'Modelización
-espacial e intra-anual de la mortalidad en España. Una herramienta
-automática para el cálculo de productos de vida') for supporting this
-research.
+procedure for updating/adjusting a N-dimensional array given a weight
+structure and some target marginals. Acknowledgements: The author wish to
+thank Conselleria de Educación, Cultura, Universidades y Empleo (grant
+CIAICO/2023/031), Ministerio de Ciencia, Innovación y Universidades (grant
+PID2021-128228NB-I00) and Fundación Mapfre (grant 'Modelización espacial e
+intra-anual de la mortalidad en España. Una herramienta automática para el
+cálculo de productos de vida') for supporting this research.
 
 %prep
 %setup -q -c -n %{packname}

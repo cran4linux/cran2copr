@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grpnet
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Elastic Net Regularized GLMs and GAMs
 
@@ -25,10 +25,11 @@ and group SCAD with an optional group ridge penalty. Computes the
 regularization path for linear regression (gaussian), multivariate
 regression (multigaussian), smoothed support vector machines (svm1),
 squared support vector machines (svm2), logistic regression (binomial),
-multinomial logistic regression (multinomial), log-linear count regression
-(poisson and negative.binomial), and log-linear continuous regression
-(gamma and inverse gaussian). Supports default and formula methods for
-model specification, k-fold cross-validation for tuning the regularization
+proportional odds logistic regression (ordinal), multinomial logistic
+regression (multinomial), log-linear count regression (poisson and
+negative.binomial), and log-linear continuous regression (gamma and
+inverse gaussian). Supports default and formula methods for model
+specification, k-fold cross-validation for tuning the regularization
 parameters, and nonparametric regression via tensor product reproducing
 kernel (smoothing spline) basis function expansion.
 
