@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SNPannotator
-%global packver   1.4.3
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Functional Annotation of Genetic Variants and Linked Proxies
 
@@ -26,11 +26,11 @@ BuildRequires:    R-CRAN-readr >= 2.1.5
 BuildRequires:    R-CRAN-igraph >= 2.0.3
 BuildRequires:    R-CRAN-jsonlite >= 1.8.8
 BuildRequires:    R-CRAN-httr >= 1.4.7
-BuildRequires:    R-CRAN-futile.logger >= 1.4.3
 BuildRequires:    R-CRAN-kableExtra >= 1.4.0
 BuildRequires:    R-CRAN-xml2 >= 1.3.6
 BuildRequires:    R-CRAN-progress >= 1.2.3
 BuildRequires:    R-CRAN-data.table >= 1.15.4
+BuildRequires:    R-CRAN-logger >= 0.4.0
 BuildRequires:    R-CRAN-ini >= 0.3.1
 BuildRequires:    R-CRAN-png 
 Requires:         R-CRAN-openxlsx >= 4.2.5.2
@@ -42,11 +42,11 @@ Requires:         R-CRAN-readr >= 2.1.5
 Requires:         R-CRAN-igraph >= 2.0.3
 Requires:         R-CRAN-jsonlite >= 1.8.8
 Requires:         R-CRAN-httr >= 1.4.7
-Requires:         R-CRAN-futile.logger >= 1.4.3
 Requires:         R-CRAN-kableExtra >= 1.4.0
 Requires:         R-CRAN-xml2 >= 1.3.6
 Requires:         R-CRAN-progress >= 1.2.3
 Requires:         R-CRAN-data.table >= 1.15.4
+Requires:         R-CRAN-logger >= 0.4.0
 Requires:         R-CRAN-ini >= 0.3.1
 Requires:         R-CRAN-png 
 

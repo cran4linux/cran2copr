@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  logolink
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface for Running 'NetLogo' Simulations
 
@@ -20,25 +20,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.5
 BuildRequires:    R-CRAN-checkmate >= 2.3.3
 BuildRequires:    R-CRAN-janitor >= 2.2.1
-BuildRequires:    R-CRAN-readr >= 2.1.5
 BuildRequires:    R-CRAN-magrittr >= 2.0.4
+BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-glue >= 1.8.0
 BuildRequires:    R-CRAN-fs >= 1.6.6
-BuildRequires:    R-CRAN-stringr >= 1.5.2
+BuildRequires:    R-CRAN-stringr >= 1.6.0
 BuildRequires:    R-CRAN-xml2 >= 1.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-purrr >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-purrr >= 1.1.0
 Requires:         R-CRAN-cli >= 3.6.5
 Requires:         R-CRAN-checkmate >= 2.3.3
 Requires:         R-CRAN-janitor >= 2.2.1
-Requires:         R-CRAN-readr >= 2.1.5
 Requires:         R-CRAN-magrittr >= 2.0.4
+Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-glue >= 1.8.0
 Requires:         R-CRAN-fs >= 1.6.6
-Requires:         R-CRAN-stringr >= 1.5.2
+Requires:         R-CRAN-stringr >= 1.6.0
 Requires:         R-CRAN-xml2 >= 1.4.0
+Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-purrr >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-purrr >= 1.1.0
 
 %description
 An interface for 'NetLogo' <https://www.netlogo.org> that enables

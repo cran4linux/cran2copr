@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  docorator
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Docorate (Decorate + Output) Displays
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gt >= 0.11.0
+BuildRequires:    R-CRAN-gt >= 1.2.0
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-png
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-quarto 
-Requires:         R-CRAN-gt >= 0.11.0
+Requires:         R-CRAN-gt >= 1.2.0
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 

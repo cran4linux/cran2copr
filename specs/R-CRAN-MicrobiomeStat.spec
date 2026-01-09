@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MicrobiomeStat
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Microbiome Compositional Data
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-parallel 
@@ -29,6 +28,15 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-modeest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mlrMBO 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ParamHelpers 
+BuildRequires:    R-CRAN-smoof 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-mlr 
+BuildRequires:    R-CRAN-BBmisc 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-parallel 
@@ -41,13 +49,25 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-modeest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mlrMBO 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ParamHelpers 
+Requires:         R-CRAN-smoof 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-mlr 
+Requires:         R-CRAN-BBmisc 
 
 %description
 A suite of methods for powerful and robust microbiome data analysis
 addressing zero-inflation, phylogenetic structure and compositional
-effects (Zhou et al. (2022)<doi:10.1186/s13059-022-02655-5>).  The methods
-can be applied to the analysis of other (high-dimensional) compositional
-data arising from sequencing experiments.
+effects. Includes the LinDA method for differential abundance analysis
+(Zhou et al. (2022)<doi:10.1186/s13059-022-02655-5>), the BMDD (Bimodal
+Dirichlet Distribution) method for accurate modeling and imputation of
+zero-inflated microbiome sequencing data (Zhou et al.
+(2025)<doi:10.1371/journal.pcbi.1013124>) and compositional sparse CCA
+methods for microbiome multi-omics data integration (Deng et al. (2024)
+<doi: 10.3389/fgene.2024.1489694>).
 
 %prep
 %setup -q -c -n %{packname}

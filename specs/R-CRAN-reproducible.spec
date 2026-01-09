@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reproducible
-%global packver   2.1.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhance Reproducibility of R Code
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Recommends:       /usr/bin/unrar
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-cli 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-cli 
@@ -37,21 +38,23 @@ Requires:         R-CRAN-fs
 Requires:         R-CRAN-lobstr 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
 A collection of high-level, machine- and OS-independent tools for making
 reproducible and reusable content in R. The two workhorse functions are
-Cache() and prepInputs(). Cache() allows for nested caching, is robust to
-environments and objects with environments (like functions), and deals
-with some classes of file-backed R objects e.g., from terra and raster
-packages. Both functions have been developed to be foundational components
-of data retrieval and processing in continuous workflow situations. In
-both functions, efforts are made to make the first and subsequent calls of
-functions have the same result, but faster at subsequent times by way of
-checksums and digesting. Several features are still under development,
-including cloud storage of cached objects allowing for sharing between
-users. Several advanced options are available, see ?reproducibleOptions().
+'Cache()' and 'prepInputs()'. 'Cache()' allows for nested caching, is
+robust to environments and objects with environments (like functions), and
+deals with some classes of file-backed R objects e.g., from 'terra' and
+'raster' packages. Both functions have been developed to be foundational
+components of data retrieval and processing in continuous workflow
+situations. In both functions, efforts are made to make the first and
+subsequent calls of functions have the same result, but faster at
+subsequent times by way of checksums and digesting. Several features are
+still under development, including cloud storage of cached objects
+allowing for sharing between users. Several advanced options are
+available, see '?reproducibleOptions()'.
 
 %prep
 %setup -q -c -n %{packname}

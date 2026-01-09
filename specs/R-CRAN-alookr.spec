@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  alookr
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Classifier for Binary Classification
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xgboost >= 3.1.2.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-cli >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.6
@@ -38,8 +39,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-xgboost >= 3.1.2.1
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-cli >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.7.6
@@ -61,7 +62,6 @@ Requires:         R-stats
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-glmnet 
 
 %description

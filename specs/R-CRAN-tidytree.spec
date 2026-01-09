@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytree
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yulab.utils >= 0.0.4
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.5
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lazyeval 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-yulab.utils >= 0.0.4
+Requires:         R-CRAN-yulab.utils >= 0.1.5
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lazyeval 

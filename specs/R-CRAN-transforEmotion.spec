@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transforEmotion
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sentiment Analysis for Text, Image and Video using Transformer Models
 
@@ -23,18 +23,26 @@ BuildRequires:    R-CRAN-LSAfun
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-textdata 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-LSAfun 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-textdata 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-httr 
 
 %description
 Implements sentiment analysis using huggingface <https://huggingface.co>

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caretSDM
-%global packver   1.2.3
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build Species Distribution Modeling using 'caret'
 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-maxnet 
@@ -71,7 +71,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggspatial 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-maxnet 

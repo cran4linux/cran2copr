@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggimage
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Image in 'ggplot2'
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.3
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-ggfun 
 BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-ggplotify 
@@ -32,7 +34,9 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-yulab.utils >= 0.1.3
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ggfun 
 Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-ggplotify 

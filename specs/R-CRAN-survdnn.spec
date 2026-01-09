@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survdnn
-%global packver   0.7.0
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deep Neural Networks for Survival Analysis using 'torch'
+Summary:          Deep Neural Networks for Survival Analysis with R 'torch'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

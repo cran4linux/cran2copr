@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  econid
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Economic Entity Identifier Standardization
 
@@ -37,7 +37,7 @@ Provides utility functions for standardizing economic entity (economy,
 aggregate, institution, etc.) name and id in economic datasets such as
 those published by the International Monetary Fund and World Bank. Aims to
 facilitate consistent data analysis, reporting, and joining across
-datasets. Used as a foundational building block in the 'econdataverse'
+datasets. Used as a foundational building block in the 'EconDataverse'
 family of packages (<https://www.econdataverse.org>).
 
 %prep

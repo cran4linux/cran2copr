@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DedooseR
-%global packver   2.0.0.1
+%global packver   2.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.1
+Version:          2.0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monitoring and Analyzing Dedoose Qualitative Data Exports
 
@@ -49,10 +49,10 @@ Requires:         R-CRAN-haven
 Requires:         R-CRAN-openxlsx 
 
 %description
-Streamlines analysis of qualitative data exported from Dedoose. Supports
-monitoring thematic saturation, calculating code frequencies, organizing
-excerpts, generating dynamic codebooks, and producing code network maps
-within R.
+Streamlines analysis of qualitative data exported from 'Dedoose'
+<https://www.dedoose.com>. Supports monitoring thematic saturation,
+calculating code frequencies, organizing excerpts, generating dynamic
+codebooks, and producing code network maps within 'R'.
 
 %prep
 %setup -q -c -n %{packname}

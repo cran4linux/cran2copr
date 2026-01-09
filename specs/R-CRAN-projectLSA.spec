@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projectLSA
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Structure Analysis Toolkit
+Summary:          R Shiny Application for Latent Structure Analysis with a Graphical User Interface
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-mirt 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-poLCA 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-mirt 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-poLCA 

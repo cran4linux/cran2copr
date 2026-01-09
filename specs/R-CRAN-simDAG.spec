@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simDAG
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Data from a DAG and Associated Node Information
+Summary:          Simulate Data from a (Time-Dependent) Causal DAG
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dagitty 
+BuildRequires:    R-CRAN-ggdag 
 Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dagitty 
+Requires:         R-CRAN-ggdag 
 
 %description
 Simulate complex data from a given directed acyclic graph and information
@@ -34,10 +36,10 @@ about each individual node. Root nodes are simply sampled from the
 specified distribution. Child Nodes are simulated according to one of many
 implemented regressions, such as logistic regression, linear regression,
 poisson regression or any other function. Also includes a comprehensive
-framework for discrete-time simulation, and networks-based simulation
-which can generate even more complex longitudinal and dependent data. For
-more details, see Robin Denz, Nina Timmesfeld (2025)
-<doi:10.48550/arXiv.2506.01498>.
+framework for discrete-time simulation, discrete-event simulation, and
+networks-based simulation which can generate even more complex
+longitudinal and dependent data. For more details, see Robin Denz, Nina
+Timmesfeld (2025) <doi:10.48550/arXiv.2506.01498>.
 
 %prep
 %setup -q -c -n %{packname}

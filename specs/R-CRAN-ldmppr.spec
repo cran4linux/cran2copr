@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ldmppr
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate and Simulate from Location Dependent Marked Point Processes
 
@@ -16,14 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-parsnip >= 1.4.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-bundle 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-dials 
-BuildRequires:    R-CRAN-bundle 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-tune 
@@ -36,19 +37,20 @@ BuildRequires:    R-CRAN-spatstat.explore
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-GET 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-parsnip >= 1.4.0
 Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-stats 
+Requires:         R-CRAN-bundle 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-dials 
-Requires:         R-CRAN-bundle 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-tune 
@@ -61,9 +63,9 @@ Requires:         R-CRAN-spatstat.explore
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-GET 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-yardstick 
 
 %description

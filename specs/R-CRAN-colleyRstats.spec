@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colleyRstats
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Streamline Statistical Analysis and Reporting
 
@@ -21,9 +21,9 @@ BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-effectsize >= 1.0.1
 BuildRequires:    R-CRAN-ggpmisc >= 0.6.3
-BuildRequires:    R-CRAN-report >= 0.6.1
+BuildRequires:    R-CRAN-report >= 0.6.3
 BuildRequires:    R-CRAN-ggstatsplot >= 0.13.4
-BuildRequires:    R-CRAN-ARTool 
+BuildRequires:    R-CRAN-ARTool >= 0.11.2
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-conflicted 
@@ -45,9 +45,9 @@ Requires:         R-CRAN-ggplot2 >= 4.0.1
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-effectsize >= 1.0.1
 Requires:         R-CRAN-ggpmisc >= 0.6.3
-Requires:         R-CRAN-report >= 0.6.1
+Requires:         R-CRAN-report >= 0.6.3
 Requires:         R-CRAN-ggstatsplot >= 0.13.4
-Requires:         R-CRAN-ARTool 
+Requires:         R-CRAN-ARTool >= 0.11.2
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-conflicted 

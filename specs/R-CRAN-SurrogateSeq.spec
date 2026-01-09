@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurrogateSeq
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Sequential Testing of a Treatment Effect Using a Surrogate Marker
 
@@ -29,8 +29,9 @@ Provides functions to implement group sequential procedures that allow for
 early stopping to declare efficacy using a surrogate marker and the
 possibility of futility stopping.  More details are available in: Parast,
 L. and Bartroff, J (2024) <doi:10.1093/biomtc/ujae108>. A tutorial for
-this package can be found at
-<https://laylaparast.com/home/SurrogateSeq.html>.
+this package can be found at <https://www.laylaparast.com/surrogateseq>. A
+Shiny App implementing the methods can be found at
+<https://parastlab.shinyapps.io/SurrogateSeqApp/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastFMM
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Functional Mixed Models using Fast Univariate Inference
 
@@ -14,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-cAIC4 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-lsei 
@@ -36,11 +36,11 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-CRAN-lmeresampler 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lme4 
 Requires:         R-parallel 
 Requires:         R-CRAN-cAIC4 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lsei 
@@ -59,8 +59,8 @@ Requires:         R-methods
 %description
 Implementation of the fast univariate inference approach (Cui et al.
 (2022) <doi:10.1080/10618600.2021.1950006>, Loewinger et al. (2024)
-<doi:10.7554/eLife.95802.2>) for fitting functional mixed models. User
-guides and Python package information can be found at
+<doi:10.7554/eLife.95802.2>, Xin et al. (2025)) for fitting functional
+mixed models. User guides and Python package information can be found at
 <https://github.com/gloewing/photometry_FLMM>.
 
 %prep

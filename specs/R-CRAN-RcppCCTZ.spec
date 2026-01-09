@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppCCTZ
-%global packver   0.2.13
+%global packver   0.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
+Version:          0.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for the 'CCTZ' Library
 
@@ -20,7 +20,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-Rcpp >= 0.11.0
 
 %description
-'Rcpp' Access to the 'CCTZ' timezone library is provided. 'CCTZ' is a C++
+'Rcpp' access to the 'CCTZ' timezone library is provided. 'CCTZ' is a C++
 library for translating between absolute and civil times using the rules
 of a time zone. The 'CCTZ' source code, released under the Apache 2.0
 License, is included in this package. See <https://github.com/google/cctz>

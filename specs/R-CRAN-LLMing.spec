@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMing
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Large Language Model (LLM) Tools for Psychological Text Analysis
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-text
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-stopwords 
@@ -35,13 +36,14 @@ Requires:         R-CRAN-text
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-pracma 
 Requires:         R-stats 
+Requires:         R-CRAN-jsonlite 
 
 %description
 A collection of large language model (LLM) text analysis methods designed
 with psychological data in mind. Currently, LLMing (aka "lemming")
 includes a text anomaly detection method based on the angle-based subspace
-approach described by Zhang, Lin, and Karim (2015)
-<doi:10.1016/j.ress.2015.05.025>.
+approach described by Zhang, Lin, and Karim (2015) and a text generation
+method. <doi:10.1016/j.ress.2015.05.025>.
 
 %prep
 %setup -q -c -n %{packname}

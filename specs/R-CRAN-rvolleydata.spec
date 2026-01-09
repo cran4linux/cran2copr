@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvolleydata
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Data from Professional Volleyball Leagues in North America
 
@@ -29,9 +29,9 @@ Requires:         R-CRAN-tibble
 %description
 Gather boxscore, play-by-play, and auxiliary data from Major League
 Volleyball (MLV) <https://provolleyball.com>, League One Volleyball Pro
-(LOVB Pro) <https://www.lovb.com/pro-league>, and Athletes Unlimited Pro
-Volleyball <https://auprosports.com/volleyball/> to create a repository of
-basic and advanced statistics for teams and players.
+(LOVB) <https://www.lovb.com/pro-league>, and Athletes Unlimited Pro
+Volleyball (AU) <https://auprosports.com/volleyball/> to create a
+repository of basic and advanced statistics for teams and players.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  detect
-%global packver   0.5-0
+%global packver   0.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Wildlife Data with Detection Error
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-Formula
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-extraDistr 
 Requires:         R-CRAN-Formula 
 Requires:         R-stats4 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-extraDistr 
 
 %description
 Models for analyzing site occupancy and count data models with detection
@@ -37,8 +35,9 @@ Solymos et al. 2012 <doi:10.1002/env.1149>, Denes et al. 2016
 time-removal models (QPAD) (Solymos et al. 2013
 <doi:10.1111/2041-210X.12106>, Solymos et al. 2018
 <doi:10.1650/CONDOR-18-32.1>), and single bin QPAD (SQPAD) models (Lele &
-Solymos 2025). Package development was supported by the Alberta
-Biodiversity Monitoring Institute and the Boreal Avian Modelling Project.
+Solymos 2025 <doi:10.1093/ornithapp/duaf078>). Package development was
+supported by the Alberta Biodiversity Monitoring Institute and the Boreal
+Avian Modelling Project.
 
 %prep
 %setup -q -c -n %{packname}

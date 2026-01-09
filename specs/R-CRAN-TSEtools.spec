@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TSEtools
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manage Data from Stock Exchange Markets
+Summary:          Manage Data from the Finance Markets
 
 License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,14 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-quantmod 
 BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rjson 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-quantmod 
 Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rjson 
 
 %description
-Tools to perform some descriptive data analysis for assets. Manage the
-portfolio and capital of assets. It also downloads and organizes data from
-the Tehran Stock Exchange (TSE).
+A set of tools designed to perform descriptive data analysis on assets,
+manage asset portfolios and capital allocation, and download, organize,
+and maintain data from the "Tehran Stock Exchange" and "NOBITEX"
+platforms.
 
 %prep
 %setup -q -c -n %{packname}

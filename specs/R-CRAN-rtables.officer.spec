@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtables.officer
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exporting Tools for 'rtables'
 
@@ -14,31 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-stringi >= 1.6
-BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-flextable >= 0.9.10
-BuildRequires:    R-CRAN-officer >= 0.7.0
-BuildRequires:    R-CRAN-rtables >= 0.6.12
-BuildRequires:    R-CRAN-formatters >= 0.5.11
-BuildRequires:    R-CRAN-rlistings >= 0.2.11
+BuildRequires:    R-CRAN-officer >= 0.7.1
+BuildRequires:    R-CRAN-rtables >= 0.6.15
+BuildRequires:    R-CRAN-formatters >= 0.5.12
+BuildRequires:    R-CRAN-rlistings >= 0.2.13
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-systemfonts 
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-stringi >= 1.6
-Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-flextable >= 0.9.10
-Requires:         R-CRAN-officer >= 0.7.0
-Requires:         R-CRAN-rtables >= 0.6.12
-Requires:         R-CRAN-formatters >= 0.5.11
-Requires:         R-CRAN-rlistings >= 0.2.11
+Requires:         R-CRAN-officer >= 0.7.1
+Requires:         R-CRAN-rtables >= 0.6.15
+Requires:         R-CRAN-formatters >= 0.5.12
+Requires:         R-CRAN-rlistings >= 0.2.13
 Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-systemfonts 
 
 %description
 Designed to create and display complex tables with R, the 'rtables' R

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  avesperu
-%global packver   0.0.6
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the List of Birds Species of Peru
 
@@ -17,6 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-cli 
+Requires:         R-parallel 
 
 %description
 Allows access to the data found in the species list featured in the

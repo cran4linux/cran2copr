@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsem
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactively Visualize Structural Equation Modeling Diagrams
+Summary:          Interactive Structural Equation Modeling (SEM) and Multi-Group Path Diagrams
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-semPlot >= 1.1.7
+BuildRequires:    R-CRAN-lavaan >= 0.6.21
 BuildRequires:    R-CRAN-blavaan 
 BuildRequires:    R-CRAN-DiagrammeRsvg 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-purrr 
@@ -30,18 +32,20 @@ BuildRequires:    R-CRAN-qgraph
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-semPlot 
+BuildRequires:    R-CRAN-smplot2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidySEM 
 BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-semPlot >= 1.1.7
+Requires:         R-CRAN-lavaan >= 0.6.21
 Requires:         R-CRAN-blavaan 
 Requires:         R-CRAN-DiagrammeRsvg 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-lavaan 
 Requires:         R-methods 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-purrr 
@@ -49,7 +53,7 @@ Requires:         R-CRAN-qgraph
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-semPlot 
+Requires:         R-CRAN-smplot2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidySEM 
@@ -57,11 +61,14 @@ Requires:         R-CRAN-umap
 Requires:         R-CRAN-xml2 
 
 %description
-It enables users to perform interactive and reproducible visualizations of
-path diagrams for structural equation modeling (SEM) and networks using
-interactive parameter visualization. Meta-data of figure outputs can be
-either reloaded, replayed or reproduced as objects with figure outputs or
-images.
+Provides an interactive workflow for visualizing structural equation
+modeling (SEM), multi-group path diagrams, and network diagrams in R.
+Users can directly manipulate nodes and edges to create
+publication-quality figures while maintaining statistical model integrity.
+Supports integration with 'lavaan', 'OpenMx', 'tidySEM', and 'blavaan'
+etc. Features include parameter-based aesthetic mapping, generative AI
+assistance, and complete reproducibility by exporting metadata for
+script-based workflows.
 
 %prep
 %setup -q -c -n %{packname}

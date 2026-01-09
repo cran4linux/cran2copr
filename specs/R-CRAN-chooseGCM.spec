@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chooseGCM
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selecting General Circulation Models for Species Distribution Modeling
 
@@ -18,13 +18,14 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-factoextra 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
@@ -32,13 +33,14 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-CRAN-usedist 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-factoextra 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-methods 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 

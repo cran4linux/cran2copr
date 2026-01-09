@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtpcr
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          qPCR Data Analysis
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-purrr 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-emmeans 
 Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-purrr 
@@ -39,20 +37,13 @@ Requires:         R-grid
 Requires:         R-CRAN-emmeans 
 
 %description
-Amplification efficiency estimation, statistical analysis, and graphical
-representation of quantitative real-time PCR (qPCR) data using one or more
-specified reference genes is handled by 'rtpcr' package. By accounting for
-amplification efficiency values, 'rtpcr' was developed using a general
-calculation method described by Ganger et al. (2017)
-<doi:10.1186/s12859-017-1949-5> and Taylor et al. (2019)
-<doi:10.1016/j.tibtech.2018.12.002>, covering both the Livak and Pfaffl
-methods. Based on the experimental conditions, the functions of the
-'rtpcr' package use t-test (for experiments with a two-level factor),
-analysis of variance (ANOVA), analysis of covariance (ANCOVA) or analysis
-of repeated measure data to analyse the relative expression (Delta Delta
-Ct method or Delta Ct method). The functions further provide standard
-errors and confidence intervals for means, apply statistical mean
-comparisons and present significance.
+Tools for qPCR data analysis using Delta Ct and Delta Delta Ct methods,
+including t-tests, ANOVA, ANCOVA, repeated-measures models, and
+publication-ready visualizations. The package supports multiple target,
+and multiple reference genes, and uses a calculation framework adopted
+from Ganger et al. (2017) <doi:10.1186/s12859-017-1949-5> and Taylor et
+al. (2019) <doi:10.1016/j.tibtech.2018.12.002>, covering both the Livak
+and Pfaffl methods.
 
 %prep
 %setup -q -c -n %{packname}

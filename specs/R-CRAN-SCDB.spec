@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCDB
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Access and Maintain Time-Based Versioned Data (Slowly-Changing-Dimension)
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-parallelly 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-parallelly 

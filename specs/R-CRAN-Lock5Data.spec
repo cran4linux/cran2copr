@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Lock5Data
-%global packver   3.0.0
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets for "Statistics: UnLocking the Power of Data"
 
@@ -18,8 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Datasets for the third edition of "Statistics: Unlocking the Power of
-Data" by Lock^5 Includes version of datasets from earlier editions.
+Datasets for the fourth edition of "Statistics: Unlocking the Power of
+Data" by Lock^5 Includes versions of datasets from earlier editions.
 
 %prep
 %setup -q -c -n %{packname}

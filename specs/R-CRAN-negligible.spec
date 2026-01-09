@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  negligible
-%global packver   0.1.9
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Negligible Effect/Equivalence Testing
 
@@ -17,26 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-ez 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-WRS2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-nptest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fungible 
 BuildRequires:    R-CRAN-rockchalk 
 BuildRequires:    R-CRAN-MBESS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-e1071 
+Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-ez 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-WRS2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nptest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fungible 
 Requires:         R-CRAN-rockchalk 
 Requires:         R-CRAN-MBESS 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thisutils
-%global packver   0.3.1
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Utility Functions for Data Analysis and Computing
 
@@ -37,8 +37,8 @@ Requires:         R-utils
 
 %description
 Provides utility functions for data analysis and scientific computing.
-Includes functions for parallel processing, and other computational tasks
-to streamline workflows.
+Includes functions for logging, parallel processing, and other
+computational tasks to streamline workflows.
 
 %prep
 %setup -q -c -n %{packname}

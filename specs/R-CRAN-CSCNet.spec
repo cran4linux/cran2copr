@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSCNet
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting and Tuning Regularized Cause-Specific Cox Models with Elastic-Net Penalty
 
@@ -21,30 +21,32 @@ BuildRequires:    R-CRAN-caret >= 6.0.92
 BuildRequires:    R-CRAN-glmnet >= 4.1.4
 BuildRequires:    R-CRAN-survival >= 3.3.1
 BuildRequires:    R-CRAN-tibble >= 3.1.7
+BuildRequires:    R-CRAN-collinear >= 3.0.0
 BuildRequires:    R-CRAN-riskRegression >= 2022.03.22
 BuildRequires:    R-CRAN-prodlim >= 2019.11.13
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-parallelly >= 1.46.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyverse >= 1.3.1
 BuildRequires:    R-CRAN-future >= 1.26.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-furrr >= 0.3.0
-BuildRequires:    R-CRAN-recipes >= 0.2.0
 Requires:         R-CRAN-caret >= 6.0.92
 Requires:         R-CRAN-glmnet >= 4.1.4
 Requires:         R-CRAN-survival >= 3.3.1
 Requires:         R-CRAN-tibble >= 3.1.7
+Requires:         R-CRAN-collinear >= 3.0.0
 Requires:         R-CRAN-riskRegression >= 2022.03.22
 Requires:         R-CRAN-prodlim >= 2019.11.13
 Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-parallelly >= 1.46.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyverse >= 1.3.1
 Requires:         R-CRAN-future >= 1.26.1
 Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-furrr >= 0.3.0
-Requires:         R-CRAN-recipes >= 0.2.0
 
 %description
 Flexible tools to fit, tune and obtain absolute risk predictions from
