@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mispitools
-%global packver   1.2.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Person Identification Tools
 
@@ -14,46 +14,45 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forrel 
 BuildRequires:    R-CRAN-pedtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-DirichletReg 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DirichletReg 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
 Requires:         R-CRAN-forrel 
 Requires:         R-CRAN-pedtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-DirichletReg 
 Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-patchwork 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DirichletReg 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
 
 %description
-An open source software package written in R statistical language. It
-consist in a set of decision making tools to conduct missing person
-searches.  Particularly, it allows computing optimal LR threshold for
-declaring potential matches in DNA-based database search. More recently
-'mispitools' incorporates preliminary investigation data based LRs.
-Statistical weight of different traces of evidence such as biological sex,
-age and hair color are presented. For citing mispitools please use the
-following references: Marsico and Caridi, 2023
-<doi:10.1016/j.fsigen.2023.102891> and Marsico, Vigeland et al. 2021
+A comprehensive toolkit for missing person identification combining
+genetic and non-genetic evidence within a Bayesian framework. Computes
+likelihood ratios (LRs) for DNA profiles, biological sex, age, hair color,
+and birthdate evidence. Provides decision analysis tools including optimal
+LR thresholds, error rate calculations, and ROC curve visualization.
+Includes interactive Shiny applications for exploring evidence
+combinations. For methodological details see Marsico et al. (2023)
+<doi:10.1016/j.fsigen.2023.102891> and Marsico, Vigeland et al. (2021)
 <doi:10.1016/j.fsigen.2021.102519>.
 
 %prep

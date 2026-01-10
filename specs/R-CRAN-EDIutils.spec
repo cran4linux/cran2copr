@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EDIutils
-%global packver   1.0.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An API Client for the Environmental Data Initiative Repository
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-xml2 
+Requires:         R-utils 
 
 %description
 A client for the Environmental Data Initiative repository REST API. The

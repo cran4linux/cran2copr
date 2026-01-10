@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MapperAlgo
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topological Data Analysis: Mapper Algorithm
 
@@ -14,16 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-networkD3 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-rlang 
@@ -35,8 +33,6 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-networkD3 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-rlang 

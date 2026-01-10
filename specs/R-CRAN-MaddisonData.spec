@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MaddisonData
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maddison Project Data
 
@@ -19,13 +19,16 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 
 %description
-Relatively easy access is provided to Maddison project data, which
-collates all the credible data on population and GDP for 169 countries,
-with some dating back to the year 1. 'MaddisonLeaders' makes it easy to
-find the leaders for each year, allowing users to delete countries like
-OPEC with narrow economies to focus on the technology leaders.
-'ggplotPath' makes it easy to plot data for only selected countries or
-years.
+Relatively easy access is provided to 2023 version of the Maddison project
+data downloaded 2025-08-28. This project collates all the credible data on
+population and GDP for 169 countries, with some dating back to the year 1
+of the current era. One function makes it easy to find the leaders for
+each year, allowing users to delete countries like OPEC with narrow
+economies to focus on technology leaders. Another function makes it easy
+to plot data for only selected countries or years. Another function makes
+it relatively easy to obtain references to the original sources, which
+must be cited per the copyright rules of the Maddison Project for
+different uses of their data.
 
 %prep
 %setup -q -c -n %{packname}

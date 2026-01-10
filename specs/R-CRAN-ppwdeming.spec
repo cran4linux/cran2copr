@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ppwdeming
-%global packver   1.0.6
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precision Profile Weighted Deming Regression
 
@@ -21,22 +21,22 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Weighted Deming regression, also known as "errors-in-variable" regression,
+Weighted Deming regression, also known as 'errors-in-variable' regression,
 is applied with suitable weights. Weights are modeled via a precision
-profile; functions are provided for implementing it in both known and
-unknown precision profile situations. The package provides tools for
-precision profile weighted Deming (PWD) regression. It covers two settings
+profile; thus the methods implemented here are referred to as precision
+profile weighted Deming (PWD) regression. The package covers two settings
 – one where the precision profiles are known either from external studies
 or from adequate replication of the X and Y readings, and one in which
 there is a plausible functional form for the precision profiles but the
-exact function must be estimated from the (generally singlicate) readings.
-The function set includes tools for: estimated standard errors (via
-jackknifing); standardized-residual analysis function with regression
+exact (unknown) function must be estimated from the (generally singlicate)
+readings. The function set includes tools for: estimated standard errors
+(via jackknifing); standardized-residual analysis function with regression
 diagnostic tools for normality, linearity and constant variance; and an
 outlier analysis identifying significant outliers for closer
-investigation. Further information on mathematical derivations and
-applications can be found on arXiv: Hawkins and Kraker (2025)
-<doi:10.48550/arXiv.2508.02888>.
+investigation. The following reference provides further information on
+mathematical derivations and applications. Hawkins, D.M., and J.J. Kraker.
+'Precision Profile Weighted Deming Regression for Methods Comparison', (in
+press) <doi:10.1093/jalm/jfaf183>.
 
 %prep
 %setup -q -c -n %{packname}

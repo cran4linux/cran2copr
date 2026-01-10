@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinySbm
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Application to Use the Stochastic Block Model
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.7.2
 BuildRequires:    R-CRAN-golem >= 0.3.5
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-fresh 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-patchwork 
@@ -35,7 +36,9 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shinyalert 
 BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-shiny >= 1.7.2
 Requires:         R-CRAN-golem >= 0.3.5
@@ -48,6 +51,7 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-fresh 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
 Requires:         R-CRAN-patchwork 
@@ -55,7 +59,9 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shinyalert 
 Requires:         R-CRAN-shinydashboard 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 Requires:         R-CRAN-visNetwork 
 
 %description

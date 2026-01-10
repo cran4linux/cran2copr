@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AssociationExplorer2
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A User-Friendly 'shiny' Application for Exploring Associations and Visual Patterns
 
@@ -29,7 +29,7 @@ survey weights and range-based filters on association strengths, making it
 suitable for the exploration of survey and public data by non-technical
 users, journalists, educators, and researchers. For background and
 methodological details, see Soetewey et al. (2025)
-<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5637359>.
+<doi:10.1016/j.softx.2025.102483>.
 
 %prep
 %setup -q -c -n %{packname}

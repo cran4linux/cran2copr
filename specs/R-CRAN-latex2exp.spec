@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  latex2exp
-%global packver   0.9.6
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use LaTeX Expressions in Plots
 
@@ -17,10 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
 
 %description
 Parses and converts LaTeX math formulas to R's plotmath expressions, used

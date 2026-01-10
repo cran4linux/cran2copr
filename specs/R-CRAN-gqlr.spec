@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gqlr
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'GraphQL' Server in R
 
@@ -18,22 +18,19 @@ BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-graphql >= 1.3
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-graphql >= 1.3
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-R6 
 
 %description
-Server implementation of 'GraphQL'
-<http://graphql.github.io/graphql-spec/>, a query language originally
-created by Facebook for describing data requirements on complex
-application data models.  Visit <http://graphql.org> to learn more about
-'GraphQL'.
+Server implementation of 'GraphQL' <http://spec.graphql.org/>, a query
+language originally created by Facebook for describing data requirements
+on complex application data models.  Visit <https://graphql.org> to learn
+more about 'GraphQL'.
 
 %prep
 %setup -q -c -n %{packname}

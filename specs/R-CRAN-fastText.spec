@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastText
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Learning of Word Representations and Sentence Classification
 
@@ -42,7 +42,7 @@ Efficient Text Classification", Armand Joulin, Edouard Grave, Piotr
 Bojanowski, Tomas Mikolov, 2017, <doi:10.18653/v1/e17-2068>; (iii)
 "FastText.zip: Compressing text classification models", Armand Joulin,
 Edouard Grave, Piotr Bojanowski, Matthijs Douze, Herve Jegou, Tomas
-Mikolov, 2016, <arXiv:1612.03651>.
+Mikolov, 2016, <doi:10.48550/arXiv.1612.03651>.
 
 %prep
 %setup -q -c -n %{packname}

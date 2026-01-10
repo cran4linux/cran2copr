@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vannstats
-%global packver   1.5.4.07
+%global packver   1.6.1.08
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4.07
+Version:          1.6.1.08
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistical Procedures for Social Sciences
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-gdata 
 Requires:         R-CRAN-plm 
 Requires:         R-CRAN-dplyr 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-reshape2 
 
 %description
 Simplifies functions assess normality for bivariate and multivariate

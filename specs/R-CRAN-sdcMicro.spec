@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdcMicro
-%global packver   5.7.9
+%global packver   5.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.7.9
+Version:          5.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Disclosure Control Methods for Anonymization of Data and Risk Estimation
 
@@ -38,8 +38,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-prettydoc 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-VIM >= 4.7.0
 Requires:         R-CRAN-shiny >= 1.4.0
 Requires:         R-utils 
@@ -62,8 +63,9 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-prettydoc 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Data from statistical agencies and other institutions are mostly

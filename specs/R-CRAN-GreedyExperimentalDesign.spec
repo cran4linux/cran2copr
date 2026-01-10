@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GreedyExperimentalDesign
-%global packver   1.5.6.1
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6.1
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Greedy Experimental Design Construction
 
@@ -20,11 +20,11 @@ BuildRequires:    R-CRAN-rJava >= 0.9.6
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-nbpMatching 
-BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -32,39 +32,35 @@ Requires:         R-CRAN-rJava >= 0.9.6
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-nbpMatching 
-Requires:         R-CRAN-survey 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 
 %description
-Computes experimental designs for a two-arm experiment with covariates via
-a number of methods: (0) complete randomization and randomization with
-forced-balance, (1) Greedily optimizing a balance objective function via
-pairwise switching. This optimization provides lower variance for the
-treatment effect estimator (and higher power) while preserving a design
-that is close to complete randomization. We return all iterations of the
-designs for use in a permutation test, (2) The second is via numerical
-optimization (via 'gurobi' which must be installed, see
-<https://www.gurobi.com/documentation/9.1/quickstart_windows/r_ins_the_r_package.html>)
-a la Bertsimas and Kallus, (3) rerandomization, (4) Karp's method for one
-covariate, (5) exhaustive enumeration to find the optimal solution (only
-for small sample sizes), (6) Binary pair matching using the 'nbpMatching'
-library, (7) Binary pair matching plus design number (1) to further
-optimize balance, (8) Binary pair matching plus design number (3) to
-further optimize balance, (9) Hadamard designs, (10) Simultaneous Multiple
-Kernels. In (1-9) we allow for three objective functions: Mahalanobis
-distance, Sum of absolute differences standardized and Kernel distances
-via the 'kernlab' library. This package is the result of a stream of
-research that can be found in Krieger, A, Azriel, D and Kapelner, A
-"Nearly Random Designs with Greatly Improved Balance" (2016)
-<arXiv:1612.02315>, Krieger, A, Azriel, D and Kapelner, A "Better
-Experimental Design by Hybridizing Binary Matching with Imbalance
-Optimization" (2021) <arXiv:2012.03330>.
+Computes experimental designs for two-arm experiments with covariates
+using multiple methods, including: (0) complete randomization and
+randomization with forced-balance; (1) greedy optimization of a balance
+objective function via pairwise switching; (2) numerical optimization via
+'gurobi'; (3) rerandomization; (4) Karp's method for one covariate; (5)
+exhaustive enumeration for small sample sizes; (6) binary pair matching
+using 'nbpMatching'; (7) binary pair matching plus method (1) to further
+optimize balance; (8) binary pair matching plus method (3) to further
+optimize balance; (9) Hadamard designs; and (10) simultaneous multiple
+kernels. For the greedy, rerandomization, and related methods, three
+objective functions are supported: Mahalanobis distance, standardized sums
+of absolute differences, and kernel distances via the 'kernlab' library.
+This package is the result of a stream of research that can be found in
+Krieger, A. M., Azriel, D. A., and Kapelner, A. (2019). "Nearly Random
+Designs with Greatly Improved Balance." Biometrika 106(3), 695-701
+<doi:10.1093/biomet/asz026>. Krieger, A. M., Azriel, D. A., and Kapelner,
+A. (2023). "Better experimental design by hybridizing binary matching with
+imbalance optimization." Canadian Journal of Statistics, 51(1), 275-292
+<doi:10.1002/cjs.11685>.
 
 %prep
 %setup -q -c -n %{packname}
