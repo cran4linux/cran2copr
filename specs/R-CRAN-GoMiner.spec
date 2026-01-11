@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GoMiner
-%global packver   1.0
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate the Mapping Between a List of Genes and Gene Ontology Categories
 
@@ -19,16 +19,20 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-minimalistGODB 
 BuildRequires:    R-CRAN-HGNChelper 
+BuildRequires:    R-CRAN-randomGODB 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vprint 
 Requires:         R-CRAN-minimalistGODB 
 Requires:         R-CRAN-HGNChelper 
+Requires:         R-CRAN-randomGODB 
 Requires:         R-stats 
 Requires:         R-CRAN-gplots 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-CRAN-vprint 
 
 %description
 In gene-expression microarray studies, for example, one generally obtains

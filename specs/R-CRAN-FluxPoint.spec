@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FluxPoint
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Change Point Detection for Non-Stationary and Cross-Correlated Time Series
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-blockmatrix 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-doParallel 
@@ -27,8 +27,6 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-SimDesign 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-blockmatrix 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-doParallel 

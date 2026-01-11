@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncdump
-%global packver   0.0.5
+%global packname  bcfrailph
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Metadata from 'NetCDF' Files as Data Frames
+Summary:          Semiparametric Bivariate Correlated Frailty Models Fit
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
 
 %description
-Tools for handling 'NetCDF' metadata in data frames. The metadata is
-provided as relations in tabular form, to avoid having to scan printed
-header output or to navigate nested lists of raw metadata.
+Fit semiparametric bivariate correlated frailty models.
 
 %prep
 %setup -q -c -n %{packname}

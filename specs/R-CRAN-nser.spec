@@ -1,32 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  maplegend
-%global packver   0.5.0
+%global packname  nser
+%global packver   1.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.5.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Legends for Maps
+Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-googleVis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-xml2 
 
 %description
-Create legends for maps and other graphics. Thematic maps need to be
-accompanied by legible legends to be fully comprehensible. This package
-offers a wide range of legends useful for cartography, some of which may
-also be useful for other types of graphics.
+Download Current & Historical Bhavcopy. Get Live Market data from NSE
+India of Equities and Derivatives (F&O) segment. Data source
+<https://www.nseindia.com/>.
 
 %prep
 %setup -q -c -n %{packname}

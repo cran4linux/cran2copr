@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meboot
-%global packver   1.4-9.4
+%global packver   1.4-9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9.4
+Version:          1.4.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Entropy Bootstrap for Time Series
 
@@ -28,9 +28,9 @@ Requires:         R-CRAN-hdrcde
 %description
 Maximum entropy density based dependent data bootstrap. An algorithm is
 provided to create a population of time series (ensemble) without assuming
-stationarity. The reference paper (Vinod, H.D., 2004 <DOI:
-10.1016/j.jempfin.2003.06.002>) explains how the algorithm satisfies the
-ergodic theorem and the central limit theorem.
+stationarity. The reference paper (Vinod, H.D., 2004
+<DOI:10.1016/j.jempfin.2003.06.002>) explains how the algorithm satisfies
+the ergodic theorem and the central limit theorem.
 
 %prep
 %setup -q -c -n %{packname}

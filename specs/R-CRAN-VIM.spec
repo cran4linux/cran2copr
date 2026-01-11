@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VIM
-%global packver   6.2.6
+%global packver   7.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.6
+Version:          7.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Imputation of Missing Values
 
@@ -35,6 +35,13 @@ BuildRequires:    R-CRAN-laeken
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-mlr3pipelines 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-mlr3tuning 
+BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-future 
 Requires:         R-CRAN-data.table >= 1.9.4
 Requires:         R-CRAN-colorspace 
 Requires:         R-grid 
@@ -54,18 +61,33 @@ Requires:         R-CRAN-laeken
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-mlr3pipelines 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-mlr3tuning 
+Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-future 
 
 %description
-New tools for the visualization of missing and/or imputed values are
-introduced, which can be used for exploring the data and the structure of
-the missing and/or imputed values. Depending on this structure of the
-missing values, the corresponding methods may help to identify the
-mechanism generating the missing values and allows to explore the data
-including missing values. In addition, the quality of imputation can be
-visually explored using various univariate, bivariate, multiple and
-multivariate plot methods. A graphical user interface available in the
-separate package VIMGUI allows an easy handling of the implemented plot
-methods.
+Provides methods for imputation and visualization of missing values. It
+includes graphical tools to explore the amount, structure and patterns of
+missing and/or imputed values, supporting exploratory data analysis and
+helping to investigate potential missingness mechanisms (details in
+Alfons, Templ and Filzmoser, <doi:10.1007/s11634-011-0102-y>. The quality
+of imputations can be assessed visually using a wide range of univariate,
+bivariate and multivariate plots. The package further provides several
+imputation methods, including efficient implementations of k-nearest
+neighbour and hot-deck imputation (Kowarik and Templ 2013,
+<doi:10.18637/jss.v074.i07>, iterative robust model-based multiple
+imputation (Templ 2011, <doi:10.1016/j.csda.2011.04.012>; Templ 2023,
+<doi:10.3390/math11122729>), and machine learning–based approaches such as
+robust GAM-based multiple imputation (Templ 2024,
+<doi:10.1007/s11222-024-10429-1>) as well as gradient boosting (XGBoost)
+and transformer-based methods (Niederhametner et al.,
+<doi:10.1177/18747655251339401>). General background and practical
+guidance on imputation are provided in the Springer book by Templ (2023)
+<doi:10.1007/978-3-031-30073-8>.
 
 %prep
 %setup -q -c -n %{packname}

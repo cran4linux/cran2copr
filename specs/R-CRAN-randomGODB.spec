@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  maplegend
-%global packver   0.5.0
+%global packname  randomGODB
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Legends for Maps
+Summary:          Random GO Database
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-minimalistGODB 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-minimalistGODB 
 Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-Create legends for maps and other graphics. Thematic maps need to be
-accompanied by legible legends to be fully comprehensible. This package
-offers a wide range of legends useful for cartography, some of which may
-also be useful for other types of graphics.
+The Gene Ontology (GO) Consortium <https://geneontology.org/> organizes
+genes into hierarchical categories based on biological process (BP),
+molecular function (MF) and cellular component (CC, i.e., subcellular
+localization). Tools such as 'GoMiner' (see Zeeberg, B.R., Feng, W., Wang,
+G. et al. (2003) <doi:10.1186/gb-2003-4-4-r28>) can leverage GO to perform
+ontological analysis of microarray and proteomics studies, typically
+generating a list of significant functional categories. The significance
+is traditionally determined by randomizing the input gene list to
+computing the false discovery rate (FDR) of the enrichment p-value for
+each category. We explore here the novel alternative of randomizing the GO
+database rather than the gene list.
 
 %prep
 %setup -q -c -n %{packname}

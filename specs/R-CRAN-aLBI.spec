@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aLBI
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Length-Based Indicators for Fish Stock
 
@@ -43,22 +43,29 @@ Calculate the frequency table from the collected and also the extract the
 length frequency data from the frequency table with the upper
 length_range. A numeric value specifying the bin width for class
 intervals. If not provided, the bin width is automatically calculated
-using Sturges (1926) <doi:10.1080/01621459.1926.10502161> formula.
-CalPar(): Calculates various lengths used in fish stock assessment as
-biological length indicators such as asymptotic length (Linf), maximum
-length (Lmax), length at sexual maturity (Lm), and optimal length (Lopt).
-FishPar(): Calculates length-based indicators (LBIs) proposed by Froese
-(2004) <doi:10.1111/j.1467-2979.2004.00144.x> such as the percentage of
-mature fish (Pmat), percentage of optimal length fish (Popt), percentage
-of mega spawners (Pmega), and the sum of these as Pobj. This function also
+using Wang (2020) <doi:10.1016/j.fishres.2019.105474> formula. FreqTM():
+Creates a frequency distribution table for fish length data across
+multiple months using a consistent length class structure. The bin width
+is determined by either a custom value or Wang's formula, applied
+uniformly across all months. The function dynamically detects and renames
+columns to 'Month' and 'Length' from the input dataframe. The maximum
+observed length is included as part of the last class, with the upper
+bound set to the smallest multiple of the bin width greater than or equal
+to the maximum length. Months can be converted to dates using a
+configurable day and year, with dates assigned sequentially in
+'day.month.year' format (e.g., 15.01.26). FishPar(): Calculates
+length-based indicators (LBIs) proposed by Froese (2004)
+<doi:10.1111/j.1467-2979.2004.00144.x> such as the percentage of mature
+fish (Pmat), percentage of optimal length fish (Popt), percentage of mega
+spawners (Pmega), and the sum of these as Pobj. This function also
 estimates confidence intervals for different lengths, visualizes length
 frequency distributions, and provides data frames containing calculated
 values. FishSS(): Makes decisions based on input from Cope and Punt (2009)
 <doi:10.1577/C08-025.1> and parameters calculated by FishPar() (e.g.,
 Pobj, Pmat, Popt, LM_ratio) to determine stock status as target spawning
-biomass (TSB40) and limit spawning biomass (LSB25). LWR(): Fits and
-visualizes length-weight relationships using linear regression, with
-options for log-transformation and customizable plotting.
+biomass (TSB40) and limit spawning biomass (LSB25), and selectivity.
+LWR(): Fits and visualizes length-weight relationships using linear
+regression, with options for log-transformation and customizable plotting.
 
 %prep
 %setup -q -c -n %{packname}

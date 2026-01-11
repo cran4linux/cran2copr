@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yamlet
-%global packver   1.2.5
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Versatile Curation of Table Metadata
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-csv >= 0.6.2
 BuildRequires:    R-CRAN-spork >= 0.3.3
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-encode 
 BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xtable 
@@ -31,13 +31,13 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-ggplot2 >= 4.0.1
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-csv >= 0.6.2
 Requires:         R-CRAN-spork >= 0.3.3
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-encode 
 Requires:         R-CRAN-units 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xtable 

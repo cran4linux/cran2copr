@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckspatial
-%global packver   0.2.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'DuckDB' Database with Spatial Extension
 
@@ -17,19 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-geoarrow 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-wk 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-geoarrow 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-wk 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Provides an interface between R and the 'DuckDB' (see
-<https://duckdb.org>) database with spatial extensions. It supports
-reading, writing, and performing some geometric operations.
+Fast & memory-efficient functions to analyze and manipulate large spatial
+data data sets. It leverages the fast analytical capabilities of 'DuckDB'
+and its spatial extension (see
+<https://duckdb.org/docs/stable/core_extensions/spatial/overview>) while
+maintaining compatibility with R’s spatial data ecosystem to work with
+spatial vector data.
 
 %prep
 %setup -q -c -n %{packname}

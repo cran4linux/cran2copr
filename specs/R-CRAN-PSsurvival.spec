@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PSsurvival
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Propensity Score Methods for Survival Analysis
 
@@ -20,21 +20,26 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
 Requires:         R-CRAN-survival 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
 
 %description
 Implements propensity score weighting methods for estimating
-counterfactual survival functions and marginal hazard ratios in
-observational studies with time-to-event outcomes. Supports binary and
-multiple treatment groups with average treatment effect on the combined
-full population (ATE), average treatment effect on the treated or target
-group (ATT), and overlap weighting estimands. Includes symmetric (Crump)
-and asymmetric (Sturmer) trimming options for extreme propensity scores.
-Variance estimation via analytical M-estimation or bootstrap. Methods
-based on Cheng et al. (2022) <doi:10.1093/aje/kwac043> and Li & Li (2019)
-<doi:10.1214/19-AOAS1282>.
+counterfactual survival functions, marginal hazard ratios, and weighted
+Kaplan-Meier and cumulative risk curves in observational studies with
+time-to-event outcomes. Supports binary and multiple treatment groups with
+inverse probability of treatment weighting (IPW), overlap weighting (OW),
+and average treatment effect on the treated (ATT). Includes symmetric
+trimming (Crump extension) for extreme propensity scores. Variance
+estimation via analytical M-estimation or bootstrap. Methods based on Li
+et al. (2018) <doi:10.1080/01621459.2016.1260466>, Li & Li (2019)
+<doi:10.1214/19-AOAS1282>, and Cheng et al. (2022)
+<doi:10.1093/aje/kwac043>.
 
 %prep
 %setup -q -c -n %{packname}

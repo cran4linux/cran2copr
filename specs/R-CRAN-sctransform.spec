@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sctransform
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance Stabilizing Transformations for Single Cell UMI Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-methods 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 

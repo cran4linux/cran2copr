@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  volker
-%global packver   3.2.0
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Level Functions for Tabulating, Charting and Reporting Survey Data
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-skimr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-kableExtra 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-skimr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-kableExtra 

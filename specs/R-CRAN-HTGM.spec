@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HTGM
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Throughput 'GoMiner'
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-GoMiner
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-vprint 
 Requires:         R-CRAN-minimalistGODB 
 Requires:         R-CRAN-GoMiner 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-vprint 
 
 %description
 Two papers published in the early 2000's (Zeeberg, B.R., Feng, W., Wang,

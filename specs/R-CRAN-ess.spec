@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ess
-%global packver   1.1.2
+%global packver   1.1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Stepwise Selection in Decomposable Models
 
@@ -22,8 +23,9 @@ Requires:         R-CRAN-igraph
 
 %description
 An implementation of the ESS algorithm following Amol Deshpande, Minos
-Garofalakis, Michael I Jordan (2013) <arXiv:1301.2267>. The ESS algorithm
-is used for model selection in decomposable graphical models.
+Garofalakis, Michael I Jordan (2013) <doi:10.48550/arXiv.1301.2267>. The
+ESS algorithm is used for model selection in decomposable graphical
+models.
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

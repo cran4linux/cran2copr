@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFpack
-%global packver   1.5.0
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayes Factor Testing of Scientific Expectations
 
@@ -23,15 +23,14 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-ergm 
-BuildRequires:    R-CRAN-Bergm 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-QRM 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-metaBMA 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-berryFunctions 
+BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-Bergm 
 Requires:         R-CRAN-bain 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -39,15 +38,14 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-ergm 
-Requires:         R-CRAN-Bergm 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-QRM 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-metaBMA 
 Requires:         R-methods 
 Requires:         R-CRAN-berryFunctions 
+Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-Bergm 
 
 %description
 Implementation of default Bayes factors for testing statistical hypotheses

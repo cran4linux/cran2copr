@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chatAI4R
-%global packver   0.3.6
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chat-Based Interactive Artificial Intelligence for R
 
@@ -26,11 +26,10 @@ BuildRequires:    R-CRAN-rstudioapi
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-deepRstudio 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-assertthat 
@@ -40,21 +39,19 @@ Requires:         R-CRAN-rstudioapi
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-deepRstudio 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-glue 
+Requires:         R-utils 
 
 %description
 The Large Language Model (LLM) represents a groundbreaking advancement in
 data science and programming, and also allows us to extend the world of R.
 A seamless interface for integrating the 'OpenAI' Web APIs into R is
 provided in this package. This package leverages LLM-based AI techniques,
-enabling efficient knowledge discovery and data analysis (see 'OpenAI' Web
-APIs details <https://openai.com/blog/openai-api>). The previous functions
-such as seamless translation and image generation have been moved to other
-packages 'deepRstudio' and 'stableDiffusion4R'.
+enabling efficient knowledge discovery and data analysis. The previous
+functions such as seamless translation and image generation have been
+moved to other packages 'deepRstudio' and 'stableDiffusion4R'.
 
 %prep
 %setup -q -c -n %{packname}
