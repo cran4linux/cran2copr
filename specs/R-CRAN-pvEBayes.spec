@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pvEBayes
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Bayes Methods for Pharmacovigilance
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-SobolSequence 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-wacolors 
 BuildRequires:    R-CRAN-Rcpp 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-glue
 Requires:         R-graphics 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-SobolSequence 
 Requires:         R-stats 
 Requires:         R-CRAN-wacolors 
 Requires:         R-CRAN-Rcpp 

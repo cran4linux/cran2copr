@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  varPro
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Independent Variable Selection via the Rule-Based Variable Priority
 
@@ -22,7 +22,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-BART 
-BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-randomForestSRC >= 3.4.5
 Requires:         R-CRAN-glmnet 
@@ -30,7 +29,6 @@ Requires:         R-parallel
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-BART 
-Requires:         R-CRAN-umap 
 Requires:         R-CRAN-survival 
 
 %description

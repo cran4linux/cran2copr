@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exdex
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Extremal Index
 
@@ -32,14 +32,14 @@ Requires:         R-stats
 
 %description
 Performs frequentist inference for the extremal index of a stationary time
-series.  Two types of methodology are used.  One type is based on a model
+series. Two types of methodology are used. One type is based on a model
 that relates the distribution of block maxima to the marginal distribution
 of series and leads to the semiparametric maxima estimators described in
 Northrop (2015) <doi:10.1007/s10687-015-0221-5> and Berghaus and Bucher
-(2018) <doi:10.1214/17-AOS1621>.  Sliding block maxima are used to
-increase precision of estimation. A graphical block size diagnostic is
-provided.  The other type of methodology uses a model for the distribution
-of threshold inter-exceedance times (Ferro and Segers (2003)
+(2018) <doi:10.1214/17-AOS1621>. Sliding block maxima are used to increase
+precision of estimation. A graphical block size diagnostic is provided.
+The other type of methodology uses a model for the distribution of
+threshold inter-exceedance times (Ferro and Segers (2003)
 <doi:10.1111/1467-9868.00401>). Three versions of this type of approach
 are provided: the iterated weight least squares approach of Suveges (2007)
 <doi:10.1007/s10687-007-0034-2>, the K-gaps model of Suveges and Davison

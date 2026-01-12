@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mtarm
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Estimation of Multivariate Threshold Autoregressive Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -26,6 +26,9 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-future 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -35,6 +38,9 @@ Requires:         R-grDevices
 Requires:         R-CRAN-GIGrvg 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-future 
 
 %description
 Estimation, inference and forecasting using the Bayesian approach for

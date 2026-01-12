@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thisplot
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Plotting
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-thisutils >= 0.3.6
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gtable 
@@ -25,8 +26,8 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-thisutils 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-thisutils >= 0.3.6
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gtable 
@@ -35,7 +36,6 @@ Requires:         R-CRAN-igraph
 Requires:         R-methods 
 Requires:         R-CRAN-patchwork 
 Requires:         R-stats 
-Requires:         R-CRAN-thisutils 
 Requires:         R-utils 
 
 %description

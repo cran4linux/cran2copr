@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidySEM
-%global packver   0.2.9
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Structural Equation Modeling
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-igraph >= 2.0.0
+BuildRequires:    R-CRAN-lavaan >= 0.6.21
 BuildRequires:    R-CRAN-nonnest2 >= 0.5.6
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-MplusAutomation 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-methods 
@@ -33,12 +33,13 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
-Requires:         R-CRAN-ggplot2 >= 3.4.2
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-igraph >= 2.0.0
+Requires:         R-CRAN-lavaan >= 0.6.21
 Requires:         R-CRAN-nonnest2 >= 0.5.6
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-MplusAutomation 
 Requires:         R-CRAN-psych 
 Requires:         R-methods 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-progress 
 
 %description
 A tidy workflow for generating, estimating, reporting, and plotting

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mets
-%global packver   1.3.8
+%global packver   1.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Multivariate Event Times
 
-License:          GPL (>= 2)
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,17 +18,18 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-survival >= 2.43.1
 BuildRequires:    R-CRAN-timereg >= 1.9.4
-BuildRequires:    R-CRAN-lava >= 1.8.1
+BuildRequires:    R-CRAN-lava >= 1.8.2
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-survival >= 2.43.1
 Requires:         R-CRAN-timereg >= 1.9.4
-Requires:         R-CRAN-lava >= 1.8.1
+Requires:         R-CRAN-lava >= 1.8.2
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 

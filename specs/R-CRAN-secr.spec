@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secr
-%global packver   5.3.0
+%global packver   5.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.0
+Version:          5.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-raster >= 3.5.15
 BuildRequires:    R-CRAN-terra >= 1.5.12
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-secrfunc 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -29,19 +30,18 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppNumerical 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-RcppParallel >= 5.1.1
 Requires:         R-CRAN-raster >= 3.5.15
 Requires:         R-CRAN-terra >= 1.5.12
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-methods 
+Requires:         R-CRAN-secrfunc 
 Requires:         R-CRAN-abind 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -50,7 +50,6 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-nlme 
 Requires:         R-parallel 
-Requires:         R-CRAN-RcppNumerical 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sitrep
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Report Templates and Helper Functions for Applied Epidemiology
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-epidict >= 0.2.0
 BuildRequires:    R-CRAN-apyramid >= 0.1.0
-BuildRequires:    R-CRAN-epidict >= 0.1.0
 BuildRequires:    R-CRAN-epitabulate >= 0.1.0
 BuildRequires:    R-CRAN-epikit 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-epidict >= 0.2.0
 Requires:         R-CRAN-apyramid >= 0.1.0
-Requires:         R-CRAN-epidict >= 0.1.0
 Requires:         R-CRAN-epitabulate >= 0.1.0
 Requires:         R-CRAN-epikit 
 Requires:         R-utils 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inti
-%global packver   0.6.9
+%global packver   0.6.91
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.6.91
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Statistical Procedures in Plant Science
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-googlesheets4 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-googlesheets4 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-cli 
 
 %description
 The 'inti' package is part of the 'inkaverse' project for developing
