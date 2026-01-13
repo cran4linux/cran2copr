@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PhenotypeR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assess Study Cohorts Using a Common Data Model
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CodelistGenerator >= 3.4.0
+BuildRequires:    R-CRAN-CodelistGenerator >= 4.0.1
 BuildRequires:    R-CRAN-IncidencePrevalence >= 1.2.0
 BuildRequires:    R-CRAN-omopgenerics >= 1.2.0
-BuildRequires:    R-CRAN-CohortCharacteristics >= 1.0.0
-BuildRequires:    R-CRAN-OmopSketch >= 0.5.0
-BuildRequires:    R-CRAN-CohortConstructor >= 0.4.0
-BuildRequires:    R-CRAN-MeasurementDiagnostics >= 0.1.0
+BuildRequires:    R-CRAN-CohortCharacteristics >= 1.1.0
+BuildRequires:    R-CRAN-OmopSketch >= 1.0.0
+BuildRequires:    R-CRAN-CohortConstructor >= 0.5.0
+BuildRequires:    R-CRAN-MeasurementDiagnostics >= 0.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -31,13 +31,13 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-CodelistGenerator >= 3.4.0
+Requires:         R-CRAN-CodelistGenerator >= 4.0.1
 Requires:         R-CRAN-IncidencePrevalence >= 1.2.0
 Requires:         R-CRAN-omopgenerics >= 1.2.0
-Requires:         R-CRAN-CohortCharacteristics >= 1.0.0
-Requires:         R-CRAN-OmopSketch >= 0.5.0
-Requires:         R-CRAN-CohortConstructor >= 0.4.0
-Requires:         R-CRAN-MeasurementDiagnostics >= 0.1.0
+Requires:         R-CRAN-CohortCharacteristics >= 1.1.0
+Requires:         R-CRAN-OmopSketch >= 1.0.0
+Requires:         R-CRAN-CohortConstructor >= 0.5.0
+Requires:         R-CRAN-MeasurementDiagnostics >= 0.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 

@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  poputils
-%global packver   0.5.0
+%global packname  Styperidge.reg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Analysis and Data Manipulation
+Summary:          S-Type Ridge Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvec 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvec 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mctest 
+BuildRequires:    R-CRAN-isdals 
+BuildRequires:    R-CRAN-ridgregextra 
+BuildRequires:    R-CRAN-Stype.est 
+Requires:         R-stats 
+Requires:         R-CRAN-mctest 
+Requires:         R-CRAN-isdals 
+Requires:         R-CRAN-ridgregextra 
+Requires:         R-CRAN-Stype.est 
 
 %description
-Perform tasks commonly encountered when preparing and analysing
-demographic data. Some functions are intended for end users, and others
-for developers. Includes functions for working with life tables.
+Implements S-type ridge regression, a robust and multicollinearity-aware
+linear regression estimator that combines S-type robust weighting (via the
+'Stype.est' package) with ridge penalization; automatically selects the
+ridge parameter using the 'ridgregextra' approach targeting a close to 1
+variance inflation factor (VIF), and returns comprehensive outputs
+(coefficients, fitted values, residuals, mean squared error (MSE), etc.)
+with an easy x/y interface and optional user-supplied weights. See Sazak
+and Mutlu (2021) <doi:10.1080/03610918.2021.1928196>, Karadag et al.
+(2023) <https://CRAN.R-project.org/package=ridgregextra> and Sazak et al.
+(2025) <https://CRAN.R-project.org/package=Stype.est>.
 
 %prep
 %setup -q -c -n %{packname}

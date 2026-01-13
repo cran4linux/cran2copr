@@ -1,47 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ParBayesianOptimization
-%global packver   1.2.6
+%global packname  psc
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Bayesian Optimization of Hyperparameters
+Summary:          Personalised Synthetic Controls
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.11.8
-BuildRequires:    R-CRAN-ggpubr >= 0.2.4
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table >= 1.11.8
-Requires:         R-CRAN-ggpubr >= 0.2.4
-Requires:         R-CRAN-DiceKriging 
-Requires:         R-stats 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-enrichwith 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-enrichwith 
+Requires:         R-stats 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-parallel 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-lme4 
+Requires:         R-utils 
 
 %description
-Fast, flexible framework for implementing Bayesian optimization of model
-hyperparameters according to the methods described in Snoek et al.
-<arXiv:1206.2944>. The package allows the user to run scoring function in
-parallel, save intermediary results, and tweak other aspects of the
-process to fully utilize the computing resources available to the user.
+Allows the comparison of data cohorts (DC) against a Counter Factual Model
+(CFM) and measures the difference in terms of an efficacy parameter.
+Allows the application of Personalised Synthetic Controls.
 
 %prep
 %setup -q -c -n %{packname}

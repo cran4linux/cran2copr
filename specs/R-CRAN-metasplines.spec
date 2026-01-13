@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metasplines
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pool Literature-Based and Individual Participant Data Based Spline Estimates
 
@@ -40,10 +40,9 @@ not usually reported. This package pools the nonlinear IPD dose-response
 estimates based on a natural cubic spline from lm or glm with the
 pointwise LB estimates and their estimated variances. Details will be
 presented in Härkänen, Tapanainen, Sares-Jäske, Männistö, Kaartinen and
-Paalanen (2025) "Novel pooling method for nonlinear cohort analysis and
+Paalanen (2026) "Novel pooling method for nonlinear cohort analysis and
 meta-analysis estimates: Predicting health outcomes based on
-climate-friendly diets" (under revision)
-<https://journals.lww.com/epidem/pages/default.aspx>.
+climate-friendly diets" Epidemiology <doi:10.1097/EDE.0000000000001932>.
 
 %prep
 %setup -q -c -n %{packname}

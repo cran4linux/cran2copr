@@ -1,52 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dpm
-%global packver   1.2.0
+%global packname  correctref
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Panel Models Fit with Maximum Likelihood
+Summary:          Correct and Standardize References for Scientific Manuscripts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jtools >= 2.0.1
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-panelr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-stats4 
-Requires:         R-CRAN-jtools >= 2.0.1
-Requires:         R-CRAN-lavaan 
-Requires:         R-methods 
-Requires:         R-CRAN-panelr 
+BuildRequires:    R-CRAN-officer 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-Formula 
-Requires:         R-stats4 
+Requires:         R-CRAN-officer 
 
 %description
-Implements the dynamic panel models described by Allison, Williams, and
-Moral-Benito (2017 <doi:10.1177/2378023117710578>) in R. This class of
-models uses structural equation modeling to specify dynamic (lagged
-dependent variable) models with fixed effects for panel data.
-Additionally, models may have predictors that are only weakly exogenous,
-i.e., are affected by prior values of the dependent variable. Options also
-allow for random effects, dropping the lagged dependent variable, and a
-number of other specification choices.
+Reads 'Word' documents containing incomplete bibliographic references and
+produces an updated file with standardized and complete references. The
+package provides functions to retrieve missing authors, titles, journal
+details, volume, issue, and page numbers. Digital object identifiers
+(DOIs) are retrieved using the 'CrossRef' application programming
+interface (API) <https://api.crossref.org>, and references are formatted
+following DOI-based citation standards as described by Paskin (2010)
+<doi:10.1000/182> and the 'citation.doi.org' service
+<https://citation.doi.org>. The package is intended to simplify reference
+preparation for scientific journal submissions.
 
 %prep
 %setup -q -c -n %{packname}

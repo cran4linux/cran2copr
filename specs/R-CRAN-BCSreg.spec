@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inTrees
-%global packver   1.4
+%global packname  BCSreg
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpret Tree Ensembles
+Summary:          Box-Cox Symmetric Regression for Non-Negative Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RRF 
-BuildRequires:    R-CRAN-arules 
-BuildRequires:    R-CRAN-gbm 
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-RRF 
-Requires:         R-CRAN-arules 
-Requires:         R-CRAN-gbm 
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-distr 
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-GeneralizedHyperbolic 
+Requires:         R-CRAN-distr 
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-GeneralizedHyperbolic 
 
 %description
-For tree ensembles such as random forests, regularized random forests and
-gradient boosted trees, this package provides functions for: extracting,
-measuring and pruning rules; selecting a compact rule set; summarizing
-rules into a learner; calculating frequent variable interactions;
-formatting rules in latex code.  Reference: Interpreting tree ensembles
-with inTrees (Houtao Deng, 2019, <doi:10.1007/s41060-018-0144-8>).
+A collection of tools for regression analysis of non-negative data,
+including strictly positive and zero-inflated observations, based on the
+class of the Box-Cox symmetric (BCS) distributions and its zero-adjusted
+extension. The BCS distributions are a class of flexible probability
+models capable of describing different levels of skewness and
+tail-heaviness. The package offers a comprehensive regression modeling
+framework, including estimation and tools for evaluating goodness-of-fit.
 
 %prep
 %setup -q -c -n %{packname}

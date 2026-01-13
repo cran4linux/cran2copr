@@ -1,41 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  poputils
-%global packver   0.5.0
+%global packname  mascarade
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Analysis and Data Manipulation
+Summary:          Generating Cluster Masks for Single-Cell Dimensional Reduction Plots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvec 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-polyclip 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvec 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-systemfonts 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-polyclip 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-systemfonts 
 
 %description
-Perform tasks commonly encountered when preparing and analysing
-demographic data. Some functions are intended for end users, and others
-for developers. Includes functions for working with life tables.
+Implements a procedure to automatically generate 2D masks for clusters on
+dimensional reduction plots from methods like t-SNE (t-distributed
+stochastic neighbor embedding) or UMAP (uniform manifold approximation and
+projection), with a focus on single-cell RNA-sequencing data.
 
 %prep
 %setup -q -c -n %{packname}

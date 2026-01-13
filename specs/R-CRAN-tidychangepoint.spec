@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidychangepoint
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy Framework for Changepoint Detection Analysis
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-changepoint 
 BuildRequires:    R-CRAN-changepointGA 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-strucchange 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tsibble 
@@ -42,24 +42,24 @@ BuildRequires:    R-CRAN-vctrs
 BuildRequires:    R-CRAN-wbs 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-broom 
 Requires:         R-CRAN-changepoint 
 Requires:         R-CRAN-changepointGA 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-GA 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-segmented 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-strucchange 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tsibble 

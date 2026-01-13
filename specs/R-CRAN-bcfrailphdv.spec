@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  poputils
-%global packver   0.5.0
+%global packname  bcfrailphdv
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Analysis and Data Manipulation
+Summary:          Bivariate Correlated Frailty Models with Varied Variances
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvec 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvec 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-bcfrailph 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-bcfrailph 
+Requires:         R-stats 
 
 %description
-Perform tasks commonly encountered when preparing and analysing
-demographic data. Some functions are intended for end users, and others
-for developers. Includes functions for working with life tables.
+Fit and simulate bivariate correlated frailty models with proportional
+hazard structure. Frailty distributions, such as gamma and lognormal
+models are supported semiparametric procedures. Frailty variances of the
+two subjects can be varied or equal. Details on the models are available
+in book of Wienke (2011,ISBN:978-1-4200-7388-1). Bivariate gamma fit is
+obtained using the approach given in Kifle et al (2023) <DOI:
+10.4310/22-SII738> with modifications. Lognormal fit is based on the
+approach by Ripatti and Palmgren (2000)
+<doi:10.1111/j.0006-341X.2000.01016.x>. Frailty distributions, such as
+gamma, inverse gaussian and power variance frailty models are supported
+for parametric approach.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  targeted
-%global packver   0.7
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Targeted Inference
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-lava >= 1.8.2
-BuildRequires:    R-CRAN-mets >= 1.3.8
+BuildRequires:    R-CRAN-mets >= 1.3.9
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-abind 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-lava >= 1.8.2
-Requires:         R-CRAN-mets >= 1.3.8
+Requires:         R-CRAN-mets >= 1.3.9
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-abind 

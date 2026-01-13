@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  osdc
-%global packver   0.9.17
+%global packver   0.9.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.17
+Version:          0.9.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Source Diabetes Classifier for Danish Registers
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 

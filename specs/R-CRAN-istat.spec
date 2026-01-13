@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  istat
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Manipulate Data from Istat
 
@@ -63,8 +63,8 @@ Download data from ISTAT (Italian Institute of Statistics) database, both
 old and new provider (respectively, <http://dati.istat.it/> and
 <https://esploradati.istat.it/databrowser/>). Additional functions for
 manipulating data are provided. Moreover, a 'shiny' application called
-'shinyIstat' can be used to search, download and filter datasets in an
-easier way.
+'shinyIstat' can be used to search, download and filter datasets more
+easily.
 
 %prep
 %setup -q -c -n %{packname}

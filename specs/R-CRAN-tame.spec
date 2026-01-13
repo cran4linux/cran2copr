@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tame
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Timing, Anatomical, Therapeutic and Chemical Based Medication Clustering
 
@@ -23,8 +23,6 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -38,8 +36,6 @@ Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

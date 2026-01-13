@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xxdi
-%global packver   1.2.4
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Expertise Indices
+Summary:          An R Package for Evaluating Scholarly Expertise Indices for Institutional Research Assessment
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.3.0
-Requires:         R-core >= 4.3.3.0
+BuildRequires:    R-devel >= 4.4.2.0
+Requires:         R-core >= 4.4.2.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 4.3.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
@@ -45,8 +45,8 @@ research capabilities, aiding stakeholders in research management and
 resource allocation decisions. Lathabai, H.H., Nandy, A., and Singh, V.K.
 (2021) <doi:10.1007/s11192-021-04188-3>. Nandy, A., Lathabai, H.H., and
 Singh, V.K. (2023) <doi:10.5281/zenodo.8305585>. This package provides the
-h, g, x, and xd indices for use with standard format of Web of Science
-(WoS) scrapped datasets.
+h-, g-, x-, xd-indices, and their variants for use with standard format of
+Web of Science (WoS) scrapped datasets.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RIIM
-%global packver   2.0.0
+%global packname  vimixr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Randomization-Based Inference Under Inexact Matching
+Summary:          Collapsed Variational Inference for Dirichlet Process (DP) Mixture Model
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-optmatch 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-optmatch 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-rlang 
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-Randomization-based inference for average treatment effects in potentially
-inexactly matched observational studies. It implements the inverse
-post-matching probability weighting framework proposed by the authors. The
-post-matching probability calculation follows the approach of Pimentel and
-Huang (2024) <doi:10.1093/jrsssb/qkae033>. The optimal full matching
-method is based on Hansen (2004) <doi:10.1198/106186006X137047>. The
-variance estimator extends the method proposed in Fogarty (2018)
-<doi:10.1111/rssb.12290> from the perfect randomization settings to the
-potentially inexact matching case. Comparisons are made with conventional
-methods, as described in Rosenbaum (2002) <doi:10.1007/978-1-4757-3692-2>,
-Fogarty (2018) <doi:10.1111/rssb.12290>, and Kang et al. (2016)
-<doi:10.1214/15-aoas894>.
+Collapsed Variational Inference for a Dirichlet Process (DP) mixture model
+with unknown covariance matrix structure and DP concentration parameter.
+It enables efficient clustering of high-dimensional data with
+significantly improved computational speed than traditional MCMC methods.
+The package incorporates 8 parameterisations and corresponding prior
+choices for the unknown covariance matrix, from which the user can choose
+and apply accordingly.
 
 %prep
 %setup -q -c -n %{packname}

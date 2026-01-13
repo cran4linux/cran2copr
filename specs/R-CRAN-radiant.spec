@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  poputils
-%global packver   0.5.0
+%global packname  radiant
+%global packver   1.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.6.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Analysis and Data Manipulation
+Summary:          Business Analytics using R and Shiny
 
-License:          MIT + file LICENSE
+License:          AGPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvec 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvec 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.8.1
+BuildRequires:    R-CRAN-radiant.data >= 1.6.6
+BuildRequires:    R-CRAN-radiant.design >= 1.6.6
+BuildRequires:    R-CRAN-radiant.basics >= 1.6.6
+BuildRequires:    R-CRAN-radiant.model >= 1.6.6
+BuildRequires:    R-CRAN-radiant.multivariate >= 1.6.6
+BuildRequires:    R-CRAN-import >= 1.1.0
+Requires:         R-CRAN-shiny >= 1.8.1
+Requires:         R-CRAN-radiant.data >= 1.6.6
+Requires:         R-CRAN-radiant.design >= 1.6.6
+Requires:         R-CRAN-radiant.basics >= 1.6.6
+Requires:         R-CRAN-radiant.model >= 1.6.6
+Requires:         R-CRAN-radiant.multivariate >= 1.6.6
+Requires:         R-CRAN-import >= 1.1.0
 
 %description
-Perform tasks commonly encountered when preparing and analysing
-demographic data. Some functions are intended for end users, and others
-for developers. Includes functions for working with life tables.
+A platform-independent browser-based interface for business analytics in
+R, based on the shiny package. The application combines the functionality
+of 'radiant.data', 'radiant.design', 'radiant.basics', 'radiant.model',
+and 'radiant.multivariate'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lwgeom
-%global packver   0.2-14
+%global packver   0.2-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.14
+Version:          0.2.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to Selected 'liblwgeom' Functions for Simple Features
 

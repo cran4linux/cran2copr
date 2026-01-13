@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  econdataverse
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Load and Install the 'EconDataverse'
 
@@ -18,27 +18,27 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.1
-BuildRequires:    R-CRAN-econdatasets 
-BuildRequires:    R-CRAN-econid 
-BuildRequires:    R-CRAN-econtools 
-BuildRequires:    R-CRAN-imfapi 
-BuildRequires:    R-CRAN-imfweo 
-BuildRequires:    R-CRAN-oecdoda 
-BuildRequires:    R-CRAN-owidapi 
-BuildRequires:    R-CRAN-uisapi 
-BuildRequires:    R-CRAN-wbids 
-BuildRequires:    R-CRAN-wbwdi 
+BuildRequires:    R-CRAN-wbids >= 1.1.3
+BuildRequires:    R-CRAN-wbwdi >= 1.0.3
+BuildRequires:    R-CRAN-imfapi >= 0.1.2
+BuildRequires:    R-CRAN-owidapi >= 0.1.1
+BuildRequires:    R-CRAN-uisapi >= 0.1.1
+BuildRequires:    R-CRAN-econdatasets >= 0.1.0
+BuildRequires:    R-CRAN-econtools >= 0.1.0
+BuildRequires:    R-CRAN-imfweo >= 0.1.0
+BuildRequires:    R-CRAN-oecdoda >= 0.1.0
+BuildRequires:    R-CRAN-econid >= 0.0.3
 Requires:         R-CRAN-cli >= 3.6.1
-Requires:         R-CRAN-econdatasets 
-Requires:         R-CRAN-econid 
-Requires:         R-CRAN-econtools 
-Requires:         R-CRAN-imfapi 
-Requires:         R-CRAN-imfweo 
-Requires:         R-CRAN-oecdoda 
-Requires:         R-CRAN-owidapi 
-Requires:         R-CRAN-uisapi 
-Requires:         R-CRAN-wbids 
-Requires:         R-CRAN-wbwdi 
+Requires:         R-CRAN-wbids >= 1.1.3
+Requires:         R-CRAN-wbwdi >= 1.0.3
+Requires:         R-CRAN-imfapi >= 0.1.2
+Requires:         R-CRAN-owidapi >= 0.1.1
+Requires:         R-CRAN-uisapi >= 0.1.1
+Requires:         R-CRAN-econdatasets >= 0.1.0
+Requires:         R-CRAN-econtools >= 0.1.0
+Requires:         R-CRAN-imfweo >= 0.1.0
+Requires:         R-CRAN-oecdoda >= 0.1.0
+Requires:         R-CRAN-econid >= 0.0.3
 
 %description
 The 'EconDataverse' is a universe of open-source packages to work

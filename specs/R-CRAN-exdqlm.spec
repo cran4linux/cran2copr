@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exdqlm
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Dynamic Quantile Linear Models
 
@@ -16,11 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-dlm 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-magic 
@@ -28,14 +26,16 @@ BuildRequires:    R-CRAN-crch
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-HyperbolicDist 
 BuildRequires:    R-CRAN-GeneralizedHyperbolic 
-BuildRequires:    R-CRAN-brms 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-graphics 
-Requires:         R-CRAN-dlm 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-magic 
@@ -43,10 +43,11 @@ Requires:         R-CRAN-crch
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-HyperbolicDist 
 Requires:         R-CRAN-GeneralizedHyperbolic 
-Requires:         R-CRAN-brms 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-matrixStats 
 
 %description
 Routines for Bayesian estimation and analysis of dynamic quantile linear

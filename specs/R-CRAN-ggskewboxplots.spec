@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  visaOTR
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  ggskewboxplots
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Valid Improved Sparsity A-Learning for Optimal Treatment Decision
+Summary:          Skew Boxplot Geoms for 'ggplot2'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mboost 
-BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-xgboost 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mboost 
-Requires:         R-CRAN-randomForest 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-tidyr 
 
 %description
-Valid Improved Sparsity A-Learning (VISA) provides a new method for
-selecting important variables involved in optimal treatment regime from a
-multiply robust perspective. The VISA estimator achieves its success by
-borrowing the strengths of both model averaging (ARM, Yuhong Yang, 2001)
-<doi:10.1198/016214501753168262> and variable selection (PAL, Chengchun
-Shi, Ailin Fan, Rui Song and Wenbin Lu, 2018) <doi:10.1214/17-AOS1570>.
-The package is an implementation of Zishu Zhan and Jingxiao Zhang.
-(2022+).
+Provides 'ggplot2' extensions for creating skewed boxplots using several
+statistical methods (Kimber, 1990 <doi:10.2307/2347808>; Hubert and
+Vandervieren, 2008 <doi:10.1016/j.csda.2007.11.008>; Adil et al., 2015
+<doi:10.18187/pjsor.v11i1.500>; Babura et al., 2017
+<doi:10.1063/1.4982872>; Walker et al., 2018
+<doi:10.1080/00031305.2018.1448891>). The package implements custom
+statistical transformations and geometries to visualize data distributions
+with an emphasis on skewness.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  poputils
-%global packver   0.5.0
+%global packname  MetaDose
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Analysis and Data Manipulation
+Summary:          Dose-Response Meta-Regression for Meta-Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvec 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-rms 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvec 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
-Perform tasks commonly encountered when preparing and analysing
-demographic data. Some functions are intended for end users, and others
-for developers. Includes functions for working with life tables.
+Conducting linear and nonlinear dose-response meta-regression using
+study-level summary data. It supports both continuous and binary outcomes
+and allows modeling of dose-effect relationships using linear trends or
+nonlinear restricted cubic splines. The package is designed to facilitate
+transparent, flexible, and reproducible dose-response meta-analyses, with
+built-in visualization of fitted dose-response curves.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  poputils
-%global packver   0.5.0
+%global packname  stIHC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Analysis and Data Manipulation
+Summary:          Spatial Transcriptomics Iterative Hierarchical Clustering
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvec 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvec 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fdaPDE 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-mclust 
+Requires:         R-CRAN-fdaPDE 
+Requires:         R-stats 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-mclust 
 
 %description
-Perform tasks commonly encountered when preparing and analysing
-demographic data. Some functions are intended for end users, and others
-for developers. Includes functions for working with life tables.
+Spatial transcriptomics iterative hierarchical clustering ('stIHC'), is a
+method for identifying spatial gene co-expression modules, defined as
+groups of genes with shared spatial expression patterns. The method is
+applicable across spatial transcriptomics technologies with differing
+spatial resolution, and provides a framework for investigating the spatial
+organisation of gene expression in tissues. For further details, see
+Higgins C., Li J.J., Carey M. <doi:10.1002/qub2.70011>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gadget3
-%global packver   0.14-0
+%global packver   0.15-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.15.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Globally-Applicable Area Disaggregated General Ecosystem Toolbox V3
 
@@ -36,9 +36,9 @@ models in 'TMB', but can be extended beyond gadget2's capabilities. Kasper
 Kristensen, Anders Nielsen, Casper W. Berg, Hans Skaug, Bradley M. Bell
 (2016) <doi:10.18637/jss.v070.i05> "TMB: Automatic Differentiation and
 Laplace Approximation.". Begley, J., & Howell, D. (2004)
-<https://core.ac.uk/download/pdf/225936648.pdf> "An overview of Gadget,
-the globally applicable area-disaggregated general ecosystem toolbox.
-ICES.".
+<https://files01.core.ac.uk/download/pdf/225936648.pdf> "An overview of
+Gadget, the globally applicable area-disaggregated general ecosystem
+toolbox. ICES.".
 
 %prep
 %setup -q -c -n %{packname}

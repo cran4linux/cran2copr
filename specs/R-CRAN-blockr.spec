@@ -1,27 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  essentials
+%global __requires_exclude ^libmpi
+%global packname  blockr
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Essential Functions not Included in Base R
+Summary:          A Block-Based Framework for Data Manipulation and Visualization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-blockr.core 
+BuildRequires:    R-CRAN-blockr.dock 
+BuildRequires:    R-CRAN-blockr.dag 
+BuildRequires:    R-CRAN-blockr.dplyr 
+BuildRequires:    R-CRAN-blockr.ggplot 
+BuildRequires:    R-CRAN-blockr.io 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-blockr.core 
+Requires:         R-CRAN-blockr.dock 
+Requires:         R-CRAN-blockr.dag 
+Requires:         R-CRAN-blockr.dplyr 
+Requires:         R-CRAN-blockr.ggplot 
+Requires:         R-CRAN-blockr.io 
+Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions for converting objects to scalars (vectors of length 1) and a
-more inclusive definition of data that can be interpreted as numbers
-(numeric and complex alike).
+A framework for building interactive dashboards and document-based
+reports. Underlying data manipulation and visualization is possible using
+a web-based point and click user interface.
 
 %prep
 %setup -q -c -n %{packname}
@@ -31,6 +49,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

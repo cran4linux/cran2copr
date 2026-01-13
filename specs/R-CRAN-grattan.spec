@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grattan
-%global packver   2025.5.0
+%global packver   2026.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.5.0
+Version:          2026.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Australian Tax Policy Analysis
 

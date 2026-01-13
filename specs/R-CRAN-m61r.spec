@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  m61r
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package About Data Manipulation in Pure Base R
 
@@ -13,14 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.4
-Requires:         R-core >= 3.4.4
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 
 %description
-Data manipulation in one package and in base R. Minimal. No dependencies.
-'dplyr' and 'tidyr'-like in one place. Nothing else than base R to build
-the package.
+A lightweight, dependency-free data engine for R that provides a grammar
+for tabular and time-series manipulation. Built entirely on Base R, 'm61r'
+offers a fluent, chainable API inspired by modern data tools while
+prioritizing memory efficiency and speed. It includes optimized versions
+of common data verbs such as filtering, mutation, grouped aggregation, and
+approximate temporal joins, making it an ideal choice for environments
+where external dependencies are restricted or where performance in pure R
+is required.
 
 %prep
 %setup -q -c -n %{packname}
