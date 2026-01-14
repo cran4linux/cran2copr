@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbnR
-%global packver   0.7.9
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.9
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Bayesian Network Learning and Inference
 
@@ -41,7 +41,9 @@ Santos F.P. and Maciel C.D. (2014) <doi:10.1109/BRC.2014.6880957>, Quesada
 D., Bielza C. and Larrañaga P. (2021) <doi:10.1007/978-3-030-86271-8_14>.
 It also offers the possibility to perform forecasts of arbitrary length. A
 tool for visualizing the structure of the net is also provided via the
-'visNetwork' package.
+'visNetwork' package. Further detailed information and examples can be
+found in our Journal of Statistical Software paper Quesada D., Larrañaga
+P. and Bielza C. (2025) <doi:10.18637/jss.v115.i06>.
 
 %prep
 %setup -q -c -n %{packname}

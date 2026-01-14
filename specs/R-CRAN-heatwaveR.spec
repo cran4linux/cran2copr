@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heatwaveR
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Heatwaves and Cold-Spells
 
@@ -37,8 +37,9 @@ The different methods for defining, detecting, and categorising the
 extreme events known as heatwaves or cold-spells, as first proposed in
 Hobday et al. (2016) <doi: 10.1016/j.pocean.2015.12.014> and Hobday et al.
 (2018) <https://www.jstor.org/stable/26542662>. The functions in this
-package work on both air and water temperature data. These detection
-algorithms may be used on non-temperature data as well.
+package work on both air and water temperature data of hourly and daily
+temporal resolution. These detection algorithms may be used on
+non-temperature data as well.
 
 %prep
 %setup -q -c -n %{packname}

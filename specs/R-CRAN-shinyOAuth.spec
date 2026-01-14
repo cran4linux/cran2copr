@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyOAuth
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provider-Agnostic OAuth Authentication for 'shiny' Applications
 
@@ -22,9 +22,9 @@ BuildRequires:    R-CRAN-openssl >= 2.0.0
 BuildRequires:    R-CRAN-R6 >= 2.0
 BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-jose >= 1.2.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-cachem >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-S7 >= 0.2.0
@@ -33,9 +33,9 @@ Requires:         R-CRAN-openssl >= 2.0.0
 Requires:         R-CRAN-R6 >= 2.0
 Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-jose >= 1.2.0
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-cachem >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 1.0
 Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-S7 >= 0.2.0

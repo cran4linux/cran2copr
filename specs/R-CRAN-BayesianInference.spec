@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Quandl
-%global packver   2.11.0
+%global __requires_exclude ^libmpi
+%global packname  BayesianInference
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Wrapper for Quandl.com
+Summary:          Bayesian Inference
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 0.9.14
-BuildRequires:    R-CRAN-httr >= 0.6.1
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-jsonlite >= 0.9.14
-Requires:         R-CRAN-httr >= 0.6.1
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Functions for interacting directly with the Quandl API to offer data in a
-number of formats usable in R, downloading a zip with all data from a
-Quandl database, and the ability to search. This R package uses the Quandl
-API. For more information go to <https://docs.quandl.com>. For more help
-on the package itself go to <https://www.quandl.com/tools/r>.
+Beta version of 'Bayesian Inference' (BI) using 'python' and BI. It aims
+to unify the modeling experience by providing an intuitive model-building
+syntax together with the flexibility of low-level abstraction coding. It
+also includes pre-built functions for high-level abstraction and supports
+hardware-accelerated computation for improved scalability, including
+parallelization, vectorization, and execution on CPU, GPU, or TPU.
 
 %prep
 %setup -q -c -n %{packname}

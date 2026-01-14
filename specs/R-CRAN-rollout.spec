@@ -1,61 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hubUtils
-%global packver   1.2.0
+%global packname  rollout
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core 'hubverse' Utilities
+Summary:          Tools for Designing, Simulating, and Analyzing Implementation Rollout Trials
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-broom.mixed 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-gh 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-broom.mixed 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-memoise 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
 
 %description
-Core set of low-level utilities common across the 'hubverse'. Used to
-interact with 'hubverse' schema, Hub configuration files and model outputs
-and designed to be primarily used internally by other 'hubverse' packages.
-See Reich et al. (2022) <doi:10.2105/AJPH.2022.306831> for an overview of
-Collaborative Hubs.
+Provides a unified framework for designing, simulating, and analyzing
+implementation rollout trials, including stepped wedge, sequential
+rollout, head-to-head, multi-condition, and rollout implementation
+optimization designs. The package enables users to flexibly specify
+rollout schedules, incorporate site-level and nested data structures,
+generate outcomes under rich hierarchical models, and evaluate analytic
+strategies through simulation-based power analysis. By separating data
+generation from model fitting, the tools support assessment of bias, Type
+I error, and robustness to model misspecification. The workflow integrates
+with standard mixed-effects modeling approaches and the tidyverse
+ecosystem, offering transparent and reproducible tools for implementation
+scientists and applied statisticians.
 
 %prep
 %setup -q -c -n %{packname}

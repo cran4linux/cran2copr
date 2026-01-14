@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pense
-%global packver   2.2.2
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Elastic Net S/MM-Estimator of Regression
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maotai
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Matrix Algebra, Optimization and Inference
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-Rtsne
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-labdsv 
-BuildRequires:    R-CRAN-shapes 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-fastcluster 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-Rtsne
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-labdsv 
-Requires:         R-CRAN-shapes 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-fastcluster 

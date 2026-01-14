@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nichetools
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Complementary Package to 'nicheROVER' and 'SIBER'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
@@ -43,8 +43,8 @@ Provides functions complementary to packages 'nicheROVER' and 'SIBER'
 allowing the user to extract Bayesian estimates from data objects created
 by the packages 'nicheROVER' and 'SIBER'. Please see the following
 publications for detailed methods on 'nicheROVER' and 'SIBER' Hansen et
-al. (2015) <doi:10.1890/14-0235.1>, Jackson et al. (2011)
-<doi:10.1111/j.1365-2656.2011.01806.x>, and Layman et al. (2007)
+al. (2015) <doi:10.1890/14-0235.1>, Jackson et al. (2011) <do
+i:10.1111/j.1365-2656.2011.01806.x>, and Layman et al. (2007)
 <doi:10.1890/0012-9658(2007)88[42:CSIRPF]2.0.CO;2>, respectfully.
 
 %prep

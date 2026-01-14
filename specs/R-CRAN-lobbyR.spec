@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  galvanizer
-%global packver   0.5.3
+%global packname  lobbyR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Galvanize 'Highbond' Internal Audit Software
+Summary:          Get Federal Lobbying Disclosures
 
-License:          GPL-3
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyjson 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyjson 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
-An R interface to the Galvanize 'Highbond' API
-<https://docs-apis.highbond.com>.
+Gives users seeking federal lobbying disclosures an easier way to query
+the API maintained by the Senate federal lobbying disclosures database
+<https://lda.senate.gov/api/redoc/v1/> to find out how much companies and
+other entities are spending to lobby Congress and the federal government.
+It allows for search terms such as keywords, time periods and entity
+names. It then attempts to clean, or at least flag, filings that could
+provide incorrect results when seeking to answer the question: How much is
+being spent on lobbying our Congress and the administration and what
+issues do they care about?
 
 %prep
 %setup -q -c -n %{packname}

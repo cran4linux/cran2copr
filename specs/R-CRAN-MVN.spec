@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MVN
-%global packver   6.2
+%global packver   6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2
+Version:          6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normality Tests
 
@@ -62,7 +62,7 @@ density visualization, robust outlier detection, power transformations
 selected tests to improve p-value accuracy in small samples. Diagnostic
 plots are available via both 'ggplot2' and interactive 'plotly'
 visualizations. See Korkmaz et al. (2014)
-<https://journal.r-project.org/archive/2014-2/korkmaz-goksuluk-zararsiz.pdf>.
+<https://journal.r-project.org/articles/RJ-2014-031/RJ-2014-031.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

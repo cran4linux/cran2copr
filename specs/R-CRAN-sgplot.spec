@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sgplot
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphic Styles and Colours for Scottish Government Plots
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 

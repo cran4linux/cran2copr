@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lmerTest
-%global packver   3.2-0
+%global packname  rjd3toolkit
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tests in Linear Mixed Effects Models
+Summary:          Utility Functions Around 'JDemetra+ 3.0'
 
-License:          GPL (>= 2)
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 >= 1.1.10
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rJava >= 1.0.6
+BuildRequires:    R-CRAN-RProtoBuf >= 0.4.20
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reformulas 
-Requires:         R-CRAN-lme4 >= 1.1.10
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rjd3jars 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rJava >= 1.0.6
+Requires:         R-CRAN-RProtoBuf >= 0.4.20
+Requires:         R-CRAN-checkmate 
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reformulas 
+Requires:         R-CRAN-rjd3jars 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides p-values in type I, II or III anova and summary tables for lmer
-model fits (cf. lme4) via Satterthwaite's degrees of freedom method. A
-Kenward-Roger method is also available via the pbkrtest package. Model
-selection methods include step, drop1 and anova-like tables for random
-effects (ranova). Methods for Least-Square means (LS-means) and tests of
-linear contrasts of fixed effects are also available.
+R Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>) time series
+analysis software.  It provides functions allowing to model time series
+(create outlier regressors, user-defined calendar regressors, Unobserved
+Components AutoRegressive Integrated Moving Average (UCARIMA) models...),
+to test the presence of trading days or seasonal effects and also to set
+specifications in pre-adjustment and benchmarking when using 'rjd3x13' or
+'rjd3tramoseats'.
 
 %prep
 %setup -q -c -n %{packname}

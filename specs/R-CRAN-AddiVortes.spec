@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyjson
-%global packver   0.3.2
+%global packname  AddiVortes
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Complex 'JSON'
+Summary:          (Bayesian) Additive Voronoi Tessellations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-parallel >= 4.0.0
+BuildRequires:    R-CRAN-pbapply >= 1.6
+Requires:         R-parallel >= 4.0.0
+Requires:         R-CRAN-pbapply >= 1.6
 
 %description
-Turn complex 'JSON' data into tidy data frames.
+Implements the Bayesian Additive Voronoi Tessellation model for
+non-parametric regression and machine learning as introduced in Stone and
+Gosling (2025) <doi:10.1080/10618600.2024.2414104>. This package provides
+a flexible alternative to BART (Bayesian Additive Regression Trees) using
+Voronoi tessellations instead of trees. Users can fit Bayesian regression
+models, estimate posterior distributions, and visualise the resulting
+tessellations. It is particularly useful for spatial data analysis,
+machine learning regression, complex function approximation and Bayesian
+modeling where the underlying structure is unknown. The method is
+well-suited to capturing spatial patterns and non-linear relationships.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phantSEM
-%global packver   1.0.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Phantom Variables in Structural Equation Models for Sensitivity Analyses
 

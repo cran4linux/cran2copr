@@ -1,36 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  amberr
-%global packver   1.2.0
+%global packname  SRMERS
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amber' Electronic Data Capture Client
+Summary:          Semi-Parametric Shape-Restricted Fixed/Mixed Effect(s) Regression Spline
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-splines2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyjson 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-coneproj 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-splines2 
+Requires:         R-stats 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyjson 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-coneproj 
+Requires:         R-CRAN-Matrix 
 
 %description
-'Amber' is a server application for capturing electronic data records.
-Rich forms are used to collect data. This 'Amber' client allows to perform
-data extraction for reporting or data transfer at persistent location
-purposes.
+Select the most suitable shape to describe the relationship between the
+exposure and the outcome among increasing, decreasing, convex, and concave
+shapes (Yin et al. (2021) <DOI:10.1007/s13571-020-00246-7>); estimate the
+direct and indirect effects with prior knowledge on the relationship
+between the mediator and the outcome with binary exposure (Yin et al.
+(2024) <DOI:10.1007/s13571-024-00336-w>); estimate the direct and indirect
+effects using linear regression-based approach (VanderWeele (2015,
+ISBN:9780199325870)).
 
 %prep
 %setup -q -c -n %{packname}

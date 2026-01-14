@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnn
-%global packver   1.9.0
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recurrent Neural Network
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-attention
 %description
 Implementation of a Recurrent Neural Network architectures in native R,
 including Long Short-Term Memory (Hochreiter and Schmidhuber,
-<doi:10.1162/neco.1997.9.8.1735>), Gated Recurrent Unit (Chung et al.,
-<arXiv:1412.3555>) and vanilla RNN.
+<doi:10.1162/neco.1997.9.8.1735>), Gated Recurrent Unit (Chung et al.) and
+vanilla RNN.
 
 %prep
 %setup -q -c -n %{packname}

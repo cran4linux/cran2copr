@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  recforest
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Survival Forest for Recurrent Events
 
@@ -45,12 +45,12 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-timereg 
 
 %description
-Analyze recurrent events with right-censored data and the potential
-presence of a terminal event (that prevents further occurrences, like
-death). 'recofest' extends the random survival forest algorithm, adapting
-splitting rules and node estimators to handle complexities of recurrent
-events. The methodology is fully described in Murris, J., Bouaziz, O.,
-Jakubczak, M., Katsahian, S., & Lavenu, A. (2024)
+A tool designed to analyze recurrent events when dealing with
+right-censored data and the potential presence of a terminal event (that
+prevents further occurrences, like death). It extends the random survival
+forest algorithm, adapting splitting rules and node estimators to handle
+complexities of recurrent events. The methodology is fully described in
+Murris, J., Bouaziz, O., Jakubczak, M., Katsahian, S., & Lavenu, A. (2024)
 (<https://hal.science/hal-04612431v1/document>).
 
 %prep
