@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grandR
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Analysis of Nucleotide Conversion Sequencing Data
 
@@ -62,7 +62,9 @@ require specialized tools for primary processing such as GRAND-SLAM, (see
 'Jürges et al' <doi:10.1093/bioinformatics/bty256>) and specialized tools
 for downstream analyses. 'grandR' provides a comprehensive toolbox for
 quality control, kinetic modeling, differential gene expression analysis
-and visualization of such data.
+and visualization of such data. Fast Wilcoxon tests are supported via the
+'presto' package (available at
+<https://github.com/immunogenomics/presto>).
 
 %prep
 %setup -q -c -n %{packname}

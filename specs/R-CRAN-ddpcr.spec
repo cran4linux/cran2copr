@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ddpcr
-%global packver   1.15.2
+%global packver   1.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.2
+Version:          1.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Droplet Digital PCR in R and on the Web
 
@@ -25,10 +25,10 @@ BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-CRAN-shinyjs >= 0.4.0
 BuildRequires:    R-CRAN-DT >= 0.2
 BuildRequires:    R-CRAN-shiny >= 0.11.0
-BuildRequires:    R-CRAN-lazyeval >= 0.1.10
 BuildRequires:    R-CRAN-readr >= 0.1.0
 BuildRequires:    R-CRAN-shinydisconnect 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-plyr >= 1.8.1
 Requires:         R-CRAN-magrittr >= 1.5
@@ -37,10 +37,10 @@ Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-shinyjs >= 0.4.0
 Requires:         R-CRAN-DT >= 0.2
 Requires:         R-CRAN-shiny >= 0.11.0
-Requires:         R-CRAN-lazyeval >= 0.1.10
 Requires:         R-CRAN-readr >= 0.1.0
 Requires:         R-CRAN-shinydisconnect 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
 An interface to explore, analyze, and visualize droplet digital PCR

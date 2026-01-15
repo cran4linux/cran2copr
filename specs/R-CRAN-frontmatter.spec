@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  elastic
-%global packver   1.2.0
+%global __requires_exclude ^libmpi
+%global packname  frontmatter
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Purpose Interface to 'Elasticsearch'
+Summary:          Parse Front Matter from Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,27 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 2.2
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-crul >= 0.9.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-curl >= 2.2
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-crul >= 0.9.0
-Requires:         R-utils 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tomledit 
+BuildRequires:    R-CRAN-yaml12 
+Requires:         R-CRAN-cpp11 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tomledit 
+Requires:         R-CRAN-yaml12 
 
 %description
-Connect to 'Elasticsearch', a 'NoSQL' database built on the 'Java' Virtual
-Machine. Interacts with the 'Elasticsearch' 'HTTP' API
-(<https://www.elastic.co/elasticsearch/>), including functions for setting
-connection details to 'Elasticsearch' instances, loading bulk data,
-searching for documents with both 'HTTP' query variables and 'JSON' based
-body requests. In addition, 'elastic' provides functions for interacting
-with API's for 'indices', documents, nodes, clusters, an interface to the
-cat API, and more.
+Extracts and parses structured metadata ('YAML' or 'TOML') from the
+beginning of text documents. Front matter is a common pattern in 'Quarto'
+documents, 'R Markdown' documents, static site generators, documentation
+systems, content management tools and even 'Python' and 'R' scripts where
+metadata is placed at the top of a document, separated from the main
+content by delimiter fences.
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

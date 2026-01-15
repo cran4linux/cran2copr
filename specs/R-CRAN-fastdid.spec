@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastdid
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Staggered Difference-in-Difference Estimators
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-BMisc 
 BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-parglm 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-dreamerr >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-BMisc 
 Requires:         R-CRAN-collapse 
-Requires:         R-CRAN-parglm 
 Requires:         R-CRAN-ggplot2 
 
 %description

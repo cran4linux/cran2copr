@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MixtureMissing
-%global packver   3.0.5
+%global packver   3.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.5
+Version:          3.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust and Flexible Model-Based Clustering for Data Sets with Missing Values at Random
 
@@ -36,8 +36,9 @@ Requires:         R-CRAN-Bessel >= 0.6.0
 
 %description
 Implementations of various robust and flexible model-based clustering
-methods for data sets with missing values at random. Two main models are:
-Multivariate Contaminated Normal Mixture (MCNM, Tong and Tortora, 2022,
+methods for data sets with missing values at random (Tong and Tortora,
+2025, <doi:10.18637/jss.v115.i03>). Two main models are: Multivariate
+Contaminated Normal Mixture (MCNM, Tong and Tortora, 2022,
 <doi:10.1007/s11634-021-00476-1>) and Multivariate Generalized Hyperbolic
 Mixture (MGHM, Wei et al., 2019, <doi:10.1016/j.csda.2018.08.016>).
 Mixtures via some special or limiting cases of the multivariate

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MODISTools
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'MODIS Land Products Subsets' Web Services
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-memoise 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-jsonlite
 Requires:         R-CRAN-httr 
 Requires:         R-utils 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-terra 
 Requires:         R-stats 
 Requires:         R-CRAN-memoise 

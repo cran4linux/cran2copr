@@ -1,57 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vectorsurvR
-%global packver   1.6.2
+%global packname  grmtree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Access and Analytical Tools for 'VectorSurv' Users
+Summary:          Recursive Partitioning for Graded Response Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mirt >= 1.36.1
+BuildRequires:    R-CRAN-partykit >= 1.2.9
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-strucchange 
+Requires:         R-CRAN-mirt >= 1.36.1
+Requires:         R-CRAN-partykit >= 1.2.9
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grid 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-strucchange 
 
 %description
-Allows registered 'VectorSurv' <https://vectorsurv.org/> users access to
-data through the 'VectorSurv API' <https://api.vectorsurv.org/>.
-Additionally provides functions for analysis and visualization.
+Provides methods for recursive partitioning based on the 'Graded Response
+Model' ('GRM'), extending the 'MOB' algorithm from the 'partykit' package.
+The package allows for fitting 'GRM' trees that partition the population
+into homogeneous subgroups based on item response patterns and covariates.
+Includes specialized plotting functions for visualizing 'GRM' trees with
+different terminal node displays (threshold regions, parameter profiles,
+and factor score distributions). For more details on the methods, see
+Samejima (1969) <doi:10.1002/J.2333-8504.1968.TB00153.X>, Komboz et al.
+(2018) <doi:10.1177/0013164416664394> and Arimoro et al. (2025)
+<doi:10.1007/s11136-025-04018-6>.
 
 %prep
 %setup -q -c -n %{packname}

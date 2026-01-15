@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  measr
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Psychometric Measurement Using 'Stan'
 
@@ -17,41 +17,53 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstantools >= 2.3.0
+BuildRequires:    R-CRAN-rstantools >= 2.6.0
 BuildRequires:    R-CRAN-rstan >= 2.26.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-dcmstan >= 0.1.0
+BuildRequires:    R-CRAN-bridgesampling 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dcm2 
+BuildRequires:    R-CRAN-dtplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-rdcmchecks 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstantools >= 2.3.0
+Requires:         R-CRAN-rstantools >= 2.6.0
 Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-dcmstan >= 0.1.0
+Requires:         R-CRAN-bridgesampling 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dcm2 
+Requires:         R-CRAN-dtplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-loo 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-rdcmchecks 
+Requires:         R-CRAN-S7 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rstantools

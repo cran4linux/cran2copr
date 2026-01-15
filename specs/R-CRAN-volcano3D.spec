@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openalexR
-%global packver   3.0.1
+%global packname  volcano3D
+%global packver   2.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          2.0.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Getting Bibliographic Records from 'OpenAlex' Database Using 'DSL' API
+Summary:          3D Volcano Plots and Polar Plots for Three-Class Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-matrixTests 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-matrixTests 
 
 %description
-A set of tools to extract bibliographic content from 'OpenAlex' database
-using API <https://docs.openalex.org>.
+Generates interactive plots for analysing and visualising three-class high
+dimensional data. It is particularly suited to visualising differences in
+continuous attributes such as gene/protein/biomarker expression levels
+between three groups. Differential gene/biomarker expression analysis
+between two classes is typically shown as a volcano plot. However, with
+three groups this type of visualisation is particularly difficult to
+interpret. This package generates 3D volcano plots and 3-way polar plots
+for easier interpretation of three-class data.
 
 %prep
 %setup -q -c -n %{packname}

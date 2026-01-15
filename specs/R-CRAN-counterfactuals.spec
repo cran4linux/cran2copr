@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  counterfactuals
-%global packver   0.1.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Counterfactual Explanations
 
@@ -42,7 +42,8 @@ methods. The following methods are currently implemented: Burghmans et al.
 <doi:10.1109/TVCG.2019.2934619>. Optional extensions allow these methods
 to be applied to a variety of models and use cases. Once generated, the
 counterfactuals can be analyzed and visualized by provided
-functionalities.
+functionalities. The package is described in detail in Dandl et al. (2025)
+<doi:10.18637/jss.v115.i09>.
 
 %prep
 %setup -q -c -n %{packname}

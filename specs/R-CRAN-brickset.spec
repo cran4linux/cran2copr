@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brickset
-%global packver   2025.0.0
+%global packver   2026.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.0.0
+Version:          2026.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface with the Brickset API for Getting Data About LEGO Sets
 
@@ -31,7 +31,7 @@ Interface with the 'Brickset' API
 <https://brickset.com/article/52664/api-version-3-documentation> for
 getting data about LEGO sets. Data sets that can be used for teaching and
 learning without the need of a 'Brickset' account and API key are also
-included. Includes all LEGO since through the end of 2023.
+included. Includes all LEGO since through the end of 2025.
 
 %prep
 %setup -q -c -n %{packname}

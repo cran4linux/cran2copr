@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesChange
-%global packver   2.1.3
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Methods for Change Points Analysis
+Summary:          Bayesian Methods for Change Point Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,6 +22,9 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppGSL 
 Requires:         R-CRAN-Rcpp 
@@ -30,16 +33,16 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-reshape2 
 
 %description
-Perform change points detection on univariate and multivariate time series
-according to the methods presented by Asael Fabian Martínez and Ramsés H.
-Mena (2014) <doi:10.1214/14-BA878> and Corradin, Danese and Ongaro (2022)
-<doi:10.1016/j.ijar.2021.12.019>. It also clusters different types of time
-dependent data with common change points, see "Model-based clustering of
-time-dependent observations with common structural changes"
-(Corradin,Danese,KhudaBukhsh and Ongaro, 2024)
-<doi:10.48550/arXiv.2410.09552> for details.
+Performs change point detection on univariate and multivariate time series
+(Martínez & Mena, 2014, <doi:10.1214/14-BA878> ; Corradin, Danese &
+Ongaro, 2022, <doi:10.1016/j.ijar.2021.12.019>) and clusters
+time-dependent data with common change points (Corradin, Danese,
+KhudaBukhsh & Ongaro, 2026, <doi:10.1007/s11222-025-10756-x>).
 
 %prep
 %setup -q -c -n %{packname}

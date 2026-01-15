@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DALEXtra
-%global packver   2.3.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension for 'DALEX' Package
 
@@ -28,11 +28,12 @@ learning, there is a strong belief that we need to strike a balance
 between interpretability and accuracy. However, in field of the
 interpretable machine learning, there are more and more new ideas for
 explaining black-box models, that are implemented in 'R'. 'DALEXtra'
-creates 'DALEX' Biecek (2018) <arXiv:1806.08915> explainer for many type
-of models including those created using 'python' 'scikit-learn' and
-'keras' libraries, and 'java' 'h2o' library. Important part of the package
-is Champion-Challenger analysis and innovative approach to model
-performance across subsets of test data presented in Funnel Plot.
+creates 'DALEX' Biecek (2018) <doi:10.48550/arXiv.1806.08915> explainer
+for many type of models including those created using 'python'
+'scikit-learn' and 'keras' libraries, and 'java' 'h2o' library. Important
+part of the package is Champion-Challenger analysis and innovative
+approach to model performance across subsets of test data presented in
+Funnel Plot.
 
 %prep
 %setup -q -c -n %{packname}

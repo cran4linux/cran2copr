@@ -1,31 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DatAssim
-%global packver   1.0
+%global packname  nimbleQuad
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Assimilation
+Summary:          Laplace Approximation, Quadrature, and Nested Deterministic Approximation Methods for 'nimble'
 
-License:          GPL (>= 2)
+License:          BSD_3_clause + file LICENSE | GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.4
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nimble >= 1.4.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-polynom 
+Requires:         R-CRAN-nimble >= 1.4.0
+Requires:         R-methods 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-polynom 
 
 %description
-For estimation of a variable of interest using Kalman filter by
-incorporating results from previous assessments, i.e. through development
-weighted estimates where weights are assigned inversely proportional to
-the variance of existing and new estimates. For reference see Ehlers et
-al. (2017) <doi:10.20944/preprints201710.0098.v1>.
+Provides deterministic approximation methods for use with the 'nimble'
+package. These include Laplace approximation and higher-order extension of
+Laplace approximation using adaptive Gauss-Hermite quadrature (AGHQ), plus
+nested deterministic approximation methods related to the 'INLA' approach.
+Additional information is available in the NIMBLE User Manual and a
+'nimbleQuad' tutorial, both available at
+<https://r-nimble.org/documentation.html>.
 
 %prep
 %setup -q -c -n %{packname}

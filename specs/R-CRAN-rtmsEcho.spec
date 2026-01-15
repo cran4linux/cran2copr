@@ -1,49 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LMest
-%global packver   3.2.8
+%global packname  rtmsEcho
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.8
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Latent Markov Models
+Summary:          Extract and Analyze EchoMS Data from Sciex Wiff Files
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mclust >= 5.4.6
-BuildRequires:    R-CRAN-diagram >= 1.6.4
-BuildRequires:    R-CRAN-Formula >= 1.2.3
-BuildRequires:    R-CRAN-scatterplot3d >= 0.3.41
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MultiLCIRT 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-mix 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-mclust >= 5.4.6
-Requires:         R-CRAN-diagram >= 1.6.4
-Requires:         R-CRAN-Formula >= 1.2.3
-Requires:         R-CRAN-scatterplot3d >= 0.3.41
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MultiLCIRT 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-mix 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rtms 
+Requires:         R-CRAN-rtms 
 
 %description
-Latent Markov models for longitudinal continuous and categorical data. See
-Bartolucci, Pandolfi, Pennoni (2017)<doi:10.18637/jss.v081.i04>.
+Read raw and processed data from acoustic ejection mass spectrometry
+(AEMS) files produced by the Sciex EchoMS instrument.  Includes functions
+to create interactive reader objects, extract raw intensity measurements,
+mass spectra, and fully-processed mass-transition intensity areas.
+Methods for data processing and analysis are described in Rimmer et al.
+(2025) <doi:10.1021/acs.analchem.5c03730>. Supports both multiple reaction
+monitoring (MRM) and full-scan (neutral loss and precursor ion) data
+formats.
 
 %prep
 %setup -q -c -n %{packname}

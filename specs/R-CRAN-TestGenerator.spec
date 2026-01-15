@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestGenerator
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration Unit Tests for Pharmacoepidemiological Studies
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CDMConnector >= 2.3.0
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-CDMConnector 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-checkmate 
@@ -35,10 +35,10 @@ BuildRequires:    R-CRAN-testthat
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-omopgenerics 
+Requires:         R-CRAN-CDMConnector >= 2.3.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-CDMConnector 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-checkmate 

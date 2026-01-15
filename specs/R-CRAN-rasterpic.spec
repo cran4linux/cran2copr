@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rasterpic
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Digital Images into 'SpatRaster' Objects
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.4.22
+BuildRequires:    R-CRAN-terra >= 1.8.21
 BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-png >= 0.1.5
-Requires:         R-CRAN-terra >= 1.4.22
+BuildRequires:    R-CRAN-png 
+Requires:         R-CRAN-terra >= 1.8.21
 Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-png >= 0.1.5
+Requires:         R-CRAN-png 
 
 %description
 Generate 'SpatRaster' objects, as defined by the 'terra' package, from

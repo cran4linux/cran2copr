@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  retroharmonize
-%global packver   0.2.0
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ex Post Survey Data Harmonization
 
@@ -18,6 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dataset 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-haven 
@@ -25,7 +28,6 @@ BuildRequires:    R-CRAN-here
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-snakecase 
@@ -38,6 +40,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dataset 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-haven 
@@ -45,7 +49,6 @@ Requires:         R-CRAN-here
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-snakecase 

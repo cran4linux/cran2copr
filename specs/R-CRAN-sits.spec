@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sits
-%global packver   1.5.3-2
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3.2
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Satellite Image Time Series Analysis for Earth Observation Data Cubes
 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-sf >= 1.0.19
 BuildRequires:    R-CRAN-rstac >= 1.0.1
 BuildRequires:    R-CRAN-luz >= 0.4.0
 BuildRequires:    R-CRAN-slider >= 0.2.0
-BuildRequires:    R-CRAN-torch >= 0.15.0
+BuildRequires:    R-CRAN-torch >= 0.16.3
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-leafgl 
@@ -55,7 +55,7 @@ Requires:         R-CRAN-sf >= 1.0.19
 Requires:         R-CRAN-rstac >= 1.0.1
 Requires:         R-CRAN-luz >= 0.4.0
 Requires:         R-CRAN-slider >= 0.2.0
-Requires:         R-CRAN-torch >= 0.15.0
+Requires:         R-CRAN-torch >= 0.16.3
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-leafgl 

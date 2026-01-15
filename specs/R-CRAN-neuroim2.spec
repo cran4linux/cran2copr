@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neuroim2
-%global packver   0.8.1
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Structures for Brain Imaging Data
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-RNifti
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-colorplane 
 BuildRequires:    R-CRAN-bigstatsr 
 BuildRequires:    R-CRAN-RNiftyReg 
 BuildRequires:    R-CRAN-future.apply 
@@ -34,6 +33,7 @@ BuildRequires:    R-CRAN-deflist
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
@@ -45,7 +45,6 @@ Requires:         R-CRAN-RNifti
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-stringr 
 Requires:         R-methods 
-Requires:         R-CRAN-colorplane 
 Requires:         R-CRAN-bigstatsr 
 Requires:         R-CRAN-RNiftyReg 
 Requires:         R-CRAN-future.apply 
@@ -53,6 +52,7 @@ Requires:         R-CRAN-deflist
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
+Requires:         R-grid 
 
 %description
 A collection of data structures and methods for handling volumetric brain

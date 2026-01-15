@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crrstep
-%global packver   2024.1.1
+%global packver   2025.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.1
+Version:          2025.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepwise Covariate Selection for the Fine & Gray Competing Risks Regression Model
 
@@ -14,17 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cmprsk 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Performs forward and backwards stepwise regression for the Proportional
+Performs forward and backward stepwise regression for the proportional
 subdistribution hazards model in competing risks (Fine & Gray 1999).
 Procedure uses AIC, BIC and BICcr as selection criteria. BICcr has a
-penalty of k = log(n*), where n* is the number of primary events.
+penalty of k = log(n*), where n* is the number of primary events. This
+version includes improved handling of factors, interactions, and
+polynomial terms.
 
 %prep
 %setup -q -c -n %{packname}

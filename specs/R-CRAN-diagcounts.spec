@@ -1,49 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LMest
-%global packver   3.2.8
+%global packname  diagcounts
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Latent Markov Models
+Summary:          Recover Diagnostic Test Accuracy Counts from Reported Accuracy Measures
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mclust >= 5.4.6
-BuildRequires:    R-CRAN-diagram >= 1.6.4
-BuildRequires:    R-CRAN-Formula >= 1.2.3
-BuildRequires:    R-CRAN-scatterplot3d >= 0.3.41
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MultiLCIRT 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-mix 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-mclust >= 5.4.6
-Requires:         R-CRAN-diagram >= 1.6.4
-Requires:         R-CRAN-Formula >= 1.2.3
-Requires:         R-CRAN-scatterplot3d >= 0.3.41
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MultiLCIRT 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-mix 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Latent Markov models for longitudinal continuous and categorical data. See
-Bartolucci, Pandolfi, Pennoni (2017)<doi:10.18637/jss.v081.i04>.
+Implements a system of linear equations to recover unreported diagnostic
+test accuracy cell counts from commonly reported measures such as
+sensitivity, specificity, predictive values, prevalence, and sample size.
+The package is intended for applied researchers who require complete 2x2
+table counts for downstream analyses.
 
 %prep
 %setup -q -c -n %{packname}

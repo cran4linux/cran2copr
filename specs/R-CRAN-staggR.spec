@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mlxR
-%global packver   4.2.0
+%global __requires_exclude ^libmpi
+%global packname  staggR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Longitudinal Data
+Summary:          Fit Difference-in-Differences Models with Staggered Interventions
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-tools 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-tools 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
 
 %description
-Simulation and visualization of complex models for longitudinal data. The
-models are encoded using the model coding language 'Mlxtran' and
-automatically converted into C++ codes. That allows one to implement very
-easily complex ODE-based models and complex statistical models, including
-mixed effects models, for continuous, count, categorical, and
-time-to-event data.
+Fits linear difference-in-differences models in scenarios where
+intervention roll-outs are staggered over time. The package implements a
+version of an approach proposed by Sun and Abraham (2021)
+<doi:10.1016/j.jeconom.2020.09.006> to estimate cohort- and
+time-since-treatment specific difference-in-differences parameters, and it
+provides convenience functions both for specifying the model and for
+flexibly aggregating coefficients to answer a variety of research
+questions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
