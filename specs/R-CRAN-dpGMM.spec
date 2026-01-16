@@ -1,45 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  activegp
-%global packver   1.1.1
+%global packname  dpGMM
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Process Based Design and Analysis for the Active Subspace Method
+Summary:          Dynamic Programming Based Gaussian Mixture Modelling Tool for 1D and 2D Data
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-hetGP >= 1.1.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-hetGP >= 1.1.1
-Requires:         R-CRAN-Rcpp >= 0.12.18
-Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-stats 
+Requires:         R-CRAN-pracma 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-reshape2 
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-RcppProgress 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-The active subspace method is a sensitivity analysis technique that finds
-important linear combinations of input variables for a simulator. This
-package provides functions allowing estimation of the active subspace
-without gradient information using Gaussian processes as well as
-sequential experimental design tools to minimize the amount of data
-required to do so. Implements Wycoff et al. (JCGS, 2021)
-<doi:10.48550/arXiv.1907.11572>.
+Gaussian mixture modeling of one- and two-dimensional data, provided in
+original or binned form, with an option to estimate the number of model
+components. The method uses Gaussian Mixture Models (GMM) with initial
+parameters determined by a dynamic programming algorithm, leading to
+stable and reproducible model fitting.
 
 %prep
 %setup -q -c -n %{packname}

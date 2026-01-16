@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  triplediff
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Triple-Difference Estimators
 
@@ -21,15 +21,13 @@ BuildRequires:    R-CRAN-BMisc >= 1.4.6
 BuildRequires:    R-parallel >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-speedglm >= 0.3.5
-BuildRequires:    R-CRAN-parglm >= 0.1.7
+BuildRequires:    R-CRAN-fastglm >= 0.0.3
 Requires:         R-CRAN-Matrix >= 1.6.1
 Requires:         R-CRAN-BMisc >= 1.4.6
 Requires:         R-parallel >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-Rcpp >= 1.0.12
-Requires:         R-CRAN-speedglm >= 0.3.5
-Requires:         R-CRAN-parglm >= 0.1.7
+Requires:         R-CRAN-fastglm >= 0.0.3
 
 %description
 Implements triple-difference (DDD) estimators for both average treatment

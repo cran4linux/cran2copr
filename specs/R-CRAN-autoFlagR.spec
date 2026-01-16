@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GofKmt
-%global packver   2.3.1
+%global packname  autoFlagR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Khmaladze Martingale Transformation Goodness-of-Fit Test
+Summary:          AI-Driven Anomaly Detection for Data Quality
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown >= 2.0
+BuildRequires:    R-CRAN-isotree 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-PRROC 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-rmarkdown >= 2.0
+Requires:         R-CRAN-isotree 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-PRROC 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-scales 
 
 %description
-Consider a goodness-of-fit (GOF) problem of testing whether a random
-sample comes from one sample location-scale model where location and scale
-parameters are unknown. It is well known that Khmaladze martingale
-transformation method proposed by Khmaladze (1981) <doi:10.1137/1126027>
-provides asymptotic distribution free test for the GOF problem. This
-package provides test statistic and critical value of GOF test for normal,
-Cauchy, and logistic distributions. This package used the main algorithm
-proposed by Kim (2020) <doi:10.1007/s00180-020-00971-7> and tests for
-other distributions will be available at the later version.
+Automated data quality auditing using unsupervised machine learning.
+Provides AI-driven anomaly detection for data quality assessment,
+primarily designed for Electronic Health Records (EHR) data, with
+benchmarking capabilities for validation and publication. Methods based
+on: Liu et al. (2008) <doi:10.1109/ICDM.2008.17>, Breunig et al. (2000)
+<doi:10.1145/342009.335388>.
 
 %prep
 %setup -q -c -n %{packname}

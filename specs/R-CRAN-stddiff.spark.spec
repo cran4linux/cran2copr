@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BNPmix
-%global packver   1.1.0
+%global packname  stddiff.spark
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Nonparametric Mixture Models
+Summary:          Calculate the Standardized Difference for Numeric, Binary and Category Variables in Apache Spark
 
-License:          LGPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-CRAN-ggpubr 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sparklyr >= 1.8.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-sparklyr >= 1.8.0
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 
 %description
-Functions to perform Bayesian nonparametric univariate and multivariate
-density estimation and clustering, by means of Pitman-Yor mixtures, and
-dependent Dirichlet process mixtures for partially exchangeable data. See
-Corradin et al. (2021) <doi:10.18637/jss.v100.i15> for more details.
+Provides functions to compute standardized differences for numeric,
+binary, and categorical variables on Apache Spark DataFrames using
+'sparklyr'. The implementation mirrors the methods used in the 'stddiff'
+package but operates on distributed data. See Zhicheng Du, Yuantao Hao
+(2022) <doi:10.32614/CRAN.package.stddiff> for reference.
 
 %prep
 %setup -q -c -n %{packname}

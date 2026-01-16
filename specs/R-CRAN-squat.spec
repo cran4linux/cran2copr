@@ -1,56 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpss
-%global packver   0.0.3
+%global packname  squat
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Change-Point Detection by Sample-Splitting Methods
+Summary:          Statistics for Quaternion Temporal Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-dtw 
+BuildRequires:    R-CRAN-fdacluster 
+BuildRequires:    R-CRAN-fdasrvf 
+BuildRequires:    R-CRAN-funData 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-MFPCA 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-roahd 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-dtw 
+Requires:         R-CRAN-fdacluster 
+Requires:         R-CRAN-fdasrvf 
+Requires:         R-CRAN-funData 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-MFPCA 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-roahd 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implements multiple change searching algorithms for a variety of
-frequently considered parametric change-point models. In particular, it
-integrates a criterion proposed by Zou, Wang and Li (2020)
-<doi:10.1214/19-AOS1814> to select the number of change-points in a
-data-driven fashion. Moreover, it also provides interfaces for
-user-customized change-point models with one's own cost function and
-parameter estimation routine. It is easy to get started with the cpss.*
-set of functions by accessing their documentation pages (e.g., ?cpss).
+An implementation of statistical tools for the analysis of rotation-valued
+time series and functional data. It relies on pre-existing quaternion data
+structure provided by the 'Eigen' 'C++' library.
 
 %prep
 %setup -q -c -n %{packname}

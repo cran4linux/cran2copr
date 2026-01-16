@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmuller
-%global packver   0.5.6
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Muller Plots of Evolutionary Dynamics
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-rlang 
 
 %description
 Create plots that combine a phylogeny and frequency dynamics. Phylogenetic

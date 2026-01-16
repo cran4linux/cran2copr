@@ -1,43 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Spillover
-%global packver   0.1.1
+%global packname  dynamicpv
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spillover/Connectedness Index Based on VAR Modelling
+Summary:          Evaluates Present Values and Health Economic Models with Dynamic Pricing and Uptake
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-fastSOM 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-vars 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-fastSOM 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-zoo 
 
 %description
-A user-friendly tool for estimating both total and directional
-connectedness spillovers based on Diebold and Yilmaz (2009, 2012). It also
-provides the user with rolling estimation for total and net indices. User
-can find both orthogonalized and generalized versions for each kind of
-measures. See Diebold and Yilmaz (2009, 2012) find them at
-<doi:10.1111/j.1468-0297.2008.02208.x> and
-<doi:10.1016/j.ijforecast.2011.02.006>.
+The goal of 'dynamicpv' is to provide a simple way to calculate (net)
+present values and outputs from health economic models (especially
+cost-effectiveness and budget impact) in discrete time that reflect
+dynamic pricing and dynamic uptake. Dynamic pricing is also known as life
+cycle pricing; dynamic uptake is also known as multiple or stacked
+cohorts, or dynamic disease prevalence. Shafrin (2024)
+<doi:10.1515/fhep-2024-0014> provides an explanation of dynamic value
+elements, in the context of Generalized Cost Effectiveness Analysis, and
+Puls (2024) <doi:10.1016/j.jval.2024.03.006> reviews challenges of
+incorporating such dynamic value elements. This package aims to reduce
+those challenges.
 
 %prep
 %setup -q -c -n %{packname}

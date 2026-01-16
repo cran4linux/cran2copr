@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EigenR
-%global packver   1.3.0
+%global packname  orcidtr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Complex Matrix Algebra with 'Eigen'
+Summary:          Retrieve Data from the ORCID Public API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.4.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 
 %description
-Matrix algebra using the 'Eigen' C++ library: determinant, rank, inverse,
-pseudo-inverse, kernel and image, QR decomposition, Cholesky
-decomposition, Schur decomposition, Hessenberg decomposition, linear
-least-squares problems. Also provides matrix functions such as
-exponential, logarithm, power, sine and cosine. Complex matrices are
-supported.
+Provides functions to retrieve public data from ORCID (Open Researcher and
+Contributor ID) records via the ORCID public API. Fetches employment
+history, education, works (publications, datasets, preprints), funding,
+peer review activities, and other public information. Returns data as
+structured data.table objects for easy analysis and manipulation. Replaces
+the discontinued 'rorcid' package with a modern, CRAN-compliant
+implementation.
 
 %prep
 %setup -q -c -n %{packname}

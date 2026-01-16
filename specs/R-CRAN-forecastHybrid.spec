@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forecastHybrid
-%global packver   5.1.20
+%global packver   5.1.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.20
+Version:          5.1.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenient Functions for Ensemble Time Series Forecasts
 

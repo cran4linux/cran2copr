@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survHE
-%global packver   2.0.5
+%global packver   2.0.51
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.51
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Analysis in Health Economic Evaluation
 

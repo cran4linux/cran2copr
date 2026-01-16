@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  wearables
-%global packver   0.8.1
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Read and Convert Wearables Data
 
@@ -16,36 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-RHRV 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-waveslim 
-BuildRequires:    R-CRAN-futile.logger 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-padr 
-BuildRequires:    R-CRAN-varian 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-padr 
 BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RHRV 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-sparklyr 
+BuildRequires:    R-CRAN-varian 
+BuildRequires:    R-CRAN-waveslim 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-RHRV 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-waveslim 
-Requires:         R-CRAN-futile.logger 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-padr 
-Requires:         R-CRAN-varian 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-padr 
 Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-RHRV 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-sparklyr 
+Requires:         R-CRAN-varian 
+Requires:         R-CRAN-waveslim 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Package to read Empatica E4 data, perform several transformations, perform
-signal processing and analyses, including batch analyses.
+Package to read Empatica E4, Embrace Plus, and Nowatch data, perform
+several transformations, perform signal processing and analyses, including
+batch analyses.
 
 %prep
 %setup -q -c -n %{packname}
