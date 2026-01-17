@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlexperiments
-%global packver   0.0.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Experiments
 
@@ -19,14 +19,12 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-kdry 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-splitTools 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-kdry 
-Requires:         R-parallel 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-splitTools 
@@ -35,8 +33,8 @@ Requires:         R-stats
 %description
 Provides 'R6' objects to perform parallelized hyperparameter optimization
 and cross-validation. Hyperparameter optimization can be performed with
-Bayesian optimization (via 'ParBayesianOptimization'
-<https://cran.r-project.org/package=ParBayesianOptimization>) and grid
+Bayesian optimization (via 'rBayesianOptimization'
+<https://cran.r-project.org/package=rBayesianOptimization>) and grid
 search. The optimized hyperparameters can be validated using k-fold
 cross-validation. Alternatively, hyperparameter optimization and
 validation can be performed with nested cross-validation. While

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projectLSA
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Shiny Application for Latent Structure Analysis with a Graphical User Interface
 
@@ -18,10 +18,13 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-colourpicker 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glca 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-mirt 
@@ -37,16 +40,20 @@ BuildRequires:    R-CRAN-semptools
 BuildRequires:    R-CRAN-semTools 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyLPA 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-colourpicker 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glca 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-mirt 
@@ -62,6 +69,7 @@ Requires:         R-CRAN-semptools
 Requires:         R-CRAN-semTools 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyWidgets 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -76,7 +84,8 @@ Analysis (EFA), Confirmatory Factor Analysis (CFA), and Structural
 Equation Modeling (SEM). The implementation is grounded in established
 methodological frameworks: LPA is supported through 'tidyLPA' (Rosenberg
 et al., 2018) <doi:10.21105/joss.00978>, LCA through 'poLCA' (Linzer &
-Lewis, 2011), LTA/IRT via 'mirt' (Chalmers, 2012)
+Lewis, 2011) <doi:10.32614/CRAN.package.poLCA> & 'glca' (Kim & Kim, 2024)
+<doi:10.32614/CRAN.package.glca>, LTA/IRT via 'mirt' (Chalmers, 2012)
 <doi:10.18637/jss.v048.i06>, and EFA via 'psych' (Revelle, 2025). SEM and
 CFA functionalities build upon the 'lavaan' framework (Rosseel, 2012)
 <doi:10.18637/jss.v048.i02>. Users can upload datasets or use built-in

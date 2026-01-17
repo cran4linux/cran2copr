@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Dimodal
-%global packver   1.0.0
+%global packname  ltc
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spacing Tests for Multi-Modality
+Summary:          Collection of Artistic and Nature-Inspired Color Palettes
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-statmod 
-Requires:         R-CRAN-statmod 
+BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-crayon 
 
 %description
-Tests for modality of data using its spacing.  The main approach evaluates
-features (peaks, flats) using a combination of parametric models and
-non-parametric tests, either after smoothing the spacing by a low-pass
-filter or by looking over larger intervals.  The library can also use any
-changepoint detectors available to look for transitions between features
-in the spacing.  The Suggested list of libraries is misnamed.  It contains
-all supported changepoint detectors, and all are considered optional.  A
-good minimal set would be the first three entries.  Some of the
-suggestions may no longer be current on CRAN, with the last source tarball
-found in its archives or at the additional repository.  These packages
-will be used if they are already installed on older installations, but
-will not be available to newer.
+Offers a variety of color palettes inspired by art, nature, and personal
+inspirations. Each palette is accompanied by a unique backstory, enriching
+the understanding and significance of the colors.
 
 %prep
 %setup -q -c -n %{packname}

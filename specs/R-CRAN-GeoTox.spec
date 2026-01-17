@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoTox
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Mixture Risk Assessment
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
@@ -32,6 +33,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
@@ -45,8 +47,8 @@ Requires:         R-utils
 %description
 Connecting spatiotemporal exposure to individual and population-level risk
 via source-to-outcome continuum modeling. The package, methods, and
-case-studies are described in Messier, Reif, and Marvel (2024)
-<doi:10.1101/2024.09.23.24314096> and Eccles et al. (2023)
+case-studies are described in Messier, Reif, and Marvel (2025)
+<doi:10.1186/s40246-024-00711-8> and Eccles et al. (2023)
 <doi:10.1016/j.scitotenv.2022.158905>.
 
 %prep

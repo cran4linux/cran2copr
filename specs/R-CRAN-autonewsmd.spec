@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autonewsmd
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Auto-Generate Changelog using Conventional Commits
 
@@ -14,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-git2r 
 BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-git2r 
 Requires:         R-CRAN-quarto 
 Requires:         R-CRAN-R6 
 Requires:         R-utils 

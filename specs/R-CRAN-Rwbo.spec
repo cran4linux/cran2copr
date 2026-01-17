@@ -1,44 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LSDinterface
-%global packver   1.2.2
+%global packname  Rwbo
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface Tools for LSD Simulation Results Files
+Summary:          Run the 'Open-WBO' MaxSAT Solver
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-utils 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-TSdist 
-Requires:         R-stats 
-Requires:         R-CRAN-boot 
-Requires:         R-utils 
-Requires:         R-parallel 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-TSdist 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 
 %description
-Interfaces R with LSD simulation models. Reads object-oriented data in
-results files (.res[.gz]) produced by LSD and creates appropriate
-multi-dimensional arrays in R. Supports multiple core parallel threads of
-multi-file data reading for increased performance. Also provides functions
-to extract basic information and statistics from data files. LSD
-(Laboratory for Simulation Development) is free software developed by
-Marco Valente and Marcelo C. Pereira (documentation and downloads
-available at <https://www.labsimdev.org/>).
+Provides a wrapper for running the bundled 'Open-WBO' Maximum
+Satisfiability (MaxSAT) solver (<https://github.com/sat-group/open-wbo>).
+Users can pass command-line arguments to the solver and capture its output
+as a character string or file.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  esci
-%global packver   1.0.7
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Statistics with Confidence Intervals
 
@@ -17,42 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-statpsych >= 1.9
 BuildRequires:    R-CRAN-jmvcore >= 0.8.5
-BuildRequires:    R-CRAN-legendry >= 0.2
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-sadists 
-BuildRequires:    R-CRAN-statpsych 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggdist 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-legendry 
+BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sadists 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-statpsych >= 1.9
 Requires:         R-CRAN-jmvcore >= 0.8.5
-Requires:         R-CRAN-legendry >= 0.2
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-sadists 
-Requires:         R-CRAN-statpsych 
-Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggdist 
-Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-legendry 
+Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-mathjaxr 
+Requires:         R-methods 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sadists 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 
 %description
 A collection of functions and 'jamovi' module for the estimation approach

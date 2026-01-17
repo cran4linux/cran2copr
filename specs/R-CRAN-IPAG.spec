@@ -1,49 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggsector
-%global packver   1.7.0
+%global packname  IPAG
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Draw Sectors
+Summary:          Tools for IPAG Courses
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-prettydoc 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-prettydoc 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Seurat 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
-Some useful functions that can use 'grid' and 'ggplot2' to plot sectors
-and interact with 'Seurat' to plot gene expression percentages. Also,
-there are some examples of how to draw sectors in 'ComplexHeatmap'.
+Provides a collection of intuitive and user-friendly functions for
+computing confidence intervals for common statistical tasks, including
+means, differences in means, proportions, and odds ratios. The package
+also includes tools for linear regression analysis and several real-world
+datasets intended for teaching and applied statistical inference.
 
 %prep
 %setup -q -c -n %{packname}

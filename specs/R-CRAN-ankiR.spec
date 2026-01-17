@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kml
-%global packver   2.5.0
+%global packname  ankiR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          K-Means for Longitudinal Data
+Summary:          Read Anki Flashcard Databases
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-longitudinalData >= 2.4
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-clv 
-Requires:         R-CRAN-longitudinalData >= 2.4
-Requires:         R-methods 
-Requires:         R-CRAN-clv 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-tibble 
 
 %description
-An implementation of k-means specifically design to cluster longitudinal
-data. It provides facilities to deal with missing value, compute several
-quality criterion (Calinski and Harabatz, Ray and Turie, Davies and
-Bouldin, BIC, ...) and propose a graphical interface for choosing the
-'best' number of clusters.
+Read and analyze Anki flashcard collection databases. Provides functions
+to access notes, cards, and review logs from Anki's SQLite database with a
+tidy interface.
 
 %prep
 %setup -q -c -n %{packname}

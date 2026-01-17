@@ -1,47 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyUSDA
-%global packver   0.4.1
+%global packname  NMAR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Minimal Tool Set for Gathering USDA Quick Stat Data for Analysis and Visualization
+Summary:          Estimation under not Missing at Random Nonresponse
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tigris >= 1.0
-BuildRequires:    R-CRAN-fuzzyjoin >= 0.1.6
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-tigris >= 1.0
-Requires:         R-CRAN-fuzzyjoin >= 0.1.6
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-Formula 
+Requires:         R-stats 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-utils 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-Formula 
 
 %description
-Provides a consistent API to pull United States Department of Agriculture
-census and survey data from the National Agricultural Statistics Service
-(NASS) QuickStats service.
+Methods to estimate finite-population parameters under nonresponse that is
+not missing at random (NMAR, nonignorable). Incorporates auxiliary
+information and user-specified response models, and supports independent
+samples and complex survey designs via objects from the 'survey' package.
+Provides diagnostics and optional variance estimates. For methodological
+background see Qin, Leung and Shao (2002) <doi:10.1198/016214502753479338>
+and Riddles, Kim and Im (2016) <doi:10.1093/jssam/smv047>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ICRanks
-%global packver   3.2
+%global packname  pdxTrees
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Confidence Intervals for Ranks
+Summary:          Data Package of Portland, Oregon Trees
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.11
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-gmp 
-Requires:         R-CRAN-Rcpp >= 0.12.11
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-gmp 
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
 
 %description
-Algorithms to construct simultaneous confidence intervals for the ranks of
-means mu_1,...,mu_n based on an independent Gaussian sample using multiple
-testing techniques.
+An engaging collection of datasets from Portland Parks and Recreation. The
+city of Portland inventoried every tree in over 170 parks and along the
+streets in 96 neighborhoods.
 
 %prep
 %setup -q -c -n %{packname}

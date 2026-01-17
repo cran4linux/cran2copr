@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RCaucTile
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tile Grid Maps for East Caucasian Languages
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
 Generates tile maps for the East Caucasian language family, inspired by

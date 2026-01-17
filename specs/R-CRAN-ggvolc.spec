@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayestransmission
+%global packname  ggvolc
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Transmission Models
+Summary:          Create Volcano Plots for Differential Gene Expression Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grid 
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
 
 %description
-Provides Bayesian inference methods for infectious disease transmission
-models in healthcare settings. Implements Markov Chain Monte Carlo (MCMC)
-algorithms for estimating transmission parameters from patient-level data
-including admission, discharge, and testing events as described in Thomas
-'et al.' (2015) <doi:10.1093/imammb/dqt021>.
+Provides functionality to create customizable volcano plots for
+visualizing differential gene expression analysis results. The package
+offers options to highlight genes of interest, adjust significance
+thresholds, customize colors, and add informative labels. Designed
+specifically for RNA-seq data analysis workflows.
 
 %prep
 %setup -q -c -n %{packname}

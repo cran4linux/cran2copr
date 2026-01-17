@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  srcr
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify Connections to Database Sources
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Connecting to databases requires boilerplate code to specify connection

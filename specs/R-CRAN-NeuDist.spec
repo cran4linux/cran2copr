@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bmemLavaan
-%global packver   0.6
+%global packname  NeuDist
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediation Analysis with Missing Data and Non-Normal Data
+Summary:          Univariate Continuous Distributions with Model Diagnostics
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Amelia 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-rsem 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-sem 
-Requires:         R-CRAN-Amelia 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-rsem 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-sem 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-goftest 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-goftest 
 
 %description
-Methods for mediation analysis with missing data and non-normal data are
-implemented. For missing data, four methods are available: Listwise
-deletion, Pairwise deletion, Multiple imputation, and Two Stage Maximum
-Likelihood algorithm. For MI and TS-ML, auxiliary variables can be
-included to handle missing data. For handling non-normal data, bootstrap
-and two-stage robust methods can be used. Technical details of the methods
-can be found in Zhang and Wang (2013, <doi:10.1007/s11336-012-9301-5>),
-Zhang (2014, <doi:10.3758/s13428-013-0424-0>), and Yuan and Zhang (2012,
-<doi:10.1007/s11336-012-9282-4>).
+Implements univariate continuous probability distributions and associated
+model diagnostics based on the Lindley, Logistic, Half-Cauchy,
+Half-Logistic, and Poisson families. Provides functions for probability
+density, cumulative distribution, quantile, and hazard evaluation, random
+variate generation, and diagnostic procedures including Q-Q and P-P plots,
+goodness-of-fit tests, and model selection criteria.
 
 %prep
 %setup -q -c -n %{packname}

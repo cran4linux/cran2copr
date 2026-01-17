@@ -1,53 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  perumammals
-%global packver   0.0.0.1
+%global packname  codyna
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Taxonomic Backbone and Name Validation Tools for Mammals of Peru
+Summary:          Complex Dynamic Systems
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-memoise 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides a curated taxonomic backbone of mammal species from Peru based on
-Pacheco et al. (2021) "Lista actualizada de la diversidad de los mamíferos
-del Perú y una propuesta para su actualización"
-<doi:10.15381/rpb.v28i4.21019>. The package includes standardized species
-data, occurrence by ecoregions, endemism status, and tools for validating
-and matching scientific names through exact and fuzzy procedures. It is
-designed as a lightweight and dependable reference for ecological,
-environmental, biogeographic, and conservation workflows that require
-reliable species information for Peruvian mammals.
+Performs analysis of complex dynamic systems with a focus on the temporal
+unfolding of patterns, changes, and state transitions in behavioral data.
+Supports both time series and sequence data and provides tools for the
+analysis and visualization of complexity, pattern identification, trends,
+regimes, sequence typology as well as early warning signals.
 
 %prep
 %setup -q -c -n %{packname}

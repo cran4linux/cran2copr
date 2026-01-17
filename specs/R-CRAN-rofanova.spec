@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clv
-%global packver   0.3-2.5
+%global packname  rofanova
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster Validation Techniques
+Summary:          Robust Functional Analysis of Variance
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-class 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-class 
+BuildRequires:    R-CRAN-fda.usc 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fda.usc 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-abind 
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-Contains most of the popular internal and external cluster validation
-methods ready to use for the most of the outputs produced by functions
-coming from package "cluster". Package contains also functions and
-examples of usage for cluster stability approach that might be applied to
-algorithms implemented in "cluster" package as well as user defined
-clustering algorithms.
+Implements the robust functional analysis of variance (RoFANOVA),
+described in Centofanti et al. (2023) <doi:10.1093/jrsssc/qlad074>. It
+allows testing mean differences among groups of functional data by being
+robust against the presence of outliers.
 
 %prep
 %setup -q -c -n %{packname}
