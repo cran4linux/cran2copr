@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rd2roxygen
-%global packver   1.17
+%global packver   1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17
+Version:          1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Rd to 'Roxygen' Documentation
 
@@ -19,10 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-roxygen2 >= 4.0.0
 BuildRequires:    R-CRAN-formatR >= 1.0
-BuildRequires:    R-CRAN-xfun >= 0.13
+BuildRequires:    R-CRAN-xfun >= 0.55
 Requires:         R-CRAN-roxygen2 >= 4.0.0
 Requires:         R-CRAN-formatR >= 1.0
-Requires:         R-CRAN-xfun >= 0.13
+Requires:         R-CRAN-xfun >= 0.55
 
 %description
 Functions to convert Rd to 'roxygen' documentation. It can parse an Rd

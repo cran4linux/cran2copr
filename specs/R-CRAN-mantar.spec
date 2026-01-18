@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mantar
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missingness Alleviation for Network Analysis
 
@@ -17,17 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glassoFast 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mathjaxr 
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glassoFast 
 
 %description
 Provides functionality for estimating cross-sectional network structures
-representing partial correlations in R, while accounting for missing
-values in the data. Networks are estimated via neighborhood selection,
-i.e., node-wise multiple regression, with model selection guided by
-information criteria. Missing data can be handled primarily via multiple
-imputation or a maximum likelihood-based approach; deletion techniques are
-available but secondary <doi:10.31234/osf.io/qpj35>.
+representing partial correlations while accounting for missing data.
+Networks are estimated via neighborhood selection or regularization, with
+model selection guided by information criteria. Missing data can be
+handled primarily via multiple imputation or a maximum likelihood-based
+approach, as demonstrated by Nehler and Schultze (2025a)
+<doi:10.31234/osf.io/qpj35> and Nehler and Schultze (2025b)
+<doi:10.1080/00273171.2025.2503833>. Deletion-based approaches are also
+available but play a secondary role.
 
 %prep
 %setup -q -c -n %{packname}

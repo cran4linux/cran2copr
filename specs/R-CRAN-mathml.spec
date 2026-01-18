@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.univar
-%global packver   3.1-6
+%global packname  mathml
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          One-Dimensional Probability Distribution Support for the 'spatstat' Family
+Summary:          Translate R Expressions to 'MathML' and 'LaTeX'/'MathJax'
 
-License:          GPL (>= 2)
+License:          FreeBSD
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.2.1
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-spatstat.utils >= 3.2.1
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rolog >= 0.9.14
+BuildRequires:    R-CRAN-xfun >= 0.49
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-rolog >= 0.9.14
+Requires:         R-CRAN-xfun >= 0.49
+Requires:         R-CRAN-knitr 
 
 %description
-Estimation of one-dimensional probability distributions including kernel
-density estimation, weighted empirical cumulative distribution functions,
-Kaplan-Meier and reduced-sample estimators for right-censored data, heat
-kernels, kernel properties, quantiles and integration.
+Translate R expressions to 'MathML' or 'MathJax'/'LaTeX' so that they can
+be rendered in R markdown documents and shiny apps. This package depends
+on R package 'rolog', which requires an installation of the 'SWI'-'Prolog'
+runtime either from 'swi-prolog.org' or from R package 'rswipl'.
 
 %prep
 %setup -q -c -n %{packname}

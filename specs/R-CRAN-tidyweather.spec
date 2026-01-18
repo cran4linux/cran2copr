@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rfigshare
-%global packver   0.3.8
+%global packname  tidyweather
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Interface to 'figshare'
+Summary:          Analysis the Weather Data for Agriculture
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 0.3
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr >= 0.3
-Requires:         R-methods 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-CRAN-httpuv 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-settings 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-settings 
 
 %description
-An R interface to 'figshare'.
+Functions are collected to analyse weather data for agriculture purposes
+including to read weather records in multiple formats, calculate extreme
+climate index. Demonstration data are included the SILO daily climate data
+(licensed under CC BY 4.0, <https://www.longpaddock.qld.gov.au/silo/>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EpiILMCT
-%global packver   1.1.8
+%global packname  provolleyballr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Continuous Time Distance-Based and Network-Based Individual Level Models for Epidemics
+Summary:          Extract Data from US Women's Professional Volleyball Websites
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-coda 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-selenider 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-selenider 
 
 %description
-Provides tools for simulating from continuous-time individual level models
-of disease transmission, and carrying out infectious disease data analyses
-with the same models. The epidemic models considered are distance-based
-and/or contact network-based models within Susceptible-Infectious-Removed
-(SIR) or Susceptible-Infectious-Notified-Removed (SINR) compartmental
-frameworks. <doi:10.18637/jss.v098.i10>.
+Tools for scraping match statistics and player data from the Athletes
+Unlimited (UA) website <https://auprosports.com/volleyball/>, the League
+One Volleyball website <https://lovb.com>, and the Major League (MLV)
+website <https://provolleyball.com>.
 
 %prep
 %setup -q -c -n %{packname}

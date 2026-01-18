@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  revulyticsR
-%global packver   0.0.3
+%global packname  BAQM
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to Your 'Revulytics' Data
+Summary:          Babson Analytics and Quantitative Methods Tools
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6.1
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-BuildRequires:    R-CRAN-tibble >= 1.0.3
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.4
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-jsonlite >= 1.6.1
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-tibble >= 1.0.3
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.4
-Requires:         R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-lmtest 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Facilitates making a connection to the 'Revulytics' API and executing
-various queries. You can use it to get event data and metadata. The
-Revulytics documentation is available at
-<https://docs.revenera.com/ui560/report/>. This package is not supported
-by 'Flexera' (owner of the software).
+Instructor-developed tools for Analytics and Quantitative Methods (AQM)
+courses at Babson College. Included are compact descriptive statistics for
+data frames and lists, expanded reporting and graphics for linear
+regressions, and formatted reports for best subsets analyses.
 
 %prep
 %setup -q -c -n %{packname}

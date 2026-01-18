@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixgb
-%global packver   2.0.3
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation Through 'XGBoost'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-xgboost >= 3.1.2.1
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mice 
@@ -24,9 +25,9 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-xgboost >= 3.1.2.1
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mice 
@@ -34,11 +35,10 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
 
 %description
 Multiple imputation using 'XGBoost', subsampling, and predictive mean
-matching as described in Deng and Lumley (2023)
+matching as described in Deng and Lumley (2024)
 <doi:10.1080/10618600.2023.2252501>.  The package supports various types
 of variables, offers flexible settings, and enables saving an imputation
 model to impute new data. Data processing and memory usage have been

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fect
-%global packver   2.0.5
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fixed Effects Counterfactual Estimators
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-abind >= 1.4.0
 BuildRequires:    R-CRAN-doParallel >= 1.0.10
 BuildRequires:    R-CRAN-GGally >= 1.0.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-future.apply 
@@ -41,12 +43,14 @@ Requires:         R-CRAN-abind >= 1.4.0
 Requires:         R-CRAN-doParallel >= 1.0.10
 Requires:         R-CRAN-GGally >= 1.0.1
 Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
 Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-future.apply 

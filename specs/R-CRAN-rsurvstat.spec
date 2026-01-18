@@ -1,47 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  surveydata
-%global packver   0.2.8
+%global packname  rsurvstat
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Work with Survey Data
+Summary:          Download Infectious Disease Data from 'SurvStat' (Robert Koch Institute)
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-locfit 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-locfit 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 
 %description
-Data obtained from surveys contains information not only about the survey
-responses, but also the survey metadata, e.g. the original survey
-questions and the answer options. The 'surveydata' package makes it easy
-to keep track of this metadata, and to easily extract columns with
-specific questions.
+Provides an interface to the 'SurvStat' web service from the Robert Koch
+Institute (<https://tools.rki.de/SurvStat/SurvStatWebService.svc>)
+allowing downloads of disease time series stratified by pathogen type and
+subtype, age, and geography from notifiable disease reports in Germany.
 
 %prep
 %setup -q -c -n %{packname}

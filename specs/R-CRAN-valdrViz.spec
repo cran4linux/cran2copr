@@ -1,65 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R.AlphA.Home
-%global packver   1.1.0
+%global packname  valdrViz
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Feel at Home using R, Thanks to Shortcuts Functions Making it Simple
+Summary:          Visualise and Report 'VALD ForceDecks' Test Results
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-qs 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-diffr 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-pagedown 
+BuildRequires:    R-CRAN-webshot2 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-qs 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-diffr 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-pagedown 
+Requires:         R-CRAN-webshot2 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-rlang 
 
 %description
-A collection of personal functions designed to simplify and streamline
-common R programming tasks. This package provides reusable tools and
-shortcuts for frequently used calculations and workflows.
+Provides a 'shiny' dashboard and plotting utilities to explore and report
+'VALD ForceDecks' testing data. Includes interactive modules for metric
+exploration, radar charts, longitudinal comparisons, quadrant plots, and
+athlete reports.
 
 %prep
 %setup -q -c -n %{packname}

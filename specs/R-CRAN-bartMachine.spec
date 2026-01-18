@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bartMachine
-%global packver   1.3.4.1
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4.1
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Regression Trees
 
@@ -17,20 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bartMachineJARs >= 1.2.1
-BuildRequires:    R-CRAN-rJava >= 0.9.8
+BuildRequires:    R-CRAN-bartMachineJARs >= 1.2.2
+BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-missForest 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-bartMachineJARs >= 1.2.1
-Requires:         R-CRAN-rJava >= 0.9.8
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-bartMachineJARs >= 1.2.2
+Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-missForest 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-grDevices 
 
 %description
 An advanced implementation of Bayesian Additive Regression Trees with

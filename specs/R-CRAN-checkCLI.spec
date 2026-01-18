@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  WRSS
-%global packver   3.1
+%global __requires_exclude ^libmpi
+%global packname  checkCLI
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Water Resources System Simulator
+Summary:          'CLI' Messages for Checkmate Assertions and Checks
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-network 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-network 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 
 %description
-Water resources system simulator is a tool for simulation and analysis of
-large-scale water resources systems. 'WRSS' proposes functions and methods
-for construction, simulation and analysis of primary storage and
-hydropower water resources features (e.g. reservoirs, aquifers, and etc.)
-based on Standard Operating Policy (SOP).
+Providing more beautiful and more meaningful return messages for checkmate
+assertions and checks helping users to better understand errors.
 
 %prep
 %setup -q -c -n %{packname}
