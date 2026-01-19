@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GFM
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Factor Model
 
@@ -40,7 +40,7 @@ respectively. The factor matrix and loading matrix together with the
 number of factors can be well estimated. This model can be employed in
 social and behavioral sciences, economy and finance, and genomics, to
 extract interpretable nonlinear factors. More details can be referred to
-Wei Liu, Huazhen Lin, Shurong Zheng and Jin Liu. (2021)
+Wei Liu, Huazhen Lin, Shurong Zheng and Jin Liu. (2023)
 <doi:10.1080/01621459.2021.1999818>.
 
 %prep

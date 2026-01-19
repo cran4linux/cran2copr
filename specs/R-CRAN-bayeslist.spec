@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayeslist
-%global packver   0.0.1.5
+%global packver   0.0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.5
+Version:          0.0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of List Experiments with Prior Information
 
@@ -38,8 +38,8 @@ Requires:         R-CRAN-rstantools
 %description
 Estimates Bayesian models of list experiments with informative priors. It
 includes functionalities to estimate different types of list experiment
-models with varying prior information. See Lu and Traunmüller (2021)
-<doi:10.2139/ssrn.3871089> for examples and details of estimation.
+models with varying prior information. See Lu and Traunmüller (2026)
+<doi:10.1017/psrm.2025.10084> for examples and details of estimation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Countr
-%global packver   3.6
+%global packver   3.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6
+Version:          3.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Univariate Count Models Based on Renewal Processes
 
@@ -31,8 +31,6 @@ BuildRequires:    R-CRAN-standardize
 BuildRequires:    R-CRAN-pscl 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-VGAM >= 1.1.1
 Requires:         R-CRAN-Rdpack >= 0.7.0
@@ -49,8 +47,6 @@ Requires:         R-CRAN-standardize
 Requires:         R-CRAN-pscl 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-RColorBrewer 
 
 %description
 Flexible univariate count models based on renewal processes. The models

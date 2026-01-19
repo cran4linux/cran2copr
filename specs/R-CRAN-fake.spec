@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fake
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Data Simulation Using the Multivariate Normal Distribution
 
@@ -18,12 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.4.0
-BuildRequires:    R-CRAN-huge 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-withr >= 2.4.0
-Requires:         R-CRAN-huge 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rdpack 
@@ -36,7 +34,7 @@ multivariate Normal distribution where the mean vector and covariance
 matrix reflect the desired relationships. Outputs can be used to evaluate
 the performances of variable selection, graphical modelling, or clustering
 approaches by comparing the true and estimated structures (B Bodinier et
-al (2021) <arXiv:2106.02521>).
+al (2021) <doi:10.1093/jrsssc/qlad058>).
 
 %prep
 %setup -q -c -n %{packname}

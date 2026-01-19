@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompClassMetrics
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification Measures when Subclasses are Involved
 
@@ -33,9 +33,10 @@ framework are particularly popular. When classification involves
 subclasses, the package 'CompClassMetrics' includes functions that can
 provide the point estimate, confidence interval as well as true values if
 a parametric setting is known. For more details see Nan and Tian (2025)
-<doi:10.1177/09622802251343600> and Nan and Tian (2023)
-<doi:10.1002/sim.9908> and Feng and Tian (2020)
-<doi:10.1177/0962280220938077>.
+<doi:10.1177/09622802251343600>, Nan and Tian (2023)
+<doi:10.1002/sim.9908>, Feng and Tian (2020)
+<doi:10.1177/0962280220938077> and Wang et al (2016)
+<doi:10.1002/sim.6843>.
 
 %prep
 %setup -q -c -n %{packname}

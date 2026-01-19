@@ -1,28 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ascentTraining
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  gtakeout
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ascent Training Datasets
+Summary:          Extract Data from Google Takeout
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-zip 
 
 %description
-Datasets to be used primarily in conjunction with Ascent training
-materials but also for the book 'SAMS Teach Yourself R in 24 Hours' (ISBN:
-978-0-672-33848-9). Version 1.0-7 is largely for use with the book;
-however, version 1.1 has a much greater focus on use with training
-materials, whilst retaining compatibility with the book.
+Provides functions to analyze data exported from 'Google Takeout'. The
+package supports unzipping archives and extracting user review data from
+Google Business Profile exports into tidy data frames for further
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  furniture
-%global packver   1.9.14
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.14
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Furniture for Quantitative Scientists
 
@@ -19,8 +19,12 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-flextable 
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-flextable 
 
 %description
 Contains four main functions (i.e., four pieces of furniture): table1()

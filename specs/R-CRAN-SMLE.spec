@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SMLE
-%global packver   2.2-2
+%global packver   2.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Feature Screening via Sparse MLE
 
@@ -35,6 +35,7 @@ implementation of SMLE-screening for high-dimensional linear, logistic,
 and Poisson models. The package also provides a function for conducting
 accurate post-screening feature selection based on an iterative
 hard-thresholding procedure and a user-specified selection criterion.
+Zang, Xu, and Burkett (2025)<doi:10.18637/jss.v115.i08>.
 
 %prep
 %setup -q -c -n %{packname}

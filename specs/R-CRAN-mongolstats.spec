@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rifttable
-%global packver   0.7.2
+%global packname  mongolstats
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Results Tables to Bridge the Rift Between Epidemiologists and Their Data
+Summary:          Mongolian 'NSO' 'PXWeb' Data and Boundaries (Tidy Client)
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.8
-BuildRequires:    R-CRAN-broom >= 0.7.0
-BuildRequires:    R-CRAN-risks >= 0.4.3
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr >= 1.0.8
-Requires:         R-CRAN-broom >= 0.7.0
-Requires:         R-CRAN-risks >= 0.4.3
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-curl 
 
 %description
-Presentation-ready results tables for epidemiologists in an automated,
-reproducible fashion. The user provides the final analytical dataset and
-specifies the design of the table, with rows and/or columns defined by
-exposure(s), effect modifier(s), and estimands as desired, allowing to
-show descriptors and inferential estimates in one table -- bridging the
-rift between epidemiologists and their data, one table at a time. See
-Rothman (2017) <doi:10.1007/s10654-017-0314-3>.
+A 'tidyverse'-friendly client for the National Statistics Office of
+Mongolia 'PXWeb' API <https://data.1212.mn/> with helpers to discover
+tables, variables, and fetch statistical data. Also includes utilities to
+retrieve Mongolia administrative boundaries (ADM0-ADM2) as 'sf' objects
+from open sources for mapping and spatial analysis.
 
 %prep
 %setup -q -c -n %{packname}

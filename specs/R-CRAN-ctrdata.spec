@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.25.1
+%global packver   1.26.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.25.1
+Version:          1.26.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials Data from Public Registers
 
@@ -14,39 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nodbi >= 0.10.7
+BuildRequires:    R-CRAN-nodbi >= 0.13.1
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-V8 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jqr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-V8 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-httr2 
-Requires:         R-CRAN-nodbi >= 0.10.7
+Requires:         R-CRAN-nodbi >= 0.13.1
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-V8 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jqr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-zip 
-Requires:         R-CRAN-V8 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-httr2 
 
 %description
 A system for querying, retrieving and analyzing protocol- and
