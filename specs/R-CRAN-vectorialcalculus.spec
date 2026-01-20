@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lookout
-%global packver   2.0.0
+%global packname  vectorialcalculus
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Leave One Out Kernel Density Estimates for Outlier Detection
+Summary:          Vector Calculus Tools for Visualization and Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-evd 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TDAstats 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-evd 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-robustbase 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tibble 
 Requires:         R-stats 
-Requires:         R-CRAN-TDAstats 
-Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Outlier detection using leave-one-out kernel density estimates and extreme
-value theory. The bandwidth for kernel density estimates is computed using
-persistent homology, a technique in topological data analysis. Using
-peak-over-threshold method, a generalized Pareto distribution is fitted to
-the log of leave-one-out kde values to identify outliers.
+Provides pedagogical tools for visualization and numerical computation in
+vector calculus. Includes functions for parametric curves, scalar and
+vector fields, gradients, divergences, curls, line and surface integrals,
+and dynamic 2D/3D graphical analysis to support teaching and learning. The
+implemented methods follow standard treatments in vector calculus and
+multivariable analysis as presented in Marsden and Tromba (2011)
+<ISBN:9781429215084>, Stewart (2015) <ISBN:9781285741550>, Thomas, Weir
+and Hass (2018) <ISBN:9780134438986>, Larson and Edwards (2016)
+<ISBN:9781285255869>, Apostol (1969) <ISBN:9780471000051>, Spivak (1971)
+<ISBN:9780805390216>, Schey (2005) <ISBN:9780071369080>, Colley (2019)
+<ISBN:9780321982384>, Lizarazo Osorio (2020) <ISBN:9789585450103>, Sievert
+(2020) <ISBN:9780367180165>, and Borowko (2013) <ISBN:9781439870791>.
 
 %prep
 %setup -q -c -n %{packname}

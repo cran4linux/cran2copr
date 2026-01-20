@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ankiR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Anki Flashcard Databases
+Summary:          Read 'Anki' Flashcard Databases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-tibble 
 
 %description
 Read and analyze Anki flashcard collection databases. Provides functions
-to access notes, cards, and review logs from Anki's SQLite database with a
-tidy interface.
+to access notes, cards, and review logs from 'Anki' 'SQLite' database with
+a tidy interface.
 
 %prep
 %setup -q -c -n %{packname}

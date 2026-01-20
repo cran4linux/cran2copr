@@ -1,29 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
-%global packver   1.0.0
+%global packname  spCF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          Coarse-to-Fine Spatial Modeling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-withr 
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+Provides functions for coarse-to-fine spatial modeling (CFSM), enabling
+fast spatial prediction, regression, and uncertainty quantification. For
+further details, see Murakami et al. (2025)
+<doi:10.48550/arXiv.2510.00968>.
 
 %prep
 %setup -q -c -n %{packname}

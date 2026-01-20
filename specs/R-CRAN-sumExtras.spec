@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
-%global packver   1.0.0
+%global packname  sumExtras
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          Extra Functions for 'gtsummary' Table Styling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gtsummary >= 1.7.0
+BuildRequires:    R-CRAN-gt >= 0.9.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-gtsummary >= 1.7.0
+Requires:         R-CRAN-gt >= 0.9.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+Provides additional convenience functions for 'gtsummary' (Sjoberg et al.
+(2021) <doi:10.32614/RJ-2021-053>) & 'gt' tables, including automatic
+variable labeling from dictionaries, standardized missing value display,
+and consistent formatting helpers for streamlined table styling workflows.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
-%global packver   1.0.0
+%global packname  hellodatascience
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          Datasets from the Hello Data Science Book
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+Provides datasets used for analysis and visualizations in the open-access
+Hello Data Science book.
 
 %prep
 %setup -q -c -n %{packname}

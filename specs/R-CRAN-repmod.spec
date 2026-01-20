@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  repmod
-%global packver   0.1.7
+%global packver   0.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.4.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Report Table from Different Objects
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-lme4 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-lmerTest
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-bayestestR 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-lme4 

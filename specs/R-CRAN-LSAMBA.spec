@@ -1,47 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gutenbergr
-%global packver   0.4.1
+%global packname  LSAMBA
+%global packver   2024.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          2024.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Process Public Domain Works from Project Gutenberg
+Summary:          Lasso-SAMBA Algorithm
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-Rsmlx >= 2024.1.0
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readMDTable 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-sharp 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-urltools 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-Rsmlx >= 2024.1.0
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readMDTable 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-sharp 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-urltools 
 
 %description
-Download and process public domain works in the Project Gutenberg
-collection <https://www.gutenberg.org/>. Includes metadata for all Project
-Gutenberg works, so that they can be searched and retrieved.
+Provides a lasso-based method for building mechanistic models using the
+SAMBA algorithm (Stochastic Approximation for Model Building Algorithm) (M
+Prague, M Lavielle (2022) <doi:10.1002/psp4.12742>). The package extends
+the 'Rsmlx' package (version 2024.1.0) to better handle high-dimensional
+data. It relies on the 'Monolix' software (version 2024R1; see
+(<https://monolixsuite.slp-software.com/monolix/2024R1/>), which must be
+installed beforehand.
 
 %prep
 %setup -q -c -n %{packname}

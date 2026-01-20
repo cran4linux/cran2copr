@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meboot
-%global packver   1.4-9.5
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9.5
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Entropy Bootstrap for Time Series
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-dynlm 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-tdigest 
 BuildRequires:    R-CRAN-hdrcde 
 Requires:         R-CRAN-dynlm 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-tdigest 
 Requires:         R-CRAN-hdrcde 
 
 %description

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openxlsx2
-%global packver   1.23.1
+%global packname  mrangr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Write and Edit 'xlsx' Files
+Summary:          Mechanistic Metacommunity Simulator
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-FieldSimR 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rangr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-FieldSimR 
+Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-gstat 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-parallel 
+Requires:         R-CRAN-rangr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
 
 %description
-Simplifies the creation of 'xlsx' files by providing a high level
-interface to writing, styling and editing worksheets.
+Flexible, mechanistic, and spatially explicit simulator of
+metacommunities. It extends our previous package - 'rangr' (see
+<https://github.com/ropensci/rangr>), which implemented a mechanistic
+virtual species simulator integrating population dynamics and dispersal.
+The 'mrangr' package adds the ability to simulate multiple species
+interacting through an asymmetric matrix of pairwise relationships,
+allowing users to model all types of biotic interactions — competitive,
+facilitative, or neutral — within spatially explicit virtual environments.
 
 %prep
 %setup -q -c -n %{packname}

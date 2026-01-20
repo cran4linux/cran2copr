@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gradeR
-%global packver   1.0.10
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helps Grade Assignment Submissions that are R Scripts
+Summary:          Helps Grade Assignment Submissions in Common R Formats
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,9 +28,10 @@ Requires:         R-CRAN-jsonlite
 
 %description
 After being given the location of your students' submissions and a test
-file, the function runs each .R file, and evaluates the results from all
-the given tests. Results are neatly returned in a data frame that has a
-row for each student, and a column for each test.
+file, the function runs each file that is an R script, R Markdown file, or
+Quarto document, and evaluates the results from all the given tests.
+Results are neatly returned in a data frame that has a row for each
+student, and a column for each test.
 
 %prep
 %setup -q -c -n %{packname}

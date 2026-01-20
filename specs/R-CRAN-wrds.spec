@@ -1,29 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
-%global packver   1.0.0
+%global packname  wrds
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          Access 'Wharton Research Data Services' ('WRDS')
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-tidylog 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-tidylog 
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+Provides simple functions for accessing data from 'Wharton Research Data
+Services' ('WRDS'), a widely used financial database in academic research.
+Includes credential management via the system keyring, database tools, and
+functions for downloading generic tables, 'Compustat' fundamentals, and
+linking tables.
 
 %prep
 %setup -q -c -n %{packname}

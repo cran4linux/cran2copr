@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maditr
-%global packver   0.8.6
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Data Aggregation, Modification, and Filtering with Pipes and 'data.table'
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-data.table >= 1.12.6
+BuildRequires:    R-CRAN-data.table >= 1.18.0
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-data.table >= 1.12.6
+Requires:         R-CRAN-data.table >= 1.18.0
 
 %description
 Provides pipe-style interface for 'data.table'. Package preserves all

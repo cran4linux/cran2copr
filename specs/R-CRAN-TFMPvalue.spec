@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
+%global packname  TFMPvalue
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          Efficient and Accurate P-Value Computation for Position Weight Matrices
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.1
+Requires:         R-CRAN-Rcpp >= 0.11.1
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+In putative Transcription Factor Binding Sites (TFBSs) identification from
+sequence/alignments, we are interested in the significance of certain
+match score. TFMPvalue provides the accurate calculation of P-value with
+score threshold for Position Weight Matrices, or the score with given
+P-value. It is an interface to code originally made available by Helene
+Touzet and Jean-Stephane Varre, 2007, Algorithms Mol Biol:2, 15.
+<doi:10.1186/1748-7188-2-15>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
-%global packver   1.0.0
+%global packname  nivo.bubblechart
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          Interactive Bubble Charts for 'Shiny' Using 'Nivo'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-reactR 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-reactR 
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+Creates interactive bubble chart visualizations for 'Shiny' applications
+using the 'Nivo' circle packing library. Provides an 'htmlwidgets' wrapper
+around the 'Nivo' circle packing chart, enabling hierarchical data
+visualization with customizable colors, labels, and interactive features
+including click and hover events. For more information about 'Nivo', see
+<https://nivo.rocks/>.
 
 %prep
 %setup -q -c -n %{packname}

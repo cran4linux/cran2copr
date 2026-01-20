@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clusterSim
-%global packver   0.51-5
+%global packver   0.51-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.51.5
+Version:          0.51.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Searching for Optimal Clustering Procedure for a Data Set
 

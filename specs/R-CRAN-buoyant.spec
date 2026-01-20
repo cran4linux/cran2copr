@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
-%global packver   1.0.0
+%global packname  buoyant
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          Deploy '_server.yml' Compliant Applications to 'DigitalOcean'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-analogsea >= 0.9.4
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-ssh 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-analogsea >= 0.9.4
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-ssh 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-yaml 
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+Provides tools to deploy R web server applications that follow the
+'_server.yml' standard. This standard allows different R server frameworks
+('plumber2', 'fiery', etc.) to be deployed using a common interface.  The
+package supports deployment to 'DigitalOcean' and includes validation
+tools to ensure '_server.yml' files are correctly formatted.
 
 %prep
 %setup -q -c -n %{packname}

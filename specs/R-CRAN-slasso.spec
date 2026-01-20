@@ -1,29 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
-%global packver   1.0.0
+%global packname  slasso
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          S-LASSO Estimator for the Function-on-Function Linear Regression
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-inline 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-fda.usc 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cxxfunplus 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-inline 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-fda.usc 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-parallel 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-plot3D 
+Requires:         R-methods 
+Requires:         R-CRAN-cxxfunplus 
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+Implements the smooth LASSO estimator for the function-on-function linear
+regression model described in Centofanti et al. (2022)
+<doi:10.1016/j.csda.2022.107556>.
 
 %prep
 %setup -q -c -n %{packname}

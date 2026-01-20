@@ -1,29 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polylabelr
-%global packver   1.0.0
+%global packname  fastgeojson
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find the Pole of Inaccessibility (Visual Center) of a Polygon
+Summary:          High-Performance 'GeoJSON' and 'JSON' Serialization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-A wrapper around the C++ library 'polylabel' from 'Mapbox', providing an
-efficient routine for finding the approximate pole of inaccessibility of a
-polygon, which usually serves as an excellent candidate for labeling of a
-polygon.
+Converts R data frames and 'sf' spatial objects into 'JSON' and 'GeoJSON'
+strings. The core encoders are implemented in 'Rust' using the 'extendr'
+framework and are designed to efficiently serialize large tabular and
+spatial datasets. Returns serialized 'JSON' text, allowing applications
+such as 'shiny' or web APIs to transfer data to client-side 'JavaScript'
+libraries without additional encoding overhead.
 
 %prep
 %setup -q -c -n %{packname}
