@@ -1,28 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plumber2
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy and Powerful Webservers
+Summary:          Easy and Powerful Web Servers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fiery >= 1.3.0
+BuildRequires:    R-CRAN-routr >= 2.0.0
+BuildRequires:    R-CRAN-fiery >= 1.5.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-reqres >= 1.0.0
-BuildRequires:    R-CRAN-routr >= 1.0.0
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fireproof 
 BuildRequires:    R-CRAN-firesafety 
 BuildRequires:    R-CRAN-firesale 
 BuildRequires:    R-CRAN-firestorm 
@@ -39,12 +40,13 @@ BuildRequires:    R-CRAN-svglite
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-webutils 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-fiery >= 1.3.0
+Requires:         R-CRAN-routr >= 2.0.0
+Requires:         R-CRAN-fiery >= 1.5.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-reqres >= 1.0.0
-Requires:         R-CRAN-routr >= 1.0.0
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fireproof 
 Requires:         R-CRAN-firesafety 
 Requires:         R-CRAN-firesale 
 Requires:         R-CRAN-firestorm 
@@ -63,9 +65,9 @@ Requires:         R-CRAN-webutils
 Requires:         R-CRAN-yaml 
 
 %description
-Automatically create a webserver from annotated 'R' files or by building
+Automatically create a web server from annotated 'R' files or by building
 it up programmatically. Provides automatic 'OpenAPI' documentation, input
-handling, async support, and middleware support.
+handling, asynchronous evaluation, and plugin support.
 
 %prep
 %setup -q -c -n %{packname}

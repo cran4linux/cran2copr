@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zCompositions
-%global packver   1.6.0
+%global packname  plausibounds
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment of Zeros, Left-Censored and Missing Values in Compositional Data Sets
+Summary:          Plausible Bounds for Treatment Path Estimates
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cli 
 
 %description
-Principled methods for the imputation of zeros, left-censored and missing
-data in compositional data sets (Palarea-Albaladejo and Martin-Fernandez
-(2015) <doi:10.1016/j.chemolab.2015.02.019>).
+Enhances dynamic effect plots as suggested in Freyaldenhoven and Hansen
+(2026)
+<https://simonfreyaldenhoven.github.io/papers/Plausible_bounds.pdf>.
+Data-driven smoothing delivers a smooth estimated path with potentially
+improved point estimation properties and confidence regions covering a
+surrogate that can be substantially tighter than conventional pointwise or
+uniform bands.
 
 %prep
 %setup -q -c -n %{packname}

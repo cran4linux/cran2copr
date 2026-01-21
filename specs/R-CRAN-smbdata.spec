@@ -1,35 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zCompositions
-%global packver   1.6.0
+%global packname  smbdata
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment of Zeros, Left-Censored and Missing Values in Compositional Data Sets
+Summary:          Data from "Statistical Methods in Biology"
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-survival 
 
 %description
-Principled methods for the imputation of zeros, left-censored and missing
-data in compositional data sets (Palarea-Albaladejo and Martin-Fernandez
-(2015) <doi:10.1016/j.chemolab.2015.02.019>).
+All data in the book "Statistical Methods in Biology" by Welham et al.
+(2015) <doi:10.1201/b17336> with a corresponding documentation and
+illustrative analysis of the data.
 
 %prep
 %setup -q -c -n %{packname}

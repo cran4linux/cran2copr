@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rJava
-%global packver   1.0-11
+%global packver   1.0-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Low-Level R to Java Interface
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rts2
-%global packver   0.9.1
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Real-Time Disease Surveillance
 
@@ -23,25 +23,30 @@ BuildRequires:    R-CRAN-rstan >= 2.30.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-lubridate >= 1.9.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-glmmrBase >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-glmmrBase >= 0.7.1
 BuildRequires:    R-CRAN-stars >= 0.6.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-SparseChol >= 0.2.2
+BuildRequires:    R-CRAN-SparseChol >= 0.3.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-raster >= 3.6.1
 Requires:         R-CRAN-rstan >= 2.30.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-lubridate >= 1.9.0
+Requires:         R-CRAN-glmmrBase >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.14
 Requires:         R-CRAN-stars >= 0.6.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -57,8 +62,7 @@ Gaussian processes described by Solin and Särkkä (2020)
 <doi:10.1007/s11222-019-09886-w> and Riutort-Mayol et al (2023)
 <doi:10.1007/s11222-022-10167-2> and the nearest neighbour Gaussian
 process described by Datta et al (2016)
-<doi:10.1080/01621459.2015.1044091>. 'cmdstanr' can be downloaded at
-<https://mc-stan.org/cmdstanr/>.
+<doi:10.1080/01621459.2015.1044091>.
 
 %prep
 %setup -q -c -n %{packname}

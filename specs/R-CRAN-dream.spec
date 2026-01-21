@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dream
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Relational Event Analysis and Modeling
 
@@ -18,20 +18,22 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-dqrng 
+BuildRequires:    R-CRAN-fastmatch 
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-dqrng 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-dqrng 
+Requires:         R-CRAN-fastmatch 
 
 %description
 A set of tools for relational and event analysis, including two- and

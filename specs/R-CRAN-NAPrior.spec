@@ -1,35 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zCompositions
-%global packver   1.6.0
+%global packname  NAPrior
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment of Zeros, Left-Censored and Missing Values in Compositional Data Sets
+Summary:          Network Meta-Analytic Predictive Prior for Mid-Trial SoC Changes
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-survival 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Principled methods for the imputation of zeros, left-censored and missing
-data in compositional data sets (Palarea-Albaladejo and Martin-Fernandez
-(2015) <doi:10.1016/j.chemolab.2015.02.019>).
+Implements the Network meta-Analytic Predictive (NAP) prior framework to
+accommodate changes in the standard of care (SoC) during ongoing
+randomized controlled trials (RCTs). The method synthesizes pre- and
+post-change in-trial data by leveraging external evidence, particularly
+head-to-head trials comparing the original and new standards of care, to
+bridge the two evidence periods and enable principled borrowing. The
+package provides utilities to construct NAP-based priors and perform
+Bayesian inference for time-to-event endpoints using summarized trial
+evidence.
 
 %prep
 %setup -q -c -n %{packname}

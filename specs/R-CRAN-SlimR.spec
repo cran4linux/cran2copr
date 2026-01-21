@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SlimR
-%global packver   1.0.9
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning-Assisted, Marker-Based Tool for Single-Cell and Spatial Transcriptomics Annotation
+Summary:          Adaptive Machine Learning-Powered, Context-Matching Tool for Single-Cell and Spatial Transcriptomics Annotation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,15 +45,13 @@ Annotates single-cell and spatial-transcriptomic (ST) data using marker
 datasets. Supports unified markers list ('Markers_list') creation from
 built-in databases (e.g., 'Cellmarker2', 'PanglaoDB', 'scIBD', 'TCellSI',
 'PCTIT', 'PCTAM'), Seurat objects, or user-supplied Excel files. SlimR can
-predict calculation parameters by machine learning algorithms (e.g.,
-'Random Forest', 'Gradient Boosting', 'Support Vector Machine', 'Ensemble
-Learning'), and based on Markers_list, calculate gene expression of
-different cell types and predict annotation information, and calculate
-corresponding AUC and annotate it, then verify it. At the same time, it
-can calculate gene expression corresponding to the cell type to generate a
-reference map for manual annotation (e.g., 'Heat Map', 'Feature Plots',
-'Combined Plots'). For more details, see Kabacoff (2020,
-ISBN:9787115420572).
+predict calculation parameters by adaptive machine learning algorithms,
+and based on Markers_list, calculate gene expression of different cell
+types and predict annotation information, and calculate corresponding AUC
+and annotate it, then verify it. At the same time, it can calculate gene
+expression corresponding to the cell type to generate a reference map for
+manual annotation (e.g., 'Heat Map', 'Feature Plots', 'Combined Plots').
+For more details, see Kabacoff (2020, ISBN:9787115420572).
 
 %prep
 %setup -q -c -n %{packname}

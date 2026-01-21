@@ -1,48 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  uncertainUCDP
-%global packver   0.7.0
+%global packname  delma
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametric Mixture Models for Uncertainty Estimation of Fatalities in UCDP Conflict Data
+Summary:          Convert 'R Markdown' and 'Quarto' Documents to Ecological Metadata Language
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mistr 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lightparser 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mistr 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lightparser 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-quarto 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-xml2 
 
 %description
-Provides functions for estimating uncertainty in the number of fatalities
-in the Uppsala Conflict Data Program (UCDP) data. The package implements a
-parametric reported-value Gumbel mixture distribution that accounts for
-the uncertainty in the number of fatalities in the UCDP data. The model is
-based on information from a survey on UCDP coders and how they view the
-uncertainty of the number of fatalities from UCDP events. The package
-provides functions for making random draws of fatalities from the mixture
-distribution, as well as to estimate percentiles, quantiles, means, and
-other statistics of the distribution. Full details on the survey and
-estimation procedure can be found in Vesco et al (2024).
+Ecological Metadata Language or 'EML' is a long-established format for
+describing ecological datasets to facilitate sharing and re-use. Because
+'EML' is effectively a modified 'xml' schema, however, it is challenging
+to write and manipulate for non-expert users. 'delma' supports users to
+write metadata statements in 'R Markdown' or 'Quarto markdown' format, and
+parse them to 'EML' and (optionally) back again.
 
 %prep
 %setup -q -c -n %{packname}

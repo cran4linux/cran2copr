@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bgms
-%global packver   0.1.6.1
+%global packver   0.1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.1
+Version:          0.1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Networks of Binary and/or Ordinal Variables
 

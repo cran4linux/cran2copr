@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zCompositions
-%global packver   1.6.0
+%global packname  depcoeff
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment of Zeros, Left-Censored and Missing Values in Compositional Data Sets
+Summary:          Dependency Coefficients
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-copula 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-copula 
 
 %description
-Principled methods for the imputation of zeros, left-censored and missing
-data in compositional data sets (Palarea-Albaladejo and Martin-Fernandez
-(2015) <doi:10.1016/j.chemolab.2015.02.019>).
+Functions to compute coefficients measuring the dependence of two or more
+than two variables. The functions can be deployed to gain information
+about functional dependencies of the variables with emphasis on monotone
+functions. The statistics describe how well one response variable can be
+approximated by a monotone function of other variables. In regression
+analysis the variable selection is an important issue. In this framework
+the functions could be useful tools in modeling the regression function.
+Detailed explanations on the subject can be found in papers Liebscher
+(2014) <doi:10.2478/demo-2014-0004>; Liebscher (2017)
+<doi:10.1515/demo-2017-0012>; Liebscher (2021):
+<https://arfjournals.com/image/catalog/Journals%%20Papers/AJSS/No%%202%%20(2021)/4-AJSS_123-150.pdf>;
+Liebscher (2021): Kendall regression coefficient. Computational Statistics
+and Data Analysis 157. 107140.
 
 %prep
 %setup -q -c -n %{packname}

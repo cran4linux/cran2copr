@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctsem
-%global packver   3.10.4
+%global packver   3.10.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.4
+Version:          3.10.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Structural Equation Modelling
 
@@ -44,6 +44,8 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstantools >= 2.3.0
@@ -70,6 +72,8 @@ Requires:         R-tools
 Requires:         R-utils 
 Requires:         R-splines 
 Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-rstantools
 
 %description

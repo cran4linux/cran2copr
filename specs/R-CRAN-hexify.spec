@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zCompositions
-%global packver   1.6.0
+%global packname  hexify
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment of Zeros, Left-Censored and Missing Values in Compositional Data Sets
+Summary:          Equal-Area Hex Grids on the 'Snyder' 'ISEA' 'Icosahedron'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-rlang 
 
 %description
-Principled methods for the imputation of zeros, left-censored and missing
-data in compositional data sets (Palarea-Albaladejo and Martin-Fernandez
-(2015) <doi:10.1016/j.chemolab.2015.02.019>).
+Provides functions to build and use equal-area hexagonal discrete global
+grids using the 'Snyder' 'ISEA' projection ('Snyder' 1992
+<doi:10.3138/27H7-8K88-4882-1752>). Implements the 'ISEA' discrete global
+grid system ('Sahr', 'White' and 'Kimerling' 2003
+<doi:10.1559/152304003100011090>). Includes a fast 'C++' core for
+projection and aperture quantization, and 'sf'/'terra'-compatible R
+wrappers for grid generation and coordinate assignment. Output is
+compatible with 'dggridR' for interoperability.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mbbefd
-%global packver   0.8.13
+%global packver   0.8.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.13
+Version:          0.8.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maxwell Boltzmann Bose Einstein Fermi Dirac Distribution and Destruction Rate Modelling
 
@@ -21,14 +21,12 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-fitdistrplus >= 1.1.4
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-alabama 
 Requires:         R-utils 
 Requires:         R-CRAN-actuar 
-Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-MASS 
 
 %description

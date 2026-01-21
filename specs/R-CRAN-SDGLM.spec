@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zCompositions
-%global packver   1.6.0
+%global packname  SDGLM
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Treatment of Zeros, Left-Censored and Missing Values in Compositional Data Sets
+Summary:          Scalable Bayesian Inference for Dynamic Generalized Linear Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-methods 
+BuildRequires:    R-utils 
+Requires:         R-stats 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-survival 
+Requires:         R-utils 
 
 %description
-Principled methods for the imputation of zeros, left-censored and missing
-data in compositional data sets (Palarea-Albaladejo and Martin-Fernandez
-(2015) <doi:10.1016/j.chemolab.2015.02.019>).
+Implements scalable Markov chain Monte Carlo (Sca-MCMC) algorithms for
+Bayesian inference in dynamic generalized linear models (DGLMs). The
+package supports Pareto-type and Gamma-type DGLMs, which are suitable for
+modeling heavy-tailed phenomena such as wealth allocation and financial
+returns. It provides simulation tools for synthetic DGLM data, adaptive
+mutation-rate strategies (ScaI, ScaII, ScaIII), geometric temperature
+ladders for parallel tempering, and posterior predictive evaluation
+metrics (e.g., R2, RMSE). The methodology is based on the scalable MCMC
+framework described in Guo et al. (2025).
 
 %prep
 %setup -q -c -n %{packname}

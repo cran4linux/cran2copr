@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  contourforest
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Contour-Enhanced Forest Plots for Meta-Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
@@ -29,10 +29,12 @@ Requires:         R-CRAN-stringr
 Requires:         R-grid 
 
 %description
-Provides functions to create contour-enhanced forest plots for continuous
-and binary outcomes in meta-analysis, including options for prediction
-intervals, customized colors, and study labeling. Based on 'metafor' and
-'ggplot2'.
+Provides functions to create contour-enhanced forest plots for
+meta-analysis, supporting binary outcomes (e.g., odds ratios, risk
+ratios), continuous outcomes (e.g., correlations), and prevalence
+estimates. Includes options for prediction intervals, customized colors,
+study labeling, and contour shading to highlight regions of statistical
+significance. Based on 'metafor' and 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}
