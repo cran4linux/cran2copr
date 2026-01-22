@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cellVolumeDist
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Fit Cell Volume Distributions and Thereby Estimate Cell Growth Rates and Division Times
 
@@ -23,12 +24,12 @@ Requires:         R-CRAN-gplots
 
 %description
 Implements a methodology for using cell volume distributions to estimate
-cell growth rates and division times that is described in the paper
-entitled, "Cell Volume Distributions Reveal Cell Growth Rates and Division
-Times", by Michael Halter, John T. Elliott, Joseph B. Hubbard, Alessandro
-Tona and Anne L. Plant, which is in press in the Journal of Theoretical
-Biology.  In order to reproduce the analysis used to obtain Table 1 in the
-paper, execute the command "example(fitVolDist)".
+cell growth rates and division times that is described in the paper, "Cell
+Volume Distributions Reveal Cell Growth Rates and Division Times", by
+Michael Halter, John T. Elliott, Joseph B. Hubbard, Alessandro Tona and
+Anne L. Plant, which appeared in the Journal of Theoretical Biology. In
+order to reproduce the analysis used to obtain Table 1 in the paper,
+execute the command "example(fitVolDist)".
 
 %prep
 %setup -q -c -n %{packname}

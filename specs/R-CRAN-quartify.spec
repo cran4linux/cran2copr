@@ -1,26 +1,51 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rCMA
+%global __requires_exclude ^libmpi
+%global packname  quartify
 %global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R-to-Java Interface for 'CMA-ES'
+Summary:          Convert R Scripts to 'Quarto' Markdown Documents
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-CRAN-lintr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-quarto 
+Requires:         R-utils 
+Requires:         R-CRAN-styler 
+Requires:         R-CRAN-lintr 
 
 %description
-Tool for providing access to the Java version 'CMAEvolutionStrategy' of
-Nikolaus Hansen. 'CMA-ES' is the Covariance Matrix Adaptation Evolution
-Strategy, see <https://www.lri.fr/~hansen/cmaes_inmatlab.html#java>.
+Converts R scripts (.R) into 'Quarto' markdown documents (.qmd) with
+automatic formatting. Recognizes 'RStudio' code sections, preserves
+comments as narrative text, extracts metadata from special comments, and
+provides both programmatic functions and an interactive 'RStudio' add-in
+for easy conversion.
 
 %prep
 %setup -q -c -n %{packname}

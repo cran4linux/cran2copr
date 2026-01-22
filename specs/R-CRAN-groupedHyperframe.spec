@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groupedHyperframe
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Hyper Data Frame: An Extension of Hyper Data Frame
+Summary:          Grouped Hyper Data Frame
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-SpatialPack
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-geomtextpath 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-spatstat.explore 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-SpatialPack
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-geomtextpath 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-spatstat.explore 
@@ -54,9 +56,8 @@ Requires:         R-CRAN-spatstat.random
 
 %description
 An S3 class 'groupedHyperframe' that inherits from hyper data frame. Batch
-processes on point-pattern hyper column. Aggregation of
-function-value-table hyper column(s) and numeric hyper column(s) over a
-nested grouping structure.
+processes and aggregation of hyper column(s) over a nested grouping
+structure.
 
 %prep
 %setup -q -c -n %{packname}

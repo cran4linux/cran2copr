@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIAmodules
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modules for 'ShinyItemAnalysis'
 
@@ -14,19 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-difNLR >= 1.5.1.1
 BuildRequires:    R-CRAN-ShinyItemAnalysis >= 1.5.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mirt 
 BuildRequires:    R-CRAN-mirtCAT 
 BuildRequires:    R-CRAN-plotly 
@@ -39,16 +38,15 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-difNLR >= 1.5.1.1
 Requires:         R-CRAN-ShinyItemAnalysis >= 1.5.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mirt 
 Requires:         R-CRAN-mirtCAT 
 Requires:         R-CRAN-plotly 

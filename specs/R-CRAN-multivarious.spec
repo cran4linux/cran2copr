@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multivarious
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensible Data Structures for Multivariate Analysis
 
@@ -14,15 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-CRAN-svd 
 BuildRequires:    R-CRAN-pls 
@@ -30,13 +29,27 @@ BuildRequires:    R-CRAN-irlba
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-geigen 
+BuildRequires:    R-CRAN-PRIMME 
+BuildRequires:    R-CRAN-GPArotation 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rsvd 
 Requires:         R-CRAN-svd 
 Requires:         R-CRAN-pls 
@@ -44,7 +57,22 @@ Requires:         R-CRAN-irlba
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-geigen 
+Requires:         R-CRAN-PRIMME 
+Requires:         R-CRAN-GPArotation 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Provides a set of basic and extensible data structures and functions for

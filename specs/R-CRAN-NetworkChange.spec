@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NetworkChange
-%global packver   0.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Package for Network Changepoint Analysis
 
@@ -13,12 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -30,15 +30,13 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-ggvis 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
 Requires:         R-CRAN-Rmpfr 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-mvtnorm 
@@ -50,18 +48,19 @@ Requires:         R-stats
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-ggvis 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-viridis 
 
 %description
 Network changepoint analysis for undirected network data. The package
 implements a hidden Markov network change point model (Park and Sohn
 (2020)). Functions for break number detection using the approximate
-marginal likelihood and WAIC are also provided.
+marginal likelihood and WAIC are also provided. This version includes
+performance optimizations with vectorized MCMC operations and modern
+ggplot2-based visualizations with colorblind-friendly palettes.
 
 %prep
 %setup -q -c -n %{packname}

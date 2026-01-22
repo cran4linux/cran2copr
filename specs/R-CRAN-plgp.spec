@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plgp
-%global packver   1.1-12
+%global packver   1.1-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Particle Learning of Gaussian Processes
 
@@ -24,18 +24,18 @@ Requires:         R-CRAN-tgp
 %description
 Sequential Monte Carlo (SMC) inference for fully Bayesian Gaussian process
 (GP) regression and classification models by particle learning (PL)
-following Gramacy & Polson (2011) <arXiv:0909.5262>. The sequential nature
-of inference and the active learning (AL) hooks provided facilitate
-thrifty sequential design (by entropy) and optimization (by improvement)
-for classification and regression models, respectively. This package
-essentially provides a generic PL interface, and functions (arguments to
-the interface) which implement the GP models and AL heuristics.  Functions
-for a special, linked, regression/classification GP model and an
-integrated expected conditional improvement (IECI) statistic provide for
-optimization in the presence of unknown constraints. Separable and
-isotropic Gaussian, and single-index correlation functions are supported.
-See the examples section of ?plgp and demo(package="plgp") for an index of
-demos.
+following Gramacy & Polson (2011) <doi:10.48550/arXiv.0909.5262>. The
+sequential nature of inference and the active learning (AL) hooks provided
+facilitate thrifty sequential design (by entropy) and optimization (by
+improvement) for classification and regression models, respectively. This
+package essentially provides a generic PL interface, and functions
+(arguments to the interface) which implement the GP models and AL
+heuristics.  Functions for a special, linked, regression/classification GP
+model and an integrated expected conditional improvement (IECI) statistic
+provide for optimization in the presence of unknown constraints. Separable
+and isotropic Gaussian, and single-index correlation functions are
+supported. See the examples section of ?plgp and demo(package="plgp") for
+an index of demos.
 
 %prep
 %setup -q -c -n %{packname}

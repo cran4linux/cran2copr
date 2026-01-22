@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CRTspat
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Cluster Randomised Trials with Spillover
 
@@ -30,10 +30,12 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-jagsUI 
 BuildRequires:    R-CRAN-TSP 
 BuildRequires:    R-CRAN-gee 
+BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -47,10 +49,12 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-jagsUI 
 Requires:         R-CRAN-TSP 
 Requires:         R-CRAN-gee 
+Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-rstantools
 
 %description
 Design, workflow and statistical analysis of Cluster Randomised Trials of

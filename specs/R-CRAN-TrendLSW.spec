@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TrendLSW
-%global packver   1.0.4
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wavelet Methods for Analysing Locally Stationary Time Series
 
@@ -27,8 +27,11 @@ Fitting models for, and simulation of, trend locally stationary wavelet
 (TLSW) time series models, which take account of time-varying trend and
 dependence structure in a univariate time series. The TLSW model, and its
 estimation, is described in McGonigle, Killick and Nunes (2022a)
-<doi:10.1111/jtsa.12643>, (2022b) <doi:10.1214/22-EJS2044>. New users will
-likely want to start with the TLSW function.
+<doi:10.1111/jtsa.12643>, (2022b) <doi:10.1214/22-EJS2044>. Further
+information regarding the use of the package, along with detailed
+examples, can be found in McGonigle, Killick and Nunes (2025)
+<doi:10.18637/jss.v115.i10>. New users will likely want to start with the
+TLSW function.
 
 %prep
 %setup -q -c -n %{packname}

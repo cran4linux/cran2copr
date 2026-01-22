@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  whirl
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Log Execution of Scripts
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-reticulate >= 1.23
 BuildRequires:    R-CRAN-zephyr >= 0.1.1
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
@@ -27,7 +28,7 @@ BuildRequires:    R-CRAN-kableExtra
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-quarto 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-renv 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-stringr 
@@ -37,6 +38,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-reticulate >= 1.23
 Requires:         R-CRAN-zephyr >= 0.1.1
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
@@ -46,7 +48,7 @@ Requires:         R-CRAN-kableExtra
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-quarto 
-Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-renv 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-stringr 

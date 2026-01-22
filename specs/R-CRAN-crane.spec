@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crane
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplements the 'gtsummary' Package for Pharmaceutical Reporting
 
@@ -17,11 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-cli >= 3.6.4
 BuildRequires:    R-CRAN-survival >= 3.6.4
 BuildRequires:    R-CRAN-gtsummary >= 2.5.0
 BuildRequires:    R-CRAN-glue >= 1.8.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-broom.helpers >= 1.20.0
+BuildRequires:    R-CRAN-cowplot >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 1.1.5
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-broom >= 1.0.8
@@ -29,12 +32,17 @@ BuildRequires:    R-CRAN-flextable >= 0.9.7
 BuildRequires:    R-CRAN-cards >= 0.7.0
 BuildRequires:    R-CRAN-cardx >= 0.3.0
 BuildRequires:    R-CRAN-gt >= 0.11.1
+BuildRequires:    R-CRAN-labeling 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-cli >= 3.6.4
 Requires:         R-CRAN-survival >= 3.6.4
 Requires:         R-CRAN-gtsummary >= 2.5.0
 Requires:         R-CRAN-glue >= 1.8.0
 Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-broom.helpers >= 1.20.0
+Requires:         R-CRAN-cowplot >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.1.5
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-broom >= 1.0.8
@@ -42,7 +50,9 @@ Requires:         R-CRAN-flextable >= 0.9.7
 Requires:         R-CRAN-cards >= 0.7.0
 Requires:         R-CRAN-cardx >= 0.3.0
 Requires:         R-CRAN-gt >= 0.11.1
+Requires:         R-CRAN-labeling 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-patchwork 
 
 %description
 Tables summarizing clinical trial results are often complex and require

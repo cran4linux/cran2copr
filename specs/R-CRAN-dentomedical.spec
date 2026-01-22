@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dentomedical
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Publication-Ready Descriptive, Bivariate, Regression, and Diagnostic Accuracy Tools for Medical and Dental Data
+Summary:          Publication-Ready Descriptive, Bivariate, Regression, Correlation and Diagnostic Accuracy Tools for Medical and Dental Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,14 +21,18 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-FSA 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-FSA 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-tidyr 
 
@@ -36,7 +40,7 @@ Requires:         R-CRAN-tidyr
 The 'dentomedical' package provides a comprehensive suite of tools for
 medical and dental research. It includes automated descriptive statistics,
 bivariate analysis with intelligent test selection, logistic regression,
-and diagnostic accuracy assessment. All functions generate structured,
+and diagnostic accuracy assessment. All functions generate
 publication-ready tables using 'flextable', ensuring reproducibility and
 clarity suitable for manuscripts, reports, and clinical research
 workflows.

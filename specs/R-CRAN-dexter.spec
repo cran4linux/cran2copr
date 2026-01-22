@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dexter
-%global packver   1.7.0
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Management and Analysis of Tests
 
@@ -30,7 +30,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-sitmo 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-RSQLite >= 2.2.7
 Requires:         R-CRAN-tidyr >= 1.2.0

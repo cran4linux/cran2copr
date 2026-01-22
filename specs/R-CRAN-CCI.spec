@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CCI
-%global packver   0.3.4
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computational Test for Conditional Independence
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-kknn 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-caret 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-kknn 
 
 %description
 Tool for performing computational testing for conditional independence
