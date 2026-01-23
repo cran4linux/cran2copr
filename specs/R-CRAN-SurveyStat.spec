@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netdose
-%global packver   0.7-4
+%global packname  SurveyStat
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose-Response Network Meta-Analysis in a Frequentist Way
+Summary:          Survey Data Cleaning, Weighting and Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta >= 3.1.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-netmeta >= 3.1.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-A set of functions providing the implementation of the network
-meta-analysis model with dose-response relationships, predicted values of
-the fitted model and dose-response plots in a frequentist way.
+Provides utilities for cleaning survey data, computing weights, and
+performing descriptive statistical analysis. Methods follow Lohr (2019,
+ISBN:978-0367272454) "Sampling: Design and Analysis" and Lumley (2010)
+<doi:10.1002/9780470580066>.
 
 %prep
 %setup -q -c -n %{packname}

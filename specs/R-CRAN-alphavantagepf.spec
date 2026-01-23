@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ripc
-%global packver   1.0.0
+%global packname  alphavantagepf
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Tidy IPC and CH Data
+Summary:          Comprehensive R Wrapper for 'Alphavantage Financial Data' API
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,37 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-countrycode 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-timeDate >= 4000
+BuildRequires:    R-utils >= 4.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.5
+BuildRequires:    R-CRAN-httr >= 1.2.1
+BuildRequires:    R-CRAN-stringr >= 1.2.0
+BuildRequires:    R-CRAN-glue >= 1.1.1
+BuildRequires:    R-CRAN-readr >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-lubridate >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0
+BuildRequires:    R-CRAN-tidyr >= 0.6.3
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-timeDate >= 4000
+Requires:         R-utils >= 4.0.0
+Requires:         R-CRAN-jsonlite >= 1.5
+Requires:         R-CRAN-httr >= 1.2.1
+Requires:         R-CRAN-stringr >= 1.2.0
+Requires:         R-CRAN-glue >= 1.1.1
+Requires:         R-CRAN-readr >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-lubridate >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0
+Requires:         R-CRAN-tidyr >= 0.6.3
+Requires:         R-CRAN-data.table 
 
 %description
-Utilities to access Integrated Food Security Phase Classification (IPC)
-and Cadre Harmonisé (CH) food security data. Wrapper functions are
-available for all of the 'IPC-CH' Public API
-(<https://docs.api.ipcinfo.org>) simplified and advanced endpoints to
-easily download the data in a clean and tidy format.
+Download 'Alphavantage financial data'
+<https://www.alphavantage.co/documentation/> to reduced 'data.table'
+objects. Includes support functions to extract and simplify complex data
+returned from API calls.
 
 %prep
 %setup -q -c -n %{packname}

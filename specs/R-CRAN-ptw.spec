@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ptw
-%global packver   1.9-16
+%global packver   1.9-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.16
+Version:          1.9.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Time Warping
 
@@ -25,17 +26,18 @@ Requires:         R-grDevices
 Requires:         R-stats 
 
 %description
-Parametric Time Warping aligns patterns, i.e. it aims to put corresponding
-features at the same locations. The algorithm searches for an optimal
-polynomial describing the warping. It is possible to align one sample to a
-reference, several samples to the same reference, or several samples to
-several references. One can choose between calculating individual
-warpings, or one global warping for a set of samples and one reference.
-Two optimization criteria are implemented: RMS (Root Mean Square error)
-and WCC (Weighted Cross Correlation). Both warping of peak profiles and of
-peak lists are supported. A vignette for the latter is contained in the
-inst/doc directory of the source package - the vignette source can be
-found on the package github site.
+Parametric Time Warping aligns patterns, i.e., it aims to put
+corresponding features at the same locations. The algorithm searches for
+an optimal polynomial describing the warping. It is possible to align one
+sample to a reference, several samples to the same reference, or several
+samples to several references. One can choose between calculating
+individual warpings, or one global warping for a set of samples and one
+reference. Two optimization criteria are implemented: RMS (Root Mean
+Square error) and WCC (Weighted Cross Correlation). Both warping of peak
+profiles and of peak lists are supported. A vignette for the latter is
+contained in the inst/doc directory of the source package - the vignette
+source can be found on the package github site. See `citation("ptw")` for
+more details.
 
 %prep
 %setup -q -c -n %{packname}

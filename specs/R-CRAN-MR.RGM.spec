@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MR.RGM
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Bidirectional Mendelian Randomization Networks
+Summary:          Fitting Multivariate Bidirectional Mendelian Randomization Networks Using Bayesian Directed Cyclic Graphical Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,10 +19,13 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-GIGrvg 
 
 %description
 Addressing a central challenge encountered in Mendelian randomization (MR)
@@ -38,11 +41,15 @@ responses and instrument variables. The resulting Graph visually
 represents these causal connections, showing directed edges with effect
 sizes labeled. 'MR.RGM' facilitates the navigation of various data
 availability scenarios effectively by accommodating three input formats,
-i.e., individual-level data and two types of summary-level data. In the
-process, causal effects, adjacency matrices, and other essential
+i.e., individual-level data and two types of summary-level data. The
+method also optionally incorporates measured covariates (when available)
+and allows flexible modeling of the error variance structure, including
+correlated errors that may reflect unmeasured confounding among responses.
+In the process, causal effects, adjacency matrices, and other essential
 parameters of the complex biological networks, are estimated. Besides,
 'MR.RGM' provides uncertainty quantification for specific network
-structures among response variables.
+structures among response variables. Parts of the Inverse Wishart sampler
+are adapted from the econ722 repository by DiTraglia (GPL-2.0).
 
 %prep
 %setup -q -c -n %{packname}

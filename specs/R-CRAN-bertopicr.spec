@@ -1,45 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netdose
-%global packver   0.7-4
+%global packname  bertopicr
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose-Response Network Meta-Analysis in a Frequentist Way
+Summary:          Topic Modeling with 'BERTopic'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta >= 3.1.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-netmeta >= 3.1.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-utils 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 
 %description
-A set of functions providing the implementation of the network
-meta-analysis model with dose-response relationships, predicted values of
-the fitted model and dose-response plots in a frequentist way.
+Provides topic modeling and visualization by interfacing with the
+'BERTopic' library for 'Python' via 'reticulate'. See Grootendorst (2022)
+<doi:10.48550/arXiv.2203.05794>.
 
 %prep
 %setup -q -c -n %{packname}

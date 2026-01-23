@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netdose
-%global packver   0.7-4
+%global packname  futurize
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose-Response Network Meta-Analysis in a Frequentist Way
+Summary:          Parallelize Common Functions via One Magic Function
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta >= 3.1.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggh4x 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-netmeta >= 3.1.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggh4x 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-future > 1.58.0
+Requires:         R-CRAN-future > 1.58.0
 
 %description
-A set of functions providing the implementation of the network
-meta-analysis model with dose-response relationships, predicted values of
-the fitted model and dose-response plots in a frequentist way.
+The futurize() function transpiles calls to sequential map-reduce
+functions such as base::lapply(), purrr::map(), 'foreach::foreach() %%do%% {
+... }' into concurrent alternatives, providing you with a simple,
+straightforward path to scalable parallel computing via the 'future'
+ecosystem <doi:10.32614/RJ-2021-048>. By combining this function with R's
+native pipe operator, you have an convenient way for speeding up iterative
+computations with minimal refactoring, e.g. 'lapply(xs, fcn) |>
+futurize()', 'purrr::map(xs, fcn) |> futurize()', and 'foreach::foreach(x
+= xs) %%do%% { fcn(x) } |> futurize()'. Other map-reduce packages that be
+"futurized" are 'BiocParallel', 'plyr', 'crossmap' packages. There is also
+support for growing set of domain-specific packages, including 'boot',
+'glmnet', 'mgcv', 'lme4', and 'tm'.
 
 %prep
 %setup -q -c -n %{packname}

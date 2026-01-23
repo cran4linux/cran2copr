@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2sundials
-%global packver   7.2.1-3
+%global packver   7.2.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.2.1.3
+Version:          7.2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper for 'SUNDIALS' Solving ODE and Sensitivity Problem
 

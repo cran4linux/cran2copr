@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netdose
-%global packver   0.7-4
+%global packname  edgemodelr
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose-Response Network Meta-Analysis in a Frequentist Way
+Summary:          Local Large Language Model Inference Engine
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta >= 3.1.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggh4x 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-netmeta >= 3.1.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggh4x 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-utils 
+Requires:         R-tools 
 
 %description
-A set of functions providing the implementation of the network
-meta-analysis model with dose-response relationships, predicted values of
-the fitted model and dose-response plots in a frequentist way.
+Enables R users to run large language models locally using 'GGUF' model
+files and the 'llama.cpp' inference engine. Provides a complete R
+interface for loading models, generating text completions, and streaming
+responses in real-time. Supports local inference without requiring cloud
+APIs or internet connectivity, ensuring complete data privacy and control.
+Based on the 'llama.cpp' project by Georgi Gerganov (2023)
+<https://github.com/ggml-org/llama.cpp>.
 
 %prep
 %setup -q -c -n %{packname}

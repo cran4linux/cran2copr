@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topologyR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topological Connectivity Analysis for Numeric Data
 
@@ -28,7 +28,7 @@ Requires:         R-utils
 Description: Implementation of topological data analysis methods based on
 graph-theoretic approaches for discovering topological structures in data.
 The core algorithm constructs topological spaces from graphs following
-Nada et al. (2018) <doi:10.1002/mma.5096> "New types of topological
+Nada et al. (2018) <doi:10.1002/mma.4726> "New types of topological
 structures via graphs".
 
 %prep

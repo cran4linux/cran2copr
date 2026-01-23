@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netdose
-%global packver   0.7-4
+%global packname  MATES
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose-Response Network Meta-Analysis in a Frequentist Way
+Summary:          Multi-View Aggregated Two Sample Tests
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta >= 3.1.1
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggh4x 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-netmeta >= 3.1.1
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggh4x 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-A set of functions providing the implementation of the network
-meta-analysis model with dose-response relationships, predicted values of
-the fitted model and dose-response plots in a frequentist way.
+Implements the Multi-view Aggregated Two-Sample (MATES) test, a powerful
+nonparametric method for testing equality of two multivariate
+distributions. The method constructs multiple graph-based statistics from
+various perspectives (views) including different distance metrics, graph
+types (nearest neighbor graphs, minimum spanning trees, and robust nearest
+neighbor graphs), and weighting schemes. These statistics are then
+aggregated through a quadratic form to achieve improved statistical power.
+The package provides both asymptotic closed-form inference and
+permutation-based testing procedures. For methodological details, see Cai
+and others (2026+) <doi:10.48550/arXiv.2412.16684>.
 
 %prep
 %setup -q -c -n %{packname}

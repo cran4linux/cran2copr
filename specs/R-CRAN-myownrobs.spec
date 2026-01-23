@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  myownrobs
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          AI Coding Agent for 'RStudio'
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ellmer 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-gargle 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-mirai 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-rstudio.prefs 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-ellmer 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-gargle 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-mirai 
+Requires:         R-methods 
+Requires:         R-CRAN-promises 
 Requires:         R-CRAN-rstudio.prefs 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 

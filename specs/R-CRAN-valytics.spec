@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netdose
-%global packver   0.7-4
+%global packname  valytics
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dose-Response Network Meta-Analysis in a Frequentist Way
+Summary:          Statistical Methods for Analytical Method Comparison and Validation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta >= 3.1.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggh4x 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-netmeta >= 3.1.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-robslopes 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggh4x 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-robslopes 
 
 %description
-A set of functions providing the implementation of the network
-meta-analysis model with dose-response relationships, predicted values of
-the fitted model and dose-response plots in a frequentist way.
+Provides statistical methods for analytical method comparison and
+validation studies. Implements Bland-Altman analysis for assessing
+agreement between measurement methods (Bland & Altman (1986)
+<doi:10.1016/S0140-6736(86)90837-8>), Passing-Bablok regression for
+non-parametric method comparison (Passing & Bablok (1983)
+<doi:10.1515/cclm.1983.21.11.709>), and Deming regression accounting for
+measurement error in both variables (Linnet (1993)
+<doi:10.1093/clinchem/39.3.424>). Also includes tools for setting quality
+goals based on biological variation (Fraser & Petersen (1993)
+<doi:10.1093/clinchem/39.7.1447>) and calculating Six Sigma metrics.
+Commonly used in clinical laboratory method validation. Provides
+publication-ready plots and comprehensive statistical summaries.
 
 %prep
 %setup -q -c -n %{packname}
