@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uncertainUCDP
-%global packver   0.7.0
+%global packver   0.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Mixture Models for Uncertainty Estimation of Fatalities in UCDP Conflict Data
 
@@ -14,18 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mistr 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mistr 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-foreach 

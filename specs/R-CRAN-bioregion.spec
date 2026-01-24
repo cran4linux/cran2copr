@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bioregion
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comparison of Bioregionalisation Methods
+Summary:          Comparison of Bioregionalization Methods
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-rcartocolor 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-rcartocolor 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
@@ -68,7 +70,7 @@ Requires:         R-utils
 
 %description
 The main purpose of this package is to propose a transparent
-methodological framework to compare bioregionalisation methods based on
+methodological framework to compare bioregionalization methods based on
 hierarchical and non-hierarchical clustering algorithms (Kreft & Jetz
 (2010) <doi:10.1111/j.1365-2699.2010.02375.x>) and network algorithms
 (Lenormand et al. (2019) <doi:10.1002/ece3.4718> and Leroy et al. (2019)

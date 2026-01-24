@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rangr
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mechanistic Simulation of Species Range Dynamics
 
@@ -45,7 +45,10 @@ environmental change on population growth and range shifts. It allows for
 simple and straightforward definition of population dynamics (including
 positive density dependence), extensive possibilities for defining
 dispersal kernels, and the ability to generate virtual ecologist data.
-Learn more about the 'rangr' at <https://docs.ropensci.org/rangr/>.
+Learn more about the 'rangr' at <https://docs.ropensci.org/rangr/>. This
+work was supported by the National Science Centre, Poland, grant no.
+2018/29/B/NZ8/00066 and the Poznań Supercomputing and Networking Centre
+(grant no. pl0090-01).
 
 %prep
 %setup -q -c -n %{packname}

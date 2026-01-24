@@ -1,24 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OVL.CI
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference on the Overlap Coefficient: The Binormal Approach and Alternatives
+Summary:          Inference on the Overlap Coefficient
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ks 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mixtools 
+Requires:         R-stats 
 
 %description
 Provides functions to construct confidence intervals for the Overlap
@@ -30,7 +36,10 @@ corresponding histograms based on samples of measurements from each one of
 the two distributions, the development of accurate methods for confidence
 interval construction can be useful for applied researchers. Implements
 methods based on the work of Franco-Pereira, A.M., Nakas, C.T., Reiser,
-B., and Pardo, M.C. (2021) <doi:10.1177/09622802211046386>.
+B., and Pardo, M.C. (2021) <doi:10.1177/09622802211046386> as well as
+extensions for multimodal distributions proposed by Alcaraz-Peñalba, A.,
+Franco-Pereira, A., and Pardo, M.C. (2025)
+<doi:10.1007/s10182-025-00545-2>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fable
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Models for Tidy Time Series
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tsibble >= 0.9.0
 Requires:         R-CRAN-rlang >= 0.4.6
@@ -36,6 +37,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-distributional 
+Requires:         R-CRAN-cli 
 
 %description
 Provides a collection of commonly used univariate and multivariate time

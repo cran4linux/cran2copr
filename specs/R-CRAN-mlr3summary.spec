@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3summary
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model and Learner Summaries for 'mlr3'
 
@@ -21,20 +21,20 @@ BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-future.apply >= 1.5.0
 BuildRequires:    R-CRAN-mlr3 >= 0.12.0
 BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-mlr3misc 
-BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-future.apply >= 1.5.0
 Requires:         R-CRAN-mlr3 >= 0.12.0
 Requires:         R-CRAN-backports 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-mlr3misc 
-Requires:         R-CRAN-cli 
 
 %description
 Concise and interpretable summaries for machine learning models and
-learners of the 'mlr3' ecosystem. The package takes inspiration from the
+learners of the 'mlr3' ecosystem.  The package takes inspiration from the
 summary function for (generalized) linear models but extends it to
 non-parametric machine learning models, based on generalization
 performance, model complexity, feature importances and effects, and

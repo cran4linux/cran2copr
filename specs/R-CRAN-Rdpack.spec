@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rdpack
-%global packver   2.6.4
+%global packver   2.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.4
+Version:          2.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Update and Manipulate Rd Documentation Objects
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbibutils >= 1.3
+BuildRequires:    R-CRAN-rbibutils > 2.4
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rbibutils >= 1.3
+Requires:         R-CRAN-rbibutils > 2.4
 Requires:         R-methods 
 Requires:         R-tools 
 Requires:         R-utils 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optweight
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimization-Based Stable Balancing Weights
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-collapse >= 2.1.5
 BuildRequires:    R-CRAN-Matrix >= 1.2.13
 BuildRequires:    R-CRAN-rlang >= 1.1.6
 BuildRequires:    R-CRAN-osqp >= 0.6.3.3
@@ -25,7 +27,9 @@ BuildRequires:    R-CRAN-chk >= 0.10.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-collapse >= 2.1.5
 Requires:         R-CRAN-Matrix >= 1.2.13
 Requires:         R-CRAN-rlang >= 1.1.6
 Requires:         R-CRAN-osqp >= 0.6.3.3
@@ -40,7 +44,8 @@ multi-category, continuous, and multivariate treatments in the spirit of
 Zubizarreta (2015) <doi:10.1080/01621459.2015.1023805>. The degree of
 balance can be specified for each covariate. In addition, sampling weights
 can be estimated that allow a sample to generalize to a population
-specified with given target moments of covariates.
+specified with given target moments of covariates, as in matching-adjusted
+indirect comparison (MAIC).
 
 %prep
 %setup -q -c -n %{packname}

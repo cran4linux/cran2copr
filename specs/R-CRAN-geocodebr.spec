@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geocodebr
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geolocalização De Endereços Brasileiros (Geocoding Brazilian Addresses)
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-arrow >= 15.0.1
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-enderecobr >= 0.4.1
+BuildRequires:    R-CRAN-enderecobr >= 0.5.0
 BuildRequires:    R-CRAN-nanoarrow >= 0.3.0.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-callr 
@@ -39,7 +39,7 @@ BuildRequires:    R-CRAN-sfheaders
 BuildRequires:    R-tools 
 Requires:         R-CRAN-arrow >= 15.0.1
 Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-enderecobr >= 0.4.1
+Requires:         R-CRAN-enderecobr >= 0.5.0
 Requires:         R-CRAN-nanoarrow >= 0.3.0.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-callr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ragnar
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval-Augmented Generation (RAG) Workflows
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-mirai >= 2.5.1
 BuildRequires:    R-CRAN-reticulate >= 1.42.0
 BuildRequires:    R-CRAN-duckdb >= 1.3.1
 BuildRequires:    R-CRAN-rlang >= 1.1.0
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-dbplyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-S7 
@@ -36,6 +38,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-mirai >= 2.5.1
 Requires:         R-CRAN-reticulate >= 1.42.0
 Requires:         R-CRAN-duckdb >= 1.3.1
 Requires:         R-CRAN-rlang >= 1.1.0
@@ -48,6 +51,7 @@ Requires:         R-CRAN-dbplyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-S7 

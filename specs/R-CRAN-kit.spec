@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kit
-%global packver   0.0.20
+%global packver   0.0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.20
+Version:          0.0.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Manipulation Functions Implemented in C
 

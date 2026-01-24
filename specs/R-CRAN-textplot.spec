@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  textplot
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Plots
 
@@ -36,7 +37,10 @@ Visualise complex relations in texts. This is done by providing
 functionalities for displaying text co-occurrence networks, text
 correlation networks, dependency relationships as well as text clustering
 and semantic text 'embeddings'. Feel free to join the effort of providing
-interesting text visualisations.
+interesting text visualisations. Do note that to avoid the risk of CRAN
+archival that you should put packages as much as possible in Suggests.
+Package 'ggalt' is available in the CRAN archive:
+<https://cran.r-project.org/package=ggalt>.
 
 %prep
 %setup -q -c -n %{packname}

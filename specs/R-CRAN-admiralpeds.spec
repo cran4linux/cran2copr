@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiralpeds
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pediatrics Extension Package for ADaM in 'R' Asset Library
 
@@ -20,19 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.2
 BuildRequires:    R-CRAN-zoo >= 1.8.12
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-admiraldev >= 1.3.1
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.5
 BuildRequires:    R-CRAN-admiral >= 1.0.0
-BuildRequires:    R-CRAN-admiraldev >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.4
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-cli >= 3.6.2
 Requires:         R-CRAN-zoo >= 1.8.12
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-admiraldev >= 1.3.1
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.5
 Requires:         R-CRAN-admiral >= 1.0.0
-Requires:         R-CRAN-admiraldev >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.4
 Requires:         R-CRAN-purrr >= 0.3.3
 

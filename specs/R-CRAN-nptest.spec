@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nptest
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Bootstrap and Permutation Tests
 
@@ -19,9 +19,9 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Robust nonparametric bootstrap and permutation tests for location,
-correlation, and regression problems, as described in Helwig (2019a)
-<doi:10.1002/wics.1457> and Helwig (2019b)
+Robust nonparametric bootstrap and permutation tests for goodness of fit,
+distribution equivalence, location, correlation, and regression problems,
+as described in Helwig (2019a) <doi:10.1002/wics.1457> and Helwig (2019b)
 <doi:10.1016/j.neuroimage.2019.116030>. Univariate and multivariate tests
 are supported. For each problem, exact tests and Monte Carlo
 approximations are available. Five different nonparametric bootstrap

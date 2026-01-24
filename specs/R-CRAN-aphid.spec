@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aphid
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis with Profile Hidden Markov Models
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-kmer >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.5
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-qpdf 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-kmer >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.5
 Requires:         R-graphics 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-qpdf 
 Requires:         R-stats 
 
 %description
