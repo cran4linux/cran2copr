@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hyper.gam
-%global packver   0.2.1
+%global packname  rbmiUtils
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Additive Models with Hyper Column
+Summary:          Utility Functions to Support and Extend the 'rbmi' Package
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-groupedHyperframe >= 0.3.0
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-groupedHyperframe >= 0.3.0
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nlme 
-Requires:         R-parallel 
-Requires:         R-CRAN-plotly 
+BuildRequires:    R-CRAN-rbmi >= 1.4
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-beeca 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-rbmi >= 1.4
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-beeca 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-Generalized additive models with a numeric hyper column. Sign-adjustment
-based on the correlation of model prediction and a selected slice of the
-hyper column. Visualization of the integrand surface over the hyper
-column.
+Provides utility functions that extend the capabilities of the
+reference-based multiple imputation package 'rbmi'. It supports clinical
+trial analysis workflows with functions for managing imputed datasets,
+applying analysis methods across imputations, and tidying results for
+reporting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mfdb
-%global packver   7.3-1
+%global packver   7.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.1
+Version:          7.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MareFrame DB Querying Library
 
@@ -13,23 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RPostgres >= 1.3.0
 BuildRequires:    R-CRAN-logging >= 0.7.103
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-DBI >= 0.3.1
 BuildRequires:    R-CRAN-duckdb >= 0.2.5
 BuildRequires:    R-CRAN-getPass >= 0.1.1
-BuildRequires:    R-CRAN-RSQLite 
-Requires:         R-CRAN-RPostgres >= 1.3.0
 Requires:         R-CRAN-logging >= 0.7.103
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-DBI >= 0.3.1
 Requires:         R-CRAN-duckdb >= 0.2.5
 Requires:         R-CRAN-getPass >= 0.1.1
-Requires:         R-CRAN-RSQLite 
 
 %description
 Creates and manages a PostgreSQL database suitable for storing fisheries

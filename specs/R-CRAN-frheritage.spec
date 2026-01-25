@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hyper.gam
-%global packver   0.2.1
+%global packname  frheritage
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Additive Models with Hyper Column
+Summary:          R Interface to Get French Heritage Data
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-groupedHyperframe >= 0.3.0
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-groupedHyperframe >= 0.3.0
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nlme 
-Requires:         R-parallel 
-Requires:         R-CRAN-plotly 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-happign 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-happign 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-xml2 
 
 %description
-Generalized additive models with a numeric hyper column. Sign-adjustment
-based on the correlation of model prediction and a selected slice of the
-hyper column. Visualization of the integrand surface over the hyper
-column.
+Get spatial vector data from the Atlas du Patrimoine
+(<http://atlas.patrimoines.culture.fr/atlas/trunk/>), the official
+national platform of the French Ministry of Culture, and facilitate its
+use within R geospatial workflows. The package provides functions to list
+available heritage datasets, query and retrieve heritage data using
+spatial queries based on user-provided sf objects, perform spatial
+filtering operations, and return results as sf objects suitable for
+spatial analysis, mapping, and integration into heritage management and
+landscape studies.
 
 %prep
 %setup -q -c -n %{packname}

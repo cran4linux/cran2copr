@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hyper.gam
-%global packver   0.2.1
+%global packname  GMMinit
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Additive Models with Hyper Column
+Summary:          Optimal Initial Value for Gaussian Mixture Model
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-groupedHyperframe >= 0.3.0
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-groupedHyperframe >= 0.3.0
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nlme 
-Requires:         R-parallel 
-Requires:         R-CRAN-plotly 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-stats 
 
 %description
-Generalized additive models with a numeric hyper column. Sign-adjustment
-based on the correlation of model prediction and a selected slice of the
-hyper column. Visualization of the integrand surface over the hyper
-column.
+Generating, evaluating, and selecting initialization strategies for
+Gaussian Mixture Models (GMMs), along with functions to run the
+Expectation-Maximization (EM) algorithm. Initialization methods are
+compared using log-likelihood, and the best-fitting model can be selected
+using BIC. Methods build on initialization strategies for finite mixture
+models described in Michael and Melnykov (2016)
+<doi:10.1007/s11634-016-0264-8> and Biernacki et al. (2003)
+<doi:10.1016/S0167-9473(02)00163-9>, and on the EM algorithm of Dempster
+et al. (1977) <doi:10.1111/j.2517-6161.1977.tb01600.x>. Background on
+model-based clustering includes Fraley and Raftery (2002)
+<doi:10.1198/016214502760047131> and McLachlan and Peel (2000,
+ISBN:9780471006268).
 
 %prep
 %setup -q -c -n %{packname}
