@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ZIHINAR1
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Zero-Inflated and Hurdle INAR(1) Models
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-HMMpa 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-VGAM 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-stats 
 Requires:         R-CRAN-knitr 
 Requires:         R-utils 
+Requires:         R-CRAN-HMMpa 
 Requires:         R-CRAN-rstantools
 
 %description

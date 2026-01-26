@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiStatM
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Statistical Methods
 
@@ -14,19 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-EQL 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-EQL 
 Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Algorithms to build set partitions and commutator matrices and their use

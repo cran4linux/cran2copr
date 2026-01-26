@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CMFsurrogate
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibrated Model Fusion Approach to Combine Surrogate Markers
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-splines 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Uses a calibrated model fusion approach to optimally combine multiple
@@ -33,7 +35,10 @@ both validity of the final combined score and optimality with respect to
 the proportion of treatment effect explained (PTE) by the final combined
 score. The primary function, pte.estimate.multiple(), estimates the PTE of
 the identified combination of multiple surrogate markers. Details are
-described in Wang et al (2022) <doi:10.1111/biom.13677>.
+described in Wang et al (2022) <doi:10.1111/biom.13677>. A tutorial for
+the package is available at <https://www.laylaparast.com/cmfsurrogate> and
+a Shiny App is available at
+<https://parastlab.shinyapps.io/CMFsurrogateApp/>.
 
 %prep
 %setup -q -c -n %{packname}

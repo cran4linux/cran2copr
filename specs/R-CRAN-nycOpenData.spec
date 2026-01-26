@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nycOpenData
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenient Access to NYC Open Data API Endpoints
 
@@ -33,6 +33,8 @@ results as tidy tibbles and support optional filtering, sorting, and row
 limits via the Socrata API. The package includes endpoints for 311 service
 requests, DOB job applications, juvenile justice metrics, school safety,
 environmental data, event permitting, and additional citywide datasets.
+The package is utilized as a primary pedagogical tool for teaching data
+acquisition in 'Reproducible Research Using R'.
 
 %prep
 %setup -q -c -n %{packname}

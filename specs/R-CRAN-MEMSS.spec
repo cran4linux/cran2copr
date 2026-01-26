@@ -1,46 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scaRabee
-%global packver   1.1-5
+%global packname  MEMSS
+%global packver   0.9-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimization Toolkit for Pharmacokinetic-Pharmacodynamic Models
+Summary:          Data Sets from Mixed-Effects Models in S
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-neldermead >= 1.0.8
-BuildRequires:    R-CRAN-optimbase >= 1.0.8
-BuildRequires:    R-CRAN-optimsimplex >= 1.0.5
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-neldermead >= 1.0.8
-Requires:         R-CRAN-optimbase >= 1.0.8
-Requires:         R-CRAN-optimsimplex >= 1.0.5
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-deSolve 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-lme4 >= 0.999375.36
+Requires:         R-CRAN-lme4 >= 0.999375.36
 
 %description
-A port of the Scarabee toolkit originally written as a Matlab-based
-application. scaRabee provides a framework for simulation and optimization
-of pharmacokinetic-pharmacodynamic models at the individual and population
-level. It is built on top of the neldermead package, which provides the
-direct search algorithm proposed by Nelder and Mead for model
-optimization.
+Data sets and sample analyses from Pinheiro and Bates, "Mixed-effects
+Models in S and S-PLUS" (Springer, 2000).
 
 %prep
 %setup -q -c -n %{packname}

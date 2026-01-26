@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mrangr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mechanistic Metacommunity Simulator
 
@@ -53,6 +53,9 @@ The 'mrangr' package adds the ability to simulate multiple species
 interacting through an asymmetric matrix of pairwise relationships,
 allowing users to model all types of biotic interactions — competitive,
 facilitative, or neutral — within spatially explicit virtual environments.
+This work was supported by the National Science Centre, Poland, grant no.
+2018/29/B/NZ8/00066 and the Poznań Supercomputing and Networking Centre
+(grant no. pl0090-01).
 
 %prep
 %setup -q -c -n %{packname}

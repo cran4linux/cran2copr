@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RecordLinkage
-%global packver   0.4-12.5
+%global packver   0.4-12.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.12.5
+Version:          0.4.12.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Record Linkage Functions for Linking and Deduplicating Data Sets
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-ff 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-ada 
 BuildRequires:    R-CRAN-ipred 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-evd 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-DBI
 Requires:         R-CRAN-ff 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-ada 
 Requires:         R-CRAN-ipred 
 Requires:         R-stats 
 Requires:         R-CRAN-evd 
