@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  recluster
-%global packver   3.4
+%global packver   3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4
+Version:          3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ordination Methods for the Analysis of Beta-Diversity Indices
 
@@ -55,7 +55,7 @@ topology and bootstrap supports are affected by the order of rows in the
 original matrix. Moreover, visualisation of biogeographical
 regionalisation can be facilitated by a combination of hierarchical
 clustering and multi-dimensional scaling. The recluster package provides
-robust techniques to visualise and analyse pattern of biodiversity and to
+robust techniques to visualise and analyse patterns of biodiversity and to
 improve occurrence data for cryptic taxa.
 
 %prep

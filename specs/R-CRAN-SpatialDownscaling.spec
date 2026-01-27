@@ -1,41 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EviewsR
-%global packver   0.1.7
+%global packname  SpatialDownscaling
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Seamless Integration of 'EViews' and R
+Summary:          Methods for Spatial Downscaling Using Deep Learning
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.20
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tensorflow 
+BuildRequires:    R-CRAN-keras3 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-knitr >= 1.20
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-abind 
+Requires:         R-stats 
+Requires:         R-CRAN-tensorflow 
+Requires:         R-CRAN-keras3 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-abind 
 
 %description
-It allows running 'EViews' (<https://eviews.com>) program from R, R
-Markdown and Quarto documents. 'EViews' (Econometric Views) is a
-statistical software for Econometric analysis.  This package integrates
-'EViews' and R and also serves as an 'EViews' Knit-Engine for 'knitr'
-package. Write all your 'EViews' commands in R, R Markdown or Quarto
-documents. For details, please consult our peer-review article Mati S.,
-Civcir I. and Abba S.I (2023) <doi:10.32614/RJ-2023-045>.
+The aim of the spatial downscaling is to increase the spatial resolution
+of the gridded geospatial input data. This package contains two deep
+learning based spatial downscaling methods, super-resolution deep residual
+network (SRDRN) (Wang et al., 2021 <doi:10.1029/2020WR029308>) and UNet
+(Ronneberger et al., 2015 <doi:10.1007/978-3-319-24574-4_28>), along with
+a statistical baseline method bias correction and spatial disaggregation
+(Wood et al., 2004 <doi:10.1023/B:CLIM.0000013685.99609.9e>). The SRDRN
+and UNet methods are implemented to optionally account for cyclical
+temporal patterns in case of spatio-temporal data. For more details of the
+methods, see Sipilä et al. (2025) <doi:10.48550/arXiv.2512.13753>.
 
 %prep
 %setup -q -c -n %{packname}

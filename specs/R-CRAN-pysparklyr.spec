@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pysparklyr
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides a 'PySpark' Back-End for the 'sparklyr' Package
 
@@ -14,49 +14,51 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.41.0.1
+BuildRequires:    R-CRAN-reticulate >= 1.44.0
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sparklyr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-rsconnect 
-Requires:         R-CRAN-reticulate >= 1.41.0.1
+BuildRequires:    R-CRAN-sparklyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-connectcreds 
+Requires:         R-CRAN-reticulate >= 1.44.0
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sparklyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-processx 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-rsconnect 
+Requires:         R-CRAN-sparklyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-connectcreds 
 
 %description
 It enables 'sparklyr' to integrate with 'Spark Connect', and 'Databricks

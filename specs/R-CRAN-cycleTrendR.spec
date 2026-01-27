@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cycleTrendR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Cycle and Trend Analysis for Irregular Time Series
 
@@ -21,25 +21,19 @@ BuildRequires:    R-CRAN-blocklength
 BuildRequires:    R-CRAN-fANCOVA 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lomb 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-changepoint 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tseries 
 Requires:         R-CRAN-blocklength 
 Requires:         R-CRAN-fANCOVA 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lomb 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-changepoint 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tseries 
 
 %description
@@ -48,7 +42,7 @@ selection, bootstrap confidence intervals, change-point detection, and
 rolling-origin forecasting. Supports LOESS (Locally Estimated Scatterplot
 Smoothing), GAM (Generalized Additive Model), and GAMM (Generalized
 Additive Mixed Model), and automatically handles irregular sampling using
-the Lomb–Scargle periodogram. Methods implemented in this package are
+the Lomb-Scargle periodogram. Methods implemented in this package are
 described in Cleveland et al. (1990) <doi:10.2307/2289548>, Wood (2017)
 <doi:10.1201/9781315370279>, and Scargle (1982) <doi:10.1086/160554>.
 

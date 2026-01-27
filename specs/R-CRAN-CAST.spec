@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CAST
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'caret' Applications for Spatial-Temporal Models
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-twosamples 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-caret 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-twosamples 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-sp 
+Requires:         R-parallel 
 
 %description
 Supporting functionality to run 'caret' with spatial or spatial-temporal
@@ -65,10 +67,10 @@ prediction models. Methods are described in Meyer et al. (2018)
 <doi:10.1016/j.ecolmodel.2019.108815>; Meyer and Pebesma (2021)
 <doi:10.1111/2041-210X.13650>; Milà et al. (2022)
 <doi:10.1111/2041-210X.13851>; Meyer and Pebesma (2022)
-<doi:10.1038/s41467-022-29838-9>; Linnenbrink et al. (2023)
-<doi:10.5194/egusphere-2023-1308>; Schumacher et al. (2024)
-<doi:10.5194/egusphere-2024-2730>. The package is described in detail in
-Meyer et al. (2024) <doi:10.48550/arXiv.2404.06978>.
+<doi:10.1038/s41467-022-29838-9>; Linnenbrink et al. (2024)
+<doi:10.5194/gmd-17-5897-2024>; Schumacher et al. (2025)
+<doi:10.5194/gmd-18-10185-2025>. The package is described in detail in
+Meyer et al. (2026) <doi:10.1007/978-3-031-99665-8_11>.
 
 %prep
 %setup -q -c -n %{packname}

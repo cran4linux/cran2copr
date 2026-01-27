@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dfms
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Factor Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-collapse >= 2.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -25,20 +25,21 @@ Requires:         R-CRAN-Rcpp >= 1.0.1
 %description
 Efficient estimation of Dynamic Factor Models using the Expectation
 Maximization (EM) algorithm or Two-Step (2S) estimation, supporting
-datasets with missing data. Factors are assumed to follow a stationary VAR
-process of order p. The estimation options follow advances in the
-econometric literature: either running the Kalman Filter and Smoother once
-with initial values from PCA - 2S estimation as in Doz, Giannone and
-Reichlin (2011) <doi:10.1016/j.jeconom.2011.02.012> - or via iterated
-Kalman Filtering and Smoothing until EM convergence - following Doz,
-Giannone and Reichlin (2012) <doi:10.1162/REST_a_00225> - or using the
-adapted EM algorithm of Banbura and Modugno (2014) <doi:10.1002/jae.2306>,
-allowing arbitrary patterns of missing data. The implementation makes
-heavy use of the 'Armadillo' 'C++' library and the 'collapse' package,
-providing for particularly speedy estimation. A comprehensive set of
-methods supports interpretation and visualization of the model as well as
-forecasting. Information criteria to choose the number of factors are also
-provided - following Bai and Ng (2002) <doi:10.1111/1468-0262.00273>.
+datasets with missing data and mixed-frequency nowcasting applications.
+Factors follow a stationary VAR process of order p. Estimation options
+include: running the Kalman Filter and Smoother once with PCA initial
+values (2S) as in Doz, Giannone and Reichlin (2011)
+<doi:10.1016/j.jeconom.2011.02.012>; iterated Kalman Filtering and
+Smoothing until EM convergence as in Doz, Giannone and Reichlin (2012)
+<doi:10.1162/REST_a_00225>; or the adapted EM algorithm of Banbura and
+Modugno (2014) <doi:10.1002/jae.2306>, allowing arbitrary missing-data
+patterns and monthly-quarterly mixed-frequency datasets. The
+implementation uses the 'Armadillo' 'C++' library and the 'collapse'
+package for fast estimation. A comprehensive set of methods supports
+interpretation and visualization, forecasting, and decomposition of the
+'news' content of macroeconomic data releases following Banbura and
+Modugno (2014). Information criteria to choose the number of factors are
+also provided, following Bai and Ng (2002) <doi:10.1111/1468-0262.00273>.
 
 %prep
 %setup -q -c -n %{packname}

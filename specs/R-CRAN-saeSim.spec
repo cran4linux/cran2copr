@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saeSim
-%global packver   0.12.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation Tools for Small Area Estimation
 
@@ -27,7 +27,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-parallelMap 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr >= 0.2
 Requires:         R-methods 
 Requires:         R-CRAN-functional 
@@ -38,7 +37,6 @@ Requires:         R-utils
 Requires:         R-CRAN-spdep 
 Requires:         R-stats 
 Requires:         R-CRAN-parallelMap 
-Requires:         R-CRAN-tibble 
 
 %description
 Tools for the simulation of data in the context of small area estimation.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  undidR
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Difference-in-Differences with Unpoolable Data
 
@@ -28,7 +28,7 @@ Requires:         R-utils
 
 %description
 A framework for estimating difference-in-differences with unpoolable data,
-based on Karim, Webb, Austin, and Strumpf (2024)
+based on Karim, Webb, Austin, and Strumpf (2025)
 <doi:10.48550/arXiv.2403.15910>. Supports common or staggered adoption,
 multiple groups, and the inclusion of covariates. Also computes p-values
 for the aggregate average treatment effect on the treated via the

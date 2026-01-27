@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ONAM
-%global packver   1.0.1
+%global packname  aquacultuR
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Interpretable Neural Additive Models Using Orthogonalization
+Summary:          A Comprehensive R Tool for Zootechnical Metrics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-keras3 
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pROC 
-Requires:         R-CRAN-keras3 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-magrittr 
 
 %description
-An algorithm for fitting interpretable additive neural networks for
-identifiable and visualizable feature effects using post hoc
-orthogonalization. Fit custom neural networks intuitively using
-established 'R' 'formula' notation, including interaction effects of
-arbitrary order while preserving identifiability to enable a functional
-decomposition of the prediction function. For more details see Koehler et
-al. (2025) <doi:10.1038/s44387-025-00033-7>.
+A collection of functions to compute frequently used metrics for nutrition
+trials in aquaculture. Implementations include metrics to calculate
+growth, feed conversion, nutrient use efficiency, and feed digestibility.
+The package supports reproducible workflows for summarising experimental
+results and reduces manual calculation errors. For additional information
+see Machado e Silva, Karthikeyan and Tellbüscher (2025)
+<doi:10.13140/RG.2.2.27322.04808>.
 
 %prep
 %setup -q -c -n %{packname}

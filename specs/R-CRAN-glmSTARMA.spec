@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ONAM
-%global packver   1.0.1
+%global packname  glmSTARMA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Interpretable Neural Additive Models Using Orthogonalization
+Summary:          (Double) Generalized Linear Models for Spatio-Temporal Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-keras3 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pROC 
-Requires:         R-CRAN-keras3 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pROC 
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
+BuildRequires:    R-CRAN-nloptr >= 1.2.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-roptim 
+Requires:         R-CRAN-nloptr >= 1.2.0
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-copula 
 
 %description
-An algorithm for fitting interpretable additive neural networks for
-identifiable and visualizable feature effects using post hoc
-orthogonalization. Fit custom neural networks intuitively using
-established 'R' 'formula' notation, including interaction effects of
-arbitrary order while preserving identifiability to enable a functional
-decomposition of the prediction function. For more details see Koehler et
-al. (2025) <doi:10.1038/s44387-025-00033-7>.
+Fit spatio-temporal models within a (double) generalized linear modelling
+framework. The package includes functions for estimation, simulation and
+inference.
 
 %prep
 %setup -q -c -n %{packname}

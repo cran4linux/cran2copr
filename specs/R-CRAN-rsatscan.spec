@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsatscan
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools, Classes, and Methods for Interfacing with 'SaTScan' Stand-Alone Software
+Summary:          Tools for Running the External 'SaTScan' Software using R Classes and Methods
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,13 +23,12 @@ Requires:         R-utils
 Requires:         R-CRAN-foreign 
 
 %description
-'SaTScan'(TM) <https://www.satscan.org> is software for finding regions in
-Time, Space, or Time-Space that have excess risk, based on scan
-statistics, and uses Monte Carlo hypothesis testing to generate P-values
-for these regions.  The 'rsatscan' package provides functions for writing
-R data frames in 'SaTScan'-readable formats, for setting 'SaTScan'
-parameters, for running 'SaTScan' in the OS, and for reading the files
-that 'SaTScan' creates.
+The 'SaTScan'(TM) <https://www.satscan.org> software uses spatial and
+space-time scan statistics to detect and evaluate spatial and space-time
+clusters. With the 'rsatscan' package, you can run the external 'SaTScan'
+software from within R using R data formats. To successfully select
+appropriate parameter settings within 'rsatscan', you must first learn
+'SaTScan'.
 
 %prep
 %setup -q -c -n %{packname}

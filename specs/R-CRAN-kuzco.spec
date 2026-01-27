@@ -1,45 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ONAM
-%global packver   1.0.1
+%global packname  kuzco
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Interpretable Neural Additive Models Using Orthogonalization
+Summary:          Computer Vision with Large Language Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-keras3 
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ellmer 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-gtExtras 
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-ollamar 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pROC 
-Requires:         R-CRAN-keras3 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ellmer 
+Requires:         R-graphics 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-gtExtras 
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-ollamar 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-An algorithm for fitting interpretable additive neural networks for
-identifiable and visualizable feature effects using post hoc
-orthogonalization. Fit custom neural networks intuitively using
-established 'R' 'formula' notation, including interaction effects of
-arbitrary order while preserving identifiability to enable a functional
-decomposition of the prediction function. For more details see Koehler et
-al. (2025) <doi:10.1038/s44387-025-00033-7>.
+Make computer vision tasks approachable in R by leveraging Large Language
+Models. Providing fine-tuned prompts, boilerplate functions, and
+input/output helpers for common computer vision workflows, such as
+classifying and describing images. Functions are designed to take images
+as input and return structured data, helping users build practical
+applications with minimal code.
 
 %prep
 %setup -q -c -n %{packname}

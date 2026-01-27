@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spectrakit
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spectral Data Handling and Visualization
 
@@ -20,26 +20,32 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-stats 
+BuildRequires:    R-grid 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-data.table 
+Requires:         R-stats 
+Requires:         R-grid 
 
 %description
-Provides functions to combine, normalize and visualize spectral data, and
-for assembling customizable image grids suitable for publication-quality
-scientific figures.
+Provides functions to combine, normalize and visualize spectral data,
+perform principal component analysis (PCA), and assemble customizable
+image grids suitable for publication-quality scientific figures.
 
 %prep
 %setup -q -c -n %{packname}

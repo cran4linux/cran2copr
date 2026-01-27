@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VennItem
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Venn Diagrams with Items Listed in the Sections
 
@@ -27,8 +27,10 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-scales 
 
 %description
-Generate Venn diagrams with the items listed in appropriate sections,
-supporting multiple columns for long lists.
+Generate Venn diagrams from two or three sets, displaying the overlapping
+items as lists in the appropriate sections. The lists can be split into
+columns or shortened for large sets and the plot is generated using
+'ggplot2' allowing further customisations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ijtiff
-%global packver   3.1.3
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive TIFF I/O with Full Support for 'ImageJ' TIFF Files
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    libjpeg-turbo-devel
 BuildRequires:    libtiff-devel
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildRequires:    R-CRAN-checkmate >= 1.9.3
 BuildRequires:    R-CRAN-fs >= 1.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
