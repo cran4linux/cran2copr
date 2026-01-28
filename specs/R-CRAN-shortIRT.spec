@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shortIRT
-%global packver   0.1.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures Based on Item Response Theory Models for the Development of Short Test Forms
 
@@ -17,36 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TAM 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-TAM 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 
 %description
 Implement different Item Response Theory (IRT) based procedures for the
 development of static short test forms (STFs) from a test. Two main
-procedures are considered, specifically the typical IRT-based procedure
-for the development of STF, and a recently introduced procedure (Epifania,
-Anselmi & Robusto, 2022 <doi:10.1007/978-3-031-27781-8_7>). The procedures
-differ in how the most informative items are selected for the inclusion in
-the STF, either by considering their item information functions without
-considering any specific level of the latent trait (typical procedure) or
-by considering their informativeness with respect to specific levels of
-the latent trait, denoted as theta targets (the newly introduced
-procedure). Regarding the latter procedure, three methods are implemented
-for the definition of the theta targets: (i) theta targets are defined by
-segmenting the latent trait in equal intervals and considering the
-midpoint of each interval (equal interval procedure, eip), (ii) by
-clustering the latent trait to obtain unequal intervals and considering
-the centroids of the clusters as the theta targets (unequal intervals
-procedure, uip), and (iii) by letting the user set the specific theta
-targets of interest (user-defined procedure, udp). For further details on
-the procedure, please refer to Epifania, Anselmi & Robusto (2022)
-<doi:10.1007/978-3-031-27781-8_7>.
+procedures are considered (Epifania, Anselmi & Robusto, 2022
+<doi:10.1007/978-3-031-27781-8_7>). The procedures differ in how the most
+informative items are selected for the inclusion in the STF, either by
+considering their item information functions without any reference to any
+specific latent trait level (benchmark procedure) or by considering their
+information with respect to specific latent trait levels, denoted as theta
+targets (theta target procedure). Three methods are implemented for the
+definition of the theta targets: (i) as the midpoints of equal intervals
+on the latent trait, (ii) as the centroids of the clusters obtained by
+clustering the latent trait, and (iii) as user-defined values.
+Importantly, the number of theta targets defines the number of items
+included in the STF. For further details on the procedure, please refer to
+Epifania, Anselmi & Robusto (2022) <doi:10.1007/978-3-031-27781-8_7>.
 
 %prep
 %setup -q -c -n %{packname}

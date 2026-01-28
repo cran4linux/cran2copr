@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mnormt
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Multivariate Normal and t Distributions, and Their Truncated Versions
 
@@ -14,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.0
-Requires:         R-core >= 2.2.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 
 %description
 Functions are provided for computing the density and the distribution
-function of d-dimensional normal and "t" random variables, possibly
+function of multi-dimensional normal and "t" random variables, possibly
 truncated (on one side or two sides), and for generating random vectors
 sampled from these distributions, except sampling from the truncated "t".
 Moments of arbitrary order of a multivariate truncated normal are

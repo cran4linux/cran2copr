@@ -1,31 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  interpolation
-%global packver   0.1.1
+%global packname  stdbscan
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpolation of Bivariate Functions
+Summary:          Spatio-Temporal DBSCAN Clustering
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides two different methods, linear and nonlinear, to interpolate a
-bivariate function, scalar-valued or vector-valued. The interpolated data
-are not necessarily gridded. The algorithms are performed by the 'C++'
-library 'CGAL' (<https://www.cgal.org/>).
+Implements the ST-DBSCAN (spatio-temporal density-based spatial clustering
+of applications with noise) clustering algorithm for detecting spatially
+and temporally dense regions in point data, with a fast C++ backend via
+'Rcpp'. Birant and Kut (2007) <doi:10.1016/j.datak.2006.01.013>.
 
 %prep
 %setup -q -c -n %{packname}

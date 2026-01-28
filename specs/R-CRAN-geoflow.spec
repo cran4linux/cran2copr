@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geoflow
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Orchestrate Geospatial (Meta)Data Management Workflows and Manage FAIR Services
 
@@ -18,6 +18,10 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-geometa >= 0.9
+BuildRequires:    R-CRAN-geonapi >= 0.8.1
+BuildRequires:    R-CRAN-geosapi >= 0.8
+BuildRequires:    R-CRAN-ows4R >= 0.5
+BuildRequires:    R-CRAN-geonode4R >= 0.1.2
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dotenv 
@@ -40,12 +44,14 @@ BuildRequires:    R-CRAN-png
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sfarrow 
+BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-smoothr 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-geosapi 
-BuildRequires:    R-CRAN-geonapi 
-BuildRequires:    R-CRAN-geonode4R 
-BuildRequires:    R-CRAN-ows4R 
 Requires:         R-CRAN-geometa >= 0.9
+Requires:         R-CRAN-geonapi >= 0.8.1
+Requires:         R-CRAN-geosapi >= 0.8
+Requires:         R-CRAN-ows4R >= 0.5
+Requires:         R-CRAN-geonode4R >= 0.1.2
 Requires:         R-CRAN-R6 
 Requires:         R-methods 
 Requires:         R-CRAN-dotenv 
@@ -68,11 +74,9 @@ Requires:         R-CRAN-png
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sfarrow 
+Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-smoothr 
 Requires:         R-CRAN-terra 
-Requires:         R-CRAN-geosapi 
-Requires:         R-CRAN-geonapi 
-Requires:         R-CRAN-geonode4R 
-Requires:         R-CRAN-ows4R 
 
 %description
 An engine to facilitate the orchestration and execution of metadata-driven

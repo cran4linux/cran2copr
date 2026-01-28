@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  summarytools
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Quickly and Neatly Summarize Data
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-magick
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-pryr 
 BuildRequires:    R-CRAN-rapportools 
 BuildRequires:    R-stats 
 BuildRequires:    R-tcltk 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-magick
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
 Requires:         R-CRAN-pander 
-Requires:         R-CRAN-pryr 
 Requires:         R-CRAN-rapportools 
 Requires:         R-stats 
 Requires:         R-tcltk 

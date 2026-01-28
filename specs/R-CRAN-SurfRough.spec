@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurfRough
-%global packver   0.0.1.1
+%global packver   0.0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.1
+Version:          0.0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Surface/Image Texture Indexes
 
@@ -23,12 +23,13 @@ Requires:         R-CRAN-terra
 %description
 Methods for the computation of surface/image texture indices using a
 geostatistical based approach (Trevisani et al. (2023)
-<doi:10.1016/j.geomorph.2023.108838>). It provides various functions for
-the computation of surface texture indices (e.g., omnidirectional
-roughness and roughness anisotropy), including the ones based on the
-robust MAD estimator. The kernels included in the software permit also to
-calculate the surface/image texture indices directly from the input
-surface (i.e., without de-trending) using increments of order 2. It also
+<doi:10.1016/j.catena.2023.106927> and Trevisani and Guth (2025)
+<doi:10.3390/rs17233864>). It provides various functions for the
+computation of surface texture indices (e.g., omnidirectional roughness
+and roughness anisotropy), including the ones based on the robust MAD
+estimator. The kernels included in the software permit also to calculate
+the surface/image texture indices directly from the input surface (i.e.,
+without de-trending) using increments of order 2 and of order 4. It also
 provides the new radial roughness index (RRI), representing the
 improvement of the popular topographic roughness index (TRI). The
 framework can be easily extended with ad-hoc surface/image texture

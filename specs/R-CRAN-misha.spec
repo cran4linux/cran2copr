@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  misha
-%global packver   5.3.2
+%global packver   5.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.2
+Version:          5.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Analysis of Genomic Data
 
@@ -22,12 +22,16 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ps 
 Requires:         R-parallel 
 Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-yaml 
 
 %description
 A toolkit for analysis of genomic data. The 'misha' package implements an

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pwr2ppl
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses for Common Designs (Power to the People)
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-tidyr >= 0.8.0
 BuildRequires:    R-CRAN-broom >= 0.7.00
 BuildRequires:    R-CRAN-lavaan >= 0.6.2
 BuildRequires:    R-CRAN-semTools >= 0.5
-BuildRequires:    R-CRAN-ez >= 0.4.3
 BuildRequires:    R-CRAN-afex >= 0.22.1
 BuildRequires:    R-CRAN-phia >= 0.2.0
 BuildRequires:    R-CRAN-lmPerm 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-tidyr >= 0.8.0
 Requires:         R-CRAN-broom >= 0.7.00
 Requires:         R-CRAN-lavaan >= 0.6.2
 Requires:         R-CRAN-semTools >= 0.5
-Requires:         R-CRAN-ez >= 0.4.3
 Requires:         R-CRAN-afex >= 0.22.1
 Requires:         R-CRAN-phia >= 0.2.0
 Requires:         R-CRAN-lmPerm 

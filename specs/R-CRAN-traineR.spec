@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traineR
-%global packver   2.2.10
+%global packver   2.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.10
+Version:          2.2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictive (Classification and Regression) Models Homologator
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-MASS >= 7.3.53
 BuildRequires:    R-CRAN-nnet >= 7.3.12
 BuildRequires:    R-CRAN-randomForest >= 4.6.14
 BuildRequires:    R-CRAN-rpart >= 4.1.13
-BuildRequires:    R-CRAN-ada >= 2.0.5
 BuildRequires:    R-CRAN-e1071 >= 1.7.0.1
 BuildRequires:    R-CRAN-neuralnet >= 1.44.2
 BuildRequires:    R-CRAN-kknn >= 1.4.1
@@ -37,7 +36,6 @@ Requires:         R-CRAN-MASS >= 7.3.53
 Requires:         R-CRAN-nnet >= 7.3.12
 Requires:         R-CRAN-randomForest >= 4.6.14
 Requires:         R-CRAN-rpart >= 4.1.13
-Requires:         R-CRAN-ada >= 2.0.5
 Requires:         R-CRAN-e1071 >= 1.7.0.1
 Requires:         R-CRAN-neuralnet >= 1.44.2
 Requires:         R-CRAN-kknn >= 1.4.1
