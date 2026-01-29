@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MonteCarloSEM
-%global packver   0.0.8
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monte Carlo Data Simulation Package
+Summary:          Monte Carlo Simulation for Structural Equation Modeling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,16 +27,16 @@ Requires:         R-utils
 Requires:         R-CRAN-lavaan 
 
 %description
-Monte Carlo simulation allows testing different conditions given to the
-correct structural equation models. This package runs Monte Carlo
-simulations under different conditions (such as sample size or normality
-of data). Within the package data sets can be simulated and run based on
-the given model. First, continuous and normal data sets are generated
-based on the given model. Later Fleishman's power method (1978)
-<DOI:10.1007/BF02293811> is used to add non-normality if exists. When data
-generation is completed (or when generated data sets are given) model test
-can also be run. Please cite as "Orçan, F. (2021). MonteCarloSEM: An R
-Package to Simulate Data for SEM. International Journal of Assessment
+Provides tools to conduct Monte Carlo simulations under different
+conditions (e.g., varying sample size, data normality) for structural
+equation models (SEMs). Data can be simulated based on user-defined factor
+loadings and correlations, with optional non-normality added via
+Fleishman's power method (1978) <doi:10.1007/BF02293811>. Once generated,
+models can be estimated using 'lavaan'. This package facilitates testing
+model performance across multiple simulation scenarios. When data
+generation is completed (or when generated data sets are given) model
+tests can also be run. Please cite as "Orçan, F. (2021). MonteCarloSEM An
+R Package to Simulate Data for SEM. International Journal of Assessment
 Tools in Education, 8 (3), 704-713."
 
 %prep

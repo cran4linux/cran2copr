@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lcda
-%global packver   0.3.3
+%global packname  rregm
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Class Discriminant Analysis
+Summary:          Reparameterized Regression Models
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-poLCA 
-Requires:         R-CRAN-poLCA 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-invgamma 
+Requires:         R-stats 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-invgamma 
 
 %description
-Providing a method for Local Discrimination via Latent Class Models. The
-approach is described in
-<https://www.r-project.org/conferences/useR-2009/abstracts/pdf/Bucker.pdf>.
+Provides estimation and data generation tools for several new regression
+models, including the gamma, beta, inverse gamma and beta prime
+distributions. These models can be parameterized based on the mean,
+median, mode, geometric mean and harmonic mean, as specified by the user.
+For details, see Bourguignon and Gallardo (2025a)
+<doi:10.1016/j.chemolab.2025.105382> and Bourguignon and Gallardo (2025b)
+<doi:10.1111/stan.70007>.
 
 %prep
 %setup -q -c -n %{packname}

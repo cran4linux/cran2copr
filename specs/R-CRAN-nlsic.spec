@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlsic
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non Linear Least Squares with Inequality Constraints
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-dotty 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-dotty 
+Requires:         R-CRAN-glue 
 
 %description
 We solve non linear least squares problems with optional equality and/or

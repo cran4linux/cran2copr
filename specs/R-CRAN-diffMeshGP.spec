@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lcda
-%global packver   0.3.3
+%global packname  diffMeshGP
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Class Discriminant Analysis
+Summary:          Multi-Fidelity Computer Experiments Using the Tuo-Wu-Yu Model
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-poLCA 
-Requires:         R-CRAN-poLCA 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Providing a method for Local Discrimination via Latent Class Models. The
-approach is described in
-<https://www.r-project.org/conferences/useR-2009/abstracts/pdf/Bucker.pdf>.
+This R function implements the nonstationary Kriging model proposed by
+Tuo, Wu and Yu (2014) <DOI:10.1080/00401706.2013.842935> for analyzing
+multi-fidelity computer outputs. This function computes the maximum
+likelihood estimates for the model parameters as well as the predictive
+means and variances of the exact solution.
 
 %prep
 %setup -q -c -n %{packname}

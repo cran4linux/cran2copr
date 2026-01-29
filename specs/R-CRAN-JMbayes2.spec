@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JMbayes2
-%global packver   0.5-7
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Joint Models for Longitudinal and Time-to-Event Data
 
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-matrixStats
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-survC1 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-nlme 
@@ -41,6 +43,8 @@ Requires:         R-CRAN-matrixStats
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-survC1 
 
 %description
 Fit joint models for longitudinal and time-to-event data under the

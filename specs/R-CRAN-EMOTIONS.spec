@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EMOTIONS
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'EMOTIONS: Ensemble Models for Lactation Curves'
+Summary:          Ensemble Models for Lactation Curves
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-parameters
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-orthopolynom 
 Requires:         R-CRAN-quantreg 
@@ -39,19 +40,24 @@ Requires:         R-CRAN-parameters
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-splines 
+Requires:         R-CRAN-tibble 
 
 %description
-Lactation curve modeling plays a central role in dairy production,
-supporting management decisions and the selection of animals with superior
-productivity and resilience. The package 'EMOTIONS' fits 47 models for
-lactation curves and creates ensemble models using model averaging based
-on Akaike information criterion, Bayesian information criterion, root mean
-square percentage error, and mean squared error, variance of the
-predictions, cosine similarity for each model's predictions, and Bayesian
-Model Average. The daily production values predicted through the ensemble
-models can be used to estimate resilience indicators in the package.
-Additionally, the package allows the graphical visualization of the model
-ranks and the predicted lactation curves.
+Lactation curves describe temporal changes in milk yield and are key to
+breeding and managing dairy animals more efficiently. The use of ensemble
+modeling, which consists of combining predictions from multiple models,
+has the potential to yields more accurate and robust estimates of
+lactation patterns than relying solely on single model estimates. The
+package EMOTIONS fits 47 models for lactation curves and creates ensemble
+models using model averaging based on Akaike information criterion (AIC),
+Bayesian information criterion (BIC), root mean square percentage error
+(RMSPE) and mean squared error (MAE), variance of the predictions, cosine
+similarity for each model's predictions, and Bayesian Model Average (BMA).
+The daily production values predicted through the ensemble models can be
+used to estimate resilience indicators in the package. The package allows
+the graphical visualization of the model ranks and the predicted lactation
+curves. Additionally, the packages allows the user to detect milk loss
+events and estimate residual-based resilience indicators.
 
 %prep
 %setup -q -c -n %{packname}

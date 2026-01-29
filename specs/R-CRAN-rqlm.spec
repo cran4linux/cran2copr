@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqlm
-%global packver   4.2-2
+%global packver   4.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.2
+Version:          4.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modified Poisson Regression for Binary Outcome and Related Methods Involving Target Trial Emulations
+Summary:          Modified Poisson Regression for Binary Outcome and Related Methods
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -42,8 +42,7 @@ involved. In addition, recent studies have shown the ordinary robust
 variance estimator possibly has serious bias under small or moderate
 sample size situations for these methods. This package also provides
 computational tools to calculate alternative accurate confidence
-intervals. Also, standard computational tools for target trial emulation
-are included.
+intervals.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,53 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nser
-%global packver   1.6.0
+%global packname  DataQualityDashboard
+%global packver   2.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.8.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
+Summary:          Execute and View Data Quality Checks on OMOP CDM Database
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-DatabaseConnector >= 2.0.2
+BuildRequires:    R-CRAN-SqlRender >= 1.10.1
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-googleVis 
+BuildRequires:    R-CRAN-ParallelLogger 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-DatabaseConnector >= 2.0.2
+Requires:         R-CRAN-SqlRender >= 1.10.1
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-googleVis 
+Requires:         R-CRAN-ParallelLogger 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-readr 
 
 %description
-Download Current & Historical Bhavcopy. Get Live Market data from NSE
-India of Equities and Derivatives (F&O) segment. Data source
-<https://www.nseindia.com/>.
+Assesses data quality in Observational Medical Outcomes Partnership Common
+Data Model (OMOP CDM) databases. Executes data quality checks and provides
+an R `shiny` application to view the results.
 
 %prep
 %setup -q -c -n %{packname}

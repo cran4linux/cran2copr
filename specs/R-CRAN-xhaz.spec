@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xhaz
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Excess Hazard Modelling Considering Inappropriate Mortality Rates
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 3.5.7
 BuildRequires:    R-CRAN-mexhaz >= 2.6
+BuildRequires:    R-CRAN-survival >= 2.6
 BuildRequires:    R-CRAN-statmod >= 1.5.0
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survexp.fr 
-Requires:         R-CRAN-survival >= 3.5.7
+BuildRequires:    R-stats 
 Requires:         R-CRAN-mexhaz >= 2.6
+Requires:         R-CRAN-survival >= 2.6
 Requires:         R-CRAN-statmod >= 1.5.0
-Requires:         R-stats 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-optimParallel 
 Requires:         R-splines 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survexp.fr 
+Requires:         R-stats 
 
 %description
 Fits relative survival regression models with or without proportional

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesianVARs
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          MCMC Estimation of Bayesian Vectorautoregressions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-stochvol >= 3.0.3
 BuildRequires:    R-CRAN-factorstochvol >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
@@ -29,6 +29,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-lpSolveAPI 
 Requires:         R-CRAN-stochvol >= 3.0.3
 Requires:         R-CRAN-factorstochvol >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
@@ -45,7 +46,7 @@ Requires:         R-utils
 Efficient Markov Chain Monte Carlo (MCMC) algorithms for the fully
 Bayesian estimation of vectorautoregressions (VARs) featuring stochastic
 volatility (SV). Implements state-of-the-art shrinkage priors following
-Gruber & Kastner (2023) <doi:10.48550/arXiv.2206.04902>. Efficient
+Gruber & Kastner (2025) <doi:10.1016/j.ijforecast.2025.02.001>. Efficient
 equation-per-equation estimation following Kastner & Huber (2020)
 <doi:10.1002/for.2680> and Carrerio et al. (2021)
 <doi:10.1016/j.jeconom.2021.11.010>.

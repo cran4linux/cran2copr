@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rlas
-%global packver   1.8.2
+%global packver   1.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'las' and 'laz' Binary File Formats Used for Remote Sensing Data
 
@@ -28,7 +28,7 @@ Read and write 'las' and 'laz' binary file formats. The LAS file format is
 a public file format for the interchange of 3-dimensional point cloud data
 between data users. The LAS specifications are approved by the American
 Society for Photogrammetry and Remote Sensing
-<https://www.asprs.org/divisions-committees/lidar-division/laser-las-file-format-exchange-activities>.
+<https://community.asprs.org/leadership-restricted/leadership-content/public-documents/standards>.
 The LAZ file format is an open and lossless compression scheme for binary
 LAS format versions 1.0 to 1.4 <https://laszip.org/>.
 

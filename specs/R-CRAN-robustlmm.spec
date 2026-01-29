@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robustlmm
-%global packver   3.3-3
+%global packver   3.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          3.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Linear Mixed Effects Models
 

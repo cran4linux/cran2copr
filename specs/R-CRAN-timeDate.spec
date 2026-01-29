@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  timeDate
-%global packver   4051.111
+%global packver   4052.112
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4051.111
+Version:          4052.112
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Chronological and Calendar Objects
 

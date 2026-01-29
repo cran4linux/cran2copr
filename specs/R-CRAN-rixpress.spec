@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rixpress
-%global packver   0.10.1
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build Reproducible Analytical Pipelines with 'Nix'
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-processx 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-processx 
