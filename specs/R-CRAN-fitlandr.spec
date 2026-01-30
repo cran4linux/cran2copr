@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitlandr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Vector Fields and Potential Landscapes from Intensive Longitudinal Data
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rlang 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rlang 

@@ -1,51 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cvdprevent
-%global packver   0.2.5
+%global packname  StatsTFLValR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access and Analyse Data from the 'CVD Prevent' API
+Summary:          Utilities for Validation of Clinical Trial 'SDTM', 'ADaM' and 'TFL' Outputs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cachem 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cachem 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-arsenal 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-arsenal 
+Requires:         R-CRAN-data.table 
 
 %description
-Provides an R interface to the 'CVD Prevent' application programming
-interface (API), allowing users to retrieve and analyse cardiovascular
-disease prevention data from primary care records across England. The
-Cardiovascular Disease Prevention Audit (CVDPREVENT) automatically
-extracts routinely held GP health data to support national reporting and
-improvement initiatives.  See the API documentation for details:
-<https://bmchealthdocs.atlassian.net/wiki/spaces/CP/pages/317882369/CVDPREVENT+API+Documentation>.
+Provides utility functions for validation and quality control of clinical
+trial datasets and outputs across 'SDTM', 'ADaM' and 'TFL' workflows. The
+package supports dataset loading, metadata inspection, frequency and
+summary calculations, table-ready aggregations, and compare-style dataset
+review similar to 'SAS' 'PROC COMPARE'. Functions are designed to support
+reproducible execution, transparent review, and independent verification
+of statistical programming results. Dataset comparisons may leverage
+'arsenal' <https://cran.r-project.org/package=arsenal>.
 
 %prep
 %setup -q -c -n %{packname}

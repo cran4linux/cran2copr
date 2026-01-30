@@ -1,40 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BNPdensity
-%global packver   2025.7.29
+%global packname  CLRtools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.7.29
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ferguson-Klass Type Algorithm for Posterior Normalized Random Measures
+Summary:          Diagnostic Tools for Logistic and Conditional Logistic Regression
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-rstantools
 
 %description
-Bayesian nonparametric density estimation modeling mixtures by a
-Ferguson-Klass type algorithm for posterior normalized random measures.
+Provides tools for fitting, assessing, and comparing logistic and
+conditional logistic regression models. Includes residual diagnostics and
+goodness of fit measures for model development and evaluation in matched
+case control studies.
 
 %prep
 %setup -q -c -n %{packname}

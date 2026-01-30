@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  pmml
-%global packver   2.5.2
+%global __requires_exclude ^libmpi
+%global packname  istatR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate PMML for Various Models
+Summary:          Interface to the Italian National Institute of Statistics ('ISTAT') API
 
-License:          GPL-3 | file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 
 %description
-The Predictive Model Markup Language (PMML) is an XML-based language which
-provides a way for applications to define machine learning, statistical
-and data mining models and to share models between PMML compliant
-applications. More information about the PMML industry standard and the
-Data Mining Group can be found at <http://dmg.org/>. The generated PMML
-can be imported into any PMML consuming application, such as Zementis
-Predictive Analytics products. The package isofor (used for anomaly
-detection) can be installed with
-devtools::install_github("gravesee/isofor").
+Provides an interface to the 'ISTAT' 'SDMX' RESTful API
+<https://esploradati.istat.it/SDMXWS>. Allows users to discover available
+datasets, explore their structure and dimensions, and retrieve statistical
+data from the Italian National Institute of Statistics. Based on the
+Python 'istatapi' package by Jacopo Attolini.
 
 %prep
 %setup -q -c -n %{packname}

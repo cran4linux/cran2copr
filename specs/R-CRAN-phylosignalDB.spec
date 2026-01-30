@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phylosignalDB
-%global packver   0.2.2
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore Phylogenetic Signals Using Distance-Based Methods
 
@@ -41,8 +41,10 @@ method of testing in strict accordance with the definition, instead of
 relying on correlation analysis or evolutionary models. The novel method
 equivalently expressed the textual definition of the phylogenetic signal
 as an inequality equation of the phylogenetic and trait distances and
-constructed the M statistic. Also, there are more distance-based methods
-under development.
+constructed the M statistic. The M statistic implemented in this package
+is based on the methodology described in Yao and Yuan (2025)
+<doi:10.1002/ece3.71106>. If you use this method in your research, please
+cite the paper.
 
 %prep
 %setup -q -c -n %{packname}

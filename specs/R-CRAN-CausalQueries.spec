@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CausalQueries
-%global packver   1.4.4
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make, Update, and Query Binary Causal Models
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-rstan >= 2.26.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-ggraph >= 2.2.0
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-knitr >= 1.45
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.1

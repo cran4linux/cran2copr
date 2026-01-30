@@ -1,29 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  seqminer
-%global packver   9.7
+%global packname  metarep
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.7
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficiently Read Sequence Data (VCF Format, BCF Format, METAL Format and BGEN Format) into R
+Summary:          Replicability-Analysis Tools for Meta-Analysis
 
-License:          GPL | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-meta >= 6.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-meta >= 6.0.0
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Integrate sequencing data (Variant call format, e.g. VCF or BCF) or
-meta-analysis results in R. This package can help you (1) read
-VCF/BCF/BGEN files by chromosomal ranges (e.g. 1:100-200); (2) read
-RareMETAL summary statistics files; (3) read tables from a tabix-indexed
-files; (4) annotate VCF/BCF files; (5) create customized workflow based on
-Makefile.
+User-friendly package for reporting replicability-analysis methods,
+affixed to meta-analyses summary. The replicability-analysis output
+provides an assessment of the investigated intervention, where it offers
+quantification of effect replicability and assessment of the consistency
+of findings. - Replicability-analysis for fixed-effects and random-effect
+meta analysis: - r(u)-value; - lower bounds on the number of studies with
+replicated positive andor negative effect; - Allows detecting
+inconsistency of signals; - forest plots with the summary of replicability
+analysis results; - Allows Replicability-analysis with or without the
+common-effect assumption.
 
 %prep
 %setup -q -c -n %{packname}

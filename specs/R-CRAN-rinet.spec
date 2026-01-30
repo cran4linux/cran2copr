@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  parglm
-%global packver   0.1.7
+%global __requires_exclude ^libmpi
+%global packname  rinet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel GLM
+Summary:          Clinical Reference Interval Estimation with Reference Interval Network (RINet)
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Provides a parallel estimation method for generalized linear models
-without compiling with a multithreaded LAPACK or BLAS.
+Predicts statistics of a reference distribution from a mixture of raw
+clinical measurements (healthy and pathological). Uses pretrained CNN
+models to estimate the mean, standard deviation, and reference fraction
+from 1D or 2D sample data. Methods are described in LeBien, Velev, and
+Roche-Lima (2026) "RINet: synthetic data training for indirect estimation
+of clinical reference distributions" <doi:10.1016/j.jbi.2026.104980>.
 
 %prep
 %setup -q -c -n %{packname}

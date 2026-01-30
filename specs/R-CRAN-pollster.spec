@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IrregLong
-%global packver   0.4.1
+%global packname  pollster
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Longitudinal Data with Irregular Observation Times
+Summary:          Calculate Crosstab and Topline Tables of Weighted Survey Data
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-data.table 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-labelled >= 2.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-stringr >= 1.0.0
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.8.0
+BuildRequires:    R-CRAN-rlang >= 0.4.5
+Requires:         R-CRAN-labelled >= 2.0.0
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.8.0
+Requires:         R-CRAN-rlang >= 0.4.5
 
 %description
-Functions to help with analysis of longitudinal data featuring irregular
-observation times, where the observation times may be associated with the
-outcome process. There are functions to quantify the degree of
-irregularity, fit inverse-intensity weighted Generalized Estimating
-Equations (Lin H, Scharfstein DO, Rosenheck RA (2004)
-<doi:10.1111/j.1467-9868.2004.b5543.x>), perform multiple outputation
-(Pullenayegum EM (2016) <doi:10.1002/sim.6829>) and fit semi-parametric
-joint models (Liang Y (2009) <doi: 10.1111/j.1541-0420.2008.01104.x>).
+Calculate common types of tables for weighted survey data. Options include
+topline and (2-way and 3-way) crosstab tables of categorical or ordinal
+data as well as summary tables of weighted numeric variables. Optionally,
+include the margin of error at selected confidence intervals including the
+design effect. The design effect is calculated as described by Kish (1965)
+<doi:10.1002/bimj.19680100122> beginning on page 257. Output takes the
+form of tibbles (simple data frames). This package conveniently handles
+labelled data, such as that commonly used by 'Stata' and 'SPSS.' Complex
+survey design is not supported at this time.
 
 %prep
 %setup -q -c -n %{packname}

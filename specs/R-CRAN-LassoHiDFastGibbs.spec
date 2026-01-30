@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  passport
-%global packver   0.3.0
+%global __requires_exclude ^libmpi
+%global packname  LassoHiDFastGibbs
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Travel Smoothly Between Country Name and Code Formats
+Summary:          Fast High-Dimensional Gibbs Samplers for Bayesian Lasso Regression
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-RcppClock 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Smooths the process of working with country names and codes via powerful
-parsing, standardization, and conversion utilities arranged in a simple,
-consistent API. Country name formats include multiple sources including
-the Unicode Common Locale Data Repository (CLDR,
-<http://cldr.unicode.org/>) common-sense standardized names in hundreds of
-languages.
+Provides fast and scalable Gibbs sampling algorithms for Bayesian Lasso
+regression model in high-dimensional settings. The package implements
+efficient partially collapsed and nested Gibbs samplers for Bayesian
+Lasso, with a focus on computational efficiency when the number of
+predictors is large relative to the sample size. Methods are described at
+Davoudabadi and Ormerod (2026)
+<https://github.com/MJDavoudabadi/LassoHiDFastGibbs>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

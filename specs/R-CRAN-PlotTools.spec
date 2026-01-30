@@ -1,26 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PlotTools
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Continuous Legends to Plots
+Summary:          Extended Tools for Continuous Legends, Polygon Manipulation, and Visual Display of Categorical Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
 Annotate plots with legends for continuous variables and colour spectra
 using the base graphics plotting tools; and manipulate irregular polygons.
+Includes palettes for colour-blind viewers.
 
 %prep
 %setup -q -c -n %{packname}

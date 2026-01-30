@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seminrExtras
-%global packver   0.2.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conduct Additional Modeling and Analysis for 'seminr'
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-seminr >= 2.3.0
+BuildRequires:    R-CRAN-seminr >= 2.4.0
 BuildRequires:    R-stats 
-Requires:         R-CRAN-seminr >= 2.3.0
+Requires:         R-CRAN-seminr >= 2.4.0
 Requires:         R-stats 
 
 %description

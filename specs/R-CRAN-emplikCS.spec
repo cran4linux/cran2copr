@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GhostKnockoff
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  emplikCS
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Knockoff Inference Using Summary Statistics
+Summary:          Empirical Likelihood with Current Status Data for Mean, Probability, Hazard
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-Rdsdp 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-seqminer 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-corpcor 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-Rdsdp 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-seqminer 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-corpcor 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-monotone 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-monotone 
+Requires:         R-stats 
 
 %description
-Functions for multiple knockoff inference using summary statistics, e.g.
-Z-scores. The knockoff inference is a general procedure for controlling
-the false discovery rate (FDR) when performing variable selection. This
-package provides a procedure which performs knockoff inference without
-ever constructing individual knockoffs (GhostKnockoff). It additionally
-supports multiple knockoff inference for improved stability and
-reproducibility. Moreover, it supports meta-analysis of multiple
-overlapping studies.
+Compute the empirical likelihood ratio, -2LogLikRatio (Wilks) statistics,
+based on current status data for the hypothesis about the parameters of
+mean or probability or weighted cumulative hazard.
 
 %prep
 %setup -q -c -n %{packname}

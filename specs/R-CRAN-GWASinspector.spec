@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GWASinspector
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive and Easy to Use Quality Control of GWAS Results
 
@@ -22,10 +22,10 @@ BuildRequires:    R-tools >= 3.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0
 BuildRequires:    R-CRAN-hash >= 2.2
 BuildRequires:    R-CRAN-rmarkdown >= 2.17
-BuildRequires:    R-CRAN-futile.logger >= 1.4
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-knitr >= 1.1
 BuildRequires:    R-CRAN-kableExtra >= 0.8
+BuildRequires:    R-CRAN-logger >= 0.4
 BuildRequires:    R-CRAN-ini >= 0.3
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
@@ -37,10 +37,10 @@ Requires:         R-tools >= 3.0
 Requires:         R-CRAN-ggplot2 >= 3.0
 Requires:         R-CRAN-hash >= 2.2
 Requires:         R-CRAN-rmarkdown >= 2.17
-Requires:         R-CRAN-futile.logger >= 1.4
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-knitr >= 1.1
 Requires:         R-CRAN-kableExtra >= 0.8
+Requires:         R-CRAN-logger >= 0.4
 Requires:         R-CRAN-ini >= 0.3
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 

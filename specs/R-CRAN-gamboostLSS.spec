@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gamboostLSS
-%global packver   2.1-0
+%global packver   2.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boosting Methods for 'GAMLSS'
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mboost >= 2.8.0
 BuildRequires:    R-CRAN-stabs >= 0.5.0
+BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-parallel 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -26,6 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 Requires:         R-CRAN-mboost >= 2.8.0
 Requires:         R-CRAN-stabs >= 0.5.0
+Requires:         R-CRAN-gamlss.dist 
 Requires:         R-parallel 
 Requires:         R-graphics 
 Requires:         R-grDevices 

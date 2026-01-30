@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  representr
-%global packver   0.1.6
+%global packname  chronometre
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Representative Records After Entity Resolution
+Summary:          A 'chronomètre' is a 'stopwatch'
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
 
 %description
-An implementation of Kaplan, Betancourt, Steorts (2022)
-<doi:10.1080/00031305.2022.2041482> that creates representative records
-for use in downstream tasks after entity resolution is performed. Multiple
-methods for creating the representative records (data sets) are provided.
+As a 'chronomètre' is a 'stopwatch', this package offers a simple
+stopwatch, and in particular one that can be shared with Python (using the
+corresponding package of the same name available via 'PyPi') such that
+both interpreters operate on the same object instance and shown in the
+demo file, as well as in the unit tests.
 
 %prep
 %setup -q -c -n %{packname}

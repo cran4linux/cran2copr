@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cobalt
-%global packver   4.6.1
+%global packver   4.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.1
+Version:          4.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Balance Tables and Plots
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-crayon >= 1.5.3
 BuildRequires:    R-CRAN-rlang >= 1.1.5
 BuildRequires:    R-CRAN-gtable >= 0.3.6
 BuildRequires:    R-CRAN-chk >= 0.10.0
@@ -27,9 +27,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
+Requires:         R-CRAN-cli >= 3.6.5
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-crayon >= 1.5.3
 Requires:         R-CRAN-rlang >= 1.1.5
 Requires:         R-CRAN-gtable >= 0.3.6
 Requires:         R-CRAN-chk >= 0.10.0

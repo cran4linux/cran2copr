@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  KnockoffScreen
-%global packver   0.3.0
+%global __requires_exclude ^libmpi
+%global packname  USAboundaries
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Whole-Genome Sequencing Data Analysis via Knockoff Statistics
+Summary:          Historical and Contemporary Boundaries of the United States of America
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-seqminer 
-BuildRequires:    R-CRAN-bigmemory 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-SPAtest 
-BuildRequires:    R-CRAN-irlba 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-seqminer 
-Requires:         R-CRAN-bigmemory 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-SPAtest 
-Requires:         R-CRAN-irlba 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli 
 
 %description
-Functions for identification of putative causal loci in whole-genome
-sequencing data. The functions allow genome-wide association scan. It also
-includes an efficient knockoff generator for genetic data.
+The boundaries for geographical units in the United States of America
+contained in this package include state, county, congressional district,
+and zip code tabulation area. Contemporary boundaries are provided by the
+U.S. Census Bureau (public domain). Historical boundaries for the years
+from 1629 to 2000 are provided form the Newberry Library's Atlas of
+Historical County Boundaries (licensed CC BY-NC-SA). Additional data is
+provided in the USAboundariesData package; this package provides an
+interface to access that data.
 
 %prep
 %setup -q -c -n %{packname}

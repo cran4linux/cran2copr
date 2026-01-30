@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eCerto
-%global packver   0.8.5
+%global packver   0.8.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests for the Production of Reference Materials
 
@@ -21,14 +21,11 @@ BuildRequires:    R-CRAN-markdown >= 2.0
 BuildRequires:    R-CRAN-rmarkdown >= 1.5
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-shiny 
@@ -40,14 +37,11 @@ Requires:         R-CRAN-markdown >= 2.0
 Requires:         R-CRAN-rmarkdown >= 1.5
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-config 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-golem 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magick 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-shiny 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RNAmf
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Non-Additive Emulator for Multi-Fidelity Data
 
@@ -23,12 +23,18 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-plgp 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Performs RNA emulation and active learning proposed by Heo and Sung (2025)

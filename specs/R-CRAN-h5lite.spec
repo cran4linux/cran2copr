@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  onc.api
-%global packver   2.0.1.0
+%global __requires_exclude ^libmpi
+%global packname  h5lite
+%global packver   2.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1.0
+Version:          2.0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Oceans 2.0 API Client Library
+Summary:          Simplified 'HDF5' Interface
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-humanize 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tictoc 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-anytime 
-Requires:         R-CRAN-httr 
-Requires:         R-methods 
-Requires:         R-CRAN-humanize 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tictoc 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
-Requires:         R-CRAN-testthat 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-hdf5lib >= 2.0.0.5
 
 %description
-Allows users to discover and retrieve Ocean Networks Canada's
-oceanographic data in raw, text, image, audio, video or any other format
-available. Provides a class that wraps web service calls and business
-logic so that users can download data with a single line of code.
+A user-friendly interface for the Hierarchical Data Format 5 ('HDF5')
+library designed to "just work." It bundles the necessary system libraries
+to ensure easy installation on all platforms. Features smart defaults that
+automatically map R objects (vectors, matrices, data frames) to efficient
+'HDF5' types, removing the need to manage low-level details like
+dataspaces or property lists. Uses the 'HDF5' library developed by The HDF
+Group <https://www.hdfgroup.org/>.
 
 %prep
 %setup -q -c -n %{packname}
