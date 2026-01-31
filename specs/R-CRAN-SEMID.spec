@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SEMID
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identifiability of Linear Structural Equation Models
 
@@ -21,17 +21,17 @@ BuildRequires:    R-CRAN-R.utils >= 2.3.0
 BuildRequires:    R-CRAN-R.oo >= 1.20.0
 BuildRequires:    R-CRAN-igraph >= 1.0.1
 BuildRequires:    R-CRAN-R.methodsS3 
+BuildRequires:    R-CRAN-rje 
 Requires:         R-CRAN-R.utils >= 2.3.0
 Requires:         R-CRAN-R.oo >= 1.20.0
 Requires:         R-CRAN-igraph >= 1.0.1
 Requires:         R-CRAN-R.methodsS3 
+Requires:         R-CRAN-rje 
 
 %description
-Provides routines to check identifiability or non-identifiability of
-linear structural equation models as described in Drton, Foygel, and
-Sullivant (2011) <doi:10.1214/10-AOS859>, Foygel, Draisma, and Drton
-(2012) <doi:10.1214/12-AOS1012>, and other works. The routines are based
-on the graphical representation of structural equation models.
+Provides routines to check identifiability of linear structural equation
+models and factor analysis models. The routines are based on the graphical
+representation of structural equation models.
 
 %prep
 %setup -q -c -n %{packname}

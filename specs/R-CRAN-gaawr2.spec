@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gaawr2
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Association Analysis
 
@@ -31,13 +31,15 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-Rdpack 
 
 %description
-It gathers information, meta-data and scripts in a two-part Henry-Stewart
-talk by Zhao (2009, <doi:10.69645/DCRY5578>), which showcases analysis in
-aspects such as testing of polymorphic variant(s) for Hardy-Weinberg
-equilibrium, association with trait using genetic and statistical models
-as well as Bayesian implementation, power calculation in study design and
-genetic annotation. It also covers R integration with the Linux
-environment, GitHub, package creation and web applications.
+This is a companion to Henry-Stewart talk by Zhao (2026,
+<doi:10.69645/FRFQ9519>), which gathers information, metadata and scripts
+to showcase modern genetic analysis -- ranging from testing of polymorphic
+variant(s) for Hardy-Weinberg equilibrium, association with traits using
+genetic and statistical models, Bayesian implementation, power calculation
+in study design, and genetic annotation. It also covers R integration with
+the Linux environment, GitHub, package creation and web applications. The
+earlier version by Zhao (2009, <doi:10.69645/DCRY5578>) provides an brief
+introduction to these topics.
 
 %prep
 %setup -q -c -n %{packname}

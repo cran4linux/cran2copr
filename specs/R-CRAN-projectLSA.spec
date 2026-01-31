@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projectLSA
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Shiny Application for Latent Structure Analysis with a Graphical User Interface
+Summary:          Shiny Application for Latent Structure Analysis with a Graphical User Interface
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,6 +45,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyLPA 
+BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-data.table 
@@ -74,6 +75,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyLPA 
+Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-viridisLite 
 
 %description

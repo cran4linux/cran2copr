@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boomer
+%global packname  printtree
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Debugging Tools to Inspect the Intermediate Steps of a Call
+Summary:          Print Directory Trees for R Projects and Folders
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-styler 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-crayon 
-Requires:         R-methods 
-Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-styler 
-Requires:         R-CRAN-withr 
 
 %description
-Provides debugging tools that let you inspect the intermediate results of
-a call. The output looks as if we explode a call into its parts hence the
-package name.
+Provides tools to print a compact, readable directory tree for a folder or
+project. The package can automatically detect common project roots (e.g.,
+'RStudio' '.Rproj' files) and formats output for quick inspection of code
+and data organization. It supports typical tree customizations such as
+limiting depth, excluding files using ignore patterns, and producing
+clean, aligned text output suitable for console use, reports, and
+reproducible documentation. A snapshot helper can also render the tree
+output to a PNG image for sharing in issues, teaching material, or project
+documentation.
 
 %prep
 %setup -q -c -n %{packname}

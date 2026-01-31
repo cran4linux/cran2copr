@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataset
-%global packver   0.4.1
+%global packname  disagmethod
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Data Frames for Exchange and Reuse
+Summary:          Autoregressive Integrated Moving Average (ARIMA) Based Disaggregation Methods
 
-License:          GPL (>= 3)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-polynom 
+BuildRequires:    R-CRAN-ltsa 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-tsbox 
+BuildRequires:    R-CRAN-tswge 
+Requires:         R-CRAN-polynom 
+Requires:         R-CRAN-ltsa 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-tsbox 
+Requires:         R-CRAN-tswge 
 
 %description
-The 'dataset' package helps create semantically rich, machine-readable,
-and interoperable datasets in R. It extends tidy data frames with metadata
-that preserves meaning, improves interoperability, and makes datasets
-easier to publish, exchange, and reuse in line with ISO and W3C standards.
+We have the code for disaggregation as found in Wei and Stram (1990,
+<doi:10.1111/j.2517-6161.1990.tb01799.x>), and Hodgess and Wei (1996,
+"Temporal Disaggregation of Time Series" in Statistical Science I, Nova
+Publishing).  The disaggregation models have different orders of the
+moving average component.  These are based on ARIMA models rather than
+differencing or using similar time series.
 
 %prep
 %setup -q -c -n %{packname}

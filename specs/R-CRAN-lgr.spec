@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lgr
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Fully Featured Logging Framework
 
@@ -21,11 +21,11 @@ BuildRequires:    R-CRAN-R6 >= 2.4.0
 Requires:         R-CRAN-R6 >= 2.4.0
 
 %description
-A flexible, feature-rich yet light-weight logging framework based on 'R6'
-classes. It supports hierarchical loggers, custom log levels, arbitrary
-data fields in log events, logging to plaintext, 'JSON', (rotating) files,
-memory buffers. For extra appenders that support logging to databases,
-email and push notifications see the the package lgr.app.
+A flexible, light-weight logging framework based on 'R6' classes. It
+supports hierarchical loggers, structured logging, output to plaintext,
+'JSON', (rotating) files, and memory buffers. Additional appenders for
+'Elasticsearch', 'Dynatrace', databases, email and push notifications, and
+more are available in the 'lgrExtra' package.
 
 %prep
 %setup -q -c -n %{packname}

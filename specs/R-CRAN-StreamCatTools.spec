@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StreamCatTools
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'StreamCatTools'
 
@@ -22,11 +22,21 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-nhdplusTools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-ggpattern 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-tigris 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-curl >= 6.0.0
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-nhdplusTools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-ggpattern 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Tools for using the 'StreamCat' and 'LakeCat' API and interacting with the

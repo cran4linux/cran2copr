@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotbb
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar of Graphics for 'base' Plot
 
@@ -31,10 +31,13 @@ Requires:         R-methods
 Requires:         R-utils 
 
 %description
-Proof of concept for implementing grammar of graphics using base plot. The
-bbplot() function initializes a 'bbplot' object to store input data,
-aesthetic mapping, a list of layers and theme elements. The object will be
-rendered as a graphic using base plot command if it is printed.
+A grammar of graphics framework built on 'base' graphics. It provides a
+'bbplot' object and a '+' operator to incrementally compose plots from
+data, aesthetic mappings and layers, then render them using the base
+plotting system. The package includes common geometric layers (points,
+lines, segments, bars, histograms, boxplots and tiles), scales for color
+and other aesthetics, legends, faceting, themes, and significance
+annotations.
 
 %prep
 %setup -q -c -n %{packname}

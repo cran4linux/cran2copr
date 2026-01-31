@@ -1,40 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ptspotter
-%global packver   1.0.2
+%global packname  xplainfi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Use with "ProjectTemplate"
+Summary:          Feature Importance Methods for Global Explanations
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-beepr >= 1.3
-BuildRequires:    R-CRAN-log4r >= 0.3.2
-BuildRequires:    R-CRAN-this.path >= 0.2.0
-BuildRequires:    R-CRAN-pryr >= 0.1.4
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-mlr3 >= 1.1.0
+BuildRequires:    R-CRAN-paradox >= 1.0.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-mirai 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-beepr >= 1.3
-Requires:         R-CRAN-log4r >= 0.3.2
-Requires:         R-CRAN-this.path >= 0.2.0
-Requires:         R-CRAN-pryr >= 0.1.4
+Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-mlr3 >= 1.1.0
+Requires:         R-CRAN-paradox >= 1.0.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-mirai 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Utility functions produced specifically for (but not limited to) working
-with 'ProjectTemplate' data pipelines. This package helps to quickly
-create and manage sequentially numbered scripts, quickly set up logging
-with 'log4r' and functions to help debug and monitor procedures.
+Provides a consistent interface for common feature importance methods as
+described in Ewald et al. (2024) <doi:10.1007/978-3-031-63797-1_22>,
+including permutation feature importance (PFI), conditional and relative
+feature importance (CFI, RFI), leave one covariate out (LOCO), and Shapley
+additive global importance (SAGE), as well as feature sampling mechanisms
+to support conditional importance methods.
 
 %prep
 %setup -q -c -n %{packname}

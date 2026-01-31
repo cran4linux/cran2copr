@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  socialSim
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate and Analyse Social Interaction Data
 
@@ -29,22 +29,20 @@ Requires:         R-CRAN-future.apply
 %description
 Provides tools to simulate and analyse datasets of social interactions
 between individuals using hierarchical Bayesian models implemented in
-Stan. The package interacts with Stan via 'cmdstanr' (available from
-<https://mc-stan.org/r-packages/>) or 'rstan', depending on user setup.
-Users can generate realistic interaction data where individual phenotypes
-influence and respond to those of their partners, with control over
-sampling design parameters such as the number of individuals, partners,
-and repeated dyads. The simulation framework allows flexible control over
-variation and correlation in mean trait values, social responsiveness, and
-social impact, making it suitable for research on interacting phenotypes
-and on direct and indirect genetic effects ('DGEs' and 'IGEs'). The
-package also includes functions to fit and compare alternative models of
-social effects, including impact–responsiveness, variance–partitioning,
-and trait-based models, and to summarise model performance in terms of
-bias and dispersion. For more details on the study of social interactions
-and impact-responsiveness, see Moore et al. (1997)
-<doi:10.1111/j.1558-5646.1997.tb01458.x> and de Groot et al. (2022)
-<doi:10.1016/j.neubiorev.2022.104996>.
+Stan. Model fitting is performed via the 'rstan' package. Users can
+generate realistic interaction data where individual phenotypes influence
+and respond to those of their partners, with control over sampling design
+parameters such as the number of individuals, partners, and repeated
+dyads. The simulation framework allows flexible control over variation and
+correlation in mean trait values, social responsiveness, and social
+impact, making it suitable for research on interacting phenotypes and on
+direct and indirect genetic effects ('DGEs' and 'IGEs'). The package also
+includes functions to fit and compare alternative models of social
+effects, including impact–responsiveness, variance–partitioning, and
+trait-based models, and to summarise model performance in terms of bias
+and dispersion. For a more detailed description of the available models
+and impact–responsiveness, see the accompanying preprint Wijnhorst et al.
+(2025) <doi:10.32942/X2F65M>.
 
 %prep
 %setup -q -c -n %{packname}

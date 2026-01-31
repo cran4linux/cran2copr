@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crmPack
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Object-Oriented Implementation of Dose Escalation Designs
 
@@ -74,7 +74,7 @@ to setup a new design with custom JAGS code. However, it is also possible
 to implement 3+3 designs for comparison or models with non-Bayesian
 estimation. The whole package is written in a modular form in the S4 class
 system, making it very flexible for adaptation to new models, escalation
-or stopping rules. Further details are presented in Sabanes Bove et al.
+or stopping rules. Further details are presented in Sabanés Bové et al.
 (2019) <doi:10.18637/jss.v089.i10>.
 
 %prep

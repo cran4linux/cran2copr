@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phytoclass
-%global packver   2.0.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Chla Concentrations of Phytoplankton Groups
 
@@ -18,21 +18,19 @@ BuildRequires:    R-devel >= 3.8
 Requires:         R-core >= 3.8
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bestNormalize 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dynamicTreeCut 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-RcppML 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-bestNormalize 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dynamicTreeCut 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-RcppML 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-progress 
 
 %description
 Determine the chlorophyll a (Chl a) concentrations of different

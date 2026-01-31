@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  depower
-%global packver   2025.10.21
+%global packver   2026.1.30
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.10.21
+Version:          2026.1.30
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis for Differential Expression Studies
 

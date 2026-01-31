@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  see
-%global packver   0.12.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Visualisation Toolbox for 'easystats' and 'ggplot2'
 
@@ -17,29 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-insight >= 1.4.1
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
+BuildRequires:    R-CRAN-insight >= 1.4.4
 BuildRequires:    R-CRAN-patchwork >= 1.3.2
-BuildRequires:    R-CRAN-datawizard >= 1.2.0
+BuildRequires:    R-CRAN-datawizard >= 1.3.0
 BuildRequires:    R-CRAN-effectsize >= 1.0.1
 BuildRequires:    R-CRAN-correlation >= 0.8.8
-BuildRequires:    R-CRAN-parameters >= 0.28.1
+BuildRequires:    R-CRAN-parameters >= 0.28.3
 BuildRequires:    R-CRAN-bayestestR >= 0.17.0
-BuildRequires:    R-CRAN-performance >= 0.15.1
-BuildRequires:    R-CRAN-modelbased >= 0.13.0
+BuildRequires:    R-CRAN-performance >= 0.15.3
+BuildRequires:    R-CRAN-modelbased >= 0.13.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-insight >= 1.4.1
+Requires:         R-CRAN-ggplot2 >= 4.0.1
+Requires:         R-CRAN-insight >= 1.4.4
 Requires:         R-CRAN-patchwork >= 1.3.2
-Requires:         R-CRAN-datawizard >= 1.2.0
+Requires:         R-CRAN-datawizard >= 1.3.0
 Requires:         R-CRAN-effectsize >= 1.0.1
 Requires:         R-CRAN-correlation >= 0.8.8
-Requires:         R-CRAN-parameters >= 0.28.1
+Requires:         R-CRAN-parameters >= 0.28.3
 Requires:         R-CRAN-bayestestR >= 0.17.0
-Requires:         R-CRAN-performance >= 0.15.1
-Requires:         R-CRAN-modelbased >= 0.13.0
+Requires:         R-CRAN-performance >= 0.15.3
+Requires:         R-CRAN-modelbased >= 0.13.1
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
