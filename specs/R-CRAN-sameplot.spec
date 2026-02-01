@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phers
-%global packver   1.0.2
+%global packname  sameplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Phenotype Risk Scores
+Summary:          Consistent Plot Rendering and Saving Across Interactive Sessions and Reports
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 3.3.1
-BuildRequires:    R-CRAN-BEDMatrix >= 2.0.3
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-foreach >= 1.5.2
-BuildRequires:    R-CRAN-data.table >= 1.5.0
-BuildRequires:    R-CRAN-iterators >= 1.0.14
-Requires:         R-CRAN-survival >= 3.3.1
-Requires:         R-CRAN-BEDMatrix >= 2.0.3
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-foreach >= 1.5.2
-Requires:         R-CRAN-data.table >= 1.5.0
-Requires:         R-CRAN-iterators >= 1.0.14
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ragg 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ragg 
 
 %description
-Use phenotype risk scores based on linked clinical and genetic data to
-study Mendelian disease and rare genetic variants. See Bastarache et al.
-2018 <doi:10.1126/science.aal4043>.
+Renders plots to a temporary image using the ragg graphics device and
+returns knitr::include_graphics() output. Optionally saves the image to a
+specified path. This helps ensure consistent appearance across interactive
+sessions, saved files, and knitted documents. For more details see
+Pedersen and Shemanarev (2025) <doi: 10.32614/CRAN.package.ragg>.
 
 %prep
 %setup -q -c -n %{packname}

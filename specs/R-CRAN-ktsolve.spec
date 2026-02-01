@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ktsolve
-%global packver   1.3.1
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Configurable Function for Solving Families of Nonlinear Equations
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-rootSolve 
 Requires:         R-methods 
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-rootSolve 
 
 %description
 This is designed for use with an arbitrary set of equations with an

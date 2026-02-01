@@ -1,43 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcmdrPlugin.EACSPIR
-%global packver   0.2-3
+%global packname  automerge
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plugin de R-Commander para el Manual 'EACSPIR'
+Summary:          R Bindings for 'Automerge' 'CRDT' Library
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcmdr >= 2.8.0
-BuildRequires:    R-CRAN-R2HTML 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-ez 
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-reshape 
-BuildRequires:    R-CRAN-RcmdrMisc 
-Requires:         R-CRAN-Rcmdr >= 2.8.0
-Requires:         R-CRAN-R2HTML 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-ez 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-reshape 
-Requires:         R-CRAN-RcmdrMisc 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Este paquete proporciona una interfaz grafica de usuario (GUI) para
-algunos de los procedimientos estadisticos detallados en un curso de
-'Estadistica aplicada a las Ciencias Sociales mediante el programa
-informatico R' (EACSPIR). LA GUI se ha desarrollado como un Plugin del
-programa R-Commander.
+Provides R bindings to the 'Automerge' Conflict-free Replicated Data Type
+('CRDT') library. 'Automerge' enables automatic merging of concurrent
+changes without conflicts, making it ideal for distributed systems,
+collaborative applications, and offline-first architectures. The approach
+of local-first software was proposed in Kleppmann, M., Wiggins, A., van
+Hardenberg, P., McGranaghan, M. (2019) <doi:10.1145/3359591.3359737>. This
+package supports all 'Automerge' data types (maps, lists, text, counters)
+and provides both low-level and high-level synchronization protocols for
+seamless interoperability with 'JavaScript' and other 'Automerge'
+implementations.
 
 %prep
 %setup -q -c -n %{packname}

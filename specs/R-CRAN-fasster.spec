@@ -1,50 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viraldomain
-%global packver   0.0.7
+%global packname  fasster
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Applicability Domain Methods of Viral Load and CD4 Lymphocytes
+Summary:          Fast Additive Switching of Seasonality, Trend, and Exogenous Regressors
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-applicable 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-kknn 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tsibble >= 0.9.0
+BuildRequires:    R-CRAN-fabletools >= 0.2.0
+BuildRequires:    R-CRAN-dlm 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-workflows 
-Requires:         R-CRAN-applicable 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-earth 
-Requires:         R-CRAN-kknn 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-recipes 
+BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tsibble >= 0.9.0
+Requires:         R-CRAN-fabletools >= 0.2.0
+Requires:         R-CRAN-dlm 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-distributional 
+Requires:         R-CRAN-vctrs 
 
 %description
-Provides methods for assessing the applicability domain of models that
-predict viral load and CD4 (Cluster of Differentiation 4) lymphocyte
-counts. These methods help determine the extent of extrapolation when
-making predictions.
+Implementation of the FASSTER (Forecasting with Additive Switching of
+Seasonality, Trend, and Exogenous Regressors) model for forecasting time
+series with multiple seasonal patterns. The model combines state space
+methodology with a switching component in the observation equation to
+allow flexible modeling of complex seasonal patterns, including
+time-varying effects and multiple seasonalities.
 
 %prep
 %setup -q -c -n %{packname}

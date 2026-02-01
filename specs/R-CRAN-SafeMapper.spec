@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  strand
-%global packver   0.2.3
+%global packname  SafeMapper
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Investment Strategy Simulation
+Summary:          Fault-Tolerant Functional Programming with Automatic Checkpointing
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-digest 
+Requires:         R-tools 
 
 %description
-Provides a framework for performing discrete (share-level) simulations of
-investment strategies. Simulated portfolios optimize exposure to an input
-signal subject to constraints such as position size and factor exposure.
-For background see L. Chincarini and D. Kim (2010, ISBN:978-0-07-145939-6)
-"Quantitative Equity Portfolio Management".
+Provides drop-in replacements for 'purrr' and 'furrr' mapping functions
+with built-in fault tolerance, automatic checkpointing, and seamless
+recovery capabilities. When long-running computations are interrupted due
+to errors, system crashes, or other failures, simply re-run the same code
+to automatically resume from the last checkpoint. Ideal for large-scale
+data processing, API calls, web scraping, and other time-intensive
+operations where reliability is critical. For 'purrr' methodology, see
+Wickham and Henry (2023) <https://purrr.tidyverse.org/>.
 
 %prep
 %setup -q -c -n %{packname}

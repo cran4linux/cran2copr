@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iBART
-%global packver   1.0.0
+%global packname  pixr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Iterative Bayesian Additive Regression Trees Descriptor Selection Method
+Summary:          Access Brazilian Central Bank 'PIX' Open Data 'API'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet >= 4.1.1
-BuildRequires:    R-CRAN-bartMachine >= 1.2.6
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-glmnet >= 4.1.1
-Requires:         R-CRAN-bartMachine >= 1.2.6
-Requires:         R-CRAN-foreach 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-tibble >= 3.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-tibble >= 3.2.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
 
 %description
-A statistical method based on Bayesian Additive Regression Trees with
-Global Standard Error Permutation Test (BART-G.SE) for descriptor
-selection and symbolic regression. It finds the symbolic formula of the
-regression function y=f(x) as described in Ye, Senftle, and Li (2023)
-<arXiv:2110.10195>.
+Provides a 'tidyverse'-style interface to the Brazilian Central Bank
+(<https://www.bcb.gov.br>) 'PIX' Open Data 'API'
+<https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/aplicacao#!/recursos>.
+Retrieve statistics on 'PIX' keys, transactions by municipality, and
+monthly transaction summaries. All functions return 'tibbles' and support
+'OData' query parameters for filtering, selecting, and ordering data.
 
 %prep
 %setup -q -c -n %{packname}

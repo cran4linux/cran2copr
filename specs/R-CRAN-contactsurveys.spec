@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  applicable
-%global packver   0.1.1
+%global packname  contactsurveys
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Compilation of Applicability Domain Methods
+Summary:          Download Contact Surveys for Use in Infectious Disease Modelling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hardhat >= 1.3.1
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-proxyC 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-zen4R >= 0.10.3
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-oai 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-hardhat >= 1.3.1
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-proxyC 
+BuildRequires:    R-CRAN-yesno 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-zen4R >= 0.10.3
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-oai 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+Requires:         R-CRAN-yesno 
 
 %description
-A modeling package compiling applicability domain methods in R. It
-combines different methods to measure the amount of extrapolation new
-samples can have from the training set. See Gadaleta et al (2016)
-<doi:10.4018/IJQSPR.2016010102> for an overview of applicability domains.
+Download, cache, and manage social contact survey data from the social
+contact data community on Zenodo
+(<https://zenodo.org/communities/social_contact_data>) for use in
+infectious disease modelling. Provides functions to list available
+surveys, download survey files with automatic caching, and retrieve
+citations. Contact survey data describe who contacts whom in a population
+and are used to parameterise age-structured transmission models, for
+example via the 'socialmixr' package. The surveys available include those
+from the POLYMOD study (Mossong et al. (2008)
+<doi:10.1371/journal.pmed.0050074>) and other social contact data shared
+on Zenodo.
 
 %prep
 %setup -q -c -n %{packname}

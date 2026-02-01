@@ -1,53 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  strand
-%global packver   0.2.3
+%global packname  aae.pop
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Investment Strategy Simulation
+Summary:          Flexible Population Dynamics Simulations
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-mc2d 
+BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-lubridate 
+Requires:         R-stats 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-mc2d 
+Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-methods 
 
 %description
-Provides a framework for performing discrete (share-level) simulations of
-investment strategies. Simulated portfolios optimize exposure to an input
-signal subject to constraints such as position size and factor exposure.
-For background see L. Chincarini and D. Kim (2010, ISBN:978-0-07-145939-6)
-"Quantitative Equity Portfolio Management".
+Simulate population dynamics from realistically complex matrix population
+models in a plug-and-play fashion. Supports aspatial and spatially
+implicit models with one or more species and time-varying covariates,
+stochasticity, density dependence, additions or removals of individuals,
+interspecific interactions, and metapopulations.
 
 %prep
 %setup -q -c -n %{packname}

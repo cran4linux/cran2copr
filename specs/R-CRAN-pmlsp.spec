@@ -1,53 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  strand
-%global packver   0.2.3
+%global packname  pmlsp
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Investment Strategy Simulation
+Summary:          Partial Maximum Likelihood Estimation of Spatial Probit Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-qrng 
+BuildRequires:    R-CRAN-spatialreg 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-maxLik 
 Requires:         R-methods 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-qrng 
+Requires:         R-CRAN-spatialreg 
+Requires:         R-CRAN-spdep 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides a framework for performing discrete (share-level) simulations of
-investment strategies. Simulated portfolios optimize exposure to an input
-signal subject to constraints such as position size and factor exposure.
-For background see L. Chincarini and D. Kim (2010, ISBN:978-0-07-145939-6)
-"Quantitative Equity Portfolio Management".
+Estimate spatial autoregressive nonlinear probit models with and without
+autoregressive disturbances using partial maximum likelihood estimation.
+Estimation and inference regarding marginal effects is also possible. For
+more details see Bille and Leorato (2020)
+<doi:10.1080/07474938.2019.1682314>.
 
 %prep
 %setup -q -c -n %{packname}

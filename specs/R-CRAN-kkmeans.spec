@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  runner
-%global packver   0.4.6
+%global packname  kkmeans
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Running Operations for Vectors
+Summary:          Fast Implementations of Kernel K-Means
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Lightweight library for rolling windows operations. Package enables full
-control over the window length, window lag and a time indices. With a
-runner one can apply any R function on a rolling windows. The package
-eases work with equally and unequally spaced time series.
+Implementations several algorithms for kernel k-means. The default 'OTQT'
+algorithm is a fast alternative to standard implementations of kernel
+k-means, particularly in cases with many clusters. For a small number of
+clusters, the implemented 'MacQueen' method typically performs the
+fastest. For more details and performance evaluations, see Berlinski and
+Maitra (2025) <doi:10.1002/sam.70032>.
 
 %prep
 %setup -q -c -n %{packname}

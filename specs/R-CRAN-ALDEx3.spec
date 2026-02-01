@@ -1,47 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gerda
-%global packver   0.5.0
+%global packname  ALDEx3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          German Election Database (GERDA)
+Summary:          Linear Models for Sequence Count Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-parallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-tibble 
 
 %description
-Provides tools to download comprehensive datasets of local, state, and
-federal election results in Germany from 1990 to 2025. The package
-facilitates access to data on turnout, vote shares for major parties, and
-demographic information across different levels of government (municipal,
-state, and federal). It offers access to geographically harmonized
-datasets that account for changes in municipal boundaries over time and
-incorporate mail-in voting districts. Includes bundled county-level
-covariates from INKAR and municipality-level Census 2022 data. Users can
-easily retrieve, clean, and standardize German electoral data, making it
-ready for analysis. Data is sourced from
-<https://github.com/awiedem/german_election_data>.
+Provides scalable generalized linear and mixed effects models tailored for
+sequence count data analysis (e.g., analysis of 16S or RNA-seq data). Uses
+Dirichlet-multinomial sampling to quantify uncertainty in relative
+abundance or relative expression conditioned on observed count data.
+Implements scale models as a generalization of normalizations which
+account for uncertainty in scale (e.g., total abundances) as described in
+Nixon et al. (2025) <doi:10.1186/s13059-025-03609-3> and McGovern et al.
+(2025) <doi:10.1101/2025.08.05.668734>.
 
 %prep
 %setup -q -c -n %{packname}

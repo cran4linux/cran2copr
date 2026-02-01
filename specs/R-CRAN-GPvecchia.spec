@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPvecchia
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Gaussian-Process Approximations
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Matrix >= 1.5.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sparseinv 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-FNN
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Matrix >= 1.5.1
-Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-sparseinv 
@@ -40,10 +40,11 @@ Requires:         R-CRAN-FNN
 %description
 Fast scalable Gaussian process approximations, particularly well suited to
 spatial (aerial, remote-sensed) and environmental data, described in more
-detail in Katzfuss and Guinness (2017) <arXiv:1708.06302>. Package also
-contains a fast implementation of the incomplete Cholesky decomposition
-(IC0), based on Schaefer et al. (2019) <arXiv:1706.02205> and MaxMin
-ordering proposed in Guinness (2018) <arXiv:1609.05372>.
+detail in Katzfuss and Guinness (2017) <doi:10.48550/arXiv.1708.06302>.
+Package also contains a fast implementation of the incomplete Cholesky
+decomposition (IC0), based on Schaefer et al. (2019)
+<doi:10.48550/arXiv.1706.02205> and MaxMin ordering proposed in Guinness
+(2018) <doi:10.48550/arXiv.1609.05372>.
 
 %prep
 %setup -q -c -n %{packname}

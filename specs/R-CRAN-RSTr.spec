@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSTr
-%global packver   1.0.0
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gibbs Samplers for Discrete Bayesian Spatiotemporal Models
 
@@ -20,11 +20,10 @@ BuildRequires:    R-CRAN-RcppArmadillo >= 15.2.2.1
 BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-CRAN-RcppDist >= 0.1.1.1
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-spdep 
-Requires:         R-CRAN-RcppArmadillo >= 15.2.2.1
-Requires:         R-CRAN-Rcpp >= 1.1.0
-Requires:         R-CRAN-RcppDist >= 0.1.1.1
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-spdep 
 
 %description
