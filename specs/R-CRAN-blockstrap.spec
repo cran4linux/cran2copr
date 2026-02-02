@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nutriNetwork
-%global packver   0.2.0
+%global packname  blockstrap
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Structure Learning with Copula Graphical Model
+Summary:          Sample Dataframes by a Group
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-huge 
-BuildRequires:    R-CRAN-tmvtnorm 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-igraph 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-huge 
-Requires:         R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 
 %description
-Statistical tool for learning the structure of direct associations among
-variables for continuous data, discrete data and mixed discrete-continuous
-data. The package is based on the copula graphical model in Behrouzi and
-Wit (2017) <doi:10.1111/rssc.12287>.
+Sample dataframes by group, in the form of a 'block bootstrap'. Entire
+groups are returned allowing for a single 'observation' to span multiple
+rows of the dataframe.
 
 %prep
 %setup -q -c -n %{packname}

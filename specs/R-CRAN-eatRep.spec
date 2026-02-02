@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eatRep
-%global packver   0.15.2
+%global packver   0.15.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.2
+Version:          0.15.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Educational Assessment Tools for Replication Methods
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-survey >= 4.1.1
 BuildRequires:    R-CRAN-mice >= 2.46
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-eatTools >= 0.7.8
+BuildRequires:    R-CRAN-eatTools >= 0.7.9
 BuildRequires:    R-CRAN-lavaan >= 0.6.7
 BuildRequires:    R-CRAN-eatGADS >= 0.20.0
 BuildRequires:    R-CRAN-BIFIEsurvey 
@@ -39,16 +39,17 @@ BuildRequires:    R-CRAN-EffectLiteR
 BuildRequires:    R-CRAN-estimatr 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-reformulas 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-survey >= 4.1.1
 Requires:         R-CRAN-mice >= 2.46
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-eatTools >= 0.7.8
+Requires:         R-CRAN-eatTools >= 0.7.9
 Requires:         R-CRAN-lavaan >= 0.6.7
 Requires:         R-CRAN-eatGADS >= 0.20.0
 Requires:         R-CRAN-BIFIEsurvey 
@@ -67,12 +68,13 @@ Requires:         R-CRAN-EffectLiteR
 Requires:         R-CRAN-estimatr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-msm 
-Requires:         R-CRAN-lme4 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-reformulas 
+Requires:         R-CRAN-stringr 
 
 %description
 Replication methods to compute some basic statistic operations (means,

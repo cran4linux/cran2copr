@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bvhar
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Vector Heterogeneous Autoregressive Modeling
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-optimParallel
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppNumerical 
 BuildRequires:    R-CRAN-RcppSpdlog 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-lifecycle 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctmva
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous-Time Multivariate Analysis
 
@@ -22,11 +22,19 @@ BuildRequires:    R-CRAN-polynom
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Implements a basis function or functional data analysis framework for

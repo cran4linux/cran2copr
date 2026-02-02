@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SparseTSCGM
-%global packver   4.1
+%global packname  adsasi
+%global packver   0.9.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1
+Version:          0.9.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Time Series Chain Graphical Models
+Summary:          Adaptive Sample Size Simulator
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-longitudinal 
-BuildRequires:    R-CRAN-huge 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-network 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-longitudinal 
-Requires:         R-CRAN-huge 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-network 
 Requires:         R-CRAN-abind 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Computes sparse vector autoregressive coefficients and sparse precision
-matrices for time series chain graphical models. Methods are described in
-Abegaz and Wit (2013) <doi:10.1093/biostatistics/kxt005>.
+A simulations-first sample size determination package that aims at making
+sample size formulae obsolete for most easily computable statistical
+experiments ; the main envisioned use case is clinical trials. The
+proposed clinical trial must be written by the user in the form of a
+function that takes as argument a sample size and returns a boolean (for
+whether or not the trial is a success). The 'adsasi' functions will then
+use it to find the correct sample size empirically. The unavoidable
+mis-specification is obviated by trying sample size values close to the
+right value, the latter being understood as the value that gives the
+probability of success the user wants (usually 80 or 90%% in biostatistics,
+corresponding to 20 or 10%% type II error).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NetGreg
-%global packver   0.0.2
+%global packname  comphy
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network-Guided Penalized Regression (NetGreg)
+Summary:          Functions Used in the Book "Computational Physics with R"
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-huge 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-plsgenomics 
-Requires:         R-CRAN-huge 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-plsgenomics 
 
 %description
-A network-guided penalized regression framework that integrates network
-characteristics from Gaussian graphical models with partial penalization,
-accounting for both network structure (hubs and non-hubs) and clinical
-covariates in high-dimensional omics data, including transcriptomics and
-proteomics. The full methodological details can be found in our recent
-preprint by Ahn S and Oh EJ (2025) <doi:10.48550/arXiv.2505.22986>.
+Provides a collection of functions described and used in the book Foadi
+(2026, ISBN:9780750326308) "Computational Physics with R". These include
+routines for numerical differentiation, integration, differential
+equations, eigenvalue problems, Monte Carlo methods, and other algorithms
+relevant to computational physics.
 
 %prep
 %setup -q -c -n %{packname}

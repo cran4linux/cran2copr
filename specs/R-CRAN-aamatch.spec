@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aamatch
-%global packver   0.3.7
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Artless Automatic Multivariate Matching for Observational Studies
+Summary:          Artless Automatic or Artful Multivariate Matching for Observational Studies
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
