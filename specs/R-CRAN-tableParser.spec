@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tableParser
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse Tabled Content to Text Vector and Extract Statistical Standard Results
 
@@ -31,17 +31,16 @@ and then collapse it into a text format that is readable by humans by
 mimicking the actions of a screen reader. As tables within PDF documents
 are extracted with the 'tabulapdf' package, and the table captions and
 footnotes cannot be extracted, the results on tables within PDF documents
-have to be considered less precise. The function 'table2matrix()' returns
-a list of the tables within a document as character matrices.
-'[table2text()]' collapses the matrix content into a list of character
-strings by imitating the behavior of a screen reader. The textual
-representation of characters and numbers can be unified with unifyMatrix()
-before parsing. The function 'table2stats()' extracts the tabled
-statistical test results from the collapsed text with the function
-'standardStats()' from the 'JATSdecoder' package and, if activated, checks
-the reported and coded p-values for consistency. Due to the great
-variability and potential complexity of table structures, parsing accuracy
-may vary.
+have to be considered less precise. The function table2matrix() returns a
+list of the tables within a document as character matrices. table2text()
+collapses the matrix content into a list of character strings by imitating
+the behavior of a screen reader. The textual representation of characters
+and numbers can be unified with unifyMatrix() before parsing. The function
+table2stats() extracts the tabled statistical test results from the
+collapsed text with the function standardStats() from the 'JATSdecoder'
+package and, if activated, checks the reported and coded p-values for
+consistency. Due to the great variability and potential complexity of
+table structures, parsing accuracy may vary.
 
 %prep
 %setup -q -c -n %{packname}

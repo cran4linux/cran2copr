@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  visOmopResults
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphs and Tables for OMOP Results
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-omopgenerics >= 0.3.1
+BuildRequires:    R-CRAN-brand.yml 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
@@ -26,8 +27,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-omopgenerics >= 0.3.1
+Requires:         R-CRAN-brand.yml 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
@@ -36,7 +37,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-yaml 
 
 %description
 Provides methods to transform omop_result objects into formatted tables

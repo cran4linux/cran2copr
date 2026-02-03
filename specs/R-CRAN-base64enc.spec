@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  base64enc
-%global packver   0.1-3
+%global packver   0.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for base64 encoding
+Summary:          Tools for 'base64' Encoding
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 2.9.0
 Requires:         R-core >= 2.9.0
 
 %description
-This package provides tools for handling base64 encoding. It is more
-flexible than the orphaned base64 package.
+Tools for handling 'base64' encoding. It is more flexible than the
+orphaned 'base64' package.
 
 %prep
 %setup -q -c -n %{packname}

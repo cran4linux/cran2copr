@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tteICE
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Treatment Effect Estimation for Time-to-Event Data with Intercurrent Events
 
@@ -17,32 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival >= 3.8.3
 BuildRequires:    R-CRAN-cmprsk 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-survival >= 3.8.3
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-survival 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Analyzing treatment effects in clinical trials with time-to-event outcomes
-is complicated by intercurrent events. This package implements methods for
-estimating and inferring the cumulative incidence functions for
-time-to-event (TTE) outcomes with intercurrent events (ICEs) under the
-five strategies outlined in the ICH E9 (R1) addendum, see Deng
-(2025)<doi:10.1002/sim.70091>. This package can be used for analyzing data
-from both randomized controlled trials and observational studies. In
-general, we have a primary outcome event and possibly an intercurrent
+Analysis of treatment effects in clinical trials with time-to-event
+outcomes is complicated by intercurrent events. This package implements
+methods for estimating and inferring the cumulative incidence functions
+for time-to-event (TTE) outcomes with intercurrent events (ICE) under the
+five strategies outlined in the ICH E9 (R1) addendum, see Deng (2025)
+<doi:10.1002/sim.70091>. This package can be used for analyzing data from
+both randomized controlled trials and observational studies. In general,
+the data involve a primary outcome event and, potentially, an intercurrent
 event. Two data structures are allowed: competing risks, where only the
 time to the first event is recorded, and semicompeting risks, where the
 times to both the primary outcome event and intercurrent event (or

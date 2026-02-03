@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAtools
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functionalities for the 'INLA' Package
 
@@ -17,11 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-inlabru 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-inlabru 
 Requires:         R-methods 
 Requires:         R-utils 
 

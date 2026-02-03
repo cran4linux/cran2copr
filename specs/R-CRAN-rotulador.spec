@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  equaltestMI
-%global packver   0.6.1
+%global __requires_exclude ^libmpi
+%global packname  rotulador
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Examine Measurement Invariance via Equivalence Testing and Projection Method
+Summary:          Useful Functions for Programming and Generating Documents
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-lavaan 
-Requires:         R-stats 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-utils 
 
 %description
-Functions for examining measurement invariance via equivalence testing are
-included in this package. The traditionally used RMSEA (Root Mean Square
-Error of Approximation) cutoff values are adjusted based on simulation
-results. In addition, a projection-based method is implemented to test the
-equality of latent factor means across groups without assuming the
-equality of intercepts. For more information, see Yuan, K. H., & Chan, W.
-(2016) <doi:10.1037/met0000080>, Deng, L., & Yuan, K. H. (2016)
-<doi:10.1007/s11336-015-9491-8>, and Jiang, G., Mai, Y., & Yuan, K. H.
-(2017) <doi:10.3389/fpsyg.2017.01823>.
+Tools to help developers and producers manipulate R objects and outputs.
+It includes tools for displaying results and objects, and for formatting
+them in the correct format.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

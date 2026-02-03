@@ -1,50 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CACIMAR
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  blindspiker
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Species Analysis of Cell Identities, Markers and Regulations
+Summary:          Laboratory Blind Spike Sample Analyses
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Seurat 
-BuildRequires:    R-CRAN-pheatmap 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-ROCR 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-Seurat 
-Requires:         R-CRAN-pheatmap 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-ROCR 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-binGroup 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-gt 
 Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-binGroup 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-gt 
 
 %description
-A toolkit to perform cross-species analysis based on scRNA-seq data. This
-package contains 5 main features. (1) identify Markers in each cluster.
-(2) Cell type annotation (3) identify conserved markers. (4) identify
-conserved cell types. (5) identify conserved modules of regulatory
-networks.
+A blind spike program provides samples to a laboratory in order to perform
+quality control (QC) checks. The samples provided are of a known quantity
+to the tester. The laboratory is typically uninformed of that the sample
+provided is a QC sample.
 
 %prep
 %setup -q -c -n %{packname}

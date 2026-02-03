@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HOIFCar
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Adjustment in RCT by Higher-Order Influence Functions
 
@@ -39,7 +39,8 @@ Estimates treatment effects using covariate adjustment methods in
 Randomized Clinical Trials (RCT) motivated by higher-order influence
 functions (HOIF). Provides point estimates, oracle bias, variance, and
 approximate variance for HOIF-adjusted estimators. For methodology
-details, see Zhao et al. (2024) <doi:10.48550/arXiv.2411.08491>.
+details, see Zhao et al. (2024) <doi:10.48550/arXiv.2411.08491> and Gu et
+al. (2025) <doi:10.48550/arXiv.2512.20046>.
 
 %prep
 %setup -q -c -n %{packname}

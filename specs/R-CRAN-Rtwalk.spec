@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  play
-%global packver   0.1.3
+%global packname  Rtwalk
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Sports Data
+Summary:          An MCMC Sampler Using the t-Walk Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-worldfootballR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-worldfootballR 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides functions to visualise sports data. Converts data into a format
-suitable for plotting charts. Helps to ease the process of working with
-messy sports data to a more user friendly format. Football data is
-accessed through 'worldfootballR'
-'<https://github.com/JaseZiv/worldfootballR>' which gets data from 'FBref'
-<https://fbref.com/en>, 'Transfermarkt' <https://www.transfermarkt.com/>,
-'Understat' <https://understat.com/>, and 'fotmob'
-<https://www.fotmob.com/>.
+Implements the t-walk algorithm, a general-purpose, self-adjusting Markov
+Chain Monte Carlo (MCMC) sampler for continuous distributions as described
+by Christen & Fox (2010) <doi:10.1214/10-BA603>. The t-walk requires no
+tuning and is robust for a wide range of target distributions, including
+high-dimensional and multimodal problems. This implementation includes an
+option for running multiple chains in parallel to accelerate sampling and
+facilitate convergence diagnostics.
 
 %prep
 %setup -q -c -n %{packname}

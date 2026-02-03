@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worldmet
-%global packver   0.10.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Surface Meteorological Data from NOAA Integrated Surface Database (ISD)
+Summary:          Import Surface Meteorological Data from NOAA
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,27 +18,33 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-CRAN-carrier 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-purrr >= 1.1.0
+Requires:         R-CRAN-carrier 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
 Functions to import data from more than 30,000 surface meteorological
 sites around the world managed by the National Oceanic and Atmospheric
-Administration (NOAA) Integrated Surface Database (ISD, see
-<https://www.ncei.noaa.gov/products/land-based-station/integrated-surface-database>).
+Administration (NOAA) Global Historical Climate Network (GHCN) and
+Integrated Surface Database (ISD).
 
 %prep
 %setup -q -c -n %{packname}

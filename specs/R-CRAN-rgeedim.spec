@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgeedim
-%global packver   0.2.7
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search, Composite, and Download 'Google Earth Engine' Imagery with the 'Python' Module 'geedim'
 
@@ -20,11 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-jsonlite 
 
 %description
 Search, composite, and download 'Google Earth Engine' imagery with

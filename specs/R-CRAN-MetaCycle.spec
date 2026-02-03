@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetaCycle
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluate Periodicity in Large Scale Data
 
@@ -18,7 +18,11 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gnm 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-gnm 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 There are two functions-meta2d and meta3d for detecting rhythmic signals
