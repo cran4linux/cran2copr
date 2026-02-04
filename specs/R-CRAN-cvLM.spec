@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cvLM
-%global packver   1.0.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Validation for Linear & Ridge Regression Models
+Summary:          Cross-Validation for Linear and Ridge Regression Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,18 +19,20 @@ Requires:         R-core
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.8
 BuildRequires:    R-CRAN-Rcpp >= 1.0.13
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-RcppParallel >= 5.1.8
 Requires:         R-CRAN-Rcpp >= 1.0.13
 Requires:         R-stats 
 
 %description
-Efficient implementations of cross-validation techniques for linear and
-ridge regression models, leveraging 'C++' code with 'Rcpp',
-'RcppParallel', and 'Eigen' libraries. It supports leave-one-out,
-generalized, and K-fold cross-validation methods, utilizing 'Eigen'
-matrices for high performance. Methodology references: Hastie, Tibshirani,
-and Friedman (2009) <doi:10.1007/978-0-387-84858-7>.
+Implements cross-validation methods for linear and ridge regression
+models. The package provides grid-based selection of the ridge penalty
+parameter using Singular Value Decomposition (SVD) and supports K-fold
+cross-validation, Leave-One-Out Cross-Validation (LOOCV), and Generalized
+Cross-Validation (GCV). Computations are implemented in C++ via
+'RcppArmadillo' with optional parallelization using 'RcppParallel'. The
+methods are suitable for high-dimensional settings where the number of
+predictors exceeds the number of observations.
 
 %prep
 %setup -q -c -n %{packname}

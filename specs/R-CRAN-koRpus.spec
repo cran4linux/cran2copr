@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  koRpus
-%global packver   0.13-8
+%global packver   0.13-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.8
+Version:          0.13.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Analysis with Emphasis on POS Tagging, Readability, and Lexical Diversity
 
@@ -16,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sylly >= 0.1.6
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
+BuildRequires:    R-CRAN-sylly >= 0.1.7
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-sylly >= 0.1.6
+Requires:         R-CRAN-Matrix >= 1.3.0
+Requires:         R-CRAN-sylly >= 0.1.7
 Requires:         R-CRAN-data.table 
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
 
 %description
 A set of tools to analyze texts. Includes, amongst others, functions for
@@ -54,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

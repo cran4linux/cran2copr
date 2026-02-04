@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesBrainMap
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Brain Networks and Connectivity with Population-Derived Priors
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fMRItools >= 0.5.3
+BuildRequires:    R-CRAN-fMRItools >= 0.7.1
 BuildRequires:    R-CRAN-fMRIscrub >= 0.14.5
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-foreach 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-pesel
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-fMRItools >= 0.5.3
+Requires:         R-CRAN-fMRItools >= 0.7.1
 Requires:         R-CRAN-fMRIscrub >= 0.14.5
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-foreach 
@@ -41,16 +41,18 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Implements Bayesian brain mapping models, including the prior ICA
-(independent components analysis) model proposed in Mejia et al. (2020)
-<doi:10.1080/01621459.2019.1679638> and the spatial prior ICA model
-proposed in proposed in Mejia et al. (2022)
-<doi:10.1080/10618600.2022.2104289>. Both models estimate subject-level
-brain as deviations from known population-level networks, which are
-estimated using standard ICA algorithms. Both models employ an
-expectation-maximization algorithm for estimation of the latent brain
-networks and unknown model parameters. Includes direct support for
-'CIFTI', 'GIFTI', and 'NIFTI' neuroimaging file formats.
+Implements Bayesian brain mapping with population-derived priors,
+including the original model described in Mejia et al. (2020)
+<doi:10.1080/01621459.2019.1679638>, the model with spatial priors
+described in Mejia et al. (2022) <doi:10.1080/10618600.2022.2104289>, and
+the model with population-derived priors on functional connectivity
+described in Mejia et al. (2025) <doi:10.1093/biostatistics/kxaf022>.
+Population-derived priors are based on templates representing established
+brain network maps, for example derived from independent component
+analysis (ICA), parcellations, or other methods.  Model estimation is
+based on expectation-maximization or variational Bayes algorithms.
+Includes direct support for 'CIFTI', 'GIFTI', and 'NIFTI' neuroimaging
+file formats.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  layer
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tilt your Maps and Turn Them into 'ggplot' Plots
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-ggnewscale
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scico 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-ggnewscale
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scico 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 

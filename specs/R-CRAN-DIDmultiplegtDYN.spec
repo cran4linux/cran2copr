@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIDmultiplegtDYN
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation in Difference-in-Difference Designs with Multiple Groups and Periods
 
@@ -16,14 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-matlib 
-BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-car 
@@ -32,13 +30,13 @@ BuildRequires:    R-CRAN-sandwich
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-rnames 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-matlib 
-Requires:         R-CRAN-plm 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-stats 
 Requires:         R-CRAN-car 
@@ -47,6 +45,7 @@ Requires:         R-CRAN-sandwich
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-rnames 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Estimation of heterogeneity-robust difference-in-differences estimators,

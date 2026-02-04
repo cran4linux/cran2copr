@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Ternary
-%global packver   2.3.5
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          2.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Ternary and Holdridge Plots
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PlotTools >= 0.2.0
-BuildRequires:    R-CRAN-RcppHungarian 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-TreeDist 
 Requires:         R-CRAN-PlotTools >= 0.2.0
-Requires:         R-CRAN-RcppHungarian 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-TreeDist 
 
 %description
 Plots ternary diagrams (simplex plots / Gibbs triangles) and Holdridge

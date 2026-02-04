@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optrefine
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimally Refine Strata
 
@@ -28,11 +28,13 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Splits initial strata into refined strata that optimize covariate balance.
-For more information, please email the author for a copy of the
-accompanying manuscript. To solve the linear program, the 'Gurobi'
+For more information, please see Brumberg, Small, and Rosenbaum (2024)
+<doi:10.1093/biomtc/ujae061>. To solve the linear program, the 'Gurobi'
 commercial optimization software is recommended, but not required. The
 'gurobi' R package can be installed following the instructions at
-<https://www.gurobi.com/documentation/9.1/refman/ins_the_r_package.html>.
+<https://docs.gurobi.com/projects/optimizer/en/current/reference/r/setup.html>
+after claiming your free academic license at
+<https://www.gurobi.com/academia/academic-program-and-licenses/>.
 
 %prep
 %setup -q -c -n %{packname}

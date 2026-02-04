@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wizaRdry
-%global packver   0.5.0
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Magical Framework for Collaborative & Reproducible Data Analysis
 
@@ -70,14 +70,14 @@ Requires:         R-CRAN-openxlsx2
 
 %description
 A comprehensive data analysis framework for NIH-funded research that
-streamlines workflows for both data cleaning and preparing and modifying
-NIH Data Archive ('NDA') data structures and submission templates.
-Provides unified access to multiple data sources ('REDCap', 'MongoDB',
-'Qualtrics', 'SQL', 'ORACLE') through interfaces to their APIs, with
-specialized functions for data cleaning, filtering, merging, and parsing.
-Features automatic validation, field harmonization, and memory-aware
-processing to enhance reproducibility in multi-site collaborative research
-as described in Mittal et al. (2021) <doi:10.20900/jpbs.20210011>.
+streamlines workflows for both data cleaning and preparing NIH Data
+Archive ('NDA') submission templates. Provides unified access to multiple
+data sources ('REDCap', 'MongoDB', 'Qualtrics') through interfaces to
+their APIs, with specialized functions for data cleaning, filtering,
+merging, and parsing. Features automatic validation, field harmonization,
+and memory-aware processing to enhance reproducibility in multi-site
+collaborative research as described in Mittal et al. (2021)
+<doi:10.20900/jpbs.20210011>.
 
 %prep
 %setup -q -c -n %{packname}
