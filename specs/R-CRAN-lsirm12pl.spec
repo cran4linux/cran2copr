@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lsirm12pl
-%global packver   1.3.9
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Space Item Response Model
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-MCMCpack 
@@ -59,15 +59,17 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-purrr 
 
 %description
-Analysis of dichotomous and continuous response data using latent factor
-by both 1PL LSIRM and 2PL LSIRM as described in Jeon et al. (2021)
-<doi:10.1007/s11336-021-09762-5>. It includes original 1PL LSIRM and 2PL
-LSIRM provided for binary response data and its extension for continuous
-response data. Bayesian model selection with spike-and-slab prior and
-method for dealing data with missing value under missing at random,
-missing completely at random are also supported. Various diagnostic plots
-are available to inspect the latent space and summary of estimated
-parameters.
+Analysis of dichotomous, ordinal, and continuous response data using
+latent space item response models (LSIRMs). Provides 1PL and 2PL LSIRMs
+for binary response data as described in Jeon et al. (2021)
+<doi:10.1007/s11336-021-09762-5>, extensions for continuous response data,
+and graded response models (GRM) for Likert-scale ordinal data as
+described in De Carolis et al. (2025) <doi:10.1080/00273171.2025.2605678>.
+Supports Bayesian model selection with spike-and-slab priors, adaptive
+MCMC algorithms, and methods for handling missing data under missing at
+random (MAR) and missing completely at random (MCAR) assumptions. Provides
+various diagnostic plots to inspect the latent space and summaries of
+estimated parameters.
 
 %prep
 %setup -q -c -n %{packname}

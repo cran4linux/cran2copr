@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AgeBandDecomposition
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Age Band Decomposition Method for Tree Ring Standardization
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplR 
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplR 
 Requires:         R-CRAN-patchwork 
 
 %description

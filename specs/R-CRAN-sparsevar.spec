@@ -1,49 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  visOmopResults
-%global packver   1.4.2
+%global packname  sparsevar
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphs and Tables for OMOP Results
+Summary:          Sparse VAR (Vector Autoregression) / VECM (Vector Error Correction Model) Estimation
 
-License:          Apache License (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-omopgenerics >= 0.3.1
-BuildRequires:    R-CRAN-brand.yml 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-systemfonts 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-omopgenerics >= 0.3.1
-Requires:         R-CRAN-brand.yml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ncvreg 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-grid 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-systemfonts 
-Requires:         R-CRAN-tidyr 
 
 %description
-Provides methods to transform omop_result objects into formatted tables
-and figures, facilitating the visualisation of study results working with
-the Observational Medical Outcomes Partnership (OMOP) Common Data Model.
+A wrapper for sparse VAR (Vector Autoregression) and VECM (Vector Error
+Correction Model) time series models estimation using penalties like ENET
+(Elastic Net), SCAD (Smoothly Clipped Absolute Deviation) and MCP (Minimax
+Concave Penalty). Based on the work of Basu and Michailidis (2015)
+<doi:10.1214/15-AOS1315>.
 
 %prep
 %setup -q -c -n %{packname}

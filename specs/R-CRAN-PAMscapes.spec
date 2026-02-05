@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PAMscapes
-%global packver   0.14.5
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.5
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Summarising and Analysing Soundscape Data
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
 BuildRequires:    R-CRAN-PAMmisc >= 1.12.4
+BuildRequires:    R-CRAN-rlang >= 1.1.7
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
@@ -29,17 +29,16 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-tdigest 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 4.0.1
 Requires:         R-CRAN-PAMmisc >= 1.12.4
+Requires:         R-CRAN-rlang >= 1.1.7
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-tdigest 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-future.apply 
@@ -63,7 +61,7 @@ from Marine Cadastre <https://hub.marinecadastre.gov>, connecting AIS data
 to GPS coordinates, plotting summaries of various soundscape measurements,
 and downloading relevant environmental variables (wind, swell height) from
 the National Center for Atmospheric Research data server
-<https://rda.ucar.edu/datasets/ds084.1/>. Most tools were developed to
+<https://gdex.ucar.edu/datasets/d084001/>. Most tools were developed to
 work well with output from 'Triton' software, but can be adapted to work
 with any similar measurements.
 

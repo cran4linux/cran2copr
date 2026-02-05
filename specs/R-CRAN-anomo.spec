@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anomo
-%global packver   1.2.2
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Moderation, Statistical Power, and Optimal Design for Studies Detecting Difference and Equivalence
 

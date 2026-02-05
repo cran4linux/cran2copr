@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  healthbR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Brazilian Public Health Data
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-purrr 
 
 %description

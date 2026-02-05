@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSHShydRology
-%global packver   1.4.4
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Canadian Hydrological Analyses
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-lubridate 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-tidyhydat 
 BuildRequires:    R-CRAN-whitebox 
 BuildRequires:    R-datasets 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-circular
 BuildRequires:    R-CRAN-MGBT 
 BuildRequires:    R-CRAN-outliers 
 BuildRequires:    R-CRAN-TeachingDemos 
+BuildRequires:    R-CRAN-Kendall 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-plotrix 
@@ -49,7 +50,7 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-tidyhydat 
 Requires:         R-CRAN-whitebox 
 Requires:         R-datasets 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-circular
 Requires:         R-CRAN-MGBT 
 Requires:         R-CRAN-outliers 
 Requires:         R-CRAN-TeachingDemos 
+Requires:         R-CRAN-Kendall 
 
 %description
 A collection of user-submitted functions to aid in the analysis of

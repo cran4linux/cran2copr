@@ -1,49 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  visOmopResults
-%global packver   1.4.2
+%global packname  gsDesignTune
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphs and Tables for OMOP Results
+Summary:          Dependency-Aware Scenario Exploration for Group Sequential Designs
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-omopgenerics >= 0.3.1
-BuildRequires:    R-CRAN-brand.yml 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gsDesign 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-systemfonts 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-omopgenerics >= 0.3.1
-Requires:         R-CRAN-brand.yml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gsDesign 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-systemfonts 
-Requires:         R-CRAN-tidyr 
 
 %description
-Provides methods to transform omop_result objects into formatted tables
-and figures, facilitating the visualisation of study results working with
-the Observational Medical Outcomes Partnership (OMOP) Common Data Model.
+Provides systematic, dependency-aware exploration of group sequential
+designs created with 'gsDesign'. Supports reproducible grid and random
+search over user-defined candidate sets, parallel evaluation via the
+'future' framework, standardized metric extraction, and auditable
+reporting for design-space evaluation and trade-off analysis. Methods for
+group sequential design are described in Anderson (2025)
+<doi:10.32614/CRAN.package.gsDesign>. The 'future' framework for parallel
+processing is described in Bengtsson (2021) <doi:10.32614/RJ-2021-048>.
 
 %prep
 %setup -q -c -n %{packname}

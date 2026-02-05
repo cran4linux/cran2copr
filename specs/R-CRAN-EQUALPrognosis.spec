@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EQUALPrognosis
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysing Prognostic Studies
 
@@ -41,7 +41,9 @@ Functions that help with analysis of prognostic study data. This allows
 users with little experience of developing models to develop models and
 assess the performance of the prognostic models. This also summarises the
 information, so the performance of multiple models can be displayed
-simultaneously. Gurusamy, K
+simultaneously. This minor update fixes issues related to memory
+requirements with large number of simulations and deals with situations
+when there is overfitting of data. Gurusamy, K
 (2026)<https://github.com/kurinchi2k/EQUALPrognosis>.
 
 %prep

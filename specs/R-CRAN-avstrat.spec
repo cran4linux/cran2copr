@@ -1,49 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  visOmopResults
-%global packver   1.4.2
+%global packname  avstrat
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphs and Tables for OMOP Results
+Summary:          Stratigraphic Data Processing and Section Plots
 
-License:          Apache License (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-omopgenerics >= 0.3.1
-BuildRequires:    R-CRAN-brand.yml 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 >= 4.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-omopgenerics >= 0.3.1
-Requires:         R-CRAN-brand.yml 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-leaflet 
+Requires:         R-CRAN-ggplot2 >= 4.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-tidyr 
+Requires:         R-grid 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-leaflet 
 
 %description
-Provides methods to transform omop_result objects into formatted tables
-and figures, facilitating the visualisation of study results working with
-the Observational Medical Outcomes Partnership (OMOP) Common Data Model.
+Data processing and generating stratigraphic sections for volcanic
+deposits and tephrastratigraphy. Package was developed for studies on
+Alaska volcanoes ("av") where stratigraphic ("strat") figures are needed
+for interpreting eruptive histories, but the methods are applicable to any
+sediment stratigraphy project. Plotting styles inspired by "SedLog"
+(Zervas et al. 2009) <doi:10.1016/j.cageo.2009.02.009> but with more
+customizable outputs and flexible data input based on best practice
+recommendations for the tephra community (Wallace et al. 2022)
+<doi:10.1038/s41597-022-01515-y>.
 
 %prep
 %setup -q -c -n %{packname}

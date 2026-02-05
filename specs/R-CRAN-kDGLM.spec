@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TwoArmSurvSim
-%global packver   0.2
+%global __requires_exclude ^libmpi
+%global packname  kDGLM
+%global packver   1.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.2.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Survival Data for Randomized Clinical Trials
+Summary:          Bayesian Analysis of Dynamic Generalized Linear Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-blockrand 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-simsurv 
-Requires:         R-CRAN-blockrand 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-simsurv 
+BuildRequires:    R-CRAN-Rfast >= 2.0.8
+BuildRequires:    R-CRAN-extraDistr >= 1.9.1
+BuildRequires:    R-CRAN-generics >= 0.1.3
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rfast >= 2.0.8
+Requires:         R-CRAN-extraDistr >= 1.9.1
+Requires:         R-CRAN-generics >= 0.1.3
+Requires:         R-CRAN-Rdpack 
 
 %description
-A system to simulate clinical trials with time to event endpoints. Event
-simulation is based on Cox models allowing for covariates in addition to
-the treatment or group factor. Specific drop-out rates (separate from
-administrative censoring) can be controlled in the simulation. Other
-features include stratified randomization, non-proportional hazards,
-different accrual patterns, and event projection (timing to reach the
-target event) based on interim data.
+Provide routines for filtering and smoothing, forecasting, sampling and
+Bayesian analysis of Dynamic Generalized Linear Models using the
+methodology described in Alves et al.
+(2024)<doi:10.48550/arXiv.2201.05387> and dos Santos Jr. et al.
+(2024)<doi:10.48550/arXiv.2403.13069>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restatapi
-%global packver   0.24.5
+%global packname  ppweibull
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Data from Eurostat Database
+Summary:          Piecewise Lifetime Models
 
-License:          EUPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-nloptr 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-nloptr 
 
 %description
-Eurostat is the statistical office of the European Union and provides high
-quality statistics for Europe. Large set of the data is disseminated
-through the Eurostat database
-(<https://ec.europa.eu/eurostat/web/main/data/database>). The tools are
-using the REST API with the Statistical Data and Metadata eXchange (SDMX)
-Web Services
-(<https://ec.europa.eu/eurostat/web/user-guides/data-browser/api-data-access/api-detailed-guidelines/sdmx2-1>)
-to search and download data from the Eurostat database using the SDMX
-standard.
+Provides functions for estimation and data generation for several
+piecewise lifetime distributions. The package implements the power
+piecewise Weibull model, which includes the piecewise Rayleigh and
+piecewise exponential models as special cases. See Feigl and Zelen (1965)
+<doi:10.2307/2528247> for methodological details.
 
 %prep
 %setup -q -c -n %{packname}

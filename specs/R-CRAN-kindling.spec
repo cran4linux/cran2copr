@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kindling
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Higher-Level Interface of 'torch' Package to Auto-Train Neural Networks
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-vip
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-hardhat 
 Requires:         R-CRAN-parsnip >= 1.0.0
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-torch 
@@ -49,17 +50,19 @@ Requires:         R-CRAN-vip
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tune 
 Requires:         R-CRAN-dials 
+Requires:         R-CRAN-hardhat 
 
 %description
 Provides a higher-level interface to the 'torch' package for defining,
-training, and tuning neural networks. This package supports feedforward
-(multi-layer perceptron) and recurrent neural networks (RNN (Recurrent
-Neural Networks), LSTM (Long Short-Term Memory), GRU (Gated Recurrent
-Unit)), and also reduces boilerplate code while enabling seamless
-integration with 'torch'. The methods to train neural networks from this
-package also bridges to titanic ML frameworks in R namely 'tidymodels'
-ecosystem, enabling the 'parsnip' model specifications, workflows,
-recipes, and tuning tools.
+training, and fine-tuning neural networks, including its depth, powered by
+code generation. This package currently supports few to several
+architectures, namely feedforward (multi-layer perceptron) and recurrent
+neural networks (Recurrent Neural Networks (RNN), Long Short-Term Memory
+(LSTM), Gated Recurrent Unit (GRU)), while also reduces boilerplate
+'torch' code while enabling seamless integration with 'torch'. The model
+methods to train neural networks from this package also bridges to titanic
+ML frameworks in R, namely 'tidymodels' ecosystem, which enables the
+'parsnip' model specifications, workflows, recipes, and tuning tools.
 
 %prep
 %setup -q -c -n %{packname}

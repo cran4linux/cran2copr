@@ -1,51 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CIMPLE
-%global packver   0.1.0
+%global packname  typeR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Longitudinal Electronic Health Record (EHR) Data with Possibly Informative Observational Time
+Summary:          Simulate Typing Script
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-JMbayes2 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-JMbayes2 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-statmod 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
 Requires:         R-utils 
 
 %description
-Analyzes longitudinal Electronic Health Record (EHR) data with possibly
-informative observational time. These methods are grouped into two classes
-depending on the inferential task. One group focuses on estimating the
-effect of an exposure on a longitudinal biomarker while the other group
-assesses the impact of a longitudinal biomarker on time-to-diagnosis
-outcomes. The accompanying paper is Du et al (2024)
-<doi:10.48550/arXiv.2410.13113>.
+Simulates typing of R script files for presentations and demonstrations.
+Provides character-by-character animation with optional live code
+execution. Supports R scripts (.R), R Markdown (.Rmd), and Quarto (.qmd)
+documents.
 
 %prep
 %setup -q -c -n %{packname}

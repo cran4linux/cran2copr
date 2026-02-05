@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3cluster
-%global packver   0.1.12
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Extension for 'mlr3'
 
@@ -14,27 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-mlr3 >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-backports >= 1.1.10
 BuildRequires:    R-CRAN-paradox >= 1.0.1
-BuildRequires:    R-CRAN-mlr3 >= 0.21.1
-BuildRequires:    R-CRAN-mlr3misc >= 0.15.0
-BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-mlr3misc >= 0.19.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-mlr3 >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-backports >= 1.1.10
 Requires:         R-CRAN-paradox >= 1.0.1
-Requires:         R-CRAN-mlr3 >= 0.21.1
-Requires:         R-CRAN-mlr3misc >= 0.15.0
-Requires:         R-CRAN-clue 
+Requires:         R-CRAN-mlr3misc >= 0.19.0
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-R6 

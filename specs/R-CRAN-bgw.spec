@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bgw
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bunch-Gay-Welsch Statistical Estimation
 
@@ -37,7 +37,7 @@ likelihood estimation (MLE) for a user-provided model object that computes
 probabilities (a.k.a. probability densities). The original motivation for
 producing this package was to provide fast, efficient, and reliable MLE
 for discrete choice models that can be called from the 'Apollo' choice
-modelling 'R' package ( see <http://www.apollochoicemodelling.com>).
+modelling 'R' package ( see <https://www.apollochoicemodelling.com>).
 Starting with the release of Apollo 3.0, BGW is the default estimation
 package. However, estimation can also be performed using BGW in a
 stand-alone fashion without using 'Apollo' (as shown in simple examples

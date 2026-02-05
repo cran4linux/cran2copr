@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MAIVE
-%global packver   0.1.11
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta Analysis Instrumental Variable Estimator
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clubSandwich 
 Requires:         R-stats 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clubSandwich 
 
 %description

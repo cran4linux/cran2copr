@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqPen
-%global packver   4.1.4
+%global packver   4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.4
+Version:          4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Quantile Regression
 
@@ -44,8 +44,7 @@ MCP penalty functions including group penalties. In addition, offers a
 group penalty that provides consistent variable selection across
 quantiles. Provides a function that automatically generates lambdas and
 evaluates different models with cross validation or BIC, including a large
-p version of BIC. Below URL provides a link to a work in progress
-vignette.
+p version of BIC. Below URL provides a link to article in the R Journal.
 
 %prep
 %setup -q -c -n %{packname}

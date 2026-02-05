@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restatapi
-%global packver   0.24.5
+%global packname  Orangutan
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Retrieve Data from Eurostat Database
+Summary:          Automated Analysis of Phenotypic Data
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-adegenet 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dunn.test 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-multcompView 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-adegenet 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dunn.test 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-multcompView 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-withr 
 
 %description
-Eurostat is the statistical office of the European Union and provides high
-quality statistics for Europe. Large set of the data is disseminated
-through the Eurostat database
-(<https://ec.europa.eu/eurostat/web/main/data/database>). The tools are
-using the REST API with the Statistical Data and Metadata eXchange (SDMX)
-Web Services
-(<https://ec.europa.eu/eurostat/web/user-guides/data-browser/api-data-access/api-detailed-guidelines/sdmx2-1>)
-to search and download data from the Eurostat database using the SDMX
-standard.
+Provides functions to analyze and visualize meristic and mensural
+phenotypic data in a comparative framework. The package implements an
+automated pipeline that summarizes traits, identifies diagnostic variables
+among groups, performs multivariate and univariate statistical analyses,
+and produces publication-ready graphics. An earlier implementation
+(v1.0.0) is described in Torres (2025) <doi:10.64898/2025.12.18.695244>.
 
 %prep
 %setup -q -c -n %{packname}

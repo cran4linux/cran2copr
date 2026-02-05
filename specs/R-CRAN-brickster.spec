@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brickster
-%global packver   0.2.11
+%global packver   0.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.11
+Version:          0.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Toolkit for 'Databricks'
 
@@ -24,8 +24,8 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-ini 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
@@ -42,8 +42,8 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-ini 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
@@ -55,7 +55,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-utils 
 
 %description
-Collection of utilities that improve using 'Databricks' from R. Primarily
+Collection of utilities that improve using 'Databricks' from R.  Primarily
 functions that wrap specific 'Databricks' APIs
 (<https://docs.databricks.com/api>), 'RStudio' connection pane support,
 quality of life functions to make 'Databricks' simpler to use.
