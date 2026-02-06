@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tseffects
-%global packver   0.1.4
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic (Causal) Inferences from Time Series (with Interactions)
+Summary:          Dynamic Inferences from Time Series (with Interactions)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,15 +32,22 @@ Requires:         R-utils
 
 %description
 Autoregressive distributed lag (A[R]DL) models (and their reparameterized
-equivalent, the Generalized Error-Correction Model [GECM]) (see De Boef
-and Keele 2008 <doi:10.1111/j.1540-5907.2007.00307.x>) are the workhorse
-models in uncovering dynamic inferences. ADL models are simple to
-estimate; this is what makes them attractive. Once these models are
+equivalent, the Generalized Error-Correction Model [GECM]) are the
+workhorse models in uncovering dynamic inferences. ADL models are simple
+to estimate; this is what makes them attractive. Once these models are
 estimated, what is less clear is how to uncover a rich set of dynamic
 inferences from these models. We provide tools for recovering those
-inferences in three forms: causal inferences from ADL models, traditional
-time series quantities of interest (short- and long-run effects), and
-dynamic conditional relationships.
+inferences. These tools apply to traditional time-series quantities of
+interest: especially instantaneous effects for any period and cumulative
+effects for any period (including the long-run effect). They also allow
+for a variety of shock histories to be applied to the independent variable
+(beyond just a one-time, one-unit increase) as well as the recovery of
+inferences in levels for shocks applies to (in)dependent variables in
+differences (what we call the Generalized Dynamic Response Function).
+These effects are also available for the general conditional dynamic model
+advocated by Warner, Vande Kamp, and Jordan (2026
+<doi:10.1017/psrm.2026.10087>). We also provide the actual formulae for
+these effects.
 
 %prep
 %setup -q -c -n %{packname}

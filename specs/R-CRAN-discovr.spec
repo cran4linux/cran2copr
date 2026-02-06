@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  discovr
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Tutorials and Data for "Discovering Statistics Using R and RStudio"
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-learnr >= 0.11.4
 BuildRequires:    R-CRAN-ggplot2 
@@ -36,8 +36,10 @@ workflow in 'R' and 'RStudio', summarizing data, visualizing data, fitting
 models and bias, correlation, the general linear model (GLM), moderation,
 mediation, missing values, comparing means using the GLM (analysis of
 variance), comparing adjusted means (analysis of covariance), factorial
-designs, repeated measures designs, exploratory factor analysis (EFA).
-There are no functions, only datasets and interactive tutorials.
+designs, multilevel models, repeated measures designs, growth models,
+exploratory factor analysis (EFA), loglinear analysis, and logistic
+regression. There are no functions, only datasets and interactive
+tutorials.
 
 %prep
 %setup -q -c -n %{packname}

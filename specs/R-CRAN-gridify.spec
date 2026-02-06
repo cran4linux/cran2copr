@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gridify
-%global packver   0.7.5
+%global packver   0.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enrich Figures and Tables with Custom Headers and Footers and More
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
+Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-methods 
 

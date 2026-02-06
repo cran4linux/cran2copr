@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emcAdr
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evolutionary Version of the Metropolis-Hastings Algorithm
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-logistf 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-ggplot2 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-umap 
 Requires:         R-CRAN-dbscan 
 Requires:         R-stats 
+Requires:         R-CRAN-logistf 
 
 %description
 Provides computational methods for detecting adverse high-order drug

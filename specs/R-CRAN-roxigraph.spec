@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NNbenchmark
-%global packver   3.2.0
+%global __requires_exclude ^libmpi
+%global packname  roxigraph
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets and Functions to Benchmark Neural Network Packages
+Summary:          'RDF' and 'SPARQL' for R using 'Oxigraph'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-pkgload 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-pkgload 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Datasets and functions to benchmark (convergence, speed, ease of use) R
-packages dedicated to regression with neural networks (no classification
-in this version). The templates for the tested packages are available in
-the R, R Markdown and HTML formats at
-<https://github.com/pkR-pkR/NNbenchmarkTemplates> and
-<https://theairbend3r.github.io/NNbenchmarkWeb/index.html>. The submitted
-article to the R-Journal can be read at
-<https://www.inmodelia.com/gsoc2020.html>.
+Provides 'RDF' storage and 'SPARQL' 1.1 query capabilities by wrapping the
+'Oxigraph' graph database library <https://github.com/oxigraph/oxigraph>.
+Supports in-memory and persistent ('RocksDB') storage, multiple 'RDF'
+serialization formats ('Turtle', 'N-Triples', 'RDF-XML', 'N-Quads',
+'TriG'), and full 'SPARQL' 1.1 Query and Update support. Built using the
+'extendr' framework for 'Rust'-R bindings.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

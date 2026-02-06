@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smooth
-%global packver   4.3.1
+%global packver   4.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.1
+Version:          4.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Using State Space Models
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-MASS 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-methods 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-MASS 
@@ -48,14 +50,14 @@ Requires:         R-CRAN-zoo
 Functions implementing Single Source of Error state space models for
 purposes of time series analysis and forecasting. The package includes
 ADAM (Svetunkov, 2023, <https://openforecast.org/adam/>), Exponential
-Smoothing (Hyndman et al., 2008, <doi: 10.1007/978-3-540-71918-2>), SARIMA
+Smoothing (Hyndman et al., 2008, <doi:10.1007/978-3-540-71918-2>), SARIMA
 (Svetunkov & Boylan, 2019 <doi: 10.1080/00207543.2019.1600764>), Complex
-Exponential Smoothing (Svetunkov & Kourentzes, 2018, <doi:
-10.13140/RG.2.2.24986.29123>), Simple Moving Average (Svetunkov &
-Petropoulos, 2018 <doi: 10.1080/00207543.2017.1380326>) and several
+Exponential Smoothing (Svetunkov & Kourentzes, 2018,
+<doi:10.13140/RG.2.2.24986.29123>), Simple Moving Average (Svetunkov &
+Petropoulos, 2018 <doi:10.1080/00207543.2017.1380326>) and several
 simulation functions. It also allows dealing with intermittent demand
-based on the iETS framework (Svetunkov & Boylan, 2019, <doi:
-10.13140/RG.2.2.35897.06242>).
+based on the iETS framework (Svetunkov & Boylan, 2019,
+<doi:10.13140/RG.2.2.35897.06242>).
 
 %prep
 %setup -q -c -n %{packname}

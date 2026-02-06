@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fluxible
-%global packver   1.3.4
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecosystem Gas Fluxes Calculations for Closed Loop Chamber Setup
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -35,13 +35,13 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyCDISC
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick Table Generation & Exploratory Analyses on ADaM-Ish Datasets
 
@@ -14,59 +14,83 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tippy == 0.1.0
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-broom.helpers 
 BuildRequires:    R-CRAN-cicerone 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsurvfit 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-gtsummary 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-IDEAFilter 
+BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-timevis 
+BuildRequires:    R-CRAN-vroom 
 Requires:         R-CRAN-tippy == 0.1.0
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-broom.helpers 
 Requires:         R-CRAN-cicerone 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsurvfit 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-golem 
 Requires:         R-CRAN-gt 
+Requires:         R-CRAN-gtsummary 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-IDEAFilter 
+Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-timevis 
+Requires:         R-CRAN-vroom 
 
 %description
 Provides users a quick exploratory dive into common visualizations without

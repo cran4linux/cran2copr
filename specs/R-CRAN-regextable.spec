@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DLMtool
-%global packver   6.0.7
+%global packname  regextable
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data-Limited Methods Toolkit
+Summary:          Pattern-Based Text Extraction and Standardization with Lookup Tables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MSEtool 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MSEtool 
+Requires:         R-CRAN-chk 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-pbapply 
 Requires:         R-stats 
 
 %description
-A collection of data-limited management procedures that can be evaluated
-with management strategy evaluation with the 'MSEtool' package, or applied
-to fishery data to provide management recommendations.
+Extracts information from text using lookup tables of regular expressions.
+Each text entry is compared against all patterns, and all matching
+patterns and their corresponding substrings are returned. If a text entry
+matches multiple patterns, multiple rows are generated to capture each
+match. This approach enables comprehensive pattern coverage when
+processing large or complex text datasets.
 
 %prep
 %setup -q -c -n %{packname}
