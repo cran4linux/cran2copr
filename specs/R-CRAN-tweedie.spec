@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tweedie
-%global packver   2.3.5
+%global packver   3.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.5
+Version:          3.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Tweedie Exponential Family Models
 
@@ -16,8 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.8.0
 Requires:         R-core >= 2.8.0
+BuildRequires:    R-CRAN-statmod >= 1.4.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-statmod >= 1.4.0
+Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Maximum likelihood computations for Tweedie families, including the series

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vigicaen
+%global packname  nlmixr2auto
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'VigiBase' Pharmacovigilance Database Toolbox
+Summary:          Automated Population Pharmacokinetic Modeling
 
-License:          CeCILL-2.1
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,40 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-processx > 3.8.0
+BuildRequires:    R-CRAN-nlmixr2data 
+BuildRequires:    R-CRAN-nlmixr2 
+BuildRequires:    R-CRAN-nlmixr2est 
+BuildRequires:    R-CRAN-nlmixr2autoinit 
+BuildRequires:    R-CRAN-rxode2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-processx > 3.8.0
+Requires:         R-CRAN-nlmixr2data 
+Requires:         R-CRAN-nlmixr2 
+Requires:         R-CRAN-nlmixr2est 
+Requires:         R-CRAN-nlmixr2autoinit 
+Requires:         R-CRAN-rxode2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-crayon 
 
 %description
-Perform the analysis of the World Health Organization (WHO)
-Pharmacovigilance database 'VigiBase' (Extract Case Level version),
-<https://who-umc.org/> e.g., load data, perform data management,
-disproportionality analysis, and descriptive statistics. Intended for
-pharmacovigilance routine use or studies. This package is NOT supported
-nor reflect the opinion of the WHO, or the Uppsala Monitoring Centre.
-Disproportionality methods are described by Norén et al (2013)
-<doi:10.1177/0962280211403604>.
+Automated population pharmacokinetic modeling framework for data-driven
+initialisation, model evaluation, and metaheuristic optimization. Supports
+genetic algorithms, ant colony optimization, tabu search, and stepwise
+procedures for automated model selection and parameter estimation within
+the nlmixr2 ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

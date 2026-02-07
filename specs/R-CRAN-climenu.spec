@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  unigd
+%global packname  climenu
 %global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Universal Graphics Device
+Summary:          Interactive Command-Line Menus
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-systemfonts >= 1.0.0
-BuildRequires:    R-CRAN-cpp11 >= 0.2.4
-Requires:         R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-cli >= 3.6.0
 
 %description
-A unified R graphics backend. Render R graphics fast and easy to many
-common file formats. Provides a thread safe 'C' interface for asynchronous
-rendering of R graphics.
+Provides interactive command-line menu functionality with single and
+multiple selection menus, keyboard navigation (arrow keys or vi-style
+j/k), preselection, and graceful fallback for non-interactive
+environments. Inspired by tools such as 'inquirer.js'
+<https://github.com/SBoudrias/Inquirer.js>, 'pick'
+<https://github.com/aisk/pick>, and 'survey'
+<https://github.com/AlecAivazis/survey>. Designed to be lightweight and
+easy to integrate into 'R' packages and scripts.
 
 %prep
 %setup -q -c -n %{packname}

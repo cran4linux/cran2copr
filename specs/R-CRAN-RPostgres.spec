@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPostgres
-%global packver   1.4.8
+%global packver   1.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          C++ Interface to PostgreSQL
 
@@ -20,7 +20,6 @@ Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.2.0
 BuildRequires:    R-CRAN-hms >= 1.0.0
-BuildRequires:    R-CRAN-plogr >= 0.2.0
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 

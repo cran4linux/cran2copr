@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Ruido
-%global packver   1.0.2
+%global packname  numspellR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soundscape Background Noise, Power, and Saturation
+Summary:          Detection of Numeric Persistence and Rigidity Patterns
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-nortest 
-Requires:         R-methods 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-nortest 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Accessible and flexible implementation of three ecoacoustic indices that
-are less commonly available in existing R frameworks: Background Noise,
-Soundscape Power and Soundscape Saturation. The functions were design to
-accommodate a variety of sampling designs. Users can tailor calculations
-by specifying spectrogram time bin size, amplitude thresholds and
-normality tests. By simplifying computation and standardizing reproducible
-methods, the package aims to support ecoacoustics studies. For more
-details about the indices read Towsey (2017)
-<https://eprints.qut.edu.au/110634/> and Burivalova (2017)
-<doi:10.1111/cobi.12968>.
+Tools for detecting numeric persistence ("spells") and rigidity patterns
+in time-ordered numeric data. The package identifies periods of stability,
+computes spell-based rigidity metrics, and provides plain-language
+interpretations suitable for policy and applied analysis.
 
 %prep
 %setup -q -c -n %{packname}

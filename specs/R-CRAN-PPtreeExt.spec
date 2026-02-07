@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Ruido
-%global packver   1.0.2
+%global packname  PPtreeExt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soundscape Background Noise, Power, and Saturation
+Summary:          Projection Pursuit Classification Tree Extensions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-nortest 
-Requires:         R-methods 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-nortest 
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-MixSim 
+BuildRequires:    R-CRAN-PPtreeViz 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-MixSim 
+Requires:         R-CRAN-PPtreeViz 
 
 %description
-Accessible and flexible implementation of three ecoacoustic indices that
-are less commonly available in existing R frameworks: Background Noise,
-Soundscape Power and Soundscape Saturation. The functions were design to
-accommodate a variety of sampling designs. Users can tailor calculations
-by specifying spectrogram time bin size, amplitude thresholds and
-normality tests. By simplifying computation and standardizing reproducible
-methods, the package aims to support ecoacoustics studies. For more
-details about the indices read Towsey (2017)
-<https://eprints.qut.edu.au/110634/> and Burivalova (2017)
-<doi:10.1111/cobi.12968>.
+Implements extensions to the projection pursuit tree algorithm for
+supervised classification, see Lee, Y. (2013), <doi:10.1214/13-EJS810> and
+Lee, E-K. (2018) <doi:10.18637/jss.v083.i08>. The algorithm is changed in
+two ways: improving prediction boundaries by modifying the choice of split
+points-through class subsetting; and increasing flexibility by allowing
+multiple splits per group.
 
 %prep
 %setup -q -c -n %{packname}

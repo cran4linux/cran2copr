@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bindrcpp
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          An 'Rcpp' Interface to Active Bindings
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-bindr >= 0.1.1
-BuildRequires:    R-CRAN-plogr 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-bindr >= 0.1.1
 

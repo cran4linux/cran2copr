@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpfa
-%global packver   1.2-6
+%global packname  quickSentiment
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classification with Parallel Factor Analysis
+Summary:          A Fast and Flexible Pipeline for Text Classification
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,41 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiway 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-rda 
-BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-stopwords 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-textstem 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doRNG 
-Requires:         R-CRAN-multiway 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-rda 
-Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-stopwords 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-textstem 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doRNG 
 
 %description
-Classification using Richard A. Harshman's Parallel Factor Analysis-1
-(Parafac) model or Parallel Factor Analysis-2 (Parafac2) model fit to a
-three-way or four-way data array. See Harshman and Lundy (1994):
-<doi:10.1016/0167-9473(94)90132-5>. Uses component weights from one mode
-of a Parafac or Parafac2 model as features to tune parameters for one or
-more classification methods via a k-fold cross-validation procedure.
-Allows for constraints on different tensor modes. Supports penalized
-logistic regression, support vector machine, random forest, feed-forward
-neural network, regularized discriminant analysis, and gradient boosting
-machine. Supports binary and multiclass classification. Predicts class
-labels or class probabilities and calculates multiple classification
-performance measures. Implements parallel computing via the 'parallel',
-'doParallel', and 'doRNG' packages.
+A high-level wrapper that simplifies text classification into three
+streamlined steps: preprocessing, model training, and prediction. It
+unifies the interface for multiple algorithms (including 'glmnet',
+'ranger', and 'xgboost') and vectorization methods (Bag-of-Words, Term
+Frequency-Inverse Document Frequency (TF-IDF)), allowing users to go from
+raw text to a trained sentiment model in two function calls. The resulting
+model artifact automatically handles preprocessing for new datasets in the
+third step, ensuring consistent prediction pipelines.
 
 %prep
 %setup -q -c -n %{packname}

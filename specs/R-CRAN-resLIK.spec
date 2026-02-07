@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Ruido
-%global packver   1.0.2
+%global packname  resLIK
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soundscape Background Noise, Power, and Saturation
+Summary:          Representation-Level Control Surfaces for Reliability Sensing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-nortest 
-Requires:         R-methods 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-nortest 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Accessible and flexible implementation of three ecoacoustic indices that
-are less commonly available in existing R frameworks: Background Noise,
-Soundscape Power and Soundscape Saturation. The functions were design to
-accommodate a variety of sampling designs. Users can tailor calculations
-by specifying spectrogram time bin size, amplitude thresholds and
-normality tests. By simplifying computation and standardizing reproducible
-methods, the package aims to support ecoacoustics studies. For more
-details about the indices read Towsey (2017)
-<https://eprints.qut.edu.au/110634/> and Burivalova (2017)
-<doi:10.1111/cobi.12968>.
+Implements the Representation-Level Control Surfaces (RLCS) paradigm for
+ensuring the reliability of autonomous systems and AI models. It provides
+three deterministic sensors: Residual Likelihood (ResLik) for
+population-level anomaly detection, Temporal Consistency Sensor (TCS) for
+drift and shock detection, and Agreement Sensor for multi-modal redundancy
+checks. These sensors feed into a standardized control surface that issues
+'PROCEED', 'DEFER', or 'ABSTAIN' signals based on strict safety
+invariants, allowing systems to detect and react to out-of-distribution
+states, sensor failures, and environmental shifts before they propagate to
+decision-making layers.
 
 %prep
 %setup -q -c -n %{packname}

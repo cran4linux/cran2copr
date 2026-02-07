@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AutoPlots
-%global packver   1.0.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating Echarts Visualizations as Easy as Possible
 
@@ -22,25 +22,29 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-echarts4r 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-quanteda 
 BuildRequires:    R-CRAN-quanteda.textstats 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-echarts4r 
+Requires:         R-grDevices 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-quanteda.textstats 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Create beautiful and interactive visualizations in a single function call.

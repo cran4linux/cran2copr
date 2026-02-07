@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  resourcecode
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the 'RESOURCECODE' Hindcast Database
 
@@ -14,15 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridtext 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-patchwork 
@@ -36,12 +35,11 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gridtext 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-patchwork 

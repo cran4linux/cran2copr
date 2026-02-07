@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tealeaves
-%global packver   1.0.6.1
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6.1
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solve for Leaf Temperature Using Energy Balance
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-methods >= 3.5.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
@@ -23,11 +23,11 @@ BuildRequires:    R-CRAN-magrittr >= 1.5.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-crayon >= 1.3.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
-BuildRequires:    R-CRAN-future >= 1.10.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-units >= 0.6.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-CRAN-progressr >= 0.18.0
 BuildRequires:    R-CRAN-furrr >= 0.1.0
 Requires:         R-methods >= 3.5.0
 Requires:         R-CRAN-checkmate >= 2.0.0
@@ -35,11 +35,11 @@ Requires:         R-CRAN-magrittr >= 1.5.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-crayon >= 1.3.0
 Requires:         R-CRAN-glue >= 1.3.0
-Requires:         R-CRAN-future >= 1.10.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-units >= 0.6.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-progressr >= 0.18.0
 Requires:         R-CRAN-furrr >= 0.1.0
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlVAR
-%global packver   0.5.2
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Level Vector Autoregression
 
@@ -17,28 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-clusterGeneration 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-MplusAutomation 
 BuildRequires:    R-CRAN-graphicalVAR 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 0.5.0
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-arm 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-abind 
 Requires:         R-methods 
 Requires:         R-parallel 

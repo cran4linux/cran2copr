@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Ruido
-%global packver   1.0.2
+%global packname  indonesiaFootballScoutR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soundscape Background Noise, Power, and Saturation
+Summary:          Tools for Football Player Scouting in Indonesia
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-nortest 
-Requires:         R-methods 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-nortest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-proxy 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-proxy 
 
 %description
-Accessible and flexible implementation of three ecoacoustic indices that
-are less commonly available in existing R frameworks: Background Noise,
-Soundscape Power and Soundscape Saturation. The functions were design to
-accommodate a variety of sampling designs. Users can tailor calculations
-by specifying spectrogram time bin size, amplitude thresholds and
-normality tests. By simplifying computation and standardizing reproducible
-methods, the package aims to support ecoacoustics studies. For more
-details about the indices read Towsey (2017)
-<https://eprints.qut.edu.au/110634/> and Burivalova (2017)
-<doi:10.1111/cobi.12968>.
+Provides tools to scrape, clean, and analyze football player data from
+Indonesian leagues and perform similarity-based scouting analysis using
+standardized numeric features. The similarity approach follows common
+vector-space methods as described in Manning et al. (2008,
+ISBN:9780521865715) and Salton et al. (1975, <doi:10.1145/361219.361220>).
 
 %prep
 %setup -q -c -n %{packname}

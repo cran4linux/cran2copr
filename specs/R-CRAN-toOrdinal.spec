@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  toOrdinal
-%global packver   1.3-0.0
+%global packver   1.4-0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.0
+Version:          1.4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cardinal to Ordinal Number & Date Conversion
 
@@ -17,9 +18,9 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-pkgsearch 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-pkgsearch 
 
 %description
 Language specific cardinal to ordinal number conversion.

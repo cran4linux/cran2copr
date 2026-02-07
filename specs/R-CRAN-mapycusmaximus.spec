@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapycusmaximus
-%global packver   1.0.0
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Focus-Glue-Context Fisheye Transformations for Spatial Visualization
 
@@ -19,10 +19,8 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-lwgeom 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-lwgeom 
 
 %description
 Focus-glue-context (FGC) fisheye transformations to two-dimensional

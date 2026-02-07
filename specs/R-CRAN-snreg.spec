@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pgenlibr
-%global packver   0.5.4
+%global packname  snreg
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          PLINK 2 Binary (.pgen) Reader
+Summary:          Regression with Skew-Normally Distributed Error Term
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-npsf 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-npsf 
 
 %description
-A thin wrapper over PLINK 2's core libraries which provides an R interface
-for reading .pgen files.  A minimal .pvar loader is also included.  Chang
-et al. (2015) doi{10.1186/s13742-015-0047-8}.
+Models with skew‑normally distributed and thus asymmetric error terms,
+implementing the methods developed in Badunenko and Henderson (2023)
+"Production analysis with asymmetric noise"
+<doi:10.1007/s11123-023-00680-5>. The package provides tools to estimate
+regression models with skew‑normal error terms, allowing both the variance
+and skewness parameters to be heteroskedastic. It also includes a
+stochastic frontier framework that accommodates both i.i.d. and
+heteroskedastic inefficiency terms.
 
 %prep
 %setup -q -c -n %{packname}

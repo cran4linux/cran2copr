@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.5.1
+%global packname  BayesianHybridDesign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Bayesian Hybrid Design and Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-ragg 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RBesT 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-ragg 
+Requires:         R-CRAN-Metrics 
+Requires:         R-parallel 
+Requires:         R-CRAN-RBesT 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+Implements Bayesian hybrid designs that incorporate historical control
+data into a current clinical trial. The package uses a dynamic power prior
+method to determine the degree of borrowing from the historical data,
+creating a 'hybrid' control arm. This approach is primarily designed for
+studies with a binary primary endpoint, such as the overall response rate
+(ORR). Functions are provided for design calibration, sample size
+calculation, power evaluation, and final analysis. Additionally, it
+includes functions adapted from the 'SAMprior' package (v1.1.1) by Yang et
+al. (2023) <https://academic.oup.com/biometrics/article/79/4/2857/7587575>
+to support the Self-Adapting Mixture (SAM) prior framework for comparison.
 
 %prep
 %setup -q -c -n %{packname}

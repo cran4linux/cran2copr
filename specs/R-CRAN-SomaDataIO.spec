@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SomaDataIO
-%global packver   6.4.0
+%global packver   6.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.4.0
+Version:          6.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Input/Output 'SomaScan' Data
 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-methods 
 
 %description
-Load and export 'SomaScan' data via the 'Standard BioTools, Inc.'
+Load and export 'SomaScan' data via the 'SomaLogic Operating Co., Inc.'
 structured text file called an ADAT ('*.adat'). For file format see
 <https://github.com/SomaLogic/SomaLogic-Data/blob/main/README.md>. The
 package also exports auxiliary functions for manipulating, wrangling, and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DATAstudio
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Research Data Warehouse of Miguel de Carvalho
 
@@ -26,14 +26,14 @@ Requires:         R-CRAN-scales
 
 %description
 Pulls together a collection of datasets from Miguel de Carvalho research
-articles. Including, for example: - de Carvalho (2012)
+articles and books. Including, for example: - de Carvalho (2012)
 <doi:10.1016/j.jspi.2011.08.016>; - de Carvalho et al (2012)
 <doi:10.1080/03610926.2012.709905>; - de Carvalho et al (2012)
 <doi:10.1016/j.econlet.2011.09.007>); - de Carvalho and Davison (2014)
 <doi:10.1080/01621459.2013.872651>; - de Carvalho and Rua (2017)
 <doi:10.1016/j.ijforecast.2015.09.004>; - de Carvalho et al (2023)
 <doi:10.1002/sta4.560>; - de Carvalho et al (2022)
-<doi:10.1007/s13253-021-00469-9>; - Palacios et al (2024)
+<doi:10.1007/s13253-021-00469-9>; - Palacios et al (2025)
 <doi:10.1214/24-BA1420>.
 
 %prep
