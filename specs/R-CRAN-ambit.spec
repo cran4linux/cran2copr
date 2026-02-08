@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ambit
-%global packver   0.1.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Estimation of Ambit Processes
 
@@ -17,11 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-base 
+BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-fBasics 
+BuildRequires:    R-CRAN-LSTS 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 Requires:         R-base 
+Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-fBasics 
+Requires:         R-CRAN-LSTS 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 

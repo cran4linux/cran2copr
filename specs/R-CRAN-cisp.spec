@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cisp
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Correlation Indicator Based on Spatial Patterns
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gdverse >= 1.3
-BuildRequires:    R-CRAN-sdsfun >= 0.4.3
+BuildRequires:    R-CRAN-gdverse >= 1.5
+BuildRequires:    R-CRAN-sdsfun >= 0.7.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
@@ -27,12 +27,11 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-gdverse >= 1.3
-Requires:         R-CRAN-sdsfun >= 0.4.3
+Requires:         R-CRAN-gdverse >= 1.5
+Requires:         R-CRAN-sdsfun >= 0.7.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
@@ -41,13 +40,12 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Use the spatial association marginal contributions derived from spatial
+Utilizes spatial association marginal contributions derived from spatial
 stratified heterogeneity to capture the degree of correlation between
 spatial patterns.
 

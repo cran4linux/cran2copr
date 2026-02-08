@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Westerlund
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel Cointegration Tests Based on Westerlund (2007)
 
@@ -40,7 +40,7 @@ tests developed by Westerlund (2007)
 <doi:10.1111/j.1468-0084.2007.00477.x>. The tests are based on structural
 rather than residual dynamics and allow for heterogeneity in both the
 long-run cointegrating relationship and the short-run dynamics. The
-package includes logic for automated lag and lead selection via AIC,
+package includes logic for automated lag and lead selection via AIC/BIC,
 Bartlett kernel long-run variance estimation, and a bootstrap procedure to
 handle cross-sectional dependence. It also includes a bootstrapping
 distribution visualization function for diagnostic purposes.

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LabRS
-%global packver   0.2.0
+%global packname  optimflex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Laboratorio di Ricerca Sociale con R
+Summary:          Derivative-Based Optimization with User-Defined Convergence Criteria
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,12 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-utils 
 
 %description
-Libreria di dati, scripts e funzioni che accompagna il libro "Ricerca
-sociale con R. Concetti e funzioni base per la ricerca sociale".
+Provides a derivative-based optimization framework that allows users to
+combine eight convergence criteria. Unlike standard optimization
+functions, this package includes a built-in mechanism to verify the
+positive definiteness of the Hessian matrix at the point of convergence.
+This additional check helps prevent the solver from falsely identifying
+non-optimal solutions, such as saddle points, as valid minima.
 
 %prep
 %setup -q -c -n %{packname}

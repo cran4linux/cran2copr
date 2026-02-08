@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ife
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Autodiff for Influence Function Based Estimates
 
@@ -19,9 +19,11 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-generics 
 
 %description

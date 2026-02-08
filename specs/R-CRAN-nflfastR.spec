@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nflfastR
-%global packver   5.1.0
+%global packver   5.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.0
+Version:          5.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Efficiently Access NFL Play by Play Data
 
@@ -19,11 +19,11 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 3.0
+BuildRequires:    R-CRAN-fastrmodels >= 2.1.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-nflreadr >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-xgboost >= 1.1
-BuildRequires:    R-CRAN-fastrmodels >= 1.0.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-progressr >= 0.6.0
@@ -37,11 +37,11 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-mgcv 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 3.0
+Requires:         R-CRAN-fastrmodels >= 2.1.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-nflreadr >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-xgboost >= 1.1
-Requires:         R-CRAN-fastrmodels >= 1.0.1
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-progressr >= 0.6.0

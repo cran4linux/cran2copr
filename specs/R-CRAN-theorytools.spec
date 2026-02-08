@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  theorytools
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          FAIR Theory Construction
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidySEM >= 0.2.8
-BuildRequires:    R-CRAN-worcs >= 0.1.16
+BuildRequires:    R-CRAN-tidySEM >= 0.2.9
+BuildRequires:    R-CRAN-worcs >= 0.1.19
 BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-cli 
@@ -29,8 +29,9 @@ BuildRequires:    R-CRAN-dagitty
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Deriv 
-Requires:         R-CRAN-tidySEM >= 0.2.8
-Requires:         R-CRAN-worcs >= 0.1.16
+BuildRequires:    R-CRAN-stringdist 
+Requires:         R-CRAN-tidySEM >= 0.2.9
+Requires:         R-CRAN-worcs >= 0.1.19
 Requires:         R-CRAN-gert 
 Requires:         R-CRAN-gh 
 Requires:         R-CRAN-cli 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-dagitty
 Requires:         R-CRAN-yaml 
 Requires:         R-methods 
 Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-stringdist 
 
 %description
 An integrated suite of tools for creating, maintaining, and reusing FAIR

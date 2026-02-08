@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tdsa
-%global packver   1.1-1
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time-Dependent Sensitivity Analysis
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv >= 2006.4.1
+BuildRequires:    R-CRAN-mathjaxr >= 2.0.0
 BuildRequires:    R-CRAN-deSolve >= 1.10
-BuildRequires:    R-CRAN-mathjaxr >= 0.8.3
 Requires:         R-CRAN-numDeriv >= 2006.4.1
+Requires:         R-CRAN-mathjaxr >= 2.0.0
 Requires:         R-CRAN-deSolve >= 1.10
-Requires:         R-CRAN-mathjaxr >= 0.8.3
 
 %description
 Functions that can be used to calculate time-dependent state and parameter

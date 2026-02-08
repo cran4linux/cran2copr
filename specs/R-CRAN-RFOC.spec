@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RFOC
-%global packver   3.4-10
+%global packver   3.4-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.10
+Version:          3.4.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphics for Spherical Distributions and Earthquake Focal Mechanisms
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-GEOmap
 BuildRequires:    R-CRAN-RSEIS 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-rpanel 
 Requires:         R-CRAN-RPMG 
 Requires:         R-CRAN-GEOmap 
 Requires:         R-CRAN-RSEIS 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-rpanel 
 
 %description
 Graphics for statistics on a sphere, as applied to geological fault data,

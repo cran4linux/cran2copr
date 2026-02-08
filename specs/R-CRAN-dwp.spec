@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dwp
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density-Weighted Proportion
 
@@ -18,8 +18,6 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-expint 
-BuildRequires:    R-CRAN-GenEst 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-invgamma 
 BuildRequires:    R-CRAN-magrittr 
@@ -27,15 +25,12 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-VGAM 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-expint 
-Requires:         R-CRAN-GenEst 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-invgamma 
 Requires:         R-CRAN-magrittr 
@@ -43,7 +38,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-sf 
@@ -55,7 +49,7 @@ Fit a Poisson regression to carcass distance data and integrate over the
 searched area at a wind farm to estimate the fraction of carcasses falling
 in the searched area and format the output for use as the dwp parameter in
 the 'GenEst' or 'eoa' package for estimating bird and bat mortality,
-following Dalthorp, et al. (2022) <arXiv:2201.10064>.
+following Dalthorp, et al. (2024) <doi:10.3133/tm7A3>.
 
 %prep
 %setup -q -c -n %{packname}

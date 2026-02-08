@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LabRS
-%global packver   0.2.0
+%global packname  SppTrend
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Laboratorio di Ricerca Sociale con R
+Summary:          Analyzing Linear Trends in Species Occurrence Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,12 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-terra 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-sf 
 
 %description
-Libreria di dati, scripts e funzioni che accompagna il libro "Ricerca
-sociale con R. Concetti e funzioni base per la ricerca sociale".
+Provides a methodology to analyze how species occurrences change over
+time, particularly in relation to spatial and thermal factors. It
+facilitates the development of explanatory hypotheses about the impact of
+environmental shifts on species by analyzing historical presence data that
+includes temporal and geographic information. Approach described in Lobo
+et al., 2023 <doi:10.1002/ece3.10674>.
 
 %prep
 %setup -q -c -n %{packname}

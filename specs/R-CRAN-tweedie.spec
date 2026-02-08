@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tweedie
-%global packver   3.0.10
+%global packver   3.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.10
+Version:          3.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Tweedie Exponential Family Models
 

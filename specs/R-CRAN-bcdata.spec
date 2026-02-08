@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bcdata
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Retrieve Data from the BC Data Catalogue
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-crul >= 1.1.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-leaflet.extras >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0
 BuildRequires:    R-CRAN-sf >= 1.0
 BuildRequires:    R-CRAN-purrr >= 0.3
@@ -50,7 +49,6 @@ Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-crul >= 1.1.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-leaflet.extras >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0
 Requires:         R-CRAN-sf >= 1.0
 Requires:         R-CRAN-purrr >= 0.3

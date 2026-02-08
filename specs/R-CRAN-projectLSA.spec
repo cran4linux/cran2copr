@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projectLSA
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny Application for Latent Structure Analysis with a Graphical User Interface
 
@@ -37,7 +37,6 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-semPlot 
 BuildRequires:    R-CRAN-semptools 
-BuildRequires:    R-CRAN-semTools 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-stats 
@@ -67,7 +66,6 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-semPlot 
 Requires:         R-CRAN-semptools 
-Requires:         R-CRAN-semTools 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-stats 

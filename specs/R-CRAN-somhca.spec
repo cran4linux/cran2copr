@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  somhca
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Organising Maps Coupled with Hierarchical Cluster Analysis
 
@@ -17,16 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-kohonen 
 BuildRequires:    R-CRAN-aweSOM 
-BuildRequires:    R-CRAN-maptree 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-maptree 
+BuildRequires:    R-CRAN-fpc 
 Requires:         R-CRAN-kohonen 
 Requires:         R-CRAN-aweSOM 
-Requires:         R-CRAN-maptree 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-maptree 
+Requires:         R-CRAN-fpc 
 
 %description
 Implements self-organising maps combined with hierarchical cluster

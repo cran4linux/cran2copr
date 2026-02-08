@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rib
-%global packver   0.25.3
+%global packver   0.30.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.3
+Version:          0.30.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of 'Interactive Brokers' API
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4
+BuildRequires:    R-CRAN-RProtoBuf 
 Requires:         R-CRAN-R6 >= 2.4
+Requires:         R-CRAN-RProtoBuf 
 
 %description
 Allows interaction with 'Interactive Brokers' 'Trader Workstation'
