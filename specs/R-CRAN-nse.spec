@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wklsr
-%global packver   0.2.6
+%global packname  nse
+%global packver   1.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          Well-Known Locations in R
+Summary:          Numerical Standard Errors Computation in R
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-duckdb 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-mcmc 
+BuildRequires:    R-CRAN-mcmcse 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-mcmc 
+Requires:         R-CRAN-mcmcse 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-sandwich 
 
 %description
-Makes it easy to find global administrative boundaries from countries to
-cities using readable, 'chainable' R syntax. Fetches geometries from
-Overture Maps Foundation data. Ported from
-<https://github.com/wherobots/wkls>.
+Collection of functions designed to calculate numerical standard error
+(NSE) of univariate time series as described in Ardia et al. (2018)
+<doi:10.1515/jtse-2017-0011> and Ardia and Bluteau (2017)
+<doi:10.21105/joss.00172>.
 
 %prep
 %setup -q -c -n %{packname}

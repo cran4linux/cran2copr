@@ -1,53 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emodnet.wfs
-%global packver   2.1.1
+%global packname  QuantileOnQuantile
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access 'EMODnet' Web Feature Service Data
+Summary:          Quantile-on-Quantile Regression Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ows4R >= 0.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-quantreg >= 5.0
+BuildRequires:    R-CRAN-plotly >= 4.0.0
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-whoami 
-Requires:         R-CRAN-ows4R >= 0.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-quantreg >= 5.0
+Requires:         R-CRAN-plotly >= 4.0.0
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-whoami 
 
 %description
-Access and interrogate 'EMODnet' (European Marine Observation and Data
-Network) Web Feature Service data
-<https://emodnet.ec.europa.eu/en/emodnet-web-service-documentation#data-download-services>.
-This includes listing existing data sources, and getting data from each of
-them.
+Implements the Quantile-on-Quantile (QQ) regression methodology developed
+by Sim and Zhou (2015) <doi:10.1016/j.jbankfin.2015.01.013>. QQ regression
+estimates the effect that quantiles of one variable have on quantiles of
+another, capturing the dependence between distributions. The package
+provides functions for QQ regression estimation, 3D surface visualization
+with 'MATLAB'-style color schemes ('Jet', 'Viridis', 'Plasma'), heatmaps,
+contour plots, and quantile correlation analysis. Uses 'quantreg' for
+quantile regression and 'plotly' for interactive visualizations.
+Particularly useful for examining relationships between financial
+variables, oil prices, and stock returns under different market
+conditions.
 
 %prep
 %setup -q -c -n %{packname}

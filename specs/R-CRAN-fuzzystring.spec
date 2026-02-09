@@ -1,28 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ooplah
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  fuzzystring
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Class Object-Oriented Programming
+Summary:          Fast Fuzzy String Joins for Data Frames
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringdist 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringdist 
 
 %description
-Helper functions for coding object-oriented programming with a focus on
-R6. Includes functions for assertions and testing, looping, and re-usable
-design patterns including Abstract and Decorator classes.
+Perform fuzzy joins on data frames using approximate string matching.
+Implements all standard join types (inner, left, right, full, semi, anti)
+with support for multiple string distance metrics from the 'stringdist'
+package including Levenshtein, Damerau-Levenshtein, Jaro-Winkler, and
+Soundex. Features a high-performance 'data.table' backend with 'C++' row
+binding for efficient processing of large datasets. Ideal for matching
+misspellings, inconsistent labels, messy user input, or reconciling
+datasets with slight variations in identifiers. Optionally returns
+distance metrics alongside matched records.
 
 %prep
 %setup -q -c -n %{packname}

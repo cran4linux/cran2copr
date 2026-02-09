@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treesitter.c
-%global packver   0.0.1
+%global packver   0.0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'R' Bindings to the 'C' Grammar for Tree-Sitter
 
@@ -22,7 +22,9 @@ Requires:         R-CRAN-treesitter
 %description
 Provides bindings to a 'C' grammar for Tree-sitter, to be used alongside
 the 'treesitter' package. Tree-sitter builds concrete syntax trees for
-source files and can efficiently update them as files are edited.
+source files and can efficiently update them or generate code like
+producing R C API wrappers from C functions, structs and global
+definitions from header files.
 
 %prep
 %setup -q -c -n %{packname}

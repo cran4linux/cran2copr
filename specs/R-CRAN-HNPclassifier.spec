@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mLLMCelltype
-%global packver   2.0.0
+%global packname  HNPclassifier
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cell Type Annotation Using Large Language Models
+Summary:          Hierarchical Neyman-Pearson Classification for Ordered Classes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,31 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-jsonlite >= 1.7.0
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-digest >= 0.6.25
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-jsonlite >= 1.7.0
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-digest >= 0.6.25
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-randomForest 
 
 %description
-Automated cell type annotation for single-cell RNA sequencing data using
-consensus predictions from multiple large language models. Integrates with
-Seurat objects and provides uncertainty quantification for annotations.
-Supports various LLM providers including OpenAI, Anthropic, and Google.
-For details see Yang et al. (2025) <doi:10.1101/2025.04.10.647852>.
+The Hierarchical Neyman-Pearson (H-NP) classification framework extends
+the Neyman-Pearson classification paradigm to multi-class settings where
+classes have a natural priority ordering. This is particularly useful for
+classification in unbalanced dataset, for example, disease severity
+classification, where under-classification errors (misclassifying patients
+into less severe categories) are more consequential than other
+misclassifications. The package implements H-NP umbrella algorithms that
+controls under-classification errors under user specified control levels
+with high probability. It supports the creation of H-NP classifiers using
+scoring functions based on built-in classification methods (including
+logistic regression, support vector machines, and random forests), as well
+as user-trained scoring functions. For theoretical details, please refer
+to Lijia Wang, Y. X. Rachel Wang, Jingyi Jessica Li & Xin Tong (2024)
+<doi:10.1080/01621459.2023.2270657>.
 
 %prep
 %setup -q -c -n %{packname}

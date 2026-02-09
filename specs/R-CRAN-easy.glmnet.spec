@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  disagmethod
-%global packver   0.1.1
+%global packname  easy.glmnet
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Autoregressive Integrated Moving Average (ARIMA) Based Disaggregation Methods
+Summary:          Functions to Simplify the Use of 'glmnet' for Machine Learning
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-polynom 
-BuildRequires:    R-CRAN-ltsa 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-tsbox 
-BuildRequires:    R-CRAN-tswge 
-Requires:         R-CRAN-polynom 
-Requires:         R-CRAN-ltsa 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-tsbox 
-Requires:         R-CRAN-tswge 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
+Requires:         R-parallel 
+Requires:         R-CRAN-survival 
 
 %description
-We have the code for disaggregation as found in Wei and Stram (1990,
-<doi:10.1111/j.2517-6161.1990.tb01799.x>), and Hodgess and Wei (1996,
-"Temporal Disaggregation of Time Series" in Statistical Science I, Nova
-Publishing).  The disaggregation models have different orders of the
-moving average component.  These are based on ARIMA models rather than
-differencing or using similar time series.
+Provides several functions to simplify using the 'glmnet' package:
+converting data frames into matrices ready for 'glmnet'; b) imputing
+missing variables multiple times; c) fitting and applying prediction
+models straightforwardly; d) assigning observations to folds in a balanced
+way; e) cross-validate the models; f) selecting the most representative
+model across imputations and folds; and g) getting the relevance of the
+model regressors; as described in several publications: Solanes et al.
+(2022) <doi:10.1038/s41537-022-00309-w>, Palau et al. (2023)
+<doi:10.1016/j.rpsm.2023.01.001>, Salazar de Pablo et al. (2025)
+<doi:10.1038/s41380-025-03244-1>.
 
 %prep
 %setup -q -c -n %{packname}

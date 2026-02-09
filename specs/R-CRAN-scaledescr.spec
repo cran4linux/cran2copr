@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brfinance
-%global packver   0.6.0
+%global packname  scaledescr
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplified Access to Brazilian Financial and Macroeconomic Data
+Summary:          Descriptive, Reliability, and Inferential Tables for Psychometric Scales and Demographic Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,35 +18,32 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-sidrar 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-sidrar 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-utils 
 
 %description
-It offers simplified access to Brazilian macroeconomic and financial
-indicators selected from official sources, such as the 'IBGE' (Brazilian
-Institute of Geography and Statistics) via the 'SIDRA' API and the
-'Central Bank of Brazil' via the 'SGS' API. It allows users to quickly
-retrieve and visualize data series such as the unemployment rate and the
-Selic interest rate. This package was developed for data access and
-visualization purposes, without generating forecasts or statistical
-results. For more information, see the official APIs:
-<https://sidra.ibge.gov.br/> and
-<https://dadosabertos.bcb.gov.br/dataset/>.
+Provides functions to format and summarise already computed outputs from
+commonly used statistical and psychometric functions into compact,
+single-row tables and simple graphs, with utilities to export results to
+CSV, Word, and Excel formats. The package does not implement new
+statistical methods or estimation procedures; instead, it organises and
+presents results obtained from existing functions such as
+psych::describe(), psych::alpha(), stats::t.test(), and
+gtsummary::tbl_summary() to streamline reporting workflows in clinical and
+psychological research.
 
 %prep
 %setup -q -c -n %{packname}

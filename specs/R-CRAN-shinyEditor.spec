@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  disagmethod
-%global packver   0.1.1
+%global packname  shinyEditor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Autoregressive Integrated Moving Average (ARIMA) Based Disaggregation Methods
+Summary:          'Ace' and 'Monaco' Editors Bindings for 'shiny' Application
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-polynom 
-BuildRequires:    R-CRAN-ltsa 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-tsbox 
-BuildRequires:    R-CRAN-tswge 
-Requires:         R-CRAN-polynom 
-Requires:         R-CRAN-ltsa 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-tsbox 
-Requires:         R-CRAN-tswge 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-systemfonts 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-systemfonts 
+Requires:         R-methods 
+Requires:         R-CRAN-yaml 
 
 %description
-We have the code for disaggregation as found in Wei and Stram (1990,
-<doi:10.1111/j.2517-6161.1990.tb01799.x>), and Hodgess and Wei (1996,
-"Temporal Disaggregation of Time Series" in Statistical Science I, Nova
-Publishing).  The disaggregation models have different orders of the
-moving average component.  These are based on ARIMA models rather than
-differencing or using similar time series.
+'Ace' and 'Monaco' editor bindings to enable a rich text widget within
+'shiny' application and provide more features, e.g. text comparison, spell
+checking and an extra 'SAS' code highlight mode.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  dictionar6
-%global packver   0.1.3
+%global __requires_exclude ^libmpi
+%global packname  roadDB
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R6 Dictionary Interface
+Summary:          Access Data from the ROCEEH Out of Africa Database (ROAD)
 
-License:          MIT + file LICENSE
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ooplah 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-ooplah 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-assertthat 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
 
 %description
-Efficient object-oriented R6 dictionary capable of holding objects of any
-class, including R6. Typed and untyped dictionaries are provided as well
-as the 'usual' dictionary methods that are available in other OOP
-languages, for example listing keys, items, values, and methods to get/set
-these.
+Provides an R interface to the ROCEEH Out of Africa Database (ROAD)
+(<https://www.roceeh.uni-tuebingen.de/roadweb/smarty_road_simple_search.php>),
+a comprehensive resource for archaeological, anthropological,
+paleoenvironmental and geographic data from Africa and Eurasia dating from
+3,000,000 to 20,000 years BP. The package allows users to retrieve data
+from the online database at different levels of detail and customize
+search requests. Functions return `data frame` objects compatible with
+other R packages used in prehistoric and paleoenvironmental science,
+supporting reproducible workflows as an input provider.
 
 %prep
 %setup -q -c -n %{packname}
