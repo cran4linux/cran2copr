@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIBER
-%global packver   2.1.9
+%global packver   2.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          2.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stable Isotope Bayesian Ellipses in R
 
@@ -22,27 +22,21 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-hdrcde 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.utils 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
 
 %description
 Fits bi-variate ellipses to stable isotope data using Bayesian inference

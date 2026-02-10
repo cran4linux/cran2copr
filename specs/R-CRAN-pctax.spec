@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pctax
-%global packver   0.1.3
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Professional Comprehensive Omics Data Analysis
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-pcutils >= 0.2.5
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grDevices 
@@ -30,12 +31,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-pcutils >= 0.2.5
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-magrittr 
 Requires:         R-grDevices 
@@ -46,6 +49,7 @@ Requires:         R-stats
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-scales 

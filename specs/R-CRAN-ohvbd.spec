@@ -1,61 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gdverse
-%global packver   1.6
+%global packname  ohvbd
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Spatial Stratified Heterogeneity
+Summary:          One Health VBD Hub
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-reticulate >= 1.41.0
-BuildRequires:    R-CRAN-sdsfun >= 0.7.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 6.4.0
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.1
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-scatterpie 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-reticulate >= 1.41.0
-Requires:         R-CRAN-sdsfun >= 0.7.0
+Requires:         R-CRAN-curl >= 6.4.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-httr2 >= 1.1.1
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-scatterpie 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-lubridate 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Detecting spatial associations via spatial stratified heterogeneity,
-accounting for spatial dependencies, interpretability, complex
-interactions, and robust stratification. In addition, it supports the
-spatial stratified heterogeneity family described in Lv et al.
-(2025)<doi:10.1111/tgis.70032>.
+Interface with the One Health VBD (vector-borne disease) Hub
+<https://vbdhub.org/> and related repositories (VectorByte
+<https://www.vectorbyte.org>, GBIF <https://www.gbif.org> and AREAdata
+<https://pearselab.github.io/areadata/>) directly to find, download, and
+subset vector-borne disease data.
 
 %prep
 %setup -q -c -n %{packname}

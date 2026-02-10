@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  froggeR
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enhance 'Quarto' Project Workflows and Standards
+Summary:          Structured Project Standards for R and 'Quarto'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,39 +19,27 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-usethis >= 2.2.0
-BuildRequires:    R-CRAN-readr >= 2.0.0
-BuildRequires:    R-CRAN-glue >= 1.6.0
-BuildRequires:    R-CRAN-stringr >= 1.5.0
-BuildRequires:    R-CRAN-quarto >= 1.3.0
 BuildRequires:    R-CRAN-here >= 1.0.1
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-usethis >= 2.2.0
-Requires:         R-CRAN-readr >= 2.0.0
-Requires:         R-CRAN-glue >= 1.6.0
-Requires:         R-CRAN-stringr >= 1.5.0
-Requires:         R-CRAN-quarto >= 1.3.0
 Requires:         R-CRAN-here >= 1.0.1
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-yaml 
 
 %description
-Streamlines 'Quarto' workflows by providing tools for consistent project
-setup and documentation. Enables portability through reusable metadata,
-automated project structure creation, and standardized templates. Features
-include enhanced project initialization, pre-formatted 'Quarto' documents,
-inclusion of 'Quarto' brand functionality, comprehensive data protection
-settings, custom styling, and structured documentation generation.
-Designed to improve efficiency and collaboration in R data science
-projects by reducing repetitive setup tasks while maintaining consistent
-formatting across multiple documents.
+Provides an opinionated project scaffold for R and 'Quarto' analysis work,
+enforcing a consistent directory layout with scripts in R/, .qmd files in
+pages/, and assets in www/. The primary entry point, init(), downloads the
+latest template from a companion GitHub repository so that project
+structure evolves independently of package releases. Supports persistent
+author metadata and 'Quarto' brand configuration that carry across
+projects automatically.
 
 %prep
 %setup -q -c -n %{packname}

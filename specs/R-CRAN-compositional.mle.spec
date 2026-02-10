@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fpeek
-%global packver   0.2.0
+%global packname  compositional.mle
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check Text Files Content at a Glance
+Summary:          Compositional Maximum Likelihood Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-algebraic.mle 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-algebraic.mle 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Tools to help text files importation. It can return the number of lines;
-print the first and last lines; convert encoding; guess delimiters and
-file encoding. Operations are made without reading the entire file before
-starting, resulting in good performances with large files. This package
-provides an alternative to a simple use of the 'head', 'tail', 'wc' and
-'iconv' programs that are not always available on machine where R is
-installed.
+Provides composable optimization strategies for maximum likelihood
+estimation (MLE). Solvers are first-class functions that combine via
+sequential chaining, parallel racing, and random restarts. Implements
+gradient ascent, Newton-Raphson, quasi-Newton (BFGS), and derivative-free
+methods with support for constrained optimization and tracing. Returns
+'mle' objects compatible with 'algebraic.mle' for downstream analysis.
+Methods based on Nocedal J, Wright SJ (2006) "Numerical Optimization"
+<doi:10.1007/978-0-387-40065-5>.
 
 %prep
 %setup -q -c -n %{packname}

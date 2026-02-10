@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fpeek
-%global packver   0.2.0
+%global packname  egnyte
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check Text Files Content at a Glance
+Summary:          Read and Write Files from 'Egnyte'
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
 
 %description
-Tools to help text files importation. It can return the number of lines;
-print the first and last lines; convert encoding; guess delimiters and
-file encoding. Operations are made without reading the entire file before
-starting, resulting in good performances with large files. This package
-provides an alternative to a simple use of the 'head', 'tail', 'wc' and
-'iconv' programs that are not always available on machine where R is
-installed.
+Provides functions to read and write files from 'Egnyte' cloud storage
+using the 'Egnyte' API <https://developers.egnyte.com/docs>. Supports both
+API key and 'OAuth' 2.0 authentication for file transfer operations.
 
 %prep
 %setup -q -c -n %{packname}

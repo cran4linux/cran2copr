@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  feasts
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Extraction and Statistics for Time Series
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 1.4.1
-BuildRequires:    R-CRAN-scales >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tsibble >= 0.9.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
@@ -27,14 +26,12 @@ BuildRequires:    R-CRAN-fabletools >= 0.3.1
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-slider 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-ggtime 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-tibble >= 1.4.1
-Requires:         R-CRAN-scales >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tsibble >= 0.9.0
 Requires:         R-CRAN-tidyr >= 0.8.3
@@ -42,11 +39,10 @@ Requires:         R-CRAN-fabletools >= 0.3.1
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-lubridate 
-Requires:         R-grid 
 Requires:         R-CRAN-slider 
 Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-ggtime 
 
 %description
 Provides a collection of features, decomposition methods, statistical

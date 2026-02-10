@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdtools
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Graphical Rendering and Fonts Management
+Summary:          Font Metrics and Font Management Utilities for R Graphics
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,13 +30,13 @@ Requires:         R-CRAN-htmltools
 Requires:         R-tools 
 
 %description
-Tools are provided to compute metrics of formatted strings and to check
-the availability of a font.  Another set of functions is provided to
-support the collection of fonts from 'Google Fonts' in a cache. Their use
-is simple within 'R Markdown' documents and 'shiny' applications but also
-with graphic productions generated with the 'ggiraph', 'ragg' and
-'svglite' packages or with tabular productions from the 'flextable'
-package.
+Compute text metrics (width, ascent, descent) using 'Cairo' and
+'FreeType', independently of the active graphic device. Font lookup is
+delegated to 'systemfonts'. Additional utilities let users register
+'Google Fonts' or bundled 'Liberation' fonts, check font availability, and
+assemble 'htmlDependency' objects so that fonts are correctly embedded in
+'Shiny' applications, 'R Markdown' documents, and 'htmlwidgets' outputs
+such as 'ggiraph'.
 
 %prep
 %setup -q -c -n %{packname}

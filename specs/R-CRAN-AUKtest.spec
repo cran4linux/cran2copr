@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fpeek
-%global packver   0.2.0
+%global packname  AUKtest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check Text Files Content at a Glance
+Summary:          Calculate the AUK Estimator
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 
 %description
-Tools to help text files importation. It can return the number of lines;
-print the first and last lines; convert encoding; guess delimiters and
-file encoding. Operations are made without reading the entire file before
-starting, resulting in good performances with large files. This package
-provides an alternative to a simple use of the 'head', 'tail', 'wc' and
-'iconv' programs that are not always available on machine where R is
-installed.
+Computes the Area Under the Kendall (AUK) estimator for multivariate
+independence. The AUK estimator is based on the survival copula and
+quantifies the deviation from the null hypothesis of independence. The
+methodology implemented in this package is based on the work of
+'Afendras', 'Markatou', and 'Papantonis' (2025)
+<doi:10.1016/j.jmva.2025.105589>.
 
 %prep
 %setup -q -c -n %{packname}

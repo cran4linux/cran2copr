@@ -1,51 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fmrihrf
-%global packver   0.2.0
+%global packname  tidywikidatar
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hemodynamic Response Functions for fMRI Data Analysis
+Summary:          Explore 'Wikidata' Through Tidy Data Frames
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pool 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-splines 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pool 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-httr2 
 
 %description
-Creates, manipulates, and evaluates hemodynamic response functions and
-event-related regressors for functional magnetic resonance imaging data
-analysis. Supports multiple basis sets including Canonical, Gamma,
-Gaussian, B-spline, and Fourier bases. Features decorators for
-time-shifting and blocking, and efficient convolution algorithms for
-regressor construction. Methods are based on standard fMRI analysis
-techniques as described in Jezzard et al. (2001, ISBN:9780192630711).
+Query 'Wikidata' API <https://www.wikidata.org/wiki/Wikidata:Main_Page>
+with ease, get tidy data frames in response, and cache data in a local
+database.
 
 %prep
 %setup -q -c -n %{packname}

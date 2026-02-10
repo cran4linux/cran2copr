@@ -1,61 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gdverse
-%global packver   1.6
+%global packname  HaDeX2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Spatial Stratified Heterogeneity
+Summary:          Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-reticulate >= 1.41.0
-BuildRequires:    R-CRAN-sdsfun >= 0.7.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-r3dmol >= 0.1.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-scatterpie 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-reticulate >= 1.41.0
-Requires:         R-CRAN-sdsfun >= 0.7.0
+BuildRequires:    R-CRAN-ggiraph 
+Requires:         R-CRAN-r3dmol >= 0.1.2
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-scatterpie 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-ggiraph 
 
 %description
-Detecting spatial associations via spatial stratified heterogeneity,
-accounting for spatial dependencies, interpretability, complex
-interactions, and robust stratification. In addition, it supports the
-spatial stratified heterogeneity family described in Lv et al.
-(2025)<doi:10.1111/tgis.70032>.
+Processing, analysis and visualization of Hydrogen Deuterium eXchange
+monitored by Mass Spectrometry experiments (HDX-MS). 'HaDeX2' introduces a
+new standardized and reproducible workflow for the analysis of the HDX-MS
+data, including uncertainty propagation, data aggregation and
+visualization on 3D structure. Additionally, it covers data exploration,
+quality control and generation of publication-quality figures. All
+functionalities are also available in the accompanying 'shiny' app.
 
 %prep
 %setup -q -c -n %{packname}

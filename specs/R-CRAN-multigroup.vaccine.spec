@@ -1,32 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fpeek
-%global packver   0.2.0
+%global packname  multigroup.vaccine
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check Text Files Content at a Glance
+Summary:          Analyze Outbreak Models of Multi-Group Populations with Vaccination
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib >= 0.9.0
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-socialmixr 
+Requires:         R-CRAN-bslib >= 0.9.0
+Requires:         R-CRAN-deSolve 
+Requires:         R-graphics 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-socialmixr 
 
 %description
-Tools to help text files importation. It can return the number of lines;
-print the first and last lines; convert encoding; guess delimiters and
-file encoding. Operations are made without reading the entire file before
-starting, resulting in good performances with large files. This package
-provides an alternative to a simple use of the 'head', 'tail', 'wc' and
-'iconv' programs that are not always available on machine where R is
-installed.
+Model infectious disease dynamics in populations with multiple subgroups
+having different vaccination rates, transmission characteristics, and
+contact patterns. Calculate final and intermediate outbreak sizes, form
+age-structured contact models with automatic fetching of U.S. census data,
+and explore vaccination scenarios with an interactive 'shiny' dashboard
+for a model with two subgroups, as described in Nguyen et al. (2024)
+<doi:10.1016/j.jval.2024.03.039> and Duong et al. (2026)
+<doi:10.1093/ofid/ofaf695.217>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fpeek
-%global packver   0.2.0
+%global packname  toonlite
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check Text Files Content at a Glance
+Summary:          Read, Write, Validate, Stream, and Convert TOON Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
 
 %description
-Tools to help text files importation. It can return the number of lines;
-print the first and last lines; convert encoding; guess delimiters and
-file encoding. Operations are made without reading the entire file before
-starting, resulting in good performances with large files. This package
-provides an alternative to a simple use of the 'head', 'tail', 'wc' and
-'iconv' programs that are not always available on machine where R is
-installed.
+A minimal-dependency, performance-first R package for reading, writing,
+validating, streaming, and converting TOON (Token-Oriented Object
+Notation) data. Optimized for very large tabular files with robust
+diagnostics. Supports lossless JSON conversion and tabular
+CSV/Parquet/Feather conversion.
 
 %prep
 %setup -q -c -n %{packname}

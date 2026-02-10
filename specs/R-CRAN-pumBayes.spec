@@ -1,51 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fmrihrf
-%global packver   0.2.0
+%global packname  pumBayes
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hemodynamic Response Functions for fMRI Data Analysis
+Summary:          Bayesian Estimation of Probit Unfolding Models for Binary Preference Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppTN 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-splines 
-Requires:         R-CRAN-pracma 
 
 %description
-Creates, manipulates, and evaluates hemodynamic response functions and
-event-related regressors for functional magnetic resonance imaging data
-analysis. Supports multiple basis sets including Canonical, Gamma,
-Gaussian, B-spline, and Fourier bases. Features decorators for
-time-shifting and blocking, and efficient convolution algorithms for
-regressor construction. Methods are based on standard fMRI analysis
-techniques as described in Jezzard et al. (2001, ISBN:9780192630711).
+Bayesian estimation and analysis methods for Probit Unfolding Models
+(PUMs), a novel class of scaling models designed for binary preference
+data. These models allow for both monotonic and non-monotonic response
+functions. The package supports Bayesian inference for both static and
+dynamic PUMs using Markov chain Monte Carlo (MCMC) algorithms with minimal
+or no tuning. Key functionalities include posterior sampling,
+hyperparameter selection, data preprocessing, model fit evaluation, and
+visualization. The methods are particularly suited to analyzing voting
+data, such as from the U.S. Congress or Supreme Court, but can also be
+applied in other contexts where non-monotonic responses are expected. For
+methodological details, see Shi et al. (2025)
+<doi:10.48550/arXiv.2504.00423>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nanonext
-%global packver   1.7.2
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NNG (Nanomsg Next Gen) Lightweight Messaging Library
+Summary:          Lightweight Toolkit for Messaging, Concurrency and the Web
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,15 +19,17 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 
 %description
-R binding for NNG (Nanomsg Next Gen), a successor to ZeroMQ. NNG is a
-socket library for reliable, high-performance messaging over in-process,
-IPC, TCP, WebSocket and secure TLS transports. Implements 'Scalability
-Protocols', a standard for common communications patterns including
-publish/subscribe, request/reply and service discovery. As its own
-threaded concurrency framework, provides a toolkit for asynchronous
-programming and distributed computing. Intuitive 'aio' objects resolve
-automatically when asynchronous operations complete, and synchronisation
-primitives allow R to wait upon events signalled by concurrent threads.
+R binding for NNG (Nanomsg Next Gen), a successor to ZeroMQ. A toolkit for
+messaging, concurrency and the web. High-performance socket messaging over
+in-process, IPC, TCP, WebSocket and secure TLS transports implements
+'Scalability Protocols', a standard for common communications patterns
+including publish/subscribe, request/reply and survey. A threaded
+concurrency framework with intuitive 'aio' objects that resolve
+automatically upon completion of asynchronous operations, and
+synchronisation primitives that allow R to wait on events signalled by
+concurrent threads. A unified HTTP server hosting REST endpoints,
+WebSocket connections and streaming on a single port, with a built-in HTTP
+client.
 
 %prep
 %setup -q -c -n %{packname}

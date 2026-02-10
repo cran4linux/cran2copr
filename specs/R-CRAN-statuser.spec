@@ -1,32 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fpeek
-%global packver   0.2.0
+%global packname  statuser
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check Text Files Content at a Glance
+Summary:          Statistical Tools Designed for End Users
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-lmtest 
+Requires:         R-utils 
 
 %description
-Tools to help text files importation. It can return the number of lines;
-print the first and last lines; convert encoding; guess delimiters and
-file encoding. Operations are made without reading the entire file before
-starting, resulting in good performances with large files. This package
-provides an alternative to a simple use of the 'head', 'tail', 'wc' and
-'iconv' programs that are not always available on machine where R is
-installed.
+The statistical tools in this package do one of four things: 1) Enhance
+basic statistical functions with more flexible inputs, smarter defaults,
+and richer, clearer, and ready-to-use output (e.g., t.test2()) 2) Produce
+publication-ready commonly needed figures with one line of code (e.g.,
+plot_cdf()) 3) Implement novel analytical tools developed by the authors
+(e.g., twolines()) 4) Deliver niche functions of high value to the authors
+that are not easily available elsewhere (e.g., clear(), convert_to_sql(),
+resize_images()).
 
 %prep
 %setup -q -c -n %{packname}

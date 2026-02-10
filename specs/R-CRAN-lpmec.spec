@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  valytics
-%global packver   0.4.0
+%global packname  lpmec
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods for Analytical Method Comparison and Validation
+Summary:          Measurement Error Analysis and Correction Under Identification Restrictions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,31 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-robslopes 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-robslopes 
+BuildRequires:    R-CRAN-sensemakr 
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Amelia 
+BuildRequires:    R-CRAN-emIRT 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-sensemakr 
+Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Amelia 
+Requires:         R-CRAN-emIRT 
+Requires:         R-CRAN-gtools 
 
 %description
-Provides statistical methods for analytical method comparison and
-validation studies. Implements Bland-Altman analysis for assessing
-agreement between measurement methods (Bland & Altman (1986)
-<doi:10.1016/S0140-6736(86)90837-8>), Passing-Bablok regression for
-non-parametric method comparison (Passing & Bablok (1983)
-<doi:10.1515/cclm.1983.21.11.709>), and Deming regression accounting for
-measurement error in both variables (Linnet (1993)
-<doi:10.1093/clinchem/39.3.424>). Also includes tools for setting quality
-goals based on biological variation (Fraser & Petersen (1993)
-<doi:10.1093/clinchem/39.7.1447>) and calculating Six Sigma metrics,
-precision experiments with variance component analysis, precision profiles
-for functional sensitivity estimation (Kroll & Emancipator (1993)
-<https://pubmed.ncbi.nlm.nih.gov/8448849/>). Commonly used in clinical
-laboratory method validation. Provides publication-ready plots and
-comprehensive statistical summaries.
+Implements methods for analyzing latent variable models with measurement
+error correction, including Item Response Theory (IRT) models. Provides
+tools for various correction methods such as Bayesian Markov Chain Monte
+Carlo (MCMC), over-imputation, bootstrapping for robust standard errors,
+Ordinary Least Squares (OLS), and Instrumental Variables (IV) based
+approaches. Supports flexible specification of observable indicators and
+groupings for latent variable analyses in social sciences and other
+fields. Methods are described in a working paper (2025)
+<doi:10.48550/arXiv.2507.22218>.
 
 %prep
 %setup -q -c -n %{packname}

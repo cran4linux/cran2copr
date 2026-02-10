@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fpeek
-%global packver   0.2.0
+%global packname  appraise
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check Text Files Content at a Glance
+Summary:          Bias-Aware Evidence Synthesis in Systematic Reviews
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Tools to help text files importation. It can return the number of lines;
-print the first and last lines; convert encoding; guess delimiters and
-file encoding. Operations are made without reading the entire file before
-starting, resulting in good performances with large files. This package
-provides an alternative to a simple use of the 'head', 'tail', 'wc' and
-'iconv' programs that are not always available on machine where R is
-installed.
+Implements a bias-aware framework for evidence synthesis in systematic
+reviews and health technology assessments, as described in Kabali (2025)
+<doi:10.1111/jep.70272>. The package models study-level effect estimates
+by explicitly accounting for multiple sources of bias through prior
+distributions and propagates uncertainty using posterior simulation.
+Evidence across studies is combined using posterior mixture distributions
+rather than a single pooled likelihood, enabling probabilistic inference
+on clinically or policy-relevant thresholds. The methods are designed to
+support transparent decision-making when study relevance and bias vary
+across the evidence base.
 
 %prep
 %setup -q -c -n %{packname}
