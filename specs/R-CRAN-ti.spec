@@ -1,52 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMAforest
-%global packver   0.1.3
+%global packname  ti
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Plots for Network Meta-Analysis with Proportion for Paths and Studies
+Summary:          Time Intelligence and Customer Segmentation for Financial Analysis
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta 
-BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlist 
-Requires:         R-CRAN-netmeta 
-Requires:         R-CRAN-meta 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-utils 
-Requires:         R-CRAN-tibble 
-Requires:         R-stats 
-Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides customized forest plots for network meta-analysis incorporating
-direct, indirect, and NMA effects. Includes visualizations of evidence
-contributions through proportion bars based on the hat matrix and evidence
-flow decomposition.
+Calculate time intelligence metrics for financial planning and analysis.
+'ti' provides functions for period-over-period comparisons
+(year-over-year, month-over-month), period-to-date calculations (YTD, MTD,
+QTD), and customer segmentation (ABC analysis, cohorts). Supports standard
+and retail calendars (4-4-5, 4-5-4, 5-4-4) with both in-memory and
+database backends via 'dbplyr'.
 
 %prep
 %setup -q -c -n %{packname}

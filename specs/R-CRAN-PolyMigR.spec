@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nycOpenData
-%global packver   0.1.5
+%global packname  PolyMigR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convenient Access to NYC Open Data API Endpoints
+Summary:          Analysis of Polyphenol Migration from Packaging Films
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-curl 
 
 %description
-Provides a unified set of helper functions to access datasets from the NYC
-Open Data platform <https://opendata.cityofnewyork.us/>. Functions return
-results as tidy tibbles and support optional filtering, sorting, and row
-limits via the Socrata API. The package includes endpoints for 311 service
-requests, DOB job applications, juvenile justice metrics, school safety,
-environmental data, event permitting, and additional citywide datasets.
-The package is utilized as a primary pedagogical tool for teaching data
-acquisition in 'Reproducible Research Using R'.
+The gradual release of active substances from packaging can enhance food
+preservation by maintaining high concentrations of polyphenols and
+antioxidants for a period of 72 hrs. To assess the effectiveness of
+packaging materials that serve as carriers for antioxidants, it is crucial
+to model the diffusivity of the active agents. Understanding this
+diffusivity helps evaluate the packaging's capacity to prolong the shelf
+life of food items. The process of migration, which encompasses diffusion,
+dissolution, and reaching equilibrium, facilitates the transfer of low
+molecular weight compounds from the packaging into food simulants. The
+rate at which these active compounds are released from the packaging is
+typically analysed using food simulants under conditions outlined in
+European food packaging regulations (Ramos et al., 2014).
 
 %prep
 %setup -q -c -n %{packname}

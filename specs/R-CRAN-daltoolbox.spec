@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolbox
-%global packver   1.2.747
+%global packver   1.3.717
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.747
+Version:          1.3.717
 Release:          1%{?dist}%{?buildtag}
 Summary:          Leveraging Experiment Lines to Data Analytics
 
@@ -17,26 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-arules 
+BuildRequires:    R-CRAN-arulesSequences 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-tree 
+Requires:         R-methods 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-arules 
+Requires:         R-CRAN-arulesSequences 
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-reshape 

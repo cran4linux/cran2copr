@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nomisdata
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'Nomis' UK Labour Market Data and Statistics
 
@@ -37,15 +37,13 @@ Requires:         R-CRAN-digest
 Requires:         R-methods 
 
 %description
-Interface to the 'Nomis' database (<https://www.nomisweb.co.uk>), a
-comprehensive resource of United Kingdom labour market statistics provided
-by the Office for National Statistics (ONS). Facilitates programmatic
-access to census data, labour force surveys, benefit statistics, and
-socioeconomic indicators through a modern HTTP client with intelligent
-caching, automatic query pagination, and tidy data principles. Includes
-spatial data integration, interactive helpers, and visualization
-utilities. Independent implementation unaffiliated with ONS or Durham
-University.
+Interface to the 'Nomis' database (<https://www.nomisweb.co.uk>),
+maintained by Durham University on behalf of the Office for National
+Statistics (ONS). Provides access to UK labour market statistics including
+census data, benefit claimant counts, and employment surveys. Supports
+automatic pagination, optional disk caching, spatial data via 'sf', and
+tidy data output. Independent implementation unaffiliated with ONS or
+Durham University.
 
 %prep
 %setup -q -c -n %{packname}

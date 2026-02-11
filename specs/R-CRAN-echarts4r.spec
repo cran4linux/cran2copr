@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  echarts4r
-%global packver   0.4.6
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Graphs with 'Echarts JavaScript' Version 5
+Summary:          Create Interactive Graphs with 'Echarts JavaScript' Version 6
 
 License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +19,11 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-corrplot 
@@ -30,9 +32,11 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-corrplot 

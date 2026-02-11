@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggFishPlots
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualise and Calculate Life History Parameters for Fisheries Science using 'ggplot2'
 
@@ -17,27 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggridges >= 0.5.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-fishmethods 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggridges >= 0.5.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-fishmethods 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggrepel 

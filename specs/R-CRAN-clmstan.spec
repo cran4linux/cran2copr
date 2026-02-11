@@ -1,52 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMAforest
-%global packver   0.1.3
+%global packname  clmstan
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Plots for Network Meta-Analysis with Proportion for Paths and Studies
+Summary:          Cumulative Link Models with 'CmdStanR'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-instantiate 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlist 
-Requires:         R-CRAN-netmeta 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-utils 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-instantiate 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-loo 
 Requires:         R-stats 
-Requires:         R-CRAN-rlist 
 
 %description
-Provides customized forest plots for network meta-analysis incorporating
-direct, indirect, and NMA effects. Includes visualizations of evidence
-contributions through proportion bars based on the hat matrix and evidence
-flow decomposition.
+Fits cumulative link models (CLMs) for ordinal categorical data using
+'CmdStanR'. Supports various link functions including logit, probit,
+cloglog, loglog, cauchit, and flexible parametric links such as
+Generalized Extreme Value (GEV), Asymmetric Exponential Power (AEP), and
+Symmetric Power. Models are pre-compiled using the 'instantiate' package
+for fast execution without runtime compilation. Methods are described in
+Agresti (2010, ISBN:978-0-470-08289-8), Wang and Dey (2011)
+<doi:10.1007/s10651-010-0154-8>, and Naranjo, Perez, and Martin (2015)
+<doi:10.1007/s11222-014-9449-1>.
 
 %prep
 %setup -q -c -n %{packname}

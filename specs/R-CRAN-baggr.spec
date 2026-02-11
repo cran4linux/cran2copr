@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baggr
-%global packver   0.7.11
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.11
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Aggregate Treatment Effects
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.26.0
@@ -47,7 +46,6 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-testthat 
 Requires:         R-methods 
 Requires:         R-CRAN-rstantools
 

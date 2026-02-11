@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  XML
-%global packver   3.99-0.20
+%global packver   3.99-0.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.99.0.20
+Version:          3.99.0.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Parsing and Generating XML Within R and S-Plus
 

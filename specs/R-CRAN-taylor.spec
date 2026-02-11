@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taylor
-%global packver   3.2.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lyrics and Song Data for Taylor Swift's Discography
 
@@ -14,33 +14,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-askpass 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-spotifyr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-askpass 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-spotifyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-vctrs 
 
 %description
 A comprehensive resource for data on Taylor Swift songs. Data is included
 for all officially released studio albums, extended plays (EPs), and
 individual singles are included. Data comes from 'Genius' (lyrics) and
-'Spotify' (song characteristics). Additional functions are included for
+'SoundStat' (song characteristics). Additional functions are included for
 easily creating data visualizations with color palettes inspired by Taylor
 Swift's album covers.
 

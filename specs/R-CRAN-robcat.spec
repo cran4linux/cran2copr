@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robcat
-%global packver   0.1.0
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Categorical Data Analysis
 
@@ -22,21 +22,31 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-stringr 
 Requires:         R-parallel 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-pracma 
+Requires:         R-utils 
 
 %description
 Robust categorical data analysis based on the theory of C-estimation
 developed in Welz (2024) <doi:10.48550/arXiv.2403.11954>. For now, the
 package only implements robust estimation of polychoric correlation as
-proposed in Welz, Mair and Alfons (2024) <doi:10.48550/arXiv.2407.18835>
-with methods for printing and plotting. We will implement further models
-in future releases. In addition, the package is still experimental, so
-input arguments and class structure may change in future releases.
+proposed in Welz, Mair and Alfons (2026) <doi:10.1017/psy.2025.10066> and
+robust estimation of polyserial correlation (Welz, 2026
+<doi:10.1017/psy.2026.10091>) with methods for printing and plotting. We
+will implement further models in future releases. In addition, the package
+is still experimental, so input arguments and class structure may change
+in future releases.
 
 %prep
 %setup -q -c -n %{packname}

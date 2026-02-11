@@ -1,52 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMAforest
-%global packver   0.1.3
+%global packname  LitFetchR
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Plots for Network Meta-Analysis with Proportion for Paths and Studies
+Summary:          Automatically Fetching References Metadata from Literature Databases
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta 
-BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlist 
-Requires:         R-CRAN-netmeta 
-Requires:         R-CRAN-meta 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-utils 
-Requires:         R-CRAN-tibble 
-Requires:         R-stats 
-Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-xml2 
 
 %description
-Provides customized forest plots for network meta-analysis incorporating
-direct, indirect, and NMA effects. Includes visualizations of evidence
-contributions through proportion bars based on the hat matrix and evidence
-flow decomposition.
+Provides functions to automatically retrieve and deduplicate reference
+metadata based on saved search strings. Access to Web of Science and
+Scopus requires personal API keys, while PubMed can be queried without
+one. The optional deduplication functionality requires the package 'ASySD'
+available from <https://github.com/camaradesuk/ASySD>.
 
 %prep
 %setup -q -c -n %{packname}

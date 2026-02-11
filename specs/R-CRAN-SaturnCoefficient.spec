@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SaturnCoefficient
-%global packver   1.4
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Evaluation of UMAP Dimensionality Reductions
 
@@ -33,9 +33,10 @@ dimensionality reduction produced by UMAP, and evaluates the quality of
 this dimensionality reduction by producing a real value in the [0; 1]
 interval. We call this real value Saturn coefficient. A higher value means
 better dimensionality reduction; a lower value means worse dimensionality
-reduction. Reference: Davide Chicco et al. "The Saturn coefficient for
-evaluating the quality of UMAP dimensionality reduction results" (2025, in
-preparation).
+reduction. Reference: Davide Chicco et al. (February 2026), "The
+advantages of our proposed Saturn coefficient over continuity and
+trustworthiness for UMAP dimensionality reduction evaluation", PeerJ
+Computer Science 12:e3424 (pp. 1-30), <doi:10.7717/peerj-cs.3424>.
 
 %prep
 %setup -q -c -n %{packname}

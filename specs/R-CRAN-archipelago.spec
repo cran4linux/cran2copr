@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PUlasso
-%global packver   3.2.5
+%global packname  archipelago
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Dimensional Variable Selection with Presence-Only Data
+Summary:          Visualising Variant Set Association Test Results
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.8
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 0.12.8
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
 
 %description
-Efficient algorithm for solving PU (Positive and Unlabeled) problem in low
-or high dimensional setting with lasso or group lasso penalty. The
-algorithm uses Maximization-Minorization and (block) coordinate descent.
-Sparse calculation and parallel computing are supported for the
-computational speed-up. See Hyebin Song, Garvesh Raskutti (2018)
-<arXiv:1711.08129>.
+Provides a graphical method for joint visualisation of Variant Set
+Association Test (VSAT) results and individual variant association
+statistics. The Archipelago method assigns genomic coordinates to variant
+set statistics, allowing simultaneous display of variant-level and
+set-level signals in a unified plot. This supports interpretation of both
+collective and individual variant contributions in genetic association
+studies using variant aggregation approaches. For more see Lawless et al.
+(2026) <doi:10.1002/gepi.70025>.
 
 %prep
 %setup -q -c -n %{packname}

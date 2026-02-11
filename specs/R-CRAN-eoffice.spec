@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eoffice
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Export or Graph and Tables to 'Microsoft' Office and Import Figures and Tables
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-magick
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-rvg 
 Requires:         R-CRAN-flextable 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-magick
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides wrap functions to export and import graphics and data frames in R

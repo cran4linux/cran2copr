@@ -1,52 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMAforest
-%global packver   0.1.3
+%global packname  rFAMS
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forest Plots for Network Meta-Analysis with Proportion for Paths and Studies
+Summary:          Fisheries Analysis and Modeling Simulator
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-netmeta 
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlist 
-Requires:         R-CRAN-netmeta 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-utils 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-FSA 
 Requires:         R-stats 
-Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-FSA 
 
 %description
-Provides customized forest plots for network meta-analysis incorporating
-direct, indirect, and NMA effects. Includes visualizations of evidence
-contributions through proportion bars based on the hat matrix and evidence
-flow decomposition.
+Simulates the dynamics of exploited fish populations using the Jones
+modification of the Beverton-Holt equilibrium yield equation to compute
+yield-per-recruit and dynamic pool models (Ricker 1975)
+<https://publications.gc.ca/site/eng/480738/publication.html>. Allows
+users to evaluate minimum, slot, and inverted length limits on exploited
+fisheries using specified life history parameters. Users can simulate
+population under a variety of conditional fishing mortality and
+conditional natural mortality. Calculated quantities include number of
+fish harvested and dying naturally, mean weight and length of fish
+harvested, number of fish that reach specified lengths of interest, total
+number of fish and biomass in the population, and stock density indices.
 
 %prep
 %setup -q -c -n %{packname}
