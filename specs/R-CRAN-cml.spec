@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cml
-%global packver   0.2.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Manifold Learning
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -22,11 +22,7 @@ Requires:         R-CRAN-vegan
 
 %description
 Finds a low-dimensional embedding of high-dimensional data, conditioning
-on available manifold information. The current version supports
-conditional MDS (based on either conditional SMACOF in Bui (2021)
-<arXiv:2111.13646> or closed-form solution in Bui (2022)
-<doi:10.1016/j.patrec.2022.11.007>) and conditional ISOMAP in Bui (2021)
-<arXiv:2111.13646>.
+on available manifold information.
 
 %prep
 %setup -q -c -n %{packname}

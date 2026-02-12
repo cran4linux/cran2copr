@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtplyr
-%global packver   1.3.3
+%global packname  phyloraster
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Table Back-End for 'dplyr'
+Summary:          Evolutionary Diversity Metrics for Raster Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-SESraster 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-ape 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-SESraster 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
-Provides a data.table backend for 'dplyr'. The goal of 'dtplyr' is to
-allow you to write 'dplyr' code that is automatically translated to the
-equivalent, but usually much faster, data.table code.
+Phylogenetic Diversity (PD, Faith 1992), Evolutionary Distinctiveness (ED,
+Isaac et al. 2007), Phylogenetic Endemism (PE, Rosauer et al. 2009; Laffan
+et al. 2016), and Weighted Endemism (WE, Laffan et al. 2016) for
+presence-absence raster.  Faith, D. P. (1992)
+<doi:10.1016/0006-3207(92)91201-3> Isaac, N. J. et al. (2007)
+<doi:10.1371/journal.pone.0000296> Laffan, S. W. et al. (2016)
+<doi:10.1111/2041-210X.12513> Rosauer, D. et al. (2009)
+<doi:10.1111/j.1365-294X.2009.04311.x>.
 
 %prep
 %setup -q -c -n %{packname}

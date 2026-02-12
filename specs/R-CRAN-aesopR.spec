@@ -1,45 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtplyr
-%global packver   1.3.3
+%global packname  aesopR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Table Back-End for 'dplyr'
+Summary:          Tools for Text Analysis of Aesop's Fables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble 
 
 %description
-Provides a data.table backend for 'dplyr'. The goal of 'dtplyr' is to
-allow you to write 'dplyr' code that is automatically translated to the
-equivalent, but usually much faster, data.table code.
+Provides a tidy text corpus of Aesop's Fables sourced from the Library of
+Congress, along with analysis-ready datasets for sentiment, emotion, and
+linguistic analysis of moral storytelling. The package includes both full
+narrative texts and word-level representations to support exploratory text
+analysis and teaching workflows.
 
 %prep
 %setup -q -c -n %{packname}

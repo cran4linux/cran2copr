@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evanverse
-%global packver   0.3.7
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Data Analysis and Visualization
 
@@ -32,10 +32,12 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-pwr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -51,20 +53,23 @@ Requires:         R-CRAN-fs
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-tools 
 Requires:         R-stats 
 Requires:         R-grDevices 
+Requires:         R-CRAN-pwr 
 
 %description
 A comprehensive collection of utility functions for data analysis and
-visualization in R. The package provides 55+ functions for data
+visualization in R. The package provides 60+ functions for data
 manipulation, file handling, color palette management, bioinformatics
-workflows, plotting, and package management. Features include void value
-handling, custom infix operators, flexible file I/O, and publication-ready
-visualizations with sensible defaults. Implementation follows tidyverse
-principles (Wickham et al. (2019) <doi:10.21105/joss.01686>) and
-incorporates best practices from the R community.
+workflows, statistical analysis, plotting, and package management.
+Features include void value handling, custom infix operators, flexible
+file I/O, and publication-ready visualizations with sensible defaults.
+Implementation follows tidyverse principles (Wickham et al. (2019)
+<doi:10.21105/joss.01686>) and incorporates best practices from the R
+community.
 
 %prep
 %setup -q -c -n %{packname}

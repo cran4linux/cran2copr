@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SLmetrics
-%global packver   0.3-4
+%global packname  simevent
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Performance Evaluation on Steroids
+Summary:          Simulation and Analysis of Event History Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lattice 
+Requires:         R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Performance evaluation metrics for supervised and unsupervised machine
-learning, statistical learning and artificial intelligence applications.
-Core computations are implemented in 'C++' for scalability and efficiency.
+Simulate event history data from a framework where treatment decisions and
+disease progression are represented as counting process. The user can
+specify number of events and parameters of intensities thereby creating a
+flexible simulation framework.
 
 %prep
 %setup -q -c -n %{packname}

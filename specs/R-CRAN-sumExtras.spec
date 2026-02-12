@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sumExtras
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Functions for 'gtsummary' Table Styling
 
@@ -20,12 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-gtsummary >= 1.7.0
 BuildRequires:    R-CRAN-gt >= 0.9.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-gtsummary >= 1.7.0
 Requires:         R-CRAN-gt >= 0.9.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 
 %description

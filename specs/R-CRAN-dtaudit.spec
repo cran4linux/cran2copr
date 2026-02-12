@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtplyr
-%global packver   1.3.3
+%global packname  dtaudit
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Table Back-End for 'dplyr'
+Summary:          Audit and Diagnostic Tools for 'data.table' Workflows
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringi 
 
 %description
-Provides a data.table backend for 'dplyr'. The goal of 'dtplyr' is to
-allow you to write 'dplyr' code that is automatically translated to the
-equivalent, but usually much faster, data.table code.
+Diagnostic tools for auditing data analysis workflows built on
+'data.table'. Provides functions to validate join operations, compare
+data.tables, filter with diagnostic output, summarize data quality, check
+primary keys and variable relationships, and diagnose string columns.
+Designed to help analysts understand and document data transformations.
 
 %prep
 %setup -q -c -n %{packname}

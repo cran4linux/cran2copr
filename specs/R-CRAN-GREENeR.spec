@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GREENeR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geospatial Regression Equation for European Nutrient Losses (GREEN)
 
@@ -20,14 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-graphics >= 3.6.1
 BuildRequires:    R-grDevices >= 3.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-tmap >= 3.3.2
+BuildRequires:    R-CRAN-tmap >= 3.3
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-reshape2 >= 1.4.4
 BuildRequires:    R-CRAN-parallelly >= 1.30.0
 BuildRequires:    R-CRAN-FME >= 1.3.6.1
 BuildRequires:    R-CRAN-data.table >= 1.13.6
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-sf >= 1.0.2
 BuildRequires:    R-CRAN-classInt >= 0.4.3
@@ -35,14 +34,13 @@ BuildRequires:    R-CRAN-networkD3 >= 0.4
 Requires:         R-graphics >= 3.6.1
 Requires:         R-grDevices >= 3.5
 Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-tmap >= 3.3.2
+Requires:         R-CRAN-tmap >= 3.3
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-reshape2 >= 1.4.4
 Requires:         R-CRAN-parallelly >= 1.30.0
 Requires:         R-CRAN-FME >= 1.3.6.1
 Requires:         R-CRAN-data.table >= 1.13.6
-Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-sf >= 1.0.2
 Requires:         R-CRAN-classInt >= 0.4.3

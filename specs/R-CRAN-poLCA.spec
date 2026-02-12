@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  poLCA
-%global packver   1.6.0.1
+%global packver   1.6.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0.1
+Version:          1.6.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Polytomous Variable Latent Class Analysis
 
@@ -22,7 +23,7 @@ Requires:         R-CRAN-MASS
 
 %description
 Latent class analysis and latent class regression models for polytomous
-outcome variables.  Also known as latent structure analysis.
+outcome variables. Also known as latent structure analysis.
 
 %prep
 %setup -q -c -n %{packname}

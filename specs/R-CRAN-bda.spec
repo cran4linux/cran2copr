@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bda
-%global packver   19.0.0
+%global packver   19.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          19.0.0
+Version:          19.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Binned Data Analysis
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-BI 
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-BI 
 
 %description
 Algorithms developed for binned data analysis, gene expression data

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epiR
-%global packver   2.0.89
+%global packver   2.0.90
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.89
+Version:          2.0.90
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Epidemiological Data
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-officer 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-BiasedUrn 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-flextable 
+Requires:         R-stats 
 Requires:         R-CRAN-officer 
 
 %description

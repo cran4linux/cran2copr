@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LikertMakeR
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthesise and Correlate Likert Scale and Rating-Scale Data Based on Summary Statistics
 
@@ -20,11 +20,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tibble 
 
 %description
 Generate and correlate synthetic Likert and rating-scale data with

@@ -1,45 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtplyr
-%global packver   1.3.3
+%global packname  geobounds
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Table Back-End for 'dplyr'
+Summary:          Download Map Data from 'geoBoundaries'
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Provides a data.table backend for 'dplyr'. The goal of 'dtplyr' is to
-allow you to write 'dplyr' code that is automatically translated to the
-equivalent, but usually much faster, data.table code.
+Tools to download data from 'geoBoundaries'
+<https://www.geoboundaries.org/>. Several administration levels available.
+See Runfola, D. et al. (2020) geoBoundaries: A global database of
+political administrative boundaries. PLOS ONE 15(4): 1-9.
+<doi:10.1371/journal.pone.0231866>.
 
 %prep
 %setup -q -c -n %{packname}

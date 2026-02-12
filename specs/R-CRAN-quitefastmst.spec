@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quitefastmst
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Euclidean and Mutual Reachability Minimum Spanning Trees
 
@@ -23,8 +23,8 @@ Requires:         R-CRAN-Rcpp
 Functions to compute Euclidean minimum spanning trees using single-,
 sesqui-, and dual-tree Boruvka algorithms.  Thanks to K-d trees, they are
 fast in spaces of low intrinsic dimensionality.  Mutual reachability
-distances (used in the definition of the 'HDBSCAN*' algorithm) are also
-supported.  The package also features relatively fast fallback minimum
+distances (used in the definition of the 'HDBSCAN*' algorithm) are
+supported too.  The package also includes relatively fast fallback minimum
 spanning tree and nearest-neighbours algorithms for spaces of higher
 dimensionality.  The 'Python' version of 'quitefastmst' is available via
 'PyPI'.

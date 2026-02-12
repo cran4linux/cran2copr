@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  odr
-%global packver   1.7.3
+%global packver   1.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Design and Statistical Power for Experimental Studies Investigating Main, Mediation, and Moderation Effects
 

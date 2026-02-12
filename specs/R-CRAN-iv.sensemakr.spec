@@ -1,45 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtplyr
-%global packver   1.3.3
+%global packname  iv.sensemakr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Table Back-End for 'dplyr'
+Summary:          Sensitivity Analysis Tools for Instrumental Variable Estimates
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-sensemakr >= 0.1.5
+Requires:         R-CRAN-sensemakr >= 0.1.5
 
 %description
-Provides a data.table backend for 'dplyr'. The goal of 'dtplyr' is to
-allow you to write 'dplyr' code that is automatically translated to the
-equivalent, but usually much faster, data.table code.
+Implements a suite of sensitivity analysis tools for instrumental variable
+estimates as described in Cinelli and Hazlett (2025)
+<doi:10.1093/biomet/asaf004>.
 
 %prep
 %setup -q -c -n %{packname}

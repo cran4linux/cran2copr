@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text2map
-%global packver   0.2.0
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Tools for Text Matrices, Embeddings, and Networks
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-qgraph >= 1.6.9
 BuildRequires:    R-CRAN-Matrix >= 1.4.2
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-ClusterR
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-CRAN-permute 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-pillar 
 Requires:         R-CRAN-qgraph >= 1.6.9
 Requires:         R-CRAN-Matrix >= 1.4.2
 Requires:         R-CRAN-igraph >= 1.2.6
@@ -51,6 +53,8 @@ Requires:         R-CRAN-ClusterR
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rsvd 
 Requires:         R-CRAN-permute 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-pillar 
 
 %description
 This is a collection of functions optimized for working with with various

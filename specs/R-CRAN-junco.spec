@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  junco
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Common Tables and Listings Used in Clinical Trials
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 4.4
 Requires:         R-core >= 4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-rbmi >= 1.6.0
 BuildRequires:    R-CRAN-tern >= 0.9.10
+BuildRequires:    R-CRAN-flextable >= 0.9.10
 BuildRequires:    R-CRAN-vcdExtra >= 0.8.7
 BuildRequires:    R-CRAN-rtables >= 0.6.15
 BuildRequires:    R-CRAN-formatters >= 0.5.12
@@ -36,14 +38,15 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-mmrm 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-systemfonts 
 Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-rbmi >= 1.6.0
 Requires:         R-CRAN-tern >= 0.9.10
+Requires:         R-CRAN-flextable >= 0.9.10
 Requires:         R-CRAN-vcdExtra >= 0.8.7
 Requires:         R-CRAN-rtables >= 0.6.15
 Requires:         R-CRAN-formatters >= 0.5.12
@@ -61,7 +64,6 @@ Requires:         R-utils
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-mmrm 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-ggplot2 

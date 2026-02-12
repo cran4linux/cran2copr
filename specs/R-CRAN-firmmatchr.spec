@@ -1,50 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openscoring
-%global packver   1.0.6
+%global packname  firmmatchr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Open Scoring' API Client
+Summary:          Robust Probabilistic Matching for German Company Names
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-zoomerjoin 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-zoomerjoin 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Creativity research involves the need to score open-ended problems.
-Usually done by humans, automatic scoring using AI becomes more and more
-accurate. This package provides a simple interface to the 'Open Scoring'
-API <https://openscoring.du.edu/docs>, leading creativity scoring
-technology by Organiscak et al. (2023) <doi:10.1016/j.tsc.2023.101356>.
-With it, you can score your own data directly from an R script.
+A pipeline for matching messy company name strings against a clean
+dictionary (e.g., 'Orbis'). Implements a cascading strategy: Exact ->
+Fuzzy ('zoomerjoin') -> 'FTS5' ('SQLite') -> Rarity Weighted. References:
+Beniamino Green (2025) <https://beniamino.org/zoomerjoin/>;
+<https://www.sqlite.org/fts5.html>.
 
 %prep
 %setup -q -c -n %{packname}
