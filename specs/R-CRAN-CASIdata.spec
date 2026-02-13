@@ -1,54 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  igraph
-%global packver   2.2.2
+%global packname  CASIdata
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Datasets from Computer Age Statistical Inference
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    glpk-devel
-BuildRequires:    gmp-devel
-BuildRequires:    libxml2-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-cpp11 >= 0.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-pkgconfig >= 2.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-methods 
-Requires:         R-CRAN-cli 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+BuildArch:        noarch
 
 %description
-Routines for simple graphs and network analysis. It can handle large
-graphs very well and provides functions for generating random and regular
-graphs, graph visualization, centrality methods and much more.
+Provides the datasets from Efron & Hastie (2016, ISBN: 9781108107952),
+"Computer Age Statistical Inference: Algorithms, Evidence, and Data
+Science", in an accessible R format for those who want to use them for
+study or to try to reproduce analyses from the book.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpicrust2
-%global packver   2.5.2
+%global packver   2.5.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.5.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make 'PICRUSt2' Output Analysis and Visualization Easier
 

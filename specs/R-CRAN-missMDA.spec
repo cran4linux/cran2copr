@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  missMDA
-%global packver   1.20
+%global packver   1.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.20
+Version:          1.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Missing Values with Multivariate Data Analysis
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR >= 2.3
+BuildRequires:    R-CRAN-FactoMineR >= 2.13
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -28,7 +28,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-FactoMineR >= 2.3
+Requires:         R-CRAN-FactoMineR >= 2.13
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 

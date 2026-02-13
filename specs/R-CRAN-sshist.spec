@@ -1,54 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  igraph
-%global packver   2.2.2
+%global packname  sshist
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Optimal Histogram Binning Using Shimazaki-Shinomoto Method
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    glpk-devel
-BuildRequires:    gmp-devel
-BuildRequires:    libxml2-devel
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-cpp11 >= 0.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-pkgconfig >= 2.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-methods 
-Requires:         R-CRAN-cli 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
-Routines for simple graphs and network analysis. It can handle large
-graphs very well and provides functions for generating random and regular
-graphs, graph visualization, centrality methods and much more.
+Implements the Shimazaki-Shinomoto method (2007)
+<doi:10.1162/neco.2007.19.6.1503> for optimizing the bin width of a
+histogram. This method minimizes the mean integrated squared error (MISE)
+and features a C++ backend for high performance and shift-averaging to
+remove edge-position bias. Ideally suits for time-dependent rate
+estimation and identifying intrinsic data structures. Supports both 1D and
+2D data distributions.
 
 %prep
 %setup -q -c -n %{packname}

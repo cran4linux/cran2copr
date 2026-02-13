@@ -1,41 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cardargus
-%global packver   0.2.1
+%global packname  CardiacDP
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate SVG Information Cards with Embedded Fonts and Badges
+Summary:          Automated Cardiac Data Processing via ACF, GA & Tracking Index
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-gdtools 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-rsvg 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-gdtools 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-rsvg 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-stringr 
 
 %description
-Create self-contained SVG information cards with embedded 'Google Fonts',
-shields-style badges, and custom logos. Cards are fully portable SVG files
-ideal for dashboards, reports, and web applications. Includes functions to
-export cards to PNG format and display them in 'R Markdown' and 'Quarto'
-documents.
+An algorithm developed to efficiently and accurately process complex and
+variable cardiac data with three key features: 1. employing
+autocorrelation to identify recurrent heartbeats and use their periods to
+compute heart rates; 2. incorporating a genetic algorithm framework to
+minimize data loss due to noise interference and accommodate
+within-sequence variations; and 3. introducing a tracking index as a
+moving reference to reduce errors. Lau, Wong, & Gu (2026)
+<https://ssrn.com/abstract=5153081>.
 
 %prep
 %setup -q -c -n %{packname}

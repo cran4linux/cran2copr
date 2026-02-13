@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  drimmR
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation, Simulation and Reliability of Drifting Markov Models
 
@@ -19,23 +20,21 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-seqinr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-parallel 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-reshape2 
 
 %description
 Performs the drifting Markov models (DMM) which are non-homogeneous Markov
@@ -55,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

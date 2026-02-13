@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tsg
-%global packver   0.1.1
+%global packname  rcdf
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Publication-Ready Statistical Tables
+Summary:          A Comprehensive Toolkit for Working with Encrypted Parquet Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,36 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.3.10
-BuildRequires:    R-CRAN-jsonlite >= 2.0.0
+BuildRequires:    R-utils >= 4.0.0
+BuildRequires:    R-CRAN-RSQLite >= 2.2.0
+BuildRequires:    R-CRAN-openssl >= 2.1.1
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.2
+BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-uuid >= 0.1.2
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-yaml >= 2.3.10
-Requires:         R-CRAN-jsonlite >= 2.0.0
+BuildRequires:    R-methods 
+Requires:         R-utils >= 4.0.0
+Requires:         R-CRAN-RSQLite >= 2.2.0
+Requires:         R-CRAN-openssl >= 2.1.1
+Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.2
+Requires:         R-CRAN-DBI >= 1.1.0
+Requires:         R-CRAN-uuid >= 0.1.2
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zip 
 Requires:         R-CRAN-glue 
+Requires:         R-methods 
 
 %description
-A collection of functions for generating frequency tables and
-cross-tabulations of categorical variables. The resulting tables can be
-exported to various formats (Excel, PDF, HTML, etc.) with extensive
-formatting and layout customization options.
+Utilities for reading, writing, and managing RCDF files, including
+encryption and decryption support. It offers a flexible interface for
+handling data stored in encrypted Parquet format, along with metadata
+extraction, key management, and secure operations using Advanced
+Encryption Standard (AES) and Rivest-Shamir-Adleman (RSA) encryption.
 
 %prep
 %setup -q -c -n %{packname}

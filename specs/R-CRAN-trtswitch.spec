@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trtswitch
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Treatment Switching
 
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.5
+BuildRequires:    R-parallel >= 3.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-cowplot >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.14.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-rlang >= 1.0.6
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppThread 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-RcppParallel >= 5.1.5
+Requires:         R-parallel >= 3.5
 Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-cowplot >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.14.10
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-rlang >= 1.0.6
-Requires:         R-parallel 
 
 %description
 Implements rank preserving structural failure time model (RPSFTM),

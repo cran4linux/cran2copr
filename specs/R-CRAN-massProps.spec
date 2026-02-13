@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  massProps
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Mass Properties and Uncertainties of Tree Structures
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rollupTree >= 0.1.0
-Requires:         R-CRAN-rollupTree >= 0.1.0
+BuildRequires:    R-CRAN-rollupTree >= 0.4.1
+Requires:         R-CRAN-rollupTree >= 0.4.1
 
 %description
 Recursively calculates mass properties (mass, center of mass, moments and

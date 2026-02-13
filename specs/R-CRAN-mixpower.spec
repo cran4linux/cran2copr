@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tsg
-%global packver   0.1.1
+%global packname  mixpower
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Publication-Ready Statistical Tables
+Summary:          Simulation-Based Power Analysis for Mixed-Effects Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,36 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.3.10
-BuildRequires:    R-CRAN-jsonlite >= 2.0.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.2
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-yaml >= 2.3.10
-Requires:         R-CRAN-jsonlite >= 2.0.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.2
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-stats 
+Requires:         R-CRAN-lme4 
 
 %description
-A collection of functions for generating frequency tables and
-cross-tabulations of categorical variables. The resulting tables can be
-exported to various formats (Excel, PDF, HTML, etc.) with extensive
-formatting and layout customization options.
+A comprehensive, simulation-based toolkit for power and sample-size
+analysis for linear and generalized linear mixed-effects models (LMMs and
+GLMMs). Supports Gaussian, binomial, Poisson, and negative binomial
+families via 'lme4'; Wald and likelihood-ratio tests; multi-parameter
+sensitivity grids; power curves and minimum sample-size solvers; parallel
+evaluation with deterministic seeds; and full reproducibility (manifests,
+result bundling, and export to CSV/JSON). Delivers thorough diagnostics
+per run (failure rate, singular-fit rate, effective N) and
+publication-ready summary tables. References: Bates et al. (2015) "Fitting
+Linear Mixed-Effects Models Using lme4" <doi:10.18637/jss.v067.i01>; Green
+and MacLeod (2016) "SIMR: an R package for power analysis of generalized
+linear mixed models by simulation" <doi:10.1111/2041-210X.12504>.
 
 %prep
 %setup -q -c -n %{packname}

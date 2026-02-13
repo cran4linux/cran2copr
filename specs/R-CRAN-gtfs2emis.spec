@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtfs2emis
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Public Transport Emissions from General Transit Feed Specification (GTFS) Data
 
@@ -17,26 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gtfs2gps >= 2.1.4
 BuildRequires:    R-CRAN-sf >= 0.9.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-gtfs2gps 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-parallelly 
+Requires:         R-CRAN-gtfs2gps >= 2.1.4
 Requires:         R-CRAN-sf >= 0.9.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-gtfs2gps 
 Requires:         R-methods 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-units 
+Requires:         R-CRAN-parallelly 
 
 %description
 A bottom up model to estimate the emission levels of public transport

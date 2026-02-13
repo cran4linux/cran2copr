@@ -1,54 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  igraph
-%global packver   2.2.2
+%global packname  tissot
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Analysis and Visualization
+Summary:          Tissot Indicatrix for Map Projection Distortion
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    glpk-devel
-BuildRequires:    gmp-devel
-BuildRequires:    libxml2-devel
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-cpp11 >= 0.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-gdalraster 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-pkgconfig >= 2.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-methods 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-gdalraster 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
-Routines for simple graphs and network analysis. It can handle large
-graphs very well and provides functions for generating random and regular
-graphs, graph visualization, centrality methods and much more.
+Compute and visualize the 'Tissot Indicatrix' for map projections. The
+indicatrix characterizes projection distortion by computing scale factors,
+angular deformation, areal distortion, and convergence at arbitrary
+points. Based on the calculations shared by Bill Huber on
+<https://gis.stackexchange.com/a/5075/482>. Uses 'GDAL' for coordinate
+transformation. Developed using the method published in Snyder, JP (1987)
+<doi:10.3133/pp1395>.
 
 %prep
 %setup -q -c -n %{packname}

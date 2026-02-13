@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MOSAlloc
-%global packver   1.2.4
+%global packname  flexBART
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constraint Multiobjective Sample Allocation
+Summary:          A More Flexible BART Model
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ECOSolveR 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-ECOSolveR 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-glmnet >= 4.0
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-methods 
 
 %description
-Provides a framework for multipurpose optimal resource allocation in
-survey sampling, extending the classical optimal allocation principles
-introduced by Tschuprow (1923) and Neyman (1934) to multidomain and
-multivariate allocation problems. The primary method mosalloc() allows for
-the consideration of precision and cost constraints at the subpopulation
-level while minimizing either a vector of sampling errors or survey costs
-across a broad range of optimal sample allocation problems. The approach
-supports both single- and multistage designs. For single-stage stratified
-random sampling, the mosallocSTRS() function offers a user- friendly
-interface. Sensitivity analysis is supported through the problem's dual
-variables, which are naturally obtained via the internal use of the
-Embedded Conic Solver from the 'ECOSolveR' package. See Willems (2025,
-<doi:10.25353/ubtr-9200-484c-5c89>) for a detailed description of the
-theory behind 'MOSAlloc'.
+Implements a faster and more expressive version of Bayesian Additive
+Regression Trees that, at a high level, approximates unknown functions as
+a weighted sum of binary regression tree ensembles. Supports fitting
+(generalized) linear varying coefficient models that posits a linear
+relationship between the inverse link and some covariates but allows that
+relationship to change as a function of other covariates. Additionally
+supports fitting heteroscedastic BART models, in which both the mean and
+log-variance are approximated with separate regression tree ensembles. A
+formula interface allows for different splitting variables to be used in
+each ensemble. For more details see Deshpande (2025)
+<doi:10.1080/10618600.2024.2431072> and Deshpande et al. (2024)
+<doi:10.1214/24-BA1470>.
 
 %prep
 %setup -q -c -n %{packname}

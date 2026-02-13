@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tosr
-%global packver   0.1.5
+%global packname  measles
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create the Tree of Science from WoS and Scopus
+Summary:          Measles Epidemiological Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bibliometrix 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rebus 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-bibliometrix 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rebus 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-epiworldR >= 0.11.0.1
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-epiworldR >= 0.11.0.1
+Requires:         R-utils 
 
 %description
-The goal of 'tosr' is to create the Tree of Science from Web of Science
-(WoS) and Scopus data. It can read files from both sources at the same
-time. More information can be found in Valencia-Hernández (2020)
-<https://revistas.unal.edu.co/index.php/ingeinv/article/view/77718>.
+A specialized collection of measles epidemiological models built on the
+'epiworldR' framework. This package is a spinoff from 'epiworldR' focusing
+specifically on measles transmission dynamics. It includes models for
+school settings with quarantine and isolation policies, mixing models with
+population groups, and risk-based quarantine strategies. The models use
+Agent-Based Models (ABM) with a fast 'C++' backend from the 'epiworld'
+library. Ideal for studying measles outbreaks, vaccination strategies, and
+intervention policies.
 
 %prep
 %setup -q -c -n %{packname}

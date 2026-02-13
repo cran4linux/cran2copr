@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GHRexplore
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Analysis of Temporal and Spatio-Temporal Health Data
 
@@ -22,21 +22,21 @@ BuildRequires:    R-CRAN-colorspace
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ISOweek 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
-Requires:         R-CRAN-ISOweek 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
 
 %description
 A collection of commonly used visualizations of temporal and

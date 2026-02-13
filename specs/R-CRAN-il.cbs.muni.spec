@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tsg
-%global packver   0.1.1
+%global packname  il.cbs.muni
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Publication-Ready Statistical Tables
+Summary:          Utility Functions to Work with Israeli Central Bureau of Statistics Municipal Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,36 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.3.10
-BuildRequires:    R-CRAN-jsonlite >= 2.0.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.2
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-yaml >= 2.3.10
-Requires:         R-CRAN-jsonlite >= 2.0.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.2
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-glue 
 
 %description
-A collection of functions for generating frequency tables and
-cross-tabulations of categorical variables. The resulting tables can be
-exported to various formats (Excel, PDF, HTML, etc.) with extensive
-formatting and layout customization options.
+Analyst oriented utility functions to handle the different quirks of the
+Israeli CBS municipal data, harmonize id's and bring together data points
+from different years.
 
 %prep
 %setup -q -c -n %{packname}

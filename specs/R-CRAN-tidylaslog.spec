@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tsg
-%global packver   0.1.1
+%global packname  tidylaslog
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Publication-Ready Statistical Tables
+Summary:          Tidy Import, Indexing, and Export of LAS Well Log Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,36 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.3.10
-BuildRequires:    R-CRAN-jsonlite >= 2.0.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.2
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-yaml >= 2.3.10
-Requires:         R-CRAN-jsonlite >= 2.0.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.2
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-glue 
 
 %description
-A collection of functions for generating frequency tables and
-cross-tabulations of categorical variables. The resulting tables can be
-exported to various formats (Excel, PDF, HTML, etc.) with extensive
-formatting and layout customization options.
+Provides tools for reading, parsing, indexing, and exporting LAS (Log
+ASCII Standard) well log files into tidy, analysis-ready tabular formats.
+The package separates LAS header information and log data into structured
+components, builds a searchable index across collections of LAS files, and
+enables reproducible subsetting of wells based on metadata or curve
+availability. Output tables can be written to CSV or Parquet formats to
+support large-scale statistical, machine learning, and earth science
+workflows. The tidy data structure follows Wickham (2014)
+<doi:10.18637/jss.v059.i10>. The LAS file structure follows the Canadian
+Well Logging Society LAS standard
+<https://www.cwls.org/wp-content/uploads/2017/02/Las2_Update_Jan2017.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
