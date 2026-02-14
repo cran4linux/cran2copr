@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iClick
-%global packver   1.6
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Button-Based GUI for Financial and Economic Data Analysis
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-fPortfolio 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-coefplot 
@@ -38,11 +39,11 @@ BuildRequires:    R-CRAN-rugarch
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-CRAN-timeSeries 
-BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-fPortfolio 
 Requires:         R-tcltk 
 Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-xts 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-coefplot 
@@ -61,7 +62,6 @@ Requires:         R-CRAN-rugarch
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-timeDate 
 Requires:         R-CRAN-timeSeries 
-Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 
 %description

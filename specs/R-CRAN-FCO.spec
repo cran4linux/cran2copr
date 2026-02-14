@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FCO
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Cutoffs for Model Fit Evaluation in Covariance-Based Structural Models
 
@@ -30,7 +30,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-PoisBinOrdNor 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-rcompanion 
-BuildRequires:    R-CRAN-semTools 
 BuildRequires:    R-CRAN-simstandard 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
@@ -47,7 +46,6 @@ Requires:         R-parallel
 Requires:         R-CRAN-PoisBinOrdNor 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-rcompanion 
-Requires:         R-CRAN-semTools 
 Requires:         R-CRAN-simstandard 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 

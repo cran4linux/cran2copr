@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xegaSelectGene
-%global packver   1.0.0.3
+%global packver   1.0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.3
+Version:          1.0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selection of Genes and Gene Representation Independent Functions
 
@@ -20,22 +20,24 @@ BuildArch:        noarch
 
 %description
 This collection of gene representation-independent mechanisms for
-evolutionary and genetic algorithms contains four groups of functions:
-First, functions for selecting a gene in a population of genes according
-to its fitness value and for adaptive scaling of the fitness values as
-well as for performance optimization and measurement offer several
-variants for implementing the survival of the fittest. Second, evaluation
-functions for deterministic functions avoid recomputation. Evaluation of
-stochastic functions incrementally improve the estimation of the mean and
-variance of fitness values at almost no additional cost. Evaluation
-functions for gene repair handle error-correcting decoders. Third, timing
-and counting functions for profiling the algorithm pipeline are provided
-to assess bottlenecks in the algorithms. Fourth, a small collection of
-problem environments for function optimization, combinatorial
-optimization, and grammar-based genetic programming and grammatical
-evolution is provided for tutorial examples. The methods in the package
-are described by the following references: Baker, James E. (1987,
-ISBN:978-08058-0158-8), De Jong, Kenneth A. (1975)
+evolutionary and genetic algorithms for the R-package xega
+<https://CRAN.R-project.org/package=xega> contains four groups of
+functions: First, functions for selecting a gene in a population of genes
+according to its fitness value and for adaptive scaling of the fitness
+values as well as for performance optimization and measurement offer
+several variants for implementing the survival of the fittest. Second,
+evaluation functions for deterministic functions avoid recomputation.
+Evaluation of stochastic functions incrementally improve the estimation of
+the mean and variance of fitness values at almost no additional cost.
+Evaluation functions for gene repair handle error-correcting decoders.
+Third, timing and counting functions for profiling the algorithm pipeline
+are provided to assess bottlenecks in the algorithms. Fourth, a small
+collection of problem environments for function optimization,
+combinatorial optimization, and grammar-based genetic programming and
+grammatical evolution is provided for tutorial examples. For xega's
+architecture, see Geyer-Schulz, A. (2025) <doi:10.5445/IR/1000187255>. The
+methods in the package are described by the following references: Baker,
+James E. (1987, ISBN:978-08058-0158-8), De Jong, Kenneth A. (1975)
 <https://deepblue.lib.umich.edu/handle/2027.42/4507>, Geyer-Schulz,
 Andreas (1997, ISBN:978-3-7908-0830-X), Grefenstette, John J. (1987,
 ISBN:978-08058-0158-8), Grefenstette, John J. and Baker, James E. (1989,

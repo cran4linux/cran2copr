@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paran
-%global packver   1.5.4
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Horn's Test of Principal Components/Factors
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 1.8.0
 Requires:         R-core >= 1.8.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
 
 %description
 An implementation of Horn's technique for numerically and graphically

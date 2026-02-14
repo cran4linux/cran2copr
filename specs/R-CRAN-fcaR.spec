@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fcaR
-%global packver   1.3.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formal Concept Analysis
 
@@ -17,12 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
@@ -33,19 +28,12 @@ BuildRequires:    R-CRAN-settings
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-glue 
-Requires:         R-grDevices 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
@@ -56,11 +44,9 @@ Requires:         R-CRAN-settings
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rstudioapi 
 
 %description
 Provides tools to perform fuzzy formal concept analysis, presented in

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iNZightTS
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series for 'iNZight'
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-ggtime >= 0.2.0
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
@@ -41,6 +42,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-urca 
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-ggtime >= 0.2.0
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 

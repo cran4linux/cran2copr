@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickOutlier
-%global packver   0.1.0
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect and Treat Outliers in Data Mining
 
@@ -19,9 +19,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-isotree 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-isotree 
+Requires:         R-CRAN-plotly 
 Requires:         R-stats 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adapt3
-%global packver   2.0.0
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Dynamics and Community Matrix Model Projections
 

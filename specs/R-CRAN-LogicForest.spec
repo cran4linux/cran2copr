@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LogicForest
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logic Forest
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-LogicReg 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-LogicReg 
 Requires:         R-methods 
 Requires:         R-CRAN-survival 
+Requires:         R-utils 
 
 %description
 Logic Forest is an ensemble machine learning method that identifies

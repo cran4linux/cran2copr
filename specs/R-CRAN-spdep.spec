@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spdep
-%global packver   1.4-1
+%global packver   1.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
@@ -80,8 +80,8 @@ data (LICD) implementation based on 'Carrer et al.' (2021)
 <doi:10.1016/j.jas.2020.105306> and 'Bivand et al.' (2017)
 <doi:10.1016/j.spasta.2017.03.003> was added in 1.3-7. Multivariate
 'spatialdelta' ('Bavaud' 2024) <doi:10.1111/gean.12390> was added in
-1.3-13 ('Bivand' 2025 <doi:10.26034/la.cdclsl.2025.8343>. From 'spdep' and
-'spatialreg' versions >= 1.2-1, the model fitting functions previously
+1.3-13 ('Bivand' 2025 <doi:10.26034/la.cdclsl.2025.8343>). From 'spdep'
+and 'spatialreg' versions >= 1.2-1, the model fitting functions previously
 present in this package are defunct in 'spdep' and may be found in
 'spatialreg'.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fillpattern
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Patterned Fills for 'ggplot2' and 'grid' Graphics
 
@@ -14,27 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-grid >= 4.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.5
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-grid >= 4.1
 Requires:         R-CRAN-ggplot2 >= 3.5
 Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-methods 
 Requires:         R-utils 
 
 %description
-Adds distinctive yet unobtrusive geometric patterns where solid color
-fills are normally used. Patterned figures look just as professional when
-viewed by colorblind readers or when printed in black and white. The dozen
-included patterns can be customized in terms of scale, rotation, color,
-fill, line type, and line width. Compatible with the 'ggplot2' package as
-well as 'grid' graphics.
+Provides geometric patterns to replace solid color fills in statistical
+graphics. These patterns ensure figures remain distinguishable when viewed
+by colorblind readers or when printed in black and white. The included
+patterns can be customized in terms of scale, rotation, color, fill, line
+type, and line width. Compatible with the 'ggplot2' package as well as
+'grid' graphics.
 
 %prep
 %setup -q -c -n %{packname}

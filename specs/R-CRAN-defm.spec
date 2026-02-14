@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  invitroTKdata
-%global packver   0.0.2
+%global packname  defm
+%global packver   0.2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          In Vitro Toxicokinetic Data Processed with the 'invitroTKstats' Pipeline
+Summary:          Estimation and Simulation of Multi-Binary Response Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-barry 
+Requires:         R-stats4 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-A collection of datasets containing a variety of in vitro toxicokinetic
-measurements including -- but not limited to -- chemical fraction unbound
-in the presence of plasma (f_up), intrinsic hepatic clearance (Clint,
-uL/min/million hepatocytes), and membrane permeability for oral absorption
-(Caco2). The datasets provided by the package were processed and analyzed
-with the companion 'invitroTKstats' package.
+Multi-binary response models are a class of models that allow for the
+estimation of multiple binary outcomes simultaneously. This package
+provides functions to estimate and simulate these models using the
+Discrete Exponential-Family Models [DEFM] framework. In it, we implement
+the models described in Vega Yon, Valente, and Pugh (2023)
+<doi:10.48550/arXiv.2211.00627>. DEFMs include Exponential-Family Random
+Graph Models [ERGMs], which characterize graphs using sufficient
+statistics, which is also the core of DEFMs. Using sufficient statistics,
+we can describe the data through meaningful motifs, for example,
+transitions between different states, joint distribution of the outcomes,
+etc.
 
 %prep
 %setup -q -c -n %{packname}

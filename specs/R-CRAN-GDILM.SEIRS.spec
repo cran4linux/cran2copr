@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  support
-%global packver   0.1.7
+%global packname  GDILM.SEIRS
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Points
+Summary:          Spatial Modeling of Infectious Disease with Reinfection
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-randtoolbox 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ngspatial 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ngspatial 
+Requires:         R-stats 
 
 %description
-The functions sp() and sp_seq() compute the support points in Mak and
-Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used as a
-representative sample of a desired distribution, or a representative
-reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain
-Monte Carlo sample chains). This work was supported by USARO grant
-W911NF-14-1-0024 and NSF DMS grant 1712642.
+Geographically Dependent Individual Level Models (GDILMs) within the
+Susceptible-Exposed-Infectious-Recovered-Susceptible (SEIRS) framework are
+applied to model infectious disease transmission, incorporating
+reinfection dynamics. This package employs a likelihood based Monte Carlo
+Expectation Conditional Maximization (MCECM) algorithm for estimating
+model parameters. It also provides tools for GDILM fitting, parameter
+estimation, AIC calculation on real pandemic data, and simulation studies
+customized to user-defined model settings.
 
 %prep
 %setup -q -c -n %{packname}

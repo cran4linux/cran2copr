@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flextable
-%global packver   0.9.10
+%global packver   0.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Tabular Reporting
 
@@ -19,8 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.0
 BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-officer >= 0.6.10
-BuildRequires:    R-CRAN-gdtools >= 0.4.0
+BuildRequires:    R-CRAN-officer >= 0.7.3
+BuildRequires:    R-CRAN-gdtools >= 0.5.0
 BuildRequires:    R-CRAN-uuid >= 0.1.4
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -34,8 +34,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-rmarkdown >= 2.0
 Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-officer >= 0.6.10
-Requires:         R-CRAN-gdtools >= 0.4.0
+Requires:         R-CRAN-officer >= 0.7.3
+Requires:         R-CRAN-gdtools >= 0.5.0
 Requires:         R-CRAN-uuid >= 0.1.4
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -51,14 +51,14 @@ Requires:         R-CRAN-xml2
 %description
 Use a grammar for creating and customizing pretty tables. The following
 formats are supported: 'HTML', 'PDF', 'RTF', 'Microsoft Word', 'Microsoft
-PowerPoint' and R 'Grid Graphics'.  'R Markdown', 'Quarto' and the package
-'officer' can be used to produce the result files. The syntax is the same
-for the user regardless of the type of output to be produced. A set of
-functions allows the creation, definition of cell arrangement, addition of
-headers or footers, formatting and definition of cell content with text
-and or images. The package also offers a set of high-level functions that
-allow tabular reporting of statistical models and the creation of complex
-cross tabulations.
+PowerPoint', R 'Grid Graphics' and 'patchwork'. 'R Markdown', 'Quarto' and
+the package 'officer' can be used to produce the result files. The syntax
+is the same for the user regardless of the type of output to be produced.
+A set of functions allows the creation, definition of cell arrangement,
+addition of headers or footers, formatting and definition of cell content
+with text and or images. The package also offers a set of high-level
+functions that allow tabular reporting of statistical models and the
+creation of complex cross tabulations.
 
 %prep
 %setup -q -c -n %{packname}

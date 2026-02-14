@@ -1,52 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bunddev
-%global packver   0.2.0
+%global packname  CCMnet
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discover and Call 'Bund.dev' APIs
+Summary:          Congruence Class Models for Networks
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-intergraph 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-RBesT 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-intergraph 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-RBesT 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-yaml 
+Requires:         R-utils 
 
 %description
-Provides a registry of APIs listed on <https://bund.dev> and a core
-'OpenAPI' client layer to explore specs and perform requests. Adapter
-helpers return tidy tibbles for supported APIs, with optional response
-caching and rate limiting guidance.
+Provides an implementation of Congruence Class Models for generating
+networks. It facilitates sampling networks based on specific topological
+properties and attribute mixing patterns using a Markov Chain Monte Carlo
+framework. The implementation builds upon code from the 'ergm' package;
+see Handcock et al. (2008) <doi:10.18637/jss.v024.i01>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  UsingR
-%global packver   2.0-8
+%global packname  bayou
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.8
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Sets, Etc. for the Text "Using R for Introductory Statistics", Second Edition
+Summary:          Bayesian Fitting of Ornstein-Uhlenbeck Models to Phylogenies
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-ape >= 3.0.6
+BuildRequires:    R-CRAN-geiger >= 2.0
+BuildRequires:    R-CRAN-Rcpp >= 0.10.3
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-denstrip 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-HistData 
-BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ape >= 3.0.6
+Requires:         R-CRAN-geiger >= 2.0
+Requires:         R-CRAN-Rcpp >= 0.10.3
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-denstrip 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-foreach 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-HistData 
-Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mnormt 
+Requires:         R-stats 
 
 %description
-A collection of data sets to accompany the textbook "Using R for
-Introductory Statistics," second edition.
+Fits and simulates multi-optima Ornstein-Uhlenbeck models to phylogenetic
+comparative data using Bayesian reversible-jump methods. See Uyeda and
+Harmon (2014) <DOI:10.1093/sysbio/syu057>.
 
 %prep
 %setup -q -c -n %{packname}

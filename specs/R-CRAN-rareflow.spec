@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tensorEVD
-%global packver   0.1.4
+%global packname  rareflow
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast Algorithm to Factorize High-Dimensional Tensor Product Matrices
+Summary:          Variational Flow-Based Inference for Rare Events and Large Deviations
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Here we provide tools for the computation and factorization of
-high-dimensional tensor products that are formed by smaller matrices. The
-methods are based on properties of Kronecker products (Searle 1982, p.
-265, ISBN-10: 0470009616). We evaluated this methodology by benchmark
-testing and illustrated its use in Gaussian Linear Models ('Lopez-Cruz et
-al., 2024') <doi:10.1093/g3journal/jkae001>.
+Variational flow-based methods for modeling rare events using
+Kullback–Leibler (KL) divergence, normalizing flows, Girsanov change of
+measure, and Freidlin–Wentzell action functionals. The package provides
+tools for rare-event inference, minimum-action paths, and quasi-potential
+computation in stochastic dynamical systems. Methods are based on Rezende
+and Mohamed (2015) <doi:10.48550/arXiv.1505.05770>, Girsanov (1960)
+<doi:10.1137/1105027>, and Freidlin and Wentzell (2012,
+ISBN:978-0387955477).
 
 %prep
 %setup -q -c -n %{packname}

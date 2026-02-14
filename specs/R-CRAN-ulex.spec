@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ulex
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unique Location Extractor
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -62,7 +62,8 @@ determining the location of a road traffic crash from the text "crash near
 [location 1] heading towards [location 2]", only the coordinates of
 "location 1" would be returned. Moreover, accounts for differences in
 spelling between how a user references a location and how a location is
-captured in location dictionaries.
+captured in location dictionaries. For more information on the algorithm,
+see Milusheva et al. (2021) <doi:10.1371/journal.pone.0244317>.
 
 %prep
 %setup -q -c -n %{packname}

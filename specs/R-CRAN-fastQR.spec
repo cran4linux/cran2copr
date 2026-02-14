@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usearchlite
-%global packver   0.1.0
+%global packname  fastQR
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Vector Search with 'USearch'
+Summary:          Fast QR Decomposition and Update
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A lightweight local vector index for approximate nearest neighbor (ANN)
-search using the vendored 'USearch' library Vardanian (2023)
-<doi:10.5281/zenodo.7949416>. Provides a simple interface for adding
-vectors, searching for nearest neighbors, and persisting indexes to disk.
-Metadata filtering is performed in 'R' on the candidate set returned by
-the 'C++' layer.
+Efficient algorithms for performing, updating, and removing rows or
+columns from the QR decomposition, R decomposition, or the inverse of the
+R decomposition of a matrix as rows or columns are added or removed. It
+also includes functions for solving linear systems of equations, normal
+equations for linear regression models, and normal equations for linear
+regression with a RIDGE penalty. For a detailed introduction to these
+methods, the monograph Matrix Computations (2013,
+<doi:10.1007/978-3-319-05089-8>) for complete introduction to the methods.
 
 %prep
 %setup -q -c -n %{packname}

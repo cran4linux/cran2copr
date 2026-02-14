@@ -1,51 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  googletraffic
-%global packver   0.1.8
+%global packname  EcoCleanR
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Google Traffic
+Summary:          Enhancing Data Quality of Biogeographic Ranges with Application for Marine Invertebrates
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-googleway 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-plotwidgets 
-BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-geodata 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mregions2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sdmpredictors 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-webshot2 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-ColorNameR 
-BuildRequires:    R-CRAN-schemr 
+BuildRequires:    R-CRAN-worrms 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-googleway 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-plotwidgets 
-Requires:         R-CRAN-png 
+Requires:         R-CRAN-geodata 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mregions2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sdmpredictors 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-webshot2 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-ColorNameR 
-Requires:         R-CRAN-schemr 
+Requires:         R-CRAN-worrms 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tidyr 
 
 %description
-Create geographically referenced traffic data from the Google Maps
-JavaScript API
-<https://developers.google.com/maps/documentation/javascript/examples/layer-traffic>.
+Provides step-by-step automation for integrating biodiversity data from
+multiple online aggregators, merging and cleaning datasets while
+addressing challenges such as taxonomic inconsistencies, georeferencing
+issues, and spatial or environmental outliers. Includes functions to
+extract environmental data and to define the biogeographic ranges in which
+species are most likely to occur. For methodological details see the
+associated publication.<doi: 10.1002/ecog.08203>.
 
 %prep
 %setup -q -c -n %{packname}

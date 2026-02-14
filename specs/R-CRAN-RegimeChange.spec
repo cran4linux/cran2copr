@@ -1,51 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  keras3
-%global packver   1.5.1
+%global packname  RegimeChange
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Keras'
+Summary:          Comprehensive Regime Change Detection in Time Series
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tensorflow >= 2.16.0
-BuildRequires:    R-CRAN-tfruns >= 1.5.2
-BuildRequires:    R-CRAN-reticulate >= 1.42.0
-BuildRequires:    R-CRAN-generics >= 0.0.1
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-zeallot 
-BuildRequires:    R-CRAN-fastmap 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dotty 
-Requires:         R-CRAN-tensorflow >= 2.16.0
-Requires:         R-CRAN-tfruns >= 1.5.2
-Requires:         R-CRAN-reticulate >= 1.42.0
-Requires:         R-CRAN-generics >= 0.0.1
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-zeallot 
-Requires:         R-CRAN-fastmap 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dotty 
 
 %description
-Interface to 'Keras' <https://keras.io>, a high-level neural networks API.
-'Keras' was developed with a focus on enabling fast experimentation,
-supports both convolution based networks and recurrent networks (as well
-as combinations of the two), and runs seamlessly on both CPU and GPU
-devices.
+A unified framework for detecting regime changes (changepoints) in time
+series data. Implements both frequentist methods including Cumulative Sum
+(CUSUM, Page (1954) <doi:10.1093/biomet/41.1-2.100>), Pruned Exact Linear
+Time (PELT, Killick, Fearnhead, and Eckley (2012)
+<doi:10.1080/01621459.2012.737745>), Binary Segmentation, and Wild Binary
+Segmentation, as well as Bayesian methods such as Bayesian Online
+Changepoint Detection (BOCPD, Adams and MacKay (2007)
+<doi:10.48550/arXiv.0710.3742> and Shiryaev-Roberts. Supports offline
+analysis for retrospective detection and online monitoring for real-time
+surveillance. Provides rigorous uncertainty quantification through
+confidence intervals and posterior distributions. Handles univariate and
+multivariate series with detection of changes in mean, variance, trend,
+and distributional properties.
 
 %prep
 %setup -q -c -n %{packname}

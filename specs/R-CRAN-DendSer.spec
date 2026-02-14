@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DendSer
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dendrogram Seriation: Ordering for Visualisation
 
@@ -16,12 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-gclus 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-seriation 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-gclus 
+Requires:         R-graphics 
 Requires:         R-CRAN-seriation 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Re-arranges a dendrogram to optimize visualisation-based cost functions.
+The methods implemented here are described in "Advances in Dendrogram
+Seriation for Application to Visualization", Journal of Computational and
+Graphical Statistics (2015) D. Earle and C.B. Hurley
+<doi:10.1080/10618600.2013.874295>.
 
 %prep
 %setup -q -c -n %{packname}

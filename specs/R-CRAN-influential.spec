@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  influential
-%global packver   2.2.9
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.9
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification and Classification of the Most Influential Nodes
 
@@ -14,43 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-coop 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-BiocManager 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-coop 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-BiocManager 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Contains functions for the classification and ranking of top candidate
-features, reconstruction of networks from adjacency matrices and data
-frames, analysis of the topology of the network and calculation of
-centrality measures, and identification of the most influential nodes.
-Also, a function is provided for running SIRIR model, which is the
-combination of leave-one-out cross validation technique and the
-conventional SIR model, on a network to unsupervisedly rank the true
-influence of vertices. Additionally, some functions have been provided for
-the assessment of dependence and correlation of two network centrality
-measures as well as the conditional probability of deviation from their
-corresponding means in opposite direction. Fred Viole and David Nawrocki
-(2013, ISBN:1490523995). Csardi G, Nepusz T (2006). "The igraph software
-package for complex network research." InterJournal, Complex Systems,
-1695. Adopted algorithms and sources are referenced in function document.
+Provides functions for classification and ranking of candidate features,
+reconstruction of networks from adjacency matrices and data frames,
+topological analysis, and calculation of centrality measures. The package
+includes the SIRIR model, which combines leave-one-out cross-validation
+with the conventional SIR model to rank vertex influence in an
+unsupervised manner. Additional functions support assessment of dependence
+and correlation between network centrality measures, as well as estimation
+of conditional probabilities of deviation from their corresponding means
+in opposite directions.
 
 %prep
 %setup -q -c -n %{packname}

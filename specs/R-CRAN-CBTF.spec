@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CBTF
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Caught by the Fuzz! - A Minimalistic Fuzz-Test Runner
 
@@ -18,7 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-mirai >= 2.5.2
+BuildRequires:    R-CRAN-rlang >= 1.1.7
 Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-mirai >= 2.5.2
+Requires:         R-CRAN-rlang >= 1.1.7
 
 %description
 A simple runner for fuzz-testing functions in an R package's public

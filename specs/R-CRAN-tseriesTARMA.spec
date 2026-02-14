@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tseriesTARMA
-%global packver   0.5-1
+%global packver   0.5-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Nonlinear Time Series Through Threshold Autoregressive Moving Average Models (TARMA) Models
 
@@ -45,7 +45,7 @@ estimators, see Goracci et al. JBES (2025)
 <doi:10.1080/07350015.2024.2412011>; tests for threshold effects, see
 Giannerini et al. JoE (2024) <doi:10.1016/j.jeconom.2023.01.004>, Goracci
 et al. Statistica Sinica (2023) <doi:10.5705/ss.202021.0120>, Angelini et
-al. (2024) <doi:10.48550/arXiv.2308.00444>; unit-root tests based on TARMA
+al. (2024) OBES <doi:10.1111/obes.12647>; unit-root tests based on TARMA
 models, see Chan et al. Statistica Sinica (2024)
 <doi:10.5705/ss.202022.0125>.
 

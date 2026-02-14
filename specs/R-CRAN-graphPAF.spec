@@ -1,46 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metapack
-%global packver   0.3
+%global packname  graphPAF
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Meta-Analysis and Network Meta-Analysis
+Summary:          Estimating and Displaying Population Attributable Fractions
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-madness 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-madness 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-reshape2 
+Requires:         R-splines 
+Requires:         R-CRAN-survival 
 
 %description
-Contains functions performing Bayesian inference for meta-analytic and
-network meta-analytic models through Markov chain Monte Carlo algorithm.
-Currently, the package implements Hui Yao, Sungduk Kim, Ming-Hui Chen,
-Joseph G. Ibrahim, Arvind K. Shah, and Jianxin Lin (2015)
-<doi:10.1080/01621459.2015.1006065> and Hao Li, Daeyoung Lim, Ming-Hui
-Chen, Joseph G. Ibrahim, Sungduk Kim, Arvind K. Shah, Jianxin Lin (2021)
-<doi:10.1002/sim.8983>. For maximal computational efficiency, the Markov
-chain Monte Carlo samplers for each model, written in C++, are fine-tuned.
-This software has been developed under the auspices of the National
-Institutes of Health and Merck & Co., Inc., Kenilworth, NJ, USA.
+Estimation and display of various types of population attributable
+fraction and impact fractions. As well as the usual calculations of
+attributable fractions and impact fractions, functions are provided for
+attributable fraction nomograms and fan plots, continuous exposures, for
+pathway specific population attributable fractions, and for joint, average
+and sequential population attributable fractions.
 
 %prep
 %setup -q -c -n %{packname}

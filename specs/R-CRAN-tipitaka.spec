@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  growfunctions
-%global packver   0.17
+%global packname  tipitaka
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Non-Parametric Dependent Models for Time-Indexed Functional Data
+Summary:          Data and Tools for Analyzing the Pali Canon
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
-BuildRequires:    R-CRAN-spam >= 2.7.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.2
-BuildRequires:    R-CRAN-reshape2 >= 1.2.2
-BuildRequires:    R-CRAN-Rcpp >= 1.1.0
-BuildRequires:    R-CRAN-ggplot2 >= 1.0.1
-Requires:         R-CRAN-spam >= 2.7.0
-Requires:         R-CRAN-reshape2 >= 1.2.2
-Requires:         R-CRAN-Rcpp >= 1.1.0
-Requires:         R-CRAN-ggplot2 >= 1.0.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-stringr 
 
 %description
-Estimates a collection of time-indexed functions under either of Gaussian
-process (GP) or intrinsic Gaussian Markov random field (iGMRF) prior
-formulations where a Dirichlet process mixture allows sub-groupings of the
-functions to share the same covariance or precision parameters.  The GP
-and iGMRF formulations both support any number of additive covariance or
-precision terms, respectively, expressing either or both of multiple trend
-and seasonality.
+Provides access to the complete Pali Canon, or Tipitaka, the canonical
+scripture for Theravadin Buddhists worldwide. Based on the Chattha
+Sangayana Tipitaka version 4 (Vipassana Research Institute, 1990).
+Includes word frequency data and tools for Pali string sorting. For a
+lemmatized critical edition with sutta-level granularity, see the
+companion package 'tipitaka.critical'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotrix
-%global packver   3.8-13
+%global packver   3.8-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.13
+Version:          3.8.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Plotting Functions
 

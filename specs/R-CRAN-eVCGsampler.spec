@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eVCGsampler
-%global packver   0.9.2
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          VCG Sampling using Energy-Based Covariate Balancing
 

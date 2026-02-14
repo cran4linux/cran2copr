@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  invitroTKdata
-%global packver   0.0.2
+%global packname  cepiweek
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          In Vitro Toxicokinetic Data Processed with the 'invitroTKstats' Pipeline
+Summary:          Continuous Epidemiological Week Indexing for Time-Series Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-lubridate 
 
 %description
-A collection of datasets containing a variety of in vitro toxicokinetic
-measurements including -- but not limited to -- chemical fraction unbound
-in the presence of plasma (f_up), intrinsic hepatic clearance (Clint,
-uL/min/million hepatocytes), and membrane permeability for oral absorption
-(Caco2). The datasets provided by the package were processed and analyzed
-with the companion 'invitroTKstats' package.
+Provides a simple algorithm to generate a continuous epidemiological week
+index from date variables in a dataframe. Weeks are computed as sequential
+7-day intervals starting from the earliest observed date. They do not
+reset at calendar year boundaries and are not ISO 8601 nor MMWR calendar
+weeks. The approach is intended for epidemiological modeling and
+time-series analysis where temporal continuity is required. The generated
+weeks are sequential and do not reset at calendar year boundaries.
 
 %prep
 %setup -q -c -n %{packname}

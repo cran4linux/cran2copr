@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qatarcars
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data on Cars in Qatar
 
@@ -22,7 +22,8 @@ BuildArch:        noarch
 Fuel economy, size, performance, and price data for cars in Qatar in 2025.
 Mirrors many of the columns in mtcars, but uses (1) non-US-centric makes
 and models, (2) 2025 prices, and (3) metric measurements, making it more
-appropriate for use as an example dataset outside the United States.
+appropriate for use as an example dataset outside the United States. For
+more details see Musgrave (2025) <doi:10.1080/15512169.2025.2572320>.
 
 %prep
 %setup -q -c -n %{packname}
