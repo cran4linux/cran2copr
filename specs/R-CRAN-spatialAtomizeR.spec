@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialAtomizeR
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis with Misaligned Data Using Atom-Based Regression Models
 
@@ -54,12 +54,12 @@ Requires:         R-methods
 Implements atom-based regression models (ABRM) for analyzing spatially
 misaligned data. Provides functions for simulating misaligned spatial
 data, preparing NIMBLE model inputs, running MCMC diagnostics, and
-comparing different spatial analysis methods including dasymetric mapping.
-All main functions return S3 objects with print(), summary(), and plot()
-methods for intuitive result exploration. Methods are described in Nethery
-et al. (2023) <doi:10.1101/2023.01.10.23284410>. Further methodological
-details and software implementation are described in Qian et al. (in
-review).
+providing results. All main functions return S3 objects with print(),
+summary(), and plot() methods for intuitive result exploration. Methods
+originally described in Mugglin et al. (2000)
+<doi:10.1080/01621459.2000.10474279>, further investigated in Trevisani &
+Gelfand (2013), and applied in Nethery et al. (2023)
+<doi:10.1101/2023.01.10.23284410>.
 
 %prep
 %setup -q -c -n %{packname}

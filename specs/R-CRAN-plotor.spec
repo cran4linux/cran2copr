@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotor
-%global packver   0.8.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Odds Ratio Tools for Logistic Regression
 
@@ -17,16 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-gtExtras >= 0.6.1
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-detectseparation 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
@@ -35,16 +38,19 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-gtExtras >= 0.6.1
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-detectseparation 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 

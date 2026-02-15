@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tirt
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testlet Item Response Theory
 
@@ -31,7 +31,7 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Implementation of Testlet Item Response Theory (tirt). A light-version yet
+Implementation of Testlet and Item Response Theory. A light-version yet
 comprehensive and streamlined framework for psychometric analysis using
 unidimensional Item Response Theory (IRT; Baker & Kim (2004)
 <doi:10.1201/9781482276725>) and Testlet Response Theory (TRT; Wainer et
@@ -47,16 +47,17 @@ dependence in bundled items. A key feature is the specialized support for
 combination use and joint estimation of item response model and testlet
 response model in one calibration. Beyond standard estimation via Marginal
 Maximum Likelihood with Expectation-Maximization (EM) or Joint Maximum
-Likelihood, the package offers robust tools for scale linking and equating
-(Mean-Mean, Mean-Sigma, Stocking-Lord) to ensure comparability across
-mixed-format test forms. It also facilitates fixed-parameter calibration,
-enabling users to estimate person abilities with known item parameters or
-vice versa, which is essential for pre-equating studies and item bank
-maintenance. Comprehensive data simulation functions are included to
-generate synthetic datasets with complex structures, including mixed-model
-blocks and specific testlet effects, aiding in methodological research and
-study design validation. Researchers can try multiple simulation
-situations.
+Likelihood, the package also offers Bayesian estimation using priors with
+maximum a posteriori (MAP) method for item response theory models. It also
+provides functions for scale linking and equating (Mean-Mean, Mean-Sigma,
+Stocking-Lord) to ensure comparability across mixed-format test forms. It
+also facilitates fixed-parameter calibration, enabling users to estimate
+person abilities with known item parameters or vice versa, which is
+essential for pre-equating studies and item bank maintenance.
+Comprehensive data simulation functions are included to generate synthetic
+datasets with complex structures, including mixed-model blocks and
+specific testlet effects, aiding in methodological research and study
+design validation. Researchers can try multiple simulation situations.
 
 %prep
 %setup -q -c -n %{packname}

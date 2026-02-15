@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bdrc
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Discharge Rating Curves
 
@@ -16,12 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.2.35
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
@@ -32,7 +34,7 @@ Requires:         R-CRAN-scales
 Fits a discharge rating curve based on the power-law and the generalized
 power-law from data on paired stage and discharge measurements in a given
 river using a Bayesian hierarchical model as described in Hrafnkelsson et
-al. (2020) <arXiv:2010.04769>.
+al. (2020) <doi:10.48550/arXiv.2010.04769>.
 
 %prep
 %setup -q -c -n %{packname}

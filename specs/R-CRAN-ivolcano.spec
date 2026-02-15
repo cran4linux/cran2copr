@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ivolcano
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Volcano Plot
 
@@ -21,7 +21,11 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -29,7 +33,11 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-knitr 
+Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 

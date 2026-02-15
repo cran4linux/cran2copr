@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MHCtools
-%global packver   1.5.5
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of MHC Data in Non-Model Species
 
@@ -31,7 +31,7 @@ Requires:         R-graphics
 Requires:         R-CRAN-openxlsx 
 
 %description
-Fifteen tools for bioinformatics processing and analysis of major
+Sixteen tools for bioinformatics processing and analysis of major
 histocompatibility complex (MHC) data. The functions are tailored for
 amplicon data sets that have been filtered using the dada2 method (for
 more information on dada2, visit <https://benjjneb.github.io/dada2/> ),
@@ -60,12 +60,19 @@ models identify similar clusters, and summarize bootstrap model stats as
 means for different estimated values of k. It is designed to take files
 produced by the BootKmeans() function as input, but other data can be
 analyzed if the descriptions of the required data formats are observed
-carefully. The PapaDiv() function compares parent pairs in the data set
-and calculate their joint MHC diversity, taking into account sequence
-variants that occur in both parents. The HpltFind() function infers
-putative haplotypes from families in the data set. The GetHpltTable() and
-GetHpltStats() functions evaluate the accuracy of the haplotype inference.
-The CreateHpltOccTable() function creates a binary (logical)
+carefully. The SynDist() function analyses of synonymous variation among
+aligned protein-coding DNA sequences, that is, nucleotide substitutions
+that do not translate to changes in the amino acid sequences due to
+degeneracy of the genetic code. The SynDist() function calculates
+synonymous nucleotide changes per base and per codon in pairwise sequence
+comparisons, as well as mean synonymous variation among all pairwise
+comparisons of the sequences within each sample in a data set. The
+PapaDiv() function compares parent pairs in the data set and calculate
+their joint MHC diversity, taking into account sequence variants that
+occur in both parents. The HpltFind() function infers putative haplotypes
+from families in the data set. The GetHpltTable() and GetHpltStats()
+functions evaluate the accuracy of the haplotype inference. The
+CreateHpltOccTable() function creates a binary (logical)
 haplotype-sequence occurrence matrix from the output of HpltFind(), for
 easy overview of which sequences are present in which haplotypes. The
 HpltMatch() function compares haplotypes to help identify overlapping and

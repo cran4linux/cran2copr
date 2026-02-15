@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtodoist
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create and Manage Todolist using 'Todoist.com' API
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-magrittr 
@@ -30,11 +30,11 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-magrittr 

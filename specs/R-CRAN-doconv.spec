@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doconv
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Document Conversion to 'PDF' or 'PNG'
+Summary:          Document Conversion to 'PDF', Thumbnails and Visual Testing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,27 +18,28 @@ Recommends:       libreoffice
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gdtools 
+BuildRequires:    R-CRAN-locatexec 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-locatexec 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-tools 
+Requires:         R-CRAN-gdtools 
+Requires:         R-CRAN-locatexec 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-locatexec 
 Requires:         R-CRAN-processx 
 Requires:         R-tools 
 
 %description
-It provides the ability to generate images from documents of different
-types. Three main features are provided: functions for generating document
-thumbnails, functions for performing visual tests of documents and a
-function for updating fields and table of contents of a 'Microsoft Word'
-or 'RTF' document. In order to work, 'LibreOffice' must be installed on
-the machine and or 'Microsoft Word'. If the latter is available, it can be
-used to produce PDF documents or images identical to the originals;
-otherwise, 'LibreOffice' is used and the rendering can be sometimes
-different from the original documents.
+Provides the ability to generate images from documents of different types.
+Three main features are provided: generating document thumbnails,
+performing visual tests of documents, and updating fields and tables of
+contents of a 'Microsoft Word' or 'RTF' document. 'Microsoft Word' and/or
+'LibreOffice' must be installed on the machine. If 'Microsoft Word' is
+available, it can produce PDF documents or images identical to the
+originals; otherwise 'LibreOffice' is used and the rendering may sometimes
+differ from the original documents.
 
 %prep
 %setup -q -c -n %{packname}

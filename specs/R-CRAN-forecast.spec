@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forecast
-%global packver   9.0.0
+%global packver   9.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.0.0
+Version:          9.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Functions for Time Series and Linear Models
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.2.35
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-fracdiff 
@@ -29,12 +29,11 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-urca 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-Rcpp >= 0.12.4
 Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-fracdiff 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-nnet
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-urca 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-zoo 

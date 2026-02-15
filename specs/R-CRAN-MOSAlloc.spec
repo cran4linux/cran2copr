@@ -1,50 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trafficCAR
-%global packver   0.1.0
+%global packname  MOSAlloc
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian CAR Models for Road-Segment Traffic
+Summary:          Constraint Multiobjective Sample Allocation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ECOSolveR 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ECOSolveR 
 Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-units 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Tools for simulating and modeling traffic flow on road networks using
-spatial conditional autoregressive (CAR) models. The package represents
-road systems as graphs derived from 'OpenStreetMap' data
-<https://www.openstreetmap.org/> and supports network-based spatial
-dependence, basic preprocessing, and visualization for spatial traffic
-analysis.
+Provides a framework for multipurpose optimal resource allocation in
+survey sampling, extending the classical optimal allocation principles
+introduced by Tschuprow (1923) and Neyman (1934) to multidomain and
+multivariate allocation problems. The primary method mosalloc() allows for
+the consideration of precision and cost constraints at the subpopulation
+level while minimizing either a vector of sampling errors or survey costs
+across a broad range of optimal sample allocation problems. The approach
+supports both single- and multistage designs. For single-stage stratified
+random sampling, the mosallocSTRS() function offers a user- friendly
+interface. Sensitivity analysis is supported through the problem's dual
+variables, which are naturally obtained via the internal use of the
+Embedded Conic Solver from the 'ECOSolveR' package. See Willems (2025,
+<doi:10.25353/ubtr-9200-484c-5c89>) for a detailed description of the
+theory behind 'MOSAlloc'.
 
 %prep
 %setup -q -c -n %{packname}
