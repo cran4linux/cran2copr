@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  causalOT
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Transport Weights for Causal Inference
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
@@ -50,10 +50,10 @@ Requires:         R-utils
 %description
 Uses optimal transport distances to find probabilistic matching estimators
 for causal inference. These methods are described in Dunipace, Eric (2021)
-<arXiv:2109.01991>. The package will build the weights, estimate treatment
-effects, and calculate confidence intervals via the methods described in
-the paper. The package also supports several other methods as described in
-the help files.
+<doi:10.48550/arXiv.2109.01991>. The package will build the weights,
+estimate treatment effects, and calculate confidence intervals via the
+methods described in the paper. The package also supports several other
+methods as described in the help files.
 
 %prep
 %setup -q -c -n %{packname}

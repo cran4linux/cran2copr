@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvMF
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Generation of von Mises-Fisher Distributed Pseudo-Random Vectors
 
@@ -17,11 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rfast >= 2.0.6
-BuildRequires:    R-CRAN-scModels >= 1.0.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-Bessel >= 0.6.0
 Requires:         R-CRAN-Rfast >= 2.0.6
-Requires:         R-CRAN-scModels >= 1.0.4
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-Bessel >= 0.6.0
 

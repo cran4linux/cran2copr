@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClassificationEnsembles
-%global packver   0.7.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatically Builds 12 Classification Models
+Summary:          Automatically Builds 12 Classification Models (6 Individual and 6 Ensembles of Models) from Classification Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-C50 
 BuildRequires:    R-CRAN-car 
@@ -63,15 +63,8 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tree 
 
 %description
-Automatically builds 12 classification models from data. The package
-returns 26 plots, 5 tables and a summary report. The package automatically
-builds six individual classification models, including error (RMSE) and
-predictions. That data is used to create an ensemble, which is then
-modeled using six methods. The process is repeated as many times as the
-user requests. The mean of the results are presented in a summary table.
-The package returns the confusion matrices for all 12 models, tables of
-the correlation of the numeric data, the results of the variance inflation
-process, the head of the ensemble and the head of the data frame.
+Automatically builds 12 classification models from data. The package also
+returns 25 plots, 5 tables and a summary report.
 
 %prep
 %setup -q -c -n %{packname}

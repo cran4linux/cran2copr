@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NumericEnsembles
-%global packver   0.10.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Runs 18 Individual and 14 Ensembles of Models
 
@@ -48,10 +48,12 @@ BuildRequires:    R-CRAN-reactable
 BuildRequires:    R-CRAN-reactablefmtr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tree 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vip 
 BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-Cubist 
 Requires:         R-CRAN-Metrics 
@@ -84,20 +86,23 @@ Requires:         R-CRAN-reactable
 Requires:         R-CRAN-reactablefmtr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tree 
 Requires:         R-utils 
+Requires:         R-CRAN-vip 
 Requires:         R-CRAN-xgboost 
 
 %description
 Automatically runs 18 individual models and 14 ensembles on numeric data,
 for a total of 32 models. The package automatically returns complete
-results on all 32 models, 30 charts and six tables. The user simply
+results on all 32 models, 25 charts and six tables. The user simply
 provides the tidy data, and answers a few questions (for example, how many
 times would you like to resample the data). From there the package
-randomly splits the data into train, test and validation sets, fits each
-of models on the training data, makes predictions on the test and
+randomly splits the data into train, test and validation sets as the user
+requests (for example, train = 0.60, test = 0.20, validation = 0.20), fits
+each of models on the training data, makes predictions on the test and
 validation sets, measures root mean squared error (RMSE), removes features
 above a user-set level of Variance Inflation Factor, and has several
 optional features including scaling all numeric data, four different ways

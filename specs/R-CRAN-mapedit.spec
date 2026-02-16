@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapedit
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Editing of Spatial Data in R
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-leaflet >= 2.0.1
-BuildRequires:    R-CRAN-leaflet.extras >= 1.0
 BuildRequires:    R-CRAN-sf >= 0.5.2
 BuildRequires:    R-CRAN-shinyWidgets >= 0.4.3
 BuildRequires:    R-CRAN-htmltools >= 0.3
@@ -38,8 +37,8 @@ BuildRequires:    R-CRAN-rstudioapi
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-tmaptools 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-leaflet >= 2.0.1
-Requires:         R-CRAN-leaflet.extras >= 1.0
 Requires:         R-CRAN-sf >= 0.5.2
 Requires:         R-CRAN-shinyWidgets >= 0.4.3
 Requires:         R-CRAN-htmltools >= 0.3
@@ -59,6 +58,7 @@ Requires:         R-CRAN-rstudioapi
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-tmaptools 
+Requires:         R-CRAN-magrittr 
 
 %description
 Suite of interactive functions and helpers for selecting and editing

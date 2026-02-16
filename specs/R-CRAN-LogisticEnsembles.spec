@@ -1,27 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LogisticEnsembles
-%global packver   0.8.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatically Runs 24 Logistic Models (Individual and Ensembles)
+Summary:          Automatically Runs 18 Logistic Models-14 Individual Logistic Models and 4 Ensembles of Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-adabag 
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-CRAN-brnn 
 BuildRequires:    R-CRAN-C50 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-Cubist 
 BuildRequires:    R-CRAN-doParallel 
@@ -62,6 +63,7 @@ Requires:         R-CRAN-arm
 Requires:         R-CRAN-brnn 
 Requires:         R-CRAN-C50 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-Cubist 
 Requires:         R-CRAN-doParallel 
@@ -99,19 +101,20 @@ Requires:         R-utils
 Requires:         R-CRAN-xgboost 
 
 %description
-Automatically returns 24 logistic models including 13 individual models
-and 11 ensembles of models of logistic data. The package also returns 25
-plots, 5 tables, and a summary report. The package automatically builds
-all 24 models, reports all results, and provides graphics to show how the
-models performed. This can be used for a wide range of data, such as
-sports or medical data. The package includes medical data (the Pima
-Indians data set), and information about the performance of Lebron James.
-The package can be used to analyze many other examples, such as stock
-market data. The package automatically returns many values for each model,
-such as True Positive Rate, True Negative Rate, False Positive Rate, False
-Negative Rate, Positive Predictive Value, Negative Predictive Value, F1
-Score, Area Under the Curve. The package also returns 36 Receiver
-Operating Characteristic (ROC) curves for each of the 24 models.
+Automatically returns results from 18 logistic models including 14
+individual logistic models and 4 logistic ensembles of models. The package
+also returns 25 plots, 5 tables, and a summary report. The package
+automatically builds all 18 models, reports all results, and provides
+graphics to show how the models performed. This can be used for a wide
+range of data, such as sports or medical data. The package includes
+medical data (the Pima Indians data set), and information about the
+performance of Lebron James. The package can be used to analyze many other
+examples, such as stock market data. The package automatically returns
+many values for each model, such as True Positive Rate, True Negative
+Rate, False Positive Rate, False Negative Rate, Positive Predictive Value,
+Negative Predictive Value, F1 Score, Area Under the Curve. The package
+also returns 36 Receiver Operating Characteristic (ROC) curves for each of
+the 18 models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gsDesign
-%global packver   3.8.0
+%global packver   3.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.0
+Version:          3.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Sequential Design
 
@@ -14,13 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-r2rtf 
 BuildRequires:    R-CRAN-rlang 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-ggplot2 >= 3.1.1
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-graphics 
 Requires:         R-CRAN-gt 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-r2rtf 
 Requires:         R-CRAN-rlang 

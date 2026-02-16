@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ForLion
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ForLion' Algorithm to Find D-Optimal Designs for Experiments
 
@@ -27,10 +27,11 @@ Requires:         R-CRAN-cubature
 %description
 Designing experimental plans that involve both discrete and continuous
 factors with general parametric statistical models using the 'ForLion'
-algorithm and 'EW ForLion' algorithm. The algorithms will search for
-locally optimal designs and EW optimal designs under the D-criterion.
-Reference: Huang, Y., Li, K., Mandal, A., & Yang, J.,
-(2024)<doi:10.1007/s11222-024-10465-x>.
+algorithm and 'EW ForLion' algorithm. The algorithms searches for locally
+optimal designs and EW optimal designs under the D-criterion. See Huang,
+Y., Li, K., Mandal, A., & Yang, J., (2024)
+<doi:10.1007/s11222-024-10465-x> and Lin, S., Huang, Y., & Yang, J. (2025)
+<doi:10.48550/arXiv.2505.00629>.
 
 %prep
 %setup -q -c -n %{packname}
