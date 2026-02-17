@@ -1,47 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbmiUtils
-%global packver   0.3.0
+%global packname  SimtablR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions to Support and Extend the 'rbmi' Package
+Summary:          Easy Publication-Ready Tables and Regression Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-rbmi >= 1.4
-BuildRequires:    R-CRAN-lifecycle >= 1.0.4
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-beeca 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-rbmi >= 1.4
-Requires:         R-CRAN-lifecycle >= 1.0.4
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-beeca 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Provides utility functions that extend the capabilities of the
-reference-based multiple imputation package 'rbmi'. It supports clinical
-trial analysis workflows with functions for managing imputed datasets,
-applying analysis methods across imputations, and tidying results for
-reporting.
+Streamlines the creation of descriptive frequency tables ('Table 1'),
+diagnostic test accuracy evaluations (sensitivity, specificity, predictive
+values), and multi-outcome regression summaries. Features automatic
+tables, prevalence and odds ratio calculations, and seamless integration
+with 'flextable' for exporting results to 'Microsoft Word' and
+'PowerPoint'.
 
 %prep
 %setup -q -c -n %{packname}

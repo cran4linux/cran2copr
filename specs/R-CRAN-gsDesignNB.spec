@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SafeMapper
-%global packver   1.0.0
+%global packname  gsDesignNB
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fault-Tolerant Functional Programming with Automatic Checkpointing
+Summary:          Sample Size and Simulation for Negative Binomial Outcomes
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-digest 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-gsDesign 
+BuildRequires:    R-CRAN-simtrial 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-gsDesign 
+Requires:         R-CRAN-simtrial 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides drop-in replacements for 'purrr' and 'furrr' mapping functions
-with built-in fault tolerance, automatic checkpointing, and seamless
-recovery capabilities. When long-running computations are interrupted due
-to errors, system crashes, or other failures, simply re-run the same code
-to automatically resume from the last checkpoint. Ideal for large-scale
-data processing, API calls, web scraping, and other time-intensive
-operations where reliability is critical. For 'purrr' methodology, see
-Wickham and Henry (2023) <https://purrr.tidyverse.org/>.
+Provides tools for planning and simulating recurrent event trials with
+overdispersed count endpoints analyzed using negative binomial (or
+Poisson) rate models. Implements sample size and power calculations for
+fixed designs with variable accrual, dropout, maximum follow-up, and event
+gaps, including methods of Zhu and Lakkis (2014) <doi:10.1002/sim.5947>
+and Friede and Schmidli (2010) <doi:10.3414/ME09-02-0060>. Supports group
+sequential designs by adding calendar-time analysis schedules compatible
+with the 'gsDesign' package and by estimating blinded information at
+interim looks. Includes simulation utilities for recurrent events
+(including seasonal rates), interim data truncation, and Wald-based
+inference for treatment rate ratios.
 
 %prep
 %setup -q -c -n %{packname}

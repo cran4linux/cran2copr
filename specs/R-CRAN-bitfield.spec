@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bitfield
-%global packver   0.6.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handle Bitfields to Record Meta Data
 
@@ -20,12 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-codetools 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-gitcreds 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -33,17 +33,16 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-codetools 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gh 
 Requires:         R-CRAN-gitcreds 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-yaml 
 
 %description

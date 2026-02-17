@@ -1,47 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbmiUtils
-%global packver   0.3.0
+%global packname  kernreg
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions to Support and Extend the 'rbmi' Package
+Summary:          Nadaraya-Watson Kernel Regression
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-rbmi >= 1.4
-BuildRequires:    R-CRAN-lifecycle >= 1.0.4
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-beeca 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-rbmi >= 1.4
-Requires:         R-CRAN-lifecycle >= 1.0.4
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-beeca 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 
 %description
-Provides utility functions that extend the capabilities of the
-reference-based multiple imputation package 'rbmi'. It supports clinical
-trial analysis workflows with functions for managing imputed datasets,
-applying analysis methods across imputations, and tidying results for
-reporting.
+Fast implementation of Nadaraya-Watson kernel regression for either
+univariate or multivariate responses, with one or more bandwidths. K-fold
+cross-validation is also performed.
 
 %prep
 %setup -q -c -n %{packname}

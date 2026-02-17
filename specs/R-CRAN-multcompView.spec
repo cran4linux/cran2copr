@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multcompView
-%global packver   0.1-10
+%global packver   0.1-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of Paired Comparisons
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,10 +23,10 @@ Requires:         R-grid
 %description
 Convert a logical vector or a vector of p-values or a correlation,
 difference, or distance matrix into a display identifying the pairs for
-which the differences were not significantly different.  Designed for use
-in conjunction with the output of functions like TukeyHSD, dist{stats},
-simint, simtest, csimint, csimtest{multcomp}, friedmanmc,
-kruskalmc{pgirmess}.
+which the differences were not significantly different. Designed for use
+in conjunction with the output of functions like TukeyHSD, dist (stats),
+simint, simtest, csimint, csimtest (multcomp), friedmanmc, kruskalmc
+(pgirmess).
 
 %prep
 %setup -q -c -n %{packname}

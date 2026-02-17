@@ -1,47 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbmiUtils
-%global packver   0.3.0
+%global packname  unigd
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utility Functions to Support and Extend the 'rbmi' Package
+Summary:          Universal Graphics Device
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-rbmi >= 1.4
-BuildRequires:    R-CRAN-lifecycle >= 1.0.4
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-beeca 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-rbmi >= 1.4
-Requires:         R-CRAN-lifecycle >= 1.0.4
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-beeca 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-CRAN-cpp11 >= 0.2.4
+Requires:         R-CRAN-systemfonts >= 1.0.0
 
 %description
-Provides utility functions that extend the capabilities of the
-reference-based multiple imputation package 'rbmi'. It supports clinical
-trial analysis workflows with functions for managing imputed datasets,
-applying analysis methods across imputations, and tidying results for
-reporting.
+A unified R graphics backend. Render R graphics fast and easy to many
+common file formats. Provides a thread safe 'C' interface for asynchronous
+rendering of R graphics.
 
 %prep
 %setup -q -c -n %{packname}

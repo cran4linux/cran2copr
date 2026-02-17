@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xegaDfGene
-%global packver   1.0.0.7
+%global packver   1.0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.7
+Version:          1.0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene Operations for Real-Coded Genes
 
@@ -24,14 +24,16 @@ Requires:         R-CRAN-xegaSelectGene
 
 %description
 Representation-dependent gene-level operations for genetic and
-evolutionary algorithms with real-coded genes are collected in this
-package. The common feature of the gene operations is that all of them are
-useful for derivation-free optimization algorithms. At the moment the
-package implements initialization, mutation, crossover, and replication
-operations for differential evolution as described in Price, Kenneth V.,
-Storn, Rainer M. and Lampinen, Jouni A. (2005)
-<doi:10.1007/3-540-31306-0>.  In addition, several (more recent) methods
-for determining the scale factor are provided.
+evolutionary algorithms with real-coded genes used in the R-package 'xega'
+<https://CRAN.R-project.org/package=xega> are collected in this package.
+The common feature of the gene operations is that all of them are useful
+for derivation-free optimization algorithms. At the moment the package
+implements initialization, mutation, crossover, and replication operations
+for differential evolution as described in Price, Kenneth V., Storn,
+Rainer M. and Lampinen, Jouni A. (2005) <doi:10.1007/3-540-31306-0>.  In
+addition, several (more recent) methods for determining the scale factor
+are provided. For 'xega''s architecture, see Geyer-Schulz, A. (2025)
+<doi:10.5445/IR/1000187255>.
 
 %prep
 %setup -q -c -n %{packname}

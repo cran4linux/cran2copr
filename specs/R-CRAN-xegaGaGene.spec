@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xegaGaGene
-%global packver   1.0.0.5
+%global packver   1.0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.5
+Version:          1.0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Binary Gene Operations for Genetic Algorithms
 
@@ -24,14 +24,16 @@ Requires:         R-CRAN-xegaSelectGene
 
 %description
 Representation-dependent gene level operations of a genetic algorithm with
-binary coded genes: Initialization of random binary genes, several gene
-maps for binary genes, several mutation operators, several crossover
-operators with 1 and 2 kids, replication pipelines for 1 and 2 kids, and,
-last but not least, function factories for configuration. See Goldberg, D.
-E. (1989, ISBN:0-201-15767-5). For crossover operators, see Syswerda, G.
-(1989, ISBN:1-55860-066-3), Spears, W. and De Jong, K. (1991,
-ISBN:1-55860-208-9). For mutation operators, see Stanhope, S. A. and
-Daida, J. M. (1996, ISBN:0-18-201-031-7).
+binary coded genes for the R-package 'xega'
+<https://CRAN.R-project.org/package=xega>: Initialization of random binary
+genes, several gene maps for binary genes, several mutation operators,
+several crossover operators with 1 and 2 kids, replication pipelines for 1
+and 2 kids, and, last but not least, function factories for configuration.
+See Goldberg, D. E. (1989, ISBN:0-201-15767-5). For crossover operators,
+see Syswerda, G. (1989, ISBN:1-55860-066-3), Spears, W. and De Jong, K.
+(1991, ISBN:1-55860-208-9). For mutation operators, see Stanhope, S. A.
+and Daida, J. M. (1996, ISBN:0-18-201-031-7). For 'xega''s architecture,
+see Geyer-Schulz, A. (2025) <doi:10.5445/IR/1000187255>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DiscreteTests
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vectorised Computation of P-Values and Their Supports for Several Discrete Statistical Tests
 
@@ -16,19 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
 
 %description
 Provides vectorised functions for computing p-values of various common
 discrete statistical tests, as described e.g. in Agresti (2002)
 <doi:10.1002/0471249688>, including their distributions. Exact and
-approximate computation methods are provided. For exact p-values, several
+approximate computation methods are provided. For exact ones, several
 procedures of determining two-sided p-values are included, which are
 outlined in more detail in Hirji (2006) <doi:10.1201/9781420036190>.
 

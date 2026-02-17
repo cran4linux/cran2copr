@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topics
-%global packver   0.62
+%global packver   0.70
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.62
+Version:          0.70
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Significance Testing Language Features for Visualisation
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.00
 Requires:         R-core >= 4.00
 BuildArch:        noarch
 BuildRequires:    R-CRAN-textmineR 
+BuildRequires:    R-CRAN-quanteda 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggwordcloud 
@@ -26,14 +27,17 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stopwords 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ngram 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-textmineR 
+Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggwordcloud 
@@ -42,13 +46,15 @@ Requires:         R-methods
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stopwords 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ngram 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-patchwork 
+Requires:         R-utils 
 
 %description
 Implements differential language analysis with statistical tests and

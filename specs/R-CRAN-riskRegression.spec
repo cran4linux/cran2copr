@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riskRegression
-%global packver   2025.09.17
+%global packver   2026.02.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.09.17
+Version:          2026.02.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Regression Models and Prediction Scores for Survival Analysis with Competing Risks
 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ldaPrototype
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prototype of Multiple Latent Dirichlet Allocation Runs
 
@@ -24,7 +25,7 @@ BuildRequires:    R-CRAN-data.table >= 1.11.2
 BuildRequires:    R-CRAN-progress >= 1.1.1
 BuildRequires:    R-CRAN-batchtools >= 0.9.11
 BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-parallelMap 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -36,7 +37,7 @@ Requires:         R-CRAN-data.table >= 1.11.2
 Requires:         R-CRAN-progress >= 1.1.1
 Requires:         R-CRAN-batchtools >= 0.9.11
 Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-parallelMap 
 Requires:         R-stats 
 Requires:         R-utils 
