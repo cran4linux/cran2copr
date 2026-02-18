@@ -1,29 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parcr
-%global packver   0.6.1
+%global packname  framework
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construct Parsers for Structured Text Files
+Summary:          Structured Data Science Project Scaffolding
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dotenv 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-plumber 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dotenv 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-plumber 
 
 %description
-Construct parser combinator functions, higher order functions that parse
-input. Construction of such parsers is transparent and easy. Their main
-application is the parsing of structured text files like those generated
-by laboratory instruments. Based on a paper by Hutton (1992)
-<doi:10.1017/S0956796800000411>.
+Project scaffolding and workflow tools for reproducible data science.
+Manages packages, tracks data integrity, handles database connections,
+generates notebooks, and publishes to S3-compatible storage. More
+information at <https://framework.table1.org>.
 
 %prep
 %setup -q -c -n %{packname}

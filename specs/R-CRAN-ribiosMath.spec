@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hsphase
-%global packver   3.0.0
+%global packname  ribiosMath
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phasing, Pedigree Reconstruction, Sire Imputation and Recombination Events Identification of Half-sib Families Using SNP Data
+Summary:          Mathematical and Statistical Tools in 'ribios'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.300.8.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-gdata 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-CRAN-gdata 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Identification of recombination events, haplotype reconstruction, sire
-imputation and pedigree reconstruction using half-sib family SNP data.
+Mathematical and statistical tools for computational biology in drug
+discovery. Functions are designed for high performance. Implements the
+hierarchical fuzzy multi-linkage partitioning method proposed by Huang et
+al. (2007) <doi:10.1186/gb-2007-8-9-r183>.
 
 %prep
 %setup -q -c -n %{packname}

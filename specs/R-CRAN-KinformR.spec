@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hsphase
-%global packver   3.0.0
+%global packname  KinformR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phasing, Pedigree Reconstruction, Sire Imputation and Recombination Events Identification of Half-sib Families Using SNP Data
+Summary:          Relationship-Informed Pedigree and Variant Scoring
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.300.8.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-gdata 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-CRAN-gdata 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Identification of recombination events, haplotype reconstruction, sire
-imputation and pedigree reconstruction using half-sib family SNP data.
+Comparative evaluation of families and candidate variants in rare-variant
+association studies. The package can be used for two methodologically
+overlapping but distinct purposes. First, the prior to any genetic or
+genomic evaluation, evaluation of relative detection power of pedigrees,
+can direct recruitment efforts by showing which individuals not yet
+sampled would be the most meaningful additions to a study. Second, after
+sequencing and analysis, variants based on association with disease status
+and familial relationships of individuals, aids in variant prioritization.
+Methodology is described in Nugent (2025)
+<doi:10.1101/2025.10.06.25337426>.
 
 %prep
 %setup -q -c -n %{packname}

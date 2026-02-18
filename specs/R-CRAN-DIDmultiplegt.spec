@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIDmultiplegt
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimators DID with Multiple Groups and Periods
 
@@ -23,8 +23,8 @@ BuildRequires:    R-CRAN-plotrix
 BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-DIDmultiplegtDYN 
 BuildRequires:    R-CRAN-DIDHAD 
 Requires:         R-CRAN-dplyr >= 1.0.0
@@ -33,8 +33,8 @@ Requires:         R-CRAN-plotrix
 Requires:         R-CRAN-sampling 
 Requires:         R-stats 
 Requires:         R-parallel 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-DIDmultiplegtDYN 
 Requires:         R-CRAN-DIDHAD 
 

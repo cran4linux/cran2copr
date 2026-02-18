@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hsphase
-%global packver   3.0.0
+%global packname  Ts
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phasing, Pedigree Reconstruction, Sire Imputation and Recombination Events Identification of Half-sib Families Using SNP Data
+Summary:          Calculation of the Surface Temperature (Ts) from Geospatial Raster Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.300.8.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-gdata 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-CRAN-gdata 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
-Identification of recombination events, haplotype reconstruction, sire
-imputation and pedigree reconstruction using half-sib family SNP data.
+Provides functions to calculate the Surface Temperature (Ts) from
+geospatial raster data. These functions use albedo, Normalized Difference
+Vegetation Index (NDVI), and air temperature (Ta) to estimate Ts,
+facilitating hydrological, ecological, and remote sensing analyses.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  broom.mixed
-%global packver   0.2.9.6
+%global packver   0.2.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9.6
+Version:          0.2.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidying Methods for Mixed Models
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-coda >= 0.19.4.1
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-methods 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-furrr 
+Requires:         R-CRAN-coda >= 0.19.4.1
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-methods 

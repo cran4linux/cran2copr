@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  henna
-%global packver   0.3.4
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Versatile Visualization Suite
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-liver 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-paletteer 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-grDevices 
 Requires:         R-CRAN-liver 
 Requires:         R-methods 
+Requires:         R-CRAN-paletteer 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
@@ -56,10 +58,10 @@ Requires:         R-CRAN-withr
 
 %description
 A visualization suite primarily designed for single-cell RNA-sequencing
-data analysis applications, but adaptable to other purposes as well. It
+data analysis applications but well-suited for other purposes as well. It
 introduces novel plots to represent two-variable and frequency data and
 optimizes some commonly used plotting options (e.g., correlation, network,
-density and alluvial plots) for ease of usage and flexibility.
+density, alluvial and volcano plots) for ease of usage and flexibility.
 
 %prep
 %setup -q -c -n %{packname}

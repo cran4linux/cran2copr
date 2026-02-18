@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   8.0
+%global packver   8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0
+Version:          8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -19,10 +19,8 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bigstatsr 
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-emplik 
 BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -33,7 +31,9 @@ BuildRequires:    R-CRAN-mda
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-mixture 
 BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-rgl 
@@ -42,10 +42,8 @@ BuildRequires:    R-CRAN-sn
 BuildRequires:    R-stats 
 Requires:         R-CRAN-bigstatsr 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-emplik 
 Requires:         R-CRAN-energy 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -56,7 +54,9 @@ Requires:         R-CRAN-mda
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-mixture 
 Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-osqp 
 Requires:         R-CRAN-quadprog 
+Requires:         R-parallel 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-rgl 
@@ -111,11 +111,11 @@ response data with zeros". Statistics and Computing, 33(106).
 <doi:10.1007/s11222-023-10277-5>. n) Tsagris. M. (2025). "Constrained
 least squares simplicial-simplicial regression". Statistics and Computing,
 35(27). <doi:10.1007/s11222-024-10560-z>. o) Sevinc V. and Tsagris. M.
-(2024). "Energy Based Equality of Distributions Testing for Compositional
-Data". <doi:10.48550/arXiv.2412.05199>. p) Tsagris M. (2025). "Scalable
-approximation of the transformation-free linear simplicial-simplicial
-regression via constrained iterative reweighted least squares".
-<doi:10.48550/arXiv.2511.13296>.
+(2025). "Energy Based Equality of Distributions Testing for Compositional
+Data". <doi:10.48550/arXiv.2412.05199>. p) Tsagris M. and Alzeley O.
+(2025). "Scalable approximation of the transformation-free linear
+simplicial-simplicial regression via constrained iterative reweighted
+least squares". <doi:10.48550/arXiv.2511.13296>.
 
 %prep
 %setup -q -c -n %{packname}

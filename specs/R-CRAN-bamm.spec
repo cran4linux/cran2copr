@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bamm
-%global packver   0.6.0
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Models as a Function of Biotic, Abiotic and Movement Factors (BAM)
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-raster >= 3.4.13
 BuildRequires:    R-methods >= 3.3
 BuildRequires:    R-CRAN-animation >= 2.3
@@ -31,11 +31,8 @@ BuildRequires:    R-CRAN-RSpectra >= 0.13.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-Rdpack >= 0.11.0
 BuildRequires:    R-CRAN-furrr >= 0.1.0
-BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -54,11 +51,8 @@ Requires:         R-CRAN-RSpectra >= 0.13.1
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-Rdpack >= 0.11.0
 Requires:         R-CRAN-furrr >= 0.1.0
-Requires:         R-CRAN-crosstalk 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-exactextractr 
 Requires:         R-stats 
 Requires:         R-utils 
 

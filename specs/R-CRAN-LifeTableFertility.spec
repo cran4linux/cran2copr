@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hsphase
-%global packver   3.0.0
+%global packname  LifeTableFertility
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phasing, Pedigree Reconstruction, Sire Imputation and Recombination Events Identification of Half-sib Families Using SNP Data
+Summary:          'shiny' Application for Life Table and Fertility Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.300.8.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-gdata 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-CRAN-gdata 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Identification of recombination events, haplotype reconstruction, sire
-imputation and pedigree reconstruction using half-sib family SNP data.
+Provides a 'shiny' application to construct age-specific life tables and
+fertility schedules from individual female daily egg records. The
+application computes age-specific survival and fertility functions and
+estimates key demographic parameters including the net reproductive rate,
+mean generation time, intrinsic rate of increase, finite rate of increase
+and doubling time. Optional confidence intervals can be obtained using
+percentile bootstrap or delete-1 jackknife resampling at the female level.
+Methods and definitions follow Stevens (2009)
+<doi:10.1007/978-0-387-89882-7> and Rossini et al. (2024)
+<doi:10.1371/journal.pone.0299598>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggiraph
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make 'ggplot2' Graphics Interactive
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5
 BuildRequires:    R-CRAN-systemfonts >= 1.3.1
 BuildRequires:    R-CRAN-Rcpp >= 1.1.0
-BuildRequires:    R-CRAN-gdtools >= 0.4.4
+BuildRequires:    R-CRAN-gdtools >= 0.5.0
 BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-htmlwidgets >= 1.5
 Requires:         R-CRAN-systemfonts >= 1.3.1
 Requires:         R-CRAN-Rcpp >= 1.1.0
-Requires:         R-CRAN-gdtools >= 0.4.4
+Requires:         R-CRAN-gdtools >= 0.5.0
 Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 

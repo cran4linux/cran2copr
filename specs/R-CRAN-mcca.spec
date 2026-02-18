@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcca
-%global packver   0.7.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Category Classification Accuracy
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-rgl 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-e1071 
@@ -32,7 +31,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-stats 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-rgl 
 
 %description
 It contains six common multi-category classification accuracy evaluation
@@ -44,8 +42,9 @@ Improvement (IDI), Net Reclassification Improvement (NRI), R-Squared Value
 (RSQ), described in Li, Jiang and Fine (2013)
 <doi:10.1093/biostatistics/kxs047>. Polytomous Discrimination Index (PDI),
 described in Van Calster et al. (2012) <doi:10.1007/s10654-012-9733-3>. Li
-et al. (2018) <doi:10.1177/0962280217692830>. We described all these above
-measures and our mcca package in Li, Gao and D'Agostino (2019)
+et al. (2018) <doi:10.1177/0962280217692830>. PDI with variance estimation
+using Dover et al. (2021) <doi:10.1002/sim.9187>. We described all these
+above measures and our mcca package in Li, Gao and D'Agostino (2019)
 <doi:10.1002/sim.8103>.
 
 %prep

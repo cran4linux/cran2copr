@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hsphase
-%global packver   3.0.0
+%global packname  alsi
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phasing, Pedigree Reconstruction, Sire Imputation and Recombination Events Identification of Half-sib Families Using SNP Data
+Summary:          Aggregated Latent Space Index for Multiple Correspondence Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.300.8.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-gdata 
-Requires:         R-CRAN-snowfall 
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-CRAN-gdata 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Identification of recombination events, haplotype reconstruction, sire
-imputation and pedigree reconstruction using half-sib family SNP data.
+Tools for stability-validated aggregation in multiple correspondence
+analysis (MCA). Implements parallel analysis for dimensionality
+assessment, bootstrap-based subspace stability diagnostics using
+Procrustes rotation and Tucker's congruence coefficients, and computation
+of the Aggregated Latent Space Index (ALSI). ALSI is a person-level
+summary measure derived from validated MCA dimensions that quantifies
+departure from independence along stable association directions in
+multivariate categorical data.
 
 %prep
 %setup -q -c -n %{packname}

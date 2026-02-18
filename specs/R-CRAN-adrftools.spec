@@ -1,44 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modelbased
-%global packver   0.14.0
+%global packname  adrftools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Model-Based Predictions, Contrasts and Means
+Summary:          Estimating, Visualizing, and Testing Average Dose-Response Functions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.4.4
-BuildRequires:    R-CRAN-datawizard >= 1.3.0
-BuildRequires:    R-CRAN-parameters >= 0.28.3
-BuildRequires:    R-CRAN-bayestestR >= 0.17.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-sandwich >= 3.1.1
+BuildRequires:    R-CRAN-collapse >= 2.1.3
+BuildRequires:    R-CRAN-insight >= 1.4.3
+BuildRequires:    R-CRAN-mvtnorm >= 1.3.3
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-marginaleffects >= 0.19.0
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.4.4
-Requires:         R-CRAN-datawizard >= 1.3.0
-Requires:         R-CRAN-parameters >= 0.28.3
-Requires:         R-CRAN-bayestestR >= 0.17.0
-Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-sandwich >= 3.1.1
+Requires:         R-CRAN-collapse >= 2.1.3
+Requires:         R-CRAN-insight >= 1.4.3
+Requires:         R-CRAN-mvtnorm >= 1.3.3
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-marginaleffects >= 0.19.0
 Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Implements a general interface for model-based estimations for a wide
-variety of models, used in the computation of marginal means, contrast
-analysis and predictions. For a list of supported models, see
-'insight::supported_models()'.
+Facilitates estimating, visualizing, and testing average dose-response
+functions (ADRFs) for characterizing the causal effect of a continuous
+(i.e., non-discrete) treatment or exposure. Includes support for
+frequentist and Bayesian regression models, analytical and bootstrap
+inference, and characterization of subgroup effects.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funModeling
-%global packver   1.9.5
+%global packver   1.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.5
+Version:          1.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Data Analysis and Data Preparation Tool-Box
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-pander
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-moments 
@@ -40,7 +40,7 @@ Requires:         R-CRAN-pander
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-moments 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FARS
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor-Augmented Regression Scenarios
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 
 %description
 Provides a comprehensive framework in R for modeling and forecasting

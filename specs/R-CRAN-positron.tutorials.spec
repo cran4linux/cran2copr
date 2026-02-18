@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  positron.tutorials
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tutorials for Learning 'Positron' and Related Tools
+Summary:          Tutorials for Learning 'Positron' and for Using AI
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,9 +23,10 @@ Requires:         R-CRAN-tutorial.helpers
 Requires:         R-CRAN-usethis 
 
 %description
-Collection of tutorials for working with 'Positron'. Covers scripts,
-'Quarto' documents, 'Git', 'GitHub', and 'Quarto' websites. Makes
-extensive use of the tools in the 'tutorial.helpers' package.
+Collection of tutorials for working with 'Positron' and for learning how
+to apply generative AI when coding with R. Covers scripts, 'Quarto'
+documents, 'Git', 'GitHub', and 'Quarto' websites. Makes extensive use of
+the tools in the 'tutorial.helpers' package.
 
 %prep
 %setup -q -c -n %{packname}
