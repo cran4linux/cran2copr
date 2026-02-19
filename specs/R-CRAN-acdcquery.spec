@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  acdcquery
-%global packver   1.1.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query the Attentional Control Data Collection
+Summary:          Query the Attentional Control Data Collection or the Truth Effect Database
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,13 +19,20 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-digest 
 
 %description
-Interact with the Attentional Control Data Collection (ACDC). Connect to
-the database via connect_to_db(), set filter arguments via add_argument()
-and query the database via query_db().
+Interact with the Attentional Control Data Collection (ACDC) or the Truth
+Effect Database (TED). Download the databases using download_acdc() or
+download_ted(), connect to the database via connect_to_db(), set filter
+arguments via add_argument() and query the database via query_db().
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wordnet
-%global packver   0.1-18
+%global packname  copulaSFM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.18
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          WordNet Interface
+Summary:          Copula-Based Simultaneous Stochastic Frontier Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       wordnet
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rJava >= 0.6.3
-Requires:         R-CRAN-rJava >= 0.6.3
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-VineCopula 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-VineCopula 
 
 %description
-An interface to WordNet using the Jawbone Java API to WordNet. WordNet
-(<https://wordnet.princeton.edu/>) is a large lexical database of English.
-Nouns, verbs, adjectives and adverbs are grouped into sets of cognitive
-synonyms (synsets), each expressing a distinct concept.  Synsets are
-interlinked by means of conceptual-semantic and lexical relations. Please
-note that WordNet(R) is a registered tradename.  Princeton University
-makes WordNet available to research and commercial users free of charge
-provided the terms of their license
-(<https://wordnet.princeton.edu/license-and-commercial-use>) are followed,
-and proper reference is made to the project using an appropriate citation
-(<https://wordnet.princeton.edu/citing-wordnet>). The WordNet database
-files need to be made available separately, either via package
-'wordnetDicts' from <https://datacube.wu.ac.at>, installing system
-packages where available, or direct download from
-<https://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz>.
+Provides estimation procedures for copula-based stochastic frontier models
+for cross-sectional data. The package implements maximum likelihood
+estimation of stochastic frontier models allowing flexible dependence
+structures between inefficiency and noise terms through various copula
+families (e.g., Gaussian and Student-t). It enables estimation of
+technical efficiency scores, log-likelihood values, and information
+criteria (AIC and BIC). The implemented framework builds upon stochastic
+frontier analysis introduced by Aigner, Lovell and Schmidt (1977)
+<doi:10.1016/0304-4076(77)90052-5> and the copula theory described in Joe
+(2014, ISBN:9781466583221). Empirical applications of copula-based
+stochastic frontier models can be found in Wiboonpongse et al. (2015)
+<doi:10.1016/j.ijar.2015.06.001> and Maneejuk et al. (2017,
+ISBN:9783319562176).
 
 %prep
 %setup -q -c -n %{packname}

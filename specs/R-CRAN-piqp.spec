@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  piqp
-%global packver   0.2.2
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Proximal Interior Point Quadratic Programming Solver
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-S7 
 
 %description
 An embedded proximal interior point quadratic programming solver, which

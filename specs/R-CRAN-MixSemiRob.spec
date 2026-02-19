@@ -1,51 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GeoThinneR
-%global packver   2.1.1
+%global packname  MixSemiRob
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Spatial Thinning of Species Occurrences
+Summary:          Mixture Models: Parametric, Semiparametric, and Robust
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-nabor 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-GoFKernel 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rlab 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-ucminf 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-foreach 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-nabor 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-GoFKernel 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rlab 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-ucminf 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-quadprog 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
 
 %description
-Provides efficient geospatial thinning algorithms to reduce the density of
-coordinate data while maintaining spatial relationships. Implements K-D
-Tree and brute-force distance-based thinning, as well as grid-based and
-precision-based thinning methods. For more information on the methods, see
-Elseberg et al. (2012) <https://hdl.handle.net/10446/86202>.
+Various functions are provided to estimate parametric mixture models (with
+Gaussian, t, Laplace, log-concave distributions, etc.) and non-parametric
+mixture models. The package performs hypothesis tests and addresses label
+switching issues in mixture models. The package also allows for parameter
+estimation in mixture of regressions, proportion-varying mixture of
+regressions, and robust mixture of regressions.
 
 %prep
 %setup -q -c -n %{packname}

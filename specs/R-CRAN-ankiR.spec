@@ -1,35 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ankiR
-%global packver   0.2.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read 'Anki' Flashcard Databases
+Summary:          Read and Analyze 'Anki' Flashcard Databases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-scales 
 
 %description
-Read and analyze Anki flashcard collection databases. Provides functions
-to access notes, cards, and review logs from 'Anki' 'SQLite' database with
-a tidy interface.
+Comprehensive toolkit for reading and analyzing 'Anki' flashcard
+collection databases. Provides functions to access notes, cards, decks,
+note types, and review logs with a tidy interface. Features extensive
+analytics including retention rates, learning curves, forgetting curve
+fitting, and review patterns. Supports 'FSRS' (Free Spaced Repetition
+Scheduler) analysis with stability, difficulty, retrievability metrics,
+parameter comparison, and workload predictions. Includes visualization
+functions, comparative analysis, time-based analytics, card quality
+assessment, sibling card analysis, interference detection, predictive
+features, session simulation, and an interactive Shiny dashboard.
+Academic/exam preparation tools for medical students and board exam
+preparation. Export capabilities include CSV, Org-mode, Markdown,
+SuperMemo, Mochi, Obsidian SR, and JSON formats with progress reports.
 
 %prep
 %setup -q -c -n %{packname}

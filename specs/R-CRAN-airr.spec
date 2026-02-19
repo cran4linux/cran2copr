@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  airr
-%global packver   1.5.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          AIRR Data Representation Reference Library
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-yaml
 %description
 Schema definitions and read, write and validation tools for data formatted
 in accordance with the AIRR Data Representation schemas defined by the
-AIRR Community <http://docs.airr-community.org>.
+AIRR Community <https://docs.airr-community.org>.
 
 %prep
 %setup -q -c -n %{packname}

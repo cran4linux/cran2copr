@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sumer
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sumerian Cuneiform Text Analysis
 
@@ -20,13 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ragg 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ragg 
 
 %description
 Provides functions for converting transliterated Sumerian texts to sign

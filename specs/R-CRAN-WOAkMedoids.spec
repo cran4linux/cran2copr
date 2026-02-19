@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WOAkMedoids
-%global packver   0.1.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Whale Optimization Algorithm for K-Medoids Clustering
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 BuildRequires:    R-CRAN-dtwclust 
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-Rcpp >= 1.0.11
 Requires:         R-CRAN-dtwclust 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-RcppParallel 
 
 %description
 Implements the Whale Optimization Algorithm(WOA) for k-medoids clustering,

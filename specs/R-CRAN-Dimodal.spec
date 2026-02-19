@@ -1,33 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  automerge
-%global packver   0.3.0
+%global packname  Dimodal
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for 'Automerge' 'CRDT' Library
+Summary:          Spacing Tests for Multi-Modality
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-statmod 
+Requires:         R-CRAN-statmod 
 
 %description
-Provides R bindings to the 'Automerge' Conflict-free Replicated Data Type
-('CRDT') library. 'Automerge' enables automatic merging of concurrent
-changes without conflicts, making it ideal for distributed systems,
-collaborative applications, and offline-first architectures. The approach
-of local-first software was proposed in Kleppmann, M., Wiggins, A., van
-Hardenberg, P., McGranaghan, M. (2019) <doi:10.1145/3359591.3359737>. This
-package supports all 'Automerge' data types (maps, lists, text, counters)
-and provides both low-level and high-level synchronization protocols for
-seamless interoperability with 'JavaScript' and other 'Automerge'
-implementations.
+Tests for modality of data using its spacing.  The main approach evaluates
+features (peaks, flats) using a combination of parametric models and
+non-parametric tests, either after smoothing the spacing by a low-pass
+filter or by looking over larger intervals.
 
 %prep
 %setup -q -c -n %{packname}

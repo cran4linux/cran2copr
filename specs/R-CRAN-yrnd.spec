@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CCMnet
-%global packver   0.1.6
+%global packname  yrnd
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Congruence Class Models for Networks
+Summary:          Computes Risk Neutral Densities of Futures Prices and Yields on Fixed Income Products
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,43 +16,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ergm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-intergraph 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-RBesT 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tvm 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ergm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-intergraph 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-network 
-Requires:         R-CRAN-RBesT 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tvm 
 Requires:         R-utils 
+Requires:         R-CRAN-zoo 
 
 %description
-Provides an implementation of Congruence Class Models for generating
-networks. It facilitates sampling networks based on specific topological
-properties and attribute mixing patterns using a Markov Chain Monte Carlo
-framework. The implementation builds upon code from the 'ergm' package;
-see Handcock et al. (2008) <doi:10.18637/jss.v024.i01>.
+Provides with parametric risk neutral densities and cumulative densities
+for futures prices on fixed-income products. It relies on options on Short
+Term Interest Rate futures contracts prices or options on bond futures
+contracts prices. It models the price of the underlying asset as a mixture
+of either two or three lognormal densities. It also brings new functions
+which provide with risk neutral densities and cumulative densities of the
+rate or the yield underlying the futures contract, using the density of
+the futures price. The package is based on the works of Melick, W. R. and
+Thomas, C. P. (1997) <doi:10.2307/2331318> and B. Bahra (1998)
+<doi:10.2139/ssrn.77429>.
 
 %prep
 %setup -q -c -n %{packname}

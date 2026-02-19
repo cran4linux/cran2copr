@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geocausal
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference with Spatio-Temporal Data
 
@@ -17,12 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crsuggest 
+BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
@@ -31,16 +32,18 @@ BuildRequires:    R-CRAN-spatstat.explore
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.model 
 BuildRequires:    R-CRAN-spatstat.univar 
+BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyterra 
+Requires:         R-CRAN-crsuggest 
+Requires:         R-CRAN-ggthemes 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
@@ -49,6 +52,7 @@ Requires:         R-CRAN-spatstat.explore
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.model 
 Requires:         R-CRAN-spatstat.univar 
+Requires:         R-CRAN-spatstat.random 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 

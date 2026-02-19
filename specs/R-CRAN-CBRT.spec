@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CBRT
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          CBRT Data on Turkish Economy
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
 
 %description
 The Central Bank of the Republic of Turkey (CBRT) provides one of the most
 comprehensive time series databases on the Turkish economy. The 'CBRT'
 package provides functions for accessing the CBRT's electronic data
-delivery system <https://evds2.tcmb.gov.tr/>. It contains the lists of all
+delivery system <https://evds3.tcmb.gov.tr/>. It contains the lists of all
 data categories and data groups for searching the available variables
-(data series). As of November 3, 2024, there were 40,826 variables in the
+(data series). As of February 17, 2026, there were 47,986 variables in the
 dataset. The lists of data categories and data groups can be updated by
 the user at any time. A specific variable, a group of variables, or all
 variables in a data group can be downloaded at different frequencies using

@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TSQCA
-%global packver   1.3.1
+%global packname  epiworldRcalibrate
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Threshold Sweep Extensions for Qualitative Comparative Analysis
+Summary:          Fast and Effortless Calibration of Agent-Based Models using Machine Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-QCA 
-Requires:         R-CRAN-QCA 
+BuildRequires:    R-CRAN-reticulate >= 1.2
+BuildRequires:    R-utils 
+Requires:         R-CRAN-reticulate >= 1.2
+Requires:         R-utils 
 
 %description
-Provides threshold sweep methods for Qualitative Comparative Analysis
-(QCA). Implements Condition Threshold Sweep-Single (CTS-S), Condition
-Threshold Sweep-Multiple (CTS-M), Outcome Threshold Sweep (OTS), and Dual
-Threshold Sweep (DTS) for systematic exploration of threshold calibration
-effects on crisp-set QCA results. These methods extend traditional
-robustness approaches by treating threshold variation as an exploratory
-tool for discovering causal structures. Built on top of the 'QCA' package
-by Dusa (2019) <doi:10.1007/978-3-319-75668-4>, with function arguments
-following 'QCA' conventions. Based on set-theoretic methods by Ragin
-(2008) <doi:10.7208/chicago/9780226702797.001.0001> and established
-robustness protocols by Rubinson et al. (2019)
-<doi:10.1177/00491241211036158>.
+Provides tools and pre-trained Machine Learning [ML] models for
+calibration of Agent-Based Models [ABMs] built with the R package
+'epiworldR'. Implements methods described in Najafzadehkhoei, Vega Yon,
+Modenesi, and Meyer (2025) <doi:10.48550/arXiv.2509.07013>. Users can
+automatically calibrate ABMs in seconds with pre-trained ML models,
+effectively focusing on simulation rather than calibration. Bridges a gap
+by allowing public health practitioners to run their own ABMs without the
+advanced technical expertise often required by calibration.
 
 %prep
 %setup -q -c -n %{packname}

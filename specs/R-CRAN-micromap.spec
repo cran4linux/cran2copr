@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micromap
-%global packver   1.9.10
+%global packver   1.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.10
+Version:          1.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Micromap Plots
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-grid 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 

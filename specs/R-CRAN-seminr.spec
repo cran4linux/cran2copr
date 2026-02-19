@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seminr
-%global packver   2.4.0
+%global packver   2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Building and Estimating Structural Equation Models
 
@@ -22,20 +22,12 @@ BuildRequires:    R-CRAN-DiagrammeRsvg >= 0.1
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-webp 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-DiagrammeR >= 1.0.6
 Requires:         R-CRAN-DiagrammeRsvg >= 0.1
 Requires:         R-parallel 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-webp 
 Requires:         R-stats 
 
 %description

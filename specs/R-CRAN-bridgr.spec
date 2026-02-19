@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bridgr
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bridging Data Frequencies for Timely Economic Forecasts
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-CRAN-tsbox 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-xts 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-generics
 Requires:         R-CRAN-tsbox 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-xts 
 
 %description
 Implements bridge models for nowcasting and forecasting macroeconomic

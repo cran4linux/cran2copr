@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PPMiss
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copula-Based Estimator for Long-Range Dependent Processes under Missing Data
 
@@ -30,9 +30,9 @@ Implements the copula-based estimator for univariate long-range dependent
 processes, introduced in Pumi et al. (2023)
 <doi:10.1007/s00362-023-01418-z>. Notably, this estimator is capable of
 handling missing data and has been shown to perform exceptionally well,
-even when up to 70%% of data is missing (as reported in <arXiv:2303.04754>)
-and has been found to outperform several other commonly applied
-estimators.
+even when up to 70%% of data is missing (as reported in
+<doi:10.48550/arXiv.2303.04754>) and has been found to outperform several
+other commonly applied estimators.
 
 %prep
 %setup -q -c -n %{packname}

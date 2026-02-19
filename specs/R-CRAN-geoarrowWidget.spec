@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TSQCA
-%global packver   1.3.1
+%global packname  geoarrowWidget
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Threshold Sweep Extensions for Qualitative Comparative Analysis
+Summary:          Attach '(Geo)Arrow' and/or '(Geo)Parquet' Data to a Widget
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-QCA 
-Requires:         R-CRAN-QCA 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-listviewer 
+BuildRequires:    R-CRAN-nanoarrow 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-listviewer 
+Requires:         R-CRAN-nanoarrow 
 
 %description
-Provides threshold sweep methods for Qualitative Comparative Analysis
-(QCA). Implements Condition Threshold Sweep-Single (CTS-S), Condition
-Threshold Sweep-Multiple (CTS-M), Outcome Threshold Sweep (OTS), and Dual
-Threshold Sweep (DTS) for systematic exploration of threshold calibration
-effects on crisp-set QCA results. These methods extend traditional
-robustness approaches by treating threshold variation as an exploratory
-tool for discovering causal structures. Built on top of the 'QCA' package
-by Dusa (2019) <doi:10.1007/978-3-319-75668-4>, with function arguments
-following 'QCA' conventions. Based on set-theoretic methods by Ragin
-(2008) <doi:10.7208/chicago/9780226702797.001.0001> and established
-robustness protocols by Rubinson et al. (2019)
-<doi:10.1177/00491241211036158>.
+Provides functions and necessary 'JavaScript' bindings to quickly transfer
+spatial data from R memory or remote URLs to the browser for use in
+interactive 'HTML' widgets created with the 'htmlwidgets' R package.
+Leverages 'GeoArrow' (<https://geoarrow.org/>) data representation for
+data stored in local R memory which is generally faster than traditional
+'GeoJSON' by minimising the amount of copy, serialization and
+deserialization steps necessary for the data transfer. Furthermore,
+provides functionality and 'JavaScript' bindings to consume 'GeoParquet'
+(<https://geoparquet.org/>) files from remote URLs in the browser.
 
 %prep
 %setup -q -c -n %{packname}

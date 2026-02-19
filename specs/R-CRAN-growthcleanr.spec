@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  growthcleanr
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Cleaner for Anthropometric Measurements
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-data.table >= 1.13.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-doParallel >= 1.0.15
 BuildRequires:    R-CRAN-dplyr >= 1.0.1
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-labelled >= 2.5.0
 Requires:         R-CRAN-R.utils >= 2.11.0
 Requires:         R-CRAN-plyr >= 1.8.6
@@ -35,6 +36,7 @@ Requires:         R-CRAN-data.table >= 1.13.0
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-doParallel >= 1.0.15
 Requires:         R-CRAN-dplyr >= 1.0.1
+Requires:         R-CRAN-rlang >= 0.4.0
 
 %description
 Identifies implausible anthropometric (e.g., height, weight) measurements

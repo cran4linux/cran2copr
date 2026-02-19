@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leontief
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Input-Output Analysis
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-cpp11 
-BuildRequires:    R-CRAN-cpp11armadillo 
+BuildRequires:    R-CRAN-cpp4r 
+BuildRequires:    R-CRAN-armadillo4r 
 
 %description
 An implementation of the Input-Output model developed by Wassily Leontief

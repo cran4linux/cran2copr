@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rms
-%global packver   8.1-0
+%global packver   8.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1.0
+Version:          8.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Modeling Strategies
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
-BuildRequires:    R-CRAN-Hmisc >= 5.2.4
+BuildRequires:    R-CRAN-Hmisc >= 5.2.5
 BuildRequires:    R-CRAN-nlme >= 3.1.123
 BuildRequires:    R-CRAN-htmlTable >= 1.11.0
 BuildRequires:    R-methods 
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-colorspace
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Hmisc >= 5.2.4
+Requires:         R-CRAN-Hmisc >= 5.2.5
 Requires:         R-CRAN-nlme >= 3.1.123
 Requires:         R-CRAN-htmlTable >= 1.11.0
 Requires:         R-methods 
