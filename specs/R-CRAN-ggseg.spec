@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggseg
-%global packver   1.6.8
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.8
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Tool for Brain Atlases
 
@@ -20,24 +20,31 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggseg.formats 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-BuildRequires:    R-grid 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-ggplot2 >= 3.3
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggseg.formats 
+Requires:         R-grid 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
-Requires:         R-grid 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
-Contains 'ggplot2' geom for plotting brain atlases using simple features.
-The largest component of the package is the data for the two built-in
-atlases. Mowinckel & Vidal-Piñeiro (2020) <doi:10.1177/2515245920928009>.
+Provides a 'ggplot2' geom and position for visualizing brain region data
+on cortical, subcortical, and white matter tract atlases. Brain atlas
+geometries are stored as simple features ('sf'), enabling seamless
+integration with the 'ggplot2' ecosystem including faceting, custom
+scales, and themes.  Mowinckel & Vidal-Piñeiro (2020)
+<doi:10.1177/2515245920928009>.
 
 %prep
 %setup -q -c -n %{packname}

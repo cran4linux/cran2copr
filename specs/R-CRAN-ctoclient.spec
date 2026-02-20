@@ -1,52 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  leafletZH
-%global packver   0.1.1
+%global packname  ctoclient
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chinese Leaflet Map Relate Operation
+Summary:          A Modern and Flexible Data Pipeline for 'SurveyCTO'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-geojsonsf 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-leaflet.extras 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-geojsonsf 
-Requires:         R-CRAN-geosphere 
-Requires:         R-grDevices 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-leaflet.extras 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides 'sf' data for Chinese provinces and cities, methods for plotting
-shape maps of Chinese provinces and cities, Convert Coordinates Between
-Different Systems, and a layer for 'leaflet' with Gaode tiles. It is
-designed to facilitate geographical data visualization in China.
+A modern and flexible R client for the 'SurveyCTO', a mobile and offline
+data collection platform, providing a modern and consistent interface for
+programmatic access to server resources. Built on top of the 'httr2'
+package, it enables secure and efficient data retrieval and returns
+analysis-ready data through optional tidying. It includes functions to
+create, upload, and download server datasets, in addition to fetching form
+data, files, and submission attachments. Robust authentication and request
+handling make the package suitable for automated survey monitoring and
+downstream analysis.
 
 %prep
 %setup -q -c -n %{packname}

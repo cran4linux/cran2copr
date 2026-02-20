@@ -1,55 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPSeqClus
-%global packver   1.4.0
+%global packname  crossfit
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sequential Clustering Algorithm for Location Data
+Summary:          Cross-Fitting Engine for Double/Debiased Machine Learning
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-suncalc 
-BuildRequires:    R-tcltk 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
 Requires:         R-stats 
-Requires:         R-CRAN-suncalc 
-Requires:         R-tcltk 
 Requires:         R-utils 
 
 %description
-Applies sequential clustering algorithm to animal location data based on
-user-defined parameters. Plots interactive cluster maps and provides a
-summary dataframe with attributes for each cluster commonly used as
-covariates in subsequent modeling efforts. Additional functions provide
-individual keyhole markup language plots for quick assessment, and export
-of global positioning system exchange format files for navigation
-purposes. Methods can be found at <doi:10.1111/2041-210X.13572>.
+Provides a general cross-fitting engine for double / debiased machine
+learning and other meta-learners. The core functions implement flexible
+graphs of nuisance models with per-node training fold widths,
+target-specific evaluation windows, and several fold allocation schemes
+("independence", "overlap", "disjoint"). The engine supports both numeric
+estimators (mode = "estimate") and cross-fitted prediction functions (mode
+= "predict"), with configurable aggregation over panels and repetitions.
 
 %prep
 %setup -q -c -n %{packname}

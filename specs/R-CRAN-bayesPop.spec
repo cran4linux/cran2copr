@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesPop
-%global packver   11.0-3
+%global packver   12.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.0.3
+Version:          12.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Population Projection
 
@@ -53,8 +53,10 @@ Requires:         R-CRAN-plyr
 
 %description
 Generating population projections for all countries of the world using
-several probabilistic components, such as total fertility rate and life
-expectancy (Raftery et al., 2012 <doi:10.1073/pnas.1211452109>).
+several probabilistic components, such as total fertility rate, life
+expectancy at birth and net migration (Raftery et al., 2012
+<doi:10.1073/pnas.1211452109>). The package can be also used for
+subnational population projections.
 
 %prep
 %setup -q -c -n %{packname}

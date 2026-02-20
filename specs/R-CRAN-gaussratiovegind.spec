@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gaussratiovegind
-%global packver   2.0.3
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distribution of Gaussian Ratios
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
 It is well known that the distribution of a Gaussian ratio does not follow

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TAD
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Realize the Trait Abundance Distribution
 
@@ -29,18 +29,19 @@ Requires:         R-methods
 Requires:         R-stats 
 
 %description
-This analytical framework is based on an analysis of the shape of the
-trait abundance distributions to better understand community assembly
-processes, and predict community dynamics under environmental changes.
-This framework mobilized a study of the relationship between the moments
-describing the shape of the distributions: the skewness and the kurtosis
-(SKR). The SKR allows the identification of commonalities in the shape of
-trait distributions across contrasting communities. Derived from the SKR,
-we developed mathematical parameters that summarise the complex pattern of
-distributions by assessing (i) the R², (ii) the Y-intercept, (iii) the
-slope, (iv) the functional stability of community (TADstab), and, (v) the
-distance from specific distribution families (i.e., the distance from the
-skew-uniform family a limit to the highest degree of evenness: TADeve).
+The “TAD” package compiled an analytical framework based on an analysis of
+the shape of the trait abundance distributions to better understand
+community assembly processes, and predict community dynamics under
+environmental changes. This framework mobilized a study of the
+relationship between the moments describing the shape of the
+distributions: the skewness and the kurtosis (SKR). The SKR allows the
+identification of commonalities in the shape of trait distributions across
+contrasting communities. Derived from the SKR, we developed mathematical
+parameters that summarise the complex pattern of distributions by
+assessing (i) the R², (ii) the Y-intercept, (iii) the slope, (iv) the
+functional stability of community (TADstab), and, (v) the distance from
+specific distribution families (i.e., the distance from the skew-uniform
+family a limit to the highest degree of evenness: TADeve).
 
 %prep
 %setup -q -c -n %{packname}

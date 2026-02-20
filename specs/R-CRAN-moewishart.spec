@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  acdcquery
-%global packver   1.2.3
+%global packname  moewishart
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query the Attentional Control Data Collection or the Truth Effect Database
+Summary:          Mixture-of-Experts Wishart Models for Covariance Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-loo 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-loo 
 
 %description
-Interact with the Attentional Control Data Collection (ACDC) or the Truth
-Effect Database (TED). Download the databases using download_acdc() or
-download_ted(), connect to the database via connect_to_db(), set filter
-arguments via add_argument() and query the database via query_db().
+Methods for maximum likelihood and Bayesian estimation for the Wishart
+mixture model and the mixture-of-experts Wishart (MoE-Wishart) model. The
+package provides four inference algorithms for these models, each
+implemented using the expectation–maximization (EM) algorithm for maximum
+likelihood estimation and a fully Bayesian approach via
+Gibbs-within-Metropolis–Hastings sampling.
 
 %prep
 %setup -q -c -n %{packname}

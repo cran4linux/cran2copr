@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyweather
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis the Weather Data for Agriculture
 
@@ -20,11 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-settings 
+BuildRequires:    R-CRAN-optree 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-settings 
+Requires:         R-CRAN-optree 
 
 %description
 Functions are collected to analyse weather data for agriculture purposes

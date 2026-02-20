@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  acdcquery
-%global packver   1.2.3
+%global packname  ervissexplore
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query the Attentional Control Data Collection or the Truth Effect Database
+Summary:          Retrieve and Explore ERVISS Respiratory Virus Surveillance Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Interact with the Attentional Control Data Collection (ACDC) or the Truth
-Effect Database (TED). Download the databases using download_acdc() or
-download_ted(), connect to the database via connect_to_db(), set filter
-arguments via add_argument() and query the database via query_db().
+Provides easy access to ERVISS (European Respiratory Virus Surveillance
+Summary) data from the EU-ECDC
+<https://github.com/EU-ECDC/Respiratory_viruses_weekly_data>. Enables
+retrieval, filtering, and optional visualization of data across European
+countries. Data is fetched directly from the EU-ECDC Respiratory Viruses
+Weekly Data repository, with support for both latest data and historical
+snapshots for reproducible analyses.
 
 %prep
 %setup -q -c -n %{packname}

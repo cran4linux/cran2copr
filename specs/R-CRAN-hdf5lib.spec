@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdf5lib
-%global packver   2.0.0.5
+%global packver   2.0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.5
+Version:          2.0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Headers and Static Libraries for 'HDF5'
 
@@ -25,7 +25,7 @@ the static libraries and headers for the 'HDF5' 'C' library (release
 field, which eliminates the need for users to install system-level 'HDF5'
 dependencies. This build is compiled with thread-safety enabled and
 supports dynamic loading of external compression filters. 'HDF5' is
-developed by 'The HDF Group' <https://www.hdfgroup.org/>.
+developed by The HDF Group <https://www.hdfgroup.org/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  circularEV
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  PsyToolkit
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extreme Value Analysis for Circular Data
+Summary:          Analysis Tools for 'PsyToolkit'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-NPCirc 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-NPCirc 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-openxlsx2 
+Requires:         R-CRAN-openxlsx2 
 
 %description
-General functions for performing extreme value analysis on a circular
-domain as part of the statistical methodology in the paper by Konzen, E.,
-Neves, C., and Jonathan, P. (2021). Modeling nonstationary extremes of
-storm severity: Comparing parametric and semiparametric inference.
-Environmetrics, 32(4), e2667.
+Analyses and reports 'PsyToolkit' questionnaire and experiment data. See
+Stoet (2017) <doi:10.1177/0098628316677643>.
 
 %prep
 %setup -q -c -n %{packname}

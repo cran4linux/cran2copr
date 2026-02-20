@@ -1,49 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Poly4AT
-%global packver   1.0.1
+%global packname  poLCAParallel
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access 'INVEKOS' API for Field Polygons
+Summary:          Polytomous Variable Latent Class Analysis Parallel
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-geojsonsf 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-geojsonsf 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-readxl 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.4.1.0
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-poLCA 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-poLCA 
 
 %description
-A 'shiny' app that allows to access and use the 'INVEKOS' API for field
-polygons in Austria. API documentation is available at
-<https://gis.lfrz.gv.at/api/geodata/i009501/ogc/features/v1/>.
+A 'C++' reimplementation of 'poLCA' - latent class analysis and latent
+class regression models for polytomous outcome variables, also known as
+latent structure analysis. It attempts to reproduce results and be as
+similar as possible to the original code, while running faster, especially
+with multiple repetitions, by utilising multiple threads. Further reading
+is available on the Queen Mary, University of London, IT Services Research
+blog <https://blog.hpc.qmul.ac.uk/speeding_up_r_packages/>.
 
 %prep
 %setup -q -c -n %{packname}

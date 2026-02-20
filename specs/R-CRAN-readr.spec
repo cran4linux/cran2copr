@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readr
-%global packver   2.1.6
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Rectangular Text Data
 
@@ -14,32 +14,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-cli >= 3.2.0
-BuildRequires:    R-CRAN-vroom >= 1.6.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-vroom >= 1.7.0
 BuildRequires:    R-CRAN-hms >= 0.4.1
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-tzdb >= 0.1.1
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli >= 3.2.0
-Requires:         R-CRAN-vroom >= 1.6.0
+Requires:         R-CRAN-vroom >= 1.7.0
 Requires:         R-CRAN-hms >= 0.4.1
-Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 The goal of 'readr' is to provide a fast and friendly way to read

@@ -1,65 +1,68 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  covidmx
-%global packver   0.7.7
+%global packname  bidser
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descarga y analiza datos de COVID-19 en México
+Summary:          Work with 'BIDS' (Brain Imaging Data Structure) Projects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pins >= 1.0.1
-BuildRequires:    R-CRAN-duckdb >= 0.4.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-neuroim2 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-pins >= 1.0.1
-Requires:         R-CRAN-duckdb >= 0.4.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rio 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-neuroim2 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rio 
 
 %description
-Herramientas para el análisis de datos de COVID-19 en México. Descarga y
-analiza los datos para COVID-19 de la Direccion General de Epidemiología
-de México (DGE)
-<https://www.gob.mx/salud/documentos/datos-abiertos-152127>, la Red de
-Infecciones Respiratorias Agudas Graves (Red IRAG)
-<https://www.gits.igg.unam.mx/red-irag-dashboard/reviewHome> y la
-Iniciativa Global para compartir todos los datos de influenza (GISAID)
-<https://gisaid.org/>. English: Downloads and analyzes data of COVID-19
-from the Mexican General Directorate of Epidemiology (DGE), the Network of
-Severe Acute Respiratory Infections (IRAG network),and the Global
-Initiative on Sharing All Influenza Data GISAID.
+Tools for working with 'BIDS' (Brain Imaging Data Structure) formatted
+neuroimaging datasets. The package provides functionality for reading and
+querying 'BIDS'-compliant projects, creating mock 'BIDS' datasets for
+testing, and extracting preprocessed data from 'fMRIPrep' derivatives. It
+supports searching and filtering 'BIDS' files by various entities such as
+subject, session, task, and run to streamline neuroimaging data workflows.
+See Gorgolewski et al. (2016) <doi:10.1038/sdata.2016.44> for the 'BIDS'
+specification.
 
 %prep
 %setup -q -c -n %{packname}

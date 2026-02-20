@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  leaflet.extras
-%global packver   2.0.1
+%global packname  automerge
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Functionality for 'leaflet' Package
+Summary:          R Bindings for 'Automerge' 'CRDT' Library
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-leaflet >= 2.0.0
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-leaflet >= 2.0.0
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-The 'leaflet' JavaScript library provides many plugins some of which are
-available in the core 'leaflet' package, but there are many more. It is
-not possible to support them all in the core 'leaflet' package. This
-package serves as an add-on to the 'leaflet' package by providing extra
-functionality via 'leaflet' plugins.
+Provides R bindings to the 'Automerge' Conflict-free Replicated Data Type
+('CRDT') library. 'Automerge' enables automatic merging of concurrent
+changes without conflicts, making it ideal for distributed systems,
+collaborative applications, and offline-first architectures. The approach
+of local-first software was proposed in Kleppmann, M., Wiggins, A., van
+Hardenberg, P., McGranaghan, M. (2019) <doi:10.1145/3359591.3359737>. This
+package supports all 'Automerge' data types (maps, lists, text, counters)
+and provides both low-level and high-level synchronization protocols for
+seamless interoperability with 'JavaScript' and other 'Automerge'
+implementations.
 
 %prep
 %setup -q -c -n %{packname}

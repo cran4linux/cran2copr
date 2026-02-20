@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fplot
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Distribution Graphs Using Formulas
 
@@ -16,22 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-dreamerr >= 1.1.0
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dreamerr >= 1.3.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-dreamerr >= 1.1.0
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringmagic 
+Requires:         R-CRAN-dreamerr >= 1.3.0
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-grDevices 
+Requires:         R-CRAN-stringmagic 
 
 %description
 Easy way to plot regular/weighted/conditional distributions by using

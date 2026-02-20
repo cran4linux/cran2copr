@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  acdcquery
-%global packver   1.2.3
+%global packname  ecoTolerance
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query the Attentional Control Data Collection or the Truth Effect Database
+Summary:          Ecological Tolerance Indices
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,22 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 
 %description
-Interact with the Attentional Control Data Collection (ACDC) or the Truth
-Effect Database (TED). Download the databases using download_acdc() or
-download_ted(), connect to the database via connect_to_db(), set filter
-arguments via add_argument() and query the database via query_db().
+Computes the Road Tolerance Index (RTI) and the Human Footprint Tolerance
+Index (HFTI) for species occurrence data. It automates data cleaning and
+integrates spatial data (roads and human footprint) to produce
+reproducible tolerance metrics for biodiversity and conservation research.
+The HFTI calculation is based on the global human footprint dataset by Mu
+et al. (2022) <doi:10.1038/s41597-022-01284-8>. This package is part of a
+PhD thesis focused on amphibian ecology in Brazil.
 
 %prep
 %setup -q -c -n %{packname}

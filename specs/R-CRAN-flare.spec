@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flare
-%global packver   1.7.0.2
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0.2
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Family of Lasso Regression
 
@@ -28,18 +28,17 @@ Requires:         R-CRAN-igraph
 Requires:         R-methods 
 
 %description
-Provide the implementation of a family of Lasso variants including Dantzig
-Selector, LAD Lasso, SQRT Lasso, Lq Lasso for estimating high dimensional
-sparse linear model. We adopt the alternating direction method of
-multipliers and convert the original optimization problem into a
-sequential L1 penalized least square minimization problem, which can be
-efficiently solved by linearization algorithm. A multi-stage screening
-approach is adopted for further acceleration. Besides the sparse linear
-model estimation, we also provide the extension of these Lasso variants to
-sparse Gaussian graphical model estimation including TIGER and CLIME using
-either L1 or adaptive penalty. Missing values can be tolerated for Dantzig
-selector and CLIME. The computation is memory-optimized using the sparse
-matrix output. For more information, please refer to
+Provides implementations of a family of Lasso variants, including Dantzig
+Selector, LAD Lasso, SQRT Lasso, and Lq Lasso, for estimating
+high-dimensional sparse linear models. We adopt the alternating direction
+method of multipliers and convert the original optimization problem into a
+sequence of L1-penalized least-squares minimization problems that are
+efficiently solved by linearization and multi-stage screening. In addition
+to sparse linear model estimation, we provide extensions of these methods
+to sparse Gaussian graphical model estimation, including TIGER and CLIME,
+using either L1 or adaptive penalties. Missing values can be tolerated for
+Dantzig selector and CLIME. Computation is memory-optimized using sparse
+matrix output. For more information, see
 <https://www.jmlr.org/papers/volume16/li15a/li15a.pdf>.
 
 %prep

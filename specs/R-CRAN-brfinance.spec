@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatialCatalogueViewer
-%global packver   0.1.3
+%global packname  brfinance
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Shiny' Tool to Create Interactive Catalogues for Geospatial Data
+Summary:          Access to Brazilian Macroeconomic and Financial Time Series
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-labelled 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-labelled 
 
 %description
-Seamlessly create interactive online catalogues for geospatial data. Items
-can be mapped as points or areas and retrieved using either a map or a
-dynamic table with search form and optional column filters.
+Provides simplified access to selected Brazilian macroeconomic and
+financial time series from official sources, primarily the Central Bank of
+Brazil through the SGS (Sistema Gerenciador de Séries Temporais) API. The
+package enables users to quickly retrieve and visualize indicators such as
+the unemployment rate and the Selic interest rate using a standardized
+data structure. It is designed for data access and visualization purposes,
+without performing forecasts or statistical modeling. For more
+information, see the official API:
+<https://dadosabertos.bcb.gov.br/dataset/>.
 
 %prep
 %setup -q -c -n %{packname}

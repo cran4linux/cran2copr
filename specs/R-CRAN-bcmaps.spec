@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bcmaps
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Map Layers and Spatial Utilities for British Columbia
 
@@ -14,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-httr >= 1.3.1
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-sf >= 1.0
-BuildRequires:    R-CRAN-bcdata >= 0.5.0
+BuildRequires:    R-CRAN-bcdata >= 0.5.2
 BuildRequires:    R-CRAN-rappdirs >= 0.3.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progress 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-httr >= 1.3.1
 Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-sf >= 1.0
-Requires:         R-CRAN-bcdata >= 0.5.0
+Requires:         R-CRAN-bcdata >= 0.5.2
 Requires:         R-CRAN-rappdirs >= 0.3.1
 Requires:         R-methods 
 Requires:         R-CRAN-progress 
@@ -49,7 +49,7 @@ are sourced from the British Columbia and Canadian government under open
 licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>), the
 Government of Canada Open Data Portal
 (<https://open.canada.ca/en/using-open-data>), and Statistics Canada
-(<https://www.statcan.gc.ca/en/reference/licence>).
+(<https://www.statcan.gc.ca/en/terms-conditions/open-licence>).
 
 %prep
 %setup -q -c -n %{packname}

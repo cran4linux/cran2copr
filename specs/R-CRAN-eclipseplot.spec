@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  acdcquery
-%global packver   1.2.3
+%global packname  eclipseplot
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query the Attentional Control Data Collection or the Truth Effect Database
+Summary:          Graphical Visualizations for ROBUST-RCT Risk of Bias Assessments
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readxl 
 
 %description
-Interact with the Attentional Control Data Collection (ACDC) or the Truth
-Effect Database (TED). Download the databases using download_acdc() or
-download_ted(), connect to the database via connect_to_db(), set filter
-arguments via add_argument() and query the database via query_db().
+Provides visual representations of risk-of-bias assessments using the
+ROBUST-RCT framework, as described in Wang et al. (2025)
+<doi:10.1136/bmj-2024-081199>. The graphical visualization displays both
+factual evaluation (Step 1) and judgment (Step 2).
 
 %prep
 %setup -q -c -n %{packname}
