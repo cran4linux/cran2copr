@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  samplr
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare Human Performance to Sampling Algorithms
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lme4 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-RcppDist
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-pracma 
 Requires:         R-stats 
 Requires:         R-CRAN-lme4 

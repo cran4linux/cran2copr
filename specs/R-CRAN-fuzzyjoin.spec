@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TCGAretriever
-%global packver   1.10.1
+%global packname  fuzzyjoin
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Genomic and Clinical Data from CBioPortal Including TCGA Data
+Summary:          Join Tables Together on Inexact Matching
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr >= 0.8.1
+BuildRequires:    R-CRAN-tidyr >= 0.4.0
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 0.8.1
+Requires:         R-CRAN-tidyr >= 0.4.0
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-tibble 
 
 %description
-The Cancer Genome Atlas (TCGA) is a program aimed at improving our
-understanding of Cancer Biology. Several TCGA Datasets are available
-online. 'TCGAretriever' helps accessing and downloading TCGA data hosted
-on 'cBioPortal' via its Web Interface (see <https://www.cbioportal.org/>
-for more information).
+Join tables together based not on whether columns match exactly, but
+whether they are similar by some comparison. Implementations include
+string distance and regular expression matching.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ForeComp
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Size-Power Tradeoff Visualization for Equal Predictive Ability of Two Forecasts
 
@@ -14,35 +14,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-astsa 
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-astsa 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-astsa 
 Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-astsa 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 
 %description
-Offers a set of tools for visualizing and analyzing size and power
-properties of the test for equal predictive accuracy, the Diebold-Mariano
-test that is based on heteroskedasticity and autocorrelation-robust (HAR)
-inference. A typical HAR inference is involved with non-parametric
-estimation of the long-run variance, and one of its tuning parameters, the
-truncation parameter, trades off a size and power. Lazarus, Lewis, and
-Stock (2021)<doi:10.3982/ECTA15404> theoretically characterize the
-size-power frontier for the Gaussian multivariate location model.
-'ForeComp' computes and visualizes the finite-sample size-power frontier
-of the Diebold-Mariano test based on fixed-b asymptotics together with the
-Bartlett kernel. To compute the finite-sample size and power, it works
-with the best approximating ARMA process to the given dataset. It informs
-the user how their choice of the truncation parameter performs and how
-robust the testing outcomes are.
+Offers tools for visualizing and analyzing size and power properties of
+tests for equal predictive accuracy, including Diebold-Mariano and related
+procedures. Provides multiple Diebold-Mariano test implementations based
+on fixed-smoothing approaches, including fixed-b methods such as Kiefer
+and Vogelsang (2005) <doi:10.1017/S0266466605050565>, and applications to
+tests for equal predictive accuracy as in Coroneo and Iacone (2020)
+<doi:10.1002/jae.2756>, alongside conventional large-sample
+approximations. HAR inference involves nonparametric estimation of the
+long-run variance, and a key tuning parameter (the truncation parameter)
+trades off size and power. Lazarus, Lewis, and Stock (2021)
+<doi:10.3982/ECTA15404> theoretically characterize the size-power frontier
+for the Gaussian multivariate location model. 'ForeComp' computes and
+visualizes the finite-sample size-power frontier of the Diebold-Mariano
+test based on fixed-b asymptotics together with the Bartlett kernel. To
+compute finite-sample size and power, it fits a best approximating ARMA
+process to the input data and reports how the truncation parameter
+performs and how robust testing outcomes are to its choice.
 
 %prep
 %setup -q -c -n %{packname}

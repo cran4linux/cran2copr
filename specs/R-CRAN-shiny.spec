@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny
-%global packver   1.12.1
+%global packver   1.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.1
+Version:          1.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Application Framework for R
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-commonmark >= 2.0.0
 BuildRequires:    R-CRAN-R6 >= 2.0

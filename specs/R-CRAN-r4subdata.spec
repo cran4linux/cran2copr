@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multinet
-%global packver   4.3.2
+%global packname  r4subdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Mining of Multilayer Social Networks
+Summary:          Example Datasets for Clinical Submission Readiness
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph >= 1.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-igraph >= 1.2
-Requires:         R-CRAN-Rcpp >= 1.0
-Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Functions for the creation/generation and analysis of multilayer social
-networks <doi:10.18637/jss.v098.i08>.
+Provides realistic synthetic example datasets for the R4SUB (R for
+Regulatory Submission) ecosystem. Includes a pharma study evidence table,
+ADaM (Analysis Data Model) and SDTM (Study Data Tabulation Model) metadata
+following CDISC (Clinical Data Interchange Standards Consortium)
+conventions (<https://www.cdisc.org>), traceability mappings, a risk
+register based on ICH (International Council for Harmonisation) Q9 quality
+risk management principles
+(<https://www.ich.org/page/quality-guidelines>), and regulatory indicator
+definitions. Designed for demos, vignettes, and package testing.
 
 %prep
 %setup -q -c -n %{packname}

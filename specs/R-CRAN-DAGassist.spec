@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DAGassist
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Robustness with Directed Acyclic Graphs
 
@@ -45,14 +45,14 @@ Requires:         R-CRAN-dotwhisker
 %description
 Provides robustness checks to align estimands with the identification that
 they require. Given a 'dagitty' object and a model specification,
-'DAGassist' classifies variables by causal roles, flags problematic
-controls, and generates a report comparing the original model with minimal
-and canonical adjustment sets. Exports publication-grade reports in
-'LaTeX', 'Word', 'Excel', 'dotwhisker', or plain text/'markdown'.
-'DAGassist' is built on 'dagitty', an 'R' package that uses the 'DAGitty'
-web tool (<https://dagitty.net/>) for creating and analyzing DAGs. Methods
-draw on Pearl (2009) <doi:10.1017/CBO9780511803161> and Textor et al.
-(2016) <doi:10.1093/ije/dyw341>.
+'DAGassist' classifies variables by causal roles, recovers a target
+estimand, and generates a report comparing the original model with
+DAG-derived adjustment sets. Exports publication-grade reports in 'LaTeX',
+'Word', 'Excel', 'dotwhisker', or plain text/'markdown'. 'DAGassist' is
+built on 'dagitty', an 'R' package that uses the 'DAGitty' web tool
+(<https://dagitty.net/>) for creating and analyzing DAGs. Methods draw on
+Pearl (2009) <doi:10.1017/CBO9780511803161> and Textor et al. (2016)
+<doi:10.1093/ije/dyw341>.
 
 %prep
 %setup -q -c -n %{packname}

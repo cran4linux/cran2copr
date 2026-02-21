@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggseg3d
-%global packver   1.6.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tri-Surface Mesh Plots for Brain Atlases
+Summary:          Interactive 3D Brain Atlas Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggseg.formats 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-webshot2 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggseg.formats 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-webshot2 
 
 %description
-Mainly contains a plotting function ggseg3d(), and data of two standard
-brain atlases (Desikan-Killiany and aseg). By far, the largest bit of the
-package is the data for each of the atlases. The functions and data enable
-users to plot tri-surface mesh plots of brain atlases, and customise these
-by projecting colours onto the brain segments based on values in their own
-data sets. Functions are wrappers for 'plotly'. Mowinckel & Vidal-Piñeiro
-(2020) <doi:10.1177/2515245920928009>.
+Plot brain atlases as interactive 3D meshes using 'Three.js' via
+'htmlwidgets', or render publication-quality static images through 'rgl'
+and 'rayshader'. A pipe-friendly API lets you map data onto brain regions,
+control camera angles, toggle region edges, overlay glass brains, and
+snapshot or ray-trace the result.  Additional atlases are available
+through the 'ggsegverse' r-universe.  Mowinckel & Vidal-Piñeiro (2020)
+<doi:10.1177/2515245920928009>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +55,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

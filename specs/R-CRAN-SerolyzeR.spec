@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SerolyzeR
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reading, Quality Control and Preprocessing of MBA (Multiplex Bead Assay) Data
 
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-svglite
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-cellranger 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -53,7 +53,7 @@ Requires:         R-CRAN-svglite
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-cellranger 
 
 %description

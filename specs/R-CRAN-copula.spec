@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  copula
-%global packver   1.1-6
+%global packver   1.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Dependence with Copulas
 
@@ -23,6 +23,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-ADGofTest 
@@ -37,6 +38,7 @@ Requires:         R-graphics
 Requires:         R-methods 
 Requires:         R-stats4 
 Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-ADGofTest 

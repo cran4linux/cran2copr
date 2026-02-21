@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3misc
-%global packver   0.19.0
+%global packver   0.20.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.0
+Version:          0.20.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for 'mlr3'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-backports >= 0.1.5
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 

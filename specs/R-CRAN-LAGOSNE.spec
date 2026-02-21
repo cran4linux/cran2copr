@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LAGOSNE
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Lake Multi-Scaled Geospatial and Temporal Database
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-stringr >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-rappdirs >= 0.3.1
 BuildRequires:    R-CRAN-purrr >= 0.2.2.2
-BuildRequires:    R-CRAN-lazyeval >= 0.2
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-stringr >= 1.2.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-rappdirs >= 0.3.1
 Requires:         R-CRAN-purrr >= 0.2.2.2
-Requires:         R-CRAN-lazyeval >= 0.2
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

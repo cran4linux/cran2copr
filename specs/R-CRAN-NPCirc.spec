@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NPCirc
-%global packver   3.1.2
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Circular Methods
 
@@ -35,9 +35,19 @@ Requires:         R-CRAN-shape
 Requires:         R-CRAN-Bolstad2 
 
 %description
-Nonparametric smoothing methods for density and regression estimation
-involving circular data, including the estimation of the mean regression
-function and other conditional characteristics.
+Nonparametric smoothing methods for density and regression estimation and
+inference with circular data. The package provides kernel density
+estimation along with inferential tools such as circular SiZer for feature
+significance, mode estimation, and modal clustering. It includes multiple
+methods for selecting the smoothing parameter, allowing users to optimize
+the trade-off between bias and variance. Various plotting functions help
+visualize estimated densities, modes, clusters, and significance features.
+For regression, the package implements nonparametric estimation of the
+mean regression function as well as other conditional characteristics,
+including modal regression and generalized regression. Bandwidth selection
+is also supported in the regression context, and testing procedures are
+available to assess structural features or effects in circular regression
+models.
 
 %prep
 %setup -q -c -n %{packname}

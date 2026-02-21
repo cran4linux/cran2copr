@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  checked
-%global packver   0.2.9
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematically Run R CMD Checks
 
@@ -14,26 +14,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
 BuildArch:        noarch
 BuildRequires:    R-utils >= 3.6.2
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-options 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rcmdcheck 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-tools 
 Requires:         R-utils >= 3.6.2
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-options 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rcmdcheck 
+Requires:         R-CRAN-rlang 
 Requires:         R-tools 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReporterScore
-%global packver   0.1.9
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Reporter Score-Based Enrichment Analysis for Omics Data
 

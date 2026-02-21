@@ -1,51 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  binGroup2
-%global packver   1.3.3
+%global packname  TrustworthyMLR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identification and Estimation using Group Testing
+Summary:          Stability and Robustness Evaluation for Machine Learning Models
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-partitions 
-BuildRequires:    R-CRAN-rBeta2009 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-scales 
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-partitions 
-Requires:         R-CRAN-rBeta2009 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Methods for the group testing identification problem: 1) Operating
-characteristics (e.g., expected number of tests) for commonly used
-hierarchical and array-based algorithms, and 2) Optimal testing
-configurations for these same algorithms. Methods for the group testing
-estimation problem: 1) Estimation and inference procedures for an overall
-prevalence, and 2) Regression modeling for commonly used hierarchical and
-array-based algorithms.
+Provides tools for evaluating the trustworthiness of machine learning
+models in production and research settings. Computes a Stability Index
+that quantifies the consistency of model predictions across multiple runs
+or resamples, and a Robustness Score that measures model resilience under
+small input perturbations. Designed for data scientists, ML engineers, and
+researchers who need to monitor and ensure model reliability,
+reproducibility, and deployment readiness.
 
 %prep
 %setup -q -c -n %{packname}
