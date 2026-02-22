@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rosario
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Null Model Algorithm to Analyze Cyclical Data in Ecology
 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-rlang
 Implements a null model analysis to quantify concurrent temporal niche
 overlap (i.e., activity or phenology) among biological identities (e.g.,
 individuals, populations, species) using the Rosario randomization
-algorithm Castro-Arellano et al. (2010)
+algorithm (Castro-Arellano et al. 2010)
 <doi:10.1111/j.2041-210X.2010.00031.x>.
 
 %prep

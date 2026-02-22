@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LassoHiDFastGibbs
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast High-Dimensional Gibbs Samplers for Bayesian Lasso Regression
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppNumerical 
-BuildRequires:    R-CRAN-RcppClock 
 Requires:         R-CRAN-Rcpp 
 
 %description

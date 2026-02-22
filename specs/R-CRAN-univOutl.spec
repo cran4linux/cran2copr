@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  univOutl
-%global packver   0.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection of Univariate Outliers
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-Hmisc 
@@ -22,11 +23,11 @@ Requires:         R-CRAN-robustbase
 Requires:         R-CRAN-Hmisc 
 
 %description
-Well known outlier detection techniques in the univariate case. Methods to
-deal with skewed distribution are included too. The Hidiroglou-Berthelot
-(1986) method to search for outliers in ratios of historical data is
-implemented as well. When available, survey weights can be used in
-outliers detection.
+Provides well-known techniques for detecting univariate outliers. Methods
+for handling skewed distributions are included. The Hidiroglou-Berthelot
+(1986) method for detecting outliers in ratios of historical data is also
+implemented. When available, survey weights can be incorporated in the
+detection process.
 
 %prep
 %setup -q -c -n %{packname}

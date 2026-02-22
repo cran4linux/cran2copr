@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bhmbasket
-%global packver   0.9.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Models for Basket Trials
 
@@ -13,15 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R2jags >= 0.7.1
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doRNG 
-Requires:         R-CRAN-R2jags >= 0.7.1
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-checkmate 
 
 %description
 Provides functions for the evaluation of basket trial designs with binary

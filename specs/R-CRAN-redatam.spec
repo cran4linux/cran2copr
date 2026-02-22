@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redatam
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import 'REDATAM' Files
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-janitor
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-cpp4r 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-stringi 
