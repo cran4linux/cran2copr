@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvMAPIT
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Genome Wide Marginal Epistasis Test
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppParallel 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-truncnorm 
 Requires:         R-utils 
 
 %description
@@ -69,7 +71,8 @@ component estimation algorithm for efficient parameter inference and
 P-value computation. Together with reasonable model approximations, our
 proposed approach is scalable to moderately sized genome-wide association
 studies. Crawford et al. (2017) <doi:10.1371/journal.pgen.1006869>. Stamp
-et al. (2023) <doi:10.1093/g3journal/jkad118>.
+et al. (2023) <doi:10.1093/g3journal/jkad118>. Stamp et al. (2025)
+<doi:10.1016/j.ajhg.2025.07.004>.
 
 %prep
 %setup -q -c -n %{packname}

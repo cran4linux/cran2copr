@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3viz
-%global packver   0.10.1
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations for 'mlr3'
 
@@ -14,10 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-mlr3 >= 1.3.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-mlr3 >= 1.3.0
 Requires:         R-CRAN-mlr3misc >= 0.7.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 

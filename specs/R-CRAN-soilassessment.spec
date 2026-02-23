@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  soilassessment
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Health Assessment Models for Assessing Soil Conditions and Suitability
 
@@ -33,6 +33,9 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-e1071 
@@ -49,6 +52,9 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
 Requires:         R-stats 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-withr 
 
 %description
 Soil health assessment builds information to improve decision in soil

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fNonlinear
-%global packver   4041.82
+%global packver   4052.83
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4041.82
+Version:          4052.83
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Nonlinear and Chaotic Time Series Modelling
 

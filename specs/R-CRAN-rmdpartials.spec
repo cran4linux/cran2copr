@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmdpartials
-%global packver   0.5.8
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial 'rmarkdown' Documents to Prettify your Reports
 
@@ -35,7 +35,8 @@ provides various helper functions to make certain functions easier. You
 may want to use this package, if you want to flexibly summarise objects
 using a combination of figures, tables, text, and HTML widgets. Unlike
 HTML widgets, the output is Markdown and can hence be turn into other
-output formats than HTML.
+output formats than HTML. Currently does not play well with 'rmarkdown'
+notebooks, not tested with Quarto.
 
 %prep
 %setup -q -c -n %{packname}

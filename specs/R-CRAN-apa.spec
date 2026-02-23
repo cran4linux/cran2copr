@@ -1,29 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  medicalcoder
-%global packver   0.8.0
+%global packname  apa
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified and Longitudinally Aware Framework for ICD-Based Comorbidity Assessment
+Summary:          Format Outputs of Statistical Tests According to APA Guidelines
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 0.4
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MBESS 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 0.4
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MBESS 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides comorbidity classification algorithms such as the Pediatric
-Complex Chronic Conditions (PCCC), Charlson, and Elixhauser indices,
-supports longitudinal comorbidity flagging across encounters, and includes
-utilities for working with medical coding schemas such as the
-International Classification of Diseases (ICD).
+Formatter functions in the 'apa' package take the return value of a
+statistical test function, e.g. a call to chisq.test() and return a string
+formatted according to the guidelines of the APA (American Psychological
+Association).
 
 %prep
 %setup -q -c -n %{packname}

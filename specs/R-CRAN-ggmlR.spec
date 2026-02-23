@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmlR
-%global packver   0.5.1
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'GGML' Tensor Operations for Machine Learning
 
@@ -14,20 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 
 %description
-Provides 'R' bindings to the 'GGML' tensor library for efficient machine
-learning computation. Implements core tensor operations including
-element-wise arithmetic, reshaping, and matrix multiplication. Supports
-neural network layers (attention, convolutions, normalization), activation
-functions, and quantization. Features optimization/training API with
-'AdamW' (Adam with Weight decay) and 'SGD' (Stochastic Gradient Descent)
-optimizers, 'MSE' (Mean Squared Error) and cross-entropy losses.
-Multi-backend support with CPU and optional 'Vulkan' GPU (Graphics
-Processing Unit) acceleration. See <https://github.com/ggml-org/ggml> for
-more information about the underlying library.
+Provides 'R' bindings to the 'GGML' tensor library for machine learning,
+designed primarily for 'Vulkan' GPU acceleration with full CPU fallback.
+'Vulkan' support is auto-detected at build time on Linux (when
+'libvulkan-dev' and 'glslc' are installed) and on Windows (when 'Vulkan'
+'SDK' is installed and 'VULKAN_SDK' environment variable is set); all
+operations fall back to CPU transparently when no GPU is available.
+Implements tensor operations, neural network layers, quantization, and a
+'Keras'-like sequential model API for building and training networks.
+Includes 'AdamW' (Adam with Weight decay) and 'SGD' (Stochastic Gradient
+Descent) optimizers with 'MSE' (Mean Squared Error) and cross-entropy
+losses. Also provides a dynamic 'autograd' engine ('PyTorch'-style) with
+data-parallel training via 'dp_train()', broadcast arithmetic, 'f16'
+(half-precision) support on 'Vulkan' GPU, and a multi-head attention layer
+for building Transformer architectures. Serves as backend for 'LLM' (Large
+Language Model) inference via 'llamaR' and Stable Diffusion image
+generation via 'sdR'. See <https://github.com/ggml-org/ggml> for more
+information about the underlying library.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyREDCap
-%global packver   1.1.3
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Working with 'REDCap' Data
 
@@ -20,7 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-labelVector 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-REDCapR 
@@ -33,7 +35,9 @@ BuildRequires:    R-CRAN-vctrs
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-labelVector 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-REDCapR 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flownet
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transport Modeling: Network Processing, Route Enumeration, and Traffic Assignment
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-leaderCluster >= 1.5
 BuildRequires:    R-CRAN-progress >= 1.2.3
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-geodist >= 0.1.1
-BuildRequires:    R-CRAN-kit >= 0.0.5
+BuildRequires:    R-CRAN-kit >= 0.0.21
 Requires:         R-CRAN-mirai >= 2.5.2
 Requires:         R-CRAN-collapse >= 2.1.5
 Requires:         R-CRAN-igraph >= 2.1.4
@@ -31,7 +31,7 @@ Requires:         R-CRAN-leaderCluster >= 1.5
 Requires:         R-CRAN-progress >= 1.2.3
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-geodist >= 0.1.1
-Requires:         R-CRAN-kit >= 0.0.5
+Requires:         R-CRAN-kit >= 0.0.21
 
 %description
 High-performance tools for transport modeling - network processing, route
