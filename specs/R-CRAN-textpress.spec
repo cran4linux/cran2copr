@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  textpress
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight and Versatile NLP Toolkit
 
@@ -39,11 +39,14 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-lubridate 
 
 %description
-A simple Natural Language Processing (NLP) toolkit focused on
-search-centric workflows with minimal dependencies. The package offers key
-features for web scraping, text processing, corpus search, and text
-embedding generation via the 'HuggingFace API'
-<https://huggingface.co/docs/api-inference/index>.
+A lightweight toolkit for text retrieval and NLP with a consistent and
+predictable API organized around four actions: fetching, reading,
+processing, and searching. Functions cover the full pipeline from web data
+acquisition to text processing and indexing. Multiple search strategies
+are supported including regex, BM25 keyword ranking, cosine similarity,
+and dictionary matching. Pipe-friendly with no heavy dependencies and all
+outputs are plain data frames. Also useful as a building block for
+retrieval-augmented generation pipelines and autonomous agent workflows.
 
 %prep
 %setup -q -c -n %{packname}

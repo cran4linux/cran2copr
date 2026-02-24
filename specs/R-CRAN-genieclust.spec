@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genieclust
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Robust Hierarchical Clustering with Noise Point Detection
+Summary:          Genie: Fast and Robust Hierarchical Clustering
 
 License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,27 +19,27 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quitefastmst 
+BuildRequires:    R-CRAN-deadwood 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-quitefastmst 
+Requires:         R-CRAN-deadwood 
 
 %description
-The Genie algorithm (Gagolewski, 2021 <DOI:10.1016/j.softx.2021.100722>)
-is a robust and outlier-resistant hierarchical clustering method
-(Gagolewski, Bartoszuk, Cena, 2016 <DOI:10.1016/j.ins.2016.05.003>). This
-package features its faster and more powerful version. It allows
-clustering with respect to mutual reachability distances, enabling it to
-act as a noise point detector or a version of 'HDBSCAN*' that can identify
-a predefined number of clusters. The package also features an
-implementation of the Gini and Bonferroni inequality indices, external
-cluster validity measures (e.g., the normalised clustering accuracy, the
-adjusted Rand index, the Fowlkes-Mallows index, and normalised mutual
-information), and internal cluster validity indices (e.g., the
-Calinski-Harabasz, Davies-Bouldin, Ball-Hall, Silhouette, and generalised
-Dunn indices). The 'Python' version of 'genieclust' is available via
-'PyPI'.
+Genie is a robust hierarchical clustering algorithm (Gagolewski,
+Bartoszuk, Cena, 2016 <DOI:10.1016/j.ins.2016.05.003>). 'genieclust' is
+its faster, more capable implementation (Gagolewski, 2021
+<DOI:10.1016/j.softx.2021.100722>).  It enables clustering with respect to
+mutual reachability distances, allowing it to act as an alternative to
+'HDBSCAN*' that can identify any number of clusters or their entire
+hierarchy.  When combined with the 'deadwood' package, it can act as an
+outlier detector.  Additional package features include the Gini and
+Bonferroni inequality indices, external cluster validity measures (e.g.,
+the normalised clustering accuracy, the adjusted Rand index, the
+Fowlkes-Mallows index, and normalised mutual information), and internal
+cluster validity indices (e.g., the Calinski-Harabasz, Davies-Bouldin,
+Ball-Hall, Silhouette, and generalised Dunn indices). The 'Python' version
+of 'genieclust' is available via 'PyPI'.
 
 %prep
 %setup -q -c -n %{packname}

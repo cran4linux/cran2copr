@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  locaR
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Set of Tools for Sound Localization
 
@@ -23,12 +23,20 @@ BuildRequires:    R-CRAN-matrixStats
 BuildRequires:    R-CRAN-oce 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-SynchWave 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-seewave 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-oce 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-SynchWave 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
 A set of functions and tools to conduct acoustic source localization, as

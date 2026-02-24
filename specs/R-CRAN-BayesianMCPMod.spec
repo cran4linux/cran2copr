@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianMCPMod
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate, Evaluate, and Analyze Dose Finding Trials with Bayesian MCPMod
 
@@ -39,12 +39,12 @@ Requires:         R-CRAN-tidyr
 %description
 Bayesian MCPMod (Fleischer et al. (2022) <doi:10.1002/pst.2193>) is an
 innovative method that improves the traditional MCPMod by systematically
-incorporating historical data, such as previous placebo group data. This R
+incorporating historical data, such as previous placebo group data. This
 package offers functions for simulating, analyzing, and evaluating
-Bayesian MCPMod trials with normally distributed endpoints.  It enables
-the assessment of trial designs incorporating historical data across
-various true dose-response relationships and sample sizes. Robust mixture
-prior distributions, such as those derived with the
+Bayesian MCPMod trials with normally and binary distributed endpoints. It
+enables the assessment of trial designs incorporating historical data
+across various true dose-response relationships and sample sizes. Robust
+mixture prior distributions, such as those derived with the
 Meta-Analytic-Predictive approach (Schmidli et al. (2014)
 <doi:10.1111/biom.12242>), can be specified for each dose group.
 Resulting mixture posterior distributions are used in the Bayesian

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rinet
-%global packver   0.1.1
+%global packname  MVNGmod
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Reference Interval Estimation with Reference Interval Network (RINet)
+Summary:          Matrix-Variate Non-Gaussian Linear Regression Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,16 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-Bessel 
+BuildRequires:    R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-DistributionUtils 
+BuildRequires:    R-CRAN-matlib 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-Bessel 
+Requires:         R-CRAN-clusterGeneration 
+Requires:         R-CRAN-DistributionUtils 
+Requires:         R-CRAN-matlib 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-pracma 
 
 %description
-Predicts statistics of a reference distribution from a mixture of raw
-clinical measurements (healthy and pathological). Uses pretrained CNN
-models to estimate the mean, standard deviation, and reference fraction
-from 1D or 2D sample data. Methods are described in LeBien, Velev, and
-Roche-Lima (2026) "RINet: synthetic data training for indirect estimation
-of clinical reference distributions" <doi:10.1016/j.jbi.2026.104980>.
+An implementation of the expectation conditional maximization (ECM)
+algorithm for matrix-variate variance gamma (MVVG) and normal-inverse
+Gaussian (MVNIG) linear models. These models are designed for settings of
+multivariate analysis with clustered non-uniform observations and
+correlated responses. The package includes fitting and prediction
+functions for both models, and an example dataset from a periodontal on
+Gullah-speaking African Americans, with responses in 'gaad_res', and
+covariates in 'gaad_cov'. For more details on the matrix-variate
+distributions used, see Gallaugher & McNicholas (2019)
+<doi:10.1016/j.spl.2018.08.012>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,63 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkggraph
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Consistent and Intuitive Platform to Explore the Dependencies of Packages on the Comprehensive R Archive Network Like Repositories
+Summary:          Explore the R Package Dependencies on the Comprehensive R Archive Network (CRAN) Like Repositories
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 2.5
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-intergraph >= 2.0.2
-BuildRequires:    R-CRAN-plyr >= 1.8.4
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-checkmate >= 2.3.0
+BuildRequires:    R-CRAN-ggraph >= 2.2.2
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-BiocManager >= 1.30.27
+BuildRequires:    R-CRAN-tidygraph >= 1.3.1
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-tibble >= 1.3.0
-BuildRequires:    R-CRAN-Matrix >= 1.2.10
-BuildRequires:    R-CRAN-network >= 1.13.0
-BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.1
 BuildRequires:    R-CRAN-igraph >= 1.0.1
-BuildRequires:    R-CRAN-ggnetwork >= 0.5.1
-BuildRequires:    R-CRAN-dplyr >= 0.5.0
-BuildRequires:    R-CRAN-networkD3 >= 0.4
-BuildRequires:    R-CRAN-htmltools >= 0.3.5
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-curl >= 2.5
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-intergraph >= 2.0.2
-Requires:         R-CRAN-plyr >= 1.8.4
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-checkmate >= 2.3.0
+Requires:         R-CRAN-ggraph >= 2.2.2
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-BiocManager >= 1.30.27
+Requires:         R-CRAN-tidygraph >= 1.3.1
+Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-tibble >= 1.3.0
-Requires:         R-CRAN-Matrix >= 1.2.10
-Requires:         R-CRAN-network >= 1.13.0
-Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-CRAN-RColorBrewer >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.1
 Requires:         R-CRAN-igraph >= 1.0.1
-Requires:         R-CRAN-ggnetwork >= 0.5.1
-Requires:         R-CRAN-dplyr >= 0.5.0
-Requires:         R-CRAN-networkD3 >= 0.4
-Requires:         R-CRAN-htmltools >= 0.3.5
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Interactively explore various dependencies of a package(s) (on the
-Comprehensive R Archive Network Like repositories) and perform analysis
-using tidy philosophy. Most of the functions return a 'tibble' object
-(enhancement of 'dataframe') which can be used for further analysis. The
-package offers functions to produce 'network' and 'igraph' dependency
-graphs. The 'plot' method produces a static plot based on 'ggnetwork' and
-'plotd3' function produces an interactive D3 plot based on 'networkD3'.
+Explore various dependencies of a packages (on the Comprehensive R Archive
+Network Like repositories). The functions get_neighborhood() and
+get_dependencies() provide dependencies of packages and as_graph() can be
+used to convert into a 'igraph' object for further analysis and plotting.
 
 %prep
 %setup -q -c -n %{packname}

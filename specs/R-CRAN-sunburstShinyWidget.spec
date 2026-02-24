@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pam
-%global packver   2.0.2
+%global packname  sunburstShinyWidget
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Efficient Processing of PAM Data
+Summary:          Sunburst 'HTML' Widget Based on 'd3.js'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-Metrics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-Metrics 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-waiter 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-waiter 
 
 %description
-Processing Chlorophyll Fluorescence & P700 Absorbance data. Four models
-are provided for the regression of Pi curves, which can be compared with
-each other in order to select the most suitable model for the data set.
-Control plots ensure the successful verification of each regression.
-Bundled output of alpha, ETRmax, Ik etc. enables fast and reliable further
-processing of the data.
+Provides a sunburst plot based on the 'd3.js' library as an HTML 'shiny'
+widget.
 
 %prep
 %setup -q -c -n %{packname}

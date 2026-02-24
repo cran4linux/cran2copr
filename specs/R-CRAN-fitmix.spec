@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitmix
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finite Mixture Model Fitting of Lifespan Datasets
 
@@ -23,7 +23,7 @@ Requires:         R-stats
 %description
 Fits the lifespan datasets of biological systems such as yeast, fruit
 flies, and other similar biological units with well-known finite mixture
-models introduced by Farewell V. (1982) <doi:10.2307/2529885> and
+models introduced by Farewell et al. (1982) <doi:10.2307/2529885> and
 Al-Hussaini et al. (2000) <doi:10.1080/00949650008812033>. Estimates
 parameter space fitting of a lifespan dataset with finite mixtures of
 parametric distributions. Computes the following tasks; 1) Estimates

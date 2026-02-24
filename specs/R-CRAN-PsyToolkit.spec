@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PsyToolkit
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis Tools for 'PsyToolkit'
 
@@ -21,8 +21,14 @@ BuildRequires:    R-CRAN-openxlsx2
 Requires:         R-CRAN-openxlsx2 
 
 %description
-Analyses and reports 'PsyToolkit' questionnaire and experiment data. See
-Stoet (2017) <doi:10.1177/0098628316677643>.
+Analyses and reports questionnaire and experiment data exported from
+'PsyToolkit'. The package reads downloaded study folders, parses
+questionnaire structure, optionally merges demographic exports from
+CloudResearch or Prolific, and produces summary overviews of responses and
+completion times. It also provides helper functions to extract and
+aggregate experiment measures and survey variables, and to export results
+to spreadsheet files for further analysis and archiving. See Stoet (2017)
+<doi:10.1177/0098628316677643> for the 'PsyToolkit' platform.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pam
-%global packver   2.0.2
+%global packname  Rduckhts
+%global packver   0.1.2-0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.2.0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Efficient Processing of PAM Data
+Summary:          'DuckDB' High Throughput Sequencing File Formats Reader Extension
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-Metrics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-Metrics 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-duckdb 
+Requires:         R-utils 
 
 %description
-Processing Chlorophyll Fluorescence & P700 Absorbance data. Four models
-are provided for the regression of Pi curves, which can be compared with
-each other in order to select the most suitable model for the data set.
-Control plots ensure the successful verification of each regression.
-Bundled output of alpha, ETRmax, Ik etc. enables fast and reliable further
-processing of the data.
+Bundles the 'duckhts' 'DuckDB' extension for reading High Throughput
+Sequencing file formats with 'DuckDB'. The 'DuckDB' C extension API
+<https://duckdb.org/docs/stable/clients/c/api> and its 'htslib' dependency
+are compiled from vendored sources during package installation. James K
+Bonfield and co-authors (2021) <doi:10.1093/gigascience/giab007>.
 
 %prep
 %setup -q -c -n %{packname}

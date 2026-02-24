@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  omophub
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for the 'OMOPHub' Medical Vocabulary API
 
@@ -36,7 +36,8 @@ Requires:         R-CRAN-checkmate
 
 %description
 Provides an R interface to the 'OMOPHub' API for accessing 'OHDSI ATHENA'
-standardized medical vocabularies. Supports concept search, vocabulary
+standardized medical vocabularies. Supports concept search, semantic
+search using neural embeddings, concept similarity, vocabulary
 exploration, hierarchy navigation, relationship queries, and concept
 mappings with automatic pagination and rate limiting.
 

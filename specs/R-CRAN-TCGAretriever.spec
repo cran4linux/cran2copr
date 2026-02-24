@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppStreams
-%global packver   0.1.4
+%global packname  TCGAretriever
+%global packver   1.10.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.10.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Integration of the 'Streamulus' 'DSEL' for Stream Processing
+Summary:          Retrieve Genomic and Clinical Data from CBioPortal Including TCGA Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-jsonlite 
 
 %description
-The 'Streamulus' (template, header-only) library by Irit Katriel (at
-<https://github.com/iritkatriel/streamulus>) provides a very powerful yet
-convenient framework for stream processing. This package connects
-'Streamulus' to R by providing both the header files and all examples.
+The Cancer Genome Atlas (TCGA) is a program aimed at improving our
+understanding of Cancer Biology. Several TCGA Datasets are available
+online. 'TCGAretriever' helps accessing and downloading TCGA data hosted
+on 'cBioPortal' via its Web Interface (see <https://www.cbioportal.org/>
+for more information).
 
 %prep
 %setup -q -c -n %{packname}

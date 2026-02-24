@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pam
-%global packver   2.0.2
+%global packname  sdf.test
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Efficient Processing of PAM Data
+Summary:          Nonparametric Two Sample Test for Equality of Spectral Densities
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-Metrics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-Metrics 
+BuildRequires:    R-CRAN-dtt 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dtt 
+Requires:         R-stats 
 
 %description
-Processing Chlorophyll Fluorescence & P700 Absorbance data. Four models
-are provided for the regression of Pi curves, which can be compared with
-each other in order to select the most suitable model for the data set.
-Control plots ensure the successful verification of each regression.
-Bundled output of alpha, ETRmax, Ik etc. enables fast and reliable further
-processing of the data.
+Nonparametric method for testing the equality of the spectral densities of
+two time series of possibly different lengths. The time series are
+preprocessed with the discrete cosine transform and the variance
+stabilising transform to obtain an approximate Gaussian regression setting
+for the log-spectral density function. The test statistic is based on the
+squared L2 norm of the difference between the estimated log-spectral
+densities. The test returns the result, the statistic value, and the
+p-value. It also provides the estimated empirical quantile and null
+distribution under the hypothesis of equal spectral densities. An example
+using EEG data is included. For details see Nadin, Krivobokova, Enikeeva
+(2026), <doi:10.48550/arXiv.2602.10774>.
 
 %prep
 %setup -q -c -n %{packname}

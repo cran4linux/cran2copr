@@ -1,46 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pam
-%global packver   2.0.2
+%global packname  ips
+%global packver   0.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.0.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Efficient Processing of PAM Data
+Summary:          Interfaces to Phylogenetic Software in R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-Metrics 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-ape 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-XML 
 
 %description
-Processing Chlorophyll Fluorescence & P700 Absorbance data. Four models
-are provided for the regression of Pi curves, which can be compared with
-each other in order to select the most suitable model for the data set.
-Control plots ensure the successful verification of each regression.
-Bundled output of alpha, ETRmax, Ik etc. enables fast and reliable further
-processing of the data.
+Functions that wrap popular phylogenetic software for sequence alignment,
+masking of sequence alignments, and estimation of phylogenies and
+ancestral character states.
 
 %prep
 %setup -q -c -n %{packname}

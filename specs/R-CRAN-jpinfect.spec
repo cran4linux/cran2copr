@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jpinfect
-%global packver   2023.2026.02
+%global packver   2023.2026.06
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.2026.02
+Version:          2023.2026.06
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acquiring and Processing Data from Japan Institute for Health Security
 

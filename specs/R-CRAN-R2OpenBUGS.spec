@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R2OpenBUGS
-%global packver   3.2-4
+%global packver   3.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Running OpenBUGS from R
 

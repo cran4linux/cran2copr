@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  matrixNormal
-%global packver   0.1.2
+%global packname  genomicper
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Matrix Normal Distribution
+Summary:          Circular Genomic Permutation using Genome Wide Association p-Values
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm >= 1.1.2
 BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mvtnorm >= 1.1.2
+BuildRequires:    R-graphics 
 Requires:         R-stats 
+Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Computes densities, probabilities, and random deviates of the Matrix
-Normal (Pocuca et al. (2019) <doi:10.48550/arXiv.1910.02859>). Also
-includes simple but useful matrix functions. See the vignette for more
-information.
+Circular genomic permutation approach uses genome wide association studies
+(GWAS) results to establish the significance of pathway/gene-set
+associations whilst accounting for genomic structure. All single
+nucleotide polymorphisms (SNPs) in the GWAS are placed in a 'circular
+genome' according to their location. Then the complete set of SNP
+association p-values are permuted by rotation with respect to the SNPs'
+genomic locations. Two testing frameworks are available: permutations at
+the gene level, and permutations at the SNP level. The permutation at the
+gene level uses Fisher's combination test to calculate a single gene
+p-value, followed by the hypergeometric test. The SNP count methodology
+maps each SNP to pathways/gene-sets and calculates the proportion of SNPs
+for the real and the permutated datasets above a pre-defined threshold.
+Genomicper requires a matrix of GWAS association p-values and SNPs
+annotation to genes. Pathways can be obtained from within the package or
+can be provided by the user. Cabrera et al (2012)
+<doi:10.1534/g3.112.002618> .
 
 %prep
 %setup -q -c -n %{packname}
