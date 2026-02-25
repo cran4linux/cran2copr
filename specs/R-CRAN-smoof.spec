@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smoof
-%global packver   1.6.0.3
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0.3
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single and Multi-Objective Optimization Test Functions
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-ParamHelpers >= 1.8
 BuildRequires:    R-CRAN-BBmisc >= 1.6
 BuildRequires:    R-CRAN-checkmate >= 1.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-ParamHelpers >= 1.8
 Requires:         R-CRAN-BBmisc >= 1.6
 Requires:         R-CRAN-checkmate >= 1.1

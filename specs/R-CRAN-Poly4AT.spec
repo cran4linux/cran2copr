@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RTMBdist
-%global packver   1.0.1
+%global packname  Poly4AT
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributions Compatible with Automatic Differentiation by 'RTMB'
+Summary:          Access 'INVEKOS' API for Field Polygons
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB >= 1.7
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gamlss.dist 
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-movMF 
-Requires:         R-CRAN-RTMB >= 1.7
-Requires:         R-stats 
-Requires:         R-CRAN-gamlss.dist 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-movMF 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-readxl 
+Requires:         R-utils 
 
 %description
-Extends the functionality of the 'RTMB'
-<https://kaskr.r-universe.dev/RTMB> package by providing a collection of
-non-standard probability distributions compatible with automatic
-differentiation (AD). While 'RTMB' enables flexible and efficient
-modelling, including random effects, its built-in support is limited to
-standard distributions. The package adds additional AD-compatible
-distributions, broadening the range of models that can be implemented and
-estimated using 'RTMB'. Automatic differentiation and Laplace
-approximation are described in Kristensen et al. (2016)
-<doi:10.18637/jss.v070.i05>.
+A 'shiny' app that allows to access and use the 'INVEKOS' API for field
+polygons in Austria. API documentation is available at
+<https://gis.lfrz.gv.at/api/geodata/i009501/ogc/features/v1/>.
 
 %prep
 %setup -q -c -n %{packname}

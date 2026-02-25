@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BTIME
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Models for Single-Cell Protein Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-coda 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-matlib
 %description
 Bayesian Hierarchical beta-binomial models for modeling cell population to
 predictors/exposures. This package utilizes 'runjags' to run Gibbs
-sampling with parallel chains. Options for different
+sampling, parallelizing the chains. Options for different
 covariances/relationship structures between parameters of interest.
 
 %prep

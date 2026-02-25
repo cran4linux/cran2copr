@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastkmedoids
-%global packver   1.3
+%global packname  Inflongitudinal
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Faster K-Medoids Clustering Algorithms: FastPAM, FastCLARA, FastCLARANS
+Summary:          Detecting Influential Subjects in Longitudinal Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mice 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mice 
 
 %description
-R wrappers of C++ implementation of Faster K-Medoids clustering algorithms
-(FastPAM, FastCLARA and FastCLARANS) proposed in Erich Schubert, Peter J.
-Rousseeuw 2019 <doi:10.1007/978-3-030-32047-8_16>.
+Provides methods for detecting influential subjects in longitudinal data,
+particularly when observations are collected at irregular time points. The
+package identifies subjects whose response trajectories deviate
+substantially from population-level patterns, helping to diagnose
+anomalies and undue influence on model estimates.
 
 %prep
 %setup -q -c -n %{packname}

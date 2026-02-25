@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpubr
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Publication Ready Plots
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-cowplot >= 1.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-ggrepel >= 0.9.2
 BuildRequires:    R-CRAN-rstatix >= 0.7.2
-BuildRequires:    R-CRAN-dplyr >= 0.7.1
 BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggsci 
@@ -39,9 +39,9 @@ BuildRequires:    R-CRAN-magrittr
 Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-cowplot >= 1.1.1
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-ggrepel >= 0.9.2
 Requires:         R-CRAN-rstatix >= 0.7.2
-Requires:         R-CRAN-dplyr >= 0.7.1
 Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-grid 
 Requires:         R-CRAN-ggsci 

@@ -1,55 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sumup
-%global packver   1.0.2
+%global packname  perumammals
+%global packver   0.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilizing Automated Text Analysis to Support Interpretation of Narrative Feedback
+Summary:          Taxonomic Backbone and Name Validation Tools for Mammals of Peru
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-udpipe 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fuzzyjoin 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-BuildRequires:    R-CRAN-topicmodels 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-memoise 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-udpipe 
-Requires:         R-CRAN-reticulate 
-Requires:         R-stats 
+Requires:         R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
-Requires:         R-CRAN-topicmodels 
-Requires:         R-utils 
+Requires:         R-CRAN-memoise 
 
 %description
-Combine topic modeling and sentiment analysis to identify individual
-students' gaps, and highlight their strengths and weaknesses across
-predefined competency domains and professional activities.
+Provides a curated taxonomic backbone of mammal species recorded in Peru,
+based on the checklist published by Pacheco and collaborators (2021)
+<doi:10.15381/rpb.v28i4.21019>. The package includes standardized species
+data, occurrence records by ecological regions, endemic status, and tools
+for validating and matching scientific names through exact and approximate
+string procedures. It is designed as a lightweight and reliable reference
+for ecological, environmental, biogeographical, and conservation workflows
+that require verified species information for Peruvian mammals.
 
 %prep
 %setup -q -c -n %{packname}

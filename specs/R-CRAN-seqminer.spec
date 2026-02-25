@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastkmedoids
-%global packver   1.3
+%global packname  seqminer
+%global packver   9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          9.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Faster K-Medoids Clustering Algorithms: FastPAM, FastCLARA, FastCLARANS
+Summary:          Efficiently Read Sequence Data (VCF Format, BCF Format, METAL Format and BGEN Format) into R
 
-License:          GPL (>= 2)
+License:          GPL | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
 
 %description
-R wrappers of C++ implementation of Faster K-Medoids clustering algorithms
-(FastPAM, FastCLARA and FastCLARANS) proposed in Erich Schubert, Peter J.
-Rousseeuw 2019 <doi:10.1007/978-3-030-32047-8_16>.
+Integrate sequencing data (Variant call format, e.g. VCF or BCF) or
+meta-analysis results in R. This package can help you (1) read
+VCF/BCF/BGEN files by chromosomal ranges (e.g. 1:100-200); (2) read
+'RareMETAL' summary statistics files; (3) read tables from a
+'tabix'-indexed files; (4) annotate VCF/BCF files; (5) create customized
+workflow based on Makefile.
 
 %prep
 %setup -q -c -n %{packname}

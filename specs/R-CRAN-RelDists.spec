@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RelDists
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation for some Reliability Distributions
 
@@ -40,7 +40,7 @@ Requires:         R-CRAN-VGAM
 Parameters estimation and linear regression models for Reliability
 distributions families reviewed by Almalki & Nadarajah (2014)
 <doi:10.1016/j.ress.2013.11.010> using Generalized Additive Models for
-Location, Scale and Shape, aka GAMLSS by Rigby & Stasinopoulos (2005)
+Location, Scale and Shape, GAMLSS by Rigby & Stasinopoulos (2005)
 <doi:10.1111/j.1467-9876.2005.00510.x>.
 
 %prep

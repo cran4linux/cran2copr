@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baytrends
-%global packver   2.0.12
+%global packver   2.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.12
+Version:          2.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Long Term Water Quality Trend Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dataRetrieval 
 BuildRequires:    R-CRAN-digest 
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
@@ -45,6 +47,8 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
 Enable users to evaluate long-term trends using a Generalized Additive

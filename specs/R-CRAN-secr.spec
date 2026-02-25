@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secr
-%global packver   5.4.1
+%global packver   5.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.1
+Version:          5.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 

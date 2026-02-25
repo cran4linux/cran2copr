@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spanishoddata
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Spanish Origin-Destination Data
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
@@ -34,6 +33,7 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
@@ -49,7 +49,6 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-here 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
@@ -58,6 +57,7 @@ Requires:         R-CRAN-memoise
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
@@ -74,7 +74,8 @@ This package simplifies the management of these large datasets by
 providing tools to download zone boundaries, handle associated
 origin-destination data, and process it efficiently with the 'duckdb'
 database interface.  Local caching minimizes repeated downloads,
-streamlining workflows for researchers and analysts. Extensive
+streamlining workflows for researchers and analysts.  Methods described in
+Kotov et al. (2026) <doi:10.1177/23998083251415040>. Extensive
 documentation is available at
 <https://ropenspain.github.io/spanishoddata/index.html>, offering guides
 on creating static and dynamic mobility flow visualizations and

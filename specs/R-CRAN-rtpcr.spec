@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtpcr
-%global packver   2.1.4
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          qPCR Data Analysis
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggsignif 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-purrr 
@@ -28,9 +27,9 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggsignif 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-purrr 
@@ -39,6 +38,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-grid 
 Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Tools for qPCR data analysis using Delta Ct and Delta Delta Ct methods,

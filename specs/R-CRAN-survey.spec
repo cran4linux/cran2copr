@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survey
-%global packver   4.4-8
+%global packver   4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.8
+Version:          4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Complex Survey Samples
 
@@ -48,8 +48,9 @@ models, cumulative link models, Cox models, loglinear models, and general
 maximum pseudolikelihood estimation for multistage stratified,
 cluster-sampled, unequally weighted survey samples. Variances by Taylor
 series linearisation or replicate weights. Post-stratification,
-calibration, and raking. Two-phase subsampling designs. Graphics. PPS
-sampling without replacement. Small-area estimation.
+calibration, and raking. Two-phase and multiphase subsampling designs.
+Graphics. PPS sampling without replacement. Small-area estimation.
+Dual-frame designs.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netSEM
-%global packver   0.6.2
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Structural Equation Modeling
 
@@ -18,25 +18,47 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.47
-BuildRequires:    R-CRAN-gtools >= 3.5.0
+BuildRequires:    R-stats >= 4.5.2
+BuildRequires:    R-CRAN-tibble >= 3.3.0
+BuildRequires:    R-CRAN-rcompanion >= 2.5.1
+BuildRequires:    R-CRAN-janitor >= 2.2.1
+BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-stringr >= 1.6.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-tidyr >= 1.3.2
 BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-svglite >= 1.2.1
+BuildRequires:    R-CRAN-purrr >= 1.2.1
 BuildRequires:    R-CRAN-htmlwidgets >= 1.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.3
 BuildRequires:    R-CRAN-rsvg >= 1.1
+BuildRequires:    R-CRAN-broom >= 1.0.11
 BuildRequires:    R-CRAN-DiagrammeR >= 0.9.2
 BuildRequires:    R-CRAN-segmented >= 0.5.3.0
+BuildRequires:    R-CRAN-butcher >= 0.4.0
 BuildRequires:    R-CRAN-png >= 0.1.7
 BuildRequires:    R-CRAN-DiagrammeRsvg >= 0.1
 Requires:         R-CRAN-MASS >= 7.3.47
-Requires:         R-CRAN-gtools >= 3.5.0
+Requires:         R-stats >= 4.5.2
+Requires:         R-CRAN-tibble >= 3.3.0
+Requires:         R-CRAN-rcompanion >= 2.5.1
+Requires:         R-CRAN-janitor >= 2.2.1
+Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-stringr >= 1.6.0
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-tidyr >= 1.3.2
 Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-svglite >= 1.2.1
+Requires:         R-CRAN-purrr >= 1.2.1
 Requires:         R-CRAN-htmlwidgets >= 1.2
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.3
 Requires:         R-CRAN-rsvg >= 1.1
+Requires:         R-CRAN-broom >= 1.0.11
 Requires:         R-CRAN-DiagrammeR >= 0.9.2
 Requires:         R-CRAN-segmented >= 0.5.3.0
+Requires:         R-CRAN-butcher >= 0.4.0
 Requires:         R-CRAN-png >= 0.1.7
 Requires:         R-CRAN-DiagrammeRsvg >= 0.1
 

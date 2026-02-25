@@ -1,30 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastkmedoids
-%global packver   1.3
+%global packname  pbiparams
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Faster K-Medoids Clustering Algorithms: FastPAM, FastCLARA, FastCLARANS
+Summary:          Safe Parameter Extraction for Power BI R Scripts
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
+BuildArch:        noarch
 
 %description
-R wrappers of C++ implementation of Faster K-Medoids clustering algorithms
-(FastPAM, FastCLARA and FastCLARANS) proposed in Erich Schubert, Peter J.
-Rousseeuw 2019 <doi:10.1007/978-3-030-32047-8_16>.
+Safely extracts and coerces values from a Power BI parameter table (one
+row, multiple columns) without string concatenation or injection of raw
+values into scripts.
 
 %prep
 %setup -q -c -n %{packname}

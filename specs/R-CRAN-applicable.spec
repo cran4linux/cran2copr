@@ -1,48 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RTMBdist
-%global packver   1.0.1
+%global packname  applicable
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributions Compatible with Automatic Differentiation by 'RTMB'
+Summary:          A Compilation of Applicability Domain Methods
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB >= 1.7
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.2
+BuildRequires:    R-CRAN-hardhat >= 1.3.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-proxyC 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gamlss.dist 
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-movMF 
-Requires:         R-CRAN-RTMB >= 1.7
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 4.0.2
+Requires:         R-CRAN-hardhat >= 1.3.1
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-proxyC 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-gamlss.dist 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-movMF 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Extends the functionality of the 'RTMB'
-<https://kaskr.r-universe.dev/RTMB> package by providing a collection of
-non-standard probability distributions compatible with automatic
-differentiation (AD). While 'RTMB' enables flexible and efficient
-modelling, including random effects, its built-in support is limited to
-standard distributions. The package adds additional AD-compatible
-distributions, broadening the range of models that can be implemented and
-estimated using 'RTMB'. Automatic differentiation and Laplace
-approximation are described in Kristensen et al. (2016)
-<doi:10.18637/jss.v070.i05>.
+A modeling package compiling applicability domain methods in R. It
+combines different methods to measure the amount of extrapolation new
+samples can have from the training set. See
+<doi:10.4018/IJQSPR.2016010102> for an overview of applicability domains.
 
 %prep
 %setup -q -c -n %{packname}

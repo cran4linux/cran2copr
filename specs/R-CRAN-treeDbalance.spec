@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treeDbalance
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of 3D Tree Imbalance
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-R.matlab 
 Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-R.matlab 
 
 %description
 The main goal of the R package 'treeDbalance' is to provide functions for
@@ -29,27 +31,31 @@ example dataset of 3D models of 63 beans in 'phylo3D' format. Please note
 that this R package was developed alongside the project described in the
 manuscript 'Measuring 3D tree imbalance of plant models using
 graph-theoretical approaches' by M. Fischer, S. Kersting, and L. Kühn
-(2023) <arXiv:2307.14537>, which provides precise mathematical definitions
-of the measurements. Furthermore, the package contains several helpful
-functions, for example, some auxiliary functions for computing the
-ancestors, descendants, and depths of the nodes, which ensures that the
-computations can be done in linear time. Most functions of 'treeDbalance'
-require as input a rooted tree in the 'phylo3D' format, an extended
-'phylo' format (as introduced in the R package 'ape' 1.9 in November
-2006). Such a 'phylo3D' object must have at least two new attributes next
-to those required by the 'phylo' format: 'node.coord', the coordinates of
-the nodes, as well as 'edge.weight', the literal weight or volume of the
-edges. Optional attributes are 'edge.diam', the diameter of the edges, and
-'edge.length', the length of the edges. For visualization purposes one can
-also specify 'edge.type', which ranges from normal cylinder to bud to
-leaf, as well as 'edge.color' to change the color of the edge depiction.
-This project was supported by the joint research project DIG-IT! funded by
-the European Social Fund (ESF), reference: ESF/14-BM-A55-0017/19, and the
-Ministry of Education, Science and Culture of Mecklenburg-Western
-Pomerania, Germany, as well as by the the project ArtIGROW, which is a
-part of the WIR!-Alliance 'ArtIFARM – Artificial Intelligence in Farming'
-funded by the German Federal Ministry of Education and Research (FKZ:
-03WIR4805).
+(2023) <doi:10.48550/arXiv.2307.14537>, which provides precise
+mathematical definitions of the measurements. Furthermore, the package
+contains several helpful functions, for example, some auxiliary functions
+for computing the ancestors, descendants, and depths of the nodes, which
+ensures that the computations can be done in linear time, or functions
+that convert existing formats of 3D tree models of other software into the
+'phylo3D' format. Moreover, it comprises functions to extract the
+graph-theoretical topology without vertices of in- and out-degree 1 of
+rooted 3D trees as well as to adapt node enumerations to the common
+'phylo' format. Most functions of 'treeDbalance' require as input a rooted
+tree in the 'phylo3D' format, an extended 'phylo' format (as introduced in
+the R package 'ape' 1.9 in November 2006). Such a 'phylo3D' object must
+have at least two new attributes next to those required by the 'phylo'
+format: 'node.coord', the coordinates of the nodes, as well as
+'edge.weight', the literal weight or volume of the edges. Optional
+attributes are 'edge.diam', the diameter of the edges, and 'edge.length',
+the length of the edges. For visualization purposes one can also specify
+'edge.type', which ranges from normal cylinder to bud to leaf, as well as
+'edge.color' to change the color of the edge depiction. This project was
+supported by the joint research project DIG-IT! funded by the European
+Social Fund (ESF), reference: ESF/14-BM-A55-0017/19, and the Ministry of
+Education, Science and Culture of Mecklenburg-Western Pomerania, Germany,
+as well as by the project ArtIGROW, which is a part of the WIR!-Alliance
+'ArtIFARM – Artificial Intelligence in Farming' funded by the German
+Federal Ministry of Education and Research (FKZ: 03WIR4805).
 
 %prep
 %setup -q -c -n %{packname}

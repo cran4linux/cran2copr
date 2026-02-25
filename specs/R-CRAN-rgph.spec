@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  airnow
+%global packname  rgph
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve 'AirNow' Air Quality Observations and Forecasts
+Summary:          Pair Critical Points and Compute Persistent Homology of Reeb Graphs
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.7.0
+Requires:         R-core >= 2.7.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-rJava >= 0.5.0
+BuildRequires:    R-CRAN-phutil 
+Requires:         R-CRAN-rJava >= 0.5.0
+Requires:         R-CRAN-phutil 
 
 %description
-Retrieve air quality data via the 'AirNow' <https://www.airnow.gov/> API.
+Interface to the 'ReebGraphPairing' program to compute critical points of
+Reeb graphs following Tu, Hajij, & Rosen (2019)
+<doi:10.1007/978-3-030-33720-9_8> via the 'rJava' package. Also store Reeb
+graphs in a minimal S3 class, convert between other network data
+structures, and post-process pairing data to obtain extended persistent
+homology following Carrière & Oudot (2018)
+<doi:10.1007/s10208-017-9370-z>.
 
 %prep
 %setup -q -c -n %{packname}
