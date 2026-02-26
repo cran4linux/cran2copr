@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GFE
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gross Flows Estimation under Complex Surveys
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-TeachingSampling
 
 %description
 The philosophy in the package is described in Stasny (1988)
-<doi:10.2307/1391558> and Gutierrez, A., Trujillo, L. & Silva, N. (2014),
+<doi:10.2307/1391558> and Guti?rrez, A., Trujillo, L. & Silva, N. (2014),
 <ISSN:1492-0921> to estimate the gross flows under complex surveys using a
 Markov chain approach with non response.
 

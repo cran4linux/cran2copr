@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unityForest
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Improving Interaction Modelling and Interpretability in Random Forests
 
@@ -46,9 +46,9 @@ measure (unity VIM), which quantifies covariate effects under the
 conditions in which they are strongest - either marginally or within
 subgroups defined by interactions - as well as covariate-representative
 tree roots (CRTRs) that provide interpretable visualizations of these
-conditions. Currently, only classification is supported. This package is a
-fork of the R package 'ranger' (main author: Marvin N. Wright), which
-implements random forests using an efficient C++ backend.
+conditions. Categorical and continuous outcomes are supported. This
+package is a fork of the R package 'ranger' (main author: Marvin N.
+Wright), which implements random forests using an efficient C++ backend.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  binr
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cut Numeric Values into Evenly Distributed Groups
 
@@ -18,12 +19,12 @@ Requires:         R-core >= 2.15
 BuildArch:        noarch
 
 %description
-Implementation of algorithms for cutting numerical values exhibiting a
-potentially highly skewed distribution into evenly distributed groups
-(bins). This functionality can be applied for binning discrete values,
-such as counts, as well as for discretization of continuous values, for
-example, during generation of features used in machine learning
-algorithms.
+Package binr (pronounced as "binner") provides algorithms for cutting
+numerical values exhibiting a potentially highly skewed distribution into
+evenly distributed groups (bins). This functionality can be applied for
+binning discrete values, such as counts, as well as for discretization of
+continuous values, for example, during generation of features used in
+machine learning algorithms.
 
 %prep
 %setup -q -c -n %{packname}

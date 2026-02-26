@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dm
-%global packver   1.0.12
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relational Data Models
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-cli >= 2.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-purrr >= 1.0.0
@@ -28,13 +28,12 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.2
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-cli >= 2.2.0
+Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-purrr >= 1.0.0
@@ -42,7 +41,6 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.3.2
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
 

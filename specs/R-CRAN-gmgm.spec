@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmgm
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Mixture Graphical Model Learning and Inference
 
@@ -43,7 +43,7 @@ dependencies between continuous variables. This package provides a
 complete framework to create, manipulate, learn the structure and the
 parameters, and perform inference in these models. Most of the algorithms
 are described in the PhD thesis of Roos (2018)
-<https://tel.archives-ouvertes.fr/tel-01943718>.
+<https://theses.hal.science/tel-01943718>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  keyed
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explicit Key Assumptions for Flat-File Data
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-cli 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-cli 
@@ -37,7 +39,8 @@ Helps make implicit data assumptions explicit by attaching keys to
 flat-file data that error when those assumptions are violated. Designed
 for CSV-first workflows without database infrastructure or version
 control. Provides key definition, assumption checks, join diagnostics, and
-optional drift detection against reference snapshots.
+automatic drift detection via watched data frames that snapshot before
+each transformation and report cell-level changes.
 
 %prep
 %setup -q -c -n %{packname}

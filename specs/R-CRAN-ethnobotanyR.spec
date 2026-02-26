@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ethnobotanyR
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Quantitative Ethnobotany Indices
+Summary:          Ethnobotanical Analysis, Decision-Framing, and TEK Modeling
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,14 +35,13 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-magrittr 
 
 %description
-An implementation of the quantitative ethnobotany indices in R. The goal
-is to provide an easy-to-use platform for ethnobotanists to assess the
-cultural significance of plant species based on informant consensus. The
-package closely follows the paper by Tardio and Pardo-de-Santayana (2008).
-Tardio, J., and M. Pardo-de-Santayana, 2008. Cultural Importance Indices:
-A Comparative Analysis Based on the Useful Wild Plants of Southern
-Cantabria (Northern Spain) 1. Economic Botany, 62(1), 24-39.
-<doi:10.1007/s12231-007-9004-5>.
+Tools for quantifying Traditional Ecological Knowledge (TEK), modeling TEK
+in decision frameworks, and designing structured decision-framing
+exercises in conservation and development contexts. The package implements
+quantitative ethnobotany indices (Use Value, Relative Frequency of
+Citation, etc.) but positions them within a larger framework of Bayesian
+modeling and participatory decision analysis. Includes critical assessment
+of indices' limitations and case studies of participatory workshops.
 
 %prep
 %setup -q -c -n %{packname}

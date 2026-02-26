@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ConsRank
-%global packver   2.1.5
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute the Median Ranking(s) According to the Kemeny's Axiomatic Approach
 
@@ -14,21 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-rlist >= 0.4.2
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-rlist >= 0.4.2
-Requires:         R-CRAN-rgl 
 Requires:         R-methods 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Compute the median ranking according to the Kemeny's axiomatic approach.
@@ -38,16 +37,17 @@ heuristic solutions recently proposed. The searching space of the solution
 can either be restricted to the universe of the permutations or
 unrestricted to all possible ties. The package also provide some useful
 utilities for deal with preference rankings, including both element-weight
-Kemeny distance and correlation coefficient. This release declare as
-deprecated some functions that are still in the package for compatibility.
-Next release will not contains these functions. Please type
-'?ConsRank-deprecated' Essential references: Emond, E.J., and Mason, D.W.
-(2002) <doi:10.1002/mcda.313>; D'Ambrosio, A., Amodio, S., and Iorio, C.
-(2015) <doi:10.1285/i20705948v8n2p198>; Amodio, S., D'Ambrosio, A., and
-Siciliano R. (2016) <doi:10.1016/j.ejor.2015.08.048>; D'Ambrosio, A.,
-Mazzeo, G., Iorio, C., and Siciliano, R. (2017)
-<doi:10.1016/j.cor.2017.01.017>; Albano, A., and Plaia, A. (2021)
-<doi:10.1285/i20705948v14n1p117>.
+Kemeny distance and correlation coefficient. This release includes also
+the median constrained bucket order algorithm. This release removes the
+functions previously declared as deprecated. These functions are now
+defunct and no longer available in the package. Essential references:
+Emond, E.J., and Mason, D.W. (2002) <doi:10.1002/mcda.313>; D'Ambrosio,
+A., Amodio, S., and Iorio, C. (2015) <doi:10.1285/i20705948v8n2p198>;
+Amodio, S., D'Ambrosio, A., and Siciliano R. (2016)
+<doi:10.1016/j.ejor.2015.08.048>; D'Ambrosio, A., Mazzeo, G., Iorio, C.,
+and Siciliano, R. (2017) <doi:10.1016/j.cor.2017.01.017>; Albano, A., and
+Plaia, A. (2021) <doi:10.1285/i20705948v14n1p117>; D'Ambrosio, A., Iorio,
+C., Staiano, M. and Siciliano, R (2019) <doi: 10.1007/s00180-018-0858-z>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyCohortBuilder
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modular Cohort-Building Framework for Analytical Dashboards
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-rlang >= 1.0
+BuildRequires:    R-CRAN-ggiraph >= 0.9.1
 BuildRequires:    R-CRAN-shinyWidgets >= 0.7.0
 BuildRequires:    R-CRAN-shinyGizmo >= 0.4.2
-BuildRequires:    R-CRAN-cohortBuilder >= 0.3.0
+BuildRequires:    R-CRAN-cohortBuilder >= 0.4.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-dplyr 
@@ -36,18 +36,18 @@ BuildRequires:    R-CRAN-tryCatchLog
 BuildRequires:    R-CRAN-highr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-rlang >= 1.0
+Requires:         R-CRAN-ggiraph >= 0.9.1
 Requires:         R-CRAN-shinyWidgets >= 0.7.0
 Requires:         R-CRAN-shinyGizmo >= 0.4.2
-Requires:         R-CRAN-cohortBuilder >= 0.3.0
+Requires:         R-CRAN-cohortBuilder >= 0.4.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-dplyr 

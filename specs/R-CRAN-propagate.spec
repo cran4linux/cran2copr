@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  propagate
-%global packver   1.0-7
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Propagation of Uncertainty
 
@@ -14,18 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
-BuildRequires:    R-CRAN-Rcpp >= 0.10.1
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tmvtnorm 
-BuildRequires:    R-CRAN-ff 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-minpack.lm 
-Requires:         R-CRAN-Rcpp >= 0.10.1
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tmvtnorm 
-Requires:         R-CRAN-ff 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-hdf5r 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-hdf5r 
+Requires:         R-CRAN-crayon 
 
 %description
 Propagation of uncertainty using higher-order Taylor expansion and Monte

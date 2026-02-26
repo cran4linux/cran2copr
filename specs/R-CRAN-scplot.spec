@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scplot
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Function for Single-Case Data Frames
 
@@ -34,7 +34,7 @@ frames ('scdf'). It includes functions for styling single-case plots,
 adding phase-based lines to indicate various statistical parameters, and
 predefined themes for presentations and publications. More information and
 in depth examples can be found in the online book "Analyzing Single-Case
-Data with R and 'scan" Jürgen Wilbert (2025)
+Data with R and 'scan" Jürgen Wilbert (2026)
 <https://jazznbass.github.io/scan-Book/>.
 
 %prep

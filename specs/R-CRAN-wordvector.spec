@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wordvector
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Word and Document Vector Models
 
@@ -36,8 +36,9 @@ Requires:         R-CRAN-rsvd
 
 %description
 Create dense vector representation of words and documents using
-'quanteda'. Currently implements Word2vec (Mikolov et al., 2013)
-<doi:10.48550/arXiv.1310.4546> and Latent Semantic Analysis (Deerwester et
+'quanteda'. Implements Word2vec (Mikolov et al., 2013)
+<doi:10.48550/arXiv.1310.4546>, Doc2vec (Le & Mikolov, 2014)
+<doi:10.48550/arXiv.1405.4053> and Latent Semantic Analysis (Deerwester et
 al., 1990)
 <doi:10.1002/(SICI)1097-4571(199009)41:6%%3C391::AID-ASI1%%3E3.0.CO;2-9>.
 
