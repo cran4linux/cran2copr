@@ -1,28 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FossilSim
-%global packver   2.3.3
+%global packver   2.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Fossil and Taxonomy Data
+Summary:          Simulation and Plots for Fossil and Taxonomy Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidytree 
 Requires:         R-CRAN-ape 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidytree 
 
 %description
-Simulating taxonomy and fossil data on phylogenetic trees under
-mechanistic models of speciation, preservation and sampling.
+Simulating and plotting taxonomy and fossil data on phylogenetic trees
+under mechanistic models of speciation, preservation and sampling.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LogisticEnsembles
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Runs 18 Logistic Models-14 Individual Logistic Models and 4 Ensembles of Models
 
@@ -36,6 +36,8 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-ipred 
 BuildRequires:    R-CRAN-klaR 
 BuildRequires:    R-CRAN-MachineShop 
@@ -49,7 +51,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-reactable 
-BuildRequires:    R-CRAN-reactablefmtr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-scales 
@@ -77,6 +78,8 @@ Requires:         R-CRAN-glmnet
 Requires:         R-graphics 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-gt 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-ipred 
 Requires:         R-CRAN-klaR 
 Requires:         R-CRAN-MachineShop 
@@ -90,7 +93,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-reactable 
-Requires:         R-CRAN-reactablefmtr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-scales 

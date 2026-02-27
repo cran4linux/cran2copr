@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parSim
-%global packver   0.1.5
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Simulation Studies
+Summary:          Parallel Simulator
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-parabar 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-snow 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-parabar 
 Requires:         R-utils 
 
 %description
 Perform flexible simulation studies using one or multiple computer cores.
 The package is set up to be usable on high-performance clusters in
-addition to being run locally, see examples on
-<https://github.com/SachaEpskamp/parSim>.
+addition to being run locally (i.e., see the package vignettes for more
+information).
 
 %prep
 %setup -q -c -n %{packname}

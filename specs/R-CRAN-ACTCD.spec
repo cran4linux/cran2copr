@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ACTCD
-%global packver   1.3-0
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Asymptotic Classification Theory for Cognitive Diagnosis
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-R.methodsS3 
 BuildRequires:    R-CRAN-GDINA 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R.methodsS3 
+BuildRequires:    R-CRAN-R.methodsS3 
 Requires:         R-CRAN-GDINA 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-R.methodsS3 
 
 %description
 Cluster analysis for cognitive diagnosis based on the Asymptotic

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  afcharts
-%global packver   0.4.1
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Produce Charts Following UK Government Analysis Function Guidance
 
@@ -14,19 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
 
 %description
 Colour palettes and a 'ggplot2' theme to follow the UK Government Analysis

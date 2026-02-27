@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adw
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Angular Distance Weighting Interpolation
 
@@ -32,7 +32,8 @@ latitude-longitude grids by weighting each station according to its
 distance and angle from the center of a search radius. In addition to
 this, we also provide a simple way (Jones and Hulme, 1996) to grid the
 irregularly-spaced data points onto regular latitude-longitude grids by
-averaging all stations in grid-boxes.
+averaging all stations in grid-boxes. This study was supported by the
+National Natural Science Foundation of China (NSFC, Grant No. 42205177).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClassificationEnsembles
-%global packver   1.0.2
+%global packname  tradeoffaucdim
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatically Builds 12 Classification Models (6 Individual and 6 Ensembles of Models) from Classification Data
+Summary:          Plotting Trade-Off AUC-Dimensionality
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,56 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-C50 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-ipred 
-BuildRequires:    R-CRAN-MachineShop 
+BuildRequires:    R-CRAN-speedglm 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-reactable 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tree 
-Requires:         R-CRAN-C50 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-ez 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-fuzzySim 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-ipred 
-Requires:         R-CRAN-MachineShop 
+Requires:         R-CRAN-speedglm 
 Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
-Requires:         R-CRAN-pls 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-reactable 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tree 
+Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-ez 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-fuzzySim 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Automatically builds 12 classification models from data. The package also
-returns 25 plots, 5 tables and a summary report.
+Perform and Runtime statistical comparisons between models. This package
+aims at choosing the best model for a particular dataset, regarding its
+discriminant power and runtime.
 
 %prep
 %setup -q -c -n %{packname}

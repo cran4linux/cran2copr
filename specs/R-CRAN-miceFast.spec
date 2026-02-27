@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  miceFast
-%global packver   0.8.5
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Imputations Using 'Rcpp' and 'Armadillo'
 
@@ -28,10 +28,10 @@ Requires:         R-CRAN-data.table
 Fast imputations under the object-oriented programming paradigm. Moreover
 there are offered a few functions built to work with popular R packages
 such as 'data.table' or 'dplyr'. The biggest improvement in time
-performance could be achieve for a calculation where a grouping variable
-have to be used. A single evaluation of a quantitative model for the
-multiple imputations is another major enhancement. A new major improvement
-is one of the fastest predictive mean matching in the R world because of
+performance can be achieved for a calculation where a grouping variable is
+used. A single evaluation of a quantitative model for the multiple
+imputations is another major enhancement. A new major improvement is one
+of the fastest predictive mean matching in the R world because of
 presorting and binary search.
 
 %prep

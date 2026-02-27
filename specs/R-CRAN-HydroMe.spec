@@ -1,38 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  survivalMPLdc
-%global packver   0.1.1
+%global packname  HydroMe
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalised Likelihood for Survival Analysis with Dependent Censoring
+Summary:          Estimating Water Retention and Infiltration Model Parameters using Experimental Data
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-splines2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-CRAN-copula 
 Requires:         R-stats 
-Requires:         R-CRAN-splines2 
-Requires:         R-CRAN-survival 
-Requires:         R-graphics 
-Requires:         R-CRAN-matrixcalc 
 
 %description
-Fitting Cox proportional hazard model under dependent right censoring
-using copula and maximum penalised likelihood methods.
+Estimates the parameters of infiltration and water retention models using
+the curve-fitting methods as shown in Omuto and Gumbe (2009)
+<doi:10.1016/j.cageo.2008.08.011>. The models considered are those that
+are commonly used in soil science. Version 2 of the package has new models
+for water retention characteristic curves.
 
 %prep
 %setup -q -c -n %{packname}

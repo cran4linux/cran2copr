@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ShrinkageTrees
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Trees with Shrinkage Priors
+Summary:          Bayesian Tree Ensembles for Survival Analysis and Causal Inference
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,9 +20,12 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 Requires:         R-CRAN-Rcpp >= 1.0.11
 
 %description
-Bayesian regression tree models with shrinkage priors on step heights.
-Supports continuous, binary, and right-censored (survival) outcomes. Used
-for high-dimensional prediction and causal inference.
+Bayesian regression tree ensembles for survival analysis and causal
+inference. Implements BART, DART, Bayesian Causal Forests (BCF), and
+Horseshoe Forests models. Supports right-censored survival outcomes via
+accelerated failure time (AFT) formulations. Designed for high-dimensional
+prediction and heterogeneous treatment effect estimation in causal
+inference.
 
 %prep
 %setup -q -c -n %{packname}

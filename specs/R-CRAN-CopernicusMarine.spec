@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CopernicusMarine
-%global packver   0.4.0
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search Download and Handle Data from Copernicus Marine Service Information
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-stars >= 0.6.8
 BuildRequires:    R-CRAN-aws.s3 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-stars >= 0.6.8
 Requires:         R-CRAN-aws.s3 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 

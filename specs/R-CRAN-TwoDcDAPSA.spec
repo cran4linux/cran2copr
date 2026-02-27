@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TwoDcDAPSA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate TwoDcDAPSA: PROs-Joint Contrast (PJC) Score and Quartiles
+Summary:          Calculate TwoDcDAPSA: PROs-Joint Contrast (PJC) and Swollen–Tender Joints Contrast (STC) Scores and Quartiles
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,15 +27,17 @@ Requires:         R-CRAN-rlang
 %description
 Provides a calculator for the two-dimensional clinical Disease Activity
 index for Psoriatic Arthritis (TwoDcDAPSA), a principal component-derived
-measure that complements the conventional clinical DAPSA score. The
-TwoDcDAPSA captures residual variation in patient-reported outcomes (pain
-and patient global assessment) and joint counts (swollen and tender) after
-adjusting for standardized cDAPSA using natural spline coefficients
-derived from published models. Residuals are standardized and combined
-with fixed principal component loadings to yield a continuous PROs-Joint
-Contrast (PJC) score and quartile groupings. The package applies
-pre-specified coefficients and loadings to new datasets but does not
-estimate spline models or principal components itself.
+measure that complements the conventional clinical DAPSA score. TwoDcDAPSA
+captures residual variation in patient-reported outcomes (pain and patient
+global assessment) and joint counts (swollen and tender) after adjusting
+for standardized cDAPSA using natural spline coefficients derived from
+published models. Residuals are standardized and combined with fixed
+principal component loadings to yield two continuous component scores: the
+PROs-Joint Contrast (PJC) and the Swollen–Tender joints Contrast (STC),
+along with quartile-based groupings (including optional combined quartile
+groupings). The package applies pre-specified coefficients, residual
+standardization, and loadings to new datasets but does not estimate spline
+models or principal components itself.
 
 %prep
 %setup -q -c -n %{packname}

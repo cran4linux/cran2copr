@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  validata
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Validate Data Frames
 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-listviewer
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-BBmisc 
 BuildRequires:    R-CRAN-framecleaner 
 BuildRequires:    R-CRAN-badger 
 BuildRequires:    R-CRAN-rlist 
@@ -48,7 +48,6 @@ Requires:         R-CRAN-listviewer
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-scales 
 Requires:         R-utils 
-Requires:         R-CRAN-BBmisc 
 Requires:         R-CRAN-framecleaner 
 Requires:         R-CRAN-badger 
 Requires:         R-CRAN-rlist 

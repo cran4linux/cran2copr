@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  useful
-%global packver   1.2.6.1
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6.1
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Handy, Useful Functions
 
@@ -21,22 +21,24 @@ BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-CRAN-purrr >= 0.1.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-purrr >= 0.1.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-CRAN-scales 
 Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
 A set of little functions that have been found useful to do little odds

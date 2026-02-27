@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NumericEnsembles
-%global packver   1.0.0
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Runs 18 Individual and 14 Ensembles of Models
 
@@ -36,6 +36,8 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-ipred 
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-CRAN-nnet 
@@ -45,7 +47,6 @@ BuildRequires:    R-CRAN-pls
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-reactable 
-BuildRequires:    R-CRAN-reactablefmtr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-scales 
@@ -74,6 +75,8 @@ Requires:         R-CRAN-glmnet
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-ipred 
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-nnet 
@@ -83,7 +86,6 @@ Requires:         R-CRAN-pls
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-reactable 
-Requires:         R-CRAN-reactablefmtr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-scales 

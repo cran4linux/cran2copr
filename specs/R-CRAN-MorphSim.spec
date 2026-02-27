@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  automerge
-%global packver   0.4.0
+%global packname  MorphSim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for 'Automerge' 'CRDT' Library
+Summary:          Simulate Discrete Character Data along Phylogenetic Trees
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-FossilSim 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-phangorn 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-FossilSim 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-phangorn 
 
 %description
-Provides R bindings to the 'Automerge' Conflict-free Replicated Data Type
-('CRDT') library. 'Automerge' enables automatic merging of concurrent
-changes without conflicts, making it ideal for distributed systems,
-collaborative applications, and offline-first architectures. The approach
-of local-first software was proposed in Kleppmann, M., Wiggins, A., van
-Hardenberg, P., McGranaghan, M. (2019) <doi:10.1145/3359591.3359737>. This
-package supports all 'Automerge' data types (maps, lists, text, counters)
-and provides both low-level and high-level synchronization protocols for
-seamless interoperability with 'JavaScript' and other 'Automerge'
-implementations.
+Tools to simulate morphological traits along phylogenetic trees with
+branch lengths representing evolutionary distance or time. Includes
+functions for visualizing evolutionary processes along trees and within
+morphological character matrices.
 
 %prep
 %setup -q -c -n %{packname}

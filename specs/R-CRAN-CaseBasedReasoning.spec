@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggdensity
-%global packver   1.0.1
+%global packname  CaseBasedReasoning
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpretable Bivariate Density Visualization with 'ggplot2'
+Summary:          Case Based Reasoning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-isoband 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-rms 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-isoband 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-scales 
 
 %description
-The 'ggplot2' package provides simple functions for visualizing contours
-of 2-d kernel density estimates. 'ggdensity' implements several additional
-density estimators as well as more interpretable visualizations based on
-highest density regions instead of the traditional height of the estimated
-density surface.
+Case-based reasoning is a problem-solving methodology that involves
+solving a new problem by referring to the solution of a similar problem in
+a large set of previously solved problems. The key aspect of Case Based
+Reasoning is to determine the problem that "most closely" matches the new
+problem at hand. This is achieved by defining a family of distance
+functions and using these distance functions as parameters for local
+averaging regression estimates of the final result. The optimal distance
+function is chosen based on a specific error measure used in regression
+estimation. This approach allows for efficient problem-solving by
+leveraging past experiences and adapting solutions from similar cases. The
+underlying concept is inspired by the work of Dippon J. et al. (2002)
+<doi:10.1016/S0167-9473(02)00058-0>.
 
 %prep
 %setup -q -c -n %{packname}

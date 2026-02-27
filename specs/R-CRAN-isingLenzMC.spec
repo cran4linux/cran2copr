@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isingLenzMC
-%global packver   0.2.8
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo for Classical Ising Model
 
@@ -27,7 +27,9 @@ single flip dynamics in periodic boundary conditions. Utility functions
 for exact solutions are provided. Such as transfer matrix for 1D. Utility
 functions for exact solutions are provided. Example use cases are as
 follows: Measuring effective ergodicity and power-laws in so called
-functional-diffusion.
+functional-diffusion. Example usage contains parallel runs, fitting
+power-laws, finite size scaling, computing autocorrelation, uncertainty
+analysis and plotting utilities.
 
 %prep
 %setup -q -c -n %{packname}
