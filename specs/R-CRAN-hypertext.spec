@@ -1,40 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  algebraic.dist
-%global packver   0.9.1
+%global packname  hypertext
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algebra over Probability Distributions
+Summary:          'HTML' Element Construction
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-R6 
 
 %description
-Provides an algebra over probability distributions enabling composition,
-sampling, and automatic simplification to closed forms. Supports normal,
-exponential, gamma, Weibull, chi-squared, uniform, beta, log-normal,
-Poisson, multivariate normal, empirical, and mixture distributions with
-algebraic operators (addition, subtraction, multiplication, division,
-power, exp, log, min, max) that automatically simplify when mathematical
-identities apply. Includes closed-form MVN conditioning (Schur
-complement), affine transformations, mixture marginals/conditionals (Bayes
-rule), and limiting distribution builders (CLT, LLN, delta method). Uses
-S3 classes for distributions and R6 for support objects.
+Provides a deterministic, framework-agnostic Domain-Specific Language for
+building 'HTML' nodes and rendering them to a string.
 
 %prep
 %setup -q -c -n %{packname}

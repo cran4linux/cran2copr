@@ -1,35 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  orbital
-%global packver   0.5.0
+%global packname  neuromapr
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict with 'tidymodels' Workflows in Databases
+Summary:          Spatial Null Models and Transforms for Brain Map Comparison
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gifti 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-generics >= 0.1.2
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gifti 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-CRAN-withr 
 
 %description
-Turn 'tidymodels' workflows into objects containing the sufficient
-sequential equations to perform predictions. These smaller objects allow
-for low dependency prediction locally or directly in databases.
+Implements spatial null models and coordinate-space transformations for
+statistical comparison of brain maps, following the framework described in
+Markello et al. (2022) <doi:10.1038/s41592-022-01625-w>. Provides
+variogram-matching surrogates (Burt et al. 2020), Moran spectral
+randomization (Wagner & Dray 2015), and spin-based permutation tests
+(Alexander-Bloch et al. 2018). Includes an R interface to the 'neuromaps'
+annotation registry for browsing, downloading, and comparing brain map
+annotations from the Open Science Framework ('OSF'). Integrates with
+'ciftiTools' for coordinate-space transforms.
 
 %prep
 %setup -q -c -n %{packname}

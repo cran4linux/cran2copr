@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Ravages
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rare Variant Analysis and Genetic Simulations
 
@@ -44,8 +44,10 @@ Requires:         R-CRAN-data.table
 %description
 Rare variant association tests: burden tests (Bocher et al. 2019
 <doi:10.1002/gepi.22210>) and the Sequence Kernel Association Test (Bocher
-et al. 2021 <doi:10.1038/s41431-020-00792-8>) in the whole genome; and
-genetic simulations.
+et al. 2021 <doi:10.1038/s41431-020-00792-8>) in the whole genome using
+the RAVA-FIRST approach (Bocher et al. 2022
+<doi:10.1371/journal.pgen.1009923>). Ravages also enables to perform
+genetic simulations (Bocher et al. 2023 <doi:10.1002/gepi.22529>).
 
 %prep
 %setup -q -c -n %{packname}

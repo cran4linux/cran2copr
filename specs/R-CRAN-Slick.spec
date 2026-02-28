@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Slick
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Visualization of MSE Results
 
@@ -50,7 +50,7 @@ Requires:         R-utils
 A framework for visualizing and exploring results of a Management Strategy
 Evaluation (MSE). The publication quality figures and tables can be
 developed directly from the R console, or interactively explored with the
-'Slick' App. For more details, see the `Slick` website
+'Slick' App. For more details, see the 'Slick' website
 <https://slick.bluematterscience.com>.
 
 %prep

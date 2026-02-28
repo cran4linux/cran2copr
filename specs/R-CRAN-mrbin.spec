@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mrbin
-%global packver   1.9.4
+%global packver   1.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.4
+Version:          1.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metabolomics Data Analysis Functions
 
@@ -22,11 +22,13 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
 A collection of functions for processing and analyzing metabolite data.

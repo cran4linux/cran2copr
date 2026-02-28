@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fio
-%global packver   0.1.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Friendly Input-Output Analysis
 
@@ -38,11 +38,11 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-R6 
 
 %description
-Simplifies the process of importing and managing input-output matrices
-from 'Microsoft Excel' into R, and provides a suite of functions for
-analysis. It leverages the 'R6' class for clean, memory-efficient
-object-oriented programming. Furthermore, all linear algebra computations
-are implemented in 'Rust' to achieve highly optimized performance.
+Simplifies the process of economic input-output analysis by combining
+user-friendly interfaces with high-performance computation. It provides
+tools for analyzing both single-region and multi-regional economic systems
+through a hybrid architecture that pairs R's accessibility with Rust's
+computational efficiency.
 
 %prep
 %setup -q -c -n %{packname}

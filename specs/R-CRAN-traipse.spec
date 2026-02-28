@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traipse
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shared Tools for Tracking Data
 
@@ -19,11 +19,11 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-geodist 
-BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-geographiclib 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-geodist 
-Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-geographiclib 
 Requires:         R-stats 
 
 %description
@@ -32,8 +32,7 @@ data. Variously distance, angle, bearing, distance-to, bearing-to and
 speed are provided for geographic data that can be used directly or within
 'tidyverse' syntax. Distances and bearings are calculated using modern
 geodesic methods as provided by Charles F. F. Karney (2013)
-<doi:10.1007/s00190-012-0578-z> via the 'geodist' and 'geosphere'
-packages.
+<doi:10.1007/s00190-012-0578-z> via the 'geographiclib' package.
 
 %prep
 %setup -q -c -n %{packname}

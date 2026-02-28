@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  faersquarterlydata
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          FDA Adverse Event Reporting System Quarterly Data Extracting Tool
 
@@ -38,8 +38,7 @@ Requires:         R-utils
 
 %description
 An easy framework to read FDA Adverse Event Reporting System XML/ASCII
-files
-<https://www.fda.gov/drugs/questions-and-answers-fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-latest-quarterly-data-files>.
+files.
 
 %prep
 %setup -q -c -n %{packname}

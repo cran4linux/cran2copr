@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  algebraic.dist
-%global packver   0.9.1
+%global packname  ggvegan
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algebra over Probability Distributions
+Summary:          'ggplot2' Plots for the 'vegan' Package
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-vegan >= 2.3.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-generics 
+Requires:         R-CRAN-vegan >= 2.3.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-generics 
 
 %description
-Provides an algebra over probability distributions enabling composition,
-sampling, and automatic simplification to closed forms. Supports normal,
-exponential, gamma, Weibull, chi-squared, uniform, beta, log-normal,
-Poisson, multivariate normal, empirical, and mixture distributions with
-algebraic operators (addition, subtraction, multiplication, division,
-power, exp, log, min, max) that automatically simplify when mathematical
-identities apply. Includes closed-form MVN conditioning (Schur
-complement), affine transformations, mixture marginals/conditionals (Bayes
-rule), and limiting distribution builders (CLT, LLN, delta method). Uses
-S3 classes for distributions and R6 for support objects.
+Functions to produce 'ggplot2'-based plots of objects produced by
+functions in the 'vegan' package. Provides 'fortify()', 'autoplot()', and
+'tidy()' methods for many of 'vegan''s functions. The aim of 'ggvegan' is
+to make it easier to work within the 'tidyverse' with 'vegan'.
 
 %prep
 %setup -q -c -n %{packname}

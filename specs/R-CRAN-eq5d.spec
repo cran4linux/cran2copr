@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eq5d
-%global packver   0.16.1
+%global packver   0.16.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.1
+Version:          0.16.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Analysing 'EQ-5D' Data and Calculating 'EQ-5D' Index Scores
 
@@ -37,13 +37,13 @@ scale. Frequently the scores on these five dimensions are converted to a
 single utility index using country specific value sets, which can be used
 in the clinical and economic evaluation of health care as well as in
 population health surveys. The eq5d package provides methods to calculate
-index scores from a subject's dimension scores. 32 TTO and 11 VAS EQ-5D-3L
+index scores from a subject's dimension scores. 33 TTO and 11 VAS EQ-5D-3L
 value sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
 <doi:10.1007/978-94-007-7596-1>, 48 EQ-5D-5L EQ-VT value sets, the
 EQ-5D-5L crosswalk value sets developed by van Hout et al. (2012)
 <doi:10.1016/j.jval.2012.02.008>, the crosswalk value sets for Bermuda,
-Jordan and Russia and the van Hout (2021) reverse crosswalk value sets. 11
+Jordan and Russia and the van Hout (2021) reverse crosswalk value sets. 12
 EQ-5D-Y3L value sets are also included as are the NICE 'DSU' age-sex based
 EQ-5D-3L to EQ-5D-5L and EQ-5D-5L to EQ-5D-3L mappings. Methods are also
 included for the analysis of EQ-5D profiles, including those from the book

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psychonetrics
-%global packver   0.13.2
+%global packver   0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.2
+Version:          0.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling and Confirmatory Network Analysis
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-corpcor
 BuildRequires:    R-CRAN-glasso 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-VCA 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
@@ -39,6 +40,7 @@ BuildRequires:    R-CRAN-GA
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-pbv 
 BuildRequires:    R-CRAN-roptim 
 Requires:         R-CRAN-Matrix >= 1.6.5
@@ -52,6 +54,7 @@ Requires:         R-CRAN-corpcor
 Requires:         R-CRAN-glasso 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-VCA 
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 

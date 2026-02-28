@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  algebraic.dist
-%global packver   0.9.1
+%global packname  astronomyengine
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algebra over Probability Distributions
+Summary:          R Bindings to the 'Astronomy Engine' C Library
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-Provides an algebra over probability distributions enabling composition,
-sampling, and automatic simplification to closed forms. Supports normal,
-exponential, gamma, Weibull, chi-squared, uniform, beta, log-normal,
-Poisson, multivariate normal, empirical, and mixture distributions with
-algebraic operators (addition, subtraction, multiplication, division,
-power, exp, log, min, max) that automatically simplify when mathematical
-identities apply. Includes closed-form MVN conditioning (Schur
-complement), affine transformations, mixture marginals/conditionals (Bayes
-rule), and limiting distribution builders (CLT, LLN, delta method). Uses
-S3 classes for distributions and R6 for support objects.
+Provides access to the 'Astronomy Engine' C library
+(<https://github.com/cosinekitty/astronomy>) by Don Cross. The library
+calculates positions of the Sun, Moon, and planets, and predicts
+astronomical events such as rise/set times, lunar phases, equinoxes,
+solstices, eclipses, and transits. It is based on the 'VSOP87' planetary
+model and is accurate to within approximately one arcminute. This package
+bundles the single-file C source so that other R packages can link against
+it via 'LinkingTo' without shipping their own copy.
 
 %prep
 %setup -q -c -n %{packname}

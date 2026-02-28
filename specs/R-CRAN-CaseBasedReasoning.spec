@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CaseBasedReasoning
-%global packver   0.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Case Based Reasoning
 
@@ -16,18 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 

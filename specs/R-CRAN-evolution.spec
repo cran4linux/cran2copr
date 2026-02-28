@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evolution
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Client for 'Evolution Cloud API'
 
@@ -19,18 +19,20 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-base64enc 
 
 %description
 Provides an 'R' interface to the 'Evolution API'
 <https://evoapicloud.com>, enabling sending and receiving 'WhatsApp'
-messages directly from 'R'. Functions include sending text, images,
-documents, stickers, geographic locations, and interactive messages
-(lists). Also includes 'webhook' parsing utilities and channel health
-checks.
+messages directly from 'R'. Functions include sending text, media
+(image/video/document), audio, stickers, geographic locations, contacts,
+polls, interactive lists and button messages. Also includes number
+verification and structured CLI logging for debugging.
 
 %prep
 %setup -q -c -n %{packname}

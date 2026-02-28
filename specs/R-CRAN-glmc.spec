@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  algebraic.dist
-%global packver   0.9.1
+%global packname  glmc
+%global packver   0.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algebra over Probability Distributions
+Summary:          Fitting Generalized Linear Models Subject to Constraints
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-emplik 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-emplik 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-R6 
 
 %description
-Provides an algebra over probability distributions enabling composition,
-sampling, and automatic simplification to closed forms. Supports normal,
-exponential, gamma, Weibull, chi-squared, uniform, beta, log-normal,
-Poisson, multivariate normal, empirical, and mixture distributions with
-algebraic operators (addition, subtraction, multiplication, division,
-power, exp, log, min, max) that automatically simplify when mathematical
-identities apply. Includes closed-form MVN conditioning (Schur
-complement), affine transformations, mixture marginals/conditionals (Bayes
-rule), and limiting distribution builders (CLT, LLN, delta method). Uses
-S3 classes for distributions and R6 for support objects.
+Fits generalized linear models where the parameters are subject to linear
+constraints. The model is specified by giving a symbolic description of
+the linear predictor, a description of the error distribution, and a
+matrix of constraints on the parameters.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  algebraic.dist
-%global packver   0.9.1
+%global packname  tidyaudit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algebra over Probability Distributions
+Summary:          Pipeline Audit Trails and Data Diagnostics for 'tidyverse' Workflows
 
-License:          GPL (>= 3)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-R6 
+Requires:         R-utils 
 
 %description
-Provides an algebra over probability distributions enabling composition,
-sampling, and automatic simplification to closed forms. Supports normal,
-exponential, gamma, Weibull, chi-squared, uniform, beta, log-normal,
-Poisson, multivariate normal, empirical, and mixture distributions with
-algebraic operators (addition, subtraction, multiplication, division,
-power, exp, log, min, max) that automatically simplify when mathematical
-identities apply. Includes closed-form MVN conditioning (Schur
-complement), affine transformations, mixture marginals/conditionals (Bayes
-rule), and limiting distribution builders (CLT, LLN, delta method). Uses
-S3 classes for distributions and R6 for support objects.
+Provides pipeline audit trails and data diagnostics for 'tidyverse'
+workflows. The audit trail system captures lightweight metadata snapshots
+at each step of a pipeline, building a structured audit report without
+storing the data itself. Also includes diagnostic functions for
+interactive data analysis.
 
 %prep
 %setup -q -c -n %{packname}

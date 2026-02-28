@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  musicMCT
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze the Structure of Musical Scales
 
@@ -17,14 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Analysis of musical scales (& modes, grooves, etc.) in the vein of

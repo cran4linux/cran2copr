@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GD
-%global packver   10.8
+%global packver   10.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.8
+Version:          10.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographical Detectors for Assessing Spatial Factors
 

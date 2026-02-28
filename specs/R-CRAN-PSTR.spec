@@ -1,40 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  algebraic.dist
-%global packver   0.9.1
+%global packname  PSTR
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Algebra over Probability Distributions
+Summary:          Panel Smooth Transition Regression Modelling
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-magrittr 
 
 %description
-Provides an algebra over probability distributions enabling composition,
-sampling, and automatic simplification to closed forms. Supports normal,
-exponential, gamma, Weibull, chi-squared, uniform, beta, log-normal,
-Poisson, multivariate normal, empirical, and mixture distributions with
-algebraic operators (addition, subtraction, multiplication, division,
-power, exp, log, min, max) that automatically simplify when mathematical
-identities apply. Includes closed-form MVN conditioning (Schur
-complement), affine transformations, mixture marginals/conditionals (Bayes
-rule), and limiting distribution builders (CLT, LLN, delta method). Uses
-S3 classes for distributions and R6 for support objects.
+Implements the Panel Smooth Transition Regression (PSTR) framework for
+nonlinear panel data modelling. The modelling procedure consists of three
+stages: Specification, Estimation and Evaluation. The package provides
+tools for model specification testing, to do PSTR model estimation, and to
+do model evaluation. The implemented tests allow for cluster dependence
+and are heteroskedasticity-consistent. The wild bootstrap and wild cluster
+bootstrap tests are also implemented. Parallel computation (as an option)
+is implemented in some functions, especially the bootstrap tests. The
+package supports parallel computation, which is useful for large-scale
+bootstrap procedures.
 
 %prep
 %setup -q -c -n %{packname}

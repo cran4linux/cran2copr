@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bidux
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Behavioral Insight Design: A Toolkit for Integrating Behavioral Science in UI/UX Design
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-stats 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-stats 

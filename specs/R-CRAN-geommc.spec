@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geommc
-%global packver   0.1.1
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometric Markov Chain Sampling
 
@@ -16,25 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-mcmc 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-mcmc 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-progress 
 
 %description
 Simulates from discrete and continuous target distributions using
 geometric Metropolis-Hastings (MH) algorithms. Users specify the target
 distribution by an R function that evaluates the log un-normalized pdf or
 pmf. The package also contains a function implementing a specific
-geometric MH algorithm for performing high dimensional Bayesian variable
+geometric MH algorithm for performing high-dimensional Bayesian variable
 selection.
 
 %prep

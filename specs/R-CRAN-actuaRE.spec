@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actuaRE
-%global packver   0.1.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling Hierarchically Structured Risk Factors using Random Effects Models
+Summary:          Handling Single-Level and Hierarchically Structured Risk Factors using Credibility and Random Effects Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-reformulas 
 Requires:         R-stats 
 Requires:         R-methods 
@@ -37,14 +36,15 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-reformulas 
 
 %description
-Using this package, you can fit a random effects model using either the
-hierarchical credibility model, a combination of the hierarchical
-credibility model with a generalized linear model or a Tweedie generalized
-linear mixed model. See Campo, B.D.C. and Antonio, K. (2023)
+Fits random effects models for multi-level/high-cardinality factors using
+credibility theory (Buhlmann-Straub for single-level, Jewell for
+hierarchical structures), GLM extensions following Ohlsson (2008)
+<doi:10.1080/03461230701878612>, or Tweedie generalized linear mixed
+models. Provides functions for model fitting, visualization, and
+prediction. See Campo, B.D.C. and Antonio, K. (2023)
 <doi:10.1080/03461238.2022.2161413>.
 
 %prep

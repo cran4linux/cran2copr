@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bases
+%global packname  RcppTskit
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basis Expansions for Regression Modeling
+Summary:          'R' Access to the 'tskit C' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-reticulate >= 1.43.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-reticulate >= 1.43.0
+Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-methods 
+Requires:         R-CRAN-R6 
 
 %description
-Provides various basis expansions for flexible regression modeling,
-including random Fourier features (Rahimi & Recht, 2007)
-<https://proceedings.neurips.cc/paper_files/paper/2007/file/013a006f03dbc5392effeb8f18fda755-Paper.pdf>,
-exact kernel / Gaussian process feature maps, prior features for Bayesian
-Additive Regression Trees (BART) (Chipman et al., 2010)
-<doi:10.1214/09-AOAS285>, and a helpful interface for n-way interactions.
-The provided functions may be used within any modeling formula, allowing
-the use of kernel methods and other basis expansions in modeling functions
-that do not otherwise support them. Along with the basis expansions, a
-number of kernel functions are also provided, which support kernel
-arithmetic to form new kernels. Basic ridge regression functionality is
-included as well.
+'Tskit' enables efficient storage, manipulation, and analysis of ancestral
+recombination graphs (ARGs) using succinct tree sequence encoding. The
+tree sequence encoding of an ARG is described in Wong et al. (2024)
+<doi:10.1093/genetics/iyae100>, while `tskit` project is described in
+Jeffrey et al. (2026) <doi:10.48550/arXiv.2602.09649>. See also
+<https://tskit.dev> for project news, documentation, and tutorials.
+'Tskit' provides 'Python', 'C', and 'Rust' application programming
+interfaces (APIs). The 'Python' API can be called from 'R' via the
+'reticulate' package to load and analyse tree sequences as described at
+<https://tskit.dev/tutorials/tskitr.html>. 'RcppTskit' provides 'R' access
+to the 'tskit C' API for cases where the 'reticulate' option is not
+optimal; for example, high-performance or low-level work with tree
+sequences. Currently, 'RcppTskit' provides a limited set of 'R' functions
+because the 'Python' API and 'reticulate' already covers most needs.
 
 %prep
 %setup -q -c -n %{packname}
