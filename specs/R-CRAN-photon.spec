@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photon
-%global packver   0.7.4-1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Performance Geocoding using 'photon'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-httr2
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rvest 
 Requires:         R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-countrycode 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-httr2
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rvest 
 
 %description
 Features unstructured, structured and reverse geocoding using the 'photon'

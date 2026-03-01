@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hexify
-%global packver   0.3.10
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Equal-Area Hex Grids on the 'Snyder' 'ISEA' 'Icosahedron'
 
@@ -26,14 +26,16 @@ Requires:         R-methods
 Requires:         R-CRAN-rlang 
 
 %description
-Provides functions to build and use equal-area hexagonal discrete global
-grids using the 'Snyder' 'ISEA' projection ('Snyder' 1992
-<doi:10.3138/27H7-8K88-4882-1752>). Implements the 'ISEA' discrete global
-grid system ('Sahr', 'White' and 'Kimerling' 2003
-<doi:10.1559/152304003100011090>). Includes a fast 'C++' core for
-projection and aperture quantization, and 'sf'/'terra'-compatible R
-wrappers for grid generation and coordinate assignment. Output is
-compatible with 'dggridR' for interoperability.
+Provides functions to build and use hexagonal discrete global grids using
+the 'Snyder' 'ISEA' projection ('Snyder' 1992
+<doi:10.3138/27H7-8K88-4882-1752>) and the 'H3' hierarchical hexagonal
+system ('Uber' Technologies). Implements the 'ISEA' discrete global grid
+system ('Sahr', 'White' and 'Kimerling' 2003
+<doi:10.1559/152304003100011090>). Includes a fast 'C++' core for 'ISEA'
+projection and aperture quantization, an included 'H3' v4.4.1 C library
+for native 'H3' grid operations, and 'sf'/'terra'-compatible R wrappers
+for grid generation and coordinate assignment. Output is compatible with
+'dggridR' for interoperability.
 
 %prep
 %setup -q -c -n %{packname}

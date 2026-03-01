@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  idiolect
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forensic Authorship Analysis
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-proxy
 BuildRequires:    R-CRAN-quanteda.textstats 
 BuildRequires:    R-CRAN-spacyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-textclean 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-dplyr 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-proxy
 Requires:         R-CRAN-quanteda.textstats 
 Requires:         R-CRAN-spacyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-textclean 
 
 %description
 Carry out comparative authorship analysis of disputed and undisputed texts

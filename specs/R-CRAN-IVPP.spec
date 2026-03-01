@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IVPP
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Invariance Partial Pruning Test
 
@@ -26,6 +26,9 @@ BuildRequires:    R-CRAN-graphicalVAR
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-networktools 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-fmsb 
 Requires:         R-CRAN-bootnet 
 Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-dplyr 
@@ -35,6 +38,9 @@ Requires:         R-CRAN-graphicalVAR
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-networktools 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-fmsb 
 
 %description
 An implementation of the Invariance Partial Pruning (IVPP) approach
@@ -42,7 +48,10 @@ described in Du, X., Johnson, S. U., Epskamp, S. (2025) The Invariance
 Partial Pruning Approach to The Network Comparison in Longitudinal Data.
 IVPP is a two-step method that first test for global network structural
 difference with invariance test and then inspect specific edge difference
-with partial pruning.
+with partial pruning. The package also allows you to compute centrality
+measures and use radar chart to plot. Analysis of bridge centralities by
+community pairs is also possible (e.g., the bridge strength from
+depression to anxiety, and from depression to panic disorder).
 
 %prep
 %setup -q -c -n %{packname}

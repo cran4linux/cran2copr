@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GSODR
-%global packver   5.0.0
+%global packver   5.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          5.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Surface Summary of the Day ('GSOD') Weather Data Client
 
@@ -18,15 +18,15 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.15.4
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-data.table >= 1.15.4
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R.utils 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -36,20 +36,21 @@ Requires:         R-CRAN-withr
 Provides automated downloading, parsing, cleaning, unit conversion and
 formatting of Global Surface Summary of the Day ('GSOD') weather data from
 the from the USA National Centers for Environmental Information ('NCEI').
-Units are converted from from United States Customary System ('USCS')
-units to International System of Units ('SI').  Stations may be
-individually checked for number of missing days defined by the user, where
-stations with too many missing observations are omitted.  Only stations
-with valid reported latitude and longitude values are permitted in the
-final data.  Additional useful elements, saturation vapour pressure
-('es'), actual vapour pressure ('ea') and relative humidity ('RH') are
-calculated from the original data using the improved August-Roche-Magnus
-approximation (Alduchov & Eskridge 1996) and included in the final data
-set.  The resulting metadata include station identification information,
-country, state, latitude, longitude, elevation, weather observations and
-associated flags.  For information on the 'GSOD' data from 'NCEI', please
-see the 'GSOD' 'readme.txt' file available from,
-<https://www1.ncdc.noaa.gov/pub/data/gsod/readme.txt>.
+The data were retired on 2025-08-29 and are no longer updated. Units are
+converted from from United States Customary System ('USCS') units to
+International System of Units ('SI').  Stations may be individually
+checked for number of missing days defined by the user, where stations
+with too many missing observations are omitted.  Only stations with valid
+reported latitude and longitude values are permitted in the final data.
+Additional useful elements, saturation vapour pressure ('es'), actual
+vapour pressure ('ea') and relative humidity ('RH') are calculated from
+the original data using the improved August-Roche-Magnus approximation
+(Alduchov & Eskridge 1996) and included in the final data set.  The
+resulting metadata include station identification information, country,
+state, latitude, longitude, elevation, weather observations and associated
+flags.  For information on the 'GSOD' data from 'NCEI', please see the
+'GSOD' 'readme.txt' file available from,
+<https://www.ncei.noaa.gov/pub/data/gsod/readme.txt>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PathwaySpace
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Projection of Network Signals along Geodesic Paths
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-RANN
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-RGraphSpace >= 1.1.0
 Requires:         R-methods 
@@ -36,6 +38,8 @@ Requires:         R-CRAN-RANN
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-grid 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-lifecycle 
 
 %description

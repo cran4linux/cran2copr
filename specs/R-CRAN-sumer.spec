@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sumer
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sumerian Cuneiform Text Analysis
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-xml2 
@@ -24,6 +23,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ragg 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-xml2 
@@ -31,13 +31,14 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ragg 
+Requires:         R-CRAN-shiny 
 
 %description
 Provides functions for converting transliterated Sumerian texts to sign
-names and cuneiform characters, creating and querying dictionaries, and
-analyzing the structure of Sumerian words. Includes a built-in dictionary
-and supports both forward lookup (Sumerian to English) and reverse lookup
-(English to Sumerian).
+names and cuneiform characters, creating and querying dictionaries,
+analyzing the structure of Sumerian words, and creating translations.
+Includes a built-in dictionary and supports both forward lookup (Sumerian
+to English) and reverse lookup (English to Sumerian).
 
 %prep
 %setup -q -c -n %{packname}

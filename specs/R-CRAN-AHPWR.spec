@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AHPWR
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Analytic Hierarchy Process
 
@@ -25,7 +25,8 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-formattable 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-openxlsx 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tidyr 
@@ -34,7 +35,8 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-formattable 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xlsx 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-openxlsx 
 
 %description
 Compute a tree level hierarchy, judgment matrix, consistency index and

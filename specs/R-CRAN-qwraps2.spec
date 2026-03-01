@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qwraps2
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick Wraps 2
 
@@ -33,7 +33,7 @@ A collection of (wrapper) functions the creator found useful for quickly
 placing data summaries and formatted regression results into '.Rnw' or
 '.Rmd' files. Functions for generating commonly used graphics, such as
 receiver operating curves or Bland-Altman plots, are also provided by
-'qwraps2'.  'qwraps2' is a updated version of a package 'qwraps'. The
+'qwraps2'.  'qwraps2' is an updated version of a package 'qwraps'. The
 original version 'qwraps' was never submitted to CRAN but can be found at
 <https://github.com/dewittpe/qwraps/>. The implementation and limited
 scope of the functions within 'qwraps2'

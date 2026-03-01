@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  selection.index
-%global packver   2.0.0
+%global packname  pepr
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Selection Index in Plant Breeding
+Summary:          Reading Portable Encapsulated Projects
 
-License:          GPL (>= 3)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-httr2 
 
 %description
-Provides tools for the simultaneous improvement of multiple traits in
-plant breeding. Building upon the classical selection index (Smith 1937
-<doi:10.1111/j.1469-1809.1936.tb02143.x>) and modern quantitative genetics
-(Kang 2020 <doi:10.1007/978-3-319-91223-3>), this package calculates
-classical phenotypic, genomic, marker-assisted, restricted/constrained,
-and eigen selection indices. It also incorporates multi-stage selection
-evaluation and stochastic simulations to estimate genetic advance based on
-economic weights, heritability, and genetic correlations.
+A PEP, or Portable Encapsulated Project, is a dataset that subscribes to
+the PEP structure for organizing metadata. It is written using a simple
+YAML + CSV format, it is your one-stop solution to metadata management
+across data analysis environments. This package reads this standardized
+project configuration structure into R. Described in Sheffield et al.
+(2021) <doi:10.1093/gigascience/giab077>.
 
 %prep
 %setup -q -c -n %{packname}

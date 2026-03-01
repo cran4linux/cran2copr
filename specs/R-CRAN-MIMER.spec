@@ -1,50 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pedtricks
-%global packver   0.5.0
+%global packname  MIMER
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize, Summarize and Simulate Data from Pedigrees
+Summary:          Data Wrangling for Antimicrobial Resistance Studies
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-AMR 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-kinship2 
+BuildRequires:    R-CRAN-fuzzyjoin 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-MCMCglmm 
-BuildRequires:    R-CRAN-nadiv 
-BuildRequires:    R-CRAN-genetics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-AMR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-kinship2 
+Requires:         R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-MCMCglmm 
-Requires:         R-CRAN-nadiv 
-Requires:         R-CRAN-genetics 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-reshape2 
 
 %description
-Sensitivity and power analysis, for calculating statistics describing
-pedigrees from wild populations, and for visualizing pedigrees. This is a
-reboot of the methods developed by Morrissey and Wilson (2010) <doi:
-10.1111/j.1755-0998.2009.02817.x>.
+Designed for analyzing the Medical Information Mart for Intensive
+Care(MIMIC) dataset, a repository of freely accessible electronic health
+records. MIMER(MIMIC-enabled Research) package, offers a suite of data
+wrangling functions tailored specifically for preparing the dataset for
+research purposes, particularly in antimicrobial resistance(AMR) studies.
+It simplifies complex data manipulation tasks, allowing researchers to
+focus on their primary inquiries without being bogged down by wrangling
+complexities.
 
 %prep
 %setup -q -c -n %{packname}

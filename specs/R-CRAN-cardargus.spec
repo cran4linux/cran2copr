@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  selection.index
-%global packver   2.0.0
+%global packname  cardargus
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Selection Index in Plant Breeding
+Summary:          Generate SVG Information Cards with Embedded Fonts and Badges
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-gdtools 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-later 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-gdtools 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-later 
 
 %description
-Provides tools for the simultaneous improvement of multiple traits in
-plant breeding. Building upon the classical selection index (Smith 1937
-<doi:10.1111/j.1469-1809.1936.tb02143.x>) and modern quantitative genetics
-(Kang 2020 <doi:10.1007/978-3-319-91223-3>), this package calculates
-classical phenotypic, genomic, marker-assisted, restricted/constrained,
-and eigen selection indices. It also incorporates multi-stage selection
-evaluation and stochastic simulations to estimate genetic advance based on
-economic weights, heritability, and genetic correlations.
+Create self-contained SVG information cards with embedded 'Google Fonts',
+shields-style badges, and custom logos. Cards are fully portable SVG files
+ideal for dashboards, reports, and web applications. Includes functions to
+export cards to PNG format and display them in 'R Markdown' and 'Quarto'
+documents.
 
 %prep
 %setup -q -c -n %{packname}

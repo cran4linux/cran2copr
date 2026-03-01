@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RGraphSpace
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight Interface Between 'igraph' and 'ggplot2' Graphics
 
@@ -23,21 +23,34 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-ggrastr 
+BuildRequires:    R-CRAN-circlize 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-scales 
 Requires:         R-grid 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-ggrastr 
+Requires:         R-CRAN-circlize 
 
 %description
 Interface to integrate 'igraph' and 'ggplot2' graphics in a normalized
 coordinate system. 'RGraphSpace' implements new geometric objects using
 'ggplot2' prototypes, customized for side-by-side visualization of
-multiple graphs. By scaling shapes and graph elements, 'RGraphSpace' can
-provide a framework for layered visualizations.
+multiple graphs. By scaling shapes and graph elements, 'RGraphSpace' helps
+to create layered visualizations that stay coherent across multiple
+graphs.
 
 %prep
 %setup -q -c -n %{packname}

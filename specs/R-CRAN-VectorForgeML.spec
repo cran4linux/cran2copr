@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  selection.index
-%global packver   2.0.0
+%global packname  VectorForgeML
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Selection Index in Plant Breeding
+Summary:          High-Performance Machine Learning Framework with C++ Acceleration
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides tools for the simultaneous improvement of multiple traits in
-plant breeding. Building upon the classical selection index (Smith 1937
-<doi:10.1111/j.1469-1809.1936.tb02143.x>) and modern quantitative genetics
-(Kang 2020 <doi:10.1007/978-3-319-91223-3>), this package calculates
-classical phenotypic, genomic, marker-assisted, restricted/constrained,
-and eigen selection indices. It also incorporates multi-stage selection
-evaluation and stochastic simulations to estimate genetic advance based on
-economic weights, heritability, and genetic correlations.
+Machine learning utilities for fast vectorized model training. Methods are
+based on standard statistical learning references such as Hastie et al.
+(2009) <doi:10.1007/978-0-387-84858-7>.
 
 %prep
 %setup -q -c -n %{packname}

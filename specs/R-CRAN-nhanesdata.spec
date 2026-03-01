@@ -1,40 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  selection.index
-%global packver   2.0.0
+%global packname  nhanesdata
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Selection Index in Plant Breeding
+Summary:          Harmonized Access to NHANES Survey Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-nhanesA 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-srvyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-nhanesA 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-srvyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides tools for the simultaneous improvement of multiple traits in
-plant breeding. Building upon the classical selection index (Smith 1937
-<doi:10.1111/j.1469-1809.1936.tb02143.x>) and modern quantitative genetics
-(Kang 2020 <doi:10.1007/978-3-319-91223-3>), this package calculates
-classical phenotypic, genomic, marker-assisted, restricted/constrained,
-and eigen selection indices. It also incorporates multi-stage selection
-evaluation and stochastic simulations to estimate genetic advance based on
-economic weights, heritability, and genetic correlations.
+Instant access to harmonized National Health and Nutrition Examination
+Survey (NHANES) data spanning 1999-2023. Retrieve pre-processed datasets
+from reliable cloud storage with automatic type reconciliation and
+integrated search tools for variables and datasets. Simplifies NHANES data
+workflows by handling cycle management and maintaining data consistency
+across survey waves. Data is sourced from
+<https://www.cdc.gov/nchs/nhanes/>.
 
 %prep
 %setup -q -c -n %{packname}

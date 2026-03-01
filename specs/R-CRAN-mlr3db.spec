@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3db
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Base Backend for 'mlr3'
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3 >= 0.13.0
+BuildRequires:    R-CRAN-mlr3 >= 1.5.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.10.0
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-mlr3 >= 0.13.0
+Requires:         R-CRAN-mlr3 >= 1.5.0
 Requires:         R-CRAN-mlr3misc >= 0.10.0
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 

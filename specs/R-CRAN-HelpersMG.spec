@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HelpersMG
-%global packver   2025.12.22
+%global packver   2026.2.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.12.22
+Version:          2026.2.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Various R Functions Helpers
 
