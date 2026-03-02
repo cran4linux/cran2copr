@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  altdoc
-%global packver   0.7.1
+%global packname  airnow
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package Documentation Websites with 'Quarto', 'Docsify', 'Docute', or 'MkDocs'
+Summary:          Retrieve 'AirNow' Air Quality Observations and Forecasts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-evaluate 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-quarto 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-evaluate 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-quarto 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble 
 
 %description
-This is a simple and powerful package to create, render, preview, and
-deploy documentation websites for 'R' packages. It is a lightweight and
-flexible alternative to 'pkgdown', with support for many documentation
-generators, including 'Quarto', 'Docute', 'Docsify', and 'MkDocs'.
+Retrieve air quality data via the 'AirNow' <https://www.airnow.gov/> API.
 
 %prep
 %setup -q -c -n %{packname}

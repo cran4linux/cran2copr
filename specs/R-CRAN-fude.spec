@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fude
-%global packver   0.3.7
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Fude Polygon
 
@@ -14,32 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-units 
 
 %description

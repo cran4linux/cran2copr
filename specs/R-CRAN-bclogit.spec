@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bclogit
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Logistic Regression
 
@@ -47,8 +47,8 @@ Performs inference for Bayesian conditional logistic regression with
 informative priors built from the concordant pair data. We include many
 options to build the priors. And we include many options during the
 inference step for estimation, testing and confidence set creation. For
-details, see Kapelner and Tennenbaum (2026) ``Improved Conditional
-Logistic Regression using Information in Concordant Pairs with Software''
+details, see Kapelner and Tennenbaum (2026) "Improved Conditional Logistic
+Regression using Information in Concordant Pairs with Software"
 <doi:10.48550/arXiv.2602.08212>.
 
 %prep

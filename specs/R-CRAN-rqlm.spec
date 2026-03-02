@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqlm
-%global packver   4.3-1
+%global packver   4.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.1
+Version:          4.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modified Poisson Regression for Binary Outcome and Related Methods
 
@@ -33,15 +33,15 @@ Requires:         R-CRAN-lme4
 %description
 Modified Poisson, logistic and least-squares regression analyses for
 binary outcomes of Zou (2004) <doi:10.1093/aje/kwh090>, Noma
-(2025)<Forthcoming>, and Cheung (2007) <doi:10.1093/aje/kwm223> have been
-standard multivariate analysis methods to estimate risk ratio and risk
-difference in clinical and epidemiological studies. This R package
-involves an easy-to-handle function to implement these analyses by simple
-commands. Missing data analysis tools (multiple imputation) are also
-involved. In addition, recent studies have shown the ordinary robust
-variance estimator possibly has serious bias under small or moderate
-sample size situations for these methods. This package also provides
-computational tools to calculate alternative accurate confidence
+(2026)<doi:10.1016/j.spl.2026.110698>, and Cheung (2007)
+<doi:10.1093/aje/kwm223> have been standard multivariate analysis methods
+to estimate risk ratio and risk difference in clinical and epidemiological
+studies. This R package involves an easy-to-handle function to implement
+these analyses by simple commands. Missing data analysis tools (multiple
+imputation) are also involved. In addition, recent studies have shown the
+ordinary robust variance estimator possibly has serious bias under small
+or moderate sample size situations for these methods. This package also
+provides computational tools to calculate alternative accurate confidence
 intervals.
 
 %prep

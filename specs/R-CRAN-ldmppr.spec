@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ldmppr
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate and Simulate from Location Dependent Marked Point Processes
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-bundle
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rsample 
@@ -37,6 +36,7 @@ BuildRequires:    R-CRAN-spatstat.explore
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-GET 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-foreach 
@@ -49,7 +49,6 @@ Requires:         R-CRAN-bundle
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rsample 
@@ -63,6 +62,7 @@ Requires:         R-CRAN-spatstat.explore
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-GET 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-foreach 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modelbpp
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model BIC Posterior Probability
 
@@ -31,8 +31,10 @@ Requires:         R-CRAN-manymome
 %description
 Fits the neighboring models of a fitted structural equation model and
 assesses the model uncertainty of the fitted model based on BIC posterior
-probabilities, using the method presented in Wu, Cheung, and Leung (2020)
-<doi:10.1080/00273171.2019.1574546>.
+probabilities (BPP), using the method presented in Wu, Cheung, and Leung
+(2020) <doi:10.1080/00273171.2019.1574546>. See Pesigan, Cheung, Wu,
+Chang, and Leung (2026) <doi:10.3758/s13428-025-02921-x> for an
+introduction to the package.
 
 %prep
 %setup -q -c -n %{packname}

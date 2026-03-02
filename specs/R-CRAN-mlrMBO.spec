@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlrMBO
-%global packver   1.1.5.1
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5.1
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Optimization and Model-Based Optimization of Expensive Black-Box Functions
 

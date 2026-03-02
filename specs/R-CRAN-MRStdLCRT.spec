@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRStdLCRT
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Robust Standardization for Longitudinal Cluster-Randomized Trials
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-gee 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-lme4 >= 1.1.30
@@ -37,6 +38,7 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-gee 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
 
 %description
 Provides estimation and leave-one-cluster-out jackknife standard errors

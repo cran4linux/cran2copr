@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autograph
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Plotting of Many Graphs
+Summary:          Automatic Plotting and Theming of Many Graphs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
