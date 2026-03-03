@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ammiBayes
-%global packver   1.0-3
+%global packver   2.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Ammi Model for Continuous Data
+Summary:          Bayesian Ammi Model for Continuous Data with or without Additive and Dominance Effect
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,9 +38,9 @@ Requires:         R-CRAN-Hmisc
 
 %description
 Flexible multi-environment trials analysis via MCMC method for Additive
-Main Effects and Multiplicative Model (AMMI) for continuous data. Biplot
-with the averages and regions of confidence can be generated. The chains
-run in parallel on Linux systems and run serially on Windows.
+Main Effects and Multiplicative Interaction Model (AMMI) for continuous
+data. Biplot with the averages and regions of confidence can be generated.
+The chains run in parallel on Linux systems and run serially on Windows.
 
 %prep
 %setup -q -c -n %{packname}

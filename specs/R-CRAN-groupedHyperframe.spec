@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groupedHyperframe
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grouped Hyper Data Frame
 
@@ -57,9 +57,9 @@ Requires:         R-CRAN-spatstat.random
 Requires:         R-splines 
 
 %description
-An S3 class 'groupedHyperframe' that inherits from hyper data frame. Batch
-processes and aggregation of hyper column(s) over a nested grouping
-structure.
+An S3 class 'groupedHyperframe' that inherits from the hyper data frame
+class from the 'spatstat' packages. Batch process and aggregation of the
+hyper column(s) over a nested grouping structure.
 
 %prep
 %setup -q -c -n %{packname}

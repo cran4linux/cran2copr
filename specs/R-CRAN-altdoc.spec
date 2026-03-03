@@ -1,29 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libopenexr
-%global packver   3.4.0-5
+%global packname  altdoc
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0.5
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Static Library and Headers for 'OpenEXR' Image I/O
+Summary:          Package Documentation Websites with 'Quarto', 'Docsify', 'Docute', or 'MkDocs'
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-libimath 
-BuildRequires:    R-CRAN-libdeflate 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-evaluate 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-evaluate 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Provides the 'OpenEXR' static library and 'C++' headers for
-high-dynamic-range image I/O (see <https://openexr.com/>) needed to link R
-packages against the 'OpenEXR' library, along with a basic R interface to
-load 'EXR' images.
+This is a simple and powerful package to create, render, preview, and
+deploy documentation websites for 'R' packages. It is a lightweight and
+flexible alternative to 'pkgdown', with support for many documentation
+generators, including 'Quarto', 'Docute', 'Docsify', and 'MkDocs'.
 
 %prep
 %setup -q -c -n %{packname}

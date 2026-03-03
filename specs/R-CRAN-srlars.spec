@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  srlars
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Split Robust Least Angle Regression
+Summary:          Fast and Scalable Cellwise-Robust Ensemble
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,17 +18,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cellWise 
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-mvnfast 
 Requires:         R-CRAN-cellWise 
-Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-mvnfast 
 
 %description
-Functions to perform split robust least angle regression. The approach
-first uses the least angle regression algorithm to split the variables
-into the models of an ensemble and robust estimates of the correlation
-between predictors. An elastic net estimator is then applied to the
-selected predictors in each model using the imputed data from the detect
-deviating cell (DDC) method.
+Functions to perform robust variable selection and regression using the
+Fast and Scalable Cellwise-Robust Ensemble (FSCRE) algorithm. The approach
+establishes a robust foundation using the Detect Deviating Cells (DDC)
+algorithm and robust correlation estimates. It then employs a competitive
+ensemble architecture where a robust Least Angle Regression (LARS) engine
+proposes candidate variables and cross-validation arbitrates their
+assignment. A final robust MM-estimator is applied to the selected
+predictors.
 
 %prep
 %setup -q -c -n %{packname}

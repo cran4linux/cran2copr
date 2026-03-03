@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genie
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast, Robust, and Outlier Resistant Hierarchical Clustering
 
@@ -24,18 +24,17 @@ Requires:         R-stats
 Requires:         R-CRAN-genieclust 
 
 %description
-Includes the basic implementation of Genie - a hierarchical clustering
-algorithm that links two point groups in such a way that an inequity
+Implements a basic version of the hierarchical clustering algorithm
+'Genie' which links two point groups in such a way that an inequity
 measure (namely, the Gini index) of the cluster sizes does not
 significantly increase above a given threshold. This method most often
 outperforms many other data segmentation approaches in terms of clustering
 quality as tested on a wide range of benchmark datasets. At the same time,
 Genie retains the high speed of the single linkage approach, therefore it
 is also suitable for analysing larger data sets. For more details see
-(Gagolewski et al. 2016 <DOI:10.1016/j.ins.2016.05.003>). For an even
-faster and more feature-rich implementation, including, amongst others,
-see the 'genieclust' package (Gagolewski, 2021
-<DOI:10.1016/j.softx.2021.100722>).
+(Gagolewski et al. 2016 <DOI:10.1016/j.ins.2016.05.003>). For a faster and
+more feature-rich implementation, see the 'genieclust' package
+(Gagolewski, 2021 <DOI:10.1016/j.softx.2021.100722>).
 
 %prep
 %setup -q -c -n %{packname}

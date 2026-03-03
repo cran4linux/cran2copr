@@ -1,57 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smplot2
-%global packver   0.2.6
+%global packname  test.assessr
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Standalone and Composite Plots in 'ggplot2' for Publications
+Summary:          Assessing Package Test Reliability and Quality
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-covr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-RUnit 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pwr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-patchwork 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-covr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-grid 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-RUnit 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-pwr 
-Requires:         R-stats 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-withr 
 
 %description
-Provides functions for creating and annotating a composite plot in
-'ggplot2'. Offers background themes and shortcut plotting functions that
-produce figures that are appropriate for the format of scientific
-journals. Some methods are described in Min and Zhou (2021)
-<doi:10.3389/fgene.2021.802894>.
+A reliable and validated tool that calculates unit test coverage for R
+packages with standard testing frameworks and non-standard testing
+frameworks.
 
 %prep
 %setup -q -c -n %{packname}

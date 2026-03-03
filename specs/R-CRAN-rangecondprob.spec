@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppLbfgsBlaze
-%global packver   0.1.0
+%global packname  rangecondprob
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'L-BFGS' Algorithm Based on 'Blaze' for 'R' and 'Rcpp'
+Summary:          Tools for Conditional Probability
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-RcppBlaze >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-RcppBlaze >= 1.0.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-The 'L-BFGS' algorithm is a popular optimization algorithm for
-unconstrained optimization problems. 'Blaze' is a high-performance 'C++'
-math library for dense and sparse arithmetic. This package provides a
-simple interface to the 'L-BFGS' algorithm and allows users to optimize
-their objective functions with 'Blaze' vectors and matrices in 'R' and
-'Rcpp'.
+Streamline the calculation of conditional probabilities for various
+numeric ranges in an R DataFrame. It automates the need to convert
+numerical data into categorical data for conditional probability
+calculation, making it ideal for quick and preliminary data analysis.
 
 %prep
 %setup -q -c -n %{packname}

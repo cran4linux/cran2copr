@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecorisk
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Assessments for Ecosystems or Ecosystem Components
 
@@ -14,27 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-geomtextpath 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-geomtextpath 
-Requires:         R-CRAN-ggnewscale 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

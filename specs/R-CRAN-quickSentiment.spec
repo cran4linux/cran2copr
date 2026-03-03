@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickSentiment
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Fast and Flexible Pipeline for Text Classification
 
@@ -17,42 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-naivebayes 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-stopwords 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-textstem 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-naivebayes 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-stopwords 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-naivebayes 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-stopwords 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-textstem 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-naivebayes 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-doParallel 
 
 %description
-A high-level wrapper that simplifies text classification into three
-streamlined steps: preprocessing, model training, and prediction. It
-unifies the interface for multiple algorithms (including 'glmnet',
-'ranger', and 'xgboost') and vectorization methods (Bag-of-Words, Term
-Frequency-Inverse Document Frequency (TF-IDF)), allowing users to go from
-raw text to a trained sentiment model in two function calls. The resulting
-model artifact automatically handles preprocessing for new datasets in the
-third step, ensuring consistent prediction pipelines.
+A high-level pipeline that simplifies text classification into three
+streamlined steps: preprocessing, model training, and standardized
+prediction. It unifies the interface for multiple algorithms (including
+'glmnet', 'ranger', 'xgboost', and 'naivebayes') and memory-efficient
+sparse matrix vectorization methods (Bag-of-Words, Term Frequency, TF-IDF,
+and Binary). Users can go from raw text to a fully evaluated sentiment
+model, complete with ROC-optimized thresholds, in just a few function
+calls. The resulting model artifact automatically aligns the vocabulary of
+new datasets during the prediction phase, safely appending predicted
+classes and probability matrices directly to the user's original dataframe
+to preserve metadata.
 
 %prep
 %setup -q -c -n %{packname}

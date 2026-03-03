@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergm.ego
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Random Graph Models to Egocentrically Sampled Network Data
 
@@ -16,26 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-ergm >= 4.9.0
-BuildRequires:    R-CRAN-survey >= 4.4.2
-BuildRequires:    R-CRAN-statnet.common >= 4.11.0
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-egor >= 1.24.2
+BuildRequires:    R-CRAN-survey >= 4.4
+BuildRequires:    R-CRAN-statnet.common >= 4.13.0
+BuildRequires:    R-CRAN-ergm >= 4.12.0
+BuildRequires:    R-CRAN-tibble >= 3.3.1
+BuildRequires:    R-CRAN-Rdpack >= 2.6.4
+BuildRequires:    R-CRAN-egor >= 1.25.10
+BuildRequires:    R-CRAN-purrr >= 1.2.1
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-network >= 1.19.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.3
-BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ergm >= 4.9.0
-Requires:         R-CRAN-survey >= 4.4.2
-Requires:         R-CRAN-statnet.common >= 4.11.0
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-egor >= 1.24.2
+Requires:         R-CRAN-survey >= 4.4
+Requires:         R-CRAN-statnet.common >= 4.13.0
+Requires:         R-CRAN-ergm >= 4.12.0
+Requires:         R-CRAN-tibble >= 3.3.1
+Requires:         R-CRAN-Rdpack >= 2.6.4
+Requires:         R-CRAN-egor >= 1.25.10
+Requires:         R-CRAN-purrr >= 1.2.1
+Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-RColorBrewer >= 1.1.3
-Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-stats 
 Requires:         R-methods 
 

@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quadtree
-%global packver   0.1.14
+%global packname  cograph
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Region Quadtrees for Spatial Data
+Summary:          Modern Network Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-R6 
+Requires:         R-grid 
 Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-terra 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides functionality for working with raster-like quadtrees (also called
-“region quadtrees”), which allow for variable-sized cells. The package
-allows for flexibility in the quadtree creation process.  Several
-functions defining how to split and aggregate cells are provided, and
-custom functions can be written for both of these processes. In addition,
-quadtrees can be created using other quadtrees as “templates”, so that the
-new quadtree's structure is identical to the template quadtree. The
-package also includes functionality for modifying quadtrees, querying
-values, saving quadtrees to a file, and calculating least-cost paths using
-the quadtree as a resistance surface.
+Provides tools for the analysis, visualization, and manipulation of
+dynamical, social (Saqr et al. (2024) <doi:10.1007/978-3-031-54464-4_10>)
+and complex networks (Saqr et al. (2025) <doi:10.1145/3706468.3706513>).
+The package supports multiple network formats and offers flexible tools
+for heterogeneous, multi-layer, and hierarchical network analysis with
+simple syntax and extensive toolset.
 
 %prep
 %setup -q -c -n %{packname}

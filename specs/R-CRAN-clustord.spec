@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clustord
-%global packver   1.3.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Ordinal Data via Proportional Odds or Ordered Stereotype
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-flexclust 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppClock 
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-stats 
 Requires:         R-utils 

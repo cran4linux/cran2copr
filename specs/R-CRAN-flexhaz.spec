@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  timeseriesdb
-%global packver   1.0.0-1.1.2
+%global __requires_exclude ^libmpi
+%global packname  flexhaz
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.1.1.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Time Series Database for Official Statistics with R and PostgreSQL
+Summary:          Dynamic Failure Rate Distributions for Survival Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.4
-BuildRequires:    R-CRAN-RPostgres >= 1.2.0
-BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-DBI 
-Requires:         R-CRAN-data.table >= 1.9.4
-Requires:         R-CRAN-RPostgres >= 1.2.0
-Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-utils 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-algebraic.dist 
+BuildRequires:    R-CRAN-likelihood.model 
+BuildRequires:    R-CRAN-generics 
+Requires:         R-stats 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-algebraic.dist 
+Requires:         R-CRAN-likelihood.model 
+Requires:         R-CRAN-generics 
 
 %description
-Archive and manage times series data from official statistics. The
-'timeseriesdb' package was designed to manage a large catalog of time
-series from official statistics which are typically published on a
-monthly, quarterly or yearly basis. Thus timeseriesdb is optimized to
-handle updates caused by data revision as well as elaborate, multi-lingual
-meta information.
+Flexible framework for specifying survival distributions through their
+hazard (failure rate) functions. Define arbitrary time-varying hazard
+functions to model complex failure patterns including bathtub curves,
+proportional hazards with covariates, and other non-standard hazard
+behaviors. Provides automatic computation of survival, CDF, PDF,
+quantiles, and sampling. Implements the likelihood model interface for
+maximum likelihood estimation with right-censored and left-censored
+survival data.
 
 %prep
 %setup -q -c -n %{packname}

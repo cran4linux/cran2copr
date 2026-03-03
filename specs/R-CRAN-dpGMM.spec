@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dpGMM
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Programming Based Gaussian Mixture Modelling Tool for 1D and 2D Data
 
@@ -45,7 +45,9 @@ Gaussian mixture modeling of one- and two-dimensional data, provided in
 original or binned form, with an option to estimate the number of model
 components. The method uses Gaussian Mixture Models (GMM) with initial
 parameters determined by a dynamic programming algorithm, leading to
-stable and reproducible model fitting.
+stable and reproducible model fitting. For more details see Zyla, J.,
+Szumala, K., Polanski, A., Polanska, J., & Marczyk, M. (2026)
+<doi:10.1016/j.jocs.2026.102811>.
 
 %prep
 %setup -q -c -n %{packname}

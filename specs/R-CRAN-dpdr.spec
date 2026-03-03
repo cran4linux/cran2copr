@@ -1,57 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smplot2
-%global packver   0.2.6
+%global packname  dpdr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Standalone and Composite Plots in 'ggplot2' for Publications
+Summary:          Interface to Health Canada Drug Product Database API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grid 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pwr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-patchwork 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-grid 
-Requires:         R-utils 
-Requires:         R-CRAN-pwr 
-Requires:         R-stats 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-patchwork 
 
 %description
-Provides functions for creating and annotating a composite plot in
-'ggplot2'. Offers background themes and shortcut plotting functions that
-produce figures that are appropriate for the format of scientific
-journals. Some methods are described in Min and Zhou (2021)
-<doi:10.3389/fgene.2021.802894>.
+A programmatic interface to Health Canada's Drug Product Database (DPD)
+REST API for querying information about drugs approved for use in Canada.
+More information on the DPD can be found in the API guide
+(<https://health-products.canada.ca/api/documentation/dpd-documentation-en.html>).
 
 %prep
 %setup -q -c -n %{packname}

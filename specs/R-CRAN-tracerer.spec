@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tracerer
-%global packver   2.2.3
+%global packver   2.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tracer from R
 
@@ -18,10 +18,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-testit 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-testit 
 
 %description
 'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic

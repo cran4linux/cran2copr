@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCaucTile
-%global packver   1.0.4
+%global packname  fastMatMR
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tile Grid Maps for East Caucasian Languages
+Summary:          High-Performance Matrix Market File Operations
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-cpp11 >= 0.5.0
 
 %description
-Generates tile maps for the East Caucasian language family, inspired by
-the Typological Atlas of the Languages of Daghestan (TALD,
-<https://lingconlab.ru/tald/>). It leverages 'ggplot2' to create visually
-informative maps, displaying rectangles for each language and allowing for
-color-coding based on linguistic features. The package includes a built-in
-dataset of 56 languages and the template for their distribution and
-provides flexibility to customize the tile map's appearance. The default
-template can be modified via the ability to hide or rename languages.
-It's designed to be used with external data tables containing language
-information and features, offering a tool for visualizing the geographic
-distribution and linguistic characteristics of East Caucasian languages.
+An interface to the 'fast_matrix_market' 'C++' library, this package
+offers efficient read and write operations for Matrix Market files in R.
+It supports both sparse and dense matrix formats. Peer-reviewed at
+'rOpenSci' (<https://github.com/ropensci/software-review/issues/606>).
 
 %prep
 %setup -q -c -n %{packname}

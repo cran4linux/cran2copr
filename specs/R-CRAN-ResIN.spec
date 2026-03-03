@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ResIN
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Response Item Networks
+Summary:          Conduct Response Item Network (ResIN) Analysis with Social Response Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,14 +28,14 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-wCorr 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-DirectedClustering 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-network 
 Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-ggraph >= 2.2.0
 Requires:         R-CRAN-tidyr >= 1.3.0
@@ -47,21 +47,21 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-wCorr 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-DirectedClustering 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-parallelly 
 Requires:         R-parallel 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-network 
 
 %description
 Contains various tools to perform and visualize Response Item Networks
-('ResIN's'). 'ResIN' binarizes ordered-categorical and qualitative
-response choices from (survey) data, calculates pairwise associations and
-maps the location of each item response as a node in a force-directed
-network. Please refer to <https://www.resinmethod.net/> for more details.
+('ResIN's'). 'ResIN' dummy-codes ordered and qualitative response choices
+from (survey) data, calculates pairwise associations and maps the location
+of each item response as a node in a force-directed network. Please refer
+to <https://www.resinmethod.net/> for more details.
 
 %prep
 %setup -q -c -n %{packname}
