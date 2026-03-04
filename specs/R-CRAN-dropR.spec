@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dropR
-%global packver   1.0.3
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dropout Analysis by Condition
 
@@ -31,14 +31,16 @@ Requires:         R-CRAN-lifecycle
 %description
 Analysis and visualization of dropout between conditions in surveys and
 (online) experiments. Features include computation of dropout statistics,
-comparing dropout between conditions (e.g. Chi square), analyzing survival
-(e.g. Kaplan-Meier estimation), comparing conditions with the most
-different rates of dropout (Kolmogorov-Smirnov) and visualizing the result
-of each in designated plotting functions. Sources: Andrea Frick,
-Marie-Terese Baechtiger & Ulf-Dietrich Reips (2001)
-<https://www.researchgate.net/publication/223956222_Financial_incentives_personal_information_and_drop-out_in_online_studies>;
-Ulf-Dietrich Reips (2002) "Standards for Internet-Based Experimenting"
-<doi:10.1027//1618-3169.49.4.243>.
+comparing dropout between conditions (e.g. Chi squared), analyzing
+survival (e.g. Kaplan-Meier estimation), comparing conditions with the
+most different rates of dropout (Kolmogorov-Smirnov) and visualizing the
+result of each in designated plotting functions. Article published in
+_Behavior Research Methods_ on 'dropR' by the authors: Dropout analysis: A
+method for data from Internet-based research and 'dropR', an R-based web
+app and package to analyze and visualize dropout. (2025)
+<doi:10.3758/s13428-025-02730-2>. Sources: Andrea Frick, Marie-Terese
+Baechtiger & Ulf-Dietrich Reips (2001) <doi:10.5167/uzh-19758>;
+Ulf-Dietrich Reips (2002) <doi:10.1026//1618-3169.49.4.243>.
 
 %prep
 %setup -q -c -n %{packname}

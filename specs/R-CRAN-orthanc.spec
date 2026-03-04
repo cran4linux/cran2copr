@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VizTest
-%global packver   0.7
+%global packname  orthanc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Confidence Intervals for Visual Testing
+Summary:          Programmatic Interface to 'Orthanc' DICOM Servers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,25 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-mirai >= 2.5.1
+BuildRequires:    R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-CRAN-carrier >= 0.3.0
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-mirai >= 2.5.1
+Requires:         R-CRAN-purrr >= 1.1.0
+Requires:         R-CRAN-carrier >= 0.3.0
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
 
 %description
-Identifies the optimal confidence level to represent the results of a set
-of pairwise tests as suggested by Armstrong and Poirier (2025)
-<doi:10.1017/pan.2024.24>.
+An R Interface to 'Orthanc' DICOM servers for medical imaging workflows.
+'Orthanc' is a lightweight, open-source DICOM server that exposes a
+comprehensive REST API for managing, querying, retrieving, and modifying
+DICOM resources (<https://www.orthanc-server.com>). The goal of this
+package is to provide comprehensive and user-friendly access to the
+'Orthanc' REST API, designed to align with idiomatic R workflows while
+preserving the structure and semantics of DICOM resources.
 
 %prep
 %setup -q -c -n %{packname}

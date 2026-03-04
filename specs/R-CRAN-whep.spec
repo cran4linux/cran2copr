@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  whep
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing Agro-Environmental Data
 
@@ -14,21 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-FAOSTAT 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-mipfp 
 BuildRequires:    R-CRAN-nanoparquet 
 BuildRequires:    R-CRAN-pins 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
@@ -38,13 +39,14 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-FAOSTAT 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-mipfp 
 Requires:         R-CRAN-nanoparquet 
 Requires:         R-CRAN-pins 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 

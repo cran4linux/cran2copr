@@ -1,51 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CCI
-%global packver   0.3.6.1
+%global packname  r4subprofile
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computational Test for Conditional Independence
+Summary:          Regulatory Submission Profiles for Clinical Submission Readiness
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-r4subcore 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-kknn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-ranger 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-r4subcore 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-kknn 
+Requires:         R-CRAN-tibble 
 
 %description
-Tool for performing computational testing for conditional independence
-between variables in a dataset. 'CCI' implements permutation in
-combination with Monte Carlo Cross-Validation in generating null
-distributions and test statistics. For more details see Computational Test
-for Conditional Independence (2024) <doi:10.3390/a17080323>.
+Defines submission profiles per regulatory authority with
+authority-specific pillar weights, decision thresholds, indicator
+requirements, and risk configuration. Supports the U.S. Food and Drug
+Administration (FDA), European Medicines Agency (EMA), Pharmaceuticals and
+Medical Devices Agency (PMDA), Health Canada, Therapeutic Goods
+Administration (TGA), and Medicines and Healthcare products Regulatory
+Agency (MHRA). Integrates with 'r4subscore' and 'r4subrisk' configuration
+systems.
 
 %prep
 %setup -q -c -n %{packname}

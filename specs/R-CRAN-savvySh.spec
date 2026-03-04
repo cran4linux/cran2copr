@@ -1,51 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CCI
-%global packver   0.3.6.1
+%global packname  savvySh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computational Test for Conditional Independence
+Summary:          Slab and Shrinkage Linear Regression Estimation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-kknn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-mnormt 
 Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-kknn 
 
 %description
-Tool for performing computational testing for conditional independence
-between variables in a dataset. 'CCI' implements permutation in
-combination with Monte Carlo Cross-Validation in generating null
-distributions and test statistics. For more details see Computational Test
-for Conditional Independence (2024) <doi:10.3390/a17080323>.
+Implements a suite of shrinkage estimators for multivariate linear
+regression to improve estimation stability and predictive accuracy.
+Provides methods including the Stein estimator, Diagonal Shrinkage, the
+general Shrinkage estimator (solving a Sylvester equation), and Slab
+Regression (Simple and Generalized). These methods address Stein's paradox
+by introducing structured bias to reduce variance without requiring
+cross-validation, except for Shrinkage Ridge Regression where the
+intensity is chosen by minimizing an explicit Mean Squared Error (MSE)
+criterion. Methods are based on paper
+<https://openaccess.city.ac.uk/id/eprint/35005/>.
 
 %prep
 %setup -q -c -n %{packname}

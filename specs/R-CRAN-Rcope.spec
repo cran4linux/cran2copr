@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CCI
-%global packver   0.3.6.1
+%global packname  Rcope
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computational Test for Conditional Independence
+Summary:          Tools to Cope with Endogeneity Problems
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-kknn 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-ranger 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-kknn 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-car 
 
 %description
-Tool for performing computational testing for conditional independence
-between variables in a dataset. 'CCI' implements permutation in
-combination with Monte Carlo Cross-Validation in generating null
-distributions and test statistics. For more details see Computational Test
-for Conditional Independence (2024) <doi:10.3390/a17080323>.
+Researchers across disciplines often face biased regression model
+estimates due to endogenous regressors correlated with the error term.
+Traditional solutions require instrumental variables (IVs), which are
+often difficult to find and validate. This package provides flexible,
+alternative IV-free methods using copulas, as described in the practical
+guide to endogeneity correction using copulas (Yi Qian, Tony Koschmann,
+and Hui Xie 2025) <doi:10.1177/00222429251410844>. The current version
+implements the two-stage copula endogeneity correction (2sCOPE) method to
+fit models with continuous endogenous regressors and both continuous and
+discrete exogenous regressors, as described in Fan Yang, Yi Qian, and Hui
+Xie (2024) <doi:10.1177/00222437241296453>. Using this method, users can
+address regressor endogeneity problems in nonexperimental data without
+requiring IVs.
 
 %prep
 %setup -q -c -n %{packname}

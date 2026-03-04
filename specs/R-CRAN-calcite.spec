@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  calcite
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to the Calcite Design System 'JavaScript' Component Library
 
@@ -16,13 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yyjsonr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
+Requires:         R-utils 
+Requires:         R-CRAN-yyjsonr 
 
 %description
 Provides access to the 'Calcite Design System' 'javascript' components via

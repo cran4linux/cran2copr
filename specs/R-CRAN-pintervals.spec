@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pintervals
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Agnostic Prediction Intervals
 
@@ -40,8 +40,8 @@ The package is designed for ease of use, offering intuitive functions for
 both binned and full conformal prediction methods, as well as parametric
 interval estimation with diagnostic checks. Currently only working for
 continuous predictions. For details on the conformal and bin-conditional
-conformal prediction methods, see Randahl, Williams, and Hegre (2024)
-<DOI:10.48550/arXiv.2410.14507>.
+conformal prediction methods, see Randahl, Williams, and Hegre (2026)
+<DOI:10.1017/pan.2025.10010>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VizTest
-%global packver   0.7
+%global packname  interpret
+%global packver   0.1.35
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.1.35
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Confidence Intervals for Visual Testing
+Summary:          Fit Interpretable Machine Learning Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 
 %description
-Identifies the optimal confidence level to represent the results of a set
-of pairwise tests as suggested by Armstrong and Poirier (2025)
-<doi:10.1017/pan.2024.24>.
+Package for training interpretable machine learning models. Historically,
+the most interpretable machine learning models were not very accurate, and
+the most accurate models were not very interpretable. Microsoft Research
+has developed an algorithm called the Explainable Boosting Machine (EBM)
+which has both high accuracy and interpretable characteristics. EBM uses
+machine learning techniques like bagging and boosting to breathe new life
+into traditional GAMs (Generalized Additive Models). This makes them as
+accurate as random forests and gradient boosted trees, and also enhances
+their intelligibility and editability. Details on the EBM algorithm can be
+found in the paper by Rich Caruana, Yin Lou, Johannes Gehrke, Paul Koch,
+Marc Sturm, and Noemie Elhadad (2015, <doi:10.1145/2783258.2788613>).
 
 %prep
 %setup -q -c -n %{packname}

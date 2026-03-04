@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biometrics
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for Forest Biometrics and Modelling
+Summary:          A Package for Biometrics and Modelling
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,18 +19,24 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-nlme 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-A system of functions and data aiming to apply quantitative analyses to
-forest ecology, silviculture and decision-making. Besides, the package
-helps to carry out data management, exploratory analysis, and model
-assessment.
+A system of functions and datasets to carry out quantitative analyses in
+the biological sciences. The package facilitates data management,
+exploratory analyses, and model assessment. Although it currently focuses
+on forest ecology, silviculture and decision-making, most of the package
+functions are applicable across several disciplines, including economics,
+environmental science, and healthcare.
 
 %prep
 %setup -q -c -n %{packname}

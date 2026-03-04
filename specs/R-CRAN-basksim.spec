@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  basksim
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Calculation of Basket Trial Operating Characteristics
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bhmbasket >= 1.0.0
 BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-bhmbasket 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-foreach 
@@ -26,8 +26,8 @@ BuildRequires:    R-CRAN-HDInterval
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-bhmbasket >= 1.0.0
 Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-bhmbasket 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-foreach 

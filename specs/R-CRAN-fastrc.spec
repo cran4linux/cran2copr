@@ -1,41 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VizTest
-%global packver   0.7
+%global packname  fastrc
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Confidence Intervals for Visual Testing
+Summary:          Fast Reverse Complement of DNA and RNA Sequences
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Identifies the optimal confidence level to represent the results of a set
-of pairwise tests as suggested by Armstrong and Poirier (2025)
-<doi:10.1017/pan.2024.24>.
+Fast reverse complement of DNA and RNA sequences using a 'C++' lookup
+table for O(1) per-base complement mapping. Supports full IUPAC ambiguity
+codes, DNA and RNA modes, case preservation, and NA handling. Much faster
+than other packages for computing reverse complements of many short
+sequences such as primers, probes, and, k-mers.
 
 %prep
 %setup -q -c -n %{packname}

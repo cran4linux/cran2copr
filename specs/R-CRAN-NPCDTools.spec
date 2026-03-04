@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NPCDTools
-%global packver   1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Nonparametric Classification Methods for Cognitive Diagnosis
 
@@ -14,23 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GDINA 
-BuildRequires:    R-CRAN-NPCD 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-SimDesign 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-GDINA 
-Requires:         R-CRAN-NPCD 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-SimDesign 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-shiny 
 
 %description
 Statistical tools for analyzing cognitive diagnosis (CD) data collected

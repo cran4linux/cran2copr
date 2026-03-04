@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tarchives
-%global packver   0.1.1
+%global packname  svyCausalGLM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Your 'targets' Pipelines into a Package
+Summary:          Survey-Weighted Modeling Utilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-targets 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-targets 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Runs 'targets' pipeline in '/inst/tarchives' and stores the results in the
-R user directory. This means that the user does not have to run the
-process repeatedly, and the developer has the flexibility to update the
-data as versions are updated.
+Utility functions for survey-weighted regression, diagnostics, and
+visualization.
 
 %prep
 %setup -q -c -n %{packname}

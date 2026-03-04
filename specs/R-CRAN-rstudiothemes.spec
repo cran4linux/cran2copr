@@ -1,55 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtlcor
-%global packver   0.1.0
+%global packname  rstudiothemes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiplicity Control on Drop-the-Losers Designs
+Summary:          Create 'RStudio' Themes from Visual Studio Code, Positron and 'TextMate' Themes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-gsDesign 
-BuildRequires:    R-CRAN-coin 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-sass 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-cubature 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-gsDesign 
-Requires:         R-CRAN-coin 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-sass 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-cubature 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-A tool to calculate the correlation boundary for the correlation between
-the response rate and the log-rank test statistic for the binary surrogate
-endpoint and the time-to-event primary endpoint, as well as conduct
-simulation studies to obtain design operating characteristics of the
-drop-the-losers design.
+Create and install 'RStudio' themes derived from Visual Studio Code,
+Positron and 'TextMate' themes. Provides functions to convert between
+'TextMate' and Visual Studio Code or Positron themes, as well as ports of
+several Visual Studio Code themes.
 
 %prep
 %setup -q -c -n %{packname}

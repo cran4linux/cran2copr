@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MicrobiomeStat
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Microbiome Compositional Data
 
@@ -29,13 +29,11 @@ BuildRequires:    R-CRAN-lmerTest
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-modeest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mlrMBO 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ParamHelpers 
-BuildRequires:    R-CRAN-smoof 
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-mlr 
-BuildRequires:    R-CRAN-BBmisc 
+BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-mlr3mbo 
+BuildRequires:    R-CRAN-bbotk 
+BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-matrixStats 
@@ -50,13 +48,11 @@ Requires:         R-CRAN-lmerTest
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-modeest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mlrMBO 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ParamHelpers 
-Requires:         R-CRAN-smoof 
-Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-mlr 
-Requires:         R-CRAN-BBmisc 
+Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-mlr3mbo 
+Requires:         R-CRAN-bbotk 
+Requires:         R-CRAN-paradox 
 
 %description
 A suite of methods for powerful and robust microbiome data analysis

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bistablehistory
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cumulative History Analysis for Bistable Perception Time Series
 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rstantools
@@ -44,7 +44,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-future 
+Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rstantools

@@ -1,52 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bunddev
-%global packver   0.2.1
+%global packname  unicefData
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discover and Call 'Bund.dev' APIs
+Summary:          Download Indicators from UNICEF Data Warehouse
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-yaml 
+Requires:         R-tools 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-yaml 
 
 %description
-Provides a registry of APIs listed on <https://bund.dev> and a core
-'OpenAPI' client layer to explore specs and perform requests. Adapter
-helpers return tidy tibbles for supported APIs, with optional response
-caching and rate limiting guidance.
+An R client to fetch SDMX (Statistical Data and Metadata eXchange) CSV
+series from the UNICEF Data Warehouse <https://data.unicef.org/>. Part of
+a trilingual suite also available for 'Python' and 'Stata'. Features
+include automatic pagination, caching with memoisation, country name
+lookups, metadata versioning (vintages), and comprehensive indicator
+support for SDG (Sustainable Development Goals) monitoring.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,51 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CCI
-%global packver   0.3.6.1
+%global packname  MixMashNet
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computational Test for Conditional Independence
+Summary:          Tools for Multilayer and Single Layer Network Modeling
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-mgm 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-EGAnet 
+BuildRequires:    R-CRAN-networktools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-kknn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-ranger 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-progressr 
+Requires:         R-CRAN-mgm 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-future.apply 
 Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-EGAnet 
+Requires:         R-CRAN-networktools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-kknn 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-progressr 
 
 %description
-Tool for performing computational testing for conditional independence
-between variables in a dataset. 'CCI' implements permutation in
-combination with Monte Carlo Cross-Validation in generating null
-distributions and test statistics. For more details see Computational Test
-for Conditional Independence (2024) <doi:10.3390/a17080323>.
+Estimation and bootstrap utilities for single layer and multilayer Mixed
+Graphical Models, including functions for centrality, bridge metrics,
+membership stability, and plotting (De Martino et al. (2026)
+<doi:10.48550/arXiv.2602.05716>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CCI
-%global packver   0.3.6.1
+%global packname  phers
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6.1
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computational Test for Conditional Independence
+Summary:          Calculate Phenotype Risk Scores
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-kknn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-ranger 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-kknn 
+BuildRequires:    R-CRAN-survival >= 3.3.1
+BuildRequires:    R-CRAN-BEDMatrix >= 2.0.3
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-foreach >= 1.5.2
+BuildRequires:    R-CRAN-data.table >= 1.5.0
+BuildRequires:    R-CRAN-iterators >= 1.0.14
+Requires:         R-CRAN-survival >= 3.3.1
+Requires:         R-CRAN-BEDMatrix >= 2.0.3
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-foreach >= 1.5.2
+Requires:         R-CRAN-data.table >= 1.5.0
+Requires:         R-CRAN-iterators >= 1.0.14
 
 %description
-Tool for performing computational testing for conditional independence
-between variables in a dataset. 'CCI' implements permutation in
-combination with Monte Carlo Cross-Validation in generating null
-distributions and test statistics. For more details see Computational Test
-for Conditional Independence (2024) <doi:10.3390/a17080323>.
+Use phenotype risk scores based on linked clinical and genetic data to
+study Mendelian disease and rare genetic variants. See Bastarache et al.
+2018 <doi:10.1126/science.aal4043>.
 
 %prep
 %setup -q -c -n %{packname}

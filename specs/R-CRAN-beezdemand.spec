@@ -1,36 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  beezdemand
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Behavioral Economic Easy Demand
 
-License:          GPL-2 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5
-Requires:         R-core >= 2.5
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-nlsr 
 BuildRequires:    R-CRAN-nlstools 
 BuildRequires:    R-CRAN-nls2 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-nls.multstart 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-nlsr 
 Requires:         R-CRAN-nlstools 
 Requires:         R-CRAN-nls2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-nls.multstart 
+Requires:         R-CRAN-performance 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-TMB 
 
 %description
 Facilitates many of the analyses performed in studies of behavioral

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VizTest
-%global packver   0.7
+%global packname  clinTrialData
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Confidence Intervals for Visual Testing
+Summary:          Clinical Trial Example Datasets
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
-BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
-Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-connector 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-piggyback 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-connector 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-piggyback 
+Requires:         R-tools 
 
 %description
-Identifies the optimal confidence level to represent the results of a set
-of pairwise tests as suggested by Armstrong and Poirier (2025)
-<doi:10.1017/pan.2024.24>.
+A collection of clinical trial example datasets from multiple sources
+including the CDISC Pilot 01 study (CDISC <https://www.cdisc.org/>). All
+datasets are provided in Parquet format for efficient storage and can be
+accessed using the 'connector' package. Designed for training, testing,
+prototyping, and demonstrating clinical data analysis workflows.
 
 %prep
 %setup -q -c -n %{packname}
