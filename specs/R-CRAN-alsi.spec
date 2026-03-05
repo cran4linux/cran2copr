@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  alsi
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Aggregated Latent Space Index for Multiple Correspondence Analysis
+Summary:          Aggregated Latent Space Index for Binary, Ordinal, and Continuous Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-homals 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-homals 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
 
 %description
-Tools for stability-validated aggregation in multiple correspondence
-analysis (MCA). Implements parallel analysis for dimensionality
-assessment, bootstrap-based subspace stability diagnostics using
-Procrustes rotation and Tucker's congruence coefficients, and computation
-of the Aggregated Latent Space Index (ALSI). ALSI is a person-level
-summary measure derived from validated MCA dimensions that quantifies
-departure from independence along stable association directions in
-multivariate categorical data.
+Provides three stability-validated pipelines for computing an Aggregated
+Latent Space Index (ALSI): a binary MCA pipeline (alsi_workflow()), an
+ordinal pipeline using homals alternating least squares optimal scaling
+(alsi_workflow_ordinal()), and a continuous ipsatized SVD pipeline
+(calsi_workflow()).  All three pipelines share a common bootstrap
+dual-criterion stability framework (principal angles and Tucker congruence
+phi) for determining the number of dimensions to retain before index
+construction.  The package is designed to complement Segmented Profile
+Analysis (SEPA) and is intended for psychometric scale construction and
+dimensional reduction in survey and clinical research.
 
 %prep
 %setup -q -c -n %{packname}

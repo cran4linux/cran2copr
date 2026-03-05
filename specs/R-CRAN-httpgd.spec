@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gkgraphR
-%global packver   1.0.3
+%global packname  httpgd
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accessing the Official 'Google Knowledge Graph' API
+Summary:          A 'HTTP' Server Graphics Device
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ISOcodes >= 2020.03.16
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-ISOcodes >= 2020.03.16
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-AsioHeaders >= 1.28.2
+BuildRequires:    R-CRAN-cpp11 >= 0.2.4
+BuildRequires:    R-CRAN-unigd >= 0.2.0
+Requires:         R-CRAN-unigd >= 0.2.0
 
 %description
-A simple way to interact with and extract data from the official 'Google
-Knowledge Graph' API <https://developers.google.com/knowledge-graph/>.
+A graphics device for R that is accessible via network protocols. This
+package was created to make it easier to embed live R graphics in
+integrated development environments and other applications. The included
+'HTML/JavaScript' client (plot viewer) aims to provide a better overall
+user experience when dealing with R graphics. The device asynchronously
+serves graphics via 'HTTP' and 'WebSockets'.
 
 %prep
 %setup -q -c -n %{packname}

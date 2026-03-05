@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crossfit
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Fitting Engine for Double/Debiased Machine Learning
+Summary:          A Graph-Based Cross-Fitting Engine in R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,13 +23,15 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides a general cross-fitting engine for double / debiased machine
-learning and other meta-learners. The core functions implement flexible
-graphs of nuisance models with per-node training fold widths,
-target-specific evaluation windows, and several fold allocation schemes
-("independence", "overlap", "disjoint"). The engine supports both numeric
-estimators (mode = "estimate") and cross-fitted prediction functions (mode
-= "predict"), with configurable aggregation over panels and repetitions.
+Provides a general cross-fitting engine for semiparametric estimation
+(e.g., double/debiased machine learning). Supports user-defined target
+functionals and directed acyclic graphs of nuisance learners with per-node
+training fold widths, target-specific evaluation windows, and
+fold-allocation modes ("overlap", "disjoint", "independence"). Returns
+either numeric estimates (mode = "estimate") or cross-fitted prediction
+functions (mode = "predict"), with configurable aggregation over panels
+and repetitions, reuse-aware caching, and failure isolation, making it
+well-suited for simulation studies and large benchmarks.
 
 %prep
 %setup -q -c -n %{packname}

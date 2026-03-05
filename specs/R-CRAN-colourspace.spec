@@ -1,53 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swissparl
-%global packver   0.3.0
+%global packname  colourspace
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Swiss Parliament Web Services and the 'OpenParlData' API
+Summary:          Convert from One Colour Space to Another, Print a Ready-to-Paste Modern 'CSS' Syntax
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-farver 
+BuildRequires:    R-CRAN-RANN 
+Requires:         R-CRAN-farver 
+Requires:         R-CRAN-RANN 
 
 %description
-Provides machine-readable access to parliamentary data of the Swiss
-Federal Assembly via the 'OData' interface
-(<https://ws.parlament.ch/odata.svc/>) and the 'OpenParlData' REST API
-(<https://api.openparldata.ch>), which also offers harmonized data for
-selected cantonal and municipal parliaments.
+Provides a comprehensive 'API' for colour conversion between popular
+colour spaces ('RGB', 'HSL', 'OKLab', 'OKLch', 'hex', and named colours)
+along with clean, modern 'CSS' Color Level 4 syntax output. Integrates
+seamlessly into 'Shiny' and 'Quarto' workflows. Includes nearest colour
+name lookup powered by a curated database of over 30,000 colour names.
+'OKLab'/'OKLCh' colour spaces are described in Ottosson (2020)
+<https://bottosson.github.io/posts/oklab/>. 'CSS' Color Level 4 syntax
+follows the W3C specification <https://www.w3.org/TR/css-color-4/>.
 
 %prep
 %setup -q -c -n %{packname}

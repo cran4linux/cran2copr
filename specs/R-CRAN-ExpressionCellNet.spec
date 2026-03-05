@@ -1,53 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swissparl
-%global packver   0.3.0
+%global packname  ExpressionCellNet
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Swiss Parliament Web Services and the 'OpenParlData' API
+Summary:          Network-Based Analysis of Gene Expression Perturbations
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-uwot 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-utils 
+Requires:         R-CRAN-uwot 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-crayon 
 
 %description
-Provides machine-readable access to parliamentary data of the Swiss
-Federal Assembly via the 'OData' interface
-(<https://ws.parlament.ch/odata.svc/>) and the 'OpenParlData' REST API
-(<https://api.openparldata.ch>), which also offers harmonized data for
-selected cantonal and municipal parliaments.
+Network-centric framework for integrative analysis of high-throughput gene
+expression data using user-supplied gene-gene interaction graphs.
+Constructs seed-centered multi-generation networks constrained by
+expression correlations and simulates expression perturbation scenarios
+via regression-based prediction (van Dam, 2018).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swissparl
-%global packver   0.3.0
+%global packname  methFuse
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Swiss Parliament Web Services and the 'OpenParlData' API
+Summary:          Functional Segmentation of the Methylome
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,38 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Provides machine-readable access to parliamentary data of the Swiss
-Federal Assembly via the 'OData' interface
-(<https://ws.parlament.ch/odata.svc/>) and the 'OpenParlData' REST API
-(<https://api.openparldata.ch>), which also offers harmonized data for
-selected cantonal and municipal parliaments.
+Implements FUSE (Functional Segmentation of DNA methylation data), a
+data-driven method for identifying spatially coherent DNA methylation
+segments from whole-genome bisulfite sequencing (WGBS) count data. The
+method performs hierarchical clustering of CpG sites based on methylated
+and unmethylated read counts across multiple samples and determines the
+optimal number of segments using an information criterion (AIC or BIC).
+Resulting segments represent regions with homogeneous methylation profiles
+across the input cohort while allowing sample-specific methylation levels.
+The package provides functions for clustering, model selection, tree
+cutting, segment-level summarization, and visualization. Input can be
+supplied as count matrices or extracted directly from 'BSseq' and
+'methrix' objects.
 
 %prep
 %setup -q -c -n %{packname}

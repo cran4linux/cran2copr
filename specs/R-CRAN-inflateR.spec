@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inflateR
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inflation Adjustment for Historical Currency Values
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 
 %description
 Convert historical monetary values into their present-day equivalents
-using bundled CPI (Consumer Price Index) data sourced from the World Bank
-Development Indicators. Supports British pounds (GBP), Australian dollars
-(AUD), US dollars (USD), Euro (EUR), Canadian dollars (CAD), Japanese yen
-(JPY), Chinese yuan (CNY), and Swiss francs (CHF). Currency codes and
+using bundled CPI (Consumer Price Index) and GDP deflator data sourced
+from the World Bank Development Indicators. Supports British pounds (GBP),
+Australian dollars (AUD), US dollars (USD), Euro (EUR), Canadian dollars
+(CAD), Japanese yen (JPY), Chinese yuan (CNY), Swiss francs (CHF), New
+Zealand dollars (NZD), Indian rupees (INR), South Korean won (KRW),
+Brazilian reais (BRL), and Norwegian krone (NOK). Currency codes and
 country names are both accepted as input.
 
 %prep

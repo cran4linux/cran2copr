@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gkgraphR
-%global packver   1.0.3
+%global packname  imaginarycss
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accessing the Official 'Google Knowledge Graph' API
+Summary:          Tools for Studying Imaginary Cognitive Social Structure
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ISOcodes >= 2020.03.16
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-httr >= 1.4.1
-Requires:         R-CRAN-ISOcodes >= 2020.03.16
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-httr >= 1.4.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-barry 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-A simple way to interact with and extract data from the official 'Google
-Knowledge Graph' API <https://developers.google.com/knowledge-graph/>.
+Provides functions to measure and test imaginary cognitive social
+structure (CSS) motifs, which are patterns of perceived relationships
+among individuals in a social network. Includes tools for calculating
+motif frequencies, comparing observed motifs to expected distributions,
+and visualizing motif structures. Implements methods described in Tanaka
+and Vega Yon (2023) <doi:10.1016/j.socnet.2023.11.005>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swissparl
-%global packver   0.3.0
+%global packname  copulaSQM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Swiss Parliament Web Services and the 'OpenParlData' API
+Summary:          Copula Based Stochastic Frontier Quantile Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ald 
+BuildRequires:    R-CRAN-VineCopula 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-ald 
+Requires:         R-CRAN-VineCopula 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides machine-readable access to parliamentary data of the Swiss
-Federal Assembly via the 'OData' interface
-(<https://ws.parlament.ch/odata.svc/>) and the 'OpenParlData' REST API
-(<https://api.openparldata.ch>), which also offers harmonized data for
-selected cantonal and municipal parliaments.
+Provides estimation procedures for copula-based stochastic frontier
+quantile models for cross-sectional data. The package implements maximum
+likelihood estimation of quantile regression models allowing flexible
+dependence structures between error components through various copula
+families (e.g., Gaussian and Student-t). It enables estimation of
+conditional quantile effects, dependence parameters, log-likelihood
+values, and information criteria (AIC and BIC). The framework combines
+quantile regression methodology introduced by Koenker and Bassett (1978)
+<doi:10.2307/1913643> with copula theory described in Joe (2014,
+ISBN:9781466583221). This approach allows modeling heterogeneous effects
+across quantiles while capturing nonlinear dependence structures between
+variables.
 
 %prep
 %setup -q -c -n %{packname}

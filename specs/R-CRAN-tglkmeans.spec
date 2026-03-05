@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tglkmeans
-%global packver   0.5.8
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Implementation of K-Means++ Algorithm
 
@@ -19,8 +19,6 @@ Requires:         R-core >= 4.0.0
 BuildRequires:    R-parallel >= 3.3.2
 BuildRequires:    R-CRAN-tibble >= 3.1.2
 BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-tgstat >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-CRAN-purrr >= 0.2.0
@@ -34,8 +32,6 @@ BuildRequires:    R-CRAN-RcppParallel
 Requires:         R-parallel >= 3.3.2
 Requires:         R-CRAN-tibble >= 3.1.2
 Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-tgstat >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-purrr >= 0.2.0
