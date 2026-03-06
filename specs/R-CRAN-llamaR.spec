@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emplikCS
-%global packver   0.3
+%global packname  llamaR
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Likelihood with Current Status Data for Mean, Probability, Hazard
+Summary:          Interface for Large Language Models via 'llama.cpp'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-monotone 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-monotone 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ggmlR 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggmlR 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Compute the empirical likelihood ratio, -2LogLikRatio (Wilks) statistics,
-based on current status data for the hypotheses about the parameters of
-mean or probability or weighted cumulative hazard.
+Provides 'R' bindings to 'llama.cpp' for running Large Language Models
+('LLMs') locally with optional 'Vulkan' GPU acceleration via 'ggmlR'.
+Supports model loading, text generation, 'tokenization', token-to-piece
+conversion, 'embeddings' (single and batch), encoder-decoder inference,
+low-level batch management, chat templates, 'LoRA' adapters, explicit
+backend/device selection, multi-GPU split, and 'NUMA' optimization.
+Includes a high-level 'ragnar'-compatible embedding provider
+('embed_llamar'). Built on top of 'ggmlR' for efficient tensor operations.
 
 %prep
 %setup -q -c -n %{packname}

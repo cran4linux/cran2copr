@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asymmetry
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Scaling of Asymmetric Proximities
 
@@ -17,11 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-smacof 
-Requires:         R-CRAN-gplots 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-smacof 
@@ -36,7 +34,7 @@ example of an asymmetric matrix is a student migration table, where the
 rows correspond to the countries of origin of the students and the columns
 to the destination countries. This package provides algorithms for three
 multidimensional scaling models, the slide-vector model, a scaling model
-with unique dimensions and the asymscal model.Furthermore, some other
+with unique dimensions and the asymscal model. Furthermore, some other
 procedures, such as a heat map for skew-symmetric data, and the
 decomposition of asymmetry are also provided for the exploratory analysis
 of asymmetric tables.

@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emplikCS
-%global packver   0.3
+%global packname  TriLLIEM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Likelihood with Current Status Data for Mean, Probability, Hazard
+Summary:          Log-Linear Modelling of Triad Genotype Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-monotone 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-monotone 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Compute the empirical likelihood ratio, -2LogLikRatio (Wilks) statistics,
-based on current status data for the hypotheses about the parameters of
-mean or probability or weighted cumulative hazard.
+Triad Log-Linear modelling of Imprinting Environmental interactions, and
+Maternal effects (TriLLIEM). This is an implementation of the log-linear
+model described in a series of papers, see for example Ainsworth et al.
+(2010) <doi:10.1002/gepi.20547>.
 
 %prep
 %setup -q -c -n %{packname}

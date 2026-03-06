@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multvardiv
-%global packver   1.0.14
+%global packver   1.0.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.14
+Version:          1.0.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Probability Distributions, Statistical Divergence
+Summary:          Multivariate Generalized Gaussian Distribution, Multivariate t Distribution, Multivariate Cauchy Distribution, Statistical Divergence
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}

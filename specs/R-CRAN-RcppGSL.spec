@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppGSL
-%global packver   0.3.13
+%global packver   0.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.13
+Version:          0.3.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for 'GNU GSL' Vectors and Matrices
 
@@ -18,9 +18,9 @@ BuildRequires:    gsl-devel
 Requires:         gsl-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-stats 
 
 %description

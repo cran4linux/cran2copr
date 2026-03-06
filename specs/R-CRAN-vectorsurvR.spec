@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vectorsurvR
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Access and Analytical Tools for 'VectorSurv' Users
 
@@ -32,6 +32,10 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-leaflet.minicharts 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-jsonlite 
@@ -47,6 +51,10 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-leaflet.minicharts 
 
 %description
 Allows registered 'VectorSurv' <https://vectorsurv.org/> users access to

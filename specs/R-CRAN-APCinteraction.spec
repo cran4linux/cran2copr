@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emplikCS
-%global packver   0.3
+%global packname  APCinteraction
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Likelihood with Current Status Data for Mean, Probability, Hazard
+Summary:          Nonparametric Interaction Tests in Balanced Two-Way ANOVA Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-monotone 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-monotone 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-rlang 
 
 %description
-Compute the empirical likelihood ratio, -2LogLikRatio (Wilks) statistics,
-based on current status data for the hypotheses about the parameters of
-mean or probability or weighted cumulative hazard.
+Provides novel nonparametric tests, 'APCSSA' and 'APCSSM', for interaction
+in two-way ANOVA designs with balanced replications using all possible
+comparisons. These statistics extend previous methods, allow greater
+flexibility, and demonstrate higher power in detecting interactions for
+non-normal data. The package includes optimized functions for computing
+these test statistics, generating interaction plots, and simulating their
+null distributions. The companion package 'APCinteractionData' is
+available on 'GitHub' <https://github.com/tranbaokhue/APCinteractionData>.
+Methods are described and compared empirically in Tran, Wagaman, Nguyen,
+Jacobson, and Hartlaub (2024) <doi:10.48550/arXiv.2410.04700>.
 
 %prep
 %setup -q -c -n %{packname}

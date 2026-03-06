@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exams.forge
-%global packver   1.0.12
+%global packver   1.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support for Compiling Examination Tasks using the 'exams' Package
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
@@ -39,7 +39,7 @@ BuildRequires:    R-CRAN-yaml
 Requires:         R-tools 
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 

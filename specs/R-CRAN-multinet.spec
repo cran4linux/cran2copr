@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emplikCS
-%global packver   0.3
+%global packname  multinet
+%global packver   4.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          4.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Likelihood with Current Status Data for Mean, Probability, Hazard
+Summary:          Analysis and Mining of Multilayer Social Networks
 
-License:          GPL (>= 2)
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-monotone 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-monotone 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-igraph >= 2.2.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-igraph >= 2.2.2
+Requires:         R-CRAN-Rcpp >= 1.0
+Requires:         R-methods 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Compute the empirical likelihood ratio, -2LogLikRatio (Wilks) statistics,
-based on current status data for the hypotheses about the parameters of
-mean or probability or weighted cumulative hazard.
+Functions for the creation/generation and analysis of multilayer social
+networks <doi:10.18637/jss.v098.i08>.
 
 %prep
 %setup -q -c -n %{packname}

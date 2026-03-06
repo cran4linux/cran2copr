@@ -1,46 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neuroimaGene
-%global packver   0.1.2
+%global packname  fdars
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transcriptomic Atlas of Neuroimaging Derived Phenotypes
+Summary:          Functional Data Analysis in 'Rust'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggseg 
-BuildRequires:    R-CRAN-RSQLite 
-Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggseg 
-Requires:         R-CRAN-RSQLite 
 
 %description
-Contains functions to query and visualize the Neuroimaging features
-associated with genetically regulated gene expression (GReX). The primary
-utility, neuroimaGene(), relies on a list of user-defined genes and
-returns a table of neuroimaging features (NIDPs) associated with each
-gene. This resource is designed to assist in the interpretation of
-genome-wide and transcriptome-wide association studies that evaluate brain
-related traits. Bledsoe (2024) <doi:10.1016/j.ajhg.2024.06.002>. In
-addition there are several visualization functions that generate summary
-plots and 2-dimensional visualizations of regional brain measures.
-Mowinckel (2020).
+Functional data analysis tools with a high-performance 'Rust' backend.
+Provides methods for functional data manipulation, depth computation,
+distance metrics, regression, and statistical testing. Supports both 1D
+functional data (curves) and 2D functional data (surfaces). Methods are
+described in Ramsay and Silverman (2005, ISBN:978-0-387-40080-8)
+"Functional Data Analysis" and Ferraty and Vieu (2006,
+ISBN:978-0-387-30369-7) "Nonparametric Functional Data Analysis".
 
 %prep
 %setup -q -c -n %{packname}

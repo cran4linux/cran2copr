@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emplikCS
-%global packver   0.3
+%global packname  AV1R
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Likelihood with Current Status Data for Mean, Probability, Hazard
+Summary:          'AV1' Video Encoding for Biological Microscopy Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-monotone 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-monotone 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 
 %description
-Compute the empirical likelihood ratio, -2LogLikRatio (Wilks) statistics,
-based on current status data for the hypotheses about the parameters of
-mean or probability or weighted cumulative hazard.
+Converts legacy microscopy video formats (H.264/H.265, AVI/MJPEG, TIFF
+stacks) to the modern 'AV1' codec with minimal quality loss. Typical use
+cases include compressing large TIFF stacks from confocal microscopy and
+time-lapse experiments from hundreds of gigabytes to manageable sizes,
+re-encoding MP4 files exported from 'CellProfiler', 'ImageJ'/'Fiji', and
+microscope software with approximately 2x better compression at the same
+visual quality, and converting legacy AVI (MJPEG) and H.265 recordings to
+a single patent-free format suited for long-term archival. Automatically
+selects the best available backend: GPU hardware acceleration via 'Vulkan'
+'VK_KHR_VIDEO_ENCODE_AV1' (tested on AMD RDNA4; bundled headers, builds
+with any 'Vulkan' SDK >= 1.3.275), with automatic fallback to CPU encoding
+through 'FFmpeg' and 'SVT-AV1'. Audio tracks are preserved automatically.
+Provides a simple R API for batch conversion of entire experiment folders.
 
 %prep
 %setup -q -c -n %{packname}

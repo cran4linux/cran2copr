@@ -1,26 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  event
-%global packver   1.1.2
+%global packname  wkpool
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Event History Procedures and Models
+Summary:          Vertex Pool Topology for Well-Known Geometry
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.4
-Requires:         R-core >= 1.4
-BuildRequires:    R-CRAN-rmutil 
-Requires:         R-CRAN-rmutil 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-wk >= 0.9.4
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-wk >= 0.9.4
+Requires:         R-CRAN-vctrs 
 
 %description
-Functions for setting up and analyzing event history data.
+Establishes and maintains vertex pool topology for geometry handled by
+'wk'. Segments are the atomic unit, vertices are shared via integer
+references into a pool. Topology is made discoverable via coincident
+vertex detection while not requiring modification of the input data.
+Topological data models follow principles described in Worboys and Duckham
+(2004, ISBN:978-0415283755). The edge-based topology geometry decomposed
+into vertices and directed edge pairs is a simplification of the quad-edge
+case in Guibas & Stolfi (1985) <doi:10.1145/282918.282923>.
 
 %prep
 %setup -q -c -n %{packname}

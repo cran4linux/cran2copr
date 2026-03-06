@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  copulaSFM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Copula-Based Simultaneous Stochastic Frontier Models
+Summary:          Copula-Based Stochastic Frontier Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,10 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-VineCopula 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-VineCopula 
+Requires:         R-CRAN-MASS 
 
 %description
 Provides estimation procedures for copula-based stochastic frontier models

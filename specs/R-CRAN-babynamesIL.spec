@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  babynamesIL
-%global packver   0.0.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Israel Baby Names 1948-2022
+Summary:          Israel Baby Names 1949-2024
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-tibble 
 
 %description
-Israeli baby names provided by Israel's Central Bureau of Statistics. The
-package contains only names used for at least 5 children in at least one
-gender and sector ("Jewish", "Muslim", "Christian", "Druze" and "Other").
-Data was downloaded from:
-<https://www.cbs.gov.il/he/publications/LochutTlushim/2020/%%D7%%A9%%D7%%9E%%D7%%95%%D7%%AA-%%D7%%A4%%D7%%A8%%D7%%98%%D7%%99%%D7%%99%%D7%%9D.xlsx>.
+Israeli baby names provided by Israel's Central Bureau of Statistics
+(CBS/LAMAS). Contains names used for at least 5 children in a given year,
+covering sectors "Jewish", "Muslim", "Christian-Arab", and "Druze" from
+1949-2024. Legacy 1948 data and archived "Other" sector data are provided
+as separate datasets. Primary data source: CBS Release 391/2025
+<https://www.cbs.gov.il/he/mediarelease/DocLib/2025/391/11_25_391t1.xlsx>.
 
 %prep
 %setup -q -c -n %{packname}

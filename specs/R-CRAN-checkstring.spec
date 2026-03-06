@@ -1,33 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pdxTrees
-%global packver   0.5.0
+%global packname  checkstring
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Package of Portland, Oregon Trees
+Summary:          Common String Format Validation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
 
 %description
-An engaging collection of datasets from Portland Parks and Recreation. The
-city of Portland inventoried every tree in over 170 parks and along the
-streets in 96 neighborhoods.
+Validates common string formats including financial identifiers (ISIN,
+CUSIP, SEDOL, FIGI, IBAN, LEI), publication identifiers (ISBN, ISSN, DOI,
+ORCID), and general formats (email, UUID, URL, semver), with check digit
+verification where applicable.
 
 %prep
 %setup -q -c -n %{packname}

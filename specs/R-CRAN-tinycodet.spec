@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinycodet
-%global packver   0.6.0
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Help in your Coding Etiquette
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-stringi >= 1.7.12
 BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-methods 
 Requires:         R-CRAN-stringi >= 1.7.12
 Requires:         R-CRAN-Rcpp >= 1.0.11
+Requires:         R-methods 
 
 %description
 Adds some functions to help in your coding etiquette. 'tinycodet'
