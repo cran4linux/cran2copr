@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fs
-%global packver   1.6.7
+%global packname  BNPmix
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          Bayesian Nonparametric Mixture Models
 
-License:          MIT + file LICENSE
+License:          LGPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    automake
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-ggpubr 
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+Functions to perform Bayesian nonparametric univariate and multivariate
+density estimation and clustering, by means of Pitman-Yor mixtures, and
+dependent Dirichlet process mixtures for partially exchangeable data. See
+Corradin et al. (2021) <doi:10.18637/jss.v100.i15> for more details.
 
 %prep
 %setup -q -c -n %{packname}

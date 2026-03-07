@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mdatools
-%global packver   0.14.2
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.2
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Data Analysis for Chemometrics
 
@@ -21,12 +21,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-pcv 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-pcv 
 
 %description
 Projection based methods for preprocessing, exploring and analysis of

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramnet
-%global packver   0.0-10
+%global packver   0.0-99
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          0.0.99
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Transformation Models
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CVXR >= 1.8
+BuildRequires:    R-CRAN-tram >= 1.4
 BuildRequires:    R-CRAN-mlrMBO >= 1.1.2
-BuildRequires:    R-CRAN-CVXR >= 0.99.4
-BuildRequires:    R-CRAN-tram >= 0.3.2
 BuildRequires:    R-CRAN-mlt 
 BuildRequires:    R-CRAN-basefun 
 BuildRequires:    R-CRAN-sandwich 
@@ -28,9 +28,9 @@ BuildRequires:    R-CRAN-lhs
 BuildRequires:    R-CRAN-mlr 
 BuildRequires:    R-CRAN-smoof 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-CVXR >= 1.8
+Requires:         R-CRAN-tram >= 1.4
 Requires:         R-CRAN-mlrMBO >= 1.1.2
-Requires:         R-CRAN-CVXR >= 0.99.4
-Requires:         R-CRAN-tram >= 0.3.2
 Requires:         R-CRAN-mlt 
 Requires:         R-CRAN-basefun 
 Requires:         R-CRAN-sandwich 

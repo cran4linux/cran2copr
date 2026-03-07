@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  N2R
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Scalable Approximate k-Nearest Neighbor Search Methods using 'N2' Library
 
@@ -30,7 +30,7 @@ approximate nearest neighbor search using hierarchical Navigable Small
 World (NSW) graphs. The original algorithm is described in "Efficient and
 Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable
 Small World Graphs", Y. Malkov and D. Yashunin,
-<doi:10.1109/TPAMI.2018.2889473>, <arXiv:1603.09320>.
+<doi:10.1109/TPAMI.2018.2889473>, <doi:10.48550/arXiv.1603.09320>.
 
 %prep
 %setup -q -c -n %{packname}

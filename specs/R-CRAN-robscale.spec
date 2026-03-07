@@ -1,28 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fs
-%global packver   1.6.7
+%global packname  robscale
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          Fast Robust Estimation in Very Small Samples
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    automake
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+High-performance C++ implementation (via 'Rcpp') of the robust location
+and scale M-estimators described in Rousseeuw & Verboven (2002)
+<doi:10.1016/S0167-9473(02)00078-6> for very small samples. Provides
+numerically identical results to the 'revss' package with significantly
+improved performance through sorting networks and compiled iteration
+loops.
 
 %prep
 %setup -q -c -n %{packname}

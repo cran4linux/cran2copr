@@ -1,28 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fs
-%global packver   1.6.7
+%global packname  moonlit
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          Predicting Moonlight Intensity for a Given Time and Location
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    automake
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-suncalc 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-suncalc 
+Requires:         R-CRAN-lubridate 
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+Tools for predicting moonlight intensity on the ground based on the
+position of the moon, atmospheric conditions, and other factors. Provides
+functions to calculate moonlight intensity and related statistics for
+ecological and behavioral research, offering more accurate estimates than
+simple moon phase calculations. The underlying model is described in
+Smielak (2023) <doi:10.1007/s00265-022-03287-2>.
 
 %prep
 %setup -q -c -n %{packname}

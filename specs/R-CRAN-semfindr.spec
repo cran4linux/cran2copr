@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semfindr
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Influential Cases in Structural Equation Modeling
 
@@ -41,7 +41,8 @@ Sensitivity analysis in structural equation modeling using influence
 measures and diagnostic plots. Support leave-one-out casewise sensitivity
 analysis presented by Pek and MacCallum (2011)
 <doi:10.1080/00273171.2011.561068> and approximate casewise influence
-using scores and casewise likelihood.
+using scores and casewise likelihood. An introduction to the package can
+be found in Cheung and Lai (2026) <doi:10.1080/00273171.2026.2634293>.
 
 %prep
 %setup -q -c -n %{packname}

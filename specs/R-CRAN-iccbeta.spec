@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fs
-%global packver   1.6.7
+%global packname  iccbeta
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          Multilevel Model Intraclass Correlation for Slope Heterogeneity
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    automake
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.2
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-lme4 
+Requires:         R-stats 
 Requires:         R-methods 
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+A function and vignettes for computing an intraclass correlation described
+in Aguinis & Culpepper (2015) <doi:10.1177/1094428114563618>. This package
+quantifies the share of variance in a dependent variable that is
+attributed to group heterogeneity in slopes.
 
 %prep
 %setup -q -c -n %{packname}

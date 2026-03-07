@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  placematchr
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Normalize and Match City Names to NUTS Regions
 
@@ -31,12 +31,12 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-rlang 
 
 %description
-Normalizes city names for Germany (DE) and Switzerland (CH) and matches
-them to NUTS 3 regions using provided crosswalks. Features include
-comprehensive normalization rules, cascading matching logic (Exact NUTS ->
-Exact LAU -> Fuzzy), and single-source data synthesis. The package
-implements the NUTS classification as described in the NUTS methodology
-(Eurostat (2021) <https://ec.europa.eu/eurostat/web/nuts>).
+Normalizes city names for EEA countries and matches them to NUTS 3 regions
+using provided crosswalks. Features include comprehensive normalization
+rules, cascading matching logic (Exact NUTS -> Exact LAU -> Fuzzy), and
+single-source data synthesis. The package implements the NUTS
+classification as described in the NUTS methodology (Eurostat (2021)
+<https://ec.europa.eu/eurostat/web/nuts>).
 
 %prep
 %setup -q -c -n %{packname}

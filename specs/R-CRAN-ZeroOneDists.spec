@@ -1,28 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fs
-%global packver   1.6.7
+%global packname  ZeroOneDists
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          One Zero Statistical Distributions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    automake
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+Implementation of new statistical distributions in (0, 1) interval. Each
+distribution includes the traditional functions as well as an additional
+function called the family function, which can be used to estimate
+parameters using Generalized Additive Models for Location, Scale and
+Shape, GAMLSS by Rigby & Stasinopoulos (2005)
+<doi:10.1111/j.1467-9876.2005.00510.x>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fs
-%global packver   1.6.7
+%global packname  maplamina
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          High-Performance 'WebGL' Mapping Widgets for R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    automake
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-sf 
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+Creates interactive maps using 'MapLibre GL' and 'deck.gl' via
+'htmlwidgets'. Provides GPU-accelerated layers for points, lines and
+polygons, plus linked user interface components such as filters, views and
+summary cards for exploratory analysis and production dashboards.
 
 %prep
 %setup -q -c -n %{packname}

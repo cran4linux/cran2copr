@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedLogit
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Dichotomy Logistic Regression Models
 
@@ -26,6 +26,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
@@ -35,6 +36,7 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-scales 
 
 %description
 Provides functions for specifying and fitting nested dichotomy logistic

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PoissonBinomial
-%global packver   1.2.7
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Computation of Ordinary and Generalized Poisson Binomial Distributions
+Summary:          Efficient Computation of Ordinary and Generalised Poisson Binomial Distributions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,7 +26,7 @@ described in Hong (2013) <doi:10.1016/j.csda.2012.10.006>, Biscarri, Zhao
 & Brunner (2018) <doi:10.1016/j.csda.2018.01.007> and Zhang, Hong &
 Balakrishnan (2018) <doi:10.1080/00949655.2018.1440294> for computing the
 probability mass, cumulative distribution and quantile functions, as well
-as generating random numbers for both the ordinary and generalized Poisson
+as generating random numbers for both the ordinary and generalised Poisson
 binomial distribution.
 
 %prep

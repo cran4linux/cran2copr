@@ -1,28 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fs
-%global packver   1.6.7
+%global packname  TidyConsultant
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.7
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform File System Operations Based on 'libuv'
+Summary:          Tidy Consultant Universe
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    automake
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-badger 
+BuildRequires:    R-CRAN-pacman 
+BuildRequires:    R-CRAN-framecleaner 
+BuildRequires:    R-CRAN-validata 
+BuildRequires:    R-CRAN-presenter 
+BuildRequires:    R-CRAN-autostats 
+BuildRequires:    R-CRAN-tidybins 
+BuildRequires:    R-CRAN-Ckmeans.1d.dp 
+Requires:         R-CRAN-badger 
+Requires:         R-CRAN-pacman 
+Requires:         R-CRAN-framecleaner 
+Requires:         R-CRAN-validata 
+Requires:         R-CRAN-presenter 
+Requires:         R-CRAN-autostats 
+Requires:         R-CRAN-tidybins 
+Requires:         R-CRAN-Ckmeans.1d.dp 
 
 %description
-A cross-platform interface to file system operations, built on top of the
-'libuv' C library.
+Loads the 5 packages in the Tidy Consultant Universe. This collection of
+packages is useful for anyone doing data science, data analysis, or
+quantitative consulting. The functions in these packages range from data
+cleaning, data validation, data binning, statistical modeling, and file
+exporting.
 
 %prep
 %setup -q -c -n %{packname}

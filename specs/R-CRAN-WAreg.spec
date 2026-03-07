@@ -1,48 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesChange
-%global packver   2.3.0
+%global packname  WAreg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Methods for Change Point Analysis
+Summary:          While-Alive Regression for Composite Endpoints with Cluster-Robust Inference
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-salso 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-salso 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-coda 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-splines 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape2 
 
 %description
-Performs change point detection on univariate and multivariate time series
-(Martínez & Mena, 2014, <doi:10.1214/14-BA878> ; Corradin, Danese &
-Ongaro, 2022, <doi:10.1016/j.ijar.2021.12.019>) and clusters
-time-dependent data with common change points (Corradin, Danese,
-KhudaBukhsh & Ongaro, 2026, <doi:10.1007/s11222-025-10756-x>).
+Provides estimation and inference for while-alive regression models
+targeting the while-alive loss rate for composite endpoints that include
+recurrent events and a terminal event. The implementation supports
+flexible time-varying covariate effects through user-selected time bases,
+including B-splines, natural splines, M-splines, step functions, truncated
+linear bases, interval-local bases, and piecewise polynomials. Inference
+can be performed using cluster-robust variance estimators for
+cluster-randomized trials, with subject-level (IID) variance as a special
+case. The package includes prediction and plotting utilities and K-fold
+cross-validation for selecting basis and tuning parameters. Methodology is
+based on Fang et al. (2025) <doi:10.1093/biostatistics/kxaf047>.
 
 %prep
 %setup -q -c -n %{packname}

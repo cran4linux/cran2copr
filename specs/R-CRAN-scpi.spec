@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scpi
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Intervals for Synthetic Control Methods with Multiple Treated Units and Staggered Adoption
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
 BuildRequires:    R-CRAN-tibble >= 3.1.2
 BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-CVXR >= 1.8.1
 BuildRequires:    R-CRAN-fastDummies >= 1.6.3
 BuildRequires:    R-CRAN-Qtools >= 1.5.6
 BuildRequires:    R-CRAN-foreach >= 1.5.1
@@ -36,7 +37,6 @@ BuildRequires:    R-CRAN-Matrix >= 1.3.3
 BuildRequires:    R-CRAN-tidyr >= 1.1.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-doSNOW >= 1.0.19
-BuildRequires:    R-CRAN-CVXR >= 1.0.10
 BuildRequires:    R-CRAN-ECOSolveR >= 0.5.4
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-purrr >= 0.3.4
@@ -49,6 +49,7 @@ Requires:         R-CRAN-ggplot2 >= 3.3.3
 Requires:         R-CRAN-tibble >= 3.1.2
 Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-CVXR >= 1.8.1
 Requires:         R-CRAN-fastDummies >= 1.6.3
 Requires:         R-CRAN-Qtools >= 1.5.6
 Requires:         R-CRAN-foreach >= 1.5.1
@@ -59,7 +60,6 @@ Requires:         R-CRAN-Matrix >= 1.3.3
 Requires:         R-CRAN-tidyr >= 1.1.3
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-doSNOW >= 1.0.19
-Requires:         R-CRAN-CVXR >= 1.0.10
 Requires:         R-CRAN-ECOSolveR >= 0.5.4
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-purrr >= 0.3.4

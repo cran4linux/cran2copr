@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stochtree
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Tree Ensembles (XBART and BART) for Supervised Learning and Causal Inference
 
@@ -25,11 +25,17 @@ Requires:         R-stats
 
 %description
 Flexible stochastic tree ensemble software. Robust implementations of
-Bayesian Additive Regression Trees (BART) Chipman, George, McCulloch
-(2010) <doi:10.1214/09-AOAS285> for supervised learning and Bayesian
-Causal Forests (BCF) Hahn, Murray, Carvalho (2020) <doi:10.1214/19-BA1195>
-for causal inference. Enables model serialization and parallel sampling
-and provides a low-level interface for custom stochastic forest samplers.
+Bayesian Additive Regression Trees (BART) (Chipman, George, McCulloch
+(2010) <doi:10.1214/09-AOAS285>) for supervised learning and Bayesian
+Causal Forests (BCF) (Hahn, Murray, Carvalho (2020)
+<doi:10.1214/19-BA1195>) for causal inference. Enables model serialization
+and parallel sampling and provides a low-level interface for custom
+stochastic forest samplers. Includes the grow-from-root algorithm for
+accelerated forest sampling (He and Hahn (2021)
+<doi:10.1080/01621459.2021.1942012>), a log-linear leaf model for
+forest-based heteroskedasticity (Murray (2020)
+<doi:10.1080/01621459.2020.1813587>), and the cloglog BART model of Alam
+and Linero (2025) <doi:10.48550/arXiv.2502.00606> for ordinal outcomes.
 
 %prep
 %setup -q -c -n %{packname}

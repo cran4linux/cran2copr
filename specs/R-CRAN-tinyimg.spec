@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyimg
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimize and Compress Images
 
@@ -19,11 +19,10 @@ Requires:         R-core
 
 %description
 Optimize and compress images using 'Rust' libraries to reduce file sizes
-while maintaining image quality. Currently supports lossless PNG
-optimization via the 'oxipng' crate. The package provides functions to
-optimize individual image files or entire directories, with configurable
-compression levels to balance between file size reduction and processing
-speed.
+while maintaining image quality. Supports PNG palette reduction and
+dithering via the 'exoquant' crate before lossless PNG optimization via
+the 'oxipng' crate. The package provides functions to optimize individual
+image files or entire directories, with configurable compression levels.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spicy
-%global packver   0.4.2
+%global packname  videogameinsightsR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive Statistics and Data Management Tools
+Summary:          Interface to 'Video Game Insights' API for Gaming Market Analytics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,40 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-collapse 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
 
 %description
-Extracts and summarizes metadata from data frames, including variable
-names, labels, types, and missing values. Computes compact descriptive
-statistics, frequency tables, and cross-tabulations to assist with
-efficient data exploration. Includes an interactive and exportable
-codebook generator for documenting variable metadata. Facilitates the
-identification of missing data patterns and structural issues in datasets.
-Designed to streamline initial data management and exploratory analysis
-workflows within 'R'.
+Interface to the 'Video Game Insights' API
+<https://app.sensortower.com/vgi/> for video game market analytics and
+intelligence. Provides functions to retrieve game metadata, developer and
+publisher information, player statistics (concurrent players, daily and
+monthly active users), revenue and sales data, review analytics, wish-list
+tracking, and platform-specific rankings. The package includes data
+processing utilities to analyze player demographics, track pricing
+history, calculate player overlap between games, and monitor market
+trends. Supports analysis across multiple gaming platforms including
+'Steam', 'PlayStation', 'Xbox', and 'Nintendo' with unified data
+structures for cross-platform comparison.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  poLCAParallel
-%global packver   1.2.6
+%global packname  multiobjectiveMDP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Polytomous Variable Latent Class Analysis Parallel
+Summary:          Solution Methods for Multi-Objective Markov Decision Processes
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.4.1.0
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-poLCA 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-MASS 
-Requires:         R-parallel 
-Requires:         R-CRAN-poLCA 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-linprog 
+BuildRequires:    R-CRAN-lintools 
+BuildRequires:    R-CRAN-nsga2R 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-linprog 
+Requires:         R-CRAN-lintools 
+Requires:         R-CRAN-nsga2R 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-prodlim 
+Requires:         R-stats 
 
 %description
-A 'C++' reimplementation of 'poLCA' - latent class analysis and latent
-class regression models for polytomous outcome variables, also known as
-latent structure analysis. It attempts to reproduce results and be as
-similar as possible to the original code, while running faster, especially
-with multiple repetitions, by utilising multiple threads. Further reading
-is available on the Queen Mary, University of London, IT Services Research
-blog <https://blog.hpc.qmul.ac.uk/speeding_up_r_packages/>.
+Compendium of the most representative algorithms in print---vector-valued
+dynamic programming, linear programming, policy iteration, the weighting
+factor approach---for solving multi-objective Markov decision processes,
+with or without reward discount, over a finite or infinite horizon.
+Mifrani, A. (2024) <doi:10.1007/s10479-024-06439-x>; Mifrani, A. & Noll,
+D. <doi:10.48550/arXiv.2502.13697>; Wakuta, K. (1995)
+<doi:10.1016/0304-4149(94)00064-Z>.
 
 %prep
 %setup -q -c -n %{packname}
