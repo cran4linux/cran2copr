@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maidr
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multimodal Access and Interactive Data Representation
 
@@ -50,11 +50,11 @@ Provides accessible, interactive visualizations through the 'MAIDR'
 'ggplot2' and Base R plots into accessible HTML/SVG formats with keyboard
 navigation, screen reader support, and 'sonification' capabilities.
 Supports bar charts (simple, grouped, stacked), histograms, line plots,
-scatter plots, box plots, heat maps, density/smooth curves, faceted plots,
-multi-panel layouts (including patchwork), and multi-layered plot
-combinations. Enables data exploration for users with visual impairments
-through multiple sensory modalities. For more details see the 'MAIDR'
-project <https://maidr.ai/>.
+scatter plots, box plots, violin plots, heat maps, density/smooth curves,
+faceted plots, multi-panel layouts (including patchwork), and
+multi-layered plot combinations. Enables data exploration for users with
+visual impairments through multiple sensory modalities. For more details
+see the 'MAIDR' project <https://maidr.ai/>.
 
 %prep
 %setup -q -c -n %{packname}

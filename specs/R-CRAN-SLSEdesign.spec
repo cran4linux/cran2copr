@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SLSEdesign
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Regression Design under the Second-Order Least Squares Estimator
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CVXR 
-Requires:         R-CRAN-CVXR 
+BuildRequires:    R-CRAN-CVXR >= 1.8.0
+Requires:         R-CRAN-CVXR >= 1.8.0
 
 %description
 With given inputs that include number of points, discrete design space, a

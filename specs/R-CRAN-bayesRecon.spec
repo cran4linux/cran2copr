@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesRecon
-%global packver   0.3.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Reconciliation via Conditioning
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lpSolve >= 5.6.18
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-nloptr 
 Requires:         R-CRAN-lpSolve >= 5.6.18
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-nloptr 
 
 %description
 Provides methods for probabilistic reconciliation of hierarchical
@@ -33,7 +35,9 @@ series (Corani et al., 2024) <doi:10.1016/j.ijforecast.2023.04.003>,
 Bottom-Up Importance Sampling (Zambon et al., 2024)
 <doi:10.1007/s11222-023-10343-y>, methods for the reconciliation of mixed
 hierarchies (Mix-Cond and TD-cond) (Zambon et al., 2024)
-<https://proceedings.mlr.press/v244/zambon24a.html>.
+<https://proceedings.mlr.press/v244/zambon24a.html>, analytical
+reconciliation with Bayesian treatment of the covariance matrix (Carrara
+et al., 2025) <doi: 10.48550/arXiv.2506.19554>.
 
 %prep
 %setup -q -c -n %{packname}

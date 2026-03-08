@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirt
-%global packver   1.45.1
+%global packver   1.46.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.45.1
+Version:          1.46.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Item Response Theory
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-CRAN-dcurver 
 BuildRequires:    R-CRAN-SimDesign 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-Deriv 
 Requires:         R-splines 
+Requires:         R-CRAN-splines2 
 Requires:         R-CRAN-dcurver 
 Requires:         R-CRAN-SimDesign 
 

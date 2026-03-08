@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Upsilon
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Another Test of Association for Count Data
 
@@ -19,13 +19,9 @@ Requires:         R-core
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-scales 
 
 %description
 The Upsilon test assesses association among categorical variables against
@@ -40,7 +36,8 @@ observed marginals. Although Pearson's chi-squared test, Fisher's exact
 test, and Woolf's G-test (related to mutual information) are useful in
 some contexts, the Upsilon test appeals to ranking association patterns
 not necessarily following same marginal distributions, such as in count
-data from DNA sequencing---an important modern scientific domain.
+data from DNA and RNA sequencing---a rapidly expanding frontier in modern
+science.
 
 %prep
 %setup -q -c -n %{packname}

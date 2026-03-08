@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rBiasCorrection
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correct Bias in DNA Methylation Analyses
 
@@ -14,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-nls2 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -31,9 +31,9 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-nls2 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-polynom 
 Requires:         R-stats 
 Requires:         R-utils 

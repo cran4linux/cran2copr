@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  languageserver
-%global packver   0.3.16
+%global packver   0.3.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.16
+Version:          0.3.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Language Server Protocol
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-xml2 >= 1.2.2
 BuildRequires:    R-CRAN-stringi >= 1.1.7
 BuildRequires:    R-CRAN-xmlparsedata >= 1.0.3
 BuildRequires:    R-CRAN-collections >= 0.3.0
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-parallel 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-xml2 >= 1.2.2
 Requires:         R-CRAN-stringi >= 1.1.7
 Requires:         R-CRAN-xmlparsedata >= 1.0.3
 Requires:         R-CRAN-collections >= 0.3.0
+Requires:         R-CRAN-digest 
 Requires:         R-parallel 
 Requires:         R-tools 
 Requires:         R-utils 

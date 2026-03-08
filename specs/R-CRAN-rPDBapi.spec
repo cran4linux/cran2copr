@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rPDBapi
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Interface for Accessing the Protein Data Bank
 
@@ -35,13 +35,12 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 
 %description
-Streamlines the interaction with the 'RCSB' Protein Data Bank ('PDB')
-<https://www.rcsb.org/>. This interface offers an intuitive and powerful
-tool for searching and retrieving a diverse range of data types from the
-'PDB'. It includes advanced functionalities like BLAST and sequence motif
-queries. Built upon the existing XML-based API of the 'PDB', it simplifies
-the creation of custom requests, thereby enhancing usability and
-flexibility for researchers.
+Provides an R interface to the 'RCSB' Protein Data Bank ('PDB') Search and
+Data APIs (<https://www.rcsb.org/>). Supports full-text, attribute,
+sequence, motif, structure, and chemical searches; retrieval of entry-,
+assembly-, polymer-entity-, and chemical-component-level metadata; and
+conversion of API responses into analysis-ready tables and typed R objects
+for reproducible structural bioinformatics workflows.
 
 %prep
 %setup -q -c -n %{packname}
