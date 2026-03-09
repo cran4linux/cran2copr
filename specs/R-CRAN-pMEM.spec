@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sasLM
-%global packver   0.10.8
+%global packname  pMEM
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.8
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Linear Model
+Summary:          Predictive Moran's Eigenvector Maps
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-Rcpp >= 1.0.11
+Requires:         R-CRAN-sf 
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, ANOVA, TTEST, FREQ, and UNIVARIATE. Some R packages provide type II
-and type III SS. However, the results of nested and complex designs are
-often different from those of 'SAS.' Different results does not
-necessarily mean incorrectness. However, many wants the same results to
-SAS. This package aims to achieve that. Reference: Littell RC, Stroup WW,
-Freund RJ (2002, ISBN:0-471-22174-0).
+Calculate Predictive Moran's Eigenvector Maps (pMEM) for
+spatially-explicit prediction of environmental variables, as defined by
+Guénard and Legendre (2024) <doi:10.1111/2041-210X.14413>. pMEM extends
+classical MEM by enabling interpolation and prediction at unsampled
+locations using spatial weighting functions parameterized by range (and
+optionally shape). The package implements multiple pMEM types (e.g.,
+exponential, Gaussian, linear) and features a modular architecture that
+allows programmers to define custom weighting functions. Designed for
+ecologists, geographers, and spatial analysts working with
+spatially-structured data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDMConnector
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to an OMOP Common Data Model
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dbplyr >= 2.5.0
 BuildRequires:    R-CRAN-omopgenerics >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 0.3.0
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
@@ -39,6 +40,7 @@ BuildRequires:    R-CRAN-readr
 Requires:         R-CRAN-dbplyr >= 2.5.0
 Requires:         R-CRAN-omopgenerics >= 1.2.0
 Requires:         R-CRAN-DBI >= 0.3.0
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 

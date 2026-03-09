@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sasLM
-%global packver   0.10.8
+%global packname  deltapif
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.8
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Linear Model
+Summary:          Estimate Potential Impact and Population Attributable Fractions with Aggregated Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-scales 
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, ANOVA, TTEST, FREQ, and UNIVARIATE. Some R packages provide type II
-and type III SS. However, the results of nested and complex designs are
-often different from those of 'SAS.' Different results does not
-necessarily mean incorrectness. However, many wants the same results to
-SAS. This package aims to achieve that. Reference: Littell RC, Stroup WW,
-Freund RJ (2002, ISBN:0-471-22174-0).
+Uses the delta-method to estimate the Potential Impact Fraction (PIF) and
+the Population Attributable Fraction (PAF) from summary data. It creates
+point-estimates, confidence intervals, and estimates of the variance.
+Provides an extension to the aggregated data method in Chan, Zepeda-Tello
+et al (2025) <doi:10.1002/sim.70214>.
 
 %prep
 %setup -q -c -n %{packname}

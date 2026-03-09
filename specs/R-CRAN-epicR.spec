@@ -1,57 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  isopam
-%global packver   3.5
+%global packname  epicR
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering of Sites with Species Data
+Summary:          Evaluation Platform in Chronic Obstructive Pulmonary Disease
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fastkmedoids 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ps 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fastkmedoids 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-methods 
-Requires:         R-CRAN-ps 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-proxy 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-tools 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
-Clustering algorithm developed for use with plot inventories of species.
-It groups plots by subsets of diagnostic species rather than overall
-species composition. There is an unsupervised and a supervised mode, the
-latter accepting suggestions for species with greater weight and cluster
-medoids.
+Evaluation Platform in Chronic Obstructive Pulmonary Disease (EPIC) is a
+Discrete Event Simulation (DES) model that simulates health outcomes of
+patients with Chronic Obstructive Pulmonary Disease (COPD) based on
+demographics and individual-level risk factors, based on the model
+published in Sadatsafavi et al. (2019) <doi:10.1177/0272989X18824098>.
 
 %prep
 %setup -q -c -n %{packname}

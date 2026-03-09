@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sasLM
-%global packver   0.10.8
+%global packname  summata
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.8
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Linear Model
+Summary:          Publication-Ready Summary Tables and Forest Plots
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, ANOVA, TTEST, FREQ, and UNIVARIATE. Some R packages provide type II
-and type III SS. However, the results of nested and complex designs are
-often different from those of 'SAS.' Different results does not
-necessarily mean incorrectness. However, many wants the same results to
-SAS. This package aims to achieve that. Reference: Littell RC, Stroup WW,
-Freund RJ (2002, ISBN:0-471-22174-0).
+A comprehensive framework for descriptive statistics and regression
+analysis that produces publication-ready tables and forest plots. Provides
+a unified interface from descriptive statistics through multivariable
+modeling, with support for linear models, generalized linear models, Cox
+proportional hazards, and mixed-effects models. Also includes univariable
+screening, multivariate regression, model comparison, and export to
+multiple formats including PDF, DOCX, PPTX, 'LaTeX', HTML, and RTF. Built
+on 'data.table' for computational efficiency.
 
 %prep
 %setup -q -c -n %{packname}

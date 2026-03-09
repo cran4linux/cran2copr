@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sasLM
-%global packver   0.10.8
+%global packname  ictools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Linear Model
+Summary:          Unified Tools for Classical and Bootstrap Confidence Intervals
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, ANOVA, TTEST, FREQ, and UNIVARIATE. Some R packages provide type II
-and type III SS. However, the results of nested and complex designs are
-often different from those of 'SAS.' Different results does not
-necessarily mean incorrectness. However, many wants the same results to
-SAS. This package aims to achieve that. Reference: Littell RC, Stroup WW,
-Freund RJ (2002, ISBN:0-471-22174-0).
+Provides a unified and consistent interface for computing classical and
+bootstrap confidence intervals for means, variances, proportions, variance
+ratios, and regression coefficients. The package offers a standardized
+output structure, S3 classes, and user-friendly methods to facilitate
+statistical analysis and reproducibility.
 
 %prep
 %setup -q -c -n %{packname}

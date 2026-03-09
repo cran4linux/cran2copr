@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kstIO
-%global packver   0.4-3
+%global packver   0.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knowledge Space Theory Input/Output
 
@@ -17,18 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pks >= 0.4.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-kstMatrix >= 2.3.0
 BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-CRAN-relations 
-BuildRequires:    R-CRAN-kstMatrix 
-Requires:         R-CRAN-pks >= 0.4.0
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-openxlsx2 
+BuildRequires:    R-CRAN-readODS 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-kstMatrix >= 2.3.0
 Requires:         R-CRAN-sets 
-Requires:         R-CRAN-relations 
-Requires:         R-CRAN-kstMatrix 
+Requires:         R-CRAN-openxlsx2 
+Requires:         R-CRAN-readODS 
+Requires:         R-tools 
 
 %description
 Knowledge space theory by Doignon and Falmagne (1999)
@@ -36,7 +34,7 @@ Knowledge space theory by Doignon and Falmagne (1999)
 which proposes mathematical formalisms to operationalize knowledge
 structures in a particular domain.  The 'kstIO' package provides basic
 functionalities to read and write KST data from/to files to be used
-together with the 'kst', 'kstMatrix', 'CDSS', 'pks', or 'DAKS' packages.
+together with the 'kst', 'kstMatrix', 'pks', or 'DAKS' packages.
 
 %prep
 %setup -q -c -n %{packname}

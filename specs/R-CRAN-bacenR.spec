@@ -1,66 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inlabru
-%global packver   2.14.0
+%global packname  bacenR
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Latent Gaussian Modelling using INLA and Extensions
+Summary:          Access Data from Brazilian Central Bank: IFdata, Active Institutions, Balance Sheets and Normative Acts
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-fmesher >= 0.7.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-MatrixModels 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-fmesher >= 0.7.0
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-MatrixModels 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-xml2 
 
 %description
-Facilitates spatial and general latent Gaussian modeling using integrated
-nested Laplace approximation via the INLA package
-(<https://www.r-inla.org>). Additionally, extends the GAM-like model class
-to more general nonlinear predictor expressions, and implements a log
-Gaussian Cox process likelihood for modeling univariate and spatial point
-processes based on ecological survey data. Model components are specified
-with general inputs and mapping methods to the latent variables, and the
-predictors are specified via general R expressions, with separate
-expressions for each observation likelihood model in multi-likelihood
-models. A prediction method based on fast Monte Carlo sampling allows
-posterior prediction of general expressions of the latent variables.
-Ecology-focused introduction in Bachl, Lindgren, Borchers, and Illian
-(2019) <doi:10.1111/2041-210X.13168>.
+Provides functions to query, retrieve, and tidy economic and financial
+data from Brazilian Central Bank web services for use in R analyses and
+workflows. Active institutions information, balance sheets and normative
+acts.
 
 %prep
 %setup -q -c -n %{packname}

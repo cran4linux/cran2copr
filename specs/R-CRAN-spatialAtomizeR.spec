@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialAtomizeR
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis with Misaligned Data Using Atom-Based Regression Models
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -33,12 +32,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
 Requires:         R-CRAN-nimble 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
@@ -49,6 +48,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-raster 
 
 %description
 Implements atom-based regression models (ABRM) for analyzing spatially

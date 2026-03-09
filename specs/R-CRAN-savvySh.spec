@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  savvySh
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Slab and Shrinkage Linear Regression Estimation
 
@@ -37,9 +37,9 @@ Provides methods including the Stein estimator, Diagonal Shrinkage, the
 general Shrinkage estimator (solving a Sylvester equation), and Slab
 Regression (Simple and Generalized). These methods address Stein's paradox
 by introducing structured bias to reduce variance without requiring
-cross-validation, except for Shrinkage Ridge Regression where the
-intensity is chosen by minimizing an explicit Mean Squared Error (MSE)
-criterion. Methods are based on paper
+cross-validation, except for 'ShrinkageRR' where the intensity is chosen
+by minimizing an explicit Mean Squared Error (MSE) criterion. Methods are
+based on Asimit, V., Cidota, M. A., Chen, Z., and Asimit, J. (2025)
 <https://openaccess.city.ac.uk/id/eprint/35005/>.
 
 %prep

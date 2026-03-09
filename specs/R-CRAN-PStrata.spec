@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sasLM
-%global packver   0.10.8
+%global packname  PStrata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Linear Model
+Summary:          Principal Stratification Analysis in R
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-rstantools
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, ANOVA, TTEST, FREQ, and UNIVARIATE. Some R packages provide type II
-and type III SS. However, the results of nested and complex designs are
-often different from those of 'SAS.' Different results does not
-necessarily mean incorrectness. However, many wants the same results to
-SAS. This package aims to achieve that. Reference: Littell RC, Stroup WW,
-Freund RJ (2002, ISBN:0-471-22174-0).
+Estimating causal effects in the presence of post-treatment confounding
+using principal stratification. 'PStrata' allows for customized
+monotonicity assumptions and exclusion restriction assumptions, with
+automatic full Bayesian inference supported by 'Stan'. The main function
+to use in this package is PStrata(), which provides posterior estimates of
+principal causal effects with uncertainty quantification. Visualization
+tools are also provided for diagnosis and interpretation. See Liu and Li
+(2023) <doi:10.48550/arXiv.2304.02740> for details.
 
 %prep
 %setup -q -c -n %{packname}

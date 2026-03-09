@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sasLM
-%global packver   0.10.8
+%global packname  maskedcauses
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.8
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Linear Model
+Summary:          Likelihood Models for Systems with Masked Component Cause of Failure
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-likelihood.model 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-likelihood.model 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-numDeriv 
 
 %description
-This is a core implementation of 'SAS' procedures for linear models - GLM,
-REG, ANOVA, TTEST, FREQ, and UNIVARIATE. Some R packages provide type II
-and type III SS. However, the results of nested and complex designs are
-often different from those of 'SAS.' Different results does not
-necessarily mean incorrectness. However, many wants the same results to
-SAS. This package aims to achieve that. Reference: Littell RC, Stroup WW,
-Freund RJ (2002, ISBN:0-471-22174-0).
+Maximum likelihood estimation for series systems where the component cause
+of failure is masked. Implements analytical log-likelihood, score, and
+Hessian functions for exponential, homogeneous Weibull, and heterogeneous
+Weibull component lifetimes under masked cause conditions (C1, C2, C3).
+Supports exact, right-censored, left-censored, and interval-censored
+observations via composable observation functors. Provides random data
+generation, model fitting, and Fisher information for asymptotic
+inference. See Lin, Loh, and Bai (1993) <doi:10.1109/24.257799> and Craiu
+and Reiser (2006) <doi:10.1111/j.1541-0420.2005.00498.x>.
 
 %prep
 %setup -q -c -n %{packname}

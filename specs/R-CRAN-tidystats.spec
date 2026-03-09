@@ -1,43 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  photon
-%global packver   1.0.0
+%global packname  tidystats
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Performance Geocoding using 'photon'
+Summary:          Save Output of Statistical Tests
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-countrycode 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-countrycode 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-tools 
 
 %description
-Features unstructured, structured and reverse geocoding using the 'photon'
-geocoding API <https://photon.komoot.io/>. Facilitates the setup of local
-'photon' instances to enable offline geocoding.
+Save the output of statistical tests in an organized file that can be
+shared with others or used to report statistics in scientific papers.
 
 %prep
 %setup -q -c -n %{packname}

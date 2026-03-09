@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  piecemeal
-%global packver   0.1.0
+%global packname  cmtkr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangle Large Simulation Studies
+Summary:          Wrapper for the Computational Morphometry Toolkit ('CMTK') Library
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-filelock 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-filelock 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+Requires:         R-CRAN-Rcpp >= 0.11.2
 
 %description
-An 'R6' class to set up, run, monitor, collate, and debug large simulation
-studies comprising many small independent replications and treatment
-configurations. Parallel processing, reproducibility, fault- and
-error-tolerance, and ability to resume an interrupted or timed-out
-simulation study are built in.
+Provides R bindings for selected components of the Computational
+Morphometry Toolkit ('CMTK') for image registration and point
+transformation. A subset of the 'C++' source code required for point
+transforms is bundled with 'cmtkr'. This allows direct calls into the
+'CMTK' library, avoiding command-line invocations and providing
+order-of-magnitude speed improvements. Additional 'CMTK' functionality may
+be wrapped in future releases. 'CMTK' is described in Rohlfing T and
+Maurer CR (2003) <doi:10.1109/titb.2003.808506>.
 
 %prep
 %setup -q -c -n %{packname}

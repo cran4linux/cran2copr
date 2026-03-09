@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataExplorer
-%global packver   0.8.4
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate Data Exploration and Treatment
 
@@ -28,6 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-rmarkdown >= 2.5
 Requires:         R-CRAN-reshape2 >= 1.4.3
 Requires:         R-CRAN-data.table >= 1.13.4
@@ -39,6 +40,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-tools 
 Requires:         R-parallel 
+Requires:         R-CRAN-htmltools 
 
 %description
 Automated data exploration process for analytic tasks and predictive

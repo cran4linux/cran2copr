@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spStack
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Geostatistics Using Predictive Stacking
 
@@ -14,18 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-MBA 
 BuildRequires:    R-CRAN-rstudioapi 
 Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-loo 
 Requires:         R-CRAN-MBA 
 Requires:         R-CRAN-rstudioapi 
 
@@ -40,7 +42,7 @@ stacking. Our algorithm is highly parallelizable and hence, much faster
 than traditional Markov chain Monte Carlo algorithms while delivering
 competitive predictive performance. See Zhang, Tang, and Banerjee (2025)
 <doi:10.1080/01621459.2025.2566449>, and, Pan, Zhang, Bradley, and
-Banerjee (2025) <doi:10.48550/arXiv.2406.04655> for details.
+Banerjee (2025) <doi:10.1214/25-BA1582> for details.
 
 %prep
 %setup -q -c -n %{packname}
