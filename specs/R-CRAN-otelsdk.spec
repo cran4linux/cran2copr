@@ -14,6 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    cmake
+BuildRequires:    libcurl-devel
+BuildRequires:    protobuf-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-otel 
