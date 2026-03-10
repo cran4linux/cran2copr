@@ -1,3 +1,4 @@
+%undefine __brp_mangle_shebangs
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rapp
