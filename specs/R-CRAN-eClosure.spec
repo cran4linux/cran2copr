@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  wowa
-%global packver   1.0.2
+%global __requires_exclude ^libmpi
+%global packname  eClosure
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighted Ordered Weighted Average
+Summary:          Methods Based on the e-Closure Principle
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Introduce weights into Ordered Weighted Averages and extend bivariate
-means based on n-ary tree construction. Please refer to the following: G.
-Beliakov, H. Bustince, and T. Calvo (2016, ISBN: 978-3-319-24753-3), G.
-Beliakov(2018) <doi:10.1002/int.21913>, G. Beliakov, J.J. Dujmovic (2016)
-<doi:10.1016/j.ins.2015.10.040>, J.J. Dujmovic and G. Beliakov (2017)
-<doi:10.1002/int.21828>.
+Implements several methods for False Discovery Rate control based on the
+e-Closure Principle, in particular the Closed e-Benjamini-Hochberg and
+Closed Benjamini-Yekutieli procedures.
 
 %prep
 %setup -q -c -n %{packname}

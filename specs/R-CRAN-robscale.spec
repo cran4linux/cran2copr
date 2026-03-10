@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robscale
-%global packver   0.1.1
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Robust Estimation in Very Small Samples
+Summary:          Faster Robustness: Accelerated Estimation of Location and Scale
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-RcppParallel >= 5.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-High-performance C++ implementation (via 'Rcpp') of the robust location
-and scale M-estimators described in Rousseeuw & Verboven (2002)
-<doi:10.1016/S0167-9473(02)00078-6> for very small samples. Provides
-numerically identical results to the 'revss' package with significantly
-improved performance through sorting networks and compiled iteration
-loops.
+Robust estimation ensures statistical reliability in data contaminated by
+outliers. Yet, computational bottlenecks in existing 'R' implementations
+frequently obstruct both very small sample analysis and large-scale
+processing. 'robscale' resolves these inefficiencies by providing
+high-performance implementations of logistic M-estimators and the 'Qn' and
+'Sn' scale estimators. By leveraging platform-specific Single Instruction,
+Multiple Data (SIMD) vectorization and Intel Threading Building Blocks
+(TBB) parallelism, the package delivers speedups of 11–39x for small
+samples and up to 10x for massive datasets. These performance gains enable
+the integration of robust statistics into modern, time-critical
+computational workflows. Replaces 'revss' with an 'Rcpp' backend.
 
 %prep
 %setup -q -c -n %{packname}

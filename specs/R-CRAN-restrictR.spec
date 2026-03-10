@@ -1,25 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapsFinland
-%global packver   0.2.2
+%global packname  restrictR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maps of Finland
+Summary:          Composable Runtime Contracts for R
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 
 %description
-Maps and other related data of Finland.
+Build reusable validators from small building blocks using the base pipe
+operator. Define runtime contracts once with 'restrict()' and enforce them
+anywhere in code. Validators compose naturally, support dependent rules
+via formulas, and produce clear, path-aware error messages. No DSL, no
+operator overloading, just idiomatic R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rclsp
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular Two-Step Convex Optimization Estimator for Ill-Posed Problems
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CVXR >= 1.8.1
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-CVXR >= 1.8.1
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-MASS 
 
 %description

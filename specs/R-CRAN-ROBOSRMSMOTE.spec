@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  didimputation
-%global packver   0.5.1
+%global packname  ROBOSRMSMOTE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imputation Estimator from Borusyak, Jaravel, and Spiess (2021)
+Summary:          Robust Oversampling with RM-SMOTE for Imbalanced Classification
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.10.0
-BuildRequires:    R-CRAN-fixest >= 0.13.2
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-data.table >= 1.10.0
-Requires:         R-CRAN-fixest >= 0.13.2
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rrcov >= 1.7.0
+BuildRequires:    R-CRAN-meanShiftR >= 0.56
+BuildRequires:    R-stats 
+Requires:         R-CRAN-rrcov >= 1.7.0
+Requires:         R-CRAN-meanShiftR >= 0.56
+Requires:         R-stats 
 
 %description
-Estimates Two-way Fixed Effects difference-in-differences/event-study
-models using the imputation-based approach proposed by Borusyak, Jaravel,
-and Spiess (2021).
+Provides the ROBOSRMSMOTE (Robust Oversampling with RM-SMOTE) framework
+for imbalanced classification tasks. This package extends Mahalanobis
+distance-based oversampling techniques by integrating robust covariance
+estimators to better handle outliers and complex data distributions. The
+implemented methodology builds upon and significantly expands the RM-SMOTE
+algorithm originally proposed by Taban et al. (2025)
+<doi:10.1007/s10260-025-00819-8>.
 
 %prep
 %setup -q -c -n %{packname}

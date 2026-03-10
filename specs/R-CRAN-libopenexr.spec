@@ -1,33 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  didimputation
-%global packver   0.5.1
+%global packname  libopenexr
+%global packver   3.4.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          3.4.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imputation Estimator from Borusyak, Jaravel, and Spiess (2021)
+Summary:          Static Library and Headers for 'OpenEXR' Image I/O
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.10.0
-BuildRequires:    R-CRAN-fixest >= 0.13.2
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-data.table >= 1.10.0
-Requires:         R-CRAN-fixest >= 0.13.2
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-libimath >= 3.2.2
 
 %description
-Estimates Two-way Fixed Effects difference-in-differences/event-study
-models using the imputation-based approach proposed by Borusyak, Jaravel,
-and Spiess (2021).
+Provides the 'OpenEXR' static library and 'C++' headers for
+high-dynamic-range image I/O (see <https://openexr.com/>) needed to link R
+packages against the 'OpenEXR' library, along with a basic R interface to
+load 'EXR' images.
 
 %prep
 %setup -q -c -n %{packname}

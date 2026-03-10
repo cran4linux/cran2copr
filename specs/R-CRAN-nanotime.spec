@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nanotime
-%global packver   0.3.12
+%global packver   0.3.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.3.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nanosecond-Resolution Time Support for R
 
@@ -16,12 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-RcppCCTZ >= 0.2.9
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppDate 
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-RcppCCTZ >= 0.2.9
 Requires:         R-methods 
 Requires:         R-CRAN-bit64 

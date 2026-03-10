@@ -1,50 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neuroSCC
-%global packver   1.0.0
+%global packname  rrobot
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bridging Simultaneous Confidence Corridors and PET Neuroimaging
+Summary:          Robust Outlier Detection for Diverse Distributions
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-contoureR 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-memisc 
-BuildRequires:    R-CRAN-oro.nifti 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cellWise 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-imputeTS 
+BuildRequires:    R-CRAN-isotree 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-contoureR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
-Requires:         R-CRAN-memisc 
-Requires:         R-CRAN-oro.nifti 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-CRAN-cellWise 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-imputeTS 
+Requires:         R-CRAN-isotree 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 
 %description
-Tools for the structured processing of PET neuroimaging data in
-preparation for the estimation of Simultaneous Confidence Corridors (SCCs)
-for one-group, two-group, or single-patient vs group comparisons. The
-package facilitates PET image loading, data restructuring, integration
-into a Functional Data Analysis framework, contour extraction,
-identification of significant results, and performance evaluation. It
-bridges established packages (e.g., 'oro.nifti') with novel statistical
-methodologies (e.g., 'ImageSCC') and enables reproducible analysis
-pipelines, including comparison with Statistical Parametric Mapping
-('SPM').
+Provides robust outlier detection techniques for identifying anomalies in
+multivariate data, with a focus on methods that remain effective under
+non-Gaussian distributions. For more details see Saluja, Parlak, and Mejia
+(2026+) <doi:10.48550/arXiv.2505.11806>.
 
 %prep
 %setup -q -c -n %{packname}

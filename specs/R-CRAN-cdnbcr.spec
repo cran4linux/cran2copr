@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RcppClock
-%global packver   1.1
+%global __requires_exclude ^libmpi
+%global packname  cdnbcr
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless 'Rcpp' Benchmarking
+Summary:          Correlated Destructive Negative Binomial Cure Rate Model
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma >= 2.3.3
+BuildRequires:    R-CRAN-Formula >= 1.2.4
+Requires:         R-CRAN-pracma >= 2.3.3
+Requires:         R-CRAN-Formula >= 1.2.4
 
 %description
-Time the execution of overlapping or unique 'Rcpp' code chunks using
-convenient methods, seamlessly write timing results to an 'RcppClock'
-object in the R global environment, and summarize and/or plot the results
-in R.
+Provides tools for modeling time-to-event data with a cure fraction under
+correlated destructive negative binomial cure rate models. The models
+assume multiple latent competing causes with possible dependence and allow
+for elimination (inactivation) of some initial causes. Estimation is
+performed via an Expectation-Maximization algorithm, and diagnostic tools
+based on Cox-Snell residuals are provided.
 
 %prep
 %setup -q -c -n %{packname}

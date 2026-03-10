@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  didimputation
-%global packver   0.5.1
+%global packname  BEMPdata
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imputation Estimator from Borusyak, Jaravel, and Spiess (2021)
+Summary:          Access the Bangladesh Environmental Mobility Panel Dataset
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.10.0
-BuildRequires:    R-CRAN-fixest >= 0.13.2
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-data.table >= 1.10.0
-Requires:         R-CRAN-fixest >= 0.13.2
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-shiny 
 
 %description
-Estimates Two-way Fixed Effects difference-in-differences/event-study
-models using the imputation-based approach proposed by Borusyak, Jaravel,
-and Spiess (2021).
+Provides functions to download and work with the Bangladesh Environmental
+Mobility Panel (BEMP), a household panel survey tracing the impacts of
+riverbank erosion and flooding on (im)mobility, socio-economic outcomes,
+and political attitudes along the Jamuna River in Bangladesh (2021-2024).
+Wave datasets (20 files across 14 survey rounds) are hosted on Zenodo
+(<https://zenodo.org/records/18229498>) and downloaded on demand with
+local caching. Bundled data include a merged cross-wave codebook and wave
+metadata.
 
 %prep
 %setup -q -c -n %{packname}

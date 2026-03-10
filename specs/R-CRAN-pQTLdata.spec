@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pQTLdata
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Proteome Panels and Meta-Data
+Summary:          A Collection of Proteome Panels and Metadata
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,9 +28,9 @@ trait locus (pQTL) analysis using 'pQTLtools'
 (<https://jinghuazhao.github.io/pQTLtools/>). The package includes data
 from affinity-based panels such as 'Olink' (<https://olink.com/>) and
 'SomaScan' (<https://somalogic.com/>), as well as mass spectrometry-based
-panels from 'CellCarta' (<https://cellcarta.com/>) and 'Seer'
-(<https://seer.bio/>). The metadata encompasses updated annotations and
-publication details.
+panels from 'CellCarta' (<https://cellcarta.com/>), 'Seer'
+(<https://seer.bio/>) and 'SWATH-MS' (<doi:10.15252/msb.20178126>). The
+metadata encompasses updated annotations and publication details.
 
 %prep
 %setup -q -c -n %{packname}

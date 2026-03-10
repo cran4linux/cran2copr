@@ -1,57 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ohvbd
-%global packver   1.0.1
+%global packname  cforecast
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          One Health VBD Hub
+Summary:          Conditional Forecasting and Scenario Analysis Using VAR Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 6.4.0
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-httr2 >= 1.1.1
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-BVAR 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-FKF 
+BuildRequires:    R-CRAN-miscTools 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-curl >= 6.4.0
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-httr2 >= 1.1.1
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-wex 
+Requires:         R-CRAN-BVAR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-lubridate 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-terra 
+Requires:         R-CRAN-FKF 
+Requires:         R-CRAN-miscTools 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vars 
 Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-wex 
 
 %description
-Interface with the One Health VBD (vector-borne disease) Hub
-<https://vbdhub.org/> and related repositories (VectorByte
-<https://www.vectorbyte.org>, GBIF <https://www.gbif.org> and AREAdata
-<https://pearselab.github.io/areadata/>) directly to find, download, and
-subset vector-borne disease data.
+Provides tools for conducting scenario analysis in reduced-form vector
+autoregressive (VAR) models. Implements a Kalman filtering framework to
+generate forecasts under path restrictions on selected variables. The
+package enables decomposition of conditional forecasts into
+variable-specific contributions, and extraction of observation weights. It
+also computes measures of overall and marginal variable importance to
+enhance the economic interpretation of forecast revisions. The framework
+is structurally agnostic and suited for policy analysis, stress testing,
+and macro-financial applications. The methodology is described in more
+detail in Caspi and Ginker (2026) <doi:10.13140/RG.2.2.25225.51040>.
 
 %prep
 %setup -q -c -n %{packname}

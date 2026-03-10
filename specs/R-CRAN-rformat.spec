@@ -1,33 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  didimputation
-%global packver   0.5.1
+%global packname  rformat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imputation Estimator from Borusyak, Jaravel, and Spiess (2021)
+Summary:          Base R Code Formatter
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.10.0
-BuildRequires:    R-CRAN-fixest >= 0.13.2
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-data.table >= 1.10.0
-Requires:         R-CRAN-fixest >= 0.13.2
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Estimates Two-way Fixed Effects difference-in-differences/event-study
-models using the imputation-based approach proposed by Borusyak, Jaravel,
-and Spiess (2021).
+A minimal R code formatter following base R style conventions. Formats R
+code with consistent spacing, indentation, and structure.
 
 %prep
 %setup -q -c -n %{packname}

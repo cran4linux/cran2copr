@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kardl
-%global packver   0.1.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Symmetric and Asymmetric ARDL Estimations
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-msm
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-nlWaldTest 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-nlWaldTest 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-utils 
 
 %description
@@ -38,10 +40,8 @@ orders of integration. The package supports simultaneous modeling of
 symmetric and asymmetric regressors, flexible treatment of short-run and
 long-run asymmetries, and automated equation handling. It includes several
 cointegration testing approaches such as the Pesaran-Shin-Smith F and t
-bounds tests, the Banerjee error correction test, and the restricted ECM
-test, together with diagnostic tools including Wald tests for asymmetry,
-ARCH tests, and stability procedures (CUSUM and CUSUMQ). Methodological
-foundations are provided in Pesaran, Shin, and Smith (2001)
+bounds tests, and the restricted ECM test. Methodological foundations are
+provided in Pesaran, Shin, and Smith (2001)
 <doi:10.1016/S0304-4076(01)00049-5> and Shin, Yu, and Greenwood-Nimmo
 (2014, ISBN:9780123855079).
 

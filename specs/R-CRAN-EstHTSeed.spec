@@ -1,54 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nisrarr
-%global packver   0.1.1
+%global packname  EstHTSeed
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the NISRA Data Portal
+Summary:          Hydro Time Analysis of Seed Germination
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-cachem 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
 
 %description
-Download data from the Northern Ireland Statistics and Research Agency
-(NISRA) data portal, accessed at <https://data.nisra.gov.uk>. NISRA is a
-government agency and the principal source of official statistics and
-social research on Northern Ireland.
+Dry seed germinates by imbibing water from soil where the physiological
+process of germination starts after sufficient water has been imbibed by
+the seed. The germination time of the seed is inversely proportion to the
+difference between soil water potential and the base seed water potential
+which is described by hydro time model (Bradford, 2002
+<https://www.jstor.org/stable/4046371>). The parameters of the model like
+speed of germination, stress tolerance, uniformity of germination are
+unknown fixed values (Ghosh et al., 2026 <doi:10.1111/aab.70041>) which
+are to be estimated using statistical regression model where the validity
+of the adopted statistical model has been established theoretically. The
+package will help to estimate the tuning parameter for proportion of
+viable seeds along with standard error and p- values for inference.
 
 %prep
 %setup -q -c -n %{packname}
