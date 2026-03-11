@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolboxdp
-%global packver   1.2.737
+%global packver   1.2.747
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.737
+Version:          1.2.747
 Release:          1%{?dist}%{?buildtag}
-Summary:          Python-Based Extensions for Data Analytics Workflows
+Summary:          Deep Python Extensions for 'daltoolbox'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,36 +19,20 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tspredit 
 BuildRequires:    R-CRAN-daltoolbox 
-BuildRequires:    R-CRAN-leaps 
-BuildRequires:    R-CRAN-FSelector 
-BuildRequires:    R-CRAN-doBy 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-smotefamily 
 BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-stats 
 Requires:         R-CRAN-tspredit 
 Requires:         R-CRAN-daltoolbox 
-Requires:         R-CRAN-leaps 
-Requires:         R-CRAN-FSelector 
-Requires:         R-CRAN-doBy 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-smotefamily 
 Requires:         R-CRAN-reticulate 
-Requires:         R-stats 
 
 %description
-Provides Python-based extensions to enhance data analytics workflows,
-particularly for tasks involving data preprocessing and predictive
-modeling. Includes tools for data sampling, transformation, feature
-selection, balancing strategies (e.g., SMOTE), and model construction.
-These capabilities leverage Python libraries via the reticulate interface,
-enabling seamless integration with a broader machine learning ecosystem.
-Supports instance selection and hybrid workflows that combine R and Python
-functionalities for flexible and reproducible analytical pipelines. The
-architecture is inspired by the Experiment Lines approach, which promotes
-modularity, extensibility, and interoperability across tools. More
-information on Experiment Lines is available in Ogasawara et al. (2009)
-<doi:10.1007/978-3-642-02279-1_20>.
+Extends 'daltoolbox' with Python-backed components for deep learning,
+scikit-learn classification, and time-series forecasting through
+'reticulate'. The package provides objects that follow the 'daltoolbox'
+architecture while delegating model creation, fitting, encoding, and
+prediction to Python libraries such as 'torch' and 'scikit-learn'. In the
+package name, 'dp' stands for 'Deep Python'. The overall workflow is
+inspired by the Experiment Lines approach described in Ogasawara et al.
+(2009) <doi:10.1007/978-3-642-02279-1_20>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AsianOption
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Asian Option Pricing with Price Impact
+Summary:          Asian Option Pricing under Price Impact
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,14 +20,13 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Implements binomial tree pricing for geometric and arithmetic Asian
-options incorporating market price impact from hedging activities. Uses
-the Cox-Ross-Rubinstein (CRR) model with the replicating portfolio method.
-Provides exact pricing for geometric Asian options and bounds for
-arithmetic Asian options based on Jensen's inequality. The price impact
-mechanism models how hedging volumes affect stock prices, leading to
-modified risk-neutral probabilities. Based on the methodology described in
-Tiwari and Majumdar (2025) <doi:10.48550/arXiv.2512.07154>.
+Implements the framework of Tiwari and Majumdar (2025)
+<doi:10.48550/arXiv.2512.07154> for valuing arithmetic and geometric Asian
+options under transient and permanent market impact. Provides three
+pricing approaches: Kemna-Vorst frictionless benchmarks, exogenous
+diffusion pricing (closed-form for geometric, Monte Carlo for arithmetic),
+and endogenous Hamilton-Jacobi-Bellman valuation via a tree-based Bellman
+scheme producing indifference bid-ask prices.
 
 %prep
 %setup -q -c -n %{packname}

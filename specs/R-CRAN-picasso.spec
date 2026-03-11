@@ -1,50 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SCORPION
-%global packver   1.3.2
+%global packname  picasso
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Cell Oriented Reconstruction of PANDA Individually Optimized Networks
+Summary:          Sparse Learning with Convex and Concave Penalties
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-RANN 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
+Requires:         R-methods 
 
 %description
-Constructs cell-type–specific gene regulatory networks from single-cell
-RNA-sequencing data. The method implements the SCORPION algorithm, which
-first aggregates individual cells into super-cells and then applies PANDA
-(Passing Attributes between Networks for Data Assimilation) to infer
-transcription factor–target regulatory relationships. It also provides
-statistical methods for differential edge analysis.
+Fast tools for fitting sparse generalized linear models with convex
+penalties (lasso) and concave penalties (smoothly clipped absolute
+deviation and minimax concave penalty). Computation uses multi-stage
+convex relaxation and pathwise coordinate optimization with warm starts,
+active-set updates, and screening rules. Core solvers are implemented in
+C++, and coefficient paths are stored as sparse matrices for memory
+efficiency.
 
 %prep
 %setup -q -c -n %{packname}

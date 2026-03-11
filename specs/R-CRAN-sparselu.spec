@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lmhelprs
-%global packver   0.4.4
+%global packname  sparselu
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Linear Model Analysis
+Summary:          Sparse LU Decomposition via SuiteSparse
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-Rcpp >= 0.11.0
 
 %description
-A collection of helper functions for multiple regression models fitted by
-lm(). Most of them are simple functions for simple tasks which can be done
-with coding, but may not be easy for occasional users of R. Most of the
-tasks addressed are those sometimes needed when using the 'manymome'
-package (Cheung and Cheung, 2023, <doi:10.3758/s13428-023-02224-z>) and
-'stdmod' package (Cheung, Cheung, Lau, Hui, and Vong, 2022,
-<doi:10.1037/hea0001188>). However, they can also be used in other
-scenarios.
+Provides an interface to the SuiteSparse UMFPACK LU factorisation routines
+for sparse matrices stored in compressed column format. Implements the
+algorithm described in Davis (2004) <doi:10.1145/992200.992206>.
 
 %prep
 %setup -q -c -n %{packname}

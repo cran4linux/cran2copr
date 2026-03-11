@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gaawr2
-%global packver   0.0.7
+%global packname  EcoNiche
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Association Analysis
+Summary:          Community Niche Position and Width Estimation Tools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gap 
-BuildRequires:    R-CRAN-gap.datasets 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gap 
-Requires:         R-CRAN-gap.datasets 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-vegan 
 
 %description
-This is a companion to Henry-Stewart talk by Zhao (2026,
-<doi:10.69645/FRFQ9519>), which gathers information, metadata and scripts
-to showcase modern genetic analysis -- ranging from testing of polymorphic
-variant(s) for Hardy-Weinberg equilibrium, association with traits using
-genetic and statistical models, Bayesian implementation, power calculation
-in study design, and genetic annotation. It also covers R integration with
-the Linux environment, GitHub, package creation and web applications. The
-earlier version by Zhao (2009, <doi:10.69645/DCRY5578>) provides a brief
-introduction to these topics.
+Provides methods for estimating species niche position and niche breadth
+under continuous environmental gradients. The package implements canonical
+correspondence analysis (CCA), partial CCA (pCCA), generalized additive
+models (GAM), and Levins' niche breadth metrics for species-level and
+community-level analyses. Methods are based on ter Braak (1986)
+<doi:10.2307/1938672>, Okie et al. (2015) <doi:10.1098/rspb.2014.2630>,
+Feng et al. (2020) <doi:10.1111/mec.15441>, Wood (2017)
+<doi:10.1201/9781315370279>, and Levins (1968, ISBN:978-0691080628).
 
 %prep
 %setup -q -c -n %{packname}

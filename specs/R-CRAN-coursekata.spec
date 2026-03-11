@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coursekata
-%global packver   0.19.0
+%global packver   0.19.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.0
+Version:          0.19.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Packages and Functions for 'CourseKata' Courses
 
@@ -17,11 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-cli >= 3.2.0
 BuildRequires:    R-CRAN-supernova >= 2.5.1
 BuildRequires:    R-CRAN-mosaic >= 1.8.3
 BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-dslabs >= 0.7.4
 BuildRequires:    R-CRAN-lsr >= 0.5.2
@@ -32,11 +33,12 @@ BuildRequires:    R-CRAN-Metrics
 BuildRequires:    R-CRAN-palmerpenguins 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-cli >= 3.2.0
 Requires:         R-CRAN-supernova >= 2.5.1
 Requires:         R-CRAN-mosaic >= 1.8.3
 Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-dslabs >= 0.7.4
 Requires:         R-CRAN-lsr >= 0.5.2

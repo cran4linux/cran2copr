@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eVCGsampler
-%global packver   0.9.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          VCG Sampling using Energy-Based Covariate Balancing
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-osqp 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-shiny 
 
 %description
 Provides a principled framework for sampling Virtual Control Group (VCG)

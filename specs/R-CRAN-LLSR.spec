@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LLSR
-%global packver   0.0.3.1
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis of Liquid-Liquid Systems using R
 
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-svDialogs 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-crayon 
@@ -32,7 +32,6 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-svDialogs 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-crayon 
@@ -52,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

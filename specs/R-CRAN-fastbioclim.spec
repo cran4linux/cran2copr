@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastbioclim
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scalable and Efficient Derivation of Bioclimatic Variables
+Summary:          Scalable and Flexible Derivation of Custom-Time Bioclimatic and Environmental Summary Variables
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,18 +37,19 @@ Requires:         R-CRAN-Rfast
 Requires:         R-CRAN-sf 
 
 %description
-Provides a high-performance framework for deriving bioclimatic and custom
-summary variables from large-scale climate raster data. The package
-features a dual-backend architecture that intelligently switches between
-fast in-memory processing for smaller datasets (via the 'terra' package)
-and a memory-safe tiled approach for massive datasets that do not fit in
-RAM (via 'exactextractr' and 'Rfast'). The main functions,
+Provides an efficient tool for creating custom-time bioclimatic and
+derived environmental summary variables from user-supplied raster data for
+user-defined timeframes. The package overcomes computational bottlenecks
+by automatically switching between an in-memory framework using the
+'terra' package to maximize speed for smaller datasets, and an on-disk
+tiling framework for rasters that exceed available RAM, leveraging
+'exactextractr' and 'Rfast' to process data in chunks. The core functions,
 derive_bioclim() and derive_statistics(), offer a unified interface with
-advanced options for custom time periods and static indices, making it
-suitable for a wide range of ecological and environmental modeling
-applications. A software note is in preparation. In the meantime, you can
-visit the package website <https://gepinillab.github.io/fastbioclim/> to
-find tutorials in English and Spanish.
+flexibility for custom time periods beyond standard quarters and the use
+of fixed temporal indices, facilitating the creation of temporally-matched
+environmental variables for ecological and biogeographical modeling. Visit
+the package website <https://gepinillab.github.io/fastbioclim/> to find
+tutorials in English and Spanish.
 
 %prep
 %setup -q -c -n %{packname}

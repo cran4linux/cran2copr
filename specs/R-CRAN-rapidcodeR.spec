@@ -1,45 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gaawr2
-%global packver   0.0.7
+%global packname  rapidcodeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Association Analysis
+Summary:          Optimized Data Analysis System for AI-Based Text Processing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-openai 
+BuildRequires:    R-CRAN-groqR 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gap 
-BuildRequires:    R-CRAN-gap.datasets 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-openai 
+Requires:         R-CRAN-groqR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gap 
-Requires:         R-CRAN-gap.datasets 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
+Requires:         R-parallel 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 
 %description
-This is a companion to Henry-Stewart talk by Zhao (2026,
-<doi:10.69645/FRFQ9519>), which gathers information, metadata and scripts
-to showcase modern genetic analysis -- ranging from testing of polymorphic
-variant(s) for Hardy-Weinberg equilibrium, association with traits using
-genetic and statistical models, Bayesian implementation, power calculation
-in study design, and genetic annotation. It also covers R integration with
-the Linux environment, GitHub, package creation and web applications. The
-earlier version by Zhao (2009, <doi:10.69645/DCRY5578>) provides a brief
-introduction to these topics.
+Extracts machine-readable variables from natural language text using AI
+APIs. Optimized for speed and cost efficiency through parallel processing
+and direct CSV-formatted responses from language models. Supports multiple
+AI providers with robust error handling and automatic retry mechanisms for
+failed extractions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gaawr2
-%global packver   0.0.7
+%global packname  baycn
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Association Analysis
+Summary:          Bayesian Inference for Causal Networks
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gap 
-BuildRequires:    R-CRAN-gap.datasets 
+BuildRequires:    R-CRAN-egg 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gap 
-Requires:         R-CRAN-gap.datasets 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-expm 
+Requires:         R-CRAN-egg 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-expm 
 
 %description
-This is a companion to Henry-Stewart talk by Zhao (2026,
-<doi:10.69645/FRFQ9519>), which gathers information, metadata and scripts
-to showcase modern genetic analysis -- ranging from testing of polymorphic
-variant(s) for Hardy-Weinberg equilibrium, association with traits using
-genetic and statistical models, Bayesian implementation, power calculation
-in study design, and genetic annotation. It also covers R integration with
-the Linux environment, GitHub, package creation and web applications. The
-earlier version by Zhao (2009, <doi:10.69645/DCRY5578>) provides a brief
-introduction to these topics.
+An approximate Bayesian method for inferring Directed Acyclic Graphs
+(DAGs) for continuous, discrete, and mixed data. The algorithm can use the
+graph inferred by another more efficient graph inference method as input;
+the input graph may contain false edges or undirected edges but can help
+reduce the search space to a more manageable size. A
+Metropolis-Hastings-like sampling algorithm is then used to infer the
+posterior probabilities of edge direction and edge absence. References:
+Martin, Patchigolla and Fu (2026) <doi:10.48550/arXiv.1909.10678>.
 
 %prep
 %setup -q -c -n %{packname}

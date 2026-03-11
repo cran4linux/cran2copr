@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gaawr2
-%global packver   0.0.7
+%global packname  ArchipelagoEngine
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Association Analysis
+Summary:          Spatial Weight Construction for Archipelagic Geographies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gap 
-BuildRequires:    R-CRAN-gap.datasets 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gap 
-Requires:         R-CRAN-gap.datasets 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-magrittr 
 
 %description
-This is a companion to Henry-Stewart talk by Zhao (2026,
-<doi:10.69645/FRFQ9519>), which gathers information, metadata and scripts
-to showcase modern genetic analysis -- ranging from testing of polymorphic
-variant(s) for Hardy-Weinberg equilibrium, association with traits using
-genetic and statistical models, Bayesian implementation, power calculation
-in study design, and genetic annotation. It also covers R integration with
-the Linux environment, GitHub, package creation and web applications. The
-earlier version by Zhao (2009, <doi:10.69645/DCRY5578>) provides a brief
-introduction to these topics.
+Implements specialized K-Nearest Neighbor (KNN) logic to address the
+unique challenges of spatial modeling in archipelagic environments.
+Standard contiguity models often leave significant portions of island
+nations (e.g., 20%% of the Philippines) mathematically isolated. This
+package provides tools to ensure 100%% network connectivity, neutralizing
+spatial bias and enabling robust econometric inference. Methodology
+follows Anselin (1988, ISBN:9024737354) and LeSage and Pace (2009)
+<doi:10.1201/9781420064254>.
 
 %prep
 %setup -q -c -n %{packname}

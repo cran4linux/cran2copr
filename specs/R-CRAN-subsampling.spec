@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  subsampling
-%global packver   0.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Subsampling Methods for Statistical Models
 
@@ -37,7 +37,10 @@ Subsampling methods enhance statistical modeling for massive datasets by
 efficiently drawing representative subsamples from full dataset based on
 tailored sampling probabilities. These probabilities are optimized for
 specific goals, such as minimizing the variance of coefficient estimates
-or reducing prediction error.
+or reducing prediction error. Based on specified modeling assumptions and
+subsampling techniques, the package provides functions to draw subsamples
+from the full data, fit the model on the subsamples, and perform
+statistical inference.
 
 %prep
 %setup -q -c -n %{packname}

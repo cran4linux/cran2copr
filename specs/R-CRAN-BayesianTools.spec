@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianTools
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          General-Purpose MCMC and SMC Samplers and Tools for Bayesian Statistics
 
@@ -52,7 +52,7 @@ Requires:         R-CRAN-gap
 Requires:         R-CRAN-bridgesampling 
 
 %description
-General-purpose MCMC and SMC samplers, as well as plot and diagnostic
+General-purpose MCMC and SMC samplers, as well as plots and diagnostic
 functions for Bayesian statistics, with a particular focus on calibrating
 complex system models. Implemented samplers include various Metropolis
 MCMC variants (including adaptive and/or delayed rejection MH), the

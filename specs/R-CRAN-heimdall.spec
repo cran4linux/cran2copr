@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heimdall
-%global packver   1.2.707
+%global packver   1.2.727
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.707
+Version:          1.2.727
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drift Adaptable Models
 
@@ -21,6 +21,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-daltoolbox 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-car 
@@ -28,6 +29,7 @@ Requires:         R-stats
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-daltoolbox 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-car 

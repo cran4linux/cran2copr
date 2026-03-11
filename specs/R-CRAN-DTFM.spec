@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gaawr2
-%global packver   0.0.7
+%global packname  DTFM
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Association Analysis
+Summary:          Distributed Online Covariance Matrix Tests for Truncated Factor Model
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gap 
-BuildRequires:    R-CRAN-gap.datasets 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gap 
-Requires:         R-CRAN-gap.datasets 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-SOPC 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tmvtnorm 
+Requires:         R-CRAN-SOPC 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-stats 
+Requires:         R-CRAN-tmvtnorm 
 
 %description
-This is a companion to Henry-Stewart talk by Zhao (2026,
-<doi:10.69645/FRFQ9519>), which gathers information, metadata and scripts
-to showcase modern genetic analysis -- ranging from testing of polymorphic
-variant(s) for Hardy-Weinberg equilibrium, association with traits using
-genetic and statistical models, Bayesian implementation, power calculation
-in study design, and genetic annotation. It also covers R integration with
-the Linux environment, GitHub, package creation and web applications. The
-earlier version by Zhao (2009, <doi:10.69645/DCRY5578>) provides a brief
-introduction to these topics.
+The truncated factor model is a statistical model designed to handle
+specific data structures in data analysis. 'DTFM' is a powerful tool
+designed to efficiently process and analyze distributed datasets. The
+philosophy of the package is described in Guo et al. (2023)
+<doi:10.1007/s00180-022-01270-z>.
 
 %prep
 %setup -q -c -n %{packname}

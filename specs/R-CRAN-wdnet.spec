@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdnet
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted and Directed Networks
 
@@ -14,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-rARPACK 
-BuildRequires:    R-CRAN-RcppXPtrUtils 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-igraph >= 2.2.2
+BuildRequires:    R-CRAN-CVXR >= 1.8.1
+BuildRequires:    R-CRAN-Matrix >= 1.7.4
+BuildRequires:    R-CRAN-wdm >= 0.2.6
+BuildRequires:    R-CRAN-rARPACK >= 0.11.0
+BuildRequires:    R-CRAN-RcppXPtrUtils >= 0.1.3
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-wdm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-rARPACK 
-Requires:         R-CRAN-RcppXPtrUtils 
+Requires:         R-CRAN-igraph >= 2.2.2
+Requires:         R-CRAN-CVXR >= 1.8.1
+Requires:         R-CRAN-Matrix >= 1.7.4
+Requires:         R-CRAN-wdm >= 0.2.6
+Requires:         R-CRAN-rARPACK >= 0.11.0
+Requires:         R-CRAN-RcppXPtrUtils >= 0.1.3
 Requires:         R-stats 
-Requires:         R-CRAN-wdm 
 
 %description
 Assortativity coefficients, centrality measures, and clustering

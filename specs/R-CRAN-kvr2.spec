@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kvr2
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Compare Multiple Definitions of Coefficient of Determination
 
@@ -17,8 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
 Calculate nine types of coefficients of determination (R-squared) based on

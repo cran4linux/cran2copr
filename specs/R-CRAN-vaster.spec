@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gaawr2
-%global packver   0.0.7
+%global packname  vaster
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Association Analysis
+Summary:          Tools for Raster Grid Logic
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gap 
-BuildRequires:    R-CRAN-gap.datasets 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gap 
-Requires:         R-CRAN-gap.datasets 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-This is a companion to Henry-Stewart talk by Zhao (2026,
-<doi:10.69645/FRFQ9519>), which gathers information, metadata and scripts
-to showcase modern genetic analysis -- ranging from testing of polymorphic
-variant(s) for Hardy-Weinberg equilibrium, association with traits using
-genetic and statistical models, Bayesian implementation, power calculation
-in study design, and genetic annotation. It also covers R integration with
-the Linux environment, GitHub, package creation and web applications. The
-earlier version by Zhao (2009, <doi:10.69645/DCRY5578>) provides a brief
-introduction to these topics.
+Provides raster grid logic, operations that describe a discretized
+rectangular domain and do not require access to materialized data. Grids
+are arrays with dimension and extent, and many operations are functions of
+dimension only: number of columns, number of rows, or they are a
+combination of the dimension and the extent the range in x and the range
+in y in that order. Here we provide direct access to this logic without
+need for connection to any materialized data or formats. Grid logic
+includes functions that relate the cell index to row and column, or row
+and column to cell index, row, column or cell index to position. These
+methods are described in Loudon, TV, Wheeler, JF, Andrew, KP (1980)
+<doi:10.1016/0098-3004(80)90015-1>, and implementations were in part
+derived from Hijmans R (2024) <doi:10.32614/CRAN.package.terra>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gaawr2
-%global packver   0.0.7
+%global packname  GMX
+%global packver   0.9-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genetic Association Analysis
+Summary:          Extended Graphical Model Checks for the Rasch Family of Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gap 
-BuildRequires:    R-CRAN-gap.datasets 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gap 
-Requires:         R-CRAN-gap.datasets 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-psychotools 
+Requires:         R-CRAN-psychotools 
 
 %description
-This is a companion to Henry-Stewart talk by Zhao (2026,
-<doi:10.69645/FRFQ9519>), which gathers information, metadata and scripts
-to showcase modern genetic analysis -- ranging from testing of polymorphic
-variant(s) for Hardy-Weinberg equilibrium, association with traits using
-genetic and statistical models, Bayesian implementation, power calculation
-in study design, and genetic annotation. It also covers R integration with
-the Linux environment, GitHub, package creation and web applications. The
-earlier version by Zhao (2009, <doi:10.69645/DCRY5578>) provides a brief
-introduction to these topics.
+The function plotLRT() draws pairwise graphical model checks for the Rasch
+Model (RM; Rasch, 1960), the Partial Credit Model(PCM; Masters, 1982), and
+the Rating Scale Model (RSM; Andrich, 1978) using the output object of
+eRm::LRtest(). The function cLRT() provides a conditional Likelihood Ratio
+Test (Andersen, 1973), using the routines of 'psychotools'. Users may
+choose to plot the threshold parameters, the cumulative thresholds, the
+average thresholds per item, or the person parameters. Extended coloring
+options allow for automated item-wise or threshold-wise coloring. For
+multi-group splits, all pairwise group comparisons are drawn
+automatically. For more details see Andersen (1973)
+<doi:10.1007/BF02291180>, Andrich (1978) <doi:10.1007/BF02293814>, Masters
+(1982) <doi:10.1007/BF02296272> and Rasch (1960, ISBN:9780598554512).
 
 %prep
 %setup -q -c -n %{packname}

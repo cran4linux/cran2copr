@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjd3toolkit
-%global packver   3.6.0
+%global packver   3.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          3.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions Around 'JDemetra+ 3.0'
 
@@ -19,18 +19,18 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rJava >= 1.0.6
 BuildRequires:    R-CRAN-RProtoBuf >= 0.4.20
+BuildRequires:    R-CRAN-rjd3jars >= 0.0.3
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rjd3jars 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rJava >= 1.0.6
 Requires:         R-CRAN-RProtoBuf >= 0.4.20
+Requires:         R-CRAN-rjd3jars >= 0.0.3
 Requires:         R-CRAN-checkmate 
 Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-rjd3jars 
 Requires:         R-stats 
 Requires:         R-utils 
 

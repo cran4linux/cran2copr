@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  measles
+%global packname  ROOT
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Measles Epidemiological Models
+Summary:          Rashomon Set of Optimal Trees
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-epiworldR >= 0.11.0.1
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-epiworldR >= 0.11.0.1
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-rpart.plot 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-gbm 
+Requires:         R-stats 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-rpart.plot 
 
 %description
-A specialized collection of measles epidemiological models built on the
-'epiworldR' framework. This package is a spinoff from 'epiworldR' focusing
-specifically on measles transmission dynamics. It includes models for
-school settings with quarantine and isolation policies, mixing models with
-population groups, and risk-based quarantine strategies. The models use
-Agent-Based Models (ABM) with a fast 'C++' backend from the 'epiworld'
-library. Ideal for studying measles outbreaks, vaccination strategies, and
-intervention policies.
+Implements a general framework for globally optimizing user-specified
+objective functionals over interpretable binary weight functions
+represented as sparse decision trees, called ROOT (Rashomon Set of Optimal
+Trees). It searches over candidate trees to construct a Rashomon set of
+near-optimal solutions and derives a summary tree highlighting stable
+patterns in the optimized weights. ROOT includes a built-in
+generalizability mode for identifying subgroups in trial settings for
+transportability analyses (Parikh et al. (2025)
+<doi:10.1080/01621459.2025.2495319>).
 
 %prep
 %setup -q -c -n %{packname}

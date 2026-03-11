@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramvs
-%global packver   0.0-8
+%global packver   0.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Subset Selection for Transformation Models
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tram >= 0.6.1
+BuildRequires:    R-CRAN-tram >= 1.4.1
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-variables 
 BuildRequires:    R-methods 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-cotram
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-tram >= 0.6.1
+Requires:         R-CRAN-tram >= 1.4.1
 Requires:         R-stats 
 Requires:         R-CRAN-variables 
 Requires:         R-methods 

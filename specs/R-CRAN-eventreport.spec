@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eventreport
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnose, Visualize, and Aggregate Event Report Level Data
 
@@ -46,7 +46,9 @@ event level. Also includes the Modes and Agents of Election-Related
 Violence in Côte d'Ivoire and Kenya (MAVERICK) dataset, an event report
 level dataset that records all documented instances of electoral violence
 from the first multiparty election to 2022 in Côte d'Ivoire (1995-2022)
-and Kenya (1992-2022).
+and Kenya (1992-2022). For more details see van Baalen and Höglund (2026)
+<doi:10.1093/isq/sqag014>. Users of the enclosed MAVERICK dataset should
+also cite van Baalen and Höglund (2026) <doi:10.1093/jopres/xjaf012>.
 
 %prep
 %setup -q -c -n %{packname}
