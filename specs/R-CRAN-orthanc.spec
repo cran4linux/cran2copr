@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  orthanc
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Programmatic Interface to 'Orthanc' DICOM Servers
 
@@ -20,21 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-mirai >= 2.5.1
 BuildRequires:    R-CRAN-purrr >= 1.1.0
 BuildRequires:    R-CRAN-carrier >= 0.3.0
+BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-mirai >= 2.5.1
 Requires:         R-CRAN-purrr >= 1.1.0
 Requires:         R-CRAN-carrier >= 0.3.0
+Requires:         R-CRAN-clock 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 

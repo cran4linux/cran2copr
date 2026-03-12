@@ -1,47 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyILD
-%global packver   0.3.0
+%global packname  piecemeal
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Intensive Longitudinal Data Analysis
+Summary:          Wrangle Large Simulation Studies
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-cli 
 
 %description
-A reproducible, tidyverse-style framework for intensive longitudinal data
-analysis in R, with built-in methodological safeguards, provenance
-tracking, and reporting tools. Encodes time structure, enforces
-within-between decomposition, provides spacing-aware lags, and integrates
-diagnostics and visualization. Use ild_prepare(), ild_center(), ild_lag(),
-and related functions for a unified pipeline from raw EMA/diary data to
-interpretable models.
+An 'R6' class to set up, run, monitor, collate, and debug large simulation
+studies comprising many small independent replications and treatment
+configurations. Parallel processing, reproducibility, fault- and
+error-tolerance, and ability to resume an interrupted or timed-out
+simulation study are built in.
 
 %prep
 %setup -q -c -n %{packname}

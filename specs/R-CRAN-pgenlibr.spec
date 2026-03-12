@@ -1,30 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ILSAmerge
-%global packver   1.4.0
+%global packname  pgenlibr
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Merge and Download International Large-Scale Assessments (ILSA) Data
+Summary:          'PLINK' 2 Binary (.pgen) Reader
 
-License:          GPL (>= 3.0)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-Requires:         R-CRAN-haven 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-Rcpp >= 1.0.1
 
 %description
-Merges and downloads 'SPSS' data from different International Large-Scale
-Assessments (ILSA), including: Trends in International Mathematics and
-Science Study (TIMSS), Progress in International Reading Literacy Study
-(PIRLS), and others.
+A thin wrapper over 'PLINK' 2's core libraries which provides an R
+interface for reading .pgen files.  A minimal .pvar loader is also
+included.  Chang et al. (2015) <doi:10.1186/s13742-015-0047-8>.
 
 %prep
 %setup -q -c -n %{packname}

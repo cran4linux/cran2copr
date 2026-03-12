@@ -1,47 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyILD
-%global packver   0.3.0
+%global packname  rmsBMA
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Intensive Longitudinal Data Analysis
+Summary:          Reduced Model Space Bayesian Model Averaging
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-A reproducible, tidyverse-style framework for intensive longitudinal data
-analysis in R, with built-in methodological safeguards, provenance
-tracking, and reporting tools. Encodes time structure, enforces
-within-between decomposition, provides spacing-aware lags, and integrates
-diagnostics and visualization. Use ild_prepare(), ild_center(), ild_lag(),
-and related functions for a unified pipeline from raw EMA/diary data to
-interpretable models.
+Implements Bayesian model averaging for settings with many candidate
+regressors relative to the available sample size, including cases where
+the number of regressors exceeds the number of observations. By
+restricting attention to models with at most M regressors, the package
+supports reduced model space inference, thereby preserving degrees of
+freedom for estimation. It provides posterior summaries, Extreme Bounds
+Analysis, model selection procedures, joint inclusion measures, and
+graphical tools for exploring model probabilities, model size
+distributions, and coefficient distributions. The methodological approach
+follows Doppelhofer and Weeks (2009) <doi:10.1002/jae.1046>.
 
 %prep
 %setup -q -c -n %{packname}

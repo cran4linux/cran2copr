@@ -1,45 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  countyhealthR
-%global packver   0.1.5
+%global packname  badp
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Programmatic Access to County Health Rankings & Roadmaps Data
+Summary:          Bayesian Averaging for Dynamic Panels
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-optimbase 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-rje 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-optimbase 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-rje 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides a simple interface to pull County Health Rankings & Roadmaps
-(CHR&R) county-level health data and metadata directly from 'Zenodo'
-<doi:10.5281/zenodo.18157681>. Users can retrieve data for CHR&R release
-years 2010 through 2025. CHR&R data support research and decision-making
-to promote health equity and policies that help all communities thrive.
+Implements Bayesian model averaging for dynamic panels with weakly
+exogenous regressors as described in the paper by Moral-Benito (2013,
+<doi:10.1080/07350015.2013.818003>). The package provides functions to
+estimate dynamic panel data models and analyze the results of the
+estimation.
 
 %prep
 %setup -q -c -n %{packname}

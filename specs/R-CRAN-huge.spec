@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huge
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Undirected Graph Estimation
 
@@ -25,7 +25,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-MASS 
@@ -42,8 +41,9 @@ estimation. It integrates data preprocessing, neighborhood screening,
 graph estimation, and model selection techniques into a pipeline. In
 preprocessing stage, the nonparanormal(npn) transformation is applied to
 help relax the normality assumption. In the graph estimation stage, the
-graph structure is estimated by Meinshausen-Buhlmann graph estimation or
-the graphical lasso, and both methods can be further accelerated by the
+graph structure is estimated by Meinshausen-Buhlmann graph estimation, the
+graphical lasso, or the TIGER (tuning-insensitive graph estimation and
+regression) method, and the first two can be further accelerated by the
 lossy screening rule preselecting the neighborhood of each variable by
 correlation thresholding. We target on high-dimensional data analysis
 usually d >> n, and the computation is memory-optimized using the sparse

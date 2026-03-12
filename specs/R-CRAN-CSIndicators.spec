@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSIndicators
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Climate Services' Indicators Based on Sub-Seasonal to Decadal Predictions
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-lmom
 BuildRequires:    R-CRAN-lmomco 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-s2dv 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-geosphere 
 Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-stats 
 Requires:         R-CRAN-ClimProjDiags 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-lmom
 Requires:         R-CRAN-lmomco 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-s2dv 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-geosphere 
 
 %description
 Set of generalised tools for the flexible computation of climate related
@@ -48,10 +52,12 @@ seasonal and decadal climate predictions, but its methods are also
 applicable to other time-scales, provided the dimensional structure of the
 input is maintained. Additionally, the outputs of the functions in this
 package are compatible with 'CSTools'. This package is described in
-Pérez-Zanón et al. (2023) <doi:10.1016/j.cliser.2023.100393> and it was
-developed in the context of H2020 MED-GOLD (776467) and S2S4E (776787)
-projects. See Lledó et al. (2019) <doi:10.1016/j.renene.2019.04.135> and
-Chou et al., 2023 <doi:10.1016/j.cliser.2023.100345> for details.
+Pérez-Zanón et al. (2023) <doi:10.1016/j.cliser.2023.100393> and was
+developed in the context of the H2020 projects MED-GOLD (776467) and S2S4E
+(776787) projects, as well as the Horizon Europe project MEDEWSA
+(101121192) and the national project BOREAS (PID2022-140673OA-I00). See
+Lledó et al. (2019) <doi:10.1016/j.renene.2019.04.135> and Chou et al.,
+2023 <doi:10.1016/j.cliser.2023.100345> for details.
 
 %prep
 %setup -q -c -n %{packname}

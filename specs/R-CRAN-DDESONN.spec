@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DDESONN
-%global packver   7.1.9
+%global packver   7.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1.9
+Version:          7.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Deep Dynamic Experimental Self-Organizing Neural Network Framework
 

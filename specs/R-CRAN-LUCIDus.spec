@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LUCIDus
-%global packver   3.0.3
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          LUCID with Multiple Omics Data
 
@@ -39,19 +39,19 @@ Requires:         R-CRAN-glasso
 Requires:         R-CRAN-glmnet 
 
 %description
-An implementation of estimating the Latent Unknown Clusters By Integrating
-Multi-omics Data (LUCID) model (Peng (2019)
-<doi:10.1093/bioinformatics/btz667>). LUCID conducts integrated clustering
-using exposures, omics information (and outcome information as an option).
-This package implements three different integration strategies for
-multi-omics data analysis within the LUCID framework: LUCID early
-integration (the original LUCID model), LUCID in parallel (intermediate
-integration), and LUCID in serial (late integration). Automated model
-selection for each LUCID model is available to obtain the optimal number
-of latent clusters, and an integrated imputation approach is implemented
-to handle sporadic and list-wise missingness in multi-omics data.
-Lasso-type regularity for exposure and omics features were added. S3
-methods for summary and plotting functions were fixed. Fixed minor bugs.
+Implements Latent Unknown Clusters By Integrating Multi-omics Data (LUCID;
+Peng (2019) <doi:10.1093/bioinformatics/btz667>) for integrative
+clustering with exposures, multi-omics data, and health outcomes. Supports
+three integration strategies: early, parallel, and serial. Provides model
+fitting and tuning, lasso-type regularization for exposure and omics
+feature selection, handling of missing data, including both sporadic and
+complete-case patterns, prediction, and g-computation for estimating
+causal effects of exposures, bootstrap inference for uncertainty
+estimation, and S3 summary and plot methods. For the multi-omics
+integration framework, see Jia (2024)
+<https://journal.r-project.org/articles/RJ-2024-012/RJ-2024-012.pdf>. For
+the missing-data imputation mechanism, see Jia (2024)
+<doi:10.1093/bioadv/vbae123>.
 
 %prep
 %setup -q -c -n %{packname}

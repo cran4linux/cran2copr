@@ -1,50 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prodlim
-%global packver   2026.03.11
+%global packname  easyRaschBayes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.03.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Product-Limit Estimation for Censored Event History Analysis
+Summary:          Bayesian Rasch Analysis Using 'brms'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-brms >= 2.20.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-ggdist 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-lava 
-Requires:         R-CRAN-Rcpp >= 0.11.5
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-brms >= 2.20.0
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-ggdist 
 Requires:         R-stats 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
 Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-graphics 
-Requires:         R-CRAN-diagram 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-lava 
 
 %description
-Fast and user friendly implementation of nonparametric estimators for
-censored event history (survival) analysis. Kaplan-Meier and
-Aalen-Johansen method.
+Reproduces classic Rasch psychometric analysis features using Bayesian
+item response theory models fitted with 'brms' following Bürkner (2021)
+<doi:10.18637/jss.v100.i05> and Bürkner (2020)
+<doi:10.3390/jintelligence8010005>. Supports both dichotomous and
+polytomous Rasch models. Features include posterior predictive item fit,
+conditional infit, item-restscore associations, person fit, differential
+item functioning, local dependence assessment via Q3 residual
+correlations, dimensionality assessment with residual principal components
+analysis, person-item targeting plots, item category probability curves,
+and reliability using relative measurement uncertainty following Bignardi
+et al. (2025) <doi:10.31234/osf.io/h54k8_v1>.
 
 %prep
 %setup -q -c -n %{packname}

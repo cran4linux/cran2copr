@@ -1,47 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyILD
-%global packver   0.3.0
+%global packname  WBI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Intensive Longitudinal Data Analysis
+Summary:          Wasserstein Bipolarization Index
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-transport 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-bcaboot 
+Requires:         R-CRAN-transport 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-bcaboot 
 
 %description
-A reproducible, tidyverse-style framework for intensive longitudinal data
-analysis in R, with built-in methodological safeguards, provenance
-tracking, and reporting tools. Encodes time structure, enforces
-within-between decomposition, provides spacing-aware lags, and integrates
-diagnostics and visualization. Use ild_prepare(), ild_center(), ild_lag(),
-and related functions for a unified pipeline from raw EMA/diary data to
-interpretable models.
+Computation of the Wasserstein Bipolarization Index as described in Lee
+and Sobel (Forthcoming) <doi:10.48550/arXiv.2408.03331>. Provides both
+asymptotic (Sommerfeld, 2017
+<https://ediss.uni-goettingen.de/bitstream/handle/11858/00-1735-0000-0023-3FA1-C/DissertationSommerfeldRev.pdf?sequence=1>)
+and bootstrap methods (Efron and Narasimhan, 2020
+<doi:10.1080/10618600.2020.1714633>) for calculating confidence intervals.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyILD
-%global packver   0.3.0
+%global packname  earthUI
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Intensive Longitudinal Data Analysis
+Summary:          Interactive 'shiny' GUI for the 'earth' Package
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-earth >= 5.3.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-earth >= 5.3.0
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-A reproducible, tidyverse-style framework for intensive longitudinal data
-analysis in R, with built-in methodological safeguards, provenance
-tracking, and reporting tools. Encodes time structure, enforces
-within-between decomposition, provides spacing-aware lags, and integrates
-diagnostics and visualization. Use ild_prepare(), ild_center(), ild_lag(),
-and related functions for a unified pipeline from raw EMA/diary data to
-interpretable models.
+Provides a 'shiny'-based graphical user interface for the 'earth' package,
+enabling interactive building and exploration of Multivariate Adaptive
+Regression Splines (MARS) models. Features include data import from CSV
+and 'Excel' files, automatic detection of categorical variables,
+interactive control of interaction terms via an allowed matrix,
+comprehensive model diagnostics with variable importance and partial
+dependence plots, and publication-quality report generation via 'Quarto'.
 
 %prep
 %setup -q -c -n %{packname}

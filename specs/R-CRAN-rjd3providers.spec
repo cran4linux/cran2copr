@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjd3providers
-%global packver   3.6.0
+%global packver   3.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.0
+Version:          3.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'JDemetra+' 3.x Time Series Analysis Software
 
@@ -17,12 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.6.0
+BuildRequires:    R-CRAN-rjd3toolkit >= 3.7.1
 BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars 
-Requires:         R-CRAN-rjd3toolkit >= 3.6.0
+Requires:         R-CRAN-rjd3toolkit >= 3.7.1
 Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars 
 
 %description
 Interface to 'JDemetra+' 3.x (<https://github.com/jdemetra>) time series
