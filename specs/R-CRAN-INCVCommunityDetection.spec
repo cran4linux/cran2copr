@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pmrm
-%global packver   0.0.3
+%global packname  INCVCommunityDetection
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Progression Models for Repeated Measures
+Summary:          Inductive Node-Splitting Cross-Validation for Community Detection
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,42 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB >= 1.8
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-ClusterR 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-IMIFA 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-RTMB >= 1.8
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-ClusterR 
+Requires:         R-CRAN-irlba 
+Requires:         R-parallel 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-IMIFA 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
-A progression model for repeated measures (PMRM) is a continuous-time
-nonlinear mixed-effects model for longitudinal clinical trials in
-progressive diseases. Unlike mixed models for repeated measures (MMRMs),
-which estimate treatment effects as linear combinations of additive
-effects on the outcome scale, PMRMs characterize treatment effects in
-terms of the underlying disease trajectory. This framing yields clinically
-interpretable quantities such as average time saved and percent reduction
-in decline due to treatment. This package implements frequentist PMRMs by
-Raket (2022) <doi:10.1002/sim.9581> using 'RTMB' by Kristensen (2016)
-<doi:10.18637/jss.v070.i05>.
+Implements Inductive Node-Splitting Cross-Validation (INCV) for selecting
+the number of communities in stochastic block models. Provides f-fold and
+random-split node-level cross-validation, along with competing methods
+including CROISSANT, Edge Cross-Validation (ECV), and Node
+Cross-Validation (NCV). Supports both SBM and Degree-Corrected Block
+Models (DCBM), with multiple loss functions (L2, binomial deviance, AUC).
+Includes network simulation utilities for SBM, RDPG, and latent space
+models.
 
 %prep
 %setup -q -c -n %{packname}

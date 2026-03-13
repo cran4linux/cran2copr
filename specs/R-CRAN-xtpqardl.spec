@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lpda
-%global packver   1.2.3
+%global packname  xtpqardl
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Programming Discriminant Analysis
+Summary:          Panel Quantile Autoregressive Distributed Lag Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-multiway 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-multiway 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
 
 %description
-Classification method obtained through linear programming. It is
-advantageous with respect to the classical developments when the
-distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. Mathematical
-details behind the method are published in Nueda, et al. (2022) "LPDA: A
-new classification method based on linear programming".
-<doi:10.1371/journal.pone.0270403>.
+Estimation of Panel Quantile Autoregressive Distributed Lag (PQARDL)
+models that combine panel ARDL methodology with quantile regression.
+Supports Pooled Mean Group (PMG), Mean Group (MG), and Dynamic Fixed
+Effects (DFE) estimators across multiple quantiles. Computes long-run
+cointegrating parameters, error correction term speed of adjustment,
+half-life of adjustment, and performs Wald tests for parameter equality
+across quantiles. Based on the econometric frameworks of Pesaran, Shin,
+and Smith (1999) <doi:10.1080/01621459.1999.10474156>, Cho, Kim, and Shin
+(2015) <doi:10.1016/j.jeconom.2015.02.030>, and Bildirici and Kayikci
+(2022) <doi:10.1016/j.energy.2022.124303>.
 
 %prep
 %setup -q -c -n %{packname}

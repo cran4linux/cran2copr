@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pmrm
-%global packver   0.0.3
+%global packname  ThinkingGrid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Progression Models for Repeated Measures
+Summary:          Thinking Grid Statistics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,42 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB >= 1.8
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-reticulate >= 1.45
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-gifski 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-RTMB >= 1.8
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-reticulate >= 1.45
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-gifski 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-methods 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
-A progression model for repeated measures (PMRM) is a continuous-time
-nonlinear mixed-effects model for longitudinal clinical trials in
-progressive diseases. Unlike mixed models for repeated measures (MMRMs),
-which estimate treatment effects as linear combinations of additive
-effects on the outcome scale, PMRMs characterize treatment effects in
-terms of the underlying disease trajectory. This framing yields clinically
-interpretable quantities such as average time saved and percent reduction
-in decline due to treatment. This package implements frequentist PMRMs by
-Raket (2022) <doi:10.1002/sim.9581> using 'RTMB' by Kristensen (2016)
-<doi:10.18637/jss.v070.i05>.
+Provides comprehensive tools for conducting research using the Thinking
+Grid framework, a psychological measurement approach for understanding the
+stream of thought. Includes functions for generating Qualtrics surveys
+with the thinking grid, processing survey responses, calculating quadrant
+depths, and creating various visualization types including heatmaps,
+animations, and statistical plots. See Irving, Z. C., Murray, S., Kuvar,
+V., Urena, M., and Mills, C. (2025) "Consciousness, Just in Time:
+Fluctuations in the Stream of Consciousness during Tasks and Rest"
+(manuscript under review, draft available from zci7c@virginia.edu).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lpda
-%global packver   1.2.3
+%global packname  ISMtools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Programming Discriminant Analysis
+Summary:          Interpretive Structural Modelling Analysis Tools
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-multiway 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-multiway 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Classification method obtained through linear programming. It is
-advantageous with respect to the classical developments when the
-distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. Mathematical
-details behind the method are published in Nueda, et al. (2022) "LPDA: A
-new classification method based on linear programming".
-<doi:10.1371/journal.pone.0270403>.
+A comprehensive toolkit for Interpretive Structural Modelling (ISM)
+analysis. Provides functions for creating adjacency matrices from various
+input formats including SSIM (Structural Self-Interaction Matrix),
+computing reachability matrices using Warshall's algorithm, performing
+hierarchical level partitioning, MICMAC (Cross-Impact Matrix
+Multiplication Applied to Classification) analysis, and visualizing ISM
+structures through both static and interactive diagrams. ISM is a
+methodology for identifying and summarizing relationships among specific
+elements which define an issue or problem, as described in Warfield (1974)
+<doi:10.1109/TSMC.1974.5408524>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  remstats
-%global packver   3.2.5
+%global packname  tempodisco
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.5
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computes Statistics for Relational Event History Data
+Summary:          Temporal Discounting Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.1.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.1.1
+BuildRequires:    R-CRAN-RWiener 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-grDevices 
+Requires:         R-CRAN-RWiener 
 
 %description
-Computes a variety of statistics for relational event models. Relational
-event models enable researchers to investigate both exogenous and
-endogenous factors influencing the evolution of a time-ordered sequence of
-events. These models are categorized into tie-oriented models (Butts, C.,
-2008, <doi:10.1111/j.1467-9531.2008.00203.x>), where the probability of a
-dyad interacting next is modeled in a single step, and actor-oriented
-models (Stadtfeld, C., & Block, P., 2017, <doi:10.15195/v4.a14>), which
-first model the probability of a sender initiating an interaction and
-subsequently the probability of the sender's choice of receiver. The
-package is designed to compute a variety of statistics that summarize
-exogenous and endogenous influences on the event stream for both types of
-models.
+Tools for working with temporal discounting data, designed for behavioural
+researchers to simplify data cleaning/scoring and model fitting. The
+package implements widely used methods such as computing indifference
+points from adjusting amount task (Frye et al., 2016,
+<doi:10.3791/53584>), testing for non-systematic discounting per the
+criteria of Johnson & Bickel (2008, <doi:10.1037/1064-1297.16.3.264>),
+scoring questionnaires according to the methods of Kirby et al. (1999,
+<doi:10.1037//0096-3445.128.1.78>) and Wileyto et al (2004,
+<doi:10.3758/BF03195548>), Bayesian model selection using a range of
+discount functions (Franck et al., 2015, <doi:10.1002/jeab.128>), drift
+diffusion models of discounting (Peters & D'Esposito, 2020,
+<doi:10.1371/journal.pcbi.1007615>), and model-agnostic measures of
+discounting such as area under the curve (Myerson et al., 2001,
+<doi:10.1901/jeab.2001.76-235>) and ED50 (Yoon & Higgins, 2008,
+<doi:10.1016/j.drugalcdep.2007.12.011>).
 
 %prep
 %setup -q -c -n %{packname}

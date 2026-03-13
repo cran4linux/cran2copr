@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SQUAREM
-%global packver   2021.1
+%global packver   2026.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2021.1
+Version:          2026.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Squared Extrapolation Methods for Accelerating EM-Like Monotone Algorithms
 
@@ -13,18 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 
 %description
 Algorithms for accelerating the convergence of slow, monotone sequences
-from smooth, contraction mapping such as the EM algorithm. It can be used
-to accelerate any smooth, linearly convergent acceleration scheme.  A
-tutorial style introduction to this package is available in a vignette on
-the CRAN download page or, when the package is loaded in an R session,
-with vignette("SQUAREM"). Refer to the J Stat Software article:
-<doi:10.18637/jss.v092.i07>.
+from smooth, contraction mappings such as the EM algorithm. It can be used
+to accelerate any smooth, linearly convergent scheme. A tutorial-style
+introduction is available in vignette("SQUAREM"). See also: Varadhan &
+Roland (2008) <doi:10.18637/jss.v092.i07>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

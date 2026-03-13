@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpanel
-%global packver   1.1-5.2
+%global packver   1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5.2
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Interactive Controls for R using the 'tcltk' Package
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    bwidget
 BuildRequires:    xorg-x11-server-Xvfb
 Recommends:       bwidget
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-tcltk 
 Requires:         R-tcltk 

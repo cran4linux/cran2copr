@@ -1,58 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pmrm
-%global packver   0.0.3
+%global packname  brightspaceR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Progression Models for Repeated Measures
+Summary:          Access D2L 'Brightspace' Data Sets via the 'BDS' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB >= 1.8
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-RTMB >= 1.8
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 
 %description
-A progression model for repeated measures (PMRM) is a continuous-time
-nonlinear mixed-effects model for longitudinal clinical trials in
-progressive diseases. Unlike mixed models for repeated measures (MMRMs),
-which estimate treatment effects as linear combinations of additive
-effects on the outcome scale, PMRMs characterize treatment effects in
-terms of the underlying disease trajectory. This framing yields clinically
-interpretable quantities such as average time saved and percent reduction
-in decline due to treatment. This package implements frequentist PMRMs by
-Raket (2022) <doi:10.1002/sim.9581> using 'RTMB' by Kristensen (2016)
-<doi:10.18637/jss.v070.i05>.
+Connect to the D2L 'Brightspace' Data Sets ('BDS') API via 'OAuth2',
+download all available datasets as tidy data frames with proper types,
+join them using convenience functions that know the foreign key
+relationships, and analyse student engagement, performance, and retention
+with ready-made analytics functions.
 
 %prep
 %setup -q -c -n %{packname}

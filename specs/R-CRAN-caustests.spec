@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lpda
-%global packver   1.2.3
+%global packname  caustests
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Programming Discriminant Analysis
+Summary:          Multiple Granger Causality Tests
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-multiway 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-multiway 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
 
 %description
-Classification method obtained through linear programming. It is
-advantageous with respect to the classical developments when the
-distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. Mathematical
-details behind the method are published in Nueda, et al. (2022) "LPDA: A
-new classification method based on linear programming".
-<doi:10.1371/journal.pone.0270403>.
+Comprehensive suite of Granger causality tests including standard
+Toda-Yamamoto (1995) <doi:10.1016/0304-4076(94)01616-8>, Fourier-based
+tests with single frequency (Enders and Jones, 2016)
+<doi:10.1515/snde-2014-0101> and cumulative frequencies (Nazlioglu et al.,
+2019) <doi:10.1080/1540496X.2018.1434072>, as well as quantile causality
+tests (Cai et al., 2023) <doi:10.1016/j.frl.2023.104327> and Bootstrap
+Fourier Granger Causality in Quantiles (Cheng et al., 2021)
+<doi:10.1007/s12076-020-00263-0>. All tests include bootstrap inference
+for robust p-values.
 
 %prep
 %setup -q -c -n %{packname}

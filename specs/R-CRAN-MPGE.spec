@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MPGE
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Two-Step Approach to Testing Overall Effect of Gene-Environment Interaction for Multiple Phenotypes
 
@@ -35,8 +36,9 @@ marginal genetic association between the genetic variant and the
 multivariate phenotype. The genetic variants which show an evidence of
 marginal overall genetic effect in the first step are prioritized while
 testing for an overall gene-environment interaction effect in the second
-step. Methodology is available from: A Majumdar, KS Burch, S Sankararaman,
-B Pasaniuc, WJ Gauderman, JS Witte (2020) <doi:10.1101/2020.07.06.190256>.
+step. Methodology is available from: A Majumdar, KS Burch, T Haldar, S
+Sankararaman, B Pasaniuc, WJ Gauderman, JS Witte (2020)
+<doi:10.1093/bioinformatics/btaa1083>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

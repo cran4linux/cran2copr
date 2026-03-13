@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lpda
-%global packver   1.2.3
+%global packname  PubMatrixR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Programming Discriminant Analysis
+Summary:          PubMed Pairwise Co-Occurrence Matrix Construction and Visualization
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-multiway 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-multiway 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-readODS 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-readODS 
+Requires:         R-CRAN-xml2 
 
 %description
-Classification method obtained through linear programming. It is
-advantageous with respect to the classical developments when the
-distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. Mathematical
-details behind the method are published in Nueda, et al. (2022) "LPDA: A
-new classification method based on linear programming".
-<doi:10.1371/journal.pone.0270403>.
+Queries the 'NCBI' (National Center for Biotechnology Information) Entrez
+'E-utilities' API to count pairwise co-occurrences between two sets of
+terms in 'PubMed' or 'PubMed Central'. It returns a matrix-like data frame
+of publication counts and can export hyperlink-enabled results in CSV or
+ODS format. The package also provides heatmap helpers for exploratory
+visualization of overlap patterns. Based on the method described in Becker
+et al. (2003) "PubMatrix: a tool for multiplex literature mining"
+<doi:10.1186/1471-2105-4-61>.
 
 %prep
 %setup -q -c -n %{packname}

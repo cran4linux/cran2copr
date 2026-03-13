@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lpda
-%global packver   1.2.3
+%global packname  obr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Programming Discriminant Analysis
+Summary:          Access Office for Budget Responsibility Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-multiway 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-multiway 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-cli 
 
 %description
-Classification method obtained through linear programming. It is
-advantageous with respect to the classical developments when the
-distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. Mathematical
-details behind the method are published in Nueda, et al. (2022) "LPDA: A
-new classification method based on linear programming".
-<doi:10.1371/journal.pone.0270403>.
+Provides clean, tidy access to data published by the Office for Budget
+Responsibility (OBR), the UK's independent fiscal watchdog. Covers the
+Public Finances Databank (outturn for PSNB, PSND, receipts, and
+expenditure since 1946), the Historical Official Forecasts Database (every
+OBR forecast since 2010), the Economic and Fiscal Outlook detailed
+forecast tables (five-year projections from the latest Budget), the
+Welfare Trends Report (incapacity benefit spending and caseloads), and the
+Fiscal Risks and Sustainability Report (50-year state pension
+projections). Data is downloaded from the OBR on first use and cached
+locally for subsequent calls. Data is sourced from the OBR website
+<https://obr.uk>.
 
 %prep
 %setup -q -c -n %{packname}

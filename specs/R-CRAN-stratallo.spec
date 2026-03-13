@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stratallo
-%global packver   2.2.1
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimum Sample Allocation in Stratified Sampling
 
@@ -14,30 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Functions in this package provide solution to classical problem in survey
-methodology - an optimum sample allocation in stratified sampling. In this
-context, the optimum allocation is in the classical Tschuprow-Neyman's
-sense and it satisfies additional lower or upper bounds restrictions
-imposed on sample sizes in strata. There are few different algorithms
-available to use, and one them is based on popular sample allocation
-method that applies Neyman allocation to recursively reduced set of
-strata. This package also provides the function that computes a solution
-to the minimum cost allocation problem, which is a minor modification of
-the classical optimum sample allocation. This problem lies in the
-determination of a vector of strata sample sizes that minimizes total cost
-of the survey, under assumed fixed level of the stratified estimator's
-variance. As in the case of the classical optimum allocation, the problem
-of minimum cost allocation can be complemented by imposing upper-bounds
-constraints on sample sizes in strata.
+Provides exact analytical algorithms for computing optimum sample
+allocations in stratified sampling. Supports classical Neyman-Tschuprow
+allocation, minimum-cost allocation under a variance constraint, and
+multi-domain allocation with controlled precision. Handles lower and upper
+bounds, cost constraints, and multiple domains. Includes helper functions
+for variance computation, allocation summaries, rounding, and example
+datasets for testing and benchmarking.
 
 %prep
 %setup -q -c -n %{packname}

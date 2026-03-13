@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VertexWiseR
-%global packver   1.4.5
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Vertex-Wise Analyses of Whole-Brain and Hippocampal Surface
 
@@ -62,11 +62,11 @@ Requires:         R-utils
 Provides functions to run statistical analyses on surface-based
 neuroimaging data, computing measures including cortical thickness and
 surface area of the whole-brain and of the hippocampi. It can make use of
-'FreeSurfer', 'fMRIprep', 'XCP-D', 'HCP' and 'CAT12' preprocessed datasets
-and 'HippUnfold' hippocampal segmentation outputs for a given sample by
-restructuring the data values into a single file. The single file can then
-be used by the package for analyses independently from its base dataset
-and without need for its access.
+'FreeSurfer', 'fMRIprep', 'XCP-D', 'HCP' and 'CAT12' preprocessed
+datasets, 'HippUnfold' hippocampal outputs and 'SubCortexMesh' subcortical
+outputs for a given sample by restructuring the data values into a single
+file. The single file can then be used by the package for analyses
+independently from its base dataset and without need for its access.
 
 %prep
 %setup -q -c -n %{packname}
