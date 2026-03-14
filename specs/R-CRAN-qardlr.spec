@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  N2R
-%global packver   1.0.4
+%global packname  qardlr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Scalable Approximate k-Nearest Neighbor Search Methods using 'N2' Library
+Summary:          Quantile Autoregressive Distributed Lag Model
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppSpdlog 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quantreg >= 5.95
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-quantreg >= 5.95
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-Implements methods to perform fast approximate K-nearest neighbor search
-on input matrix. Algorithm based on the 'N2' implementation of an
-approximate nearest neighbor search using hierarchical Navigable Small
-World (NSW) graphs. The original algorithm is described in "Efficient and
-Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable
-Small World Graphs", Y. Malkov and D. Yashunin,
-<doi:10.1109/TPAMI.2018.2889473>, <doi:10.48550/arXiv.1603.09320>.
+Implements the Quantile Autoregressive Distributed Lag (QARDL) model of
+Cho, Kim and Shin (2015) <doi:10.1016/j.jeconom.2015.01.003>. Estimates
+quantile-specific long-run (beta), short-run autoregressive (phi), and
+impact (gamma) parameters. Features include BIC-based automatic lag
+selection, Error Correction Model (ECM) parameterization, Wald tests for
+parameter constancy across quantiles, rolling/recursive QARDL estimation,
+Monte Carlo simulation, and publication-ready output tables.
 
 %prep
 %setup -q -c -n %{packname}

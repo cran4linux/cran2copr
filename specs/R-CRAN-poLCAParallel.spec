@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glasstabs
-%global packver   0.1.1
+%global packname  poLCAParallel
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animated Glass-Style Tabs and Multi-Select Filter for 'Shiny'
+Summary:          Polytomous Variable Latent Class Analysis Parallel
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.0
-Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-htmltools >= 0.5.0
+BuildRequires:    R-devel >= 4.1.2
+Requires:         R-core >= 4.1.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.4.1.0
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-poLCA 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-poLCA 
 
 %description
-Tools for creating animated glassmorphism-style tab navigation and
-multi-select dropdown filters in 'shiny' applications. The package
-provides a tab navigation component and a searchable multi-select widget
-with multiple checkbox indicator styles, select-all controls, and
-customizable colour themes. The widgets are compatible with standard
-'shiny' layouts and 'bs4Dash' dashboards.
+A 'C++' reimplementation of 'poLCA' - latent class analysis and latent
+class regression models for polytomous outcome variables, also known as
+latent structure analysis. It attempts to reproduce results and be as
+similar as possible to the original code, while running faster, especially
+with multiple repetitions, by utilising multiple threads. Further reading
+is available on the Queen Mary, University of London, IT Services Research
+blog <https://blog.hpc.qmul.ac.uk/speeding_up_r_packages/>.
 
 %prep
 %setup -q -c -n %{packname}

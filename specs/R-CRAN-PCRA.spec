@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PCRA
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Companion to Portfolio Construction and Risk Analysis
 
@@ -47,12 +47,11 @@ Requires:         R-CRAN-R.cache
 %description
 A collection of functions and data sets that support teaching a
 quantitative finance MS level course on Portfolio Construction and Risk
-Analysis, and the writing of a textbook for such a course.  The package is
-unique in providing several real-world data sets that may be used for
-problem assignments and student projects.  The data sets include
-cross-sections of stock data from the Center for Research on Security
-Prices, LLC (CRSP), corresponding factor exposures data from S&P Global,
-and several SP500 data sets.
+Analysis, and the writing of a textbook for such a course. The package
+provides several real-world data sets for problem assignments and student
+projects, including cross-sections of stock data from the Center for
+Research on Security Prices, LLC (CRSP), corresponding factor exposures
+from S&P Global, and several S&P 500 data sets.
 
 %prep
 %setup -q -c -n %{packname}

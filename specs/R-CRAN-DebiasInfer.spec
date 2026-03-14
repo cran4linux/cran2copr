@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DebiasInfer
-%global packver   0.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Inference on High-Dimensional Linear Model with Missing Outcomes
 
@@ -28,7 +28,7 @@ Requires:         R-stats
 A statistically and computationally efficient debiasing method for
 conducting valid inference on the high-dimensional linear regression
 function with missing outcomes. The reference paper is Zhang, Giessing,
-and Chen (2023) <arXiv:2309.06429>.
+and Chen (2023) <doi:10.48550/arXiv.2309.06429>.
 
 %prep
 %setup -q -c -n %{packname}

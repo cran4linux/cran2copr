@@ -1,34 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glasstabs
-%global packver   0.1.1
+%global packname  amp.dm
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animated Glass-Style Tabs and Multi-Select Filter for 'Shiny'
+Summary:          Data Management Tools for Pharmacometrics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.0
-Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-htmltools >= 0.5.0
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-xtable 
 
 %description
-Tools for creating animated glassmorphism-style tab navigation and
-multi-select dropdown filters in 'shiny' applications. The package
-provides a tab navigation component and a searchable multi-select widget
-with multiple checkbox indicator styles, select-all controls, and
-customizable colour themes. The widgets are compatible with standard
-'shiny' layouts and 'bs4Dash' dashboards.
+Tools and functions to efficiently create datasets used in pharmacometric
+analysis. Additional functionality is added to create documentation and
+prepare files for submission and quality control purposes.
 
 %prep
 %setup -q -c -n %{packname}

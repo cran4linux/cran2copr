@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metabook
-%global packver   0.1-0
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Sets and Code for Meta-Analysis with R
+Summary:          Data Sets and Code for "Meta-Analysis with R"
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,16 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 8.2.1
-BuildRequires:    R-CRAN-netmeta >= 3.3.1
-BuildRequires:    R-CRAN-metasens >= 1.5.3
-Requires:         R-CRAN-meta >= 8.2.1
-Requires:         R-CRAN-netmeta >= 3.3.1
-Requires:         R-CRAN-metasens >= 1.5.3
 
 %description
-Data sets and code supporting the second edition of Schwarzer, Carpenter,
-and Rücker <DOI:10.1007/978-3-319-21416-0>, "Meta-Analysis with R".
+Data sets and code supporting the second edition of "Meta-Analysis with
+R"; first edition: Schwarzer, Carpenter, and Rücker (2015)
+<DOI:10.1007/978-3-319-21416-0>.
 
 %prep
 %setup -q -c -n %{packname}

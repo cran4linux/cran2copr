@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glasstabs
-%global packver   0.1.1
+%global packname  freebsdcontribs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animated Glass-Style Tabs and Multi-Select Filter for 'Shiny'
+Summary:          'FreeBSD' Contributor and Commit Statistics
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.0
-Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-htmltools >= 0.5.0
 
 %description
-Tools for creating animated glassmorphism-style tab navigation and
-multi-select dropdown filters in 'shiny' applications. The package
-provides a tab navigation component and a searchable multi-select widget
-with multiple checkbox indicator styles, select-all controls, and
-customizable colour themes. The widgets are compatible with standard
-'shiny' layouts and 'bs4Dash' dashboards.
+Over 30 years of 'FreeBSD' commit activity and contributor growth.
+Includes daily commit counts and new committer data extracted from the
+cloned git repository (1993-2026), plus 'Phabricator' signup statistics
+(2013-2026). Contains no personal data -- only aggregated counts. Useful
+for time series analysis, growth modeling, and studying open source
+community dynamics.
 
 %prep
 %setup -q -c -n %{packname}

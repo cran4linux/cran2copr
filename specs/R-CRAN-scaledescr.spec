@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scaledescr
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive, Reliability, and Inferential Tables for Psychometric Scales and Demographic Data
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-officer
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-flextable 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gtsummary 
 Requires:         R-CRAN-purrr 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-officer
 Requires:         R-CRAN-openxlsx 
 Requires:         R-utils 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-flextable 
 
 %description
 Provides functions to format and summarise already computed outputs from

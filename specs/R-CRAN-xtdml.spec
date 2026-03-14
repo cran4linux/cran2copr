@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtdml
-%global packver   0.1.11
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double Machine Learning for Static Panel Models with Fixed Effects
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MLmetrics 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-mlr3tuning >= 1.5.0
 Requires:         R-CRAN-mlr3 >= 1.3.0
@@ -47,6 +48,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-stats 
 Requires:         R-CRAN-MLmetrics 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-rlang 
 
 %description
 The 'xtdml' package implements partially linear panel regression (PLPR)

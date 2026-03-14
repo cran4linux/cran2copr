@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glasstabs
-%global packver   0.1.1
+%global packname  inkaR
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animated Glass-Style Tabs and Multi-Select Filter for 'Shiny'
+Summary:          Download and Analyze Spatial Development Data from INKAR
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.0
-Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-htmltools >= 0.5.0
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Tools for creating animated glassmorphism-style tab navigation and
-multi-select dropdown filters in 'shiny' applications. The package
-provides a tab navigation component and a searchable multi-select widget
-with multiple checkbox indicator styles, select-all controls, and
-customizable colour themes. The widgets are compatible with standard
-'shiny' layouts and 'bs4Dash' dashboards.
+A lightweight package to download spatial development indicators from the
+BBSR INKAR (Indikatoren und Karten zur Raum- und Stadtentwicklung)
+database. It provides a modern interface using 'httr2', robust caching,
+concurrent API querying for fast spatial dimension lookups, and native
+geospatial mapping integration.
 
 %prep
 %setup -q -c -n %{packname}

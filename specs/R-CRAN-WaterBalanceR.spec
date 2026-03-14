@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WaterBalanceR
-%global packver   0.1.20
+%global packver   0.1.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.20
+Version:          0.1.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate High Resolution Water Balance of Starch Potatoes
 

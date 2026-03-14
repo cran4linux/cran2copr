@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ResIN
-%global packver   2.3.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conduct Response Item Network (ResIN) Analysis with Social Response Data
 
@@ -57,8 +57,8 @@ Requires:         R-CRAN-tidygraph
 Requires:         R-CRAN-network 
 
 %description
-Contains various tools to perform and visualize Response Item Networks
-('ResIN's'). 'ResIN' dummy-codes ordered and qualitative response choices
+Contains various tools to estimate, analyze, and visualize Response Item
+Networks. 'ResIN' dummy-codes ordered and qualitative response choices
 from (survey) data, calculates pairwise associations and maps the location
 of each item response as a node in a force-directed network. Please refer
 to <https://www.resinmethod.net/> for more details.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  naijR
-%global packver   0.6.3
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Operations to Ease Data Analyses Specific to Nigeria
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-stringi >= 1.7.6
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
 BuildRequires:    R-CRAN-sf >= 1.0.12
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-stringi >= 1.7.6
 Requires:         R-CRAN-RColorBrewer >= 1.1.2
 Requires:         R-CRAN-sf >= 1.0.12
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 

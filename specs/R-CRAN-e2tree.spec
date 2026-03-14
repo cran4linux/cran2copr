@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  e2tree
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explainable Ensemble Trees
 
@@ -14,40 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-ape 
+Requires:         R-CRAN-ape 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-partitions 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-ape 
 
 %description
 The Explainable Ensemble Trees 'e2tree' approach has been proposed by Aria

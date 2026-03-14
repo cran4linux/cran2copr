@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rMIDAS
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation with Denoising Autoencoders
 
@@ -39,7 +39,9 @@ algorithm, this package contains functions for processing data before and
 after model training, running imputation model diagnostics, generating
 multiple completed datasets, and estimating regression models on these
 datasets. For more information see Lall and Robinson (2023)
-<doi:10.18637/jss.v107.i09>.
+<doi:10.18637/jss.v107.i09>. This package is deprecated in favor of
+'rMIDAS2'; it remains available for existing workflows but will receive
+only compatibility and documentation updates.
 
 %prep
 %setup -q -c -n %{packname}

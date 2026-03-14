@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glasstabs
-%global packver   0.1.1
+%global packname  hatemicoint
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animated Glass-Style Tabs and Multi-Select Filter for 'Shiny'
+Summary:          Hatemi-J Cointegration Test with Two Unknown Regime Shifts
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.0
-Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-htmltools >= 0.5.0
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Tools for creating animated glassmorphism-style tab navigation and
-multi-select dropdown filters in 'shiny' applications. The package
-provides a tab navigation component and a searchable multi-select widget
-with multiple checkbox indicator styles, select-all controls, and
-customizable colour themes. The widgets are compatible with standard
-'shiny' layouts and 'bs4Dash' dashboards.
+Implements the Hatemi-J (2008) cointegration test which allows for two
+unknown structural breaks (regime shifts) in the cointegrating
+relationship. The test provides three test statistics: ADF* (Augmented
+Dickey-Fuller), Zt* (Phillips-Perron Z_t), and Za* (Phillips-Perron
+Z_alpha), along with endogenously determined break dates. Critical values
+are based on simulations from Hatemi-J (2008)
+<doi:10.1007/s00181-007-0175-9>.
 
 %prep
 %setup -q -c -n %{packname}

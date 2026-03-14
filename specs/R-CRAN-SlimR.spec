@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SlimR
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Machine Learning-Powered, Context-Matching Tool for Single-Cell and Spatial Transcriptomics Annotation
 
@@ -44,18 +44,19 @@ Requires:         R-CRAN-tibble
 Annotates single-cell and spatial-transcriptomic (ST) data using
 context-matching marker datasets. It creates a unified marker list
 (`Markers_list`) from multiple sources: built-in curated databases
-('Cellmarker2', 'PanglaoDB', 'scIBD', 'TCellSI', 'PCTIT', 'PCTAM'), Seurat
-objects with cell labels, or user-provided Excel tables. SlimR first uses
-adaptive machine learning for parameter optimization, and then offers two
-automated annotation approaches: 'cluster-based' and 'per-cell'.
-Cluster-based annotation assigns one label per cluster, expression-based
-probability calculation, and AUC validation. Per-cell annotation assigns
-labels to individual cells using three scoring methods with adaptive
-thresholds and ratio-based confidence filtering, plus optional UMAP
-spatial smoothing, making it ideal for heterogeneous clusters and rare
-cell types. The package also supports semi-automated workflows with
-heatmaps, feature plots, and combined visualizations for manual
-annotation. For more details, see Kabacoff (2020, ISBN:9787115420572).
+('Cellmarker2', 'PanglaoDB', 'ScType', 'scIBD', 'TCellSI', 'PCTIT',
+'PCTAM'), Seurat objects with cell labels, or user-provided Excel tables.
+SlimR first uses adaptive machine learning for parameter optimization, and
+then offers two automated annotation approaches: 'cluster-based' and
+'per-cell'. Cluster-based annotation assigns one label per cluster,
+expression-based probability calculation, and AUC validation. Per-cell
+annotation assigns labels to individual cells using three scoring methods
+with adaptive thresholds and ratio-based confidence filtering, plus
+optional UMAP spatial smoothing, making it ideal for heterogeneous
+clusters and rare cell types. The package also supports semi-automated
+workflows with heatmaps, feature plots, and combined visualizations for
+manual annotation. For more information, see the package documentation at
+<https://github.com/zhaoqing-wang/SlimR>.
 
 %prep
 %setup -q -c -n %{packname}
