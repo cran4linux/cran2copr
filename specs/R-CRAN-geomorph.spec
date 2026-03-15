@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geomorph
-%global packver   4.0.10
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.10
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometric Morphometric Analyses of 2D and 3D Landmark Data
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RRPP >= 2.1.0
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -28,8 +27,8 @@ BuildRequires:    R-CRAN-jpeg
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-RRPP >= 2.1.0
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -39,12 +38,12 @@ Requires:         R-CRAN-jpeg
 Requires:         R-CRAN-ape 
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 
 %description
-Read, manipulate, and digitize landmark data, generate shape variables via
-Procrustes analysis for points, curves and surfaces, perform shape
-analyses, and provide graphical depictions of shapes and patterns of shape
-variation.
+Read and manipulate landmark data, generate shape variables via Procrustes
+analysis for points, curves and surfaces, perform shape analyses, and
+provide graphical depictions of shapes and patterns of shape variation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zoomerjoin
-%global packver   0.2.3
+%global packname  readSX
+%global packver   0.8.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.8.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Superlatively Fast Fuzzy Joins
+Summary:          Read 'SurveyXact' Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cargo
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-collapse 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Empowers users to fuzzily-merge data frames with millions or tens of
-millions of rows in minutes with low memory usage.  The package uses the
-locality sensitive hashing algorithms developed by Datar, Immorlica, Indyk
-and Mirrokni (2004) <doi:10.1145/997817.997857>, and Broder (1998)
-<doi:10.1109/SEQUEN.1997.666900> to avoid having to compare every pair of
-records in each dataset, resulting in fuzzy-merges that finish in linear
-time.
+Imports data from the 'SurveyXact' commercial service
+<https://rambollxact.com>, adds variable labels, and converts value labels
+to factors in the same order as exported from 'SurveyXact'.
 
 %prep
 %setup -q -c -n %{packname}

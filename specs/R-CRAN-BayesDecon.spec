@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesDecon
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density Deconvolution Using Bayesian Semiparametric Methods
 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-mvtnorm
 %description
 Estimates the density of a variable in a measurement error setup,
 potentially with an excess of zero values. For more details see Sarkar
-(2022) <doi:10.1080/01621459.2020.1782220>.
+(2021) <doi:10.1080/01621459.2020.1782220>.
 
 %prep
 %setup -q -c -n %{packname}
