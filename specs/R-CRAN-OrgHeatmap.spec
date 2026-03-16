@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OrgHeatmap
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization Tool for Numerical Data on Human/Mouse Organs and Organelles
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-viridis >= 0.6.0
 BuildRequires:    R-CRAN-ggpolypath >= 0.3.0
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -34,9 +34,9 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-viridis >= 0.6.0
 Requires:         R-CRAN-ggpolypath >= 0.3.0
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 

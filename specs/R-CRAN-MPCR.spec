@@ -1,52 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cobin
-%global packver   1.0.1.4
+%global packname  MPCR
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1.4
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cobin and Micobin Regression Models for Continuous Proportional Data
+Summary:          Multi Precision Computing
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-reformulas 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-spNNGP 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-reformulas 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-spNNGP 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides functions for cobin and micobin regression models, a new family
-of generalized linear models for continuous proportional data (Y in the
-closed unit interval [0, 1]). It also includes an exact, efficient sampler
-for the Kolmogorov-Gamma random variable. For details, see Lee et al.
-(2026) <doi:10.1080/01621459.2026.2626081>.
+Provides new data-structure support for multi-precision computing for R
+users. The package supports 16-bit, 32-bit, and 64-bit operations. To the
+best of our knowledge, 'MPCR' differs from the currently available
+packages in the following: 'MPCR' introduces a new data structure that
+supports three different precisions (16-bit, 32-bit, and 64-bit), allowing
+for optimized memory allocation based on the desired precision. This
+feature offers significant advantages in memory optimization. 'MPCR'
+extends support to all basic linear algebra methods across different
+precisions. Optional GPU acceleration via CUDA is available for 32-bit and
+64-bit operations when CUDA Toolkit is detected during installation, while
+16-bit operations are GPU-only and limited to matrix-matrix
+multiplication. 'MPCR' maintains a consistent interface with normal R
+functions, allowing for seamless code integration and a user-friendly
+experience.
 
 %prep
 %setup -q -c -n %{packname}

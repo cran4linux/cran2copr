@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ppwdeming
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precision Profile Weighted Deming Regression
 
@@ -34,9 +34,10 @@ readings. The function set includes tools for: estimated standard errors
 diagnostic tools for normality, linearity and constant variance; and an
 outlier analysis identifying significant outliers for closer
 investigation. The following reference provides further information on
-mathematical derivations and applications. Hawkins, D.M., and J.J. Kraker.
-'Precision Profile Weighted Deming Regression for Methods Comparison', (in
-press) <doi:10.1093/jalm/jfaf183>.
+mathematical derivations and applications. Hawkins, D.M., and J.J. Kraker
+(2026). 'Precision Profile Weighted Deming Regression for Methods
+Comparison'. The Journal of Applied Laboratory Medicine 11, 379-392
+<doi:10.1093/jalm/jfaf183>.
 
 %prep
 %setup -q -c -n %{packname}

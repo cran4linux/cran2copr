@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rugarch
-%global packver   1.5-4
+%global packver   1.5-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate GARCH Models
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.2.34
-BuildRequires:    R-CRAN-Rcpp >= 0.10.6
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rsolnp 
@@ -44,7 +44,7 @@ Requires:         R-CRAN-xts
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-chron 
 Requires:         R-CRAN-SkewHyperbolic 
-Requires:         R-CRAN-Rcpp >= 0.10.6
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-graphics 
 Requires:         R-CRAN-fracdiff 
 Requires:         R-stats 

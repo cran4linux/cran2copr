@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traj
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature-Based Clustering of Longitudinal Trajectories
 
@@ -36,7 +36,7 @@ of Leffondre et al. (2004), the procedure involves identifying each
 trajectory to a point in the space of measures. In this context, a measure
 is a quantity meant to capture a certain characteristic feature of the
 trajectory. The points in the space of measures are then clustered using a
-version of spectral clustering.
+version of the Spectral Clustering algorithm.
 
 %prep
 %setup -q -c -n %{packname}

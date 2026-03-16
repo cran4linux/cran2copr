@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worldbank
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for World Banks's 'Indicators' and 'Poverty and Inequality Platform (PIP)' APIs
+Summary:          Client for the 'World Bank' APIs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,15 +18,18 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-httr2 >= 1.1.0
+Requires:         R-stats 
 Requires:         R-tools 
 
 %description
-Download and search data from the 'World Bank Indicators API', which
-provides access to nearly 16,000 time series indicators. See
-<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation>
-for further details about the API.
+Download and search data from the 'World Bank' APIs, including the
+'Indicators' API, the 'Poverty and Inequality Platform (PIP)' API, the
+'Finances One' API, and the 'Projects' API. See
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview>
+for further details.
 
 %prep
 %setup -q -c -n %{packname}

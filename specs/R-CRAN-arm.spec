@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arm
-%global packver   1.14-4
+%global packver   1.15-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14.4
+Version:          1.15.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis Using Regression and Multilevel/Hierarchical Models
 
-License:          GPL (> 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.0
+BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
 BuildRequires:    R-CRAN-lme4 >= 1.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
@@ -28,7 +28,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix >= 1.0
+Requires:         R-CRAN-Matrix >= 1.6.1.1
 Requires:         R-CRAN-lme4 >= 1.0
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 

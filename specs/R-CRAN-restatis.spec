@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  restatis
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Wrapper to Access a Wide Range of Germany's Federal Statistical System Databases Based on the GENESIS Web Service RESTful API of the German Federal Statistical Office (Statistisches Bundesamt/Destatis)
 
@@ -35,11 +35,10 @@ Requires:         R-CRAN-vctrs
 Requires:         R-CRAN-purrr 
 
 %description
-A RESTful API wrapper for accessing the GENESIS database of the German
-Federal Statistical Office (Destatis) as well as its Census Database and
-the database of Germany's regional statistics. Supports data search
-functions, credential management, result caching, and handling remote
-background jobs for large datasets.
+A RESTful API wrapper for accessing the main databases of Germany's
+Federal Statistical System. Supports data search functions, credential
+management, result caching, and handling remote background jobs for large
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

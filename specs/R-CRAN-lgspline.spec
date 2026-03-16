@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lgspline
-%global packver   0.3.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lagrangian Multiplier Smoothing Splines for Smooth Function Estimation
 
@@ -39,17 +39,16 @@ nonparametric regression and function estimation. Provides tools for
 fitting, prediction, and inference using a constrained optimization
 approach to enforce smoothness. Supports generalized linear models,
 Weibull accelerated failure time (AFT) models, quadratic programming
-problems, and customizable arbitrary correlation structures. Options for
-fitting in parallel are provided. The method builds upon the framework
-described by Ezhov et al. (2018) <doi:10.1515/jag-2017-0029> using
-Lagrangian multipliers to fit cubic splines. For more information on
-correlation structure estimation, see Searle et al. (2009)
-<ISBN:978-0470009598>. For quadratic programming and constrained
-optimization in general, see Nocedal & Wright (2006)
-<doi:10.1007/978-0-387-40065-5>. For a comprehensive background on
-smoothing splines, see Wahba (1990) <doi:10.1137/1.9781611970128> and Wood
-(2006) <ISBN:978-1584884743> "Generalized Additive Models: An Introduction
-with R".
+constraints, and customizable working-correlation structures, with options
+for parallel fitting. The core spline construction builds on Ezhov et al.
+(2018) <doi:10.1515/jag-2017-0029>. Quadratic-programming and SQP details
+follow Goldfarb & Idnani (1983) <doi:10.1007/BF02591962> and Nocedal &
+Wright (2006) <doi:10.1007/978-0-387-40065-5>. For smoothing spline and
+penalized spline background, see Wahba (1990)
+<doi:10.1137/1.9781611970128> and Wood (2017) <doi:10.1201/9781315370279>.
+For variance-component and correlation-parameter estimation, see Searle et
+al. (2006) <ISBN:978-0470009598>. The default multivariate partitioning
+step uses k-means clustering as in MacQueen (1967).
 
 %prep
 %setup -q -c -n %{packname}

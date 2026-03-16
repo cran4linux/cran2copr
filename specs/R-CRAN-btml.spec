@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  btml
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Treed Machine Learning for Personalized Prediction
 
@@ -31,9 +31,9 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-Generalization of the Bayesian classification and regression tree (CART)
-model that partitions subjects into terminal nodes and tailors machine
-learning model to each terminal node.
+Generalization of the Bayesian classification and regression tree model
+that partitions subjects into terminal nodes and tailors predictive model
+to each terminal node.
 
 %prep
 %setup -q -c -n %{packname}

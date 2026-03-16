@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataSDA
-%global packver   0.1.8
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets and Basic Statistics for Symbolic Data Analysis
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RSDA 
 BuildRequires:    R-CRAN-HistDAWass 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-RSDA 
 Requires:         R-CRAN-HistDAWass 
+Requires:         R-methods 
 
 %description
 Collects a diverse range of symbolic data and offers a comprehensive set

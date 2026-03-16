@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  muiMaterial
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Material UI' for 'shiny' Apps and 'Quarto'
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny.react >= 0.4.0
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-shiny.react >= 0.4.0
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shiny 
 
 %description

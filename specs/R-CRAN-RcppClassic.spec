@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppClassic
-%global packver   0.9.13
+%global packver   0.9.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
+Version:          0.9.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deprecated 'classic' 'Rcpp' 'API'
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.12.0
-Requires:         R-core >= 2.12.0
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.10.2
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-methods 
 
 %description
