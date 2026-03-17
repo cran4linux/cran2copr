@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tteICE
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Treatment Effect Estimation for Time-to-Event Data with Intercurrent Events
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 3.8.3
+BuildRequires:    R-CRAN-survival >= 3.8.6
 BuildRequires:    R-CRAN-cmprsk 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-shiny 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-shinyWidgets
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-survival >= 3.8.3
+Requires:         R-CRAN-survival >= 3.8.6
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-shiny 

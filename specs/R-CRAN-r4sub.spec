@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinTrialData
+%global packname  r4sub
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Trial Example Datasets
+Summary:          Easily Install and Load the R4SUB Ecosystem
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-connector 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-piggyback 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-connector 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-piggyback 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-r4subcore 
+BuildRequires:    R-CRAN-r4subdata 
+BuildRequires:    R-CRAN-r4subprofile 
+BuildRequires:    R-CRAN-r4subrisk 
+BuildRequires:    R-CRAN-r4subscore 
+BuildRequires:    R-CRAN-r4subtrace 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-r4subcore 
+Requires:         R-CRAN-r4subdata 
+Requires:         R-CRAN-r4subprofile 
+Requires:         R-CRAN-r4subrisk 
+Requires:         R-CRAN-r4subscore 
+Requires:         R-CRAN-r4subtrace 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-A collection of clinical trial example datasets from multiple sources
-including the CDISC Pilot 01 study (CDISC <https://www.cdisc.org/>). All
-datasets are provided in Parquet format for efficient storage and can be
-accessed using the 'connector' package. Designed for training, testing,
-prototyping, and demonstrating clinical data analysis workflows.
+The 'r4sub' package is a meta-package that installs and loads core
+packages of the R4SUB (R for Regulatory Submission) clinical submission
+readiness ecosystem. Loading 'r4sub' attaches 'r4subcore', 'r4subtrace',
+'r4subscore', 'r4subrisk', 'r4subdata', and 'r4subprofile'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clusterability
-%global packver   0.2.2.0
+%global packver   0.2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2.0
+Version:          0.2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Performs Tests for Cluster Tendency of a Data Set
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-diptest
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-sparsepca 
 BuildRequires:    R-CRAN-elasticnet 
+BuildRequires:    R-CRAN-cluster 
 Requires:         R-CRAN-diptest 
 Requires:         R-splines 
 Requires:         R-CRAN-sparsepca 
 Requires:         R-CRAN-elasticnet 
+Requires:         R-CRAN-cluster 
 
 %description
 Test for cluster tendency (clusterability) of a data set. The methods
@@ -32,8 +34,9 @@ implemented - reducing the data set to a single dimension using principal
 component analysis or computing pairwise distances, and performing a
 multimodality test like the Dip Test or Silverman's Critical Bandwidth
 Test - are described in Adolfsson, Ackerman, and Brownstein (2019)
-<doi:10.1016/j.patcog.2018.10.026>. Such methods can inform whether
-clustering algorithms are appropriate for a data set.
+<doi:10.1016/j.patcog.2018.10.026> and Laborde et al. (2023) <doi:
+10.1186/s12859-023-05210-6>. Such methods can inform whether clustering
+algorithms are appropriate for a data set.
 
 %prep
 %setup -q -c -n %{packname}

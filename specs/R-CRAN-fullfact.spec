@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fullfact
-%global packver   1.5.2
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Full Factorial Breeding Analysis
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-afex 
 Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-reformulas 
 Requires:         R-CRAN-afex 
 
 %description

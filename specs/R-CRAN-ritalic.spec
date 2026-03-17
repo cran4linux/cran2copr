@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ritalic
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the ITALIC Database of Lichen Biodiversity
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.3
 Requires:         R-core >= 3.5.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-utils 
 Requires:         R-CRAN-sf 

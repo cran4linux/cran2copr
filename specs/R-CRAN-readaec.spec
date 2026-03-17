@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readaec
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Australian Electoral Commission Data
 
@@ -21,14 +21,14 @@ BuildRequires:    R-CRAN-httr2
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-glue 
+Requires:         R-tools 
 
 %description
 Provides clean, tidy access to Australian Electoral Commission (AEC)

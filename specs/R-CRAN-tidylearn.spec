@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidylearn
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Tidy Interface to R's Machine Learning Ecosystem
 
@@ -64,8 +64,9 @@ Requires:         R-CRAN-MASS
 Provides a unified tidyverse-compatible interface to R's machine learning
 packages. Wraps established implementations from 'glmnet', 'randomForest',
 'xgboost', 'e1071', 'rpart', 'gbm', 'nnet', 'cluster', 'dbscan', and
-others - providing consistent function signatures, tidy tibble output, and
-unified 'ggplot2'-based visualization. The underlying algorithms are
+others - providing consistent function signatures, tidy tibble output,
+unified 'ggplot2'-based visualization, and optional formatted 'gt' tables
+via the tl_table() family of functions. The underlying algorithms are
 unchanged; 'tidylearn' simply makes them easier to use together. Access
 raw model objects via the $fit slot for package-specific functionality.
 Methods include random forests Breiman (2001)

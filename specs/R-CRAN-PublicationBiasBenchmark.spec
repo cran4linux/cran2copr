@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PublicationBiasBenchmark
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Benchmark for Publication Bias Correction Methods
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-clubSandwich
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-puniform 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-MAIVE 
 Requires:         R-stats 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-osfr 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-clubSandwich
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-puniform 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-MAIVE 
 
 %description
 Implements a unified interface for benchmarking meta-analytic publication

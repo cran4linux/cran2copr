@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REPS
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hedonic and Multilateral Index Methods for Real Estate Price Statistics
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-lmtest
 Compute price indices using various Hedonic and multilateral methods,
 including Laspeyres, Paasche, Fisher, and HMTS (Hedonic Multilateral Time
 series re-estimation with splicing). The central function
-calculate_price_index() offers a unified interface for running these
+calculate_hedonic_index() offers a unified interface for running these
 methods on structured datasets. This package is designed to support index
 construction workflows across a wide range of domains — including but not
 limited to real estate — where quality-adjusted price comparisons over

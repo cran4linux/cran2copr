@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppClassicExamples
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Examples using 'RcppClassic' to Interface R and C++
 
@@ -14,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
-BuildRequires:    R-CRAN-RcppClassic >= 0.9.3
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
-Requires:         R-CRAN-RcppClassic >= 0.9.3
-Requires:         R-CRAN-Rcpp >= 0.10.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-RcppClassic >= 0.9.14
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppClassic >= 0.9.14
+Requires:         R-CRAN-Rcpp 
 
 %description
 The 'Rcpp' package contains a C++ library that facilitates the integration

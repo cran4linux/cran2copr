@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  etwfe
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Two-Way Fixed Effects
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tinyplot >= 0.4.2
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-tinyplot >= 0.6.0
 BuildRequires:    R-CRAN-marginaleffects >= 0.29.0
-BuildRequires:    R-CRAN-fixest >= 0.11.2
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fixest >= 0.13.2
 BuildRequires:    R-CRAN-Formula 
-Requires:         R-CRAN-tinyplot >= 0.4.2
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-tinyplot >= 0.6.0
 Requires:         R-CRAN-marginaleffects >= 0.29.0
-Requires:         R-CRAN-fixest >= 0.11.2
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fixest >= 0.13.2
 Requires:         R-CRAN-Formula 
+Requires:         R-stats 
 
 %description
 Convenience functions for implementing extended two-way fixed effect
-regressions a la Wooldridge (2021, 2023) <doi:10.2139/ssrn.3906345>,
-<doi:10.1093/ectj/utad016>.
+regressions a la Wooldridge (2023, 2025) <doi:10.1093/ectj/utad016>,
+<doi:10.1007/s00181-025-02807-z>.
 
 %prep
 %setup -q -c -n %{packname}
