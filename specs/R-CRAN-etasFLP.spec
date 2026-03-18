@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  etasFLP
-%global packver   2.2.2
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed FLP and ML Estimation of ETAS Space-Time Point Processes for Earthquake Description
 
@@ -29,7 +29,8 @@ Sequence) model for earthquake description. Non-parametric background
 seismicity can be estimated through FLP (Forward Likelihood Predictive).
 New version 2.0.0: covariates have been introduced to explain the effects
 of external factors on the induced seismicity; the parametrization has
-been changed; Chiodi, Adelfio (2017)<doi:10.18637/jss.v076.i03>.
+been changed; in version 2.3.0 improved update method. Chiodi, Adelfio
+(2017)<doi:10.18637/jss.v076.i03>.
 
 %prep
 %setup -q -c -n %{packname}

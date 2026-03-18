@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmrc
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Tidy HMRC Statistical Data
+Summary:          Download and Tidy 'HMRC' Statistical Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,12 +30,12 @@ Requires:         R-tools
 
 %description
 Provides functions to download, parse, and tidy statistical data published
-by HM Revenue and Customs (HMRC) on GOV.UK. Covers monthly tax receipts
-(41 tax heads from 2016), VAT (from 1973), fuel duties (from 1990),
-tobacco duties (from 1991), annual Corporation Tax receipts, stamp duty,
-research and development tax credit statistics (from 2000), tax gap
+by 'HM Revenue and Customs' ('HMRC') on 'GOV.UK'. Covers monthly tax
+receipts (41 tax heads from 2016), VAT (from 1973), fuel duties (from
+1990), tobacco duties (from 1991), annual Corporation Tax receipts, stamp
+duty, research and development tax credit statistics (from 2000), tax gap
 estimates, Income Tax liabilities by income range, and monthly property
-transaction counts. File URLs are resolved at runtime via the GOV.UK
+transaction counts. File URLs are resolved at runtime via the 'GOV.UK'
 Content API <https://www.gov.uk/api/content>, so data is always current
 without hardcoded URLs. Files are cached locally between sessions.
 

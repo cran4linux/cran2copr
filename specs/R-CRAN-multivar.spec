@@ -1,53 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  survMisc
-%global packver   0.5.6
+%global __requires_exclude ^libmpi
+%global packname  multivar
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Survival Data
+Summary:          Penalized Estimation of Multiple-Subject Vector Autoregressive (Multi-VAR) Models
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-KMsurv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-km.ci 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-survival 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-vars 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-KMsurv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-zoo 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-km.ci 
-Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-vars 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-scales 
 
 %description
-A collection of functions to help in the analysis of right-censored
-survival data. These extend the methods available in package:survival.
+Functions for simulating, estimating and forecasting Vector Autoregressive
+(VAR) models for multiple-subject data using structured penalization.
 
 %prep
 %setup -q -c -n %{packname}

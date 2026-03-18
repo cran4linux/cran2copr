@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  campsismod
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generic Implementation of a PK/PD Model
 
@@ -58,12 +58,12 @@ can be adapted further on the fly in the R environment using an intuitive
 API to add, modify or delete equations, ordinary differential equations
 (ODEs), model parameters or compartment properties (such as infusion
 duration or rate, bioavailability and initial values). The package also
-provides export facilities for use with the simulation packages ‘rxode2’
-and ‘mrgsolve’. The package itself is licensed under the GPL (>= 3); the
+provides export facilities for use with the simulation packages 'rxode2'
+and 'mrgsolve'. The package itself is licensed under the GPL (>= 3); the
 JSON schema file shipped in inst/extdata is licensed separately under the
 Creative Commons Attribution 4.0 International (CC BY 4.0).  This package
-is designed and intended to be used with the package ‘campsis’, a PK/PD
-simulation platform built on top of ‘rxode2’ and ‘mrgsolve’.
+is designed and intended to be used with the package 'campsis', a PK/PD
+simulation platform built on top of 'rxode2' and 'mrgsolve'.
 
 %prep
 %setup -q -c -n %{packname}

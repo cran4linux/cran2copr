@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rquefts
-%global packver   1.2-5
+%global packver   1.2-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Evaluation of the Native Fertility of Tropical Soils
 
@@ -31,7 +31,8 @@ and (2) computes crop yield given that supply, crop parameters, fertilizer
 application, and crop attainable yield. See Janssen et al. (1990)
 <doi:10.1016/0016-7061(90)90021-Z> for the technical details and Sattari
 et al. (2014) <doi:10.1016/j.fcr.2013.12.005> for a recent evaluation and
-improvements.
+improvements. There are also functions to compute optimal fertilizer
+application rates.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inkaR
-%global packver   0.4.4
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Analyze Spatial Development Data from INKAR
+Summary:          Download and Analyze Spatial Development Data from 'INKAR'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,22 +22,26 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-tidyr 
 
 %description
-A lightweight package to download spatial development indicators from the
-BBSR INKAR (Indikatoren und Karten zur Raum- und Stadtentwicklung)
-database. It provides a modern interface using 'httr2', robust caching,
-concurrent API querying for fast spatial dimension lookups, and native
-geospatial mapping integration.
+A professional R interface to download and analyze spatial development
+indicators from the 'BBSR' 'INKAR' (Indikatoren und Karten zur Raum- und
+Stadtentwicklung) database. Features a bilingual interactive wizard, fuzzy
+search, multi-indicator downloads with automatic tidy merging (long/wide),
+robust disk caching, and premium 'ggplot2' themes for regional mapping.
 
 %prep
 %setup -q -c -n %{packname}

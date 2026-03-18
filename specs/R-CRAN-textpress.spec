@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  textpress
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight and Versatile NLP Toolkit
 
@@ -39,14 +39,13 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-lubridate 
 
 %description
-A lightweight toolkit for text retrieval and NLP with a consistent and
-predictable API organized around four actions: fetching, reading,
-processing, and searching. Functions cover the full pipeline from web data
-acquisition to text processing and indexing. Multiple search strategies
-are supported including regex, BM25 keyword ranking, cosine similarity,
-and dictionary matching. Pipe-friendly with no heavy dependencies and all
-outputs are plain data frames. Also useful as a building block for
-retrieval-augmented generation pipelines and autonomous agent workflows.
+A toolkit for web scraping, modular NLP pipelines, and text preparation
+for large language models. Organized around four core actions: fetching,
+reading, processing, and searching. Covers the full pipeline from raw web
+data acquisition to structural text processing and BM25 indexing. Supports
+multiple retrieval strategies including regex, dictionary matching, and
+ranked keyword search. Pipe-friendly with no heavy dependencies; all
+outputs are plain data frames or data.tables.
 
 %prep
 %setup -q -c -n %{packname}

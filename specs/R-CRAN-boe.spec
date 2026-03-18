@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boe
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Bank of England Statistical Database
+Summary:          Download Data from the 'Bank of England' Statistical Database
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,10 +26,10 @@ Requires:         R-tools
 
 %description
 Provides functions to download and tidy statistical data published by the
-Bank of England <https://www.bankofengland.co.uk>. Covers Bank Rate,
-SONIA, gilt yields, exchange rates, mortgage rates, mortgage approvals,
-consumer credit, and money supply. Series are fetched from the Bank of
-England Interactive Statistical Database using its CSV endpoint. Data is
+'Bank of England' <https://www.bankofengland.co.uk>. Covers Bank Rate,
+'SONIA', gilt yields, exchange rates, mortgage rates, mortgage approvals,
+consumer credit, and money supply. Series are fetched from the 'Bank of
+England Interactive Statistical Database' using its CSV endpoint. Data is
 cached locally between sessions.
 
 %prep

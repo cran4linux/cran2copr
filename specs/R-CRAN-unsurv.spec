@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  immundata
-%global packver   0.0.6
+%global packname  unsurv
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified Data Layer for Large-Scale Single-Cell, Spatial and Bulk Immunomics
+Summary:          Unsupervised Clustering of Individualized Survival Curves
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,42 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-duckplyr >= 1.2.1
-BuildRequires:    R-CRAN-dplyr >= 1.2.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-duckplyr >= 1.2.1
-Requires:         R-CRAN-dplyr >= 1.2.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dbplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-Provides a unified data layer for single-cell, spatial and bulk T-cell and
-B-cell immune receptor repertoire data. Think AnnData or SeuratObject, but
-for AIRR data, a.k.a. Adaptive Immune Receptor Repertoire, VDJ-seq,
-RepSeq, or VDJ sequencing data.
+Tools for clustering individualized survival curves using the Partitioning
+Around Medoids (PAM) algorithm, with monotonic enforcement, optional
+smoothing, weighted distances (L1/L2), automatic K selection via
+silhouette width, prediction for new curves, basic stability checks, and
+plotting helpers. The clustering strategy follows Kaufman and Rousseeuw
+(1990, ISBN:0471878766).
 
 %prep
 %setup -q -c -n %{packname}

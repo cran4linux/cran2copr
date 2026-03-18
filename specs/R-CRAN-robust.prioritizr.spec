@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robust.prioritizr
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Systematic Conservation Prioritization
 
@@ -54,10 +54,10 @@ prioritizations that account of uncertainty in the climate change scenario
 projections, species distribution models, ecosystem service models, and
 measurement errors. In particular, prioritizations can be generated to be
 fully robust to uncertainty by minimizing (or maximizing) objectives under
-the worst possible outcome. Since reducing the associated with achieving
-conservation objectives may sacrifice other objectives (e.g., minimizing
-protected area implementation costs), prioritizations can also be
-generated to be partially robust based on a specified confidence level
+the worst possible outcome. Since reducing the uncertainty associated with
+achieving conservation objectives may sacrifice other objectives (e.g.,
+minimizing protected area implementation costs), prioritizations can also
+be generated to be partially robust based on a specified confidence level
 parameter. Partially robust prioritizations can be generated based on the
 chance constrained programming problem (Charnes & Cooper 1959,
 <doi:10.1287/mnsc.6.1.73>) and the conditional value-at-risk problem

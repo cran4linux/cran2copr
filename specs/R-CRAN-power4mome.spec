@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  power4mome
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis for Moderation and Mediation
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lmhelprs >= 0.4.2
-BuildRequires:    R-CRAN-manymome >= 0.2.8
+BuildRequires:    R-CRAN-manymome >= 0.3.1.4
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-pbapply 
@@ -28,8 +28,10 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-mice 
 Requires:         R-CRAN-lmhelprs >= 0.4.2
-Requires:         R-CRAN-manymome >= 0.2.8
+Requires:         R-CRAN-manymome >= 0.3.1.4
 Requires:         R-CRAN-lavaan 
 Requires:         R-stats 
 Requires:         R-CRAN-pbapply 
@@ -39,6 +41,8 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-yaml 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-mice 
 
 %description
 Power analysis and sample size determination for moderation, mediation,

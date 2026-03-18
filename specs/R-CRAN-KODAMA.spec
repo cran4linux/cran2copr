@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rFAMS
-%global packver   0.0.3
+%global packname  KODAMA
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fisheries Analysis and Modeling Simulator
+Summary:          Knowledge Discovery by Accuracy Maximization
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-FSA 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-umap 
+BuildRequires:    R-CRAN-Rnanoflann 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.4
 Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-FSA 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-umap 
+Requires:         R-CRAN-Rnanoflann 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
-Simulates the dynamics of exploited fish populations using the Jones
-modification of the Beverton-Holt equilibrium yield equation to compute
-yield-per-recruit and dynamic pool models (Ricker 1975)
-<https://publications.gc.ca/site/eng/480738/publication.html>. Allows
-users to evaluate minimum, slot, and inverted length limits on exploited
-fisheries using specified life history parameters. Users can simulate
-population under a variety of conditional fishing mortality and
-conditional natural mortality. Calculated quantities include number of
-fish harvested and dying naturally, mean weight and length of fish
-harvested, number of fish that reach specified lengths of interest, total
-number of fish and biomass in the population, and stock density indices.
+A self-guided, weakly supervised learning algorithm for feature extraction
+from noisy and high-dimensional data. It facilitates the identification of
+patterns that reflect underlying group structures across all samples in a
+dataset. The method incorporates a novel strategy to integrate spatial
+information, improving the clarity of results in spatially resolved data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  updog
-%global packver   2.1.6
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Genotyping for Polyploids
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-doFuture
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-parallelly 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-assertthat 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-doFuture
 Requires:         R-CRAN-doRNG 
 Requires:         R-methods 
 Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-parallelly 
 
 %description
 Implements empirical Bayes approaches to genotype polyploids from next

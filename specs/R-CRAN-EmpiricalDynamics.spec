@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EmpiricalDynamics
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Discovery of Differential Equations from Time Series Data
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-CVXR >= 1.8
 BuildRequires:    R-CRAN-minpack.lm >= 1.2
-BuildRequires:    R-CRAN-CVXR >= 1.0
 BuildRequires:    R-CRAN-lmtest >= 0.9
 BuildRequires:    R-CRAN-signal >= 0.7
 BuildRequires:    R-CRAN-JuliaCall >= 0.17
@@ -32,8 +32,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-CVXR >= 1.8
 Requires:         R-CRAN-minpack.lm >= 1.2
-Requires:         R-CRAN-CVXR >= 1.0
 Requires:         R-CRAN-lmtest >= 0.9
 Requires:         R-CRAN-signal >= 0.7
 Requires:         R-CRAN-JuliaCall >= 0.17

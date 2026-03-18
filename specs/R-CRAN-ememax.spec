@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rFAMS
-%global packver   0.0.3
+%global packname  ememax
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fisheries Analysis and Modeling Simulator
+Summary:          Estimation for Binary Emax Models with Missing Responses and Bias Reduction
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-clinDR >= 2.5.2
+BuildRequires:    R-CRAN-BB 
+BuildRequires:    R-CRAN-brglm 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-FSA 
+Requires:         R-CRAN-clinDR >= 2.5.2
+Requires:         R-CRAN-BB 
+Requires:         R-CRAN-brglm 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-FSA 
 
 %description
-Simulates the dynamics of exploited fish populations using the Jones
-modification of the Beverton-Holt equilibrium yield equation to compute
-yield-per-recruit and dynamic pool models (Ricker 1975)
-<https://publications.gc.ca/site/eng/480738/publication.html>. Allows
-users to evaluate minimum, slot, and inverted length limits on exploited
-fisheries using specified life history parameters. Users can simulate
-population under a variety of conditional fishing mortality and
-conditional natural mortality. Calculated quantities include number of
-fish harvested and dying naturally, mean weight and length of fish
-harvested, number of fish that reach specified lengths of interest, total
-number of fish and biomass in the population, and stock density indices.
+Provides estimation utilities for binary Emax dose-response models.
+Includes Expectation-Maximization based maximum likelihood estimation when
+the binary response is missing, as well as bias-reduced estimators
+including Jeffreys-penalized likelihood, Firth-score, and Cox-Snell
+corrections.The methodology is described in Zhang, Pradhan, and Zhao
+(2025) <doi:10.1177/09622802251403356> and Zhang, Pradhan, and Zhao (2026)
+<doi:10.1080/10543406.2026.2627387>.
 
 %prep
 %setup -q -c -n %{packname}

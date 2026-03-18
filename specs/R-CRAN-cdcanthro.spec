@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rFAMS
-%global packver   0.0.3
+%global packname  cdcanthro
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fisheries Analysis and Modeling Simulator
+Summary:          Sex- and Age-Standardized Metrics from the Centers for Disease and Control (CDC) Growth Charts
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-FSA 
+Requires:         R-CRAN-data.table 
 Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-FSA 
 
 %description
-Simulates the dynamics of exploited fish populations using the Jones
-modification of the Beverton-Holt equilibrium yield equation to compute
-yield-per-recruit and dynamic pool models (Ricker 1975)
-<https://publications.gc.ca/site/eng/480738/publication.html>. Allows
-users to evaluate minimum, slot, and inverted length limits on exploited
-fisheries using specified life history parameters. Users can simulate
-population under a variety of conditional fishing mortality and
-conditional natural mortality. Calculated quantities include number of
-fish harvested and dying naturally, mean weight and length of fish
-harvested, number of fish that reach specified lengths of interest, total
-number of fish and biomass in the population, and stock density indices.
+Calculation of sex- and age-standardized growth metrics based on the 2000
+CDC growth charts. Provides functions to generate z-scores and percentiles
+for weight, height, and BMI using the LMS method (lambda-mu-sigma).
+Includes extended BMI-z scores for values above the 95th percentile to
+more accurately characterize the sex- and age-standardized BMI of children
+with very high BMIs.
 
 %prep
 %setup -q -c -n %{packname}

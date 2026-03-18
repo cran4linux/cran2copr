@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clptheory
-%global packver   1.0.0
+%global packname  AMDconfigurations
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Price of Production and Labor Values
+Summary:          Geometric Analysis of Configurations in High-Dimensional Spaces
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-popdemo 
+BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-popdemo 
+Requires:         R-CRAN-e1071 
 Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
 
 %description
-Computes the uniform rate of profit, the vector of price of production and
-the vector of direct prices; and also compute measures of deviation
-between market prices, direct prices and prices of production.
-<doi:10.1016/j.strueco.2026.03.009>. You provide the input-output data and
-'clptheory' does the calculations for you.
+Tools for analysing the geometry of configurations in high-dimensional
+spaces using the Average Membership Degree (AMD) framework and synthetic
+configuration generation. The package supports a domain-agnostic approach
+to studying the shape, dispersion, and internal structure of point clouds,
+with applications across biological and ecological datasets, including
+those derived from deep-time records. The AMD framework builds on the idea
+that strongly coupled systems may occupy a limited set of recurrent
+regimes in state space, producing high-occupancy regions separated by
+sparsely populated transitional configurations. The package focuses on
+detecting these concentration patterns and quantifying their geometric
+definition without assuming any underlying dynamical model. It provides
+AMD curve computation, cluster assignment, and sigma-equivalent
+estimation, together with S3 methods for plotting, printing, and
+summarising AMD and sigma-equivalent objects. Mendoza (2025)
+<https://mmendoza1967.github.io/AMDconfigurations/>.
 
 %prep
 %setup -q -c -n %{packname}

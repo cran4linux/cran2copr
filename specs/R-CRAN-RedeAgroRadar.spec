@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  groupedHyperframe.random
-%global packver   0.2.3
+%global packname  RedeAgroRadar
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulated Grouped Hyper Data Frame
+Summary:          Weather Radar Monitoring and 'Telegram' Alerts for Agriculture Research
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-groupedHyperframe >= 0.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-groupedHyperframe >= 0.3.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-bslib 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-bslib 
 
 %description
-An intuitive interface to simulate (1) superimposed (marked) point
-patterns with vectorized parameterization of random point pattern and
-distribution of marks; and (2) grouped hyper data frame based on
-population parameters and subject-specific random effects.
+Provides tools to download, process, and analyze real-time meteorological
+radar images from Simepar (Paraná, Brazil)
+<https://www.simepar.br/simepar/radar_msc>. Designed to support the 'Rede
+Agropesquisa' hydrological monitoring, it includes functions to detect
+rainfall intensity based on Red, Green, and Blue (RGB) color values within
+predefined circular study areas. Features automated integration with the
+'Telegram Bot API' <https://core.telegram.org/bots/api> to send
+spatialized image alerts and an interactive 'shiny' dashboard for easy
+configuration and continuous weather tracking.
 
 %prep
 %setup -q -c -n %{packname}

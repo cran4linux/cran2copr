@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MazamaRollUtils
-%global packver   0.1.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Rolling Functions
 
@@ -20,9 +20,8 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-Rcpp >= 1.0.10
 
 %description
-A suite of compiled functions calculating rolling mins, means, maxes and
-other statistics. This package is designed to meet the needs of data
-processing systems for environmental time series.
+Fast rolling-window functions for numeric vectors. Designed for efficient
+processing of environmental time-series data.
 
 %prep
 %setup -q -c -n %{packname}

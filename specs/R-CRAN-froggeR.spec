@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  froggeR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Structured Project Standards for R and 'Quarto'
+Summary:          Project Scaffolding for R and 'Quarto'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,13 +33,12 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rstudioapi 
 
 %description
-Provides an opinionated project scaffold for R and 'Quarto' analysis work,
-enforcing a consistent directory layout with scripts in R/, .qmd files in
-pages/, and assets in www/. The primary entry point, init(), downloads the
-latest template from a companion GitHub repository so that project
-structure evolves independently of package releases. Supports persistent
-author metadata and 'Quarto' brand configuration that carry across
-projects automatically.
+Creates structured R and 'Quarto' projects with a consistent directory
+layout: scripts in R/, analysis documents in analysis/, and web assets in
+www/. The primary entry point, init(), downloads the latest template from
+a companion 'GitHub' repository so that project structure evolves
+independently of package releases. Supports persistent author metadata and
+'Quarto' brand configuration that carry across projects automatically.
 
 %prep
 %setup -q -c -n %{packname}

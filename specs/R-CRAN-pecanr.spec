@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  maxEff
-%global packver   0.2.3
+%global packname  pecanr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Additional Predictor with Maximum Effect Size
+Summary:          Partial Eta-Squared for Crossed and Nested Linear Mixed Models
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-groupedHyperframe >= 0.3.0
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-groupedHyperframe >= 0.3.0
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-CRAN-lme4 
 
 %description
-Methods of selecting one from many numeric predictors for a regression
-model, to ensure that the additional predictor has the maximum effect
-size.
+Computes partial eta-squared effect sizes for fixed effects in linear
+mixed models fitted with the 'lme4' package. Supports crossed and nested
+random effects structures with any number of grouping factors. Random
+slope variances are translated to the outcome scale using a variance
+decomposition approach, correctly accounting for predictor scaling and
+interaction terms. Both general and operative effect sizes are provided.
+Methods are based on Correll, Mellinger, McClelland, and Judd (2020)
+<doi:10.1016/j.tics.2019.12.009>, Correll, Mellinger, and Pedersen (2022)
+<doi:10.3758/s13428-021-01687-2>, and Rights and Sterba (2019)
+<doi:10.1037/met0000184>.
 
 %prep
 %setup -q -c -n %{packname}

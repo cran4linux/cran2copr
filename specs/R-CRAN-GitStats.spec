@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GitStats
-%global packver   2.3.9
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.9
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standardized Git Repository Data
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-lubridate >= 1.8.0
@@ -34,7 +33,6 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-stringr 
 

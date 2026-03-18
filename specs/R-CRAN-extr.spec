@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extinction Risk Estimation
 
@@ -20,7 +20,8 @@ BuildArch:        noarch
 
 %description
 Estimates extinction risk from population time series under a drifted
-Wiener process using the w-z method for accurate confidence intervals.
+Wiener process using MLE and observation-error-and-autocovariance-robust
+estimators, with confidence intervals based on the w-z method.
 
 %prep
 %setup -q -c -n %{packname}

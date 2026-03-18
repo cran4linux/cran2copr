@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nnmf
-%global packver   1.1
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonnegative Matrix Factorization
 
@@ -16,8 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ClusterR 
+BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-parallel 
@@ -27,7 +29,11 @@ BuildRequires:    R-CRAN-Rfast2
 BuildRequires:    R-CRAN-Rglpk 
 BuildRequires:    R-CRAN-sparcl 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ClusterR 
+Requires:         R-CRAN-Compositional 
+Requires:         R-graphics 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-osqp 
 Requires:         R-parallel 
@@ -45,11 +51,11 @@ Covariates are also allowed. Parallel computing is an option to enhance
 the speed and high-dimensional and large scale (and/or sparse) data are
 allowed. Relevant papers include: Wang Y. X. and Zhang Y. J. (2012).
 Nonnegative matrix factorization: A comprehensive review. IEEE
-Transactions on Knowledge and Data Engineering, 25(6), 1336-1353
+Transactions on Knowledge and Data Engineering, 25(6): 1336-1353
 <doi:10.1109/TKDE.2012.51> and Kim H. and Park H. (2008). Nonnegative
 matrix factorization based on alternating nonnegativity constrained least
 squares and active set method. SIAM Journal on Matrix Analysis and
-Applications, 30(2), 713-730 <doi:10.1137/07069239X>.
+Applications, 30(2): 713-730 <doi:10.1137/07069239X>.
 
 %prep
 %setup -q -c -n %{packname}

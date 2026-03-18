@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rFAMS
-%global packver   0.0.3
+%global packname  cts
+%global packver   1.0-24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.24
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fisheries Analysis and Modeling Simulator
+Summary:          Continuous Time Autoregressive Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-FSA 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-FSA 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Simulates the dynamics of exploited fish populations using the Jones
-modification of the Beverton-Holt equilibrium yield equation to compute
-yield-per-recruit and dynamic pool models (Ricker 1975)
-<https://publications.gc.ca/site/eng/480738/publication.html>. Allows
-users to evaluate minimum, slot, and inverted length limits on exploited
-fisheries using specified life history parameters. Users can simulate
-population under a variety of conditional fishing mortality and
-conditional natural mortality. Calculated quantities include number of
-fish harvested and dying naturally, mean weight and length of fish
-harvested, number of fish that reach specified lengths of interest, total
-number of fish and biomass in the population, and stock density indices.
+Provides tools for fitting continuous-time autoregressive (CAR) and
+complex CAR (CZAR) models for irregularly sampled time series using an
+exact Gaussian state-space formulation and Kalman filtering/smoothing.
+Implements maximum-likelihood estimation with stable parameterizations of
+characteristic roots, model selection via AIC, residual and spectral
+diagnostics, forecasting and simulation, and extraction of fitted state
+estimates. Methods are described in Wang (2013)
+<doi:10.18637/jss.v053.i05>.
 
 %prep
 %setup -q -c -n %{packname}

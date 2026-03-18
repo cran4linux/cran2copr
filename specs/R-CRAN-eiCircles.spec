@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eiCircles
-%global packver   0.0.1-12
+%global packver   0.0.1-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.12
+Version:          0.0.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference of RxC Tables by Overdispersed-Multinomial Models
 
@@ -32,7 +32,15 @@ Journal of the American Statistical Association, 81, 453–460.
 <DOI:10.1080/01621459.1986.10478290>. Forcina, A., Gnaldi, M. and
 Bracalente, B. (2012). ''A revised Brown and Payne model of voting
 behaviour applied to the 2009 elections in Italy''. Statistical Methods &
-Applications, 21, 109–119. <DOI:10.1007/s10260-011-0184-x>.
+Applications, 21, 109–119. <DOI:10.1007/s10260-011-0184-x>. Pavia, J.M,
+and Forcina, A. (2026). ''Simulating electoral behavior''. Modeling
+Decisions for Artificial Intelligence, MDAI 2025. Lecture Notes in
+Computer Science, vol 15957, Torra, V., Narukawa, Y., Domingo-Ferrer, J.
+(eds), Springer, Cham, pp. 54-65. <DOI:10.1007/978-3-032-00891-6_5>.
+Acknowledgements: The authors wish to thank Consellería de Educación,
+Cultura, Universidades y Empleo, Generalitat Valenciana (grant
+CIAICO/2023/031) and MICIU/AEI/10.13039/501100011033/FEDER, EU (grant
+PID2021-128228NB-I00) for supporting this research.
 
 %prep
 %setup -q -c -n %{packname}

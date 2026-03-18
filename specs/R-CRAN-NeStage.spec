@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hyper.gam
-%global packver   0.2.3
+%global packname  NeStage
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Additive Models with Hyper Column
+Summary:          Effective Population Size from Stage-Structured Populations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-groupedHyperframe >= 0.3.0
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-groupedHyperframe >= 0.3.0
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nlme 
-Requires:         R-parallel 
-Requires:         R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Generalized additive models with a numeric hyper column. Sign-adjustment
-based on the correlation of model prediction and a selected slice of the
-hyper column. Visualization of the integrand surface over the hyper
-column.
+Computes effective population size (Ne) and the Ne/N ratio for
+stage-structured populations using the matrix population model framework
+of Yonezawa (2000) <doi:10.1111/j.0014-3820.2000.tb01244.x>. Functions are
+provided for sexually reproducing, clonally reproducing, and mixed (sexual
++ clonal) populations. Includes sensitivity and elasticity analyses for
+Ne/N with respect to vital rates.
 
 %prep
 %setup -q -c -n %{packname}

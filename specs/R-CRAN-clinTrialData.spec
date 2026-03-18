@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  immundata
-%global packver   0.0.6
+%global packname  clinTrialData
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified Data Layer for Large-Scale Single-Cell, Spatial and Bulk Immunomics
+Summary:          Clinical Trial Example Datasets
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,42 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-duckplyr >= 1.2.1
-BuildRequires:    R-CRAN-dplyr >= 1.2.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-connector 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-piggyback 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-duckplyr >= 1.2.1
-Requires:         R-CRAN-dplyr >= 1.2.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-connector 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-piggyback 
 Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-Provides a unified data layer for single-cell, spatial and bulk T-cell and
-B-cell immune receptor repertoire data. Think AnnData or SeuratObject, but
-for AIRR data, a.k.a. Adaptive Immune Receptor Repertoire, VDJ-seq,
-RepSeq, or VDJ sequencing data.
+A collection of clinical trial example datasets from multiple sources
+including the CDISC Pilot 01 study (CDISC <https://www.cdisc.org/>). All
+datasets are provided in Parquet format for efficient storage and can be
+accessed using the 'connector' package. Designed for training, testing,
+prototyping, and demonstrating clinical data analysis workflows.
 
 %prep
 %setup -q -c -n %{packname}

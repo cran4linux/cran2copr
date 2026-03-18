@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tf
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          S3 Classes and Methods for Tidy Functional Data
 
@@ -17,36 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.2.4
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.2.4
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-zoo 
 
 %description
-Defines S3 vector data types for vectors of functional data (grid-based,
-spline-based or functional principal components-based) with all arithmetic
-and summary methods, derivation, integration and smoothing, plotting, data
-import and export, and data wrangling, such as re-evaluating, subsetting,
-sub-assigning, zooming into sub-domains, or extracting functional features
-like minima/maxima and their locations. The implementation allows
-including such vectors in data frames for joint analysis of functional and
-scalar variables.
+Provides S3 vector types for functional data represented on grids, in
+spline bases, or via functional principal components. Supports arithmetic
+and summary methods, plotting, derivation, integration, smoothing,
+registration, and data import/export for these functional vectors.
+Includes data-wrangling tools for re-evaluation, subsetting,
+sub-assignment, zooming into sub-domains, and extracting functional
+features such as minima, maxima, and their locations. Enables joint
+analysis of functional and scalar variables by integrating functional
+vectors into standard data frames.
 
 %prep
 %setup -q -c -n %{packname}
