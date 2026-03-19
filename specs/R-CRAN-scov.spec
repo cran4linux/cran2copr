@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scov
-%global packver   0.1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structured Covariances Estimators for Pairwise and Spatial Covariates
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-missMDA 
 Requires:         R-CRAN-mvtnorm 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 
 %description
 Implements estimators for structured covariance matrices in the presence

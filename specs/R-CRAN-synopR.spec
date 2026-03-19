@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bibs
-%global packver   1.1.1
+%global __requires_exclude ^libmpi
+%global packname  synopR
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Inference for the Birnbaum-Saunders Distribution
+Summary:          Tidy Decoding of SYNOP (Surface Synoptic Observations) Meteorological Messages
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GIGrvg 
-Requires:         R-CRAN-GIGrvg 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
 
 %description
-Developed for the following tasks. 1- Simulating and computing the maximum
-likelihood estimator for the Birnbaum-Saunders (BS) distribution, 2-
-Computing the Bayesian estimator for the parameters of the BS distribution
-based on reference prior proposed by Xu and Tang (2010)
-<doi:10.1016/j.csda.2009.08.004> and conjugate prior. 3- Computing the
-Bayesian estimator for the BS distribution based on conjugate prior. 4-
-Computing the Bayesian estimator for the BS distribution based on Jeffrey
-prior given by Achcar (1993) <doi:10.1016/0167-9473(93)90170-X> 5-
-Computing the Bayesian estimator for the BS distribution under progressive
-type-II censoring scheme.
+Decode raw SYNOP (surface synoptic observations) messages into tidy data
+frames. Supports batch processing of messages from the same station,
+extracting data from Sections 0, 1, and 3, including temperature, dew
+point, pressure, wind, clouds, and precipitation. The decoding logic
+follows the specifications defined in the World Meteorological
+Organization (2019) "Manual on Codes, Volume I.1 (WMO-No. 306)"
+<https://library.wmo.int/idurl/4/35713>.
 
 %prep
 %setup -q -c -n %{packname}

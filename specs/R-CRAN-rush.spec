@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rush
-%global packver   0.4.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rapid Asynchronous and Distributed Computing
 
@@ -19,24 +19,22 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mirai >= 2.5.0
 BuildRequires:    R-CRAN-lgr >= 0.5.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.20.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ids 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-mlr3misc 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-redux 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-mirai >= 2.5.0
 Requires:         R-CRAN-lgr >= 0.5.0
+Requires:         R-CRAN-mlr3misc >= 0.20.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ids 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-mlr3misc 
-Requires:         R-parallel 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-redux 

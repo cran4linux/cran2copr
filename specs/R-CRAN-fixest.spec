@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fixest
-%global packver   0.13.2
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.2
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fixed-Effects Estimations
 
@@ -43,14 +43,14 @@ Requires:         R-CRAN-sandwich
 
 %description
 Fast and user-friendly estimation of econometric models with multiple
-fixed-effects. Includes ordinary least squares (OLS), generalized linear
-models (GLM) and the negative binomial. The core of the package is based
-on optimized parallel C++ code, scaling especially well for large data
-sets. The method to obtain the fixed-effects coefficients is based on
-Berge (2018)
-<https://github.com/lrberge/fixest/blob/master/_DOCS/FENmlm_paper.pdf>.
-Further provides tools to export and view the results of several
-estimations with intuitive design to cluster the standard-errors.
+fixed-effects. Includes ordinary least squares (OLS), instrumental
+variables (IV), generalized linear models (GLM), maximum likelihood
+estimation (ML), and the negative binomial. The core of the package is
+based on optimized parallel C++ code, scaling especially well for large
+data sets. The method to obtain the fixed-effects coefficients is based on
+Bergé, Butts, McDermott (2026) <doi:10.48550/arXiv.2601.21749>. Further
+provides tools to export and view the results of several estimations with
+intuitive design to change the standard-errors.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  futurize
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallelize Common Functions via One Magic Function
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future > 1.58.0
-Requires:         R-CRAN-future > 1.58.0
+BuildRequires:    R-CRAN-future >= 1.69.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-future >= 1.69.0
+Requires:         R-utils 
 
 %description
 The futurize() function transpiles calls to sequential map-reduce
@@ -26,13 +28,18 @@ functions such as base::lapply(), purrr::map(), 'foreach::foreach() %%do%% {
 ... }' into concurrent alternatives, providing you with a simple,
 straightforward path to scalable parallel computing via the 'future'
 ecosystem <doi:10.32614/RJ-2021-048>. By combining this function with R's
-native pipe operator, you have an convenient way for speeding up iterative
+native pipe operator, you have a convenient way for speeding up iterative
 computations with minimal refactoring, e.g. 'lapply(xs, fcn) |>
 futurize()', 'purrr::map(xs, fcn) |> futurize()', and 'foreach::foreach(x
-= xs) %%do%% { fcn(x) } |> futurize()'. Other map-reduce packages that be
-"futurized" are 'BiocParallel', 'plyr', 'crossmap' packages. There is also
-support for growing set of domain-specific packages, including 'boot',
-'glmnet', 'mgcv', 'lme4', and 'tm'.
+= xs) %%do%% { fcn(x) } |> futurize()'. Other map-reduce packages that can
+be "futurized" are 'BiocParallel', 'plyr', 'crossmap', 'pbapply' packages.
+There is also support for a growing set of domain-specific packages (e.g.
+CRAN package 'boot', 'caret', 'fgsea', 'fwb', 'gamlss', 'glmmTMB',
+'glmnet', 'kernelshap', 'lme4', 'metafor', 'mgcv', 'partykit',
+'riskRegression', 'seriation', 'shapr', 'SimDesign', 'strucchange', 'tm',
+'TSP', and 'vegan') and Bioconductor packages (e.g. 'DESeq2',
+'GenomicAlignments', 'GSVA', 'Rsamtools', 'scater', 'scuttle',
+'SingleCellExperiment', and 'sva').
 
 %prep
 %setup -q -c -n %{packname}

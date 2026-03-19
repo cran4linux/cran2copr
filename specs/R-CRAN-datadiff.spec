@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  plotBart
-%global packver   0.1.7
+%global __requires_exclude ^libmpi
+%global packname  datadiff
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic and Plotting Functions to Supplement 'bartCause'
+Summary:          Data Validation Based on YAML Rules
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rpart >= 4.1.15
-BuildRequires:    R-stats >= 3.6.2
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-tidyr >= 1.1.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.5
-BuildRequires:    R-CRAN-bartCause >= 1.0.4
-BuildRequires:    R-CRAN-ggdendro >= 0.1.22
-Requires:         R-CRAN-rpart >= 4.1.15
-Requires:         R-stats >= 3.6.2
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-tidyr >= 1.1.3
-Requires:         R-CRAN-dplyr >= 1.0.5
-Requires:         R-CRAN-bartCause >= 1.0.4
-Requires:         R-CRAN-ggdendro >= 0.1.22
+BuildRequires:    R-CRAN-yaml >= 2.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-pointblank >= 0.12.3
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-yaml >= 2.2.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-pointblank >= 0.12.3
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Functions to assist in diagnostics and plotting during the causal
-inference modeling process. Supplements the 'bartCause' package.
+A comprehensive data validation package that allows comparing datasets
+using configurable validation rules defined in 'YAML' files. Built on top
+of the 'pointblank' package for robust data validation, it supports exact
+matching, tolerance-based numeric comparisons, text normalization, and row
+count validation.
 
 %prep
 %setup -q -c -n %{packname}

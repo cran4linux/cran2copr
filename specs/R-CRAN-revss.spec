@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  revss
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Estimation in Very Small Samples
 
@@ -16,14 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
 
 %description
-Implements the estimation techniques described in Rousseeuw & Verboven
-(2002) <doi:10.1016/S0167-9473(02)00078-6> for the location and scale of
-very small samples.
+Implements and enhances the estimation techniques described in Rousseeuw &
+Verboven (2002) <doi:10.1016/S0167-9473(02)00078-6> for the location and
+scale of very small samples.
 
 %prep
 %setup -q -c -n %{packname}

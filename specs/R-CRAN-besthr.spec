@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  besthr
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Bootstrap Estimation Distributions of HR Data
 
@@ -20,24 +20,29 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Creates plots showing scored HR experiments and plots of distribution of
-means of ranks of HR score from bootstrapping. Authors (2019)
-<doi:10.5281/zenodo.3374507>.
+means of ranks of HR score from bootstrapping.
 
 %prep
 %setup -q -c -n %{packname}

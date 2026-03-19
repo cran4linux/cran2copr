@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ibawds
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Datasets for the Data Science Course at IBAW
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-scales 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-deldir 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-scales 

@@ -1,41 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  halk
-%global packver   0.0.5
+%global packname  bdlnm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods to Create Hierarchical Age Length Keys for Age Assignment
+Summary:          Bayesian Distributed Lag Non-Linear Models (B-DLNM)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.7
-BuildRequires:    R-CRAN-tidyr >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.9
-BuildRequires:    R-CRAN-rlang >= 1.0.4
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-tibble >= 3.1.7
-Requires:         R-CRAN-tidyr >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.0.9
-Requires:         R-CRAN-rlang >= 1.0.4
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dlnm 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tsModel 
+BuildRequires:    R-CRAN-crs 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dlnm 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tsModel 
+Requires:         R-CRAN-crs 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides methods for implementing hierarchical age length keys to estimate
-fish ages from lengths using data borrowing. Users can create hierarchical
-age length keys and use them to assign ages given length.
+A Bayesian framework for estimating distributed lag linear and non-linear
+models. Model fitting is implemented using Integrated Nested Laplace
+Approximation (R package 'INLA'), together with prediction and
+visualization of exposure-lag-response associations. Additional functions
+allow estimation of optimal exposure values (e.g., minimum mortality
+temperature) and computation of attributable fractions and numbers. Models
+with 'crossbasis' or 'onebasis' terms are supported (R package 'dlnm').
 
 %prep
 %setup -q -c -n %{packname}

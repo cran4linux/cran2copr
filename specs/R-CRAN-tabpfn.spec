@@ -1,43 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rprev
-%global packver   1.0.6
+%global packname  tabpfn
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Disease Prevalence from Registry Data
+Summary:          Prior-Data Fitted Network Foundational Model for Tabular Data
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-reticulate >= 1.41.0.1
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-reticulate >= 1.41.0.1
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
-Estimates disease prevalence for a given index date using existing
-registry data extended with Monte Carlo simulations following the method
-of Crouch et al (2014) <doi: 10.1016/j.canep.2014.02.005>.
+Provides a consistent API for classification and regression models based
+on the 'TabPFN' model of Hollmann et al. (2025), "Accurate predictions on
+small data with a tabular foundation model," Nature, 637(8045)
+<doi:10.1038/s41586-024-08328-6>. The calculations are served via 'Python'
+to train and predict the model.
 
 %prep
 %setup -q -c -n %{packname}

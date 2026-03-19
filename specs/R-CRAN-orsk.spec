@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  orsk
-%global packver   1.0-8
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Converting Odds Ratio to Relative Risk in Cohort Studies with Partial Data Information
 
@@ -17,13 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-BHH2 
 Requires:         R-CRAN-BB 
-Requires:         R-CRAN-BHH2 
 
 %description
-Convert odds ratio to relative risk in cohort studies with partial data
-information (Wang (2013) <doi:10.18637/jss.v055.i05>).
+Reconstructs plausible 2 by 2 contingency tables from published
+cohort-study summaries when the original cell counts are unavailable.
+Given group sample sizes and an odds ratio with partial confidence
+interval information, the package searches for compatible event counts,
+then derives corresponding relative risks and confidence intervals. It
+implements the methods described in Wang (2013)
+<doi:10.18637/jss.v055.i05> and includes summary and plotting methods for
+reviewing admissible scenarios.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tirt
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testlet Item Response Theory
 
@@ -33,22 +33,23 @@ Requires:         R-utils
 %description
 Implementation of Testlet and Item Response Theory. A light-version yet
 comprehensive and streamlined framework for psychometric analysis using
-unidimensional Item Response Theory (IRT; Baker & Kim (2004)
-<doi:10.1201/9781482276725>) and Testlet Response Theory (TRT; Wainer et
-al., (2007) <doi:10.1017/CBO9780511618765>). Designed for researchers,
-this package supports the estimation of item and person parameters for a
-wide variety of models, including binary (i.e., Rasch, 2-Parameter
-Logistic, 3-Parameter Logistic) and polytomous (Partial Credit Model,
-Generalized Partial Credit Model, Graded Response Model) formats. It also
-supports the estimation of Testlet models (Rasch Testlet, 2-Parameter
-Logistic Testlet, 3-Parameter Logistic Testlet, Bifactor, Partial Credit
-Model Testlet, Graded Response), allowing users to account for local item
-dependence in bundled items. A key feature is the specialized support for
-combination use and joint estimation of item response model and testlet
-response model in one calibration. Beyond standard estimation via Marginal
-Maximum Likelihood with Expectation-Maximization (EM) or Joint Maximum
-Likelihood, the package also offers Bayesian estimation using priors with
-maximum a posteriori (MAP) method for item response theory models. It also
+unidimensional and multidimensional Item Response Theory (IRT; Baker & Kim
+(2004) <doi:10.1201/9781482276725>) and Testlet Response Theory (TRT;
+Wainer et al., (2007) <doi:10.1017/CBO9780511618765>). Designed for
+researchers, this package supports the estimation of item and person
+parameters for a wide variety of models, including binary (i.e., Rasch,
+2-Parameter Logistic, 3-Parameter Logistic) and polytomous (Partial Credit
+Model, Generalized Partial Credit Model, Graded Response Model) formats.
+It also supports the estimation of Testlet models (Rasch Testlet,
+2-Parameter Logistic Testlet, 3-Parameter Logistic Testlet, Bifactor,
+Partial Credit Model Testlet, Graded Response), allowing users to account
+for local item dependence in bundled items. A key feature is the
+specialized support for combination use and joint estimation of item
+response model and testlet response model in one calibration. Beyond
+standard estimation via Marginal Maximum Likelihood with
+Expectation-Maximization (EM) or Joint Maximum Likelihood, the package
+also offers Bayesian estimation using priors with maximum a posteriori
+(MAP) method for unidimensional item response theory models. It also
 provides functions for scale linking and equating (Mean-Mean, Mean-Sigma,
 Stocking-Lord) to ensure comparability across mixed-format test forms. It
 also facilitates fixed-parameter calibration, enabling users to estimate

@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PowerUpR
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  SCIproj
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis Tools for Multilevel Randomized Experiments
+Summary:          Creates a Scientific Project Skeleton as an R Package
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-usethis >= 2.0.0
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-usethis >= 2.0.0
+Requires:         R-CRAN-rstudioapi 
 
 %description
-Includes tools to calculate statistical power, minimum detectable effect
-size (MDES), MDES difference (MDESD), and minimum required sample size for
-various multilevel randomized experiments (MRE) with continuous outcomes.
-Accomodates 14 types of MRE designs to detect main treatment effect, seven
-types of MRE designs to detect moderated treatment effect (2-1-1, 2-1-2,
-2-2-1, 2-2-2, 3-3-1, 3-3-2, and 3-3-3 designs; <total.lev> - <trt.lev> -
-<mod.lev>), five types of MRE designs to detect mediated treatment effects
-(2-1-1, 2-2-1, 3-1-1, 3-2-1, and 3-3-1 designs; <trt.lev> - <med.lev> -
-<out.lev>), four types of partially nested (PN) design to detect main
-treatment effect, and three types of PN designs to detect mediated
-treatment effects (2/1, 3/1, 3/2; <trt.arm.lev> / <ctrl.arm.lev>). See
-'PowerUp!' Excel series at <https://www.causalevaluation.org/>.
+Provides a template for new research projects structured as an R
+package-based research compendium. Everything - data, R scripts, custom
+functions and manuscript or reports - is contained within the same package
+to facilitate collaboration and promote reproducible research, following
+the FAIR principles.
 
 %prep
 %setup -q -c -n %{packname}

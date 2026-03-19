@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ons
-%global packver   0.1.0
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Office for National Statistics
+Summary:          Download Data from the 'Office for National Statistics'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,11 +26,11 @@ Requires:         R-tools
 
 %description
 Provides functions to download and tidy statistical data published by the
-Office for National Statistics <https://www.ons.gov.uk>. Covers GDP,
+'Office for National Statistics' <https://www.ons.gov.uk>. Covers GDP,
 inflation (CPI, CPIH, RPI), unemployment, employment, wages, trade, retail
 sales, house prices, productivity, population, and public sector finances.
-Most series are fetched from the ONS website using its CSV time series
-endpoint. House price data is sourced from HM Land Registry
+Most series are fetched from the 'ONS' website using its CSV time series
+endpoint. House price data is sourced from 'HM Land Registry'
 <https://www.gov.uk/government/organisations/land-registry>. Data is
 cached locally between sessions.
 

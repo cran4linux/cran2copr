@@ -1,36 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcmdrPlugin.MA
-%global packver   0.0-2
+%global packname  mnpPlasmonR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical User Interface for Conducting Meta-Analyses in R
+Summary:          Optical Response of Metallic Nanoparticles (Drude + Rayleigh)
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcmdr 
-BuildRequires:    R-CRAN-MAd 
-BuildRequires:    R-CRAN-metafor 
-Requires:         R-CRAN-Rcmdr 
-Requires:         R-CRAN-MAd 
-Requires:         R-CRAN-metafor 
 
 %description
-Easy to use interface for conducting meta-analysis in R. This package is
-an Rcmdr-plugin, which allows the user to conduct analyses in a
-menu-driven, graphical user interface environment (e.g., CMA, SPSS). It
-uses recommended procedures as described in The Handbook of Research
-Synthesis and Meta-Analysis (Cooper, Hedges, & Valentine, 2009).
+Computes dielectric response and optical cross-sections of metallic
+nanoparticles using Drude dielectric model and Rayleigh approximation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +40,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readoecd
-%global packver   0.3.0
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Tidy Data from the OECD
+Summary:          Download and Tidy Data from the 'OECD'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,11 +24,11 @@ Requires:         R-CRAN-cli
 
 %description
 Provides clean, tidy access to key economic indicators published by the
-Organisation for Economic Co-operation and Development (OECD), covering
-GDP, CPI inflation, unemployment, tax revenue, government deficit, health
-expenditure, education expenditure, income inequality, labour
-productivity, and current account balance across all 38 OECD member
-countries. Data is downloaded from the OECD Data Explorer API
+'Organisation for Economic Co-operation and Development' ('OECD'),
+covering GDP, CPI inflation, unemployment, tax revenue, government
+deficit, health expenditure, education expenditure, income inequality,
+labour productivity, and current account balance across all 38 'OECD'
+member countries. Data is downloaded from the 'OECD Data Explorer' API
 <https://data-explorer.oecd.org> on first use and cached locally for
 subsequent calls. Returns tidy long-format data frames ready for analysis
 and visualisation.
