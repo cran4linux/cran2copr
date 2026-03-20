@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vannstats
-%global packver   1.6.1.08
+%global packver   1.6.3.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1.08
+Version:          1.6.3.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistical Procedures for Social Sciences
 
@@ -51,7 +51,7 @@ Requires:         R-CRAN-DescTools
 Requires:         R-CRAN-reshape2 
 
 %description
-Simplifies functions assess normality for bivariate and multivariate
+Simplifies functions to conduct univariate, bivariate, and multivariate
 statistical techniques. Includes functions designed to replicate plots and
 tables that would result from similar calls in 'SPSS', including hst(),
 box(), qq(), tab(), cormat(), and residplot(). Also includes simplified

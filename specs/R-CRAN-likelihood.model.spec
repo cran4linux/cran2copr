@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  likelihood.model
-%global packver   0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood-Based Statistical Inference in the Fisherian Tradition
 
@@ -17,20 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-algebraic.mle 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-algebraic.mle >= 2.0.0
+BuildRequires:    R-CRAN-algebraic.dist 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-algebraic.mle 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-algebraic.mle >= 2.0.0
+Requires:         R-CRAN-algebraic.dist 
 Requires:         R-CRAN-generics 
 Requires:         R-stats 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-R6 
 
 %description
 Facilitates building likelihood models in the Fisherian tradition
@@ -38,9 +36,7 @@ following Richard Royall (1997, ISBN:978-0412044113) "Statistical
 Evidence: A Likelihood Paradigm". Defines generic methods for working with
 likelihoods (loglik(), score(), hess_loglik(), fim()) and provides
 functions for pure likelihood-based inference (support(),
-relative_likelihood(), likelihood_interval(), profile_loglik()). Includes
-a likelihood contributions model for heterogeneous observation types
-(exact, censored, etc.) assuming i.i.d. data.
+relative_likelihood(), likelihood_interval(), profile_loglik()).
 
 %prep
 %setup -q -c -n %{packname}

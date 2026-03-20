@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctsemOMX
-%global packver   1.0.7
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Continuous Time SEM - 'OpenMx' Based Functions
+Summary:          Continuous Time Structural Equation Modelling - Old 'OpenMx'-Based Version
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,8 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ctsem >= 3.3.2
 BuildRequires:    R-CRAN-OpenMx >= 2.9.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Matrix 
@@ -26,8 +27,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ctsem >= 3.3.2
 Requires:         R-CRAN-OpenMx >= 2.9.0
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-expm 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Matrix 
@@ -41,13 +43,9 @@ Original 'ctsem' (continuous time structural equation modelling)
 functionality, based on the 'OpenMx' software, as described in Driver,
 Oud, Voelkle (2017) <doi:10.18637/jss.v077.i05>, with updated details in
 vignette. Combines stochastic differential equations representing latent
-processes with structural equation measurement models. These functions
-were split off from the main package of 'ctsem', as the main package uses
-the 'rstan' package as a backend now -- offering estimation options from
-max likelihood to Bayesian. There are nevertheless use cases for the wide
-format SEM style approach as offered here, particularly when there are no
-individual differences in observation timing and the number of individuals
-is large. For the main 'ctsem' package, see
+processes with structural equation measurement models. This package is
+maintained for consistency with the original 'ctsem' paper, but for the
+much newer and more capable 'ctsem' package, see
 <https://cran.r-project.org/package=ctsem>.
 
 %prep

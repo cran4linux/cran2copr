@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sumvar
-%global packver   0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarise Continuous, Date and Categorical Variables, Check for Duplicates and Missing Data
+Summary:          Summarise and Explore Continuous, Categorical and Date Variables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,25 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
@@ -43,8 +49,11 @@ Requires:         R-CRAN-tidyr
 Requires:         R-utils 
 
 %description
-Explore continuous, date and categorical variables. 'sumvar' aims to bring
-the ease and simplicity of the "sum" and "tab" functions from 'stata'.
+Explore continuous, date and categorical variables with summary
+statistics, visualisations, and frequency tables. Brings the ease and
+simplicity of the sum and tab commands from 'Stata' to 'R', including
+support for two-way cross-tabulations, hypothesis tests, duplicate and
+missing data exploration, and automated HTML or PDF exploratory reports.
 
 %prep
 %setup -q -c -n %{packname}

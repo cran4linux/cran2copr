@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blockcluster
-%global packver   4.5.5
+%global packname  infoxtr
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.5
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Clustering Package for Binary, Categorical, Contingency and Continuous Data-Sets
+Summary:          Information-Theoretic Measures for Revealing Variable Interactions
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-rtkore >= 1.6.10
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sdsfun 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-rtkore >= 1.6.10
+BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-methods 
+Requires:         R-CRAN-sdsfun 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
 
 %description
-Simultaneous clustering of rows and columns, usually designated by
-biclustering, co-clustering or block clustering, is an important technique
-in two way data analysis. It consists of estimating a mixture model which
-takes into account the block clustering problem on both the individual and
-variables sets. The 'blockcluster' package provides a bridge between the
-C++ core library build on top of the 'STK++' library, and the R
-statistical computing environment. This package allows to co-cluster
-binary <doi:10.1016/j.csda.2007.09.007>, contingency
-<doi:10.1080/03610920903140197>, continuous
-<doi:10.1007/s11634-013-0161-3> and categorical data-sets
-<doi:10.1007/s11222-014-9472-2>. It also provides utility functions to
-visualize the results. This package may be useful for various applications
-in fields of Data mining, Information retrieval, Biology, computer vision
-and many more. More information about the project and comprehensive
-tutorial can be found on the link mentioned in URL.
+Implements information-theoretic measures to explore variable
+interactions, including ksg mutual information estimation for continuous
+variables from Kraskov et al. (2004) <doi:10.1103/PhysRevE.69.066138>,
+knockoff conditional mutual information described in Zhang & Chen (2025)
+<doi:10.1126/sciadv.adu6464>, synergistic-unique-redundant decomposition
+as introduced by Martinez-Sanchez et al. (2024)
+<doi:10.1038/s41467-024-53373-4>, allowing detection of complex and
+diverse relationships among variables.
 
 %prep
 %setup -q -c -n %{packname}

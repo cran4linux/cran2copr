@@ -1,48 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  econetwork
-%global packver   0.7.0
+%global packname  MIRDD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyzing Ecological Networks
+Summary:          Diagnostic Tool by Multiple Imputation for Regression Discontinuity Designs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Amelia 
+BuildRequires:    R-CRAN-rdrobust 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-rdiversity 
-BuildRequires:    R-CRAN-blockmodels 
-BuildRequires:    R-CRAN-bipartite 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppGSL 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-Amelia 
+Requires:         R-CRAN-rdrobust 
 Requires:         R-stats 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-rdiversity 
-Requires:         R-CRAN-blockmodels 
-Requires:         R-CRAN-bipartite 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-graphics 
 
 %description
-A collection of advanced tools, methods and models specifically designed
-for analyzing different types of ecological networks - especially
-antagonistic (food webs, host-parasite), mutualistic (plant-pollinator,
-plant-fungus, etc) and competitive networks, as well as their variability
-in time and space. Statistical models are developed to describe and
-understand the mechanisms that determine species interactions, and to
-decipher the organization of these ecological networks (Ohlmann et al.
-(2019) <doi:10.1111/ele.13221>, Gonzalez et al. (2020)
-<doi:10.1101/2020.04.02.021691>, Miele et al. (2021)
-<doi:10.48550/arXiv.2103.10433>, Botella et al (2021)
-<doi:10.1111/2041-210X.13738>).
+Estimates local average treatment effects based on regression
+discontinuity designs (RDD) and multiple imputation regression
+discontinuity designs (MIRDD). It provides diagnostic tools for RDD by
+comparing results with those from MIRDD, as proposed in Takahashi (2023)
+<doi:10.1080/03610918.2021.1960374>.
 
 %prep
 %setup -q -c -n %{packname}

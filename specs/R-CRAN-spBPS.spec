@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spBPS
-%global packver   0.0-4
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Predictive Stacking for Scalable Geospatial Transfer Learning
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 1.8.0
 Requires:         R-core >= 1.8.0
+BuildRequires:    R-CRAN-CVXR >= 1.8.1
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-mniw 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-CVXR >= 1.8.1
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-mniw 
 
 %description
@@ -29,7 +29,7 @@ Provides functions for Bayesian Predictive Stacking within the Bayesian
 transfer learning framework for geospatial artificial systems, as
 introduced in "Bayesian Transfer Learning for Artificially Intelligent
 Geospatial Systems: A Predictive Stacking Approach" (Presicce and
-Banerjee, 2024) <doi:10.48550/arXiv.2410.09504>. This methodology enables
+Banerjee, 2025) <doi:10.48550/arXiv.2410.09504>. This methodology enables
 efficient Bayesian geostatistical modeling, utilizing predictive stacking
 to improve inference across spatial datasets. The core functions leverage
 'C++' for high-performance computation, making the framework well-suited

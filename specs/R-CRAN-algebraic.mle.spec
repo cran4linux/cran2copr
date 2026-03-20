@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  algebraic.mle
-%global packver   0.9.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algebraic Maximum Likelihood Estimators
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-algebraic.dist 
+BuildRequires:    R-CRAN-algebraic.dist >= 0.9.1
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-algebraic.dist 
+Requires:         R-CRAN-algebraic.dist >= 0.9.1
 Requires:         R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-mvtnorm 
@@ -31,12 +31,20 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-numDeriv 
 
 %description
-Defines an algebra over maximum likelihood estimators (MLEs) by providing
-operators that are closed over MLEs, along with various statistical
-functions for inference. For background on maximum likelihood estimation,
-see Casella and Berger (2002, ISBN:978-0534243128). For the delta method
-and variance estimation, see Lehmann and Casella (1998,
-ISBN:978-0387985022).
+The maximum likelihood estimator (MLE) is a technology: under regularity
+conditions, any MLE is asymptotically normal with variance given by the
+inverse Fisher information. This package exploits that structure by
+defining an algebra over MLEs. Compose independent estimators into joint
+MLEs via block-diagonal covariance ('joint'), optimally combine repeated
+estimates via inverse-variance weighting ('combine'), propagate
+transformations via the delta method ('rmap'), and bridge to distribution
+algebra via conversion to normal or multivariate normal objects
+('as_dist'). Supports asymptotic ('mle', 'mle_numerical') and bootstrap
+('mle_boot') estimators with a unified interface for inference: confidence
+intervals, standard errors, AIC, Fisher information, and predictive
+intervals. For background on maximum likelihood estimation, see Casella
+and Berger (2002, ISBN:978-0534243128). For the delta method and variance
+estimation, see Lehmann and Casella (1998, ISBN:978-0387985022).
 
 %prep
 %setup -q -c -n %{packname}

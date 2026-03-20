@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EpiModel
-%global packver   2.5.0
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematical Modeling of Infectious Disease Dynamics
 
@@ -23,13 +23,13 @@ BuildRequires:    R-CRAN-deSolve >= 1.21
 BuildRequires:    R-CRAN-network >= 1.18.1
 BuildRequires:    R-CRAN-networkLite >= 1.0.5
 BuildRequires:    R-CRAN-networkDynamic >= 0.11.3
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-collections 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-lazyeval 
@@ -47,13 +47,13 @@ Requires:         R-CRAN-deSolve >= 1.21
 Requires:         R-CRAN-network >= 1.18.1
 Requires:         R-CRAN-networkLite >= 1.0.5
 Requires:         R-CRAN-networkDynamic >= 0.11.3
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-collections 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-lazyeval 

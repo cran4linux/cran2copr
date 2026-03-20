@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordPanel
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ordered Panel
 
@@ -17,20 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.5.0
 Requires:         R-core >= 4.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-consort 
-BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-consort 
-Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-scales 
 

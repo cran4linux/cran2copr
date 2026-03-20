@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rice
-%global packver   1.6.2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiocarbon Equations
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-maps >= 3.4.2.1
-BuildRequires:    R-CRAN-rintcal >= 1.3.1
+BuildRequires:    R-CRAN-rintcal >= 1.4.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-maps >= 3.4.2.1
-Requires:         R-CRAN-rintcal >= 1.3.1
+Requires:         R-CRAN-rintcal >= 1.4.0
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 
@@ -31,7 +31,9 @@ Provides functions for the calibration of radiocarbon dates, as well as
 options to calculate different radiocarbon-related timescales (cal BP, cal
 BC/AD, C14 age, F14C, pMC, D14C) and estimating the effects of
 contamination or local reservoir offsets (Reimer and Reimer 2001
-<doi:10.1017/S0033822200038339>). The methods follow long-established
+<doi:10.1017/S0033822200038339>). Supporting publication: Blaauw, M.,
+Reimer, P.J., in press. An open-source toolkit for radiocarbon dating and
+calibration. Radiocarbon. The methods follow long-established
 recommendations such as Stuiver and Polach (1977)
 <doi:10.1017/S0033822200003672> and Reimer et al. (2004)
 <doi:10.1017/S0033822200033154>. This package uses the calibration curves

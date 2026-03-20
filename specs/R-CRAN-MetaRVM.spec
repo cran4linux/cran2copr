@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetaRVM
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Population Compartmental Model for Respiratory Virus Diseases
 
@@ -40,13 +40,13 @@ Requires:         R-CRAN-yaml
 
 %description
 Simulates respiratory virus epidemics using meta-population compartmental
-models following Fadikar et. al. (2025) <doi:10.1101/2025.05.05.25327021>.
-'MetaRVM' implements a stochastic SEIRD
-(Susceptible-Exposed-Infected-Recovered-Dead) framework with demographic
-stratification by age, race, and geographic zones. It supports complex
-epidemiological scenarios including asymptomatic and presymptomatic
-transmission, hospitalization dynamics, vaccination schedules, and
-time-varying contact patterns via mixing matrices.
+models following Fadikar et. al. (2025)
+<doi:10.1109/WSC68292.2025.11338996>. 'MetaRVM' implements a stochastic
+SEIRD (Susceptible-Exposed-Infected-Recovered-Dead) framework with
+demographic stratification by user provided attributes. It supports
+complex epidemiological scenarios including asymptomatic and
+presymptomatic transmission, hospitalization dynamics, vaccination
+schedules, and time-varying contact patterns via mixing matrices.
 
 %prep
 %setup -q -c -n %{packname}
