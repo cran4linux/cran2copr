@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vacalibration
-%global packver   2.0
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration of Computer-Coded Verbal Autopsy Algorithm
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,42 +18,49 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-openVA 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-openVA 
+Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-loo 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rstantools
 
 %description
-Calibrates cause-specific mortality fractions (CSMF) estimates generated
-by computer-coded verbal autopsy (CCVA) algorithms from WHO-standardized
-verbal autopsy (VA) survey data. It leverages data from the multi-country
-Child Health and Mortality Prevention Surveillance (CHAMPS) project
-<https://champshealth.org/>, which determines gold standard causes of
-death via Minimally Invasive Tissue Sampling (MITS). By modeling the
-CHAMPS data using the misclassification matrix modeling framework proposed
-in Pramanik et al. (2025, <doi:10.1214/24-AOAS2006>), the package includes
-an inventory of 48 uncertainty-quantified misclassification matrices for
-three CCVA algorithms (EAVA, InSilicoVA, InterVA), two age groups
-(neonates aged 0-27 days and children aged 1-59 months), and eight
-"countries" (seven countries in CHAMPS -- Bangladesh, Ethiopia, Kenya,
-Mali, Mozambique, Sierra Leone, South Africa -- and an estimate for
-countries not in CHAMPS). Given a VA-only data for an age group, CCVA
-algorithm, and country, the package uses the corresponding
-uncertainty-quantified misclassification matrix estimates as an
-informative prior, and utilizes the modular VA-calibration to produce
-calibrated CSMF estimates. It also supports ensemble calibration when
-VA-only data are provided for multiple algorithms. More generally, the
-package can be applied to calibrate predictions from a discrete classifier
-(or ensemble of classifiers) utilizing user-provided fixed or
-uncertainty-quantified misclassification matrices. This work is supported
-by the Bill and Melinda Gates Foundation Grant INV-034842.
+Calibrates population-level cause-specific mortality fractions (CSMFs)
+that are derived using computer-coded verbal autopsy (CCVA) algorithms.
+Leveraging the data collected in the Child Health and Mortality Prevention
+Surveillance (CHAMPS;<https://champshealth.org/>) project, the package
+stores misclassification matrix estimates of three CCVA algorithms (EAVA,
+InSilicoVA, and InterVA) and two age groups (neonates aged 0-27 days, and
+children aged 1-59 months) across countries (specific estimates for
+Bangladesh, Ethiopia, Kenya, Mali, Mozambique, Sierra Leone, and South
+Africa, and a combined estimate for all other countries), enabling global
+calibration. These estimates are obtained using the framework proposed in
+Pramanik et al. (2025;<doi:10.1214/24-AOAS2006>) and are analyzed in
+Pramanik et al. (2026;<doi:10.1136/bmjgh-2025-021747>). Given VA-only data
+for an age group, CCVA algorithm, and country, the package utilizes the
+corresponding misclassification matrix estimate in the modular
+VA-Calibration framework (Pramanik et al.,2025;<doi:10.1214/24-AOAS2006>)
+and produces calibrated estimates of CSMFs. The package also supports
+ensemble calibration to accommodate multiple algorithms. More generally,
+this allows calibration of population-level prevalence derived from
+single-class predictions of discrete classifiers. For this, users need to
+provide fixed or uncertainty-quantified misclassification matrices. This
+work is supported by the Eunice Kennedy Shriver National Institute of
+Child Health K99 NIH Pathway to Independence Award (1K99HD114884-01A1),
+the Bill and Melinda Gates Foundation (INV-034842), and the Johns Hopkins
+Data Science and AI Institute.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rmst
-%global packver   0.0.3
+%global packname  gcor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computerized Adaptive Multistage Testing
+Summary:          Generalized Correlation and Related Measures
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rata 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Rirt 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rata 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Rirt 
-Requires:         R-stats 
 
 %description
-Assemble the panels of computerized adaptive multistage testing by the
-bottom-up and the top-down approach, and simulate the administration of
-the assembled panels. The full documentation and tutorials are at
-<https://github.com/xluo11/Rmst>. Reference: Luo and Kim (2018)
-<doi:10.1111/jedm.12174>.
+Generalized correlation and related measures for assessing nonlinear
+relationships between variables, including mixed-type data. For
+methodological background, see
+<https://r-suzuki.github.io/gcor/method.html>.
 
 %prep
 %setup -q -c -n %{packname}

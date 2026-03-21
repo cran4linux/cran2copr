@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgbif
-%global packver   3.8.4
+%global packver   3.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.4
+Version:          3.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the Global Biodiversity Information Facility API
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-wk 
 Requires:         R-CRAN-jsonlite >= 1.6
 Requires:         R-CRAN-crul >= 0.7.4
 Requires:         R-CRAN-oai >= 0.2.2
@@ -42,7 +41,6 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
-Requires:         R-CRAN-wk 
 
 %description
 A programmatic interface to the Web Service methods provided by the Global

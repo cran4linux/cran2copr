@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  salmonMSE
+%global packname  crystract
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Management Strategy Evaluation for Salmon Species
+Summary:          Crystallographic Information File (CIF) Data Processing Tools
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MSEtool >= 3.7.2
-BuildRequires:    R-CRAN-RTMB >= 1.9
-BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-MSEtool >= 3.7.2
-Requires:         R-CRAN-RTMB >= 1.9
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-geometry 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gsl 
-Requires:         R-methods 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-geometry 
 
 %description
-Simulation tools to evaluate the long-term effects of salmon management
-strategies, including a combination of habitat, harvest, and habitat
-actions. The stochastic age-structured operating model accommodates
-complex life histories, including freshwater survival across early life
-stages, juvenile survival and fishery exploitation in the marine life
-stage, partial maturity by age class, and fitness impacts of hatchery
-programs on natural spawning populations. 'salmonMSE' also provides an
-age-structured conditioning model to develop operating models fitted to
-data.
+Provides a suite of functions to parse Crystallographic Information Files
+(.cif), extracting essential data such as chemical formulas, unit cell
+parameters, atomic coordinates, and symmetry operations. It also includes
+tools to calculate interatomic distances, identify bonded pairs using
+various algorithms (minimum_distance, brunner_nn_reciprocal, econ_nn,
+crystal_nn), determine nearest neighbor counts, and calculate bond angles.
+The package is designed to facilitate the preparation of crystallographic
+data for further analysis, including machine learning applications in
+materials science. Methods are described in: Brunner (1977)
+<doi:10.1107/S0567739477000461>; Hoppe (1979)
+<doi:10.1524/zkri.1979.150.14.23>; O'Keeffe (1979)
+<doi:10.1107/S0567739479001765>; Shannon (1976)
+<doi:10.1107/S0567739476001551>; Pan et al. (2021)
+<doi:10.1021/acs.inorgchem.0c02996>; Pauling (1960, ISBN:978-0801403330).
 
 %prep
 %setup -q -c -n %{packname}

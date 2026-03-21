@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickSentiment
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Fast and Flexible Pipeline for Text Classification
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-naivebayes 
-BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-quanteda 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-stopwords 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-naivebayes 
-Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-stopwords 

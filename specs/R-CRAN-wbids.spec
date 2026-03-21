@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wbids
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless Access to World Bank International Debt Statistics (IDS)
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-econdatasets >= 0.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
@@ -34,7 +33,6 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-econdatasets >= 0.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-withr 
 
 %description
 Access and analyze the World Bank's International Debt Statistics (IDS)

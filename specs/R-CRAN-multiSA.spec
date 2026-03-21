@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiSA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Stock Assessment
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB >= 1.7
+BuildRequires:    R-CRAN-RTMB >= 1.9
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-graphics 
@@ -30,7 +30,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tinyplot 
 BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-RTMB >= 1.7
+Requires:         R-CRAN-RTMB >= 1.9
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gplots 
 Requires:         R-graphics 

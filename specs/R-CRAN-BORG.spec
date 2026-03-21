@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aramappings
-%global packver   0.1.3
+%global packname  BORG
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computes Adaptable Radial Axes Mappings
+Summary:          Bounded Outcome Risk Guard for Model Evaluation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,38 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-clarabel 
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-glpkAPI 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-clarabel 
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-glpkAPI 
-Requires:         R-CRAN-Matrix 
-Requires:         R-parallel 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-slam 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-grid 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Computes low-dimensional point representations of high-dimensional
-numerical data according to the data visualization method Adaptable Radial
-Axes described in: Manuel Rubio-Sánchez, Alberto Sanchez, and Dirk J.
-Lehmann (2017) "Adaptable radial axes plots for improved multivariate data
-visualization" <doi:10.1111/cgf.13196>.
+Automatically detects and enforces valid model evaluation by identifying
+information reuse between training and evaluation data. Guards against
+data leakage, look-ahead bias, and invalid cross-validation schemes that
+inflate performance estimates. Supports temporal, spatial, and grouped
+evaluation structures. Based on evaluation principles described in Roberts
+et al. (2017) <doi:10.1111/ecog.02881>, Kaufman et al. (2012)
+<doi:10.1145/2382577.2382579>, and Kapoor & Narayanan (2023)
+<doi:10.1016/j.patter.2023.100804>.
 
 %prep
 %setup -q -c -n %{packname}

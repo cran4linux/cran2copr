@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caugi
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Graph Interface
 
@@ -14,16 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    cargo
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fastmap 
 Requires:         R-grid 
 Requires:         R-CRAN-S7 
 Requires:         R-stats 

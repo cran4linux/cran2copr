@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdars
-%global packver   0.3.3
+%global packname  qadf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Data Analysis in 'Rust'
+Summary:          Quantile Autoregressive Distributed Lag Unit Root Test
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
 
 %description
-Functional data analysis tools with a high-performance 'Rust' backend.
-Provides methods for functional data manipulation, depth computation,
-distance metrics, regression, and statistical testing. Supports both 1D
-functional data (curves) and 2D functional data (surfaces). Methods are
-described in Ramsay and Silverman (2005, ISBN:978-0-387-40080-8)
-"Functional Data Analysis" and Ferraty and Vieu (2006,
-ISBN:978-0-387-30369-7) "Nonparametric Functional Data Analysis".
+Implements the Quantile Autoregressive Distributed Lag (QADF) unit root
+test proposed by Koenker and Xiao (2004) <doi:10.1198/016214504000001114>.
+The test examines unit root behaviour across the conditional distribution
+of a time series using quantile regression, providing a richer
+characterisation of persistence than standard ADF tests. Critical values
+follow Hansen (1995) <doi:10.1017/S0266466600009713>. Lag order selection
+is supported via AIC, BIC, or the t-statistic sequential testing approach.
 
 %prep
 %setup -q -c -n %{packname}

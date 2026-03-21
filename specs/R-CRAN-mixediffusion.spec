@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rata
-%global packver   0.0.2
+%global packname  mixediffusion
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Test Assembly
+Summary:          Mixed-Effects Diffusion Models with General Drift
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glpkAPI 
-BuildRequires:    R-CRAN-lpSolveAPI 
-BuildRequires:    R-CRAN-Rirt 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glpkAPI 
-Requires:         R-CRAN-lpSolveAPI 
-Requires:         R-CRAN-Rirt 
-Requires:         R-CRAN-reshape2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-adaptMCMC 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-adaptMCMC 
 
 %description
-Automated test assembly of linear and adaptive tests using the
-mixed-integer programming. The full documentation and tutorials are at
-<https://github.com/xluo11/Rata>.
+Provides tools for likelihood-based inference in one-dimensional
+stochastic differential equations with mixed effects using
+expectation–maximization (EM) algorithms. The package supports Wiener and
+Ornstein–Uhlenbeck diffusion processes with user-specified drift
+functions, allowing flexible parametric forms including polynomial,
+exponential, and trigonometric structures. Estimation is performed via
+Markov chain Monte Carlo EM.
 
 %prep
 %setup -q -c -n %{packname}

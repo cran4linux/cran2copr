@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  llamaR
-%global packver   0.2.2
+%global packname  lakefetch
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for Large Language Models via 'llama.cpp'
+Summary:          Calculate Fetch and Wave Exposure for Lake Sampling Points
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,22 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-ggmlR 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggmlR 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-osmdata >= 0.2.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-osmdata >= 0.2.0
 
 %description
-Provides 'R' bindings to 'llama.cpp' for running Large Language Models
-('LLMs') locally with optional 'Vulkan' GPU acceleration via 'ggmlR'.
-Supports model loading, text generation, 'tokenization', token-to-piece
-conversion, 'embeddings' (single and batch), encoder-decoder inference,
-low-level batch management, chat templates, 'LoRA' adapters, explicit
-backend/device selection, multi-GPU split, and 'NUMA' optimization.
-Includes a high-level 'ragnar'-compatible embedding provider
-('embed_llamar'). Built on top of 'ggmlR' for efficient tensor operations.
+Calculates fetch (open water distance) and wave exposure metrics for lake
+sampling points. Downloads lake boundaries from 'OpenStreetMap',
+calculates directional fetch using a ray-casting approach, and optionally
+integrates National Hydrography Dataset ('NHD') data
+<https://www.usgs.gov/national-hydrography> for hydrological context
+including outlet and inlet locations. Can estimate lake depth from surface
+area using empirical relationships, and integrate historical weather data
+for cumulative wave energy calculations. Includes an optional interactive
+'shiny' application for visualization.
 
 %prep
 %setup -q -c -n %{packname}

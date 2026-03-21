@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reportRmd
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Presentation of Clinical Reporting
 
@@ -22,42 +22,36 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-cmprsk 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-aod 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pander 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 
 %description

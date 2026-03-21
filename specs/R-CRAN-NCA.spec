@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NCA
-%global packver   4.0.5
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Necessary Condition Analysis
 
@@ -27,6 +27,8 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-KernSmooth 
@@ -37,6 +39,8 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-iterators 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
 
 %description
 Performs a Necessary Condition Analysis (NCA). (Dul, J. 2016. Necessary
@@ -52,10 +56,11 @@ zone is in the upper left hand corner of the xy-plot (with the convention
 that the x-axis is ''horizontal'' and the y-axis is ''vertical'' and that
 values increase ''upwards'' and ''to the right''). The ceiling line is a
 (piecewise) linear non-decreasing line: a linear step function or a
-straight line. It indicates which level of x (e.g. an effort or input) is
-necessary but not sufficient for a (desired) level of y (e.g. good
-performance or output). A quick start guide for using this package can be
-found here: <https://repub.eur.nl/pub/78323/> or
+straight line. It indicates which level of x (e.g., an effort, a
+characteristic) is necessary but not sufficient for a (desired or
+undesired) level of y (e.g., good performance or disease). A quick start
+guide for using this package can be found here:
+<https://repub.eur.nl/pub/78323/> or
 <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2624981>.
 
 %prep
