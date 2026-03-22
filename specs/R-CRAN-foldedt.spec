@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rfishnet2
-%global packver   0.2.0
+%global packname  foldedt
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Data Analysis for FishNet2 Data
+Summary:          The Folded t Family of Distributions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
-BuildRequires:    R-CRAN-pracma >= 2.2.5
-BuildRequires:    R-CRAN-rworldmap >= 1.3.6
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-sf >= 0.8.0
-Requires:         R-CRAN-ggplot2 >= 3.2.1
-Requires:         R-CRAN-pracma >= 2.2.5
-Requires:         R-CRAN-rworldmap >= 1.3.6
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-sf >= 0.8.0
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Provides data processing and summarization of data from FishNet2.net in
-text and graphical outputs. Allows efficient filtering of information and
-data cleaning.
+Maximum likelihood estimation of the folded t and related distributions.
+The reference paper is: Psarakis and Panaretos (1990). "The folded t
+distribution". Communications in Statistics--Theory and Methods, 19(7):
+2717--2734. <doi:10.1080/03610929008830342>.
 
 %prep
 %setup -q -c -n %{packname}

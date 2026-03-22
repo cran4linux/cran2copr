@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DCEM
-%global packver   2.0.5
+%global __requires_exclude ^libmpi
+%global packname  mrddGlobal
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering Big Data using Expectation Maximization Star (EM*) Algorithm
+Summary:          Global Testing for Multivariate Regression Discontinuity Designs
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-MASS >= 7.3.49
-BuildRequires:    R-CRAN-mvtnorm >= 1.0.7
-BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-MASS >= 7.3.49
-Requires:         R-CRAN-mvtnorm >= 1.0.7
-Requires:         R-CRAN-matrixcalc >= 1.0.3
-Requires:         R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-lpdensity 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-lpdensity 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements the Improved Expectation Maximisation EM* and the traditional
-EM algorithm for clustering big data (gaussian mixture models for both
-multivariate and univariate datasets). This version implements the faster
-alternative-EM* that expedites convergence via structure based data
-segregation. The implementation supports both random and K-means++ based
-initialization. Reference: Parichit Sharma, Hasan Kurban, Mehmet Dalkilic
-(2022) <doi:10.1016/j.softx.2021.100944>. Hasan Kurban, Mark Jenne, Mehmet
-Dalkilic (2016) <doi:10.1007/s41060-017-0062-1>.
+Global testing for regression discontinuity designs with more than one
+running variable. The function cef_disc_test() is used for testing whether
+there exist non-zero treatment effects along the boundary of the treated
+region. The function density_disc_test() is used for testing whether there
+exist discontinuities in the joint density of the running variables along
+the boundary of the treated region. The methodology follows Samiahulin
+(2026), "Global Testing for Regression Discontinuity Designs with Multiple
+Running Variables" <doi:10.48550/arXiv.2602.03819>.
 
 %prep
 %setup -q -c -n %{packname}

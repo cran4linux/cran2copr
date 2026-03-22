@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialreg
-%global packver   1.4-2
+%global packver   1.4-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Analysis
 
@@ -22,24 +22,26 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-LearnBayes 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-marginaleffects 
 Requires:         R-CRAN-spData >= 2.3.1
 Requires:         R-CRAN-spdep >= 1.4.1
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-coda 
 Requires:         R-methods 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-boot 
 Requires:         R-splines 
 Requires:         R-CRAN-LearnBayes 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-marginaleffects 
 
 %description
 A collection of all the estimation functions for spatial cross-sectional

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gimms
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Process GIMMS NDVI3g Data
 
@@ -20,13 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-zyp 
 Requires:         R-CRAN-raster 
 Requires:         R-methods 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-Kendall 
 Requires:         R-parallel 
 Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-zyp 
 
 %description
 This is a set of functions to retrieve information about GIMMS NDVI3g
