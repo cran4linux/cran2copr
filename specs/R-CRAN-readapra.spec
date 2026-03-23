@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readapra
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Tidy Data from the Australian Prudential Regulation Authority
 
@@ -29,13 +29,10 @@ BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-tidyxl >= 1.0.0
-BuildRequires:    R-CRAN-polite >= 0.1.0
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-ratelimitr 
-BuildRequires:    R-CRAN-robotstxt 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
@@ -48,13 +45,10 @@ Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-tidyxl >= 1.0.0
-Requires:         R-CRAN-polite >= 0.1.0
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-ratelimitr 
-Requires:         R-CRAN-robotstxt 
 Requires:         R-CRAN-stringdist 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
 Download the latest data from the Australian Prudential Regulation

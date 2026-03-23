@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataQualityDashboard
-%global packver   2.8.6
+%global packver   2.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.6
+Version:          2.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Execute and View Data Quality Checks on OMOP CDM Database
 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-readr
 %description
 Assesses data quality in Observational Medical Outcomes Partnership Common
 Data Model (OMOP CDM) databases. Executes data quality checks and provides
-an R `shiny` application to view the results.
+an R 'shiny' application to view the results.
 
 %prep
 %setup -q -c -n %{packname}

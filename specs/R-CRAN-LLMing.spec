@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMing
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Large Language Model (LLM) Tools for Psychological Text Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-quanteda 
@@ -27,6 +27,9 @@ BuildRequires:    R-CRAN-dbscan
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-text2vec 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-quanteda 
 Requires:         R-CRAN-stopwords 
@@ -37,6 +40,9 @@ Requires:         R-CRAN-dbscan
 Requires:         R-CRAN-pracma 
 Requires:         R-stats 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-text2vec 
 
 %description
 A collection of large language model (LLM) text analysis methods designed

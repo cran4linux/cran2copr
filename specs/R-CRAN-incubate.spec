@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  incubate
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Time-to-Event Analysis with Variable Incubation Phases
 
@@ -16,34 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-future.apply >= 1.6
 BuildRequires:    R-CRAN-glue >= 1.4
 BuildRequires:    R-CRAN-future >= 1.21
 BuildRequires:    R-CRAN-rlang >= 0.4
 BuildRequires:    R-CRAN-purrr >= 0.3
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-minqa 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-future.apply >= 1.6
 Requires:         R-CRAN-glue >= 1.4
 Requires:         R-CRAN-future >= 1.21
 Requires:         R-CRAN-rlang >= 0.4
 Requires:         R-CRAN-purrr >= 0.3
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-minqa 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tibble 
 
 %description
 Fit parametric models for time-to-event data that show an initial
-'incubation period', i.e., a variable delay phase where the hazard is
-zero. The delayed Weibull distribution serves as foundational data model.
-The specific method of 'MPSE' (maximum product of spacings estimation) and
-MLE-based methods are used for parameter estimation. Bootstrap confidence
-intervals for parameters and significance tests in a two group setting are
-provided.
+'incubation period', i.e., a variable delay phase where no events occur.
+The delayed Weibull distribution serves as the foundational data model.
+For parameter estimation, different flavours of maximum likelihood
+estimation ('MLE') and the method of maximum product of spacings
+estimation ('MPSE') are implemented. Bootstrap confidence intervals for
+parameters and significance tests in a two group setting are provided.
 
 %prep
 %setup -q -c -n %{packname}

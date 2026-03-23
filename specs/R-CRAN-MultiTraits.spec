@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiTraits
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing and Visualizing Multidimensional Plant Traits
 
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-paletteer 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-corrplot 
@@ -45,6 +47,8 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-paletteer 
+Requires:         R-CRAN-scales 
 
 %description
 Implements analytical methods for multidimensional plant traits, including
@@ -52,11 +56,7 @@ Competitors-Stress tolerators-Ruderals strategy analysis using leaf
 traits, Leaf-Height-Seed strategy analysis, Niche Periodicity Table
 analysis, and Trait Network analysis. Provides functions for data
 analysis, visualization, and network metrics calculation. Methods are
-based on Grime (1974) <doi:10.1038/250026a0>, Pierce et al. (2017)
-<doi:10.1111/1365-2435.12882>, Westoby (1998)
-<doi:10.1023/A:1004327224729>, Winemiller et al. (2015)
-<doi:10.1111/ele.12462>, He et al. (2020)
-<doi:10.1016/j.tree.2020.06.003>.
+based on He et al. (2026) <doi:10.1002/ecog.08026>.
 
 %prep
 %setup -q -c -n %{packname}

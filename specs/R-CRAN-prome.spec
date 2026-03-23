@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prome
-%global packver   3.1.0.1
+%global packver   4.0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0.1
+Version:          4.0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Patient-Reported Outcome Data Analysis with Stan
 
-License:          MIT + file LICENSE
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-BI 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-StanHeaders 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-CRAN-BI 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-rstantools
 
 %description
-Algorithms and subroutines for patient-reported outcome data analysis.
+Estimation for blinding bias in randomized controlled trials with a latent
+continuous outcome, a binary response depending on treatment and the
+latent outcome, and a noisy surrogate subject to possibly
+response-dependent measurement error. Implements EM estimators in R backed
+by compiled C routines for models with and without the restriction delta0
+= 0, and Bayesian Stan wrappers for the same two models. Functions were
+added for latent outcome models with differential measurement error.
 
 %prep
 %setup -q -c -n %{packname}
