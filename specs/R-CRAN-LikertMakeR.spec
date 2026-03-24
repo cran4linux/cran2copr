@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LikertMakeR
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthesise and Correlate Likert Scale and Rating-Scale Data Based on Summary Statistics
 
@@ -17,23 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 
 %description
-Generate and correlate synthetic Likert and rating-scale data with
-predefined means, standard deviations, Cronbach's Alpha, Factor Loading
-table, coefficients, and other summary statistics. Worked examples and
-documentation are available in the package articles, accessible via the
-package website, <https://winzarh.github.io/LikertMakeR/>.
+Generate and correlate synthetic Likert and rating-scale questionnaire
+responses with predefined means, standard deviations, Cronbach's Alpha,
+Factor Loading table, coefficients, and other summary statistics. It can
+be used to simulate Likert data, construct multi-item scales, generate
+correlation matrices, and create example survey datasets for teaching
+statistics, psychometrics, and methodological research. Worked examples
+and documentation are available in the package articles, accessible via
+the package website, <https://winzarh.github.io/LikertMakeR/>.
 
 %prep
 %setup -q -c -n %{packname}

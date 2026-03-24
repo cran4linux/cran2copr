@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cycleTrendR
-%global packver   0.3.0
+%global packname  taxodist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Cycle and Trend Analysis for Irregular Time Series
+Summary:          Taxonomic Distance and Phylogenetic Lineage Computation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-blocklength 
-BuildRequires:    R-CRAN-fANCOVA 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lomb 
-BuildRequires:    R-CRAN-changepoint 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-tseries 
-Requires:         R-CRAN-blocklength 
-Requires:         R-CRAN-fANCOVA 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lomb 
-Requires:         R-CRAN-changepoint 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-tseries 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-rvest >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 0.3.0
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-rvest >= 1.0.0
+Requires:         R-CRAN-purrr >= 0.3.0
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Provides adaptive trend estimation, cycle detection, Fourier harmonic
-selection, bootstrap confidence intervals, change-point detection, and
-rolling-origin forecasting. Supports LOESS (Locally Estimated Scatterplot
-Smoothing), GAM (Generalized Additive Model), and GAMM (Generalized
-Additive Mixed Model), and automatically handles irregular sampling using
-the Lomb-Scargle periodogram. Methods implemented in this package are
-described in Cleveland et al. (1990) <doi:10.2307/2289548>, Wood (2017)
-<doi:10.1201/9781315370279>, and Scargle (1982) <doi:10.1086/160554>.
+Computes phylogenetic distances between any two taxa using hierarchical
+lineage data retrieved from The Taxonomicon
+<http://taxonomicon.taxonomy.nl>, a comprehensive curated classification
+of all life based on Systema Naturae 2000 (Brands, 1989
+<http://taxonomicon.taxonomy.nl>). Given any two taxon names, retrieves
+their full lineages, identifies the most recent common ancestor (MRCA),
+and computes a dissimilarity index based on the depth of the most recent
+common ancestor. Supports individual distance queries, pairwise distance
+matrices, clade filtering, and lineage utilities.
 
 %prep
 %setup -q -c -n %{packname}

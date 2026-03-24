@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRMCbinary
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Reader Multi-Case Analysis of Binary Diagnostic Tests
 
@@ -25,11 +25,12 @@ Requires:         R-CRAN-DescTools
 Requires:         R-stats 
 
 %description
-The goal of 'MRMCbinary' is to compare the performance of diagnostic tests
-(i.e., sensitivity and specificity) for binary outcomes in multi-reader
-multi-case (MRMC) studies. It is based on conditional logistic regression
-and Cochran’s Q test (or McNemar’s test when the number of modalities is
-equal to 2).
+Implements methods for comparing sensitivities and specificities in
+balanced (or fully crossed) multi-reader multi-case (MRMC) studies with
+binary diagnostic test results. It implements conditional logistic
+regression and provides score tests equivalent to Cochran's Q test (which
+corresponds to McNemar's test when comparing two modalities only). The
+methodology is based on Lee et al. (2026) <doi:10.1002/sim.70471>.
 
 %prep
 %setup -q -c -n %{packname}

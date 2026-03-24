@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ragg
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphic Devices Based on AGG
 
@@ -18,6 +18,7 @@ BuildRequires:    freetype-devel
 BuildRequires:    libjpeg-turbo-devel
 BuildRequires:    libpng-devel
 BuildRequires:    libtiff-devel
+BuildRequires:    libwebp-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-systemfonts >= 1.0.3

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AV1R
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'AV1' Video Encoding for Biological Microscopy Data
 
@@ -14,6 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    ffmpeg-free-devel
+BuildRequires:    vulkan-loader-devel
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 
@@ -27,10 +29,16 @@ microscope software with approximately 2x better compression at the same
 visual quality, and converting legacy AVI (MJPEG) and H.265 recordings to
 a single patent-free format suited for long-term archival. Automatically
 selects the best available backend: GPU hardware acceleration via 'Vulkan'
-'VK_KHR_VIDEO_ENCODE_AV1' (tested on AMD RDNA4; bundled headers, builds
-with any 'Vulkan' SDK >= 1.3.275), with automatic fallback to CPU encoding
-through 'FFmpeg' and 'SVT-AV1'. Audio tracks are preserved automatically.
-Provides a simple R API for batch conversion of entire experiment folders.
+'VK_KHR_VIDEO_ENCODE_AV1' or 'VAAPI' (tested on AMD RDNA4; bundled
+headers, builds with any 'Vulkan' SDK >= 1.3.275), with automatic fallback
+to CPU encoding through 'FFmpeg' and 'SVT-AV1'. User controls quality via
+a single CRF parameter; each backend adapts automatically (CPU and Vulkan
+use CRF directly, VAAPI targets 55 percent of input bitrate). TIFF stacks
+use near-lossless CRF 5 by default, with optional proportional scaling via
+tiff_scale (multiplier or bounding box, aspect ratio always preserved).
+Small frames are automatically scaled up to meet hardware encoder
+minimums. Audio tracks are preserved automatically. Provides a simple R
+API for batch conversion of entire experiment folders.
 
 %prep
 %setup -q -c -n %{packname}

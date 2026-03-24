@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NBDCtools
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          National Institutes of Health Brain Development Cohorts Data Hub Tools
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sjmisc 
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-cli 
@@ -55,6 +56,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-stats 
 Requires:         R-CRAN-sjmisc 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-crayon 
 
 %description
 A suite of functions to work with data from the National Institutes of

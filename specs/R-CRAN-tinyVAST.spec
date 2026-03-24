@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyVAST
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Spatio-Temporal Models using Structural Equations
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-insight
 BuildRequires:    R-CRAN-cv 
 BuildRequires:    R-CRAN-sparseinv 
 BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.9.17
 Requires:         R-CRAN-dsem >= 1.6.0
@@ -57,6 +58,7 @@ Requires:         R-CRAN-insight
 Requires:         R-CRAN-cv 
 Requires:         R-CRAN-sparseinv 
 Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-cli 
 
 %description
 Fits a wide variety of multivariate spatio-temporal models with

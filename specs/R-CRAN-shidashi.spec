@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shidashi
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Shiny Dashboard Template System
+Summary:          A Shiny Dashboard Template Modular System with Chat Bot Support
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.2.1
-BuildRequires:    R-CRAN-jsonlite >= 1.7.2
 BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-httr >= 1.4.2
 BuildRequires:    R-CRAN-formatR >= 1.11
 BuildRequires:    R-CRAN-fastmap >= 1.1.0
 BuildRequires:    R-CRAN-digest >= 0.6.27
+BuildRequires:    R-CRAN-ellmer >= 0.4.0
 BuildRequires:    R-utils 
-Requires:         R-CRAN-yaml >= 2.2.1
-Requires:         R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-shinychat 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-httr >= 1.4.2
 Requires:         R-CRAN-formatR >= 1.11
 Requires:         R-CRAN-fastmap >= 1.1.0
 Requires:         R-CRAN-digest >= 0.6.27
+Requires:         R-CRAN-ellmer >= 0.4.0
 Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-shinychat 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A template system based on 'AdminLTE3' (<https://adminlte.io/themes/v3/>)
-theme. Comes with default theme that can be easily customized. Developers
-can upload modified templates on 'Github', and users can easily download
-templates with 'RStudio' project wizard. The key features of the default
-template include light and dark theme switcher, resizing graphs,
-synchronizing inputs across sessions, new notification system, fancy
-progress bars, and card-like flip panels with back sides, as well as
-various of 'HTML' tool widgets.
+A template dashboard system with AI agent integrated. Comes with default
+themes that can be customized. Developers can upload modified templates on
+'Github', and users can easily download templates with 'RStudio' project
+wizard. The key features of the default template include light and dark
+theme switcher, resizing graphs, synchronizing inputs across sessions, new
+notification system, fancy progress bars, and card-like flip panels with
+back sides, as well as various of 'HTML' tool widgets.
 
 %prep
 %setup -q -c -n %{packname}

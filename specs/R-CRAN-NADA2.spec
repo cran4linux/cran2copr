@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NADA2
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis for Censored Environmental Data
 
@@ -24,9 +24,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-perm 
 BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-cenGAM 
@@ -41,9 +39,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-perm 
 Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-cenGAM 

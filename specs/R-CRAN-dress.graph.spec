@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dress.graph
-%global packver   0.1.2
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diffusive Recursive Structural Similarity on Graphs
+Summary:          DRESS - A Continuous Framework for Structural Graph Refinement
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,10 +18,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Compute per-edge similarity values on graphs using the DRESS (Diffusive
-Recursive Structural Similarity) algorithm. Supports weighted/unweighted
-and directed/undirected graphs. Iterative fixed-point fitting converges to
-stable edge scores that capture neighbourhood overlap structure.
+DRESS is a deterministic, parameter-free framework that iteratively
+refines the structural similarity of edges in a graph to produce a
+canonical fingerprint: a real-valued edge vector, obtained by converging a
+non-linear dynamical system to its unique fixed point. The fingerprint is
+isomorphism-invariant by construction, guaranteed bitwise-equal across any
+vertex labeling, numerically stable (no overflow, no error amplification,
+no undefined behavior), fast and embarrassingly parallel to compute: DRESS
+total runtime is O(I * m * d_max) for I iterations to convergence, and
+convergence is guaranteed by Birkhoff contraction.
 
 %prep
 %setup -q -c -n %{packname}

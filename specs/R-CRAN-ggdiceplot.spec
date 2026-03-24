@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdiceplot
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dice Plot Visualization for 'ggplot2'
+Summary:          DicePlot Visualization for 'ggplot2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,15 +18,17 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-legendry 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-grid 
 Requires:         R-CRAN-dplyr 
+Requires:         R-grid 
 Requires:         R-CRAN-legendry 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides 'ggplot2' extensions for creating dice-based visualizations where

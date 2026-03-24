@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  alcoholSurv
-%global packver   0.7.0
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Light Daily Alcohol and Longevity
 
@@ -25,10 +25,11 @@ Requires:         R-CRAN-sensitivitymv
 %description
 Contains data from an observational study concerning possible effects of
 light daily alcohol consumption on survival and on HDL cholesterol.  It
-also replicates various simple analyses in Rosenbaum (2025a)
+also replicates various simple analyses in Rosenbaum (2025)
 <doi:10.1080/09332480.2025.2473291>.  Finally, it includes new R code in
 wgtRankCef() that implements and replicates a new method for constructing
-evidence factors in observational block designs.
+evidence factors in observational block designs in Rosenbaum (2026)
+<doi:10.1080/01621459.2026.2624858>).
 
 %prep
 %setup -q -c -n %{packname}

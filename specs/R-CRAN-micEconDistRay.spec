@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micEconDistRay
-%global packver   0.1-2
+%global packver   0.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Econometric Production Analysis with Ray-Based Distance Functions
 
@@ -25,9 +25,10 @@ Requires:         R-CRAN-sfaR >= 0.1.1
 %description
 Econometric analysis of multiple-input-multiple-output production
 technologies with ray-based input distance functions as suggested by Price
-and Henningsen (2022): "A Ray-Based Input Distance Function to Model
+and Henningsen (2023): "A Ray-Based Input Distance Function to Model
 Zero-Valued Output Quantities: Derivation and an Empirical Application",
-<https://ideas.repec.org/p/foi/wpaper/2022_03.html>.
+Journal of Productivity Analysis 60, p. 179-188,
+<doi:10.1007/s11123-023-00684-1>.
 
 %prep
 %setup -q -c -n %{packname}

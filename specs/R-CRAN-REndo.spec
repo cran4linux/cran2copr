@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REndo
-%global packver   2.4.10
+%global packver   2.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.10
+Version:          2.4.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Linear Models with Endogenous Regressors using Latent Instrumental Variables
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-lme4 >= 1.1.18.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.8
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-lmtest >= 0.9.35
+BuildRequires:    R-CRAN-reformulas >= 0.4.4
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-methods >= 3.4
 Requires:         R-stats >= 3.4
@@ -43,6 +44,7 @@ Requires:         R-CRAN-lme4 >= 1.1.18.1
 Requires:         R-CRAN-mvtnorm >= 1.0.8
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-lmtest >= 0.9.35
+Requires:         R-CRAN-reformulas >= 0.4.4
 
 %description
 Fits linear models with endogenous regressor using latent instrumental
