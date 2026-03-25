@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hoopR
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Men's Basketball Play by Play Data
 
@@ -15,47 +15,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Recommends:       pandoc
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
-BuildRequires:    R-CRAN-usethis >= 1.6.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-cli >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-progressr >= 0.6.0
-BuildRequires:    R-CRAN-httr >= 0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-RcppParallel >= 5.1.4
-Requires:         R-CRAN-usethis >= 1.6.0
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-cli >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-progressr >= 0.6.0
-Requires:         R-CRAN-httr >= 0.5
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 

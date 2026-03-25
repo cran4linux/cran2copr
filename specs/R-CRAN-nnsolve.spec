@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resourcer
-%global packver   1.5.1
+%global packname  nnsolve
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resource Resolver
+Summary:          Fast Non-Negative Least Squares
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.1.1
 
 %description
-A resource represents some data or a computation unit. It is described by
-a URL and credentials. This package proposes a Resource model with
-"resolver" and "client" classes to facilitate the access and the usage of
-the resources.
+Provides a fast algorithm for solving non-negative least squares problems.
+It implements the Fast Non-Negative Least Squares algorithm of Bro and de
+Jong (1997)
+<doi:10.1002/(SICI)1099-128X(199709/10)11:5%%3C393::AID-CEM483%%3E3.0.CO;2-L>.
 
 %prep
 %setup -q -c -n %{packname}

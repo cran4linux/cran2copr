@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resourcer
-%global packver   1.5.1
+%global packname  prettyPanelMatch
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resource Resolver
+Summary:          'ggplot2'-Based Visualization for 'PanelMatch' (Imai, Kim, Wang 2023) Results
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-A resource represents some data or a computation unit. It is described by
-a URL and credentials. This package proposes a Resource model with
-"resolver" and "client" classes to facilitate the access and the usage of
-the resources.
+Provides 'ggplot2'-based plotting functions for 'PanelMatch' (Imai, Kim,
+Wang (2023) <doi:10.1111/ajps.12685>) results. Tidy-and-plot function
+pairs for three 'PanelMatch' outputs: treatment effect estimates
+(PanelEstimate()), placebo test diagnostics (placebo_test()), and
+covariate balance checks (get_covariate_balance()). Supports multiple
+models, significance indicators, faceted balance grids, and full 'ggplot2'
+extensibility.
 
 %prep
 %setup -q -c -n %{packname}

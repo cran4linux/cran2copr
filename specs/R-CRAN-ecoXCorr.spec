@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastkmedoids
-%global packver   1.5
+%global packname  ecoXCorr
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Faster K-Medoids Clustering Algorithms: FastPAM, FastCLARA, FastCLARANS
+Summary:          Lagged Cross-Correlation Analysis of Environmental Time Series
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-performance 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-scales 
 
 %description
-R wrappers of C++ implementation of Faster K-Medoids clustering algorithms
-(FastPAM, FastCLARA and FastCLARANS) proposed in Erich Schubert, Peter J.
-Rousseeuw 2019 <doi:10.1007/978-3-030-32047-8_16>.
+Tools for analysing lagged relationships between environmental variables
+and ecological or epidemiological time series. The package implements a
+workflow to aggregate meteorological data over multiple lagged intervals,
+fit regression models, including mixed-effect models using 'glmmTMB', for
+each lag window, and visualise varied models outcomes (effect strength and
+direction, model prediction error...) using cross-correlation maps
+('CCM').
 
 %prep
 %setup -q -c -n %{packname}

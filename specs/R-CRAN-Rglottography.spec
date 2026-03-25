@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resourcer
-%global packver   1.5.1
+%global packname  Rglottography
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resource Resolver
+Summary:          Programmatic Access to Glottography Speaker Area Polygons
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
 
 %description
-A resource represents some data or a computation unit. It is described by
-a URL and credentials. This package proposes a Resource model with
-"resolver" and "client" classes to facilitate the access and the usage of
-the resources.
+Provides programmatic access to Glottography, an online repository of
+geospatial speaker-area polygons for the world's languages. The package
+allows users to list available datasets, download and install them, and
+load speaker-area polygons as standard spatial 'sf' objects in R. Data are
+sourced from either the Glottography organization on GitHub
+<https://github.com/Glottography> or the Glottography community on Zenodo
+<https://zenodo.org/communities/glottography>. Based on Ranacher et al.
+(2026) <doi:10.5334/johd.459>.
 
 %prep
 %setup -q -c -n %{packname}

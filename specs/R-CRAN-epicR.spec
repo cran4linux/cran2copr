@@ -1,46 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyaudit
-%global packver   0.2.0
+%global packname  epicR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pipeline Audit Trails and Data Diagnostics for 'tidyverse' Workflows
+Summary:          Evaluation Platform in Chronic Obstructive Pulmonary Disease
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 1.2.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides pipeline audit trails and data diagnostics for 'tidyverse'
-workflows. The audit trail system captures lightweight metadata snapshots
-at each step of a pipeline, building a structured record without storing
-the data itself. Operation-aware taps enrich snapshots with join match
-rates and filter drop statistics. Trails can be serialized to 'JSON' or
-'RDS' and exported as self-contained 'HTML' visualizations. Also includes
-diagnostic functions for interactive data analysis including frequency
-tables, string quality auditing, and data comparison.
+Evaluation Platform in Chronic Obstructive Pulmonary Disease (EPIC) is a
+Discrete Event Simulation (DES) model that simulates health outcomes of
+patients with Chronic Obstructive Pulmonary Disease (COPD) based on
+demographics and individual-level risk factors, based on the model
+published in Sadatsafavi et al. (2019) <doi:10.1177/0272989X18824098>.
 
 %prep
 %setup -q -c -n %{packname}

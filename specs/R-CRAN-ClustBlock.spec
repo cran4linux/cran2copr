@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClustBlock
-%global packver   4.1.1
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Datasets
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FactoMineR 
 Requires:         R-CRAN-FactoMineR 
@@ -32,10 +32,15 @@ Vigneau, Labenne & Qannari (2019) <doi:10.1016/j.foodqual.2018.09.006>,
 Llobell, Giacalone, Labenne & Qannari (2019)
 <doi:10.1016/j.foodqual.2019.05.017>) are the core of this package. The
 CATATIS methods allows to compute some indices and tests to control the
-quality of CATA data. Multivariate analysis and clustering of subjects for
-quantitative multiblock data, CATA, RATA, Free Sorting and JAR experiments
-are available. Clustering of rows in multi-block context (notably with
-ClusMB strategy) is also included.
+quality of CATA data (Llobell, Bonnet & Giacalone (2024)
+<doi:10.1111/joss.12941>) . Multivariate analysis and clustering of
+subjects for quantitative multiblock data, CATA, RATA, Free Sorting and
+JAR experiments are available. Clustering of observations (products in
+sensory analysis) in multi-block context (notably with ClusMB strategy) is
+also included (Llobell & Giacalone (2025)
+<doi:10.1111/joss.70024>).Performing clustering based on CATA and liking
+at the same time is possible thanks to cluscata_liking function (Llobell &
+Giacalone (2025) <doi:10.1016/j.foodqual.2021.104358>).
 
 %prep
 %setup -q -c -n %{packname}

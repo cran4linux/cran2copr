@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  StratifiedMedicine
-%global packver   1.0.5
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratified Medicine
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggparty 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-coin 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-ranger 
@@ -34,6 +36,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggparty 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-coin 
+Requires:         R-CRAN-rlang 
 
 %description
 A toolkit for stratified medicine, subgroup identification, and precision
@@ -44,8 +47,8 @@ subgroup identification models (find subsets of patients with similar
 treatment effects), and (4) treatment effect estimation and inference (for
 the overall population and discovered subgroups). These tools can be
 customized and are directly used in PRISM (patient response identifiers
-for stratified medicine; Jemielita and Mehrotra 2019 <arXiv:1912.03337>.
-This package is in beta and will be continually updated.
+for stratified medicine; Jemielita and Mehrotra 2019
+<doi:10.48550/arXiv.1912.03337>).
 
 %prep
 %setup -q -c -n %{packname}

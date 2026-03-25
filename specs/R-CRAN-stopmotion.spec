@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resourcer
-%global packver   1.5.1
+%global packname  stopmotion
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resource Resolver
+Summary:          Build Stop Motion Animations from Image Sequences
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-checkmate 
 
 %description
-A resource represents some data or a computation unit. It is described by
-a URL and credentials. This package proposes a Resource model with
-"resolver" and "client" classes to facilitate the access and the usage of
-the resources.
+A pipeline-friendly toolkit for assembling stop motion animations from
+sequences of still images. Provides functions to read image directories,
+restructure frame sequences (duplicate, splice, arrange), apply per-frame
+pixel transformations (rotate, wiggle, flip, flop, blur, scale, crop,
+trim, border, background), and export the result as a GIF. All
+transformation functions accept a 'frames' argument to target any subset
+of frames, bridging the gap between 'magick' functions that operate on an
+entire image stack and fine-grained stop motion editing. Image processing
+is performed via 'ImageMagick Studio LLC' (2024)
+<https://imagemagick.org>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resourcer
-%global packver   1.5.1
+%global packname  outrigger
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resource Resolver
+Summary:          Outrigger Regression
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-A resource represents some data or a computation unit. It is described by
-a URL and credentials. This package proposes a Resource model with
-"resolver" and "client" classes to facilitate the access and the usage of
-the resources.
+Performs outrigger local polynomial regression/ distributional adaptation,
+using a score-matching spline estimator of the conditional score function.
+Details of the method can be found in Young, Shah and Samworth (2026)
+<doi:10.48550/arXiv.2603.11282>.
 
 %prep
 %setup -q -c -n %{packname}

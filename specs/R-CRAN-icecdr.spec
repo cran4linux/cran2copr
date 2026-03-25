@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  icecdr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Sea Ice Concentration Data from the NSIDC Climate Data Record
 
@@ -32,8 +32,9 @@ Requires:         R-CRAN-rlang
 
 %description
 Programmatic access to NSIDC's sea ice concentration CDR versions 4 and 5
-via its ERDAPP server. Supports caching results and optional fixes for
-some inconsistencies of the raw files.
+<https://nsidc.org/data/g02135/versions/4> via its ERDAPP server and Sea
+Ice index <https://nsidc.org/data/g02135/versions/4>. Supports caching
+results and optional fixes for some inconsistencies of the raw files.
 
 %prep
 %setup -q -c -n %{packname}

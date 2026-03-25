@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TesiproV
-%global packver   0.9.2
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of Reliability and Failure Probability in Civil Engineering
+Summary:          Reliability Analysis Methods for Structural Engineering
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-edfun 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-nloptr 
 Requires:         R-methods 
-Requires:         R-CRAN-edfun 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-pracma 
 
 %description
 Calculate the failure probability of civil engineering problems with Level

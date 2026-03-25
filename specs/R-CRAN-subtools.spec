@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MSCA
-%global packver   1.2.1
+%global packname  subtools
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unsupervised Clustering of Multiple Censored Time-to-Event Endpoints
+Summary:          Read and Manipulate Video Subtitles
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RcppParallel >= 5.1.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-fastkmedoids 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-RcppParallel >= 5.1.10
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-fastkmedoids 
-Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-rlang 
 
 %description
-Provides basic tools and wrapper functions for computing clusters of
-instances described by multiple time-to-event censored endpoints. From
-long-format datasets, where one instance is described by one or more dated
-records, the main function, `make_state_matrices()`, creates state
-matrices. Based on these matrices, optimised procedures using the Jaccard
-distance between instances enable the construction of longitudinal
-typologies. The package is under active development, with additional tools
-for graphical representation of typologies planned. For methodological
-details, see our accompanying paper: `Delord M, Douiri A (2025)
-<doi:10.1186/s12874-025-02476-7>`.
+A collection of functions to read, write and manipulate video subtitles.
+Supported formats include 'srt', 'subrip', 'sub', 'subviewer', 'microdvd',
+'ssa', 'ass', 'substation', 'vtt', and 'webvtt'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resourcer
-%global packver   1.5.1
+%global packname  HeatmapR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resource Resolver
+Summary:          Create Heatmaps Using Base Graphics
 
-License:          LGPL (>= 2.1)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-tools 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-tools 
 
 %description
-A resource represents some data or a computation unit. It is described by
-a URL and credentials. This package proposes a Resource model with
-"resolver" and "client" classes to facilitate the access and the usage of
-the resources.
+Provides a lightweight framework for creating high quality, complex
+heatmaps using base graphics. Supports hierarchical clustering with
+dendrograms, column and row scaling, cluster sub-divisions, customizable
+cell colours, shapes and sizes, legends, and flexible layouts for
+arranging multiple heatmaps. Designed to return plot objects that can be
+easily arranged with other plots without sacrificing resolution. Methods
+for hierarchical clustering and distance computations are described in
+Murtagh and Contreras (2012) <doi:10.1002/wics.53>. Dendrogram
+visualisation methods are based on the 'ggdendro' package by de Vries and
+Ripley (2020) <https://CRAN.R-project.org/package=ggdendro>.
 
 %prep
 %setup -q -c -n %{packname}

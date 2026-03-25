@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  InteractionPoweR
-%global packver   0.2.2
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses for Interaction Effects in Cross-Sectional Regressions
 
@@ -51,10 +51,14 @@ ordinal variables. Power analyses can be done either analytically or via
 simulation.  Includes tools for simulating single data sets and
 visualizing power analysis results. The primary functions are
 power_interaction_r2() and power_interaction() for two-way interactions,
-and power_interaction_3way_r2() for three-way interactions. Please cite
-as: Baranger DAA, Finsaas MC, Goldstein BL, Vize CE, Lynam DR, Olino TM
-(2023). "Tutorial: Power analyses for interaction effects in
-cross-sectional regressions." <doi:10.1177/25152459231187531>.
+and power_interaction_3way_r2() for three-way interactions. The function
+run_pos_power_search() provides a stability analysis for two-way
+interactions. Please cite as: Baranger DAA, Finsaas MC, Goldstein BL, Vize
+CE, Lynam DR, Olino TM (2023). "Tutorial: Power analyses for interaction
+effects in cross-sectional regressions." <doi:10.1177/25152459231187531>.
+If you use the stability analyses, please cite: Castillo A, Miller JD,
+Vize C, Baranger DAA, Lynam DR. "When Do Interaction/Moderation Effects
+Stabilize in Linear Regression?"<doi:10.1177/25152459251407860>.
 
 %prep
 %setup -q -c -n %{packname}

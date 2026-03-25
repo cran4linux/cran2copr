@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPIV
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Residual Prediction Test for Well-Specification of Instrumental Variable Models
+Summary:          Residual Prediction Tests for Well-Specification of Instrumental Variable Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,12 +23,15 @@ Requires:         R-CRAN-ranger
 Requires:         R-stats 
 
 %description
-A test for the well-specification of the linear instrumental variable
-model. The test is based on trying to predict the residuals of a two-stage
-least-squares regression using a random forest. Details can be found in
-Scheidegger, Londschien and Bühlmann (2025) "A residual prediction test
-for the well-specification of linear instrumental variable models"
-<doi:10.48550/arXiv.2506.12771>.
+Two tests for the well-specification of the linear instrumental variable
+model. The first test is based on trying to predict the residuals of a
+two-stage least-squares regression using a random forest. The second test
+is robust to weak-identification and based on trying to predict the
+residuals for a particular candidate parameter and can also be used to
+construct confidence sets with an Anderson-Rubin-type inversion. Details
+can be found in Scheidegger, Londschien and Bühlmann (2025)
+"Machine-learning-powered specification testing in linear instrumental
+variable models" <doi:10.48550/arXiv.2506.12771>.
 
 %prep
 %setup -q -c -n %{packname}

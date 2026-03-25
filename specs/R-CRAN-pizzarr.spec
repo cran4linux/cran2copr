@@ -1,32 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resourcer
-%global packver   1.5.1
+%global packname  pizzarr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resource Resolver
+Summary:          Slice into 'Zarr' Arrays
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-qs2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-qs2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-memoise 
+Requires:         R-utils 
 
 %description
-A resource represents some data or a computation unit. It is described by
-a URL and credentials. This package proposes a Resource model with
-"resolver" and "client" classes to facilitate the access and the usage of
-the resources.
+An implementation of chunked, compressed, N-dimensional arrays for R
+following the 'Zarr' specification. Provides array and group creation,
+reading and writing with configurable chunk shapes, compression codecs,
+and storage backends including in-memory, local directory, and HTTP
+stores. Supports both 'Zarr' spec V2 (2024) <doi:10.5281/zenodo.11320255>
+and V3, enabling interoperable access to large array data commonly used in
+scientific computing and geospatial applications.
 
 %prep
 %setup -q -c -n %{packname}
