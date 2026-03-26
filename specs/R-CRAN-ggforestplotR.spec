@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayess
-%global packver   1.6
+%global packname  ggforestplotR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Essentials with R
+Summary:          Publication-Ready Forest Plots with 'ggplot2'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-CRAN-combinat 
-Requires:         R-stats 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-gplots 
-Requires:         R-CRAN-combinat 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
 
 %description
-Allows the reenactment of the R programs used in the book Bayesian
-Essentials with R without further programming. R code being available as
-well, they can be modified by the user to conduct one's own simulations.
-Marin J.-M. and Robert C. P. (2014) <doi:10.1007/978-1-4614-8687-9>.
+Transform model coefficients into flexible forest plots using 'ggplot2'.
+Provides helpers to standardize coefficient data from a range of modelling
+workflows and render publication-ready forest plots with a consistent
+interface.
 
 %prep
 %setup -q -c -n %{packname}

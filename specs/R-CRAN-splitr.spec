@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataMeta
-%global packver   0.1.1
+%global packname  splitr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create and Append a Data Dictionary for an R Dataset
+Summary:          Fast Utilities for Splitting Excel Sheets
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Designed to create a basic data dictionary and append to the original
-dataset's attributes list. The package makes use of a tidy dataset and
-creates a data frame that will serve as a linker that will aid in building
-the dictionary. The dictionary is then appended to the list of the
-original dataset's attributes. The user will have the option of entering
-variable and item descriptions by writing code or use alternate functions
-that will prompt the user to add these.
+Provides tools for splitting large Excel worksheets into multiple smaller
+sheets based on a specified number of rows per chunk. The package reads
+Excel files, partitions the data efficiently using the 'data.table'
+package, and writes the resulting subsets into a single workbook with
+multiple sheets using the 'openxlsx' package. This is useful for handling
+large datasets, preparing data for reporting, and exporting manageable
+Excel files for downstream analysis.
 
 %prep
 %setup -q -c -n %{packname}

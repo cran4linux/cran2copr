@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ag5Tools
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for Downloading and Extracting Copernicus AgERA5 Data
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-foreach
 Tools for downloading and extracting data from the Copernicus
 "Agrometeorological indicators from 1979 to present derived from
 reanalysis"
-<https://cds.climate.copernicus.eu/cdsapp#!/dataset/sis-agrometeorological-indicators?tab=overview>
+<https://cds.climate.copernicus.eu/datasets/sis-agrometeorological-indicators?tab=overview>
 (AgERA5).
 
 %prep

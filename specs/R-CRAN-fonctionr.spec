@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  soc.ca
-%global packver   0.8.1
+%global packname  fonctionr
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Specific Correspondence Analysis for the Social Sciences
+Summary:          Easy Estimation and Vizualisation of Indicators from Data with Complex Design
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,50 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggpp 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-srvyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ellipse 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggpp 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-srvyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Specific and class specific multiple correspondence analysis on
-survey-like data. Soc.ca is optimized to the needs of the social scientist
-and presents easily interpretable results in near publication ready
-quality.
+Many functions to easily vizualise and estimate indicators such as
+proportions, means, medians and continuous/discrete distributions from
+complex survey data. The package also estimates confidence intervals for
+all indicators, compares different groups and computes different
+statistical tests.
 
 %prep
 %setup -q -c -n %{packname}

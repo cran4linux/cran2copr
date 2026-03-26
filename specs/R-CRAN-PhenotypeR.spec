@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PhenotypeR
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assess Study Cohorts Using a Common Data Model
 
@@ -21,10 +21,10 @@ BuildRequires:    R-CRAN-CodelistGenerator >= 4.0.2
 BuildRequires:    R-CRAN-PatientProfiles >= 1.4.5
 BuildRequires:    R-CRAN-IncidencePrevalence >= 1.2.0
 BuildRequires:    R-CRAN-omopgenerics >= 1.2.0
-BuildRequires:    R-CRAN-CohortCharacteristics >= 1.1.0
+BuildRequires:    R-CRAN-CohortCharacteristics >= 1.1.2
 BuildRequires:    R-CRAN-DrugUtilisation >= 1.1.0
 BuildRequires:    R-CRAN-OmopSketch >= 1.0.1
-BuildRequires:    R-CRAN-CohortConstructor >= 0.5.0
+BuildRequires:    R-CRAN-CohortConstructor >= 0.6.2
 BuildRequires:    R-CRAN-MeasurementDiagnostics >= 0.3.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clock 
@@ -37,10 +37,10 @@ Requires:         R-CRAN-CodelistGenerator >= 4.0.2
 Requires:         R-CRAN-PatientProfiles >= 1.4.5
 Requires:         R-CRAN-IncidencePrevalence >= 1.2.0
 Requires:         R-CRAN-omopgenerics >= 1.2.0
-Requires:         R-CRAN-CohortCharacteristics >= 1.1.0
+Requires:         R-CRAN-CohortCharacteristics >= 1.1.2
 Requires:         R-CRAN-DrugUtilisation >= 1.1.0
 Requires:         R-CRAN-OmopSketch >= 1.0.1
-Requires:         R-CRAN-CohortConstructor >= 0.5.0
+Requires:         R-CRAN-CohortConstructor >= 0.6.2
 Requires:         R-CRAN-MeasurementDiagnostics >= 0.3.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clock 

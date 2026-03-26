@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Riemann
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learning with Data on Riemannian Manifolds
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-maotai >= 0.2.2
-BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RiemBase 
 BuildRequires:    R-CRAN-Rdimtools 
 BuildRequires:    R-CRAN-T4cluster 
+BuildRequires:    R-CRAN-T4transport 
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-Matrix 
@@ -31,11 +31,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-maotai >= 0.2.2
-Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-RiemBase 
 Requires:         R-CRAN-Rdimtools 
 Requires:         R-CRAN-T4cluster 
+Requires:         R-CRAN-T4transport 
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-Matrix 

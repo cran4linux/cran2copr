@@ -1,27 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ORIClust
-%global packver   1.0-2
+%global __requires_exclude ^libmpi
+%global packname  reproresearchR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Order-Restricted Information Criterion-Based Clustering Algorithm
+Summary:          Companion Package for 'Reproducible Research Using R'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-A user-friendly R-based software package for gene clustering. Clusters are
-given by genes matched to prespecified profiles across various ordered
-treatment groups. It is particularly useful for analyzing data obtained
-from short time-course or dose-response microarray experiments.
+Provides teaching datasets and helper functions to support the open
+educational resource Martinez (2026) "Reproducible Research Using R"
+<doi:10.5281/zenodo.19136755>. The package includes datasets used
+throughout the book and utilities to list and copy chapter scripts shipped
+with the package.
 
 %prep
 %setup -q -c -n %{packname}

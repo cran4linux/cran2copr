@@ -1,60 +1,73 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tuber
-%global packver   1.4.0
+%global packname  serocalculator
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the YouTube API
+Summary:          Estimating Infection Rates from Serological Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-askpass 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rngtools 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-askpass 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-and 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-labelled 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rngtools 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-and 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
+Requires:         R-parallel 
+Requires:         R-CRAN-labelled 
 
 %description
-Get comments posted on YouTube videos, information on how many times a
-video has been liked, search for videos with particular content, and much
-more. You can also scrape captions from a few videos. To learn more about
-the YouTube API, see <https://developers.google.com/youtube/v3/>.
+Translates antibody levels measured in cross-sectional population samples
+into estimates of the frequency with which seroconversions (infections)
+occur in the sampled populations. Replaces the previous `seroincidence`
+package.
 
 %prep
 %setup -q -c -n %{packname}

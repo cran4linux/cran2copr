@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pizzarr
-%global packver   0.1.1
+%global packname  CausalSpline
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Slice into 'Zarr' Arrays
+Summary:          Nonlinear Causal Dose-Response Estimation via Splines
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-qs2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-boot 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-splines 
 Requires:         R-stats 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-qs2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-memoise 
 Requires:         R-utils 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-boot 
 
 %description
-An implementation of chunked, compressed, N-dimensional arrays for R
-following the 'Zarr' specification. Provides array and group creation,
-reading and writing with configurable chunk shapes, compression codecs,
-and storage backends including in-memory, local directory, and HTTP
-stores. Supports both 'Zarr' spec V2 (2024) <doi:10.5281/zenodo.11320255>
-and V3, enabling interoperable access to large array data commonly used in
-scientific computing and geospatial applications.
+Estimates nonlinear causal dose-response functions for continuous
+treatments using spline-based methods under standard causal assumptions
+(unconfoundedness / ignorability). Implements three identification
+strategies: Inverse Probability Weighting (IPW) via the generalised
+propensity score (GPS), G-computation (outcome regression), and a
+doubly-robust combination. Natural cubic splines and B-splines are
+supported for both the exposure-response curve f(T) and the propensity
+nuisance model. Pointwise confidence bands are obtained via the sandwich
+estimator or nonparametric bootstrap. Also provides fragility diagnostics
+including pointwise curvature-based fragility, uncertainty-normalised
+fragility, and regional integration over user-defined treatment intervals.
+Builds on the framework of Hirano and Imbens (2004)
+<doi:10.1111/j.1468-0262.2004.00481.x> for continuous treatments and
+extends it to fully nonparametric spline estimation.
 
 %prep
 %setup -q -c -n %{packname}

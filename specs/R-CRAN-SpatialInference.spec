@@ -1,50 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viafr
-%global packver   0.3.2
+%global packname  SpatialInference
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'VIAF' ('Virtual International Authority File') API
+Summary:          Tools for Statistical Inference with Geo-Coded Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
 
 %description
-Provides direct access to linked names for the same entity across the
-world's major name authority files, including national and regional
-variations in language, character set, and spelling. For more information
-go to <https://viaf.org/>.
+Fast computation of Conley (1999) <doi:10.1016/S0304-4076(98)00084-0>
+spatial heteroskedasticity and autocorrelation consistent (HAC) standard
+errors for linear regression models with geo-coded data, with a fast C++
+implementation by Christensen, Hartman, and Samii (2021)
+<doi:10.1017/S0020818321000187>. Performance-critical distance
+calculations, kernel weighting, and variance component accumulation are
+implemented in C++ via 'Rcpp' and 'RcppArmadillo'. Includes tools for
+estimating the spatial correlation range from covariograms and
+correlograms following the bandwidth selection method proposed in Lehner
+(2026) <doi:10.48550/arXiv.2603.03997>, and diagnostic visualizations for
+bandwidth selection.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pchc
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Learning with the PCHC and Related Algorithms
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-dcov
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-robustbase 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-dcov
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
+Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-robustbase 
@@ -48,7 +50,9 @@ FEDTABU. The relevant papers are: a) Tsagris M. (2021). "A new scalable
 Bayesian network learning algorithm with applications to economics".
 Computational Economics, 57(1): 341-367. <doi:10.1007/s10614-020-10065-7>.
 b) Tsagris M. (2022). "The FEDHC Bayesian Network Learning Algorithm".
-Mathematics 2022, 10(15): 2604. <doi:10.3390/math10152604>.
+Mathematics 2022, 10(15): 2604. <doi:10.3390/math10152604>. c) Sevinc V.
+and Tsagris M. (2024). "On the Hyperparameters of PCTABU and PCHC Bayesian
+Network Learning Algorithms". <doi:10.21203/rs.3.rs-5137132/v1>.
 
 %prep
 %setup -q -c -n %{packname}

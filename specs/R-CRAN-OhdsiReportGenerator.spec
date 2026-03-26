@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OhdsiReportGenerator
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Observational Health Data Sciences and Informatics Report Generator
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-ParallelLogger
 BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-SqlRender 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-reactable >= 0.4.4
@@ -49,6 +50,7 @@ Requires:         R-CRAN-ParallelLogger
 Requires:         R-CRAN-quarto 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-SqlRender 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 

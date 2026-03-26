@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TwoTimeScales
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Event Data with Two Time Scales
 
@@ -40,13 +40,12 @@ Requires:         R-CRAN-viridis
 
 %description
 Analyse time to event data with two time scales by estimating a smooth
-hazard that varies over two time scales and also, if covariates are
-available, to estimate a proportional hazards model with such a
-two-dimensional baseline hazard. Functions are provided to prepare the raw
-data for estimation, to estimate and to plot the two-dimensional smooth
-hazard. Extension to a competing risks model are implemented. For details
-about the method please refer to Carollo et al. (2024)
-<doi:10.1002/sim.10297>.
+hazard that varies over two time scales. If covariates are available,
+estimate a proportional hazards model with such a two-dimensional baseline
+hazard. Functions are provided to prepare the raw data for estimation, to
+fit the model and to plot the two-dimensional smooth hazard. Extension to
+a competing risks model are implemented. For details about the method
+please refer to Carollo et al. (2025) <doi:10.1002/sim.10297>.
 
 %prep
 %setup -q -c -n %{packname}

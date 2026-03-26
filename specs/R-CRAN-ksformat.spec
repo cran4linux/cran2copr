@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wordpredictor
-%global packver   0.0.5
+%global packname  ksformat
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Develop Text Prediction Models Based on N-Grams
+Summary:          'SAS'-Style 'PROC FORMAT' for R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-SnowballC 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli 
 
 %description
-A framework for developing n-gram models for text prediction. It provides
-data cleaning, data sampling, extracting tokens from text, model
-generation, model evaluation and word prediction. For information on how
-n-gram models work we referred to: "Speech and Language Processing"
-<https://web.archive.org/web/20240919222934/https%%3A%%2F%%2Fweb.stanford.edu%%2F~jurafsky%%2Fslp3%%2F3.pdf>.
-For optimizing R code and using R6 classes we referred to "Advanced R"
-<https://adv-r.hadley.nz/r6.html>. For writing R extensions we referred to
-"R Packages", <https://r-pkgs.org/index.html>.
+Provides 'SAS' 'PROC FORMAT'-like functionality for creating and applying
+value formats in R. Supports mapping values to labels, range-based
+formatting, reverse formatting (invalue), and proper handling of missing
+values (NA, NULL, NaN).
 
 %prep
 %setup -q -c -n %{packname}

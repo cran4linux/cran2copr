@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bigPCAcpp
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Principal Component Analysis for 'bigmemory' Matrices
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-withr
 
 %description
 High performance principal component analysis routines that operate
-directly on 'bigmemory::big.matrix' objects. The package avoids
+directly on bigmemory::big.matrix() objects. The package avoids
 materialising large matrices in memory by streaming data through 'BLAS'
 and 'LAPACK' kernels and provides helpers to derive scores, loadings,
 correlations, and contribution diagnostics, including utilities that

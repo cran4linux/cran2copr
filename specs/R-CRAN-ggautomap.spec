@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggautomap
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Maps from a Column of Place Names
 
@@ -17,25 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0
-BuildRequires:    R-CRAN-vctrs >= 0.4.0
+BuildRequires:    R-CRAN-ggmapinset >= 0.5.0
 BuildRequires:    R-CRAN-packcircles >= 0.3.4
-BuildRequires:    R-CRAN-ggmapinset >= 0.3
 BuildRequires:    R-CRAN-cartographer >= 0.2
-Requires:         R-CRAN-ggplot2 >= 3.4.2
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0
-Requires:         R-CRAN-vctrs >= 0.4.0
+Requires:         R-CRAN-ggmapinset >= 0.5.0
 Requires:         R-CRAN-packcircles >= 0.3.4
-Requires:         R-CRAN-ggmapinset >= 0.3
 Requires:         R-CRAN-cartographer >= 0.2
 
 %description

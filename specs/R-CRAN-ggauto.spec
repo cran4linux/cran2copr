@@ -1,59 +1,55 @@
 %global __brp_check_rpaths %{nil}
-%global packname  safetyCharts
-%global packver   0.3.0
+%global __requires_exclude ^libmpi
+%global packname  ggauto
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Charts for Monitoring Clinical Trial Safety
+Summary:          Automatically Create and Style 'ggplot2' Charts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-gghighlight 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-huxtable 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pharmaRTF 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-khroma 
+BuildRequires:    R-CRAN-lemon 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-Tendril 
-BuildRequires:    R-CRAN-Tplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-gghighlight 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-huxtable 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pharmaRTF 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-khroma 
+Requires:         R-CRAN-lemon 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-Tendril 
-Requires:         R-CRAN-Tplyr 
 
 %description
-Contains chart code for monitoring clinical trial safety. Charts can be
-used as standalone output, but are also designed for use with the
-'safetyGraphics' package, which makes it easy to load data and customize
-the charts using an interactive web-based interface created with Shiny.
+Automatically choose an appropriate chart type based on the types and
+values in the data. Apply more accessible default styling and colours to
+'ggplot2' charts.
 
 %prep
 %setup -q -c -n %{packname}

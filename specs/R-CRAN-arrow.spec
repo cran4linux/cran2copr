@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arrow
-%global packver   23.0.1.1
+%global packver   23.0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.0.1.1
+Version:          23.0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration to 'Apache' 'Arrow'
 
@@ -15,6 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libarrow-dataset-devel
+BuildRequires:    libcurl-devel
+BuildRequires:    openssl-devel
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-rlang >= 1.0.0

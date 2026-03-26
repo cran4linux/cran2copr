@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalraster
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to 'GDAL'
 
@@ -14,10 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gdal-devel
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
@@ -31,6 +33,7 @@ BuildRequires:    R-CRAN-yyjsonr
 BuildRequires:    R-CRAN-RcppInt64 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-cli 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 

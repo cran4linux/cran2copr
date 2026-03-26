@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  validmind
-%global packver   0.1.2
+%global packver   2.12.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          2.12.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'ValidMind' Platform
 
@@ -36,8 +36,8 @@ Requires:         R-CRAN-base64enc
 
 %description
 Deploy, execute, and analyze the results of models hosted on the
-'ValidMind' platform <https://validmind.com>. This package interfaces with
-the 'Python' client library in order to allow advanced diagnostics and
+'ValidMind' Platform <https://validmind.ai>. This package interfaces with
+the 'Python' Library API in order to allow advanced diagnostics and
 insight into trained models all from an 'R' environment.
 
 %prep
