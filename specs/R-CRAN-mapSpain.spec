@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapSpain
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Administrative Boundaries of Spain
 
@@ -18,24 +18,32 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-leaflet >= 2.0.0
 BuildRequires:    R-CRAN-countrycode >= 1.2.0
+BuildRequires:    R-CRAN-httr2 >= 1.2.0
+BuildRequires:    R-CRAN-terra >= 1.1.4
 BuildRequires:    R-CRAN-giscoR >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-leaflet >= 2.0.0
 Requires:         R-CRAN-countrycode >= 1.2.0
+Requires:         R-CRAN-httr2 >= 1.2.0
+Requires:         R-CRAN-terra >= 1.1.4
 Requires:         R-CRAN-giscoR >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description

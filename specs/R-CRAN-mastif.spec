@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mastif
-%global packver   2.3
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mast Inference and Forecasting
 
@@ -25,6 +25,9 @@ BuildRequires:    R-CRAN-repmis
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-fullRankMatrix 
+BuildRequires:    R-CRAN-TruncatedNormal 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.11.5
 Requires:         R-CRAN-RANN 
@@ -35,6 +38,9 @@ Requires:         R-CRAN-repmis
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-fullRankMatrix 
+Requires:         R-CRAN-TruncatedNormal 
+Requires:         R-CRAN-tibble 
 
 %description
 Analyzes production and dispersal of seeds dispersed from trees and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPARTAAS
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Pattern Recognition and daTing using Archaeological Artefacts assemblageS
 
@@ -32,14 +32,12 @@ BuildRequires:    R-CRAN-shinyjqui
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-ggdendro 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-explor 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-scatterD3 
 BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-leaflet 
@@ -51,6 +49,7 @@ BuildRequires:    R-CRAN-nor1mix
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-fastcluster 
+BuildRequires:    R-CRAN-nloptr 
 Requires:         R-CRAN-FactoMineR 
 Requires:         R-grDevices 
 Requires:         R-CRAN-dplyr 
@@ -66,14 +65,12 @@ Requires:         R-CRAN-shinyjqui
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-ggdendro 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-explor 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-scatterD3 
 Requires:         R-CRAN-ks 
-Requires:         R-CRAN-foreign 
 Requires:         R-grid 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-leaflet 
@@ -85,6 +82,7 @@ Requires:         R-CRAN-nor1mix
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-fastcluster 
+Requires:         R-CRAN-nloptr 
 
 %description
 Statistical pattern recognition and dating using archaeological artefacts

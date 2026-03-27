@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lookout
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Leave One Out Kernel Density Estimates for Outlier Detection
 
@@ -19,17 +19,17 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mlpack 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TDAstats 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mlpack 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
-Requires:         R-CRAN-TDAstats 
 Requires:         R-CRAN-tidyr 
 
 %description

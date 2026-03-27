@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PwePred
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event/Timeline Prediction Model Based on Piecewise Exponential
 
@@ -18,24 +18,24 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-fastmatch 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-parallel 

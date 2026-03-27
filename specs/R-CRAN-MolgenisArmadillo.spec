@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MolgenisArmadillo
-%global packver   2.9.3
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.3
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Armadillo Client for the Armadillo Service
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-rlist
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-MolgenisAuth >= 0.0.25
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-httr 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-rlist
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
 
 %description
 A set of functions to manage data shared on a 'MOLGENIS Armadillo' server.

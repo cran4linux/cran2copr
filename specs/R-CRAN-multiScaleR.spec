@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiScaleR
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Optimizing Scales of Effect
 
@@ -63,7 +63,7 @@ distribution is identified for all environmental layers included in the
 model. Includes functions to assist in model selection, model evaluation,
 efficient transformation of raster surfaces using fast Fourier
 transformation, and projecting models. For more details see Peterman
-(2025) <doi:10.21203/rs.3.rs-7246115/v1>.
+(2026) <doi:10.1007/s10980-025-02267-x>.
 
 %prep
 %setup -q -c -n %{packname}

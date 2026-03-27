@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TFORGE
-%global packver   0.1.16
+%global packver   0.1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.16
+Version:          0.1.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests for Geophysical Eigenvalues
 
@@ -34,10 +34,9 @@ constraints common to geophysical tensors (constant trace, sum of squared
 eigenvalues, or both) and eigenvectors are usually considered nuisance
 parameters. Pivotal bootstrap methods enable these tests to have good
 performance for small samples (n=15 for 3x3 matrices). These methods were
-developed and studied by Hingee, Scealy and Wood (2026, "Nonparametric
-bootstrap inference for the eigenvalues of geophysical tensors", accepted
-by the Journal of American Statistical Association). Also available is a
-2-sample test using a Gaussian orthogonal ensemble approximation and an
+developed and studied by Hingee, Scealy and Wood (2026,
+<doi:10.1080/01621459.2025.2606381>). Also available is a 2-sample test
+using a Gaussian orthogonal ensemble approximation and an
 eigenvalue-multiplicity test that assumes orthogonally-invariant
 covariance.
 

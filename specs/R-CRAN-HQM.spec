@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HQM
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Superefficient Estimation of Future Conditional Hazards Based on Marker Information
 
@@ -21,14 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-pec 
-BuildRequires:    R-CRAN-timeROC 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-JM 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-pec 
-Requires:         R-CRAN-timeROC 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-JM 
 
