@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  APCalign
-%global packver   2.0.0
+%global packname  CEOdata
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Resolving Plant Taxon Names Using the Australian Plant Census
+Summary:          Datasets of the CEO (Centre d'Estudis d'Opinio) for Opinion Polls in Catalonia
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lubridate 
 
 %description
-The process of resolving and updating taxon names is necessary when
-working with biodiversity data. 'APCalign' uses the Australian Plant
-Census (APC) and the Australian Plant Name Index (APNI) to align and
-update plant taxon names to current, accepted standards. 'APCalign' also
-supplies information about the establishment status (i.e. native or
-introduced) of plant taxa across different states/territories.
+Easy and convenient access to the datasets of the "Centre d'Estudis
+d'Opinio", the Catalan institution for polling and public opinion. The
+package retrieves microdata directly from the open data platform of the
+Generalitat de Catalunya and returns it in a tidy format.
 
 %prep
 %setup -q -c -n %{packname}

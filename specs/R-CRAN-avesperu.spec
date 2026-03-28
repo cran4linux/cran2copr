@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  avesperu
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to the List of Bird Species of Peru
 
@@ -24,7 +24,7 @@ Requires:         R-parallel
 
 %description
 Provides access to the species checklist published in 'List of the Birds
-of Peru' by Plenge, M. A. and Angulo, F. (version 29-12-2025)
+of Peru' by Plenge, M. A. and Angulo, F. (version 23-03-2026)
 <https://sites.google.com/site/boletinunop/checklist>. The package exposes
 the current Peru bird checklist as an R dataset and includes tools for
 species lookup, taxonomic reconciliation, and fuzzy matching of scientific

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CalibrationCurves
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration Performance
 
@@ -26,9 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-timeROC 
+BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-riskRegression 
 BuildRequires:    R-CRAN-meta 
 BuildRequires:    R-CRAN-metafor 
@@ -46,9 +44,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-timeROC 
+Requires:         R-CRAN-pec 
 Requires:         R-CRAN-riskRegression 
 Requires:         R-CRAN-meta 
 Requires:         R-CRAN-metafor 

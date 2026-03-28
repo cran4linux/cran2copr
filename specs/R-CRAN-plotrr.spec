@@ -1,48 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesQRsurvey
-%global packver   0.2.0
+%global packname  plotrr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantile Regression Models for Complex Survey Data Analysis
+Summary:          Making Visual Exploratory Data Analysis with Nested Data Easier
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-posterior 
 
 %description
-Provides Bayesian quantile regression models for complex survey data under
-informative sampling using survey-weighted estimators. Both single- and
-multiple-output models are supported. To accelerate computation, all
-algorithms are implemented in 'C++' using 'Rcpp', 'RcppArmadillo', and
-'RcppEigen', and are called from 'R'. See Nascimento and Gonçalves (2024)
-<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2025, in press)
-<https://academic.oup.com/jssam>.
+Provides tools for visual exploratory data analysis with nested data.
+Includes functions for creating bivariate plots, dot plots, histograms,
+and violin plots for each group or unit in nested data. Methods are
+described in Crabtree and Nelson (2017) "Plotrr: Functions for making
+visual exploratory data analysis with nested data easier"
+<doi:10.21105/joss.00190>.
 
 %prep
 %setup -q -c -n %{packname}

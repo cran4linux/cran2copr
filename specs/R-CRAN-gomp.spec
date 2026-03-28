@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gomp
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The gamma-OMP Feature Selection Algorithm
 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-ordinal 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-doParallel 
@@ -37,8 +37,8 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-ordinal 
 Requires:         R-parallel 
 Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
 

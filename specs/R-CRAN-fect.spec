@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fect
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fixed Effects Counterfactual Estimators
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-doParallel >= 1.0.10
 BuildRequires:    R-CRAN-GGally >= 1.0.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-codetools 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-foreach >= 1.4.3
@@ -44,6 +46,7 @@ Requires:         R-CRAN-doParallel >= 1.0.10
 Requires:         R-CRAN-GGally >= 1.0.1
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-codetools 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
@@ -57,6 +60,7 @@ Requires:         R-CRAN-future.apply
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
+Requires:         R-splines 
 
 %description
 Provides tools for estimating causal effects in panel data using

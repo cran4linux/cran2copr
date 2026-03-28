@@ -1,48 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesQRsurvey
-%global packver   0.2.0
+%global packname  letsR
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantile Regression Models for Complex Survey Data Analysis
+Summary:          Data Handling and Analysis in Macroecology
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-posterior 
+Requires:         R-stats 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-sf 
 
 %description
-Provides Bayesian quantile regression models for complex survey data under
-informative sampling using survey-weighted estimators. Both single- and
-multiple-output models are supported. To accelerate computation, all
-algorithms are implemented in 'C++' using 'Rcpp', 'RcppArmadillo', and
-'RcppEigen', and are called from 'R'. See Nascimento and Gonçalves (2024)
-<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2025, in press)
-<https://academic.oup.com/jssam>.
+Handling, processing, and analyzing geographic data on species'
+distributions and environmental variables. Read Vilela & Villalobos (2015)
+<doi:10.1111/2041-210X.12401> for details.
 
 %prep
 %setup -q -c -n %{packname}

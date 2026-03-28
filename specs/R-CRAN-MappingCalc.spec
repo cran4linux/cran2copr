@@ -1,48 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesQRsurvey
-%global packver   0.2.0
+%global packname  MappingCalc
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantile Regression Models for Complex Survey Data Analysis
+Summary:          Mapping Calculator for EQ-5D Utility Scores
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides Bayesian quantile regression models for complex survey data under
-informative sampling using survey-weighted estimators. Both single- and
-multiple-output models are supported. To accelerate computation, all
-algorithms are implemented in 'C++' using 'Rcpp', 'RcppArmadillo', and
-'RcppEigen', and are called from 'R'. See Nascimento and Gonçalves (2024)
-<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2025, in press)
-<https://academic.oup.com/jssam>.
+Provides a 'shiny' web application to map scores from clinical instruments
+(PANSS, SQLS, WHODAS 2.0, PHQ-8, EQ-5D-5L) to preference-based EQ-5D-5L
+health utility values using validated regression-based and beta-mixture
+mapping algorithms developed from Singapore population studies. Intended
+for use in health economic evaluations and cost-utility analyses. Methods
+are based on: Abdin et al. (2019) <doi:10.1007/s11136-018-2037-7>, Seow et
+al. (2023) <doi:10.1080/14737167.2023.2215430>, Abdin et al. (2021)
+<doi:10.1186/s12888-021-03463-0>, Abdin et al. (2024)
+<doi:10.1080/14737167.2024.2376100>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PNAR
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Poisson Network Autoregressive Models
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-nloptr 
 Requires:         R-parallel 
+Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
@@ -45,7 +47,7 @@ network autoregression". Annals of Statistics, 51(6): 2526--2552.
 <doi:10.1214/23-AOS2345>. Armillotta, M. and K. Fokianos (2024). "Count
 network autoregression". Journal of Time Series Analysis, 45(4): 584--612.
 <doi:10.1111/jtsa.12728>. Armillotta, M., Tsagris, M. and Fokianos, K.
-(2024). "Inference for Network Count Time Series with the R Package PNAR".
+(2023). "Inference for Network Count Time Series with the R Package PNAR".
 The R Journal, 15/4: 255--269. <doi:10.32614/RJ-2023-094>.
 
 %prep

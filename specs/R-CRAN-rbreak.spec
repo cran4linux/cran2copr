@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesQRsurvey
-%global packver   0.2.0
+%global packname  rbreak
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantile Regression Models for Complex Survey Data Analysis
+Summary:          Restricted Structural Change Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-posterior 
 
 %description
-Provides Bayesian quantile regression models for complex survey data under
-informative sampling using survey-weighted estimators. Both single- and
-multiple-output models are supported. To accelerate computation, all
-algorithms are implemented in 'C++' using 'Rcpp', 'RcppArmadillo', and
-'RcppEigen', and are called from 'R'. See Nascimento and Gonçalves (2024)
-<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2025, in press)
-<https://academic.oup.com/jssam>.
+Methods for detecting structural breaks and estimating break locations for
+linear multiple regression models under general linear restrictions on the
+coefficient vector. Restrictions can be within regimes, across regimes, or
+both, and are supported in two forms: an affine parameterization (Form A:
+delta = S*theta + s) and explicit linear constraints (Form B: R*delta =
+r). Provides break date estimation with confidence intervals, a restricted
+sup-F test for the null of no structural change, simulation of critical
+values by Monte Carlo, and a bootstrap restart procedure to reduce the
+risk of convergence to spurious local optima. Also implements a
+generalized regression tree (linear model tree) procedure where each leaf
+contains a linear regression model rather than a local average. Reference:
+Perron, P., and Qu, Z. (2006). 'Estimating Restricted Structural Change
+Models.' Journal of Econometrics, 134(2), 373-399.
+<doi:10.1016/j.jeconom.2005.06.030>.
 
 %prep
 %setup -q -c -n %{packname}

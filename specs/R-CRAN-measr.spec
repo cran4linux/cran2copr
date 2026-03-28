@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  measr
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Psychometric Measurement Using 'Stan'
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-rdcmchecks >= 0.1.1
 BuildRequires:    R-CRAN-dcmstan >= 0.1.0
 BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-cli 
@@ -38,7 +39,6 @@ BuildRequires:    R-CRAN-loo
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-rdcmchecks 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -50,6 +50,7 @@ Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-rdcmchecks >= 0.1.1
 Requires:         R-CRAN-dcmstan >= 0.1.0
 Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-cli 
@@ -62,7 +63,6 @@ Requires:         R-CRAN-loo
 Requires:         R-methods 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-rdcmchecks 
 Requires:         R-CRAN-S7 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 

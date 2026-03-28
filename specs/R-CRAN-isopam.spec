@@ -1,48 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesQRsurvey
-%global packver   0.2.0
+%global packname  isopam
+%global packver   3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantile Regression Models for Complex Survey Data Analysis
+Summary:          Clustering of Sites with Species Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-fastkmedoids 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-ps 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-fastkmedoids 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 Requires:         R-methods 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-ps 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides Bayesian quantile regression models for complex survey data under
-informative sampling using survey-weighted estimators. Both single- and
-multiple-output models are supported. To accelerate computation, all
-algorithms are implemented in 'C++' using 'Rcpp', 'RcppArmadillo', and
-'RcppEigen', and are called from 'R'. See Nascimento and Gonçalves (2024)
-<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2025, in press)
-<https://academic.oup.com/jssam>.
+Clustering algorithm developed for use with plot inventories of species.
+It groups plots by subsets of diagnostic species rather than overall
+species composition. There is an unsupervised and a supervised mode, the
+latter accepting suggestions for species with greater weight and cluster
+medoids.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  params
-%global packver   0.7.7
+%global packname  condvis
+%global packver   0.5-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify Parameters
+Summary:          Conditional Visualization for Statistical Models
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 2.1.0
+Requires:         R-core >= 2.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 1.4.0
-BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppTOML 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-readr >= 1.4.0
-Requires:         R-CRAN-whisker 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-RcppTOML 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-MASS 
 
 %description
-An interface to simplify organizing parameters used in a package, using
-external configuration files. This attempts to provide a cleaner
-alternative to options().
+Exploring fitted models by interactively taking 2-D and 3-D sections in
+data space.
 
 %prep
 %setup -q -c -n %{packname}

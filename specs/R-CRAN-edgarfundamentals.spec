@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  edgarfundamentals
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Fundamental Financial Data from SEC 'EDGAR'
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-httr >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-tidyquant >= 1.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-tidyquant >= 1.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
 
 %description

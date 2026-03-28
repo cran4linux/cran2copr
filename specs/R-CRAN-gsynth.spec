@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gsynth
-%global packver   1.3.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Synthetic Control Method
 
@@ -31,7 +31,7 @@ based on a linear interactive fixed effects model that incorporates
 unit-specific intercepts interacted with time-varying coefficients. This
 method generalizes the synthetic control method to the case of multiple
 treated units and variable treatment periods, and improves efficiency and
-interpretability.
+interpretability. See Xu (2017) <doi:10.1017/pan.2016.2> for details.
 
 %prep
 %setup -q -c -n %{packname}

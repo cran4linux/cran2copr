@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LocaTT
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically-Conscious Taxonomic Assignment for Metabarcoding
 
@@ -19,15 +19,17 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
 Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
 A bioinformatics pipeline for performing taxonomic assignment of DNA
 metabarcoding sequence data while considering geographic location. A
 detailed tutorial is available at
-<https://urodelan.github.io/Local_Taxa_Tool_Tutorial/>. A manuscript
-describing these methods is in preparation.
+<https://urodelan.github.io/LocaTT_Tutorial/>. A manuscript describing
+these methods is in preparation.
 
 %prep
 %setup -q -c -n %{packname}

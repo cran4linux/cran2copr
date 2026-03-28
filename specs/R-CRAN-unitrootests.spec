@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesQRsurvey
-%global packver   0.2.0
+%global packname  unitrootests
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantile Regression Models for Complex Survey Data Analysis
+Summary:          Comprehensive Unit Root and Stationarity Tests
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-urca 
+BuildRequires:    R-CRAN-strucchange 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-urca 
+Requires:         R-CRAN-strucchange 
 
 %description
-Provides Bayesian quantile regression models for complex survey data under
-informative sampling using survey-weighted estimators. Both single- and
-multiple-output models are supported. To accelerate computation, all
-algorithms are implemented in 'C++' using 'Rcpp', 'RcppArmadillo', and
-'RcppEigen', and are called from 'R'. See Nascimento and Gonçalves (2024)
-<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2025, in press)
-<https://academic.oup.com/jssam>.
+A unified framework for unit root and stationarity testing including
+quantile ADF tests (Koenker and Xiao, 2004)
+<doi:10.1198/016214504000001114>, GARCH-based unit root tests with
+endogenous structural breaks (Narayan and Liu, 2015)
+<doi:10.1016/j.eneco.2014.11.021>, and comprehensive Dickey-Fuller,
+Phillips-Perron, KPSS, ERS/DF-GLS, Zivot-Andrews, and Kobayashi-McAleer
+tests with an Elder-Kennedy decision strategy (Elder and Kennedy, 2001)
+<doi:10.1080/00220480109595179>.
 
 %prep
 %setup -q -c -n %{packname}
