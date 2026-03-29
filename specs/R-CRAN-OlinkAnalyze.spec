@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OlinkAnalyze
-%global packver   4.5.0
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.0
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Analysis of Proteomic Data from Olink
 
@@ -18,55 +18,31 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.2
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-arrow >= 14.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstatix 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.2
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-arrow >= 14.0.0
+Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggrepel 
 Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstatix 
-Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
 A collection of functions to facilitate analysis of proteomic data from

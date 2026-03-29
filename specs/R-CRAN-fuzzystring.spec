@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fuzzystring
-%global packver   0.0.1
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fuzzy String Joins for Data Frames
 
@@ -25,14 +25,15 @@ Requires:         R-CRAN-stringdist
 
 %description
 Perform fuzzy joins on data frames using approximate string matching.
-Implements all standard join types (inner, left, right, full, semi, anti)
-with support for multiple string distance metrics from the 'stringdist'
-package including Levenshtein, Damerau-Levenshtein, Jaro-Winkler, and
-Soundex. Features a high-performance 'data.table' backend with 'C++' row
-binding for efficient processing of large datasets. Ideal for matching
-misspellings, inconsistent labels, messy user input, or reconciling
-datasets with slight variations in identifiers. Optionally returns
-distance metrics alongside matched records.
+Implements inner, left, right, full, semi, and anti joins with string
+distance metrics from the 'stringdist' package, including Optimal String
+Alignment, Levenshtein, Damerau-Levenshtein, Jaro-Winkler, q-gram, cosine,
+Jaccard, and Soundex. Uses a 'data.table' backend plus compiled 'C++'
+result assembly to reduce overhead in large joins, while adaptive
+candidate planning avoids unnecessary distance evaluations in
+single-column string joins. Suitable for reconciling misspellings,
+inconsistent labels, and other near-match identifiers while optionally
+returning the computed distance for each match.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plsRglm
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Least Squares Regression for Generalized Linear Models
 
@@ -16,17 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-bipartite 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-bipartite 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Provides (weighted) Partial least squares Regression for generalized

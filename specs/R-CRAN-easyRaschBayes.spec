@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyRaschBayes
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Rasch Analysis Using 'brms'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-brms >= 2.20.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
@@ -25,6 +26,8 @@ BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-ggdist 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-brms >= 2.20.0
 Requires:         R-CRAN-tidyr >= 1.3.0
@@ -33,6 +36,7 @@ Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-ggdist 
 Requires:         R-stats 
 Requires:         R-grDevices 
+Requires:         R-CRAN-forcats 
 
 %description
 Reproduces classic Rasch psychometric analysis features using Bayesian

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompositionalSR
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Models with Compositional Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-gslnls 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
@@ -35,14 +36,16 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-gslnls 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-parallel 
+Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Spatial regression models with compositional responses using the
-alpha--transformation. Relevant papers include: Tsagris M. (2025),
+Spatial and non-spatial regression models with compositional responses
+(and compositional predictors) using the alpha--transformation. Relevant
+papers include: Tsagris M. and Pantazis Y. (2026),
 <doi:10.48550/arXiv.2510.12663>, Tsagris M. (2015),
 <https://soche.cl/chjs/volumes/06/02/Tsagris(2015).pdf>, Tsagris M.T.,
 Preston S. and Wood A.T.A. (2011), <doi:10.48550/arXiv.1106.1451>.

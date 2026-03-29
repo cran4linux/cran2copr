@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastJM
-%global packver   1.5.3
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
 
@@ -23,10 +23,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-timeROC 
+BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -37,27 +38,31 @@ Requires:         R-utils
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-timeROC 
+Requires:         R-CRAN-pec 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 
 %description
-A joint model for large-scale, competing risks time-to-event data with
-singular or multiple longitudinal biomarkers, implemented with the
-efficient algorithms developed by Li and colleagues (2022)
+Implements scalable joint models for large-scale competing risks
+time-to-event data with one or multiple longitudinal biomarkers using the
+efficient algorithms developed by Li et al. (2022)
 <doi:10.1155/2022/1362913> and <doi:10.48550/arXiv.2506.12741>. The
-time-to-event data is modelled using a (cause-specific) Cox proportional
-hazards regression model with time-fixed covariates. The longitudinal
-biomarkers are modelled using a linear mixed effects model. The
-association between the longitudinal submodel and the survival submodel is
-captured through shared random effects. It allows researchers to analyze
-large-scale data to model biomarker trajectories, estimate their effects
-on event outcomes, and dynamically predict future events from patients’
-past histories. A function for simulating survival and longitudinal data
-for multiple biomarkers is also included alongside built-in datasets.
+time-to-event process is modeled using a cause-specific Cox proportional
+hazards model with time-fixed covariates, while longitudinal biomarkers
+are modeled using linear mixed-effects models. The association between the
+longitudinal and survival processes is captured through shared random
+effects. The package enables analysis of large-scale biomedical data to
+model biomarker trajectories, estimate their effects on event risks, and
+perform dynamic prediction of future events based on patients'
+longitudinal histories. Functions for simulating survival and longitudinal
+data for multiple biomarkers are included, along with built-in example
+datasets. The package also supports modeling a single biomarker with
+heterogeneous within-subject variability via functionality adapted from
+the 'JMH' package.
 
 %prep
 %setup -q -c -n %{packname}

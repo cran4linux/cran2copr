@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NPBayesImputeCat
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Bayesian Multiple Imputation for Categorical Data
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reshape2 
@@ -24,7 +23,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-coda 
-Requires:         R-CRAN-Rcpp >= 0.10.2
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-reshape2 
@@ -32,6 +31,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-Rcpp 
 
 %description
 These routines create multiple imputations of missing at random

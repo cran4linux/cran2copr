@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ksformat
-%global packver   0.3.5
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SAS'-Style 'PROC FORMAT' for R
 
@@ -22,9 +22,11 @@ Requires:         R-CRAN-cli
 
 %description
 Provides 'SAS' 'PROC FORMAT'-like functionality for creating and applying
-value formats in R. Supports mapping values to labels, range-based
-formatting, reverse formatting (invalue), and proper handling of missing
-values (NA, NULL, NaN).
+value formats in R. Supports discrete and range-based mapping of values to
+labels, reverse formatting (invalue), date/time/datetime formatting with
+built-in 'SAS' format names, multi-label formats, expression labels
+evaluated at apply-time, case-insensitive matching, import/export of
+format definitions, and proper handling of missing values (NA, NULL, NaN).
 
 %prep
 %setup -q -c -n %{packname}
