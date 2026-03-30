@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hmix
+%global packname  simpowa
 %global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Model for Predicting Time Sequences with Mixture Sampling
+Summary:          Power Analysis and Sample Size Calculation for Semi-Field Vector Control Trials
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gld >= 2.6.6
-BuildRequires:    R-CRAN-cubature >= 2.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.2
-BuildRequires:    R-CRAN-glogis >= 1.0.2
-BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-HMM >= 1.0.1
-BuildRequires:    R-CRAN-normalp >= 0.7.2
-BuildRequires:    R-CRAN-mc2d >= 0.2.0
-Requires:         R-CRAN-gld >= 2.6.6
-Requires:         R-CRAN-cubature >= 2.1.0
-Requires:         R-CRAN-dplyr >= 1.1.2
-Requires:         R-CRAN-glogis >= 1.0.2
-Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-HMM >= 1.0.1
-Requires:         R-CRAN-normalp >= 0.7.2
-Requires:         R-CRAN-mc2d >= 0.2.0
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-lme4 
+Requires:         R-parallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
-An algorithm for time series analysis that leverages hidden Markov models,
-cluster analysis, and mixture distributions to segment data, detect
-patterns and predict future sequences.
+Uses simulations from generalized linear mixed-effects models to
+incorporate random effects across multiple sources and levels of
+variation, and a dispersion parameter to account for overdispersion and
+capture unexplained variability. Covers design scenarios for both
+short-term and long-term trials evaluating the impact of single or
+combined vector control interventions. Methods build on Kipingu et al.
+(2025) <doi:10.1186/s12936-025-05454-y> and Johnson et al. (2015)
+<doi:10.1111/2041-210X.12306>.
 
 %prep
 %setup -q -c -n %{packname}

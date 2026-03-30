@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hmix
-%global packver   1.0.3
+%global packname  LactCurveModels
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Model for Predicting Time Sequences with Mixture Sampling
+Summary:          Lactation Curve Model Fitting for Dairy Animals
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gld >= 2.6.6
-BuildRequires:    R-CRAN-cubature >= 2.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.2
-BuildRequires:    R-CRAN-glogis >= 1.0.2
-BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-HMM >= 1.0.1
-BuildRequires:    R-CRAN-normalp >= 0.7.2
-BuildRequires:    R-CRAN-mc2d >= 0.2.0
-Requires:         R-CRAN-gld >= 2.6.6
-Requires:         R-CRAN-cubature >= 2.1.0
-Requires:         R-CRAN-dplyr >= 1.1.2
-Requires:         R-CRAN-glogis >= 1.0.2
-Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-HMM >= 1.0.1
-Requires:         R-CRAN-normalp >= 0.7.2
-Requires:         R-CRAN-mc2d >= 0.2.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-An algorithm for time series analysis that leverages hidden Markov models,
-cluster analysis, and mixture distributions to segment data, detect
-patterns and predict future sequences.
+Fits up to 20 nonlinear lactation curve models to dairy animal milk yield
+data. Models fitted include exponential, polynomial, mixed logarithmic,
+inverse polynomial, and sigmoid families published between 1923 and 2000.
+Supports batch processing of multiple animals from a single CSV file, with
+flexible selection of animals and models. Produces per-animal parameter
+tables, goodness-of-fit metrics including R-squared (R2), Root Mean Square
+Error (RMSE), Akaike Information Criterion (AIC), Bayesian Information
+Criterion (BIC), and a serial autocorrelation statistic, 15 diagnostic
+figures, and combined cross-animal comparison outputs. References:
+<doi:10.1085/jgp.5.4.441>, <doi:10.1038/216164a0>,
+<doi:10.1016/0301-6226(87)90003-0>, <doi:10.4141/cjas87-067>,
+<doi:10.3168/jds.S0022-0302(00)75136-8>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pulsar
-%global packver   0.3.13
+%global packname  flexCausal
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Utilities for Lambda Selection along a Regularization Path
+Summary:          Causal Effect Estimation via Doubly Robust One-Step Estimators and TMLE in Graphical Models with Unmeasured Variables
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.5
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-densratio 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Matrix >= 1.5
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-graphics 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-densratio 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-tools 
 
 %description
-Model selection for penalized graphical models using the Stability
-Approach to Regularization Selection ('StARS'), with options for speed-ups
-including Bounded StARS (B-StARS), batch computing, and other stability
-metrics (e.g., graphlet stability G-StARS). Christian L. Müller, Richard
-Bonneau, Zachary Kurtz (2016) <doi:10.48550/arXiv.1605.07072>.
+Provides doubly robust one-step and targeted maximum likelihood (TMLE)
+estimators for average causal effects in acyclic directed mixed graphs
+(ADMGs) with unmeasured variables. Automatically determines whether the
+treatment effect is identified via backdoor adjustment or the extended
+front-door functional, and dispatches to the appropriate estimator.
+Supports incorporation of machine learning algorithms via 'SuperLearner'
+and cross-fitting for nuisance estimation. Methods are described in Guo
+and Nabi (2024) <doi:10.48550/arXiv.2409.03962>.
 
 %prep
 %setup -q -c -n %{packname}

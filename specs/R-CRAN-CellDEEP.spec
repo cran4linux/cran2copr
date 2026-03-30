@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hmix
-%global packver   1.0.3
+%global packname  CellDEEP
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Model for Predicting Time Sequences with Mixture Sampling
+Summary:          Cell DiffErential Expression by Pooling ('CellDEEP')
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gld >= 2.6.6
-BuildRequires:    R-CRAN-cubature >= 2.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.2
-BuildRequires:    R-CRAN-glogis >= 1.0.2
-BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-HMM >= 1.0.1
-BuildRequires:    R-CRAN-normalp >= 0.7.2
-BuildRequires:    R-CRAN-mc2d >= 0.2.0
-Requires:         R-CRAN-gld >= 2.6.6
-Requires:         R-CRAN-cubature >= 2.1.0
-Requires:         R-CRAN-dplyr >= 1.1.2
-Requires:         R-CRAN-glogis >= 1.0.2
-Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-HMM >= 1.0.1
-Requires:         R-CRAN-normalp >= 0.7.2
-Requires:         R-CRAN-mc2d >= 0.2.0
+BuildRequires:    R-CRAN-Seurat 
+Requires:         R-CRAN-Seurat 
 
 %description
-An algorithm for time series analysis that leverages hidden Markov models,
-cluster analysis, and mixture distributions to segment data, detect
-patterns and predict future sequences.
+Pool cells together before running differentially expression (DE)
+analysis. Tell 'CellDEEP' how many cells you want to pool together (which
+shall be determined by the overall cell number of data), then run DE
+analysis. Cheng et al. (2026) <doi:10.64898/2026.03.09.710522>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xpect
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Time Series Forecasting with XGBoost and Conformal Inference
 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-purrr >= 1.0.1
 BuildRequires:    R-CRAN-GeneralizedHyperbolic >= 0.8.6
 BuildRequires:    R-CRAN-normalp >= 0.7.2
 BuildRequires:    R-CRAN-furrr >= 0.3.1
-BuildRequires:    R-CRAN-edfun >= 0.2.0
 Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-gld >= 2.6.6
 Requires:         R-CRAN-evd >= 2.3.6.1
@@ -48,7 +47,6 @@ Requires:         R-CRAN-purrr >= 1.0.1
 Requires:         R-CRAN-GeneralizedHyperbolic >= 0.8.6
 Requires:         R-CRAN-normalp >= 0.7.2
 Requires:         R-CRAN-furrr >= 0.3.1
-Requires:         R-CRAN-edfun >= 0.2.0
 
 %description
 Implements a probabilistic approach to time series forecasting combining

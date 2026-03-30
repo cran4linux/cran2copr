@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opensimplex2
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Multi-Dimensional Open Simplex Noise
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-cpp11
 %description
 Generate 2, 3 or 4-dimensional gradient noise. The noise function is
 comparable to classic Perlin noise, but with less directional artefacts
-and lower computational overhead. It can have applications procedural
+and lower computational overhead. It can have applications in procedural
 generation or (flow fields) simulations.
 
 %prep

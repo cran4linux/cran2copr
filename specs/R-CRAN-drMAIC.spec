@@ -1,43 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pulsar
-%global packver   0.3.13
+%global packname  drMAIC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Utilities for Lambda Selection along a Regularization Path
+Summary:          Doubly Robust Matching-Adjusted Indirect Comparison for HTA
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.5
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-Matrix >= 1.5
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-tools 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Model selection for penalized graphical models using the Stability
-Approach to Regularization Selection ('StARS'), with options for speed-ups
-including Bounded StARS (B-StARS), batch computing, and other stability
-metrics (e.g., graphlet stability G-StARS). Christian L. Müller, Richard
-Bonneau, Zachary Kurtz (2016) <doi:10.48550/arXiv.1605.07072>.
+Implements Doubly Robust Matching-Adjusted Indirect Comparison (DR-MAIC)
+for population-adjusted indirect treatment comparisons in health
+technology appraisal (HTA). The package provides: (1) standard MAIC via
+entropy balancing / exponential tilting; (2) augmented/doubly robust MAIC
+combining inverse probability weighting with outcome regression; (3)
+comprehensive covariate balance diagnostics including standardised mean
+differences, Love plots, and effective sample size; (4) sensitivity
+analyses including E-values, weight trimming, and variable exclusion
+analyses; (5) bootstrap confidence intervals; and (6) submission-ready
+outputs aligned with NICE Decision Support Unit Technical Support Document
+18, Cochrane Handbook guidance on indirect comparisons, and ISPOR best
+practice guidelines. Supports binary (risk difference, risk ratio, odds
+ratio) and time-to-event (hazard ratio) outcomes.
 
 %prep
 %setup -q -c -n %{packname}

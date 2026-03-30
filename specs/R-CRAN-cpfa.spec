@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpfa
-%global packver   1.2-6
+%global packver   1.2-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Parallel Factor Analysis
 
@@ -42,16 +42,17 @@ Requires:         R-CRAN-doRNG
 Classification using Richard A. Harshman's Parallel Factor Analysis-1
 (Parafac) model or Parallel Factor Analysis-2 (Parafac2) model fit to a
 three-way or four-way data array. See Harshman and Lundy (1994):
-<doi:10.1016/0167-9473(94)90132-5>. Uses component weights from one mode
-of a Parafac or Parafac2 model as features to tune parameters for one or
-more classification methods via a k-fold cross-validation procedure.
-Allows for constraints on different tensor modes. Supports penalized
-logistic regression, support vector machine, random forest, feed-forward
-neural network, regularized discriminant analysis, and gradient boosting
-machine. Supports binary and multiclass classification. Predicts class
-labels or class probabilities and calculates multiple classification
-performance measures. Implements parallel computing via the 'parallel',
-'doParallel', and 'doRNG' packages.
+<doi:10.1016/0167-9473(94)90132-5>. Principal component analysis (PCA) is
+also supported for a two-way data matrix. Uses component weights from one
+mode of a Parafac, Parafac2, or PCA model as features to tune parameters
+for one or more classification methods via a k-fold cross-validation
+procedure. Allows for constraints on different tensor modes. Supports
+penalized logistic regression, support vector machine, random forest,
+feed-forward neural network, regularized discriminant analysis, and
+gradient boosting machine. Supports binary and multiclass classification.
+Predicts class labels or class probabilities and calculates multiple
+classification performance measures. Implements parallel computing via the
+'parallel', 'doParallel', and 'doRNG' packages.
 
 %prep
 %setup -q -c -n %{packname}

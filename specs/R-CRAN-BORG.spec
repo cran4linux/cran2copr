@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BORG
-%global packver   0.2.5
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bounded Outcome Risk Guard for Model Evaluation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -26,14 +26,21 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Automatically detects and enforces valid model evaluation by identifying
-information reuse between training and evaluation data. Guards against
-data leakage, look-ahead bias, and invalid cross-validation schemes that
-inflate performance estimates. Supports temporal, spatial, and grouped
-evaluation structures. Based on evaluation principles described in Roberts
-et al. (2017) <doi:10.1111/ecog.02881>, Kaufman et al. (2012)
-<doi:10.1145/2382577.2382579>, and Kapoor & Narayanan (2023)
-<doi:10.1016/j.patter.2023.100804>.
+Comprehensive toolkit for valid spatial, temporal, and grouped model
+evaluation. Automatically detects data dependencies (spatial
+autocorrelation, temporal structure, clustered observations), generates
+appropriate cross-validation schemes (spatial blocking, checkerboard,
+hexagonal, KNNDM, environmental blocking, leave-location-out, purged CV),
+and validates evaluation pipelines for leakage. Includes area of
+applicability (AOA) assessment following Meyer & Pebesma (2021)
+<doi:10.1111/2041-210X.13650>, forward feature selection with blocked CV,
+spatial thinning, block-permutation variable importance, extrapolation
+detection, and interactive visualizations. Integrates with 'tidymodels',
+'caret', 'mlr3', 'ENMeval', and 'biomod2'. Based on evaluation principles
+described in Roberts et al. (2017) <doi:10.1111/ecog.02881>, Kaufman et
+al. (2012) <doi:10.1145/2382577.2382579>, Kapoor & Narayanan (2023)
+<doi:10.1016/j.patter.2023.100804>, and Linnenbrink et al. (2024)
+<doi:10.5194/gmd-17-5897-2024>.
 
 %prep
 %setup -q -c -n %{packname}

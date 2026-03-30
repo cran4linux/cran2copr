@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simr
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis for Generalised Linear Mixed Models by Simulation
 
@@ -14,39 +14,41 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lmerTest >= 3.0.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.16
 BuildRequires:    R-CRAN-binom 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pbkrtest 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-RLRsim 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-lmerTest >= 3.0.0
 Requires:         R-CRAN-lme4 >= 1.1.16
 Requires:         R-CRAN-binom 
+Requires:         R-CRAN-car 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-iterators 
+Requires:         R-methods 
 Requires:         R-CRAN-pbkrtest 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-reformulas 
 Requires:         R-CRAN-RLRsim 
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
-Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-car 
 
 %description
 Calculate power for generalised linear mixed models, using simulation.

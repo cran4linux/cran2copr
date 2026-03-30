@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmlR
-%global packver   0.6.3
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'GGML' Tensor Operations for Machine Learning
 
@@ -26,22 +26,28 @@ designed primarily for 'Vulkan' GPU acceleration with full CPU fallback.
 'libvulkan-dev' and 'glslc' are installed) and on Windows (when 'Vulkan'
 'SDK' is installed and 'VULKAN_SDK' environment variable is set); all
 operations fall back to CPU transparently when no GPU is available.
-Implements tensor operations, neural network layers, quantization, and a
-'Keras'-like sequential model API for building and training networks.
-Includes 'AdamW' (Adam with Weight decay) and 'SGD' (Stochastic Gradient
-Descent) optimizers with 'MSE' (Mean Squared Error) and cross-entropy
-losses. Also provides a dynamic 'autograd' engine ('PyTorch'-style) with
-data-parallel training via 'dp_train()', broadcast arithmetic, 'f16'
-(half-precision) support on 'Vulkan' GPU, and a multi-head attention layer
-for building Transformer architectures. Supports 'ONNX' model import via
-built-in zero-dependency 'protobuf' parser: load 'pretrained' 'ONNX'
-models from 'PyTorch', 'TensorFlow', or other frameworks and run inference
-on 'Vulkan' GPU or CPU. Covers 40+ 'ONNX' ops including convolutions,
-attention primitives, normalization, and shape operations — sufficient to
-run real-world models such as 'BERT', 'SqueezeNet', 'Inception v3', and
-'MNIST' out of the box. Serves as backend for 'LLM' (Large Language Model)
-inference via 'llamaR' and Stable Diffusion image generation via 'sd2R'.
-See <https://github.com/ggml-org/ggml> for more information about the
+Supports tensors up to 5D natively (GGML_MAX_DIMS=5). Implements tensor
+operations, neural network layers, quantization, and a 'Keras'-like
+sequential model API for building and training networks. Includes 'AdamW'
+(Adam with Weight decay) and 'SGD' (Stochastic Gradient Descent)
+optimizers with 'MSE' (Mean Squared Error) and cross-entropy losses. Also
+provides a dynamic 'autograd' engine ('PyTorch'-style) with data-parallel
+training via 'dp_train()', broadcast arithmetic, 'f16' (half-precision)
+support on 'Vulkan' GPU, and a multi-head attention layer for building
+Transformer architectures. Supports 'ONNX' model import via built-in
+zero-dependency 'protobuf' parser: load 'pretrained' 'ONNX' models from
+'PyTorch', 'TensorFlow', or other frameworks and run inference on 'Vulkan'
+GPU or CPU. Covers 50+ 'ONNX' ops including convolutions, attention
+primitives, normalization, quantized ops, shape operations,
+'ScatterElements' (with 'Vulkan' 'atomicAdd' for GNN scatter-add), and
+fused custom ops (RelPosBias2D for 'BoTNet') — sufficient to run
+real-world models such as 'RoBERTa', 'BERT', 'GPT-NeoX', 'SqueezeNet',
+'Inception v3', 'BAT-ResNeXt', 'BoTNet', and 'MNIST' out of the box. Uses
+a dedicated weight buffer architecture for zero-overhead repeated
+inference — weights are loaded to GPU once and never re-transferred.
+Serves as backend for 'LLM' (Large Language Model) inference via 'llamaR'
+and Stable Diffusion image generation via 'sd2R'. See
+<https://github.com/ggml-org/ggml> for more information about the
 underlying library.
 
 %prep

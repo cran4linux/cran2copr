@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RobustIV
-%global packver   0.2.5
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Instrumental Variable Methods in Linear Models
 
@@ -32,11 +32,11 @@ Requires:         R-CRAN-CVXR
 
 %description
 Inference for the treatment effect with possibly invalid instrumental
-variables via TSHT('Guo et al.' (2016) <arXiv:1603.05224>) and
-SearchingSampling('Guo' (2021) <arXiv:2104.06911>), which are effective
-for both low- and high-dimensional covariates and instrumental variables;
-test of endogeneity in high dimensions ('Guo et al.' (2016)
-<arXiv:1609.06713>).
+variables via TSHT ('Guo et al.' (2018) <doi:10.1111/rssb.12275>) and
+SearchingSampling ('Guo' (2023) <doi:10.1093/jrsssb/qkad049>), which are
+effective for both low- and high-dimensional covariates and instrumental
+variables; test of endogeneity in high dimensions ('Guo et al.' (2018)
+<doi:10.1016/j.jeconom.2018.07.002>).
 
 %prep
 %setup -q -c -n %{packname}

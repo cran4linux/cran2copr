@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scplot
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Function for Single-Case Data Frames
 
@@ -19,14 +19,18 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-scan >= 0.61.0
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mblm 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-scan >= 0.61.0
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-mblm 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 
 %description
 Add-on for the 'scan' package that creates plots from single-case data

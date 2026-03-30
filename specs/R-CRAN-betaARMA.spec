@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hmix
-%global packver   1.0.3
+%global packname  betaARMA
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Model for Predicting Time Sequences with Mixture Sampling
+Summary:          Beta Autoregressive Moving Average Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gld >= 2.6.6
-BuildRequires:    R-CRAN-cubature >= 2.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.2
-BuildRequires:    R-CRAN-glogis >= 1.0.2
-BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-HMM >= 1.0.1
-BuildRequires:    R-CRAN-normalp >= 0.7.2
-BuildRequires:    R-CRAN-mc2d >= 0.2.0
-Requires:         R-CRAN-gld >= 2.6.6
-Requires:         R-CRAN-cubature >= 2.1.0
-Requires:         R-CRAN-dplyr >= 1.1.2
-Requires:         R-CRAN-glogis >= 1.0.2
-Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-HMM >= 1.0.1
-Requires:         R-CRAN-normalp >= 0.7.2
-Requires:         R-CRAN-mc2d >= 0.2.0
+BuildRequires:    R-CRAN-forecast 
+Requires:         R-CRAN-forecast 
 
 %description
-An algorithm for time series analysis that leverages hidden Markov models,
-cluster analysis, and mixture distributions to segment data, detect
-patterns and predict future sequences.
+Fits Beta Autoregressive Moving Average (BARMA) models for time series
+data distributed in the standard unit interval (0, 1). The estimation is
+performed via the conditional maximum likelihood method using the
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) quasi-Newton algorithm. The
+package includes tools for model fitting, diagnostic checking, and
+forecasting. Based on the work of Rocha and Cribari-Neto (2009)
+<doi:10.1007/s11749-008-0112-z> and the associated erratum Rocha and
+Cribari-Neto (2017) <doi:10.1007/s11749-017-0528-4>. The original code was
+developed by Fabio M. Bayer.
 
 %prep
 %setup -q -c -n %{packname}

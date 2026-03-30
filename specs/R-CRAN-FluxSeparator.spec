@@ -1,65 +1,60 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sovereign
-%global packver   1.2.1
+%global __requires_exclude ^libmpi
+%global packname  FluxSeparator
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          State-Dependent Empirical Analysis
+Summary:          Separation of Diffusive and Ebullitive Fluxes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-HMR 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-strucchange 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-TTR 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-graphics 
+Requires:         R-CRAN-HMR 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-strucchange 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-TTR 
 
 %description
-A set of tools for state-dependent empirical analysis through both VAR-
-and local projection-based state-dependent forecasts, impulse response
-functions, historical decompositions, and forecast error variance
-decompositions.
+Separates diffusive and ebullitive (bubble) fluxes from continuous
+concentration measurements using a running variance approach. Ebullitive
+events are identified when the running variance exceeds a user-set
+threshold. Diffusive fluxes are calculated via linear regression on the
+non-ebullitive portion of the data. See Sø et al. (2024)
+<doi:10.1029/2024JG008035> for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robscale
-%global packver   0.2.1
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Estimation of Robust Location and Scale
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-BH 
@@ -27,13 +27,14 @@ Estimates robust location and scale parameters using platform-specific
 Single Instruction, Multiple Data (SIMD) vectorization and Intel Threading
 Building Blocks (TBB) for parallel processing. Implements a novel
 variance-weighted ensemble estimator that adaptively combines all
-available statistics. Included methods feature logistic M-estimators, the
+available statistics. Methods include logistic M-estimators, the
 estimators of Rousseeuw and Croux (1993), the Gini mean difference, the
 scaled Median Absolute Deviation (MAD), the scaled Interquartile Range
 (IQR), and unbiased standard deviations. Achieves substantial speedups
-over existing implementations through an 'Rcpp' backend and a unified
-dispatcher that automatically selects the optimal estimator based on
-sample size.
+over existing implementations through an 'Rcpp' backend with fused
+single-buffer algorithms that halve memory traffic for MAD and M-scale
+estimation, and a unified dispatcher that automatically selects the
+optimal estimator based on sample size.
 
 %prep
 %setup -q -c -n %{packname}

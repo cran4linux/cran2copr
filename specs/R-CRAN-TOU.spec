@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hmix
-%global packver   1.0.3
+%global packname  TOU
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Model for Predicting Time Sequences with Mixture Sampling
+Summary:          Transformed Ornstein-Uhlenbeck Model for Adsorption Kinetics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gld >= 2.6.6
-BuildRequires:    R-CRAN-cubature >= 2.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.2
-BuildRequires:    R-CRAN-glogis >= 1.0.2
-BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-HMM >= 1.0.1
-BuildRequires:    R-CRAN-normalp >= 0.7.2
-BuildRequires:    R-CRAN-mc2d >= 0.2.0
-Requires:         R-CRAN-gld >= 2.6.6
-Requires:         R-CRAN-cubature >= 2.1.0
-Requires:         R-CRAN-dplyr >= 1.1.2
-Requires:         R-CRAN-glogis >= 1.0.2
-Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-HMM >= 1.0.1
-Requires:         R-CRAN-normalp >= 0.7.2
-Requires:         R-CRAN-mc2d >= 0.2.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-CRAN-DEoptim >= 2.2.8
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 >= 3.5.2
+Requires:         R-CRAN-DEoptim >= 2.2.8
+Requires:         R-CRAN-Rdpack 
 
 %description
-An algorithm for time series analysis that leverages hidden Markov models,
-cluster analysis, and mixture distributions to segment data, detect
-patterns and predict future sequences.
+Estimates the parameters of a Transformed Ornstein-Uhlenbeck (TOU)
+stochastic model for adsorption data and also the parameters of the
+related pseudo-n-order (PNO) model, such as the maximum adsorption
+capacity (qe), the adsorption rate constant (kn) and the order of the
+model (n).
 
 %prep
 %setup -q -c -n %{packname}
