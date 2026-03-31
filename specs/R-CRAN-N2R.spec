@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dialvalidator
-%global packver   0.1.0
+%global packname  N2R
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phone Number Validation Using Google's 'libphonenumber' Metadata
+Summary:          Fast and Scalable Approximate k-Nearest Neighbor Search Methods using 'N2' Library
 
-License:          Apache License (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppSpdlog 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-Matrix 
 
 %description
-Parses, validates, formats, and classifies phone numbers using Google's
-'libphonenumber' metadata. Covers 240+ territories with support for
-mobile, landline, toll-free, and other number types. Unlike 'dialr', this
-package requires no Java runtime — metadata is parsed ahead of time from
-the upstream 'PhoneNumberMetadata.xml' and shipped as a bundled R object.
-Functions accept character vectors and return simple R types (logical,
-character, data.frame).
+Implements methods to perform fast approximate K-nearest neighbor search
+on input matrix. Algorithm based on the 'N2' implementation of an
+approximate nearest neighbor search using hierarchical Navigable Small
+World (NSW) graphs. The original algorithm is described in "Efficient and
+Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable
+Small World Graphs", Y. Malkov and D. Yashunin,
+<doi:10.1109/TPAMI.2018.2889473>, <doi:10.48550/arXiv.1603.09320>.
 
 %prep
 %setup -q -c -n %{packname}

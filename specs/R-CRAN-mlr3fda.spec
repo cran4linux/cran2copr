@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3fda
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extending 'mlr3' to Functional Data Analysis
 
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mlr3 >= 1.3.0
+BuildRequires:    R-CRAN-data.table >= 1.18.0
 BuildRequires:    R-CRAN-mlr3pipelines >= 0.5.2
-BuildRequires:    R-CRAN-tf >= 0.3.4
-BuildRequires:    R-CRAN-mlr3 >= 0.14.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.14.0
+BuildRequires:    R-CRAN-tf >= 0.4.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.19.0
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-mlr3 >= 1.3.0
+Requires:         R-CRAN-data.table >= 1.18.0
 Requires:         R-CRAN-mlr3pipelines >= 0.5.2
-Requires:         R-CRAN-tf >= 0.3.4
-Requires:         R-CRAN-mlr3 >= 0.14.0
-Requires:         R-CRAN-mlr3misc >= 0.14.0
+Requires:         R-CRAN-tf >= 0.4.0
+Requires:         R-CRAN-mlr3misc >= 0.19.0
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-R6 

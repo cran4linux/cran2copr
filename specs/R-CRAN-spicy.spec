@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spicy
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive Statistics and Data Management Tools
+Summary:          Descriptive Statistics, Summary Tables, and Data Management Tools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,15 +39,16 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-utils 
 
 %description
-Provides tools for descriptive data analysis, variable inspection, and
-quick tabulation workflows in 'R'. Summarizes variable metadata, labels,
-classes, missing values, and representative values, with support for
-readable frequency tables, cross-tabulations, association measures for
+Provides tools for descriptive data analysis, variable inspection, data
+management, and tabulation workflows in 'R'. Summarizes variable metadata,
+labels, classes, missing values, and representative values, with support
+for readable frequency tables, cross-tabulations, association measures for
 contingency tables (Cramer's V, Phi, Goodman-Kruskal Gamma, Kendall's
-Tau-b, Somers' D, and others), and APA-style reporting tables. Includes
-helpers for interactive codebooks, variable label extraction, clipboard
-export, and row-wise descriptive summaries. Designed to make descriptive
-analysis faster, clearer, and easier to work with in practice.
+Tau-b, Somers' D, and others), categorical and continuous summary tables,
+including APA-style reporting outputs. Includes helpers for interactive
+codebooks, variable label extraction, clipboard export, and row-wise
+descriptive summaries. Designed to make descriptive analysis faster,
+clearer, and easier to work with in practice.
 
 %prep
 %setup -q -c -n %{packname}

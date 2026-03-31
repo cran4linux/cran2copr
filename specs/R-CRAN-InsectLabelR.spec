@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  golden
-%global packver   0.0.1
+%global packname  InsectLabelR
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Framework for Patient-Level Microsimulation of Risk Factor Trajectories & Hazard-Based Events
+Summary:          Create Labels for Insect in Collection
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.1.0
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-Rcpp >= 1.1.0
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-shiny 
+Requires:         R-tools 
 
 %description
-Fast, flexible, patient-level microsimulation. Time-stepped simulation
-with a 'C++' back-end from user-supplied initial population, trajectories,
-hazards, and corresponding event transitions. User-defined aggregate time
-series histories are returned together with the final population. Designed
-for simulation of chronic diseases with continuous and evolving risk
-factors, but could easily be applied more generally.
+Streamlines the creation of high-quality labels for insect pinning. By
+taking a dataset as input, the package allow to generate printable labels
+in 'LaTeX' and PDF format, helping researchers and entomologists maintain
+accurate and standardized specimen records. Requires a compatible
+installation of 'pdflatex' (e.g. <https://www.tug.org/texlive/>). For
+enhanced accessibility, the package includes a user-friendly 'shiny'
+application (accessible online
+<https://nicolas-moiroux.shinyapps.io/InsectLabelR/>), which provides a
+graphical interface for generating labels without requiring programming
+expertise.
 
 %prep
 %setup -q -c -n %{packname}

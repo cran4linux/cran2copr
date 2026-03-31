@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eq5d
-%global packver   0.16.2
+%global packver   0.16.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.2
+Version:          0.16.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Analysing 'EQ-5D' Data and Calculating 'EQ-5D' Index Scores
 
@@ -40,18 +40,18 @@ population health surveys. The eq5d package provides methods to calculate
 index scores from a subject's dimension scores. 33 TTO and 11 VAS EQ-5D-3L
 value sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
-<doi:10.1007/978-94-007-7596-1>, 48 EQ-5D-5L EQ-VT value sets, the
+<doi:10.1007/978-94-007-7596-1>, 49 EQ-5D-5L EQ-VT value sets, the
 EQ-5D-5L crosswalk value sets developed by van Hout et al. (2012)
 <doi:10.1016/j.jval.2012.02.008>, the crosswalk value sets for Bermuda,
-Jordan and Russia and the van Hout (2021) reverse crosswalk value sets. 12
-EQ-5D-Y3L value sets are also included as are the NICE 'DSU' age-sex based
-EQ-5D-3L to EQ-5D-5L and EQ-5D-5L to EQ-5D-3L mappings. Methods are also
-included for the analysis of EQ-5D profiles, including those from the book
-"Methods for Analyzing and Reporting EQ-5D data" by Devlin et al. (2020)
-<doi:10.1007/978-3-030-47622-9>. Additionally a shiny web tool is included
-to enable the calculation, visualisation and automated statistical
-analysis of EQ-5D data via a web browser using EQ-5D dimension scores
-stored in CSV or Excel files.
+Jordan and Russia and the van Hout (2021) reverse crosswalk value sets. 13
+EQ-5D-Y-3L value sets are also included as are the NICE 'DSU' age-sex
+based EQ-5D-3L to EQ-5D-5L and EQ-5D-5L to EQ-5D-3L mappings. Methods are
+also included for the analysis of EQ-5D profiles, including those from the
+book "Methods for Analyzing and Reporting EQ-5D data" by Devlin et al.
+(2020) <doi:10.1007/978-3-030-47622-9>. Additionally a shiny web tool is
+included to enable the calculation, visualisation and automated
+statistical analysis of EQ-5D data via a web browser using EQ-5D dimension
+scores stored in CSV or Excel files.
 
 %prep
 %setup -q -c -n %{packname}

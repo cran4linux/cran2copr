@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tableParser
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse Tabled Content to Text Vector and Extract Statistical Standard Results
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-JATSdecoder 
 BuildRequires:    R-CRAN-tabulapdf 
 Requires:         R-utils 
+Requires:         R-stats 
 Requires:         R-CRAN-JATSdecoder 
 Requires:         R-CRAN-tabulapdf 
 
@@ -40,7 +42,8 @@ table2stats() extracts the tabled statistical test results from the
 collapsed text with the function standardStats() from the 'JATSdecoder'
 package and, if activated, checks the reported and coded p-values for
 consistency. Due to the great variability and potential complexity of
-table structures, parsing accuracy may vary.
+table structures, parsing accuracy may vary. A detailed description of how
+'tableParser' works is provided here: <doi:10.48550/arXiv.2603.19756>.
 
 %prep
 %setup -q -c -n %{packname}

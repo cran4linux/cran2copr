@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  obr
-%global packver   0.2.4
+%global packname  metaLong
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access 'Office for Budget Responsibility' Data
+Summary:          Longitudinal Meta-Analysis with Robust Variance Estimation and Sensitivity Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,27 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readxl 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-metafor >= 3.8.1
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-metafor >= 3.8.1
+Requires:         R-splines 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides clean, tidy access to data published by the 'Office for Budget
-Responsibility' ('OBR'), the UK's independent fiscal watchdog. Covers the
-Public Finances Databank (outturn for PSNB, PSND, receipts, and
-expenditure since 1946), the Historical Official Forecasts Database (every
-'OBR' forecast since 2010), the Economic and Fiscal Outlook detailed
-forecast tables (five-year projections from the latest Budget), the
-Welfare Trends Report (incapacity benefit spending and caseloads), and the
-Fiscal Risks and Sustainability Report (50-year state pension
-projections). Data is downloaded from the 'OBR' on first use and cached
-locally for subsequent calls. Data is sourced from the 'OBR' website
-<https://obr.uk>.
+Tools for longitudinal meta-analysis where studies contribute effect sizes
+at multiple follow-up time points. Implements robust variance estimation
+(RVE) with Tipton small-sample corrections following Hedges, Tipton, and
+Johnson (2010) <doi:10.1002/jrsm.5> and Tipton (2015)
+<doi:10.1037/met0000011>, time-varying sensitivity analysis via the Impact
+Threshold for a Confounding Variable (ITCV) following Frank (2000)
+<doi:10.1177/0049124100029002003>, benchmark calibration of the ITCV
+threshold against observed study-level covariates, spline-based nonlinear
+time-trend modeling with a nonlinearity test, and leave-k-out fragility
+analysis across the follow-up trajectory. Designed for researchers
+synthesising evidence from studies with repeated outcome measurement in
+education, psychology, health, and the social sciences.
 
 %prep
 %setup -q -c -n %{packname}

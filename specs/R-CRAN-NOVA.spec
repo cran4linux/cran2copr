@@ -1,27 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NOVA
-%global packver   0.1.1
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neural Output Visualization and Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.0
 BuildRequires:    R-CRAN-pheatmap >= 1.0.0
+BuildRequires:    R-CRAN-ggrepel >= 0.9.0
 BuildRequires:    R-CRAN-viridis >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
@@ -39,6 +40,7 @@ Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-RColorBrewer >= 1.1.0
 Requires:         R-CRAN-pheatmap >= 1.0.0
+Requires:         R-CRAN-ggrepel >= 0.9.0
 Requires:         R-CRAN-viridis >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.0

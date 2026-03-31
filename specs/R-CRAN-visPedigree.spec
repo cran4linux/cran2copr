@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  visPedigree
-%global packver   1.0.1
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidying and Visualizing Animal Pedigrees
+Summary:          Tidying, Analysis, and Fast Visualization of Animal and Plant Pedigrees
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,28 +19,32 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-igraph >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-igraph >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-lattice 
 
 %description
-Built on graph theory and the high-performance 'data.table' framework,
-this package provides a comprehensive suite of tools for tidying,
-analyzing, and visualizing animal pedigrees. By modeling pedigrees as
-directed acyclic graphs using 'igraph', it ensures robust loop detection,
-efficient generation assignment, and optimal sub-population splitting. Key
-features include standardizing pedigree formats, flexible ancestry
-tracing, and generating legible vector-based PDF graphs. A unique
-compaction algorithm enables the visualization of massive pedigrees by
-grouping full-sib families. Furthermore, the package implements
-high-performance C++ algorithms for calculating and visualizing genetic
-relationship matrices (A, D, AA, and their inverses) and inbreeding
-coefficients.
+Provides tools for the analysis and visualization of animal and plant
+pedigrees. Analytical methods include equivalent complete generations,
+generation intervals, effective population size (via inbreeding,
+coancestry, and demographic approaches), founder and ancestor
+contributions, partial inbreeding, genetic diversity indices, and additive
+(A), dominance (D), and epistatic (AA) relationship matrices. Core
+algorithms — ancestry tracing, topological sorting, inbreeding
+coefficients, and matrix construction — are implemented in C++ ('Rcpp',
+'RcppArmadillo') and 'data.table', scaling to pedigrees with over one
+million individuals. Pedigree graphs are rendered via 'igraph' with
+support for compact full-sib family display; relationship matrices can be
+visualized as heatmaps. Supports complex mating systems, including selfing
+and pedigrees in which the same individual can appear as both sire and
+dam.
 
 %prep
 %setup -q -c -n %{packname}

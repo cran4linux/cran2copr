@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesianHybridDesign
+%global packname  TwoDiRef
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Hybrid Design and Analysis
+Summary:          Robust Estimation of Conditional 2D Reference Regions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-qgam 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RBesT 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-qgam 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Metrics 
-Requires:         R-parallel 
-Requires:         R-CRAN-RBesT 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shiny 
 
 %description
-Implements Bayesian hybrid designs that incorporate historical control
-data into a current clinical trial. The package uses a dynamic power prior
-method to determine the degree of borrowing from the historical data,
-creating a 'hybrid' control arm. This approach is primarily designed for
-studies with a binary primary endpoint, such as the overall response rate
-(ORR). Functions are provided for design calibration, sample size
-calculation, power evaluation, and final analysis. Additionally, it
-includes functions adapted from the 'SAMprior' package (v1.1.1) by Yang et
-al. (2023) <https://academic.oup.com/biometrics/article/79/4/2857/7587575>
-to support the Self-Adapting Mixture (SAM) prior framework for comparison.
+Provides tools for constructing conditional two-dimensional reference
+regions in continuous data, particularly suited for clinical, biological,
+or epidemiological studies requiring robust multivariate assessment. The
+implemented methodology combines directional quantiles with median‑based
+partial correlation models to produce reliable and interpretable reference
+regions even in the presence of outliers. Key features include robust
+conditional modeling for two responses conditioned on covariates,
+directional quantile regions, cross‑validation of coverage, visualization
+tools, and flexible formula‑based inputs.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inkaR
-%global packver   0.6.1
+%global packname  ggrefine
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Analyze Spatial Development Data from 'INKAR'
+Summary:          Pretty 'ggplot2' Themes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,31 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-blends 
+BuildRequires:    R-CRAN-flexoki 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-jumble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-blends 
+Requires:         R-CRAN-flexoki 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-jumble 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-viridis 
 
 %description
-A professional R interface to download and analyze spatial development
-indicators from the 'BBSR' 'INKAR' (Indikatoren und Karten zur Raum- und
-Stadtentwicklung) database. Features a bilingual interactive wizard, fuzzy
-search, multi-indicator downloads with automatic tidy merging (long/wide),
-robust disk caching, and premium 'ggplot2' themes for regional mapping.
+A set of complete 'ggplot2' themes and functions to refine these.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multivar
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Estimation of Multiple-Subject Vector Autoregressive (Multi-VAR) Models
+Summary:          Penalized Estimation of Multiple-Subject Vector Autoregressive Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,8 +45,11 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-scales 
 
 %description
-Functions for simulating, estimating and forecasting Vector Autoregressive
-(VAR) models for multiple-subject data using structured penalization.
+Simulate, estimate, and forecast vector autoregressive (VAR) models for
+multiple-subject data using structured penalization. Decomposes dynamics
+into shared (common) and subject-specific (unique) components via adaptive
+LASSO with FISTA optimization. Supports cross-validation and extended BIC
+model selection and subgroup detection, and time-varying parameters.
 
 %prep
 %setup -q -c -n %{packname}

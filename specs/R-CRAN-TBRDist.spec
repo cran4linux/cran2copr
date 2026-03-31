@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TBRDist
-%global packver   1.0.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rearrangement Distances Between Unrooted Phylogenetic Trees
+Summary:          Rearrangement Distances Between Phylogenetic Trees
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-TreeTools >= 1.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-TreeTools >= 2.2.0
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-TreeDist 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-TreeTools >= 1.1.0
+Requires:         R-CRAN-TreeTools >= 2.2.0
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-TreeDist 
 
 %description
-Fast calculation of the Subtree Prune and Regraft (SPR), Tree Bisection
-and Reconnection (TBR) and Replug distances between unrooted trees, using
-the algorithms of Whidden and Matsen (2017)
-<doi:10.48550/arXiv.1511.07529>.
+Fast calculation of tree rearrangement distances. For unrooted trees:
+Subtree Prune and Regraft (SPR), Tree Bisection and Reconnection (TBR),
+and Replug distances, using the algorithms of Whidden and Matsen (2017)
+<doi:10.48550/arXiv.1511.07529>. For rooted trees: rooted SPR (rSPR)
+distance, using the fixed-parameter algorithms of Whidden, Beiko, and Zeh
+(2013) <doi:10.1137/110845045>.
 
 %prep
 %setup -q -c -n %{packname}

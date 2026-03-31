@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  splineplot
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Spline Effects in GAM and GLM Models
 
@@ -18,17 +18,20 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-splines 
 Requires:         R-stats 
 
 %description
 Creates 'ggplot2'-based visualizations of smooth effects from GAM
 (Generalized Additive Models) fitted with 'mgcv' and spline effects from
-GLM (Generalized Linear Models). Supports interaction terms and provides
-hazard ratio plots with histograms for survival analysis. Wood (2017,
-ISBN:9781498728331) provides comprehensive methodology for generalized
-additive models.
+GLM (Generalized Linear Models). Supports survey-weighted models
+('svyglm', 'svycoxph') from the 'survey' package, interaction terms, and
+provides hazard ratio plots with histograms for survival analysis. Wood
+(2017, ISBN:9781498728331) provides comprehensive methodology for
+generalized additive models.
 
 %prep
 %setup -q -c -n %{packname}

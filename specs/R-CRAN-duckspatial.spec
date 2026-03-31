@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckspatial
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'DuckDB' Database with Spatial Extension
 
@@ -17,28 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dbplyr >= 2.0.0
+BuildRequires:    R-CRAN-duckdb >= 1.5.1
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-geoarrow 
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geoarrow 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-wk 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-nanoarrow 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-wk 
+Requires:         R-CRAN-dbplyr >= 2.0.0
+Requires:         R-CRAN-duckdb >= 1.5.1
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-geoarrow 
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geoarrow 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-wk 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-nanoarrow 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-wk 
 
 %description
 Fast & memory-efficient functions to analyze and manipulate large spatial

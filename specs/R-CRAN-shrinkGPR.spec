@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shrinkGPR
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Gaussian Process Regression with Hierarchical Shrinkage Priors
 
@@ -17,26 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-torch >= 0.16.0
 BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-mniw 
+Requires:         R-CRAN-torch >= 0.16.0
 Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-torch 
+Requires:         R-CRAN-mniw 
 
 %description
-Efficient variational inference methods for fully Bayesian Gaussian
-Process Regression (GPR) models with hierarchical shrinkage priors,
-including the triple gamma prior for effective variable selection and
-covariance shrinkage in high-dimensional settings. The package leverages
-normalizing flows to approximate complex posterior distributions. For
-details on implementation, see Knaus (2025)
+Efficient variational inference methods for fully Bayesian univariate and
+multivariate Gaussian and t-process regression models. Hierarchical
+shrinkage priors, including the triple gamma prior, are used for effective
+variable selection and covariance shrinkage in high-dimensional settings.
+The package leverages normalizing flows to approximate complex posterior
+distributions. For details on implementation, see Knaus (2025)
 <doi:10.48550/arXiv.2501.13173>.
 
 %prep
