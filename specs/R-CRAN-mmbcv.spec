@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  mmbcv
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Multistate Model Bias-Corrected Robust Variance
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+Computes robust and bias-corrected sandwich variance estimators for
+multi-state Cox models with clustered time-to-event data. The methodology
+extends the marginal Cox model bias-correction framework of Wang et al.
+(2023) <doi:10.1002/bimj.202200113> to the multi-state setting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinylive
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run 'shiny' Applications in the Browser
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-archive 
 BuildRequires:    R-CRAN-brio 
@@ -25,14 +26,14 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-pkgdepends 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-archive 
 Requires:         R-CRAN-brio 
@@ -41,11 +42,10 @@ Requires:         R-CRAN-fs
 Requires:         R-CRAN-gh 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-pkgdepends 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-renv 
-Requires:         R-CRAN-rlang 
 Requires:         R-tools 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-withr 

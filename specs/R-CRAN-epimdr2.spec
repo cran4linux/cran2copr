@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  epimdr2
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Functions and Data for "Epidemics: Models and Data in R (2nd Edition)"
 
-License:          CC BY 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-polspline 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-polspline 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+Functions, data sets and shiny apps for "Epidemics: Models and Data in R
+(2nd edition)" by Ottar N. Bjornstad (2022, ISBN: 978-3-031-12055-8)
+<doi:10.1007/978-3-031-12056-5>. The package contains functions to study
+the Susceptible-Exposed-Infected-Removed SEIR model, spatial and
+age-structured Susceptible-Infected-Removed SIR models; time-series SIR
+and chain-binomial stochastic models; catalytic disease models; coupled
+map lattice models of spatial transmission and network models for social
+spread of infection.
 
 %prep
 %setup -q -c -n %{packname}

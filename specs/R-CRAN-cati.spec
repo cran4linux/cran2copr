@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cati
-%global packver   0.99.4
+%global packver   0.99.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.4
+Version:          0.99.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Community Assembly by Traits: Individuals and Beyond
 
@@ -22,7 +23,7 @@ BuildRequires:    R-CRAN-ape
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-rasterVis 
 BuildRequires:    R-CRAN-hypervolume 
-BuildRequires:    R-CRAN-FD 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-nlme 
@@ -31,14 +32,18 @@ Requires:         R-CRAN-ape
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-rasterVis 
 Requires:         R-CRAN-hypervolume 
-Requires:         R-CRAN-FD 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-vegan 
 
 %description
 Detect and quantify community assembly processes using trait values of
 individuals or populations, the T-statistics and other metrics, and
-dedicated null models.
+dedicated null models. Provides tools to analyse 'intraspecific' trait
+variability and its consequences for community assembly. Implements a
+framework using individual-level trait data to decompose variance at the
+population, species, and community levels. Methods are described in
+'Taudiere' and 'Violle' (2016) <doi:10.1111/ecog.01433>.
 
 %prep
 %setup -q -c -n %{packname}

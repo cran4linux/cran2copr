@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  joinspy
-%global packver   0.7.3
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Tools for Data Frame Joins
 
@@ -28,7 +28,7 @@ joins. Analyzes key columns before joining to detect duplicates,
 mismatches, encoding issues, and other common problems. Explains
 unexpected row count changes and provides safe join wrappers with
 cardinality enforcement. Concepts and diagnostics build on tidy data
-principles as described in Wickham (2014) <doi:10.18637/jss.v059.i10>.
+principles as described in 'Wickham' (2014) <doi:10.18637/jss.v059.i10>.
 
 %prep
 %setup -q -c -n %{packname}

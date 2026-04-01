@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdftsa
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Functional Time Series Analysis
 
@@ -18,16 +18,22 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ftsa 
+BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pdfCluster 
 Requires:         R-CRAN-ftsa 
+Requires:         R-CRAN-forecast 
 Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pdfCluster 
 
 %description
-Offers methods for visualizing, modelling, and forecasting
+Offers methods for visualising, modelling, and forecasting
 high-dimensional functional time series, also known as functional panel
-data. Documentation about 'hdftsa' is provided via the paper by Cristian
-F. Jimenez-Varon, Ying Sun and Han Lin Shang (2024,
-<doi:10.1080/10618600.2024.2319166>).
+data. Documentation about 'hdftsa' is initially provided via the paper by
+Cristian F. Jimenez-Varon, Ying Sun and Han Lin Shang (2024, Journal of
+Computational and Graphical Statistics).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Orangutan
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Analysis of Phenotypic Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-withr 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-withr 
@@ -43,8 +45,9 @@ Provides functions to analyze and visualize meristic and mensural
 phenotypic data in a comparative framework. The package implements an
 automated pipeline that summarizes traits, identifies diagnostic variables
 among groups, performs multivariate and univariate statistical analyses,
-and produces publication-ready graphics. An earlier implementation
-(v1.0.0) is described in Torres (2025) <doi:10.64898/2025.12.18.695244>.
+and produces publication-ready graphics. Earlier implementation are
+described in Torres (2025) <doi:10.64898/2025.12.18.695244> (v1.0.0) and
+Torres (2026) <doi:10.1002/ece3.73111> (v2.0.0).
 
 %prep
 %setup -q -c -n %{packname}

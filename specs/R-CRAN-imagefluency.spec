@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  imagefluency
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Image Statistics Based on Processing Fluency
 
-License:          CC BY 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-readbitmap 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-OpenImageR 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-readbitmap 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-OpenImageR 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+Get image statistics based on processing fluency theory. The functions
+provide scores for several basic aesthetic principles that facilitate
+fluent cognitive processing of images: contrast, complexity / simplicity,
+self-similarity, symmetry, and typicality. See Mayer & Landwehr (2018)
+<doi:10.1037/aca0000187> and Mayer & Landwehr (2018)
+<doi:10.31219/osf.io/gtbhw> for the theoretical background of the methods.
 
 %prep
 %setup -q -c -n %{packname}

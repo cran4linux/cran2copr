@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  tynding
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          'Typst' Bindings
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+Provides bindings to the 'Typst' typesetting system, enabling users to
+compile 'Typst' documents directly from R. The package interfaces with the
+'Typst' 'Rust' library to render documents, making it possible to
+integrate 'Typst'-based workflows into R scripts, reports, and
+reproducible research pipelines. It supports programmatic document
+generation, compilation, and output handling, facilitating seamless use of
+'Typst' alongside tools such as knitr and Quarto.
 
 %prep
 %setup -q -c -n %{packname}

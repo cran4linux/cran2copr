@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BEND
-%global packver   1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Estimation of Nonlinear Data (BEND)
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.3
 Requires:         R-core >= 3.6.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags >= 4.14
+BuildRequires:    R-CRAN-rjags >= 4.17
 BuildRequires:    R-CRAN-label.switching >= 1.8
-BuildRequires:    R-CRAN-coda >= 0.19.4
-Requires:         R-CRAN-rjags >= 4.14
+BuildRequires:    R-CRAN-coda >= 0.19.4.1
+Requires:         R-CRAN-rjags >= 4.17
 Requires:         R-CRAN-label.switching >= 1.8
-Requires:         R-CRAN-coda >= 0.19.4
+Requires:         R-CRAN-coda >= 0.19.4.1
 
 %description
 Provides a set of models to estimate nonlinear longitudinal data using

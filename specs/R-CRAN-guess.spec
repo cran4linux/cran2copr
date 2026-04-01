@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  guess
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adjust Estimates of Learning for Guessing
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-stats 
+Requires:         R-CRAN-checkmate 
 
 %description
 Provides tools to adjust estimates of learning for guessing-related bias

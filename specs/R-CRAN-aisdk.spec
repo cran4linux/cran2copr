@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cograph
-%global packver   2.0.0
+%global packname  aisdk
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Visualization of Complex Networks
+Summary:          Unified Interface for AI Model Providers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,25 +18,46 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-grid 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-openssl 
 Requires:         R-CRAN-R6 
-Requires:         R-grid 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-digest 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-openssl 
 
 %description
-Provides tools for the analysis, visualization, and manipulation of
-dynamical, social (Saqr et al. (2024) <doi:10.1007/978-3-031-54464-4_10>)
-and complex networks (Saqr et al. (2025) <doi:10.1145/3706468.3706513>).
-The package supports multiple network formats and offers flexible tools
-for heterogeneous, multi-layer, and hierarchical network analysis with
-simple syntax and extensive toolset.
+A production-grade AI toolkit for R featuring a layered architecture
+(Specification, Utilities, Providers, Core), request interception support,
+robust error handling with exponential retry delays, support for multiple
+AI model providers ('OpenAI', 'Anthropic', etc.), local small language
+model inference, distributed 'MCP' ecosystem, multi-agent orchestration,
+progressive knowledge loading through skills, and a global skill store for
+sharing AI capabilities.
 
 %prep
 %setup -q -c -n %{packname}

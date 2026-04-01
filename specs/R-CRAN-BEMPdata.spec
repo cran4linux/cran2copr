@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BEMPdata
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the Bangladesh Environmental Mobility Panel Dataset
 
@@ -34,8 +34,8 @@ Mobility Panel (BEMP), a household panel survey tracing the impacts of
 riverbank erosion and flooding on (im)mobility, socio-economic outcomes,
 and political attitudes along the Jamuna River in Bangladesh (2021-2024).
 Wave datasets (20 files across 14 survey rounds) are hosted on Zenodo
-(<https://zenodo.org/records/18229498>) and downloaded on demand with
-local caching. Bundled data include a merged cross-wave codebook and wave
+(<doi:10.5281/zenodo.18229497>) and downloaded on demand with local
+caching. Bundled data include a merged cross-wave codebook and wave
 metadata.
 
 %prep

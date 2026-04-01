@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  progressr
-%global packver   0.18.0
+%global packver   0.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18.0
+Version:          0.19.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Inclusive, Unifying API for Progress Updates
 
@@ -38,8 +38,9 @@ updated. Because of this, progress can be reported from almost anywhere in
 R, e.g. from classical for and while loops, from map-reduce API:s like the
 lapply() family of functions, 'purrr', 'plyr', and 'foreach'. It will also
 work with parallel processing via the 'future' framework, e.g.
-future.apply::future_lapply(), furrr::future_map(), and 'foreach' with
-'doFuture'. The package is compatible with Shiny applications.
+'lapply(...) |> futurize()' and 'purrr::map(...) |> futurize()', which
+uses future.apply::future_lapply() and furrr::future_map() internally. The
+package is compatible with Shiny applications.
 
 %prep
 %setup -q -c -n %{packname}

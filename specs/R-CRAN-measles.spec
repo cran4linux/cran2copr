@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  measles
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Measles Epidemiological Models
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-epiworldR >= 0.14.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-epiworldR >= 0.14.0.0
+Requires:         R-utils 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+A specialized collection of measles epidemiological models built on the
+'epiworldR' framework. This package is a spinoff from 'epiworldR' focusing
+specifically on measles transmission dynamics. It includes models for
+school settings with quarantine and isolation policies, mixing models with
+population groups, and risk-based quarantine strategies. The models use
+Agent-Based Models (ABM) with a fast 'C++' backend from the 'epiworld'
+library. Ideal for studying measles outbreaks, vaccination strategies, and
+intervention policies.
 
 %prep
 %setup -q -c -n %{packname}

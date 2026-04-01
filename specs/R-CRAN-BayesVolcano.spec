@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HelpersMG
-%global packver   2026.3.31
+%global packname  BayesVolcano
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.3.31
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Various R Functions Helpers
+Summary:          Creating Volcano Plots from Bayesian Model Posteriors
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Contains miscellaneous functions useful for managing 'NetCDF' files (see
-<https://en.wikipedia.org/wiki/NetCDF>), get moon phase and time for sun
-rise and fall, tide level, analyse and reconstruct periodic time series of
-temperature with irregular sinusoidal pattern, show scales and wind rose
-in plot with change of color of text, Metropolis-Hastings algorithm for
-Bayesian MCMC analysis, plot graphs or boxplot with error bars, search
-files in disk by there names or their content, read the contents of all
-files from a folder at one time.
+Bayesian models are used to estimate effect sizes (e.g., gene expression
+changes, protein abundance differences, drug response effects) while
+accounting for uncertainty, small sample sizes, and complex experimental
+designs. However, Bayesian posteriors of models with many parameters are
+often difficult to interpret at a glance. One way to quickly identify
+important biological changes based on frequentist analysis are volcano
+plots (using fold-changes and p-values). Bayesian volcano plots bring
+together the explicit treatment of uncertainty in Bayesian models and the
+familiar visualization of volcano plots.
 
 %prep
 %setup -q -c -n %{packname}

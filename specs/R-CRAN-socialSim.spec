@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  socialSim
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate and Analyse Social Interaction Data
 
@@ -41,8 +41,8 @@ includes functions to fit and compare alternative models of social
 effects, including impact–responsiveness, variance–partitioning, and
 trait-based models, and to summarise model performance in terms of bias
 and dispersion. For a more detailed description of the available models
-and impact–responsiveness, see the accompanying preprint Wijnhorst et al.
-(2025) <doi:10.32942/X2F65M>.
+and impact–responsiveness, see the accompanying article Wijnhorst et al.
+(2026) <doi:10.1093/jeb/voag013>.
 
 %prep
 %setup -q -c -n %{packname}

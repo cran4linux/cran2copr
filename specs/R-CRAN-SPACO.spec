@@ -1,45 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rscorecard
-%global packver   0.33.0
+%global packname  SPACO
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.33.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Method to Download Department of Education College Scorecard Data
+Summary:          Spatial Component Analysis for Spatial Sequencing Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-devel >= 4.2.3
+Requires:         R-core >= 4.2.3
+BuildRequires:    R-CRAN-Seurat >= 5.3.0
+BuildRequires:    R-CRAN-Matrix >= 1.5
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rARPACK 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Seurat >= 5.3.0
+Requires:         R-CRAN-Matrix >= 1.5
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-ggforce 
+Requires:         R-methods 
+Requires:         R-CRAN-rARPACK 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-scales 
 
 %description
-A method to download Department of Education College Scorecard data using
-the public API <https://collegescorecard.ed.gov/data/data-documentation/>.
-It is based on the 'dplyr' model of piped commands to select and filter
-data in a single chained function call.  An API key from the U.S.
-Department of Education is required.
+Spatial components offer tools for dimension reduction and spatially
+variable gene detection for high dimensional spatial transcriptomics data.
+Construction of a projection onto low-dimensional feature space of
+spatially dependent metagenes offers pre-processing to clustering, testing
+for spatial variability and denoising of spatial expression patterns. For
+more details, see Koehler et al. (2026)
+<doi:10.1093/bioinformatics/btag052>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  furrr
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Mapping Functions in Parallel using Futures
 
@@ -14,21 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.25.0
-BuildRequires:    R-CRAN-rlang >= 1.0.2
-BuildRequires:    R-CRAN-lifecycle >= 1.0.1
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-globals >= 0.14.0
-Requires:         R-CRAN-future >= 1.25.0
-Requires:         R-CRAN-rlang >= 1.0.2
-Requires:         R-CRAN-lifecycle >= 1.0.1
-Requires:         R-CRAN-vctrs >= 0.4.1
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-globals >= 0.14.0
+BuildRequires:    R-CRAN-future >= 1.70.0
+BuildRequires:    R-CRAN-purrr >= 1.2.1
+BuildRequires:    R-CRAN-rlang >= 1.1.7
+BuildRequires:    R-CRAN-vctrs >= 0.7.0
+BuildRequires:    R-CRAN-globals >= 0.19.1
+Requires:         R-CRAN-future >= 1.70.0
+Requires:         R-CRAN-purrr >= 1.2.1
+Requires:         R-CRAN-rlang >= 1.1.7
+Requires:         R-CRAN-vctrs >= 0.7.0
+Requires:         R-CRAN-globals >= 0.19.1
 
 %description
 Implementations of the family of map() functions from 'purrr' that can be

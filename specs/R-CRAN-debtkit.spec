@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  debtkit
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Debt Sustainability Analysis and Fiscal Risk Assessment
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
 Requires:         R-stats 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+Analyses government debt sustainability using the standard debt dynamics
+framework from Blanchard (1990) <doi:10.1787/budget-v2-art12-en> and the
+IMF Debt Sustainability Analysis methodology (IMF, 2013) and the Sovereign
+Risk and Debt Sustainability Framework (IMF, 2022). Projects debt-to-GDP
+paths, decomposes historical debt changes into interest, growth, and
+primary balance contributions, and estimates fiscal reaction functions
+following Bohn (1998) <doi:10.1162/003355398555793>. Produces stochastic
+fan charts via Monte Carlo simulation, standardised stress tests, and IMF-
+style heat map risk assessments. Computes S1/S2 sustainability gap
+indicators used by the European Commission. All methods are pure
+computation with no external dependencies beyond base R; works with fiscal
+data from any source.
 
 %prep
 %setup -q -c -n %{packname}

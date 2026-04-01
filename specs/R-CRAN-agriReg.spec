@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  agriReg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Linear and Nonlinear Regression for Agricultural Data
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-drc >= 3.0.1
+BuildRequires:    R-CRAN-lme4 >= 1.1.35
+BuildRequires:    R-CRAN-patchwork >= 1.1.0
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-drc >= 3.0.1
+Requires:         R-CRAN-lme4 >= 1.1.35
+Requires:         R-CRAN-patchwork >= 1.1.0
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+Fit, compare, and visualise linear and nonlinear regression models
+tailored to field-trial and dose-response agricultural data. Provides S3
+classes for mixed-effects models (via 'lme4'), nonlinear growth curves
+(logistic, 'Gompertz', asymptotic, linear-plateau, quadratic), and
+four/five-parameter log-logistic dose-response models (via 'drc').
+Includes automated starting-value heuristics, goodness-of-fit statistics,
+residual diagnostics, and 'ggplot2'-based visualisation. Methods are based
+on Bates and Watts (1988, ISBN:9780471816430), Ritz and others (2015)
+<doi:10.1371/journal.pone.0146021>, and Bates and others (2015)
+<doi:10.18637/jss.v067.i01>.
 
 %prep
 %setup -q -c -n %{packname}

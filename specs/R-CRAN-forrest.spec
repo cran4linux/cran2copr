@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  forrest
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Publication-Ready Forest Plots
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-tinyplot >= 0.2.0
+Requires:         R-CRAN-tinyplot >= 0.2.0
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+Creates publication-ready forest plots from any tabular data containing
+point estimates and confidence intervals. Suitable for visualising results
+from regression models, meta-analyses, subgroup analyses, or any
+comparative study. Supports group and subgroup headings, summary estimates
+displayed as diamonds, grouped estimates with automatic colour and shape
+mapping, vertical dodging of multiple estimates within the same row,
+customisable text columns alongside the plot, and optional row striping.
+Provides a helper to export plots to PDF, PNG, SVG, or TIFF. Built on
+'tinyplot' for clean, consistent visual styling with a minimal dependency
+footprint.
 
 %prep
 %setup -q -c -n %{packname}

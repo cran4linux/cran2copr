@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.4
+%global packname  CompositionalNAimp
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Missing Value Imputation with Compositional Data
 
-License:          CC BY 4.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Compositional 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rnanoflann 
+Requires:         R-CRAN-Compositional 
 Requires:         R-graphics 
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rnanoflann 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
-<doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
-Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+Functions to perform missing value imputation with compositional data
+using the Jensen-Shannon divergence based k--NN and a--k--NN algorithms.
+The functions are based on the following paper: Tsagris M., Alenazi A. and
+Stewart C. (2026). "A Jensen--Shannon divergence based k--NN algorithm for
+missing value imputation in compositional data". Journal of Applied
+Statistics (Accepted for publication).
 
 %prep
 %setup -q -c -n %{packname}
