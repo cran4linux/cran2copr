@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAOSTAT
-%global packver   2.4.2
+%global packname  bigKNN
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the FAOSTAT Database
+Summary:          Exact Search and Graph Construction for 'bigmemory' Matrices
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.22
-BuildRequires:    R-CRAN-data.table >= 1.8.2
-BuildRequires:    R-CRAN-plyr >= 1.7.1
-BuildRequires:    R-CRAN-httr >= 1.0
-BuildRequires:    R-CRAN-RJSONIO >= 0.96.0
-BuildRequires:    R-CRAN-classInt >= 0.1.19
-BuildRequires:    R-CRAN-labeling >= 0.1
-Requires:         R-CRAN-MASS >= 7.3.22
-Requires:         R-CRAN-data.table >= 1.8.2
-Requires:         R-CRAN-plyr >= 1.7.1
-Requires:         R-CRAN-httr >= 1.0
-Requires:         R-CRAN-RJSONIO >= 0.96.0
-Requires:         R-CRAN-classInt >= 0.1.19
-Requires:         R-CRAN-labeling >= 0.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-Download Data from the FAOSTAT Database of the Food and Agricultural
-Organization (FAO) of the United Nations. A list of functions to download
-statistics from FAOSTAT (database of the FAO
-<https://www.fao.org/faostat/>) and WDI (database of the World Bank
-<https://data.worldbank.org/>), and to perform some harmonization
-operations.
+Exact nearest-neighbour and radius-search routines that operate directly
+on 'bigmemory::big.matrix' objects. The package streams row blocks through
+'BLAS' kernels, supports self-search and external-query search, exposes
+prepared references for repeated queries, and can build exact
+k-nearest-neighbour, radius, mutual k-nearest-neighbour, and
+shared-nearest-neighbour graphs. Version 0.3.0 adds execution plans,
+serializable prepared caches, resumable streamed graph jobs, coercion
+helpers, exact candidate reranking, and recall summaries for evaluating
+approximate neighbours.
 
 %prep
 %setup -q -c -n %{packname}

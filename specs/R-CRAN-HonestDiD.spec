@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HonestDiD
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Inference in Difference-in-Differences and Event Study Designs
 
@@ -24,8 +24,8 @@ BuildRequires:    R-CRAN-foreach >= 1.4.7
 BuildRequires:    R-CRAN-tibble >= 1.3.4
 BuildRequires:    R-CRAN-Matrix >= 1.2.17
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
+BuildRequires:    R-CRAN-CVXR >= 1.0
 BuildRequires:    R-CRAN-TruncatedNormal >= 1.0
-BuildRequires:    R-CRAN-CVXR >= 0.99.6
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-matrixStats >= 0.63.0
 BuildRequires:    R-CRAN-Rglpk >= 0.6.4
@@ -40,8 +40,8 @@ Requires:         R-CRAN-foreach >= 1.4.7
 Requires:         R-CRAN-tibble >= 1.3.4
 Requires:         R-CRAN-Matrix >= 1.2.17
 Requires:         R-CRAN-mvtnorm >= 1.1.3
+Requires:         R-CRAN-CVXR >= 1.0
 Requires:         R-CRAN-TruncatedNormal >= 1.0
-Requires:         R-CRAN-CVXR >= 0.99.6
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-matrixStats >= 0.63.0
 Requires:         R-CRAN-Rglpk >= 0.6.4

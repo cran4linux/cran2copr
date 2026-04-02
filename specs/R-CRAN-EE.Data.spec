@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAOSTAT
-%global packver   2.4.2
+%global packname  EE.Data
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the FAOSTAT Database
+Summary:          Objects for Predicting Energy Expenditure
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.22
-BuildRequires:    R-CRAN-data.table >= 1.8.2
-BuildRequires:    R-CRAN-plyr >= 1.7.1
-BuildRequires:    R-CRAN-httr >= 1.0
-BuildRequires:    R-CRAN-RJSONIO >= 0.96.0
-BuildRequires:    R-CRAN-classInt >= 0.1.19
-BuildRequires:    R-CRAN-labeling >= 0.1
-Requires:         R-CRAN-MASS >= 7.3.22
-Requires:         R-CRAN-data.table >= 1.8.2
-Requires:         R-CRAN-plyr >= 1.7.1
-Requires:         R-CRAN-httr >= 1.0
-Requires:         R-CRAN-RJSONIO >= 0.96.0
-Requires:         R-CRAN-classInt >= 0.1.19
-Requires:         R-CRAN-labeling >= 0.1
 
 %description
-Download Data from the FAOSTAT Database of the Food and Agricultural
-Organization (FAO) of the United Nations. A list of functions to download
-statistics from FAOSTAT (database of the FAO
-<https://www.fao.org/faostat/>) and WDI (database of the World Bank
-<https://data.worldbank.org/>), and to perform some harmonization
-operations.
+This is a data-only package containing model objects that predict human
+energy expenditure from wearable sensor data. Supported methods include
+the neural networks of Montoye et al. (2017)
+<doi:10.1080/1091367X.2017.1337638> and the models of Staudenmayer et al.
+(2015) <doi:10.1152/japplphysiol.00026.2015>, one a linear model and the
+other a random forest. The package is intended as a spoke for the
+hub-package 'accelEE', which brings together the above methods and others
+from packages such as 'Sojourn' and 'TwoRegression.'
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IBDInfer
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design-Based Causal Inference Method for Incomplete Block Designs
 
@@ -28,10 +28,10 @@ Requires:         R-CRAN-tidyr
 This R package implements methods for estimation and inference under
 Incomplete Block Designs and Balanced Incomplete Block Designs within a
 design-based finite-population framework. Based on 'Koo and Pashley'
-(2024) <arXiv:2405.19312>, it includes block-level estimators and extends
-to unit-level effects using 'Horvitz-Thompson' and 'Hájek' estimators. The
-package also provides asymptotic confidence intervals to support valid
-statistical inference.
+(2026) <doi:10.1093/biomet/asag013>, it includes block-level estimators
+and extends to unit-level effects using 'Horvitz-Thompson' and 'Hájek'
+estimators. The package also provides asymptotic confidence intervals to
+support valid statistical inference.
 
 %prep
 %setup -q -c -n %{packname}

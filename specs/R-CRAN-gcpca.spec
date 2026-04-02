@@ -1,44 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynamAedes
-%global packver   2.2.9
+%global packname  gcpca
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified Mechanistic Model for the Population Dynamics of Invasive Aedes Mosquitoes
+Summary:          Generalized Contrastive Principal Component Analysis
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-drc 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-drc 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-geosphere 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Generalised model for population dynamics of invasive Aedes mosquitoes.
-Rationale and model structure are described here: Da Re et al. (2021)
-<doi:10.1016/j.ecoinf.2020.101180> and Da Re et al. (2022)
-<doi:10.1101/2021.12.21.473628>.
+Implements dense and sparse generalized contrastive principal component
+analysis (gcPCA) with S3 fit objects and methods for prediction,
+summaries, and plotting. The gcPCA is a hyperparameter-free method for
+comparing high-dimensional datasets collected under different experimental
+conditions to reveal low-dimensional patterns enriched in one condition
+compared to the other. Method details are described in de Oliveira, Garg,
+Hjerling-Leffler, Batista-Brito, and Sjulson (2025)
+<doi:10.1371/journal.pcbi.1012747>.
 
 %prep
 %setup -q -c -n %{packname}

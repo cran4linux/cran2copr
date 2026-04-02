@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  futurize
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallelize Common Functions via One Magic Function
 
@@ -33,13 +33,12 @@ computations with minimal refactoring, e.g. 'lapply(xs, fcn) |>
 futurize()', 'purrr::map(xs, fcn) |> futurize()', and 'foreach::foreach(x
 = xs) %%do%% { fcn(x) } |> futurize()'. Other map-reduce packages that can
 be "futurized" are 'BiocParallel', 'plyr', 'crossmap', 'pbapply' packages.
-There is also support for a growing set of domain-specific packages (e.g.
-CRAN package 'boot', 'caret', 'fgsea', 'fwb', 'gamlss', 'glmmTMB',
-'glmnet', 'kernelshap', 'lme4', 'metafor', 'mgcv', 'partykit',
-'riskRegression', 'seriation', 'shapr', 'SimDesign', 'strucchange', 'tm',
-'TSP', and 'vegan') and Bioconductor packages (e.g. 'DESeq2',
-'GenomicAlignments', 'GSVA', 'Rsamtools', 'scater', 'scuttle',
-'SingleCellExperiment', and 'sva').
+There is also support for a growing set of domain-specific packages on
+CRAN (e.g. 'boot', 'caret', 'fgsea', 'fwb', 'gamlss', 'glmmTMB', 'glmnet',
+'kernelshap', 'lme4', 'metafor', 'mgcv', 'partykit', 'riskRegression',
+'seriation', 'shapr', 'SimDesign', 'strucchange', 'tm', 'TSP', and
+'vegan') and on Bioconductor (e.g. 'DESeq2', 'GenomicAlignments', 'GSVA',
+'Rsamtools', 'scater', 'scuttle', 'SingleCellExperiment', and 'sva').
 
 %prep
 %setup -q -c -n %{packname}

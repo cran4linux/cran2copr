@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FAOSTAT
-%global packver   2.4.2
+%global packname  albersdown
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the FAOSTAT Database
+Summary:          Minimalist Theme and Vignette Kit for 'pkgdown' and R Markdown
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.22
-BuildRequires:    R-CRAN-data.table >= 1.8.2
-BuildRequires:    R-CRAN-plyr >= 1.7.1
-BuildRequires:    R-CRAN-httr >= 1.0
-BuildRequires:    R-CRAN-RJSONIO >= 0.96.0
-BuildRequires:    R-CRAN-classInt >= 0.1.19
-BuildRequires:    R-CRAN-labeling >= 0.1
-Requires:         R-CRAN-MASS >= 7.3.22
-Requires:         R-CRAN-data.table >= 1.8.2
-Requires:         R-CRAN-plyr >= 1.7.1
-Requires:         R-CRAN-httr >= 1.0
-Requires:         R-CRAN-RJSONIO >= 0.96.0
-Requires:         R-CRAN-classInt >= 0.1.19
-Requires:         R-CRAN-labeling >= 0.1
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Download Data from the FAOSTAT Database of the Food and Agricultural
-Organization (FAO) of the United Nations. A list of functions to download
-statistics from FAOSTAT (database of the FAO
-<https://www.fao.org/faostat/>) and WDI (database of the World Bank
-<https://data.worldbank.org/>), and to perform some harmonization
-operations.
+Provides a minimalist 'ggplot2' theme, colour scales, and 'pkgdown'
+template built around a curated colour palette system inspired by Josef
+Albers' colour theory (Albers (1963, ISBN:978-0-300-17935-4) "Interaction
+of Color"). Includes helpers to apply consistent theming to 'ggplot2'
+plots, 'gt' tables, and 'bslib' Bootstrap 5 sites, along with one-command
+setup functions for adopting the style across an R package.
 
 %prep
 %setup -q -c -n %{packname}

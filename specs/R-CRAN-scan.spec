@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scan
-%global packver   0.67.0
+%global packver   0.68.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.67.0
+Version:          0.68.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Case Data Analyses for Single and Multiple Baseline Designs
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-gt
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-mblm 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -43,23 +42,23 @@ Requires:         R-CRAN-gt
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-mblm 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-rstudioapi 
 
 %description
 A collection of procedures for analysing, visualising, and managing
-single-case data. These include regression models (multilevel,
-multivariate, bayesian), between case standardised mean difference,
-overlap indices ('PND', 'PEM', 'PAND', 'PET', 'tau-u', 'IRD', 'baseline
-corrected tau', 'CDC'), and randomization tests. Data preparation
-functions support outlier detection, handling missing values, scaling, and
-custom transformations. An export function helps to generate html, word,
-and latex tables in a publication friendly style. A shiny app allows to
-use scan in a graphical user interface. More details can be found in the
+single-case data. Multi-phase and multi-baseline designs are supported.
+Analysing methods include regression models (multilevel, multivariate,
+bayesian), between case standardised mean difference, overlap indices
+('PND', 'PEM', 'PAND', 'NAP', 'PET', 'tau-u', 'IRD', 'baseline corrected
+tau', 'CDC'), and randomization tests. Data preparation functions support
+outlier detection, handling missing values, scaling, and custom
+transformations. An export function helps to generate html, word, and
+latex tables in a publication friendly style. A shiny app allows to use
+scan in a graphical user interface. More details can be found in the
 online book 'Analyzing single-case data with R and scan', Juergen Wilbert
-(2025) <https://jazznbass.github.io/scan-Book/>.
+(2026) <https://jazznbass.github.io/scan-Book/>.
 
 %prep
 %setup -q -c -n %{packname}
