@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssaBSS
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stationary Subspace Analysis
 
@@ -18,15 +18,17 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-JADE >= 2.0.2
-BuildRequires:    R-CRAN-tsBSS >= 0.5.3
-BuildRequires:    R-CRAN-ICtest >= 0.3.4
+BuildRequires:    R-CRAN-ICS >= 1.4.2
+BuildRequires:    R-CRAN-tsBSS >= 1.0.1
+BuildRequires:    R-CRAN-ICtest >= 0.3.7
 BuildRequires:    R-CRAN-BSSprep 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-JADE >= 2.0.2
-Requires:         R-CRAN-tsBSS >= 0.5.3
-Requires:         R-CRAN-ICtest >= 0.3.4
+Requires:         R-CRAN-ICS >= 1.4.2
+Requires:         R-CRAN-tsBSS >= 1.0.1
+Requires:         R-CRAN-ICtest >= 0.3.7
 Requires:         R-CRAN-BSSprep 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-xts 
@@ -36,10 +38,10 @@ Requires:         R-CRAN-zoo
 Stationary subspace analysis (SSA) is a blind source separation (BSS)
 variant where stationary components are separated from non-stationary
 components. Several SSA methods for multivariate time series are provided
-here (Flumian et al. (2021); Hara et al. (2010)
-<doi:10.1007/978-3-642-17537-4_52>) along with functions to simulate time
-series with time-varying variance and autocovariance (Patilea and
-Raissi(2014) <doi:10.1080/01621459.2014.884504>).
+here (Flumian et al. (2024) <doi:10.1016/j.cam.2023.115379>; Hara et al.
+(2010) <doi:10.1007/978-3-642-17537-4_52>) along with functions to
+simulate time series with time-varying variance and autocovariance
+(Patilea and Raissi(2014) <doi:10.1080/01621459.2014.884504>).
 
 %prep
 %setup -q -c -n %{packname}

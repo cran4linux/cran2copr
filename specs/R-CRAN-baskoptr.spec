@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thisutils
-%global packver   0.4.4
+%global packname  baskoptr
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Utility Functions for Data Analysis and Computing
+Summary:          Utility-Based Optimization for Basket Trial Designs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pak 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pak 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-baskwrap >= 1.0.1
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-baskwrap >= 1.0.1
+Requires:         R-CRAN-future.apply 
 
 %description
-Provides utility functions for data analysis and computing. Includes
-functions for logging, parallel processing, and other computational tasks
-to streamline workflows.
+A unified framework for optimizing basket trial designs. To this end, the
+package supplies several utility functions and also a function for
+executing optimization algorithms on basket trial designs. The considered
+utility functions are discussed in Sauer et al. (2025)
+<doi:10.1371/journal.pone.0323097>.
 
 %prep
 %setup -q -c -n %{packname}

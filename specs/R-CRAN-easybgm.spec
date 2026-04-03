@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easybgm
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracting and Visualizing Bayesian Graphical Models
 
@@ -38,9 +38,9 @@ Requires:         R-CRAN-coda
 
 %description
 Fit and visualize the results of a Bayesian analysis of networks commonly
-found in psychology. The package supports fitting cross-sectional network
-models fitted using the packages 'BDgraph', 'bgms' and 'BGGM', as well as
-network comparison fitted using the 'bgms' and 'BBGM'. The package
+found in psychology. The package supports cross-sectional network models
+fitted using the packages 'BDgraph', 'bgms' and 'BGGM', as well as network
+comparison tests fitted using the packages 'bgms' and 'BBGM'. The package
 provides the parameter estimates, posterior inclusion probabilities,
 inclusion Bayes factor, and the posterior density of the parameters. In
 addition, for 'BDgraph' and 'bgms' it allows to assess the posterior

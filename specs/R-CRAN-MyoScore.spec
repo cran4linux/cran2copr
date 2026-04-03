@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EBMAforecast
-%global packver   1.0.32
+%global packname  MyoScore
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.32
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Ensemble Bayesian Model Averaging Forecasts using Gibbs Sampling or EM-Algorithms
+Summary:          Transcriptomic Scoring for Human Skeletal Muscle Health
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-separationplot 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-graphics 
-Requires:         R-CRAN-separationplot 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-gtools 
-Requires:         R-methods 
-Requires:         R-CRAN-glue 
+Requires:         R-grDevices 
 
 %description
-Create forecasts from multiple predictions using ensemble Bayesian model
-averaging (EBMA). EBMA models can be estimated using an expectation
-maximization (EM) algorithm or as fully Bayesian models via Gibbs
-sampling. The methods in this package are Montgomery, Hollenbach, and Ward
-(2015) <doi:10.1016/j.ijforecast.2014.08.001> and Montgomery, Hollenbach,
-and Ward (2012) <doi:10.1093/pan/mps002>.
+Calculate MyoScore, a genetically informed muscle health score, from bulk
+RNA sequencing (RNA-seq) raw count data. MyoScore integrates results from
+genome-wide association studies (GWAS) and transcriptome-wide association
+studies (TWAS) across 28 muscle-related phenotypes to quantify muscle
+health along five dimensions (Strength, Mass, LeanMuscle, Youth,
+Resilience), each scored from 0 to 100. The package provides preprocessing
+via counts per million (CPM) normalization, dimension-level and composite
+scoring, and visualization utilities including radar charts and grouped
+boxplots. For more information, see
+<https://github.com/Hirriririir/MyoScore>.
 
 %prep
 %setup -q -c -n %{packname}

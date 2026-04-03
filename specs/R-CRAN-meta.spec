@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meta
-%global packver   8.2-1
+%global packver   8.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.2.1
+Version:          8.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-metafor >= 3.0.0
+BuildRequires:    R-CRAN-metabook >= 0.2.0
 BuildRequires:    R-CRAN-metadat 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
@@ -30,9 +31,11 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-metafor >= 3.0.0
+Requires:         R-CRAN-metabook >= 0.2.0
 Requires:         R-CRAN-metadat 
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
@@ -45,6 +48,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-scales 
 
@@ -57,11 +61,12 @@ Galbraith / radial, L'Abbe, Baujat, bubble); - three-level meta-analysis
 model; - generalised linear mixed model; - logistic regression with
 penalised likelihood for rare events; - Hartung-Knapp method for random
 effects model; - Kenward-Roger method for random effects model; -
-prediction interval; - statistical tests for funnel plot asymmetry; -
-trim-and-fill method to evaluate bias in meta-analysis; - meta-regression;
-- cumulative meta-analysis and leave-one-out meta-analysis; - import data
-from 'RevMan 5'; - produce forest plot summarising several (subgroup)
-meta-analyses.
+prediction interval and density of the prediction distribution; - expected
+proportion of comparable studies with clinically important benefit or
+harm; - statistical tests for funnel plot asymmetry; - trim-and-fill
+method to evaluate bias in meta-analysis; - meta-regression; - cumulative
+meta-analysis and leave-one-out meta-analysis; - import data from 'RevMan
+5'; - produce forest plot summarising several (subgroup) meta-analyses.
 
 %prep
 %setup -q -c -n %{packname}

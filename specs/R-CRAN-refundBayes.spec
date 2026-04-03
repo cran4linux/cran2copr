@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thisutils
-%global packver   0.4.4
+%global packname  refundBayes
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Utility Functions for Data Analysis and Computing
+Summary:          Bayesian Regression with Functional Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pak 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rstan >= 2.29.0
+BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-refund 
+BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pak 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.29.0
+Requires:         R-CRAN-ggplot2 >= 2.0.0
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-refund 
+Requires:         R-CRAN-splines2 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-rstantools
 
 %description
-Provides utility functions for data analysis and computing. Includes
-functions for logging, parallel processing, and other computational tasks
-to streamline workflows.
+Bayesian regression with functional data, including regression with
+scalar, survival, or functional outcomes. The package allows regression
+with scalar and functional predictors. Methods are described in Jiang et
+al. (2025) "Tutorial on Bayesian Functional Regression Using Stan"
+<doi:10.1002/sim.70265>.
 
 %prep
 %setup -q -c -n %{packname}

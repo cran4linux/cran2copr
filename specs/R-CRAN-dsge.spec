@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  farr
+%global packname  dsge
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Code for Empirical Research in Accounting
+Summary:          Dynamic Stochastic General Equilibrium Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,33 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.2.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-CRAN-dbplyr >= 2.2.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rpart 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Handy functions and data to support the course book 'Empirical Research in
-Accounting: Tools and Methods' (1st ed.). Chapman and Hall/CRC.
-<doi:10.1201/9781003456230> and <https://iangow.github.io/far_book/>.
+Specify, solve, and estimate dynamic stochastic general equilibrium (DSGE)
+models by maximum likelihood and Bayesian methods. Supports both linear
+models via an equation-based formula interface and nonlinear models via
+string-based equations with first-order perturbation (linearization around
+deterministic steady state). Solution uses the method of undetermined
+coefficients (Klein, 2000 <doi:10.1016/S0165-1889(99)00045-7>). Likelihood
+evaluated via the Kalman filter. Bayesian estimation uses adaptive
+Random-Walk Metropolis-Hastings with prior specification. Additional tools
+include Kalman smoothing, historical shock decomposition, local
+identification diagnostics, parameter sensitivity analysis, second-order
+perturbation, occasionally binding constraints, impulse-response
+functions, forecasting, and robust standard errors.
 
 %prep
 %setup -q -c -n %{packname}

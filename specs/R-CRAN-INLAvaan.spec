@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAvaan
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Approximate Bayesian Latent Variable Analysis
 
@@ -14,52 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-blavaan 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-modeest 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-qrng 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ucminf 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-blavaan 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
 Requires:         R-CRAN-lavaan 
 Requires:         R-methods 
-Requires:         R-CRAN-modeest 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-qrng 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-statmod 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ucminf 
 Requires:         R-utils 
 
 %description
 Implements approximate Bayesian inference for Structural Equation Models
 (SEM) using a custom adaptation of the Integrated Nested Laplace
-Approximation as described in Rue et al. (2009)
-<doi:10.1111/j.1467-9868.2008.00700.x>. Provides a computationally
-efficient alternative to Markov Chain Monte Carlo (MCMC) for Bayesian
-estimation, allowing users to fit latent variable models using the
-'lavaan' syntax.
+Approximation (Rue et al., 2009) <doi:10.1111/j.1467-9868.2008.00700.x> as
+described in Jamil and Rue (2026a) <doi:10.48550/arXiv.2603.25690>.
+Provides a computationally efficient alternative to Markov Chain Monte
+Carlo (MCMC) for Bayesian estimation, allowing users to fit latent
+variable models using the 'lavaan' syntax. See also the companion paper on
+implementation and workflows, Jamil and Rue (2026b)
+<doi:10.48550/arXiv.2604.00671>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thisplot
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Plotting
 
@@ -22,11 +22,16 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-geomtextpath 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-proxyC 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-thisutils >= 0.4.3
@@ -34,11 +39,16 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-geomtextpath 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-proxyC 
+Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-utils 
 

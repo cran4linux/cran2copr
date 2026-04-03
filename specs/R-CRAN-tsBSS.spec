@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tsBSS
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blind Source Separation and Supervised Dimension Reduction for Time Series
 
@@ -16,7 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-JADE >= 2.0.2
-BuildRequires:    R-CRAN-ICtest >= 0.3.2
+BuildRequires:    R-CRAN-ICS >= 1.4.2
+BuildRequires:    R-CRAN-ICtest >= 0.3.7
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-BSSprep 
 BuildRequires:    R-CRAN-forecast 
@@ -26,7 +28,8 @@ BuildRequires:    R-CRAN-xts
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-JADE >= 2.0.2
-Requires:         R-CRAN-ICtest >= 0.3.2
+Requires:         R-CRAN-ICS >= 1.4.2
+Requires:         R-CRAN-ICtest >= 0.3.7
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-BSSprep 
 Requires:         R-CRAN-forecast 

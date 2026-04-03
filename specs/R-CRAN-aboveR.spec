@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aboveR
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'LiDAR' Terrain Analysis and Change Detection from Above
 
@@ -26,13 +26,15 @@ Requires:         R-CRAN-sf
 
 %description
 Terrain change detection, cut and fill volume estimation, terrain
-profiling, reclamation monitoring, erosion analysis, and flood risk
-assessment from 'LiDAR' (Light Detection and Ranging) point clouds and
-digital elevation models ('DEMs'). Applications include surface mine
-reclamation monitoring, sediment pond capacity tracking, highwall safety
-classification, and erosion channel detection. Built on 'lidR' for point
-cloud I/O and 'terra' for raster operations. Includes access utilities for
-'KyFromAbove' cloud-native elevation data on Amazon Web Services ('AWS')
+profiling, flood inundation analysis, slope and aspect computation,
+hillshade generation, contour extraction, reclamation monitoring, erosion
+analysis, and engineering export (LandXML, STL) from 'LiDAR' (Light
+Detection and Ranging) point clouds and digital elevation models ('DEMs').
+Applications include surface mine reclamation monitoring, sediment pond
+capacity tracking, highwall safety classification, and erosion channel
+detection. Built on 'lidR' for point cloud I/O and 'terra' for raster
+operations. Includes access utilities for 'KyFromAbove' cloud-native
+elevation data on Amazon Web Services ('AWS')
 <https://kyfromabove.ky.gov/>. Methods for terrain change detection and
 volume estimation follow Li and others (2005)
 <doi:10.1016/j.geomorph.2004.10.007>.

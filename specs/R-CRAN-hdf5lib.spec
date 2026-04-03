@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdf5lib
-%global packver   2.0.0.6
+%global packver   2.1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.6
+Version:          2.1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Headers and Static Libraries for 'HDF5'
 
@@ -18,14 +18,17 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 
 %description
-'HDF5' (Hierarchical Data Format 5) is a high-performance library and file
-format for storing and managing large, complex data. This package provides
-the static libraries and headers for the 'HDF5' 'C' library (release
-2.0.0). It is intended for R package developers to use in the 'LinkingTo'
-field, which eliminates the need for users to install system-level 'HDF5'
-dependencies. This build is compiled with thread-safety enabled and
-supports dynamic loading of external compression filters. 'HDF5' is
-developed by The HDF Group <https://www.hdfgroup.org/>.
+Provides a self-contained, static build of the 'HDF5' (Hierarchical Data
+Format 5) 'C' library (release 2.1.1) for R package developers. Designed
+for use in the 'LinkingTo' field, it enables zero-dependency integration
+by building the library entirely from source during installation.
+Additionally, it compiles and internally links a comprehensive suite of
+advanced compression filters and their 'HDF5' plugins (Zstd, LZ4,
+Blosc/Blosc2, Snappy, ZFP, Bzip2, LZF, Bitshuffle, szip, and gzip). These
+plugins are integrated out-of-the-box, allowing downstream packages to
+utilize high-performance compression directly through the standard 'HDF5'
+API while keeping the underlying third-party headers fully encapsulated.
+'HDF5' is developed by The HDF Group <https://www.hdfgroup.org/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thisutils
-%global packver   0.4.4
+%global packname  pepdiff
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Utility Functions for Data Analysis and Computing
+Summary:          Differential Abundance Analysis for Phosphoproteomics Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,31 +16,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pak 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-ARTool 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pak 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-ARTool 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-forcats 
+Requires:         R-grid 
 
 %description
-Provides utility functions for data analysis and computing. Includes
-functions for logging, parallel processing, and other computational tasks
-to streamline workflows.
+Provides tools for analyzing differential abundance in proteomics
+experiments. Implements S3 classes for data management and supports
+Generalized Linear Models (GLM; Nelder and Wedderburn (1972)
+<doi:10.2307/2344614>), Aligned Rank Transform (ART; Wobbrock et al.
+(2011) <doi:10.1145/1978942.1978963>), and pairwise test methods for
+statistical analysis. Includes visualization functions for Principal
+Component Analysis (PCA), volcano plots, and heatmaps.
 
 %prep
 %setup -q -c -n %{packname}

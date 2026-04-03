@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mrgsim.sa
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis with 'mrgsolve'
 
@@ -30,6 +30,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-mrgsolve 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-purrr 
@@ -43,6 +45,8 @@ Requires:         R-methods
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Perform sensitivity analysis on ordinary differential equation based

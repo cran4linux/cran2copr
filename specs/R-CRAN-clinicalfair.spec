@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thisutils
-%global packver   0.4.4
+%global packname  clinicalfair
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Utility Functions for Data Analysis and Computing
+Summary:          Algorithmic Fairness Assessment for Clinical Prediction Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,31 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pak 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pak 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides utility functions for data analysis and computing. Includes
-functions for logging, parallel processing, and other computational tasks
-to streamline workflows.
+Post-hoc fairness auditing toolkit for clinical prediction models. Unlike
+in-processing approaches that modify model training, this package
+evaluates existing models by computing group-wise fairness metrics
+(demographic parity, equalized odds, predictive parity, calibration
+disparity), visualizing disparities across protected attributes, and
+performing threshold-based mitigation. Supports intersectional analysis
+across multiple attributes and generates audit reports useful for
+fairness-oriented auditing in clinical AI settings. Methods described in
+Obermeyer et al. (2019) <doi:10.1126/science.aax2342> and Hardt, Price,
+and Srebro (2016) <doi:10.48550/arXiv.1610.02413>.
 
 %prep
 %setup -q -c -n %{packname}

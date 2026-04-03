@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openair
-%global packver   2.19.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.19.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for the Analysis of Air Pollution Data
 
@@ -14,50 +14,46 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.2
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-hexbin 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 1.1
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-dplyr >= 1.2
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-cluster 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-hexbin 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-mapproj 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 

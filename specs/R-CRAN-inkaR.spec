@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thisutils
-%global packver   0.4.4
+%global packname  inkaR
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Utility Functions for Data Analysis and Computing
+Summary:          Download and Analyze Spatial Development Data from 'INKAR'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,31 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pak 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pak 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides utility functions for data analysis and computing. Includes
-functions for logging, parallel processing, and other computational tasks
-to streamline workflows.
+A professional R interface to download and analyze spatial development
+indicators from the 'BBSR' 'INKAR' (Indikatoren und Karten zur Raum- und
+Stadtentwicklung) database. Features a bilingual interactive wizard, fuzzy
+search, multi-indicator downloads with automatic tidy merging (long/wide),
+robust disk caching, and premium 'ggplot2' themes for regional mapping.
 
 %prep
 %setup -q -c -n %{packname}
