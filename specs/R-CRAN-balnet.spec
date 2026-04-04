@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  McMiso
-%global packver   0.2.0
+%global packname  balnet
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore Multivariable Isotonic Regression
+Summary:          Pathwise Estimation of Covariate Balancing Propensity Scores
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-Provides functions for isotonic regression and classification when there
-are multiple independent variables. The functions solve the optimization
-problem using a projective Bayes approach with recursive sequential update
-algorithms, and are useful for situations with a relatively large number
-of covariates. Supports binary outcomes via a Beta-Binomial conjugate
-model ('miso', 'PBclassifier') and continuous outcomes via a
-Normal-Inverse-Chi-Squared conjugate model ('misoN'). Parallel computing
-wrappers ('mcmiso', 'mcPBclassifier', 'mcmisoN') are provided that run the
-down-up and up-down algorithms simultaneously and return whichever
-finishes first. The estimation method follows the projective Bayes
-solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
+Provides pathwise estimation of regularized logistic propensity score
+models using covariate balancing loss functions rather than maximum
+likelihood. Regularization paths are fit via the 'adelie' elastic-net
+solver with a 'glmnet'-like interface and objectives that directly target
+covariate balance for the ATE and ATT. For details, see Sverdrup & Hastie
+(2026) <doi:10.48550/arXiv.2602.18577>.
 
 %prep
 %setup -q -c -n %{packname}

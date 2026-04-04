@@ -1,39 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  McMiso
-%global packver   0.2.0
+%global packname  ravel
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore Multivariable Isotonic Regression
+Summary:          AI Copilot for R Analysis Workflows in 'RStudio'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Provides functions for isotonic regression and classification when there
-are multiple independent variables. The functions solve the optimization
-problem using a projective Bayes approach with recursive sequential update
-algorithms, and are useful for situations with a relatively large number
-of covariates. Supports binary outcomes via a Beta-Binomial conjugate
-model ('miso', 'PBclassifier') and continuous outcomes via a
-Normal-Inverse-Chi-Squared conjugate model ('misoN'). Parallel computing
-wrappers ('mcmiso', 'mcPBclassifier', 'mcmisoN') are provided that run the
-down-up and up-down algorithms simultaneously and return whichever
-finishes first. The estimation method follows the projective Bayes
-solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
+An AI copilot for R users in 'RStudio' and Posit workflows with
+active-editor, workspace, object, console, plot, and git-aware context.
+Provides statistical helpers for interpreting lm() and glm() models,
+stages code and file actions before execution, drafts reproducible
+'Quarto' content, and connects to official provider APIs or CLIs for
+'OpenAI', 'GitHub Copilot', 'Gemini', and 'Anthropic'.
 
 %prep
 %setup -q -c -n %{packname}

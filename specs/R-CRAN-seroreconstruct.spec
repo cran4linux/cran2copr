@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  McMiso
-%global packver   0.2.0
+%global packname  seroreconstruct
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore Multivariable Isotonic Regression
+Summary:          Reconstructing Antibody Dynamics to Estimate the Risk of Influenza Virus Infection
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-RcppParallel 
 
 %description
-Provides functions for isotonic regression and classification when there
-are multiple independent variables. The functions solve the optimization
-problem using a projective Bayes approach with recursive sequential update
-algorithms, and are useful for situations with a relatively large number
-of covariates. Supports binary outcomes via a Beta-Binomial conjugate
-model ('miso', 'PBclassifier') and continuous outcomes via a
-Normal-Inverse-Chi-Squared conjugate model ('misoN'). Parallel computing
-wrappers ('mcmiso', 'mcPBclassifier', 'mcmisoN') are provided that run the
-down-up and up-down algorithms simultaneously and return whichever
-finishes first. The estimation method follows the projective Bayes
-solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
+A Bayesian framework for inferring influenza infection status from serial
+antibody measurements. Jointly estimates season-specific infection
+probabilities, antibody boosting and waning after infection, and baseline
+hemagglutination inhibition (HAI) titer distributions via Markov chain
+Monte Carlo (MCMC). Supports multi-season analysis and subgroup
+comparisons via a group_by interface. See Tsang et al. (2022)
+<doi:10.1038/s41467-022-29310-8> for methodological details.
 
 %prep
 %setup -q -c -n %{packname}

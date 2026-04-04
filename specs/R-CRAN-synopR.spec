@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  synopR
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Decoding of SYNOP (Surface Synoptic Observations) Meteorological Messages
+Summary:          Fast Decoding of SYNOP (Surface Synoptic Observations) Meteorological Messages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
 
 %description
-Decode raw SYNOP (surface synoptic observations) messages into tidy data
-frames. Supports batch processing of messages from the same station,
-extracting data from Sections 0, 1, and 3, including temperature, dew
-point, pressure, wind, clouds, and precipitation. The decoding logic
-follows the specifications defined in the World Meteorological
-Organization (2019) "Manual on Codes, Volume I.1 (WMO-No. 306)"
-<https://library.wmo.int/idurl/4/35713>.
+Decode raw SYNOP (surface synoptic observations) messages into data
+frames, extracting data from Sections 0, 1, and 3, including temperature,
+dew point, pressure, wind, clouds, and precipitation. Available functions
+to download SYNOP messages from Ogimet <https://www.ogimet.com/> if
+needed. The decoding logic follows the specifications defined in the World
+Meteorological Organization (2019) "Manual on Codes, Volume I.1 (WMO-No.
+306)".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  McMiso
-%global packver   0.2.0
+%global packname  percentiles
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore Multivariable Isotonic Regression
+Summary:          Calculate (Stratified) Percentiles
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-R6 
 
 %description
-Provides functions for isotonic regression and classification when there
-are multiple independent variables. The functions solve the optimization
-problem using a projective Bayes approach with recursive sequential update
-algorithms, and are useful for situations with a relatively large number
-of covariates. Supports binary outcomes via a Beta-Binomial conjugate
-model ('miso', 'PBclassifier') and continuous outcomes via a
-Normal-Inverse-Chi-Squared conjugate model ('misoN'). Parallel computing
-wrappers ('mcmiso', 'mcPBclassifier', 'mcmisoN') are provided that run the
-down-up and up-down algorithms simultaneously and return whichever
-finishes first. The estimation method follows the projective Bayes
-solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
+Calculate (stratified) percentiles on a data.frame Stratification will
+split the data.frame into subgroups and calculate percentiles for each
+independently.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  McMiso
-%global packver   0.2.0
+%global packname  csmbuilder
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore Multivariable Isotonic Regression
+Summary:          A Collection of Tools for Building Cropping System Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides functions for isotonic regression and classification when there
-are multiple independent variables. The functions solve the optimization
-problem using a projective Bayes approach with recursive sequential update
-algorithms, and are useful for situations with a relatively large number
-of covariates. Supports binary outcomes via a Beta-Binomial conjugate
-model ('miso', 'PBclassifier') and continuous outcomes via a
-Normal-Inverse-Chi-Squared conjugate model ('misoN'). Parallel computing
-wrappers ('mcmiso', 'mcPBclassifier', 'mcmisoN') are provided that run the
-down-up and up-down algorithms simultaneously and return whichever
-finishes first. The estimation method follows the projective Bayes
-solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
+A collection of tools for designing, implementing, testing, documenting
+and visualizing dynamic simulation cropping system models. Models are
+specified as a combination of state variables, parameters, intermediate
+factors and input data that define a system of ordinary differential
+equations. Specified models can be used to simulate dynamic processes
+using numerical integration algorithms.
 
 %prep
 %setup -q -c -n %{packname}

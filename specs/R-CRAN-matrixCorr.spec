@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matrixCorr
-%global packver   0.8.5
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Correlation and Association Estimators
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-Matrix >= 1.7.2
 BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cpp11 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-Matrix >= 1.7.2
@@ -30,20 +29,23 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-rlang 
 
 %description
-Compute correlation and other association matrices from small to
-high-dimensional datasets with relative simple functions and sensible
-defaults. Includes options for shrinkage and robustness to improve results
-in noisy or high-dimensional settings (p >= n), plus convenient print/plot
-methods for inspection. Implemented with optimised C++ backends using
-BLAS/OpenMP and memory-aware symmetric updates. Works with base matrices
-and data frames, returning standard R objects via a consistent S3
-interface. Useful across genomics, agriculture, and machine-learning
-workflows. Supports Pearson, Spearman, Kendall, distance correlation,
-partial correlation, and robust biweight mid-correlation; Bland–Altman
-analyses and Lin's concordance correlation coefficient (including
-repeated-measures extensions). Methods based on Ledoit and Wolf (2004)
-<doi:10.1016/S0047-259X(03)00096-4>; Schäfer and Strimmer (2005)
-<doi:10.2202/1544-6115.1175>; Lin (1989) <doi:10.2307/2532051>.
+Compute correlation, association, and agreement measures for small to
+high-dimensional datasets through a consistent matrix-oriented interface.
+Supports classical correlations (Pearson, Spearman, Kendall), distance
+correlation, partial correlation with regularised estimators, shrinkage
+correlation for p >= n settings, robust correlations including biweight
+mid-correlation, percentage-bend, and skipped correlation, latent-variable
+methods for binary and ordinal data, repeated-measures correlation, and
+agreement analyses based on Bland-Altman methods and Lin's concordance
+correlation coefficient, including repeated-measures extensions.
+Implemented with optimized C++ backends using BLAS/OpenMP and memory-aware
+symmetric updates, and returns standard R objects with print/summary/plot
+methods plus optional Shiny viewers for matrix inspection. Methods based
+on Ledoit and Wolf (2004) <doi:10.1016/S0047-259X(03)00096-4>;
+high-dimensional shrinkage covariance estimation
+<doi:10.2202/1544-6115.1175>; Lin (1989) <doi:10.2307/2532051>; Wilcox
+(1994) <doi:10.1007/BF02294395>; Wilcox (2004)
+<doi:10.1080/0266476032000148821>.
 
 %prep
 %setup -q -c -n %{packname}

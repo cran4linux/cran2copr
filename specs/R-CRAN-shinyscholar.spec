@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyscholar
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Template for Creating Reproducible 'shiny' Applications
 
@@ -17,24 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-leaflet >= 2.0.2
-BuildRequires:    R-CRAN-shiny >= 1.8.1
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-gargoyle 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-pak 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-leaflet >= 2.0.2
-Requires:         R-CRAN-shiny >= 1.8.1
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-gargoyle 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-pak 
 Requires:         R-tools 
 Requires:         R-CRAN-zip 
 

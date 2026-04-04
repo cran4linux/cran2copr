@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  educabR
-%global packver   0.1.3
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Process Brazilian Education Data from INEP
 
@@ -40,9 +40,16 @@ Requires:         R-tools
 Download and process public education data from INEP (Instituto Nacional
 de Estudos e Pesquisas Educacionais Anísio Teixeira). Provides functions
 to access microdata from the School Census (Censo Escolar), ENEM (Exame
-Nacional do Ensino Médio), IDEB (Índice de Desenvolvimento da Educação
-Básica), and other educational datasets. Returns data in tidy format ready
-for analysis. Data source: INEP Open Data Portal
+Nacional do Ensino Médio), SAEB (Sistema de Avaliação da Educação Básica),
+Higher Education Census (Censo da Educação Superior), ENADE (Exame
+Nacional de Desempenho dos Estudantes), ENCCEJA (Exame Nacional para
+Certificação de Competências de Jovens e Adultos), IDD (Indicador de
+Diferença entre os Desempenhos Observado e Esperado), CPC (Conceito
+Preliminar de Curso), IGC (Índice Geral de Cursos), CAPES graduate
+education data, FUNDEB (Fundo de Manutencao e Desenvolvimento da Educacao
+Basica), IDEB (Índice de Desenvolvimento da Educação Básica), and other
+educational datasets. Returns data in tidy format ready for analysis. Data
+source: INEP Open Data Portal
 <https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos>.
 
 %prep

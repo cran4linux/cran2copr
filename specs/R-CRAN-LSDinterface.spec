@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  McMiso
-%global packver   0.2.0
+%global packname  LSDinterface
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore Multivariable Isotonic Regression
+Summary:          Interface Tools for 'LSD' Simulation Results Files
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-parallelDist 
 Requires:         R-stats 
+Requires:         R-CRAN-boot 
 Requires:         R-utils 
+Requires:         R-parallel 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-parallelDist 
 
 %description
-Provides functions for isotonic regression and classification when there
-are multiple independent variables. The functions solve the optimization
-problem using a projective Bayes approach with recursive sequential update
-algorithms, and are useful for situations with a relatively large number
-of covariates. Supports binary outcomes via a Beta-Binomial conjugate
-model ('miso', 'PBclassifier') and continuous outcomes via a
-Normal-Inverse-Chi-Squared conjugate model ('misoN'). Parallel computing
-wrappers ('mcmiso', 'mcPBclassifier', 'mcmisoN') are provided that run the
-down-up and up-down algorithms simultaneously and return whichever
-finishes first. The estimation method follows the projective Bayes
-solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
+Interfaces 'R' with 'LSD' simulation models. Reads object-oriented data in
+results files (.res[.gz]) produced by 'LSD' and creates appropriate
+multi-dimensional arrays in 'R'. Supports multiple core parallel threads
+of multi-file data reading for increased performance. Also provides
+functions to extract basic information and statistics from data files.
+'LSD' (Laboratory for Simulation Development) is free software developed
+by Marco Valente and Marcelo C. Pereira (documentation and downloads
+available at <https://www.labsimdev.org/>).
 
 %prep
 %setup -q -c -n %{packname}

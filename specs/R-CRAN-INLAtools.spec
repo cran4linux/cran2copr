@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAtools
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functionalities for the 'INLA' Package
 
@@ -33,14 +33,17 @@ GMRF models in the 'INLA' package (<https://www.r-inla.org>). The
 'INLAtools' implement functions to evaluate each one of the model
 specifications from R. The implemented functionalities leverage the use of
 'cgeneric' models and provide a way to debug the code as well to work with
-the prior for the model parameters and to sample from it. A very useful
-functionality is the Kronecker product method that creates a new model
-from multiple cgeneric models. It also works with the rgeneric, the R
-version of the cgeneric intended to easy try implementation of new GMRF
-models. The Kronecker between two cgeneric models was used in Sterrantino
-et. al. (2024) <doi:10.1007/s10260-025-00788-y>, and can be used to build
-the spatio-temporal intrinsic interaction models for what the needed
-constraints are automatically set.
+the prior for the model parameters and to sample from it. The `generic0`
+can be used to implement intrinsic models with the scaling as proposed in
+Sørbye & Rue (2014) <doi:10.1016/j.spasta.2013.06.004>, and the required
+contraints. A very useful functionality is the Kronecker product method
+that creates a new model from multiple cgeneric models. It also works with
+the rgeneric, the R version of the cgeneric intended to easy try
+implementation of new GMRF models. The Kronecker between two cgeneric
+models was used in Sterrantino et. al. (2024)
+<doi:10.1007/s10260-025-00788-y>, and can be used to build the
+spatio-temporal intrinsic interaction models for what the needed
+constraints are automatically set, as illustrated in the vignette.
 
 %prep
 %setup -q -c -n %{packname}

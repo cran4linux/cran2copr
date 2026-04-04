@@ -1,60 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snvecR
-%global packver   3.10.1
+%global packname  multipleITScontrol
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Earth’s Obliquity and Precession in the Past
+Summary:          Interrupted Time Series with a Control and Multiple Interventions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-backports >= 1.1.6
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-AICcmodavg 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-backports >= 1.1.6
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-deSolve 
-Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-glue 
-Requires:         R-tools 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-AICcmodavg 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-grid 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 
 %description
-Easily calculate precession and obliquity from an orbital solution
-(defaults to ZB18a from Zeebe and Lourens (2019)
-<doi:10.1126/science.aax0612>) and assumed or reconstructed values for
-tidal dissipation (Td) and dynamical ellipticity (Ed). This is a
-translation and adaptation of the 'C'-code in the supplementary material
-to Zeebe and Lourens (2022) <doi:10.1029/2021PA004349>, with further
-details on the methodology described in Zeebe (2022)
-<doi:10.3847/1538-3881/ac80f8>. The name of the 'C'-routine is 'snvec',
-which refers to the key units of computation: spin vector s and orbit
-normal vector n.
+Provides tools to perform interrupted-time series through a generalised
+least squares (GLS) framework on linear outcomes. Allows for multiple
+interventions and a control with ARMA (autoregressive and moving-average)
+correction. For more details see Lopez Bernal, Cummins, and Gasparrini
+(2017) <doi:10.1093/ije/dyw098>.
 
 %prep
 %setup -q -c -n %{packname}

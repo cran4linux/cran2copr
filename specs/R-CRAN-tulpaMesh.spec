@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phylospatial
-%global packver   1.3.0
+%global packname  tulpaMesh
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Phylogenetic Analysis
+Summary:          Constrained Delaunay Triangulation Meshes for Spatial 'SPDE' Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-CRAN-terra 
-Requires:         R-utils 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-RcppParallel 
 
 %description
-Analyze spatial phylogenetic diversity patterns. Use your data on an
-evolutionary tree and geographic distributions of the terminal taxa to
-compute diversity and endemism metrics, test significance with null model
-randomization, analyze community turnover and biotic regionalization, and
-perform spatial conservation prioritizations. All functions support
-quantitative community data in addition to binary data.
+Generate constrained Delaunay triangulation meshes for use with stochastic
+partial differential equation (SPDE) spatial models (Lindgren, Rue and
+Lindstroem 2011 <doi:10.1111/j.1467-9868.2011.00777.x>). Provides
+automatic mesh generation from point coordinates with boundary
+constraints, Ruppert refinement for mesh quality, finite element method
+(FEM) matrix assembly (mass, stiffness, projection), barrier models,
+spherical meshes via icosahedral subdivision, and metric graph meshes for
+network geometries. Built on the 'CDT' header-only C++ library (Amirkhanov
+2024 <https://github.com/artem-ogre/CDT>). Designed as the mesh backend
+for the 'tulpa' Bayesian hierarchical modelling engine but usable
+standalone for any spatial triangulation task.
 
 %prep
 %setup -q -c -n %{packname}

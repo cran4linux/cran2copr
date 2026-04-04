@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDTSA
-%global packver   1.0.5-1
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5.1
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Time Series Analysis Tools
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-geigen
 BuildRequires:    R-CRAN-jointDiag 
 BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-stats 
 Requires:         R-CRAN-Rcpp 
@@ -48,12 +49,13 @@ principal component analysis for vector time series proposed by Chang, Guo
 and Yao (2018) <doi:10.1214/17-AOS1613>, cointegration analysis proposed
 by Zhang, Robinson and Yao (2019) <doi:10.1080/01621459.2018.1458620>,
 unit root test proposed by Chang, Cheng and Yao (2022)
-<doi:10.1093/biomet/asab034>, white noise test proposed by Chang, Yao and
-Zhou (2017) <doi:10.1093/biomet/asw066>, CP-decomposition for matrix time
-series proposed by Chang et al. (2023) <doi:10.1093/jrsssb/qkac011> and
-Chang et al. (2024) <doi:10.48550/arXiv.2410.05634>, and statistical
-inference for spectral density matrix proposed by Chang et al. (2022)
-<doi:10.48550/arXiv.2212.13686>.
+<doi:10.1093/biomet/asab034>, white noise tests proposed by Chang, Yao and
+Zhou (2017) <doi:10.1093/biomet/asw066> and Chang et al. (2026+),
+CP-decomposition for matrix time series proposed by Chang et al. (2023)
+<doi:10.1093/jrsssb/qkac011> and Chang et al. (2026+)
+<doi:10.48550/arXiv.2410.05634>, and statistical inference for spectral
+density matrix proposed by Chang et al. (2025)
+<doi:10.1080/01621459.2025.2468013>.
 
 %prep
 %setup -q -c -n %{packname}

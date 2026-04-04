@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  McMiso
-%global packver   0.2.0
+%global packname  OdysseusSurvivalModule
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore Multivariable Isotonic Regression
+Summary:          Cohort-Based Single-Event Survival Utilities
 
-License:          GPL-3
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-DatabaseConnector 
+BuildRequires:    R-CRAN-ggsurvfit 
+BuildRequires:    R-CRAN-SqlRender 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-DatabaseConnector 
+Requires:         R-CRAN-ggsurvfit 
+Requires:         R-CRAN-SqlRender 
+Requires:         R-CRAN-survival 
 
 %description
-Provides functions for isotonic regression and classification when there
-are multiple independent variables. The functions solve the optimization
-problem using a projective Bayes approach with recursive sequential update
-algorithms, and are useful for situations with a relatively large number
-of covariates. Supports binary outcomes via a Beta-Binomial conjugate
-model ('miso', 'PBclassifier') and continuous outcomes via a
-Normal-Inverse-Chi-Squared conjugate model ('misoN'). Parallel computing
-wrappers ('mcmiso', 'mcPBclassifier', 'mcmisoN') are provided that run the
-down-up and up-down algorithms simultaneously and return whichever
-finishes first. The estimation method follows the projective Bayes
-solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
+Tools to build single-event survival datasets from "OMOP CDM" cohorts and
+estimate survival outcomes. The package supports Kaplan-Meier, Cox
+proportional hazards, and parametric accelerated-failure-time models, with
+optional stratification by gender and age groups.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  soilDB
-%global packver   2.9.1
+%global packname  lineagefreq
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Soil Database Interface
+Summary:          Lineage Frequency Dynamics from Genomic Surveillance Counts
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
 
 %description
-A collection of functions for reading soil data from U.S. Department of
-Agriculture Natural Resources Conservation Service (USDA-NRCS) and
-National Cooperative Soil Survey (NCSS) databases.
+Models pathogen lineage frequency dynamics from genomic surveillance count
+data. Provides a unified interface for multinomial logistic regression,
+hierarchical partial-pooling models, and the Piantham approximation for
+relative reproduction number estimation. Features include rolling-origin
+backtesting, standardized forecast scoring, lineage collapsing, emergence
+detection, and sequencing power analysis. Designed for real-time public
+health surveillance of any variant-resolved pathogen. Methods described in
+Abousamra, Figgins, and Bedford (2024) <doi:10.1371/journal.pcbi.1012443>.
 
 %prep
 %setup -q -c -n %{packname}

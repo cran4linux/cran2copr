@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  McMiso
-%global packver   0.2.0
+%global packname  mpmaggregate
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore Multivariable Isotonic Regression
+Summary:          Aggregate Matrix Population Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-expm 
+Requires:         R-CRAN-expm 
 
 %description
-Provides functions for isotonic regression and classification when there
-are multiple independent variables. The functions solve the optimization
-problem using a projective Bayes approach with recursive sequential update
-algorithms, and are useful for situations with a relatively large number
-of covariates. Supports binary outcomes via a Beta-Binomial conjugate
-model ('miso', 'PBclassifier') and continuous outcomes via a
-Normal-Inverse-Chi-Squared conjugate model ('misoN'). Parallel computing
-wrappers ('mcmiso', 'mcPBclassifier', 'mcmisoN') are provided that run the
-down-up and up-down algorithms simultaneously and return whichever
-finishes first. The estimation method follows the projective Bayes
-solution described in Cheung and Diaz (2023) <doi:10.1093/jrsssb/qkad014>.
+Aggregates matrix population models (MPMs) in both the lambda (stable
+growth rate) and R0 (net reproductive rate) frameworks, including standard
+and elasticity-consistent aggregators. Standard aggregation in the lambda
+framework maintains consistent lambda and stable stage distribution, while
+standard aggregation in the R0 framework maintains consistent R0 and
+cohort stable stage distribution. Elasticity-consistent aggregators
+maintain these same consistencies with respect to the chosen framework and
+additionally preserve consistent reproductive values in the lambda
+framework and cohort reproductive values in the R0 framework. Aggregation
+can take the form of general-to-general MPM (mpm_aggregate) or
+Leslie-to-Leslie MPM (leslie_aggregate).
 
 %prep
 %setup -q -c -n %{packname}
