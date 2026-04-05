@@ -1,36 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lobstr
-%global packver   1.2.1
+%global packname  poissonsuperlearner
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize R Data Structures with Trees
+Summary:          Poisson Super Learner
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.2
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-sampling 
+BuildRequires:    R-CRAN-riskRegression 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-lava 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-mgcv 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-sampling 
+Requires:         R-CRAN-riskRegression 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
+Requires:         R-CRAN-lava 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-mgcv 
 
 %description
-A set of tools for inspecting and understanding R data structures inspired
-by str(). Includes ast() for visualizing abstract syntax trees, ref() for
-showing shared references, cst() for showing call stack trees, and
-obj_size() for computing object sizes.
+Provides tools for fitting piece-wise constant hazard models for survival
+and competing risks data, including ensemble hazard estimation via the
+Super Learner framework. The package supports estimation of survival
+functions and absolute risk predictions from fitted cause-specific hazard
+models. For the Super Learner framework see van der Laan, Polley and
+Hubbard (2007) <doi:10.2202/1544-6115.1309>.
 
 %prep
 %setup -q -c -n %{packname}

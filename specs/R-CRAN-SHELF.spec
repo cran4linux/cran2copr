@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SHELF
-%global packver   1.12.1
+%global packver   1.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.1
+Version:          1.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Support the Sheffield Elicitation Framework
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-ggExtra 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -38,6 +39,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-ggExtra 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggridges 
 Requires:         R-graphics 
 Requires:         R-grDevices 

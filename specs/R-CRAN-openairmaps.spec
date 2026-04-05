@@ -1,61 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openairmaps
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Maps of Air Pollution Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-openair >= 3.0.0
 BuildRequires:    R-CRAN-leaflet >= 2.2.0
-BuildRequires:    R-CRAN-openair >= 2.13
-BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggspatial 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-prettymapr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rosm 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-openair >= 3.0.0
 Requires:         R-CRAN-leaflet >= 2.2.0
-Requires:         R-CRAN-openair >= 2.13
-Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggspatial 
-Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-prettymapr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rosm 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description

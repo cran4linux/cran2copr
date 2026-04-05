@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  immundata
-%global packver   0.0.7
+%global packname  misc
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Unified Data Layer for Large-Scale Single-Cell, Spatial and Bulk Immunomics
+Summary:          Miscellaneous Functions for Data and Geospatial Work
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,42 +17,51 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-duckplyr >= 1.2.1
-BuildRequires:    R-CRAN-dplyr >= 1.2.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-duckplyr >= 1.2.1
-Requires:         R-CRAN-dplyr >= 1.2.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-zip 
 
 %description
-Provides a unified data layer for single-cell, spatial and bulk T-cell and
-B-cell immune receptor repertoire data. Think AnnData or SeuratObject, but
-for AIRR data, a.k.a. Adaptive Immune Receptor Repertoire, VDJ-seq,
-RepSeq, or VDJ sequencing data.
+Helpers for common data analysis tasks including missing-value summaries
+and filters, simple reporting and plotting utilities, 'Excel' import and
+export workflows, and reading geospatial formats (for example shapefiles
+in zip archives, file geodatabases, KMZ, and KML) via 'sf' and related
+packages. Also includes small project utilities such as creating
+directories, gitignore scaffolding, combined package loading, and optional
+'lintr' setup.
 
 %prep
 %setup -q -c -n %{packname}

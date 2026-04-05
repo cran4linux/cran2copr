@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsaux
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Forecasting Auxiliary Functions
 
@@ -17,27 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-methods >= 1.0.3
 BuildRequires:    R-CRAN-tsmethods 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-scoringRules 
-BuildRequires:    R-CRAN-stlplus 
 BuildRequires:    R-CRAN-tsoutliers 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-data.table 
+Requires:         R-methods >= 1.0.3
 Requires:         R-CRAN-tsmethods 
-Requires:         R-methods 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-scoringRules 
-Requires:         R-CRAN-stlplus 
 Requires:         R-CRAN-tsoutliers 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-data.table 

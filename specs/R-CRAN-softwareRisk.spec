@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  softwareRisk
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of Node and Path-Level Risk Scores in Scientific Models
 
@@ -30,7 +30,6 @@ BuildRequires:    R-grid
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-sensobol 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -45,7 +44,6 @@ Requires:         R-grid
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-sensobol 
 
 %description

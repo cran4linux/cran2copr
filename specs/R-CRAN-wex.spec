@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wex
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute the Exact Observation Weights for the Kalman Filter and Smoother
+Summary:          Exact Observation Weights for the Kalman Filter and Smoother
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,18 +18,20 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FKF 
+BuildRequires:    R-CRAN-KFAS 
 Requires:         R-CRAN-FKF 
+Requires:         R-CRAN-KFAS 
 
 %description
-Computes the exact observation weights for the Kalman filter and smoother,
-based on the method described in Koopman and Harvey (2003)
+Computes exact observation weights for the Kalman filter and smoother,
+following Koopman and Harvey (2003)
 <www.sciencedirect.com/science/article/pii/S0165188902000611>. The package
-supports in-depth exploration of state-space models, enabling researchers
-and practitioners to extract meaningful insights from time series data.
-This functionality is especially valuable in dynamic factor models, where
-the computed weights can be used to decompose the contributions of
-individual variables to the latent factors. See the README file for
-examples.
+provides tools for analyzing linear Gaussian state-space models, allowing
+users to quantify the contribution of individual observations to filtered
+and smoothed state estimates. These weights can be used for
+interpretation, decomposition, and diagnostic analysis in time series
+models, including applications such as dynamic factor models. See the
+README for examples.
 
 %prep
 %setup -q -c -n %{packname}

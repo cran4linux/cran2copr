@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scSorter
-%global packver   0.0.2
+%global __requires_exclude ^libmpi
+%global packname  sov
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of 'scSorter' Algorithm
+Summary:          Calculate vs-SOVs and SOVs for Assemblies with D-Dimensional Voting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.6.0
-Requires:         R-stats >= 3.6.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implements the algorithm described in Guo, H., and Li, J., "scSorter:
-assigning cells to known cell types according to known marker genes".
-Cluster cells to known cell types based on marker genes specified for each
-cell type.
+Calculates vote-specific and traditional Shapley-Owen power indices
+(vs-SOVs and SOVs) for spatial voting games in one to four dimensions.
+Evaluates voter influence through an a posteriori analysis of relative
+preferences. Supports weighted voting and various voting thresholds.
+Compatible with ideal point estimates from NOMINATE, Optimal
+Classification, and 'MCMCpack'. The method builds on Bibina and Dougherty
+(2025) <doi:10.2139/ssrn.6324519>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

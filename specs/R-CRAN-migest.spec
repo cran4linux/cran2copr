@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  migest
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Estimating, Measuring and Working with Migration Data
 
@@ -32,8 +32,6 @@ BuildRequires:    R-CRAN-circlize
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-mipfp 
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
@@ -49,8 +47,6 @@ Requires:         R-CRAN-circlize
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-mipfp 
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-lpSolve 
 
 %description
 Provides tools for estimating, measuring, and analyzing migration data.

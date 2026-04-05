@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lobstr
-%global packver   1.2.1
+%global packname  BayesianLasso
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize R Data Structures with Trees
+Summary:          Bayesian Lasso Regression and Tools for the Lasso Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.2
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-crayon 
-Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
-A set of tools for inspecting and understanding R data structures inspired
-by str(). Includes ast() for visualizing abstract syntax trees, ref() for
-showing shared references, cst() for showing call stack trees, and
-obj_size() for computing object sizes.
+Implements Bayesian Lasso regression using efficient Gibbs sampling
+algorithms, including modified versions of the Hans and Park Casella (PC)
+samplers. Includes functions for working with the Lasso distribution, such
+as its density, cumulative distribution, quantile, and random generation
+functions, along with moment calculations. Also includes a function to
+compute the Mills ratio. Designed for sparse linear models and suitable
+for high-dimensional regression problems.
 
 %prep
 %setup -q -c -n %{packname}

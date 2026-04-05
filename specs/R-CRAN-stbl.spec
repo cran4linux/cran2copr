@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stbl
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stabilize Function Arguments
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-rlang >= 1.0.3
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-rlang >= 1.0.3
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-vctrs 
 
