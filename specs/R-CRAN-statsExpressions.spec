@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statsExpressions
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Dataframes and Expressions with Statistical Details
 
@@ -26,12 +26,12 @@ BuildRequires:    R-CRAN-afex >= 1.5.1
 BuildRequires:    R-CRAN-insight >= 1.4.6
 BuildRequires:    R-CRAN-tidyr >= 1.3.2
 BuildRequires:    R-CRAN-datawizard >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.2.1
 BuildRequires:    R-CRAN-purrr >= 1.2.1
-BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 1.1.7
 BuildRequires:    R-CRAN-WRS2 >= 1.1.7
-BuildRequires:    R-CRAN-effectsize >= 1.0.1
-BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.7
+BuildRequires:    R-CRAN-effectsize >= 1.0.2
+BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.8
 BuildRequires:    R-CRAN-correlation >= 0.8.8
 BuildRequires:    R-CRAN-parameters >= 0.28.3
 BuildRequires:    R-CRAN-zeallot >= 0.2.0
@@ -47,12 +47,12 @@ Requires:         R-CRAN-afex >= 1.5.1
 Requires:         R-CRAN-insight >= 1.4.6
 Requires:         R-CRAN-tidyr >= 1.3.2
 Requires:         R-CRAN-datawizard >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.2.1
 Requires:         R-CRAN-purrr >= 1.2.1
-Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.1.7
 Requires:         R-CRAN-WRS2 >= 1.1.7
-Requires:         R-CRAN-effectsize >= 1.0.1
-Requires:         R-CRAN-BayesFactor >= 0.9.12.4.7
+Requires:         R-CRAN-effectsize >= 1.0.2
+Requires:         R-CRAN-BayesFactor >= 0.9.12.4.8
 Requires:         R-CRAN-correlation >= 0.8.8
 Requires:         R-CRAN-parameters >= 0.28.3
 Requires:         R-CRAN-zeallot >= 0.2.0

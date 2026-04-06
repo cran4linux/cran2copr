@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topologyR
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topological Connectivity Analysis for Numeric Data
 
@@ -16,20 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Description: Implementation of topological data analysis methods based on
-graph-theoretic approaches for discovering topological structures in data.
-The core algorithm constructs topological spaces from graphs following
-Nada et al. (2018) <doi:10.1002/mma.4726> "New types of topological
-structures via graphs".
+Topological data analysis methods based on graph-theoretic approaches for
+discovering topological structures in data. Constructs topological spaces
+from graphs following Nada et al. (2018) <doi:10.1002/mma.4726>, with
+visibility graph construction for time series following Lacasa et al.
+(2008) <doi:10.1073/pnas.0709247105>. Supports directed visibility graphs
+for bitopological analysis of temporal irreversibility (Kelly, 1963), and
+Alexandrov topology construction from reachability preorders.
 
 %prep
 %setup -q -c -n %{packname}

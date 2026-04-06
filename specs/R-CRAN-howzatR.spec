@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WDI
-%global packver   2.7.10
+%global packname  howzatR
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.10
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          World Development Indicators and Other World Bank Data
+Summary:          Useful Functions for Cricket Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Search and download data from over 40 databases hosted by the World Bank,
-including the World Development Indicators ('WDI'), International Debt
-Statistics, Doing Business, Human Capital Index, and Sub-national Poverty
-indicators.
+Helping to calculate cricket specific problems in a tidy & simple manner.
 
 %prep
 %setup -q -c -n %{packname}

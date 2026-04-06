@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geosphere
-%global packver   1.6-5
+%global packver   1.6-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spherical Trigonometry
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sp 
+Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sp 
 
 %description
 Spherical trigonometry for geographic applications. That is, compute

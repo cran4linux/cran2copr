@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caustests
-%global packver   1.0.2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Granger Causality Tests
+Summary:          Multiple Granger Causality Tests for Time Series and Panel Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,14 +23,21 @@ Requires:         R-stats
 Requires:         R-CRAN-quantreg 
 
 %description
-Comprehensive suite of Granger causality tests including standard
-Toda-Yamamoto (1995) <doi:10.1016/0304-4076(94)01616-8>, Fourier-based
-tests with single frequency (Enders and Jones, 2016)
-<doi:10.1515/snde-2014-0101> and cumulative frequencies (Nazlioglu et al.,
-2019) <doi:10.1080/1540496X.2018.1434072>, as well as quantile causality
-tests (Cai et al., 2023) <doi:10.1016/j.frl.2023.104327> and Bootstrap
-Fourier Granger Causality in Quantiles (Cheng et al., 2021)
-<doi:10.1007/s12076-020-00263-0>. All tests include bootstrap inference
+Comprehensive suite of Granger causality tests for time series and panel
+data. For time series: Toda-Yamamoto (1995)
+<doi:10.1016/0304-4076(94)01616-8>, Fourier-based tests with single
+frequency (Enders and Jones, 2016) <doi:10.1515/snde-2014-0101> and
+cumulative frequencies (Nazlioglu et al., 2019)
+<doi:10.1080/1540496X.2018.1434072>, quantile causality tests (Cai et al.,
+2023) <doi:10.1016/j.frl.2023.104327>, and Bootstrap Fourier Granger
+Causality in Quantiles (Cheng et al., 2021)
+<doi:10.1007/s12076-020-00263-0>. For panel data: Panel Fourier
+Toda-Yamamoto (Yilanci and Gorus, 2020) <doi:10.1007/s11356-020-10092-9>
+and Panel Quantile Causality tests (Wang and Nguyen, 2022)
+<doi:10.1080/1331677X.2021.1952089>, as well as Group-Mean and Pooled
+Fully Modified OLS estimators for panel cointegrating polynomial
+regressions (Wagner and Reichold, 2023)
+<doi:10.1080/07474938.2023.2178141>. All tests include bootstrap inference
 for robust p-values.
 
 %prep

@@ -1,30 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WDI
-%global packver   2.7.10
+%global packname  aramappings
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.10
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          World Development Indicators and Other World Bank Data
+Summary:          Computes Adaptable Radial Axes Mappings
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-clarabel 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-clarabel 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-slam 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-stats 
 
 %description
-Search and download data from over 40 databases hosted by the World Bank,
-including the World Development Indicators ('WDI'), International Debt
-Statistics, Doing Business, Human Capital Index, and Sub-national Poverty
-indicators.
+Computes low-dimensional point representations of high-dimensional
+numerical data according to the data visualization method Adaptable Radial
+Axes described in: Manuel Rubio-Sánchez, Alberto Sanchez, and Dirk J.
+Lehmann (2017) "Adaptable radial axes plots for improved multivariate data
+visualization" <doi:10.1111/cgf.13196>.
 
 %prep
 %setup -q -c -n %{packname}

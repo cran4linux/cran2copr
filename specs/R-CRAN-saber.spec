@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saber
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Code Analysis and Project Context for R
 
@@ -19,10 +19,11 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Parses R source files into AST symbol indices, traces function callers
-across projects, discovers project dependency graphs, generates project
-briefings, and provides package introspection tools. Designed for AI
-coding agents that need structured code understanding.
+Parses R source files into Abstract Syntax Tree (AST) symbol indices,
+traces function callers across projects, discovers project dependency
+graphs, generates project briefings, and provides package introspection
+tools. Designed for AI coding agents that need structured code
+understanding.
 
 %prep
 %setup -q -c -n %{packname}
