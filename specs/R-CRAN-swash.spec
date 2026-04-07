@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swash
-%global packver   1.3.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Swash-Backwash Model for the Single Epidemic Wave
+Summary:          Health Geography Toolbox for Model-Based Analysis of Infections Panel Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,15 +31,17 @@ Requires:         R-CRAN-strucchange
 Requires:         R-methods 
 
 %description
-The Swash-Backwash Model for the Single Epidemic Wave was developed by
-Cliff and Haggett (2006) <doi:10.1007/s10109-006-0027-8> to model the
-velocity of spread of infectious diseases across space. This package
-enables the calculation of the Swash-Backwash Model for user-supplied
-panel data on regional infections. The package provides additional
-functions for bootstrap confidence intervals, country comparison,
-visualization of results, and data management. Furthermore, it contains
-several functions for analysis and visualization of (spatial) infection
-data.
+Within epidemic outbreaks, infections grow and decline differently between
+regions, and the velocity of spatial spread differs between countries. The
+swash library offers a set of model-based analyses for these topics.
+Spread velocity may be analysed with the Swash-Backwash Model for the
+Single Epidemic Wave and corresponding functions for bootstrap confidence
+intervals, country comparison, and visualization of results. Differences
+in epidemic growth between regions may be analysed using logistic growth
+models, exponential growth models, Hawkes processes and breakpoint
+analyses. All functionalities are accessed by the class "infpan" for
+infections panel data defined in this package, which is built from a
+data.frame provided by the user.
 
 %prep
 %setup -q -c -n %{packname}

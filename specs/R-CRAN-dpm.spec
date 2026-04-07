@@ -1,56 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filibustr
-%global packver   0.5.2
+%global packname  dpm
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Utilities for Congressional Research
+Summary:          Dynamic Panel Models Fit with Maximum Likelihood
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-jtools >= 2.0.1
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-panelr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-stats4 
+Requires:         R-CRAN-jtools >= 2.0.1
+Requires:         R-CRAN-lavaan 
+Requires:         R-methods 
+Requires:         R-CRAN-panelr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-Formula 
+Requires:         R-stats4 
 
 %description
-Provides easy-to-understand and consistent interfaces for accessing data
-on the U.S. Congress. The functions in 'filibustr' streamline the process
-for importing data on Congress into R, removing the need to download and
-work from CSV files and the like. Data sources include 'Voteview'
-(<https://voteview.com/>), the U.S. Senate website
-(<https://www.senate.gov/>), and more.
+Implements the dynamic panel models described by Allison, Williams, and
+Moral-Benito (2017 <doi:10.1177/2378023117710578>) in R. This class of
+models uses structural equation modeling to specify dynamic (lagged
+dependent variable) models with fixed effects for panel data.
+Additionally, models may have predictors that are only weakly exogenous,
+i.e., are affected by prior values of the dependent variable. Options also
+allow for random effects, dropping the lagged dependent variable, and a
+number of other specification choices.
 
 %prep
 %setup -q -c -n %{packname}

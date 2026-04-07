@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pizzarr
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Slice into 'Zarr' Arrays
 
@@ -33,13 +33,8 @@ Requires:         R-CRAN-memoise
 Requires:         R-utils 
 
 %description
-An implementation of chunked, compressed, N-dimensional arrays for R
-following the 'Zarr' specification. Provides array and group creation,
-reading and writing with configurable chunk shapes, compression codecs,
-and storage backends including in-memory, local directory, and HTTP
-stores. Supports both 'Zarr' spec V2 (2024) <doi:10.5281/zenodo.11320255>
-and V3, enabling interoperable access to large array data commonly used in
-scientific computing and geospatial applications.
+An implementation of chunked, compressed, N-dimensional arrays for R.
+'Zarr' spec V2 (2024) <doi:10.5281/zenodo.11320255>.
 
 %prep
 %setup -q -c -n %{packname}

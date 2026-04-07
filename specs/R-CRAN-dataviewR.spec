@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataviewR
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interactive and Feature-Rich Data Viewer
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shiny >= 1.11.1
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-dplyr 
@@ -30,7 +30,8 @@ BuildRequires:    R-CRAN-datamods
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-shiny >= 1.11.1
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-dplyr 
@@ -43,10 +44,11 @@ Requires:         R-CRAN-datamods
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-writexl 
 
 %description
-Provides an interactive viewer for 'data.frame' and 'tibble' objects using
-'shiny' <https://shiny.posit.co/> and 'DT'
+Provides an interactive viewer for 'data.frame', 'tibble' and 'data.table'
+objects using 'shiny' <https://shiny.posit.co/> and 'DT'
 <https://rstudio.github.io/DT/>. It supports complex filtering, column
 selection, and automatic generation of reproducible 'dplyr'
 <https://dplyr.tidyverse.org/> code for data manipulation. The package is

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hybridEHR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synthetic Hybrid Electronic Health Records Dataset Generator with COVID/CT Research Views
+Summary:          Synthetic Hybrid Electronic Health Record Generation for SARS-Related Research and CT Views
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,27 +21,29 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Tools to generate synthetic electronic health records including patients,
-encounters, vitals, labs, medications, procedures, and allergies, with
-optional COVID-19-focused and computed tomography (CT)-research views, and
-export them to comma separated values ('CSV'), 'SQLite', and 'Excel'
-formats for researchers and developers.
+Generates synthetic electronic health record data, including patients,
+encounters, vitals, laboratory results, medications, procedures, and
+allergies. The package supports optional SARS-focused and computed
+tomography (CT) research views and export to CSV, SQLite, and Excel
+formats for research and development workflows.
 
 %prep
 %setup -q -c -n %{packname}

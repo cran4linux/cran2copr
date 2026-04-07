@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wordvector
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Word and Document Vector Models
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-quanteda >= 4.1.0
+BuildRequires:    R-CRAN-quanteda >= 4.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-Matrix 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-RSpectra
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-quanteda >= 4.1.0
+Requires:         R-CRAN-quanteda >= 4.1
 Requires:         R-methods 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-Matrix 
