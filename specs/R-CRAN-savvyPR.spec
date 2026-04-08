@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  savvyPR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Savvy Parity Regression Model Estimation with 'savvyPR'
 
@@ -42,7 +42,7 @@ elasticity weight for the response variable. The package provides
 comprehensive tools for model estimation, risk distribution analysis, and
 parameter tuning via cross-validation (PR1, PR2, and PR3 model types) to
 optimize predictive accuracy. Methods are based on Asimit, Chen, Ichim and
-Millossovich (2026) <https://openaccess.city.ac.uk/id/eprint/35005/>.
+Millossovich (2026) <https://openaccess.city.ac.uk/id/eprint/37017/>.
 
 %prep
 %setup -q -c -n %{packname}

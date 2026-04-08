@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splusTimeSeries
-%global packver   1.5.8
+%global packname  progressify
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series from 'S-PLUS'
+Summary:          Progress Reporting of Common Functions via One Magic Function
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-splusTimeDate >= 2.5.2
-Requires:         R-graphics 
+Requires:         R-CRAN-progressr 
 Requires:         R-methods 
-Requires:         R-stats 
 
 %description
-A collection of classes and methods for working with indexed rectangular
-data. The index values can be calendar (timeSeries class) or numeric
-(signalSeries class). Methods are included for aggregation, alignment,
-merging, and summaries. The code was originally available in 'S-PLUS'.
+The progressify() function rewrites (transpiles) calls to sequential and
+parallel map-reduce functions such as base::lapply(), purrr::map(),
+foreach::foreach(), and plyr::llply() to signal progress updates. By
+combining this function with R's native pipe operator, you have a
+straightforward way to report progress on iterative computations with
+minimal refactoring, e.g. 'lapply(x, fcn) |> progressify()' and
+'purrr::map(x, fcn) |> progressify()'. It is compatible with the
+'futurize' package for parallelization, e.g. 'lapply(x, fcn) |>
+progressify() |> futurize()' and 'purrr::map(x, fcn) |> futurize() |>
+progressify()'.
 
 %prep
 %setup -q -c -n %{packname}

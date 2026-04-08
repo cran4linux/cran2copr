@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fungible
-%global packver   2.4.4.1
+%global packver   2.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.4.1
+Version:          2.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Psychometric Functions from the Waller Lab
 
@@ -14,17 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MBESS >= 4.8.0
 BuildRequires:    R-CRAN-GA >= 3.2.1
 BuildRequires:    R-CRAN-sem >= 3.1.11
+BuildRequires:    R-CRAN-CVXR >= 1.8.2
 BuildRequires:    R-CRAN-crayon >= 1.4.1
 BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-GPArotation 
+BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-MCMCpack 
@@ -40,11 +41,12 @@ BuildRequires:    R-grDevices
 Requires:         R-CRAN-MBESS >= 4.8.0
 Requires:         R-CRAN-GA >= 3.2.1
 Requires:         R-CRAN-sem >= 3.1.11
+Requires:         R-CRAN-CVXR >= 1.8.2
 Requires:         R-CRAN-crayon >= 1.4.1
 Requires:         R-CRAN-clue 
-Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-GPArotation 
+Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-MCMCpack 

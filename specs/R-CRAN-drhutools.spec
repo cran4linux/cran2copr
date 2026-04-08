@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drhutools
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Political Science Academic Research Gears
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-webshot
 BuildRequires:    R-CRAN-animation 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
@@ -51,14 +52,16 @@ Requires:         R-CRAN-webshot
 Requires:         R-CRAN-animation 
 Requires:         R-CRAN-png 
 Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
 Using these tools to simplify the research process of political science
 and other social sciences. The current version can create folder system
 for academic project in political science, calculate psychological trait
-scores, visualize experimental and spatial data, and set up color-blind
-palette, functions used in academic research of political psychology or
-political science in general.
+scores, visualize experimental and spatial data, set up color-blind
+palette, and test for Type I error (false positives) in Qualitative
+Comparative Analysis (QCA) for crisp-set, multi-value, and fuzzy-set
+variants.
 
 %prep
 %setup -q -c -n %{packname}

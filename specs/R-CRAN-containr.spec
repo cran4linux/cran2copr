@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  containr
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Containerize Your 'R' Project
 
@@ -29,13 +29,13 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-httr 
 
 %description
-Automates the process of containerizing 'R' projects. The core function of
-'containr' is 'generate_dockerfile()', which analyzes an 'R' project's
-environment and dependencies via an 'renv' lock file and generates a
-ready-to-use 'Dockerfile' that encapsulates the computational setup. The
-package helps researchers build portable and consistent workflows so that
-analyses can be reliably shared, archived, and rerun across systems. See R
-Core Team (2025) <https://www.R-project.org/>, Ushey et al. (2025)
+Provides tools for containerizing 'R' projects. The core function,
+'generate_dockerfile()', analyzes an 'R' project's environment and
+dependencies via an 'renv' lock file and generates a ready-to-use
+'Dockerfile' that encapsulates the computational setup. Designed to help
+researchers build portable, reproducible workflows that can be reliably
+shared, archived, and rerun across systems. See R Core Team (2025)
+<https://www.R-project.org/>, Ushey et al. (2025)
 <https://CRAN.R-project.org/package=renv>, and Docker Inc. (2025)
 <https://www.docker.com/>.
 

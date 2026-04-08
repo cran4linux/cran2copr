@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webdav
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Interface for Interacting with 'WebDAV' Servers
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-xml2 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-cli 
 
 %description
 An easy-to-use interface for interacting with 'WebDAV' servers, including

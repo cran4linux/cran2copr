@@ -1,50 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rstudiothemes
-%global packver   1.1.0
+%global packname  ukbflow
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create 'RStudio' Themes from Visual Studio Code, Positron and 'TextMate' Themes
+Summary:          Streamlined Workflow for UK Biobank Data Extraction, Analysis, and Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-forestploter 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-gtsummary 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-sass 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
+Requires:         R-CRAN-forestploter 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-gtsummary 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-sass 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
 
 %description
-Create and install 'RStudio' themes derived from Visual Studio Code,
-Positron and 'TextMate' themes. Provides functions to convert between
-'TextMate' and Visual Studio Code or Positron themes, as well as ports of
-several Visual Studio Code themes.
+Provides a streamlined workflow for UK Biobank cloud-based analysis on the
+Research Analysis Platform (RAP). Includes tools for phenotype extraction
+and decoding, variable derivation, survival and association analysis,
+genetic risk score computation, and publication-quality visualization. For
+details on the UK Biobank resource, see Bycroft et al. (2018)
+<doi:10.1038/s41586-018-0579-z>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splusTimeSeries
-%global packver   1.5.8
+%global packname  WHORiskCalculator
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series from 'S-PLUS'
+Summary:          WHO Cardiovascular Disease Risk Calculator
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-splusTimeDate >= 2.5.2
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A collection of classes and methods for working with indexed rectangular
-data. The index values can be calendar (timeSeries class) or numeric
-(signalSeries class). Methods are included for aggregation, alignment,
-merging, and summaries. The code was originally available in 'S-PLUS'.
+Implements the 2019 World Health Organization (WHO) cardiovascular disease
+(CVD) risk prediction models, as described in Kaptoge et al. (2019)
+<doi:10.1016/S2214-109X(19)30318-3>. Provides two validated models for
+estimating 10-year risk of fatal and non-fatal cardiovascular events
+(myocardial infarction and stroke): a laboratory-based model using age,
+sex, systolic blood pressure, total cholesterol, smoking status, and
+diabetes history; and a non-laboratory-based model substituting body mass
+index (BMI) for cholesterol and diabetes, suitable for resource-limited
+settings. Risk estimates are recalibrated to 21 Global Burden of Disease
+regions using region-specific incidence rates and risk factor
+distributions derived from the Emerging Risk Factors Collaboration.
+Functions are fully vectorized for efficient batch calculations and
+support automatic country-to-region mapping via ISO 3166-1 alpha-3 country
+codes.
 
 %prep
 %setup -q -c -n %{packname}

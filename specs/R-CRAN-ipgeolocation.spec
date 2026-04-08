@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splusTimeSeries
-%global packver   1.5.8
+%global packname  ipgeolocation
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series from 'S-PLUS'
+Summary:          Client for the 'IPGeolocation.io IP Location API'
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-splusTimeDate >= 2.5.2
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-httr2 
 
 %description
-A collection of classes and methods for working with indexed rectangular
-data. The index values can be calendar (timeSeries class) or numeric
-(signalSeries class). Methods are included for aggregation, alignment,
-merging, and summaries. The code was originally available in 'S-PLUS'.
+Provides functions to query the 'IPGeolocation.io IP Location API'
+(<https://ipgeolocation.io/documentation/ip-location-api.html>). Supports
+retrieval of IP location, ASN, network, currency, timezone, abuse, and
+security data. Response filtering is supported using 'fields' and
+'excludes' parameters (dot notation supported), and optional objects can
+be requested via the 'include' parameter. Returns parsed API responses as
+R objects.
 
 %prep
 %setup -q -c -n %{packname}

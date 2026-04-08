@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSiena
-%global packver   1.5.0
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Siena - Simulation Investigation for Empirical Network Analysis
 
@@ -15,20 +15,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-network 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-lattice 
 Requires:         R-parallel 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-network 
 
 %description
 The main purpose of this package is to perform simulation-based estimation

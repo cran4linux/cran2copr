@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WebAnalytics
-%global packver   0.9.14
+%global packver   0.9.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.14
+Version:          0.9.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Server Log Analysis
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-xtable >= 1.8.4
 BuildRequires:    R-CRAN-fs >= 1.5.2
 BuildRequires:    R-CRAN-reshape2 >= 1.4.4
-BuildRequires:    R-CRAN-data.table >= 1.14.2
 BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-CRAN-brew >= 1.0.6
 BuildRequires:    R-CRAN-digest >= 0.6.29
@@ -31,7 +30,6 @@ Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-xtable >= 1.8.4
 Requires:         R-CRAN-fs >= 1.5.2
 Requires:         R-CRAN-reshape2 >= 1.4.4
-Requires:         R-CRAN-data.table >= 1.14.2
 Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-CRAN-brew >= 1.0.6
 Requires:         R-CRAN-digest >= 0.6.29

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  regioncode
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Region Names and Division Codes of China Over Years
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pinyin 
-Requires:         R-CRAN-pinyin 
 
 %description
 A tool to conquer the difficulties to convert various region names and

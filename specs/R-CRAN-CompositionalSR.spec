@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompositionalSR
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Models with Compositional Data
 
@@ -27,6 +27,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spmoran 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-blockCV 
@@ -39,6 +40,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spmoran 
 Requires:         R-stats 
 Requires:         R-utils 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EstemPMM
-%global packver   0.1.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Polynomial Maximization Method for Non-Gaussian Regression
 
@@ -31,9 +31,11 @@ Implements the Polynomial Maximization Method ('PMM') for parameter
 estimation in linear and time series models when error distributions
 deviate from normality. The 'PMM2' variant achieves lower variance
 parameter estimates compared to ordinary least squares ('OLS') when errors
-exhibit significant skewness. Includes methods for linear regression,
-'AR'/'MA'/'ARMA'/'ARIMA' models, and bootstrap inference. Methodology
-described in Zabolotnii, Warsza, and Tkachenko (2018)
+exhibit significant skewness. The 'PMM3' variant (S=3) targets symmetric
+platykurtic error distributions, reducing variance when excess kurtosis is
+negative. Includes automatic method selection ('pmm_dispatch'), linear
+regression, 'AR'/'MA'/'ARMA'/'ARIMA' models, and bootstrap inference.
+Methodology described in Zabolotnii, Warsza, and Tkachenko (2018)
 <doi:10.1007/978-3-319-77179-3_75>, Zabolotnii, Tkachenko, and Warsza
 (2022) <doi:10.1007/978-3-031-03502-9_37>, and Zabolotnii, Tkachenko, and
 Warsza (2023) <doi:10.1007/978-3-031-25844-2_21>.

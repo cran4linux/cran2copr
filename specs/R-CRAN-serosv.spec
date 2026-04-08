@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  serosv
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Infectious Disease Parameters from Serosurveys
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-rstantools >= 2.4.0
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-locfit 
 BuildRequires:    R-CRAN-purrr 
@@ -33,17 +35,22 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-mixdist 
+BuildRequires:    R-CRAN-scam 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstantools >= 2.4.0
 Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-locfit 
 Requires:         R-CRAN-purrr 
@@ -52,9 +59,12 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-mixdist 
+Requires:         R-CRAN-scam 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-pROC 
 Requires:         R-stats4 
 Requires:         R-CRAN-rstantools
 

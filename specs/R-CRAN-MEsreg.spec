@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splusTimeSeries
-%global packver   1.5.8
+%global packname  MEsreg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series from 'S-PLUS'
+Summary:          Generalized Maximum Entropy Estimation for Smooth Transition and Kink Regression Models
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-splusTimeDate >= 2.5.2
-Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-CRAN-Rsolnp 
 Requires:         R-stats 
 
 %description
-A collection of classes and methods for working with indexed rectangular
-data. The index values can be calendar (timeSeries class) or numeric
-(signalSeries class). Methods are included for aggregation, alignment,
-merging, and summaries. The code was originally available in 'S-PLUS'.
+Implements generalized maximum entropy estimation for linear regression,
+kink regression, and smooth transition kink regression models. The
+approach represents unknown parameters and disturbances as probability
+distributions over discrete support spaces and estimates them by
+maximizing entropy subject to model constraints. It is particularly suited
+to ill-posed problems and does not require distributional assumptions on
+the error term. The methods have been applied in empirical studies such as
+Tarkhamtham and Yamaka (2019)
+<https://thaijmath.com/index.php/thaijmath/article/view/867/870> and
+Maneejuk, Yamaka, and Sriboonchitta (2022)
+<doi:10.1080/03610918.2020.1836214>.
 
 %prep
 %setup -q -c -n %{packname}

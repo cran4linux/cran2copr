@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NetworkChange
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Package for Network Changepoint Analysis
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rmpfr 
@@ -35,6 +35,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rmpfr 
@@ -58,9 +60,10 @@ Requires:         R-CRAN-viridis
 Network changepoint analysis for undirected network data. The package
 implements a hidden Markov network change point model (Park and Sohn
 (2020)). Functions for break number detection using the approximate
-marginal likelihood and WAIC are also provided. This version includes
-performance optimizations with vectorized MCMC operations and modern
-ggplot2-based visualizations with colorblind-friendly palettes.
+marginal likelihood and WAIC are also provided. Version 1.1.0 includes
+high-performance C++ implementations via 'Rcpp'/'RcppArmadillo' for 5-15x
+faster MCMC sampling, along with modern 'ggplot2'-based visualizations
+with colorblind-friendly palettes.
 
 %prep
 %setup -q -c -n %{packname}

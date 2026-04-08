@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RapidFuzz
-%global packver   1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          String Similarity Computation Using 'RapidFuzz'
 
@@ -17,14 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-Rcpp >= 1.0.13
+Requires:         R-CRAN-cli 
 
 %description
 Provides a high-performance interface for calculating string similarities
 and distances, leveraging the efficient library 'RapidFuzz'
 <https://github.com/rapidfuzz/rapidfuzz-cpp>. This package integrates the
 'C++' implementation, allowing 'R' users to access cutting-edge algorithms
-for fuzzy matching and text analysis.
+for fuzzy matching and text analysis. Supported metrics include
+Levenshtein, Damerau-Levenshtein, Hamming, Jaro, Jaro-Winkler, Longest
+Common Subsequence (LCS), Optimal String Alignment (OSA), Indel, Prefix,
+and Postfix distances and similarities, as well as multiple fuzzy matching
+ratios.
 
 %prep
 %setup -q -c -n %{packname}

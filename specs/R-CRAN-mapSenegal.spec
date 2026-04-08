@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splusTimeSeries
-%global packver   1.5.8
+%global packname  mapSenegal
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series from 'S-PLUS'
+Summary:          Administrative Boundaries of Senegal
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-splusTimeDate >= 2.5.2
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf 
 
 %description
-A collection of classes and methods for working with indexed rectangular
-data. The index values can be calendar (timeSeries class) or numeric
-(signalSeries class). Methods are included for aggregation, alignment,
-merging, and summaries. The code was originally available in 'S-PLUS'.
+The administrative boundaries of Senegal are provided at several levels,
+including regions, departments, arrondissements and communes. The Global
+Administrative Areas database, or `GADM` <https://gadm.org/>, is the
+primary source for these layers. The dataset is complemented by the
+incorporation of additional geographic layers, such as localities,
+universities, roads, or health facility locations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splusTimeSeries
-%global packver   1.5.8
+%global packname  forestBalance
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series from 'S-PLUS'
+Summary:          Balancing Confounder Distributions with Forest Energy Balancing
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-grf >= 2.3.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-splusTimeDate >= 2.5.2
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-grf >= 2.3.0
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A collection of classes and methods for working with indexed rectangular
-data. The index values can be calendar (timeSeries class) or numeric
-(signalSeries class). Methods are included for aggregation, alignment,
-merging, and summaries. The code was originally available in 'S-PLUS'.
+Estimates average treatment effects using kernel energy balancing with
+random forest similarity kernels. A multivariate random forest jointly
+models covariates, outcome, and treatment to build a similarity kernel
+between observations. This kernel is then used for energy balancing to
+create weights that control for confounding. The method is described in De
+and Huling (2025) <doi:10.48550/arXiv.2512.18069>.
 
 %prep
 %setup -q -c -n %{packname}

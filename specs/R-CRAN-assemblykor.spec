@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splusTimeSeries
-%global packver   1.5.8
+%global packname  assemblykor
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series from 'S-PLUS'
+Summary:          Korean National Assembly Data for Political Science Education
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-splusTimeDate >= 2.5.2
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-A collection of classes and methods for working with indexed rectangular
-data. The index values can be calendar (timeSeries class) or numeric
-(signalSeries class). Methods are included for aggregation, alignment,
-merging, and summaries. The code was originally available in 'S-PLUS'.
+Provides ready-to-use datasets from the Korean National Assembly
+(assemblies 20 through 22, 2016-2026) for teaching quantitative methods in
+political science. Includes legislator metadata, bill proposals, roll call
+votes, asset declarations, and policy seminar records. Designed as a
+Korean politics counterpart to packages like 'palmerpenguins', enabling
+students to practice regression, panel data analysis, text analysis, and
+network analysis with real legislative data. Roll call vote data and
+spatial voting models are described in Poole and Rosenthal (1985)
+<doi:10.2307/2111172>. Legislative data is sourced from the Korean
+National Assembly Open API.
 
 %prep
 %setup -q -c -n %{packname}

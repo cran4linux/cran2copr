@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splusTimeSeries
-%global packver   1.5.8
+%global packname  aftPenCDA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series from 'S-PLUS'
+Summary:          Penalized AFT Estimation via Coordinate Descent
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-splusTimeDate >= 2.5.2
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
-A collection of classes and methods for working with indexed rectangular
-data. The index values can be calendar (timeSeries class) or numeric
-(signalSeries class). Methods are included for aggregation, alignment,
-merging, and summaries. The code was originally available in 'S-PLUS'.
+Provides penalized accelerated failure time (AFT) model estimation for
+right-censored and partly interval-censored survival data using induced
+smoothing and coordinate descent algorithms. Supported penalties include
+broken adaptive ridge (BAR), LASSO, adaptive LASSO, and SCAD. Core
+estimation routines are implemented in 'C++' via 'Rcpp' and
+'RcppArmadillo' for computational efficiency. The methodology is related
+to Zeng and Lin (2008) <doi:10.1093/biostatistics/kxm034>, Xu et al.
+(2010) <doi:10.1002/sim.2576>, Dai et al. (2018)
+<doi:10.1016/j.jmva.2018.08.007>, and Choi et al. (2025)
+<doi:10.48550/arXiv.2503.11268>.
 
 %prep
 %setup -q -c -n %{packname}
