@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rocrateR
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          RO-Crate R Package Wrapper
+Summary:          Tools for Creating and Manipulating RO-Crates
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,16 +19,19 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-zip 
 
 %description
-R package for creating, manipulating and reading RO-Crates. Latest
-supported version of the specification: <https://w3id.org/ro/crate/1.2/>.
+Provides tools for creating, manipulating and reading Research Object
+Crates (RO-Crates), a lightweight approach to packaging research data with
+structured metadata. Includes utilities for metadata generation, entity
+management, validation and reading existing RO-Crates following the
+specification <https://w3id.org/ro/crate/1.2/>.
 
 %prep
 %setup -q -c -n %{packname}

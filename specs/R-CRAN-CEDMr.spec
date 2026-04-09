@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  misl
-%global packver   2.0.0
+%global packname  CEDMr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Imputation by Super Learning
+Summary:          Capability-Ecological Developmental Model (CEDM) Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,39 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.2.0
+BuildRequires:    R-CRAN-rms >= 6.7.0
+BuildRequires:    R-CRAN-mediation >= 4.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
-BuildRequires:    R-CRAN-parsnip >= 1.2.0
-BuildRequires:    R-CRAN-rsample >= 1.2.0
-BuildRequires:    R-CRAN-tune >= 1.2.0
-BuildRequires:    R-CRAN-future.apply >= 1.11.0
+BuildRequires:    R-CRAN-lme4 >= 1.1.31
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-workflows >= 1.1.0
-BuildRequires:    R-CRAN-recipes >= 1.0.0
-BuildRequires:    R-CRAN-stacks >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 3.2.0
+Requires:         R-CRAN-rms >= 6.7.0
+Requires:         R-CRAN-mediation >= 4.5.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-magrittr >= 2.0.0
 Requires:         R-CRAN-tidyr >= 1.3.0
-Requires:         R-CRAN-parsnip >= 1.2.0
-Requires:         R-CRAN-rsample >= 1.2.0
-Requires:         R-CRAN-tune >= 1.2.0
-Requires:         R-CRAN-future.apply >= 1.11.0
+Requires:         R-CRAN-lme4 >= 1.1.31
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-workflows >= 1.1.0
-Requires:         R-CRAN-recipes >= 1.0.0
-Requires:         R-CRAN-stacks >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Performs multiple imputation of missing data using an ensemble super
-learner built with the tidymodels framework. For each incomplete column, a
-stacked ensemble of candidate learners is trained on a bootstrap sample of
-the observed data and used to generate imputations via predictive mean
-matching (continuous), probability draws (binary), or cumulative
-probability draws (categorical). Supports parallelism across imputed
-datasets via the future framework.
+Implements the Capability-Ecological Developmental Model (CEDM) for
+longitudinal and multilevel data. The package supports estimation and
+interpretation of models examining how socioeconomic status (SES), health
+indicators, and contextual factors jointly relate to academic outcomes.
+Functionality includes: (1) classification of ecological capability
+regimes (amplifying, neutral, compensatory); (2) estimation of moderated
+multilevel models with higher-order interaction terms; (3) causal
+mediation analysis using doubly robust estimation; (4) random-effects
+within-between (REWB) decomposition; (5) nonlinear moderation using
+restricted cubic splines; (6) clustering of longitudinal health
+trajectories; and (7) sensitivity analysis using the impact threshold for
+a confounding variable (ITCV) and robustness-to-replacement (RIR)
+measures. The package is designed for use with general longitudinal
+multilevel datasets.
 
 %prep
 %setup -q -c -n %{packname}

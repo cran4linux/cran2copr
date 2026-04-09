@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weatherOz
-%global packver   2.0.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An API Client for Australian Weather and Climate Data Resources
 
@@ -77,8 +77,8 @@ released under a Creative Commons Attribution 4.0 International licence
 (CC BY 4.0) <https://creativecommons.org/licenses/by/4.0/>. BOM data are
 (c) Australian Government Bureau of Meteorology and released under a
 Creative Commons (CC) Attribution 3.0 licence or Public Access Licence
-(PAL) as appropriate, see <http://www.bom.gov.au/other/copyright.shtml>
-for further details.
+(PAL) as appropriate, see <https://www.bom.gov.au/copyright> for further
+details.
 
 %prep
 %setup -q -c -n %{packname}

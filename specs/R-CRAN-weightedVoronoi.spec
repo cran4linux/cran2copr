@@ -1,52 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bsub
-%global packver   2.0.7
+%global packname  weightedVoronoi
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Submitter and Monitor of the 'LSF Cluster'
+Summary:          Weighted Spatial Tessellations in Constrained Polygon Domains
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GetoptLong >= 0.1.8
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.1
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-BuildRequires:    R-CRAN-ssh 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-GetoptLong >= 0.1.8
-Requires:         R-CRAN-GlobalOptions >= 0.1.1
-Requires:         R-CRAN-digest 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gdistance 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-crayon 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
-Requires:         R-CRAN-ssh 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gdistance 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-Matrix 
 
 %description
-It submits R code/R scripts/shell commands to 'LSF cluster'
-(<https://en.wikipedia.org/wiki/Platform_LSF>, the 'bsub' system) without
-leaving R. There is also an interactive 'shiny' application for monitoring
-job status.
+Provides tools for weighted spatial tessellation using Euclidean and
+geodesic distances within constrained polygonal domains. The package can
+generate complete and connected spatial partitions that respect complex
+boundaries, heterogeneous point weights, and optional resistance or
+terrain effects. The methods extend weighted Voronoi tessellations to
+constrained domains and graph-based cost-distance surfaces. For background
+see Aurenhammer (1991) <doi:10.1145/116873.116880> and van Etten (2017)
+<doi:10.18637/jss.v076.i13>.
 
 %prep
 %setup -q -c -n %{packname}

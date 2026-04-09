@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DyadRatios
-%global packver   1.4
+%global packname  integrity
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dyad Ratios Algorithm
+Summary:          Tests Checking for Implausible Values in Clinical Trials Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,24 +18,34 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-progress 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-rlang 
 
 %description
-Estimates the Dyad Ratios Algorithm for pooling and smoothing poll
-estimates. The Dyad Ratios Algorithm smooths both forward and backward in
-time over polling results allowing differences in both question type and
-polling house. The result is an estimate of a single latent variable that
-describes the systematic trend over time in the (noisy) polling results.
-See James A. Stimson (2018) <doi:10.1177/0759106318761614> and the
-package's vignette for more details.
+Sixteen individual participant data-specific checks in a report-style
+result. Items are automated where possible, and are grouped into eight
+domains, including unusual data patterns, baseline characteristics,
+correlations, date violations, patterns of allocation, internal and
+external inconsistencies, and plausibility of data. The package may be
+applied by evidence synthesists, editors, and others to determine whether
+a randomised controlled trial may be considered trustworthy to contribute
+to the evidence base that informs policy and practice. For more details,
+see Hunter et al. (2024) <doi:10.1002/jrsm.1738> and
+<doi:10.32614/RJ-2017-008> in the same issue of Research Synthesis
+Methods.
 
 %prep
 %setup -q -c -n %{packname}

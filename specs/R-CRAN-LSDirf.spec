@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LSDirf
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Impulse-Response Function Analysis for Agent-Based Models
 
@@ -44,11 +44,12 @@ of agent-based simulation models, in particular for models described in
 'LSD' format. Based on the data produced by the simulation model, it
 performs both linear and state-dependent IRF analysis, providing the tools
 required by the Counterfactual Monte Carlo (CMC) methodology (Amendola and
-Pereira (2024) <doi:10.2139/ssrn.4740360>), including state identification
-and sensitivity. CMC proposes retrieving the causal effect of shocks by
-exploiting the opportunity to directly observe the counterfactual in a
-fully controlled experimental setup. 'LSD' (Laboratory for Simulation
-Development) is free software available at <https://www.labsimdev.org/>).
+Pereira (2024) <doi:10.1016/j.jebo.2024.106811>), including state
+identification and sensitivity. CMC proposes retrieving the causal effect
+of shocks by exploiting the opportunity to directly observe the
+counterfactual in a fully controlled experimental setup. 'LSD' (Laboratory
+for Simulation Development) is free software available at
+<https://www.labsimdev.org/>).
 
 %prep
 %setup -q -c -n %{packname}

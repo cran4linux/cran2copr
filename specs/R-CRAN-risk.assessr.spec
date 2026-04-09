@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  risk.assessr
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Package Risk Metrics
 
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-BiocManager 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-remotes 
@@ -61,6 +62,7 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-BiocManager 
+Requires:         R-CRAN-glue 
 
 %description
 A reliable and validated tool that captures detailed risk metrics such as

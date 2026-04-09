@@ -1,25 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cleancall
-%global packver   0.1.4
+%global packname  Nestimate
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          C Resource Cleanup via Exit Handlers
+Summary:          Network Estimation, Bootstrap, and Higher-Order Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-cluster 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-cluster 
 
 %description
-Wrapper of .Call() that runs exit handlers to clean up C resources. Helps
-managing C (non-R) resources while using the R API.
+Estimate, compare, and analyze dynamic and psychological networks using a
+unified interface. Provides transition network analysis estimation
+(transition, frequency, co-occurrence, attention-weighted) Saqr et al.
+(2025) <doi:10.1145/3706468.3706513>, psychological network methods
+(correlation, partial correlation, 'graphical lasso', 'Ising') Saqr, Beck,
+and Lopez-Pernas (2024) <doi:10.1007/978-3-031-54464-4_19>, and
+higher-order network methods including higher-order networks, higher-order
+network embedding, hyper-path anomaly, and multi-order generative model.
+Supports bootstrap inference, permutation testing, split-half reliability,
+centrality stability analysis, mixed Markov models, multi-cluster
+multi-layer networks and clustering.
 
 %prep
 %setup -q -c -n %{packname}

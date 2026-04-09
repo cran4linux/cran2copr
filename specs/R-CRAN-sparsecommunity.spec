@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bsub
-%global packver   2.0.7
+%global packname  sparsecommunity
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Submitter and Monitor of the 'LSF Cluster'
+Summary:          Spectral Community Detection for Sparse Networks
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GetoptLong >= 0.1.8
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.1
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-BuildRequires:    R-CRAN-ssh 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-GetoptLong >= 0.1.8
-Requires:         R-CRAN-GlobalOptions >= 0.1.1
-Requires:         R-CRAN-digest 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-crayon 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
-Requires:         R-CRAN-ssh 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-stats 
 
 %description
-It submits R code/R scripts/shell commands to 'LSF cluster'
-(<https://en.wikipedia.org/wiki/Platform_LSF>, the 'bsub' system) without
-leaving R. There is also an interactive 'shiny' application for monitoring
-job status.
+Implements spectral clustering algorithms for community detection in
+sparse networks under the stochastic block model ('SBM') and
+degree-corrected stochastic block model ('DCSBM'), following the methods
+of Lei and Rinaldo (2015) <doi:10.1214/14-AOS1274>. Provides a regularized
+normalized Laplacian embedding, spherical k-median clustering for 'DCSBM',
+standard k-means for 'SBM', simulation utilities for both models, and a
+misclustering rate evaluation metric. Also includes the 'NCAA' college
+football network of Girvan and Newman (2002) <doi:10.1073/pnas.122653799>
+as a benchmark dataset, and the Bethe-Hessian community number estimator
+of Hwang (2023) <doi:10.1080/01621459.2023.2223793>.
 
 %prep
 %setup -q -c -n %{packname}

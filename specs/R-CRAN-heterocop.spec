@@ -1,25 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cleancall
-%global packver   0.1.4
+%global packname  heterocop
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          C Resource Cleanup via Exit Handlers
+Summary:          Semi-Parametric Estimation with Gaussian Copula
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-huge 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-graphics 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-utils 
+Requires:         R-CRAN-huge 
 
 %description
-Wrapper of .Call() that runs exit handlers to clean up C resources. Helps
-managing C (non-R) resources while using the R API.
+A method for estimating the correlation matrix of the Gaussian copula from
+the observed data. This package also contains a penalized estimation of
+the corresponding precision matrix, and enables to generate random vectors
+that are distributed according to a Gaussian copula.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,52 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bsub
-%global packver   2.0.7
+%global packname  drmeta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Submitter and Monitor of the 'LSF Cluster'
+Summary:          Design-Robust Meta-Analysis via Variance-Function Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GetoptLong >= 0.1.8
-BuildRequires:    R-CRAN-GlobalOptions >= 0.1.1
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-codetools 
-BuildRequires:    R-CRAN-ssh 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-GetoptLong >= 0.1.8
-Requires:         R-CRAN-GlobalOptions >= 0.1.1
-Requires:         R-CRAN-digest 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-codetools 
-Requires:         R-CRAN-ssh 
-Requires:         R-CRAN-igraph 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-It submits R code/R scripts/shell commands to 'LSF cluster'
-(<https://en.wikipedia.org/wiki/Platform_LSF>, the 'bsub' system) without
-leaving R. There is also an interactive 'shiny' application for monitoring
-job status.
+Implements Design-Robust Meta-Analysis (DR-Meta), a variance-function
+random-effects framework in which between-study heterogeneity is modelled
+as a function of a study-level design robustness index, allowing
+heterogeneity to depend systematically on study quality or design strength
+rather than being treated as a single nuisance parameter. The package
+provides profiled restricted maximum likelihood (REML) estimation of the
+overall effect and variance-function parameters, study-specific weights,
+heterogeneity diagnostics (tau-squared, I-squared), influence and
+leave-one-out analysis, and graphical tools including forest plots and
+influence plots. The DR-Meta framework nests classical fixed-effects and
+standard random-effects meta-analysis as special cases, making it a strict
+generalisation of existing approaches.
 
 %prep
 %setup -q -c -n %{packname}
