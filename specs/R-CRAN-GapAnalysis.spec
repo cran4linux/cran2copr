@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  GapAnalysis
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          Conservation Indicators Using Spatial Information
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dataverse 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-dataverse 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-terra 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Supports the assessment of the degree of conservation of taxa in
+conservation systems, both in ex situ (in genebanks, botanical gardens,
+and other repositories), and in situ (in protected natural areas). Methods
+are described in Carver et al. (2021) <doi:10.1111/ecog.05430>, building
+on Khoury et al. (2020) <doi:10.1073/pnas.2007029117>, Khoury et al.
+(2019) <doi:10.1016/j.ecolind.2018.11.016>, Khoury et al. (2019)
+<doi:10.1111/DDI.13008>, Castaneda-Alvarez et al. (2016)
+<doi:10.1038/nplants.2016.22>, and Ramirez-Villegas et al. (2010)
+<doi:10.1371/journal.pone.0013497>.
 
 %prep
 %setup -q -c -n %{packname}

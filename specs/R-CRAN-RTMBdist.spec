@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RTMBdist
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributions Compatible with Automatic Differentiation by 'RTMB'
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RTMB >= 1.9
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-sn 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-statmod
 BuildRequires:    R-CRAN-movMF 
 Requires:         R-CRAN-RTMB >= 1.9
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-sn 

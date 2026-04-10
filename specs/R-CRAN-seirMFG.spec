@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  seirMFG
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          Mean-Field Game Equilibrium for SEIR Epidemics on Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Implements the forward-backward sweep algorithm for computing Nash
+equilibrium contact policies in SEIR epidemic mean-field games on
+heterogeneous contact networks, as described in Wang (2026)
+<doi:10.5281/zenodo.19381052>. Supports both heterogeneous networks with
+arbitrary degree distributions (e.g., truncated Poisson) and homogeneous
+networks. Computes equilibrium susceptible contact effort, value
+functions, epidemic trajectories, and the effective reproduction number
+Rt.
 
 %prep
 %setup -q -c -n %{packname}

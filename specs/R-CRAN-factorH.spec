@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  factorH
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multifactor Nonparametric Rank-Based ANOVA with Post Hoc Tests
 
@@ -20,17 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rcompanion 
 BuildRequires:    R-CRAN-FSA 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-rcompanion 
 Requires:         R-CRAN-FSA 
 Requires:         R-CRAN-car 
-Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-rlang 
 
 %description
 Multifactor nonparametric analysis of variance based on ranks. Builds on

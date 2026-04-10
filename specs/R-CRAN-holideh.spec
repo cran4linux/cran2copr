@@ -1,35 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  holideh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          Working with Canadian Dates
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-utf8 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-utf8 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Convenience date tools for identifying weekends, business days, and
+Canadian holidays, including R wrappers for the Canada Holidays API
+<https://canada-holidays.ca/>.
 
 %prep
 %setup -q -c -n %{packname}

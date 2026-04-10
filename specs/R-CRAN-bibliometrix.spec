@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bibliometrix
-%global packver   5.2.1
+%global packver   5.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.1
+Version:          5.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -14,23 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinycssloaders >= 1.1.0
+BuildRequires:    R-CRAN-contentanalysis >= 1.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-bibliometrixData 
-BuildRequires:    R-CRAN-contentanalysis 
 BuildRequires:    R-CRAN-dimensionsR 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ca 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-openalexR 
 BuildRequires:    R-CRAN-openxlsx 
@@ -49,19 +49,19 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-shinycssloaders >= 1.1.0
+Requires:         R-CRAN-contentanalysis >= 1.0.0
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-CRAN-bibliometrixData 
-Requires:         R-CRAN-contentanalysis 
 Requires:         R-CRAN-dimensionsR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ca 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-openalexR 
 Requires:         R-CRAN-openxlsx 

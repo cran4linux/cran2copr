@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  circuitscaper
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          'Circuitscape' and 'Omniscape' Connectivity Analysis via 'Julia'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-JuliaCall 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-JuliaCall 
 Requires:         R-utils 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Provides an R-native interface to the 'Circuitscape.jl' and 'Omniscape.jl'
+'Julia' packages for landscape connectivity modeling using circuit theory.
+Users work entirely in R with familiar objects (SpatRaster, file paths)
+while 'Julia' handles computation invisibly. Supports all four
+'Circuitscape' modes (pairwise, one-to-all, all-to-one, advanced) and
+'Omniscape' moving-window analysis. Methods are described in McRae (2006)
+<doi:10.1111/j.0014-3820.2006.tb00500.x> and Landau et al. (2021)
+<doi:10.21105/joss.02829>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tlsR
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection and Spatial Analysis of Tertiary Lymphoid Structures
 
@@ -14,27 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fastICA 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-fastICA 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-RANN 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-spatstat.explore >= 3.0.0
+BuildRequires:    R-CRAN-spatstat.geom >= 3.0.0
+BuildRequires:    R-CRAN-fastICA >= 1.2.3
+BuildRequires:    R-CRAN-FNN >= 1.1.3
+BuildRequires:    R-CRAN-dbscan >= 1.1.10
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-spatstat.explore >= 3.0.0
+Requires:         R-CRAN-spatstat.geom >= 3.0.0
+Requires:         R-CRAN-fastICA >= 1.2.3
+Requires:         R-CRAN-FNN >= 1.1.3
+Requires:         R-CRAN-dbscan >= 1.1.10
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-methods 
 
 %description
 Fast, reproducible detection and quantitative analysis of tertiary

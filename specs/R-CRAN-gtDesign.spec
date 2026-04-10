@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  gtDesign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          Convex Optimal Designs for Group Testing Experiments
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-CVXR >= 1.8.1
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-CVXR >= 1.8.1
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-MASS 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Finite candidate-set approximate optimal designs for group testing and
+related experiments, using convex optimization and equivalence checks.
+Implements the information matrix and cost structure for the prevalence /
+sensitivity / specificity model used in Huang and colleagues (2020), as in
+Chi-Kuang Yeh, Weng Kee Wong, and Julie Zhou
+(<doi:10.48550/arXiv.2508.08445>).
 
 %prep
 %setup -q -c -n %{packname}

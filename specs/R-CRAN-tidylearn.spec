@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidylearn
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Tidy Interface to R's Machine Learning Ecosystem
 
@@ -62,19 +62,22 @@ Requires:         R-CRAN-MASS
 
 %description
 Provides a unified tidyverse-compatible interface to R's machine learning
-packages. Wraps established implementations from 'glmnet', 'randomForest',
-'xgboost', 'e1071', 'rpart', 'gbm', 'nnet', 'cluster', 'dbscan', and
-others - providing consistent function signatures, tidy tibble output,
-unified 'ggplot2'-based visualization, and optional formatted 'gt' tables
-via the tl_table() family of functions. The underlying algorithms are
-unchanged; 'tidylearn' simply makes them easier to use together. Access
-raw model objects via the $fit slot for package-specific functionality.
-Methods include random forests Breiman (2001)
-<doi:10.1023/A:1010933404324>, LASSO regression Tibshirani (1996)
-<doi:10.1111/j.2517-6161.1996.tb02080.x>, elastic net Zou and Hastie
-(2005) <doi:10.1111/j.1467-9868.2005.00503.x>, support vector machines
-Cortes and Vapnik (1995) <doi:10.1007/BF00994018>, and gradient boosting
-Friedman (2001) <doi:10.1214/aos/1013203451>.
+ecosystem - from data ingestion to model publishing. The tl_read() family
+reads data from files ('CSV', 'Excel', 'Parquet', 'JSON'), databases
+('SQLite', 'PostgreSQL', 'MySQL', 'BigQuery'), and cloud sources ('S3',
+'GitHub', 'Kaggle'). The tl_model() function wraps established
+implementations from 'glmnet', 'randomForest', 'xgboost', 'e1071',
+'rpart', 'gbm', 'nnet', 'cluster', 'dbscan', and others with consistent
+function signatures and tidy tibble output. Results flow into unified
+'ggplot2'-based visualization and optional formatted 'gt' tables via the
+tl_table() family. The underlying algorithms are unchanged; 'tidylearn'
+simply makes them easier to use together. Access raw model objects via the
+$fit slot for package-specific functionality. Methods include random
+forests Breiman (2001) <doi:10.1023/A:1010933404324>, LASSO regression
+Tibshirani (1996) <doi:10.1111/j.2517-6161.1996.tb02080.x>, elastic net
+Zou and Hastie (2005) <doi:10.1111/j.1467-9868.2005.00503.x>, support
+vector machines Cortes and Vapnik (1995) <doi:10.1007/BF00994018>, and
+gradient boosting Friedman (2001) <doi:10.1214/aos/1013203451>.
 
 %prep
 %setup -q -c -n %{packname}

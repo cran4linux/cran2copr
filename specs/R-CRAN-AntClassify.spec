@@ -1,51 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggseg3d
-%global packver   2.1.0
+%global packname  AntClassify
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive 3D Brain Atlas Visualization
+Summary:          Functional Guilds, Invasion Status, Endemism, and Rarity of Ants
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggseg.formats 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-webshot2 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggseg.formats 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-webshot2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 
 %description
-Plot brain atlases as interactive 3D meshes using 'Three.js' via
-'htmlwidgets', or render publication-quality static images through 'rgl'
-and 'rayshader'. A pipe-friendly API lets you map data onto brain regions,
-control camera angles, toggle region edges, overlay glass brains, and
-snapshot or ray-trace the result.  Additional atlases are available
-through the 'ggsegverse' r-universe.  Mowinckel & Vidal-Piñeiro (2020)
-<doi:10.1177/2515245920928009>.
+Provides functions for the analysis of ant communities, aiming to
+standardize workflows in myrmecology. The package automates the assignment
+of species to functional guilds based on trophic strategies, feeding
+habits, and foraging behavior, using established classification frameworks
+(Silva et al., 2015; Silvestre et al., 2003; Delabie et al., 2000), and
+also includes a novel classification system implemented within the
+package, developed from ant species occurring in urban environments. It
+also includes routines to flag exotic species (Vieira, 2025), identify
+endemic species (Silva et al., 2025), and classify species rarity and
+rarity forms (Silva et al., 2024). The package reduces manual effort and
+improves reproducibility, supporting research and biodiversity management
+of Neotropical ant communities.
 
 %prep
 %setup -q -c -n %{packname}

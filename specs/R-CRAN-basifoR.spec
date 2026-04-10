@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  basifoR
-%global packver   0.4.1
+%global packver   0.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval and Processing of the Spanish National Forest Inventory
 
@@ -14,31 +14,34 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RODBC 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-measurements 
+BuildRequires:    R-CRAN-RODBC 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-RODBC 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-measurements 
+Requires:         R-CRAN-RODBC 
+Requires:         R-CRAN-rvest 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Data sets of the Spanish National Forest Inventory
-<https://www.miteco.gob.es/es/biodiversidad/servicios/banco-datos-naturaleza/informacion-disponible.html>
-are processed to compute tree metrics and statistics. Function
-metrics2Vol() controls most of the routines.
+Fetches, harmonizes, and analyses data from the Spanish National Forest
+Inventory for reproducible, design-aware forest inventory workflows.
+Computes tree- and stand-level metrics, applies sampling-based expansion
+factors, estimates volume, and supports extensible processing for external
+inventory designs with custom sampling schemes and volume equations.
 
 %prep
 %setup -q -c -n %{packname}

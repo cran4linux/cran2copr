@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gena
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Algorithm and Particle Swarm Optimization
 
@@ -26,7 +26,7 @@ functions. Various modifications (including hybridization and elitism) of
 these algorithms are provided. Implemented functions are based on ideas
 described in S. Katoch, S. Chauhan, V. Kumar (2020)
 <doi:10.1007/s11042-020-10139-6> and M. Clerc (2012)
-<https://hal.archives-ouvertes.fr/hal-00764996>.
+<https://hal.science/hal-00764996>.
 
 %prep
 %setup -q -c -n %{packname}

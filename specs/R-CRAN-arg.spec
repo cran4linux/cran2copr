@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  arg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          Clean and Simple Argument Checking
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.4
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.6.4
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Checks function arguments, ideally for use in R packages. Uses a simple
+interface and produces clean, informative error messages using 'cli'.
 
 %prep
 %setup -q -c -n %{packname}

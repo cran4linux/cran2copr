@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sd2R
-%global packver   0.1.7
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stable Diffusion Image Generation
 
@@ -36,8 +36,11 @@ sd_generate_multi_gpu(). Multi-GPU model parallelism via 'device_layout'
 in sd_ctx(): distribute diffusion, text encoders, and 'VAE' across
 separate 'Vulkan' devices. Built-in profiling (sd_profile_start(),
 sd_profile_summary()) for per-stage timing of text encoding, sampling, and
-'VAE' decode. Supports CPU and 'Vulkan' GPU. No 'Python' or external API
-dependencies required. Cross-platform: Linux, macOS, Windows.
+'VAE' decode. Interactive Shiny GUI via sd_app() with non-blocking
+asynchronous generation (C++ std::thread), live progress bar,
+auto-detection of model architecture, and ETA display. Supports CPU and
+'Vulkan' GPU. No 'Python' or external API dependencies required.
+Cross-platform: Linux, macOS, Windows.
 
 %prep
 %setup -q -c -n %{packname}

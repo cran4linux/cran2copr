@@ -1,55 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SSVS
-%global packver   2.2.0
+%global packname  ClassifyITS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Stochastic Search Variable Selection (SSVS)
+Summary:          Fungal Assignment Pipeline
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5.0
-Requires:         R-core >= 4.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-BoomSpikeSlab 
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-BoomSpikeSlab 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-seqinr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-seqinr 
 
 %description
-Functions for performing stochastic search variable selection (SSVS) for
-binary and continuous outcomes and visualizing the results. SSVS is a
-Bayesian variable selection method used to estimate the probability that
-individual predictors should be included in a regression model. Using MCMC
-estimation, the method samples thousands of regression models in order to
-characterize the model uncertainty regarding both the predictor set and
-the regression parameters. For details see Bainter, McCauley, Wager, and
-Losin (2020) Improving practices for selecting a subset of important
-predictors in psychology: An application to predicting pain, Advances in
-Methods and Practices in Psychological Science 3(1), 66-80
-<DOI:10.1177/2515245919885617>.
+Fungi are ubiquitous in Earth's wonderfully diverse ecosystems. The
+'ClassifyITS' package aids in the taxonomic classification of
+environmental internal transcribed spacer (ITS) short-read barcoding data.
+Unlike previous methods, it employs taxon-specific e-value and percent
+identity cutoffs at each taxonomic rank from kingdom to species. The
+package takes a conservative approach and outputs both graphics and
+user-friendly files to help users manually inspect fungal operational
+taxonomic units (OTUs) that fail classification at relevant levels (e.g.,
+Phylum). 'ClassifyITS' is based on taxonomic cutoff criteria from "The
+Global Soil Mycobiome consortium dataset for boosting fungal diversity
+research" (Fungal Diversity, Tedersoo, 2021,
+<doi:10.1007/s13225-021-00493-7>) and "Best practices in metabarcoding of
+fungi: From experimental design to results" (Molecular Ecology, Tedersoo,
+2022, <doi:10.1111/mec.16460>).
 
 %prep
 %setup -q -c -n %{packname}

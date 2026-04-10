@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TheseusPlot
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Decomposition of Differences in Rate Metrics
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
@@ -29,8 +29,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-waterfalls 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
@@ -46,7 +46,7 @@ groups into contributions from individual subgroups and visualizing them
 as a "Theseus Plot". Inspired by the story of the Ship of Theseus, the
 method replaces subgroup data from one group with that of another step by
 step, recalculating the overall metric at each stage to quantify subgroup
-contributions. A Theseus Plot combines the stepwise progression of a
+contributions.  A Theseus Plot combines the stepwise progression of a
 waterfall plot with the comparative bars of a bar chart, offering an
 intuitive way to understand subgroup-level effects.
 

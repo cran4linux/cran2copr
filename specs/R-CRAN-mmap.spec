@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmap
-%global packver   0.6-24
+%global packver   0.6-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.24
+Version:          0.6.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Map Pages of Memory
 

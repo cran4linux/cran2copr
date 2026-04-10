@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  rbfmvar
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          Residual-Based Fully Modified Vector Autoregression
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Implements the Residual-Based Fully Modified Vector Autoregression
+(RBFM-VAR) estimator of Chang (2000) <doi:10.1017/S0266466600166071>. The
+RBFM-VAR procedure extends Phillips (1995) FM-VAR to handle any unknown
+mixture of I(0), I(1), and I(2) components without prior knowledge of the
+number or location of unit roots. Provides automatic lag selection via
+information criteria (AIC, BIC, HQ), long-run variance estimation using
+Bartlett, Parzen, or Quadratic Spectral kernels with Andrews (1991)
+<doi:10.2307/2938229> automatic bandwidth selection, Granger non-causality
+testing with asymptotically chi-squared Wald statistics, impulse response
+functions (IRF) with bootstrap confidence intervals, forecast error
+variance decomposition (FEVD), and out-of-sample forecasting.
 
 %prep
 %setup -q -c -n %{packname}

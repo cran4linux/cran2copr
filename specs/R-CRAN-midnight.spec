@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  midnight
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          A 'tidymodels' Engine and Other Extensions for the 'midr' Package
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-midr >= 0.6.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-midr >= 0.6.0
+Requires:         R-graphics 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Provides a 'parsnip' engine for the 'midr' package, enabling users to fit,
+tune, and evaluate Maximum Interpretation Decomposition (MID) models
+within the 'tidymodels' framework. Developed through research by the
+Moonlight Seminar 2025, a study group of actuaries from the Institute of
+Actuaries of Japan, to enhance practical applications of interpretable
+modeling. Detailed methodology is available in Asashiba et al. (2025)
+<doi:10.48550/arXiv.2506.08338>.
 
 %prep
 %setup -q -c -n %{packname}

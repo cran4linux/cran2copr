@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  palimpsestr
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          Probabilistic Decomposition of Archaeological Palimpsests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Probabilistic framework for the analysis of archaeological palimpsests
+based on the Stratigraphic Entanglement Field (SEF). Integrates spatial
+proximity, stratigraphic depth, chronological overlap, and cultural
+similarity to estimate latent depositional phases via diagonal Gaussian
+mixture Expectation-Maximisation (EM). Provides the Stratigraphic
+Entanglement Index (SEI), Excavation Stratigraphic Energy (ESE), and
+Palimpsest Dissolution Index (PDI) for quantifying depositional coherence,
+detecting intrusive finds, and measuring palimpsest formation. Includes
+simulation, diagnostics, phase-count selection, publication-quality plots,
+and Geographic Information System (GIS) export via 'sf'. Methods are
+described in Cocca (2026) <https://github.com/enzococca/palimpsestr>.
 
 %prep
 %setup -q -c -n %{packname}

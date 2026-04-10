@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  org
-%global packver   2026.4.9
+%global packname  fluorojip
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Organising Projects
+Summary:          Analysis of Chlorophyll a Fluorescence Transient Parameters
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-readxl 
 
 %description
-A framework for organizing R projects with a standardized structure. Most
-analyses consist of three main components: code, results, and data, each
-with different requirements such as version control, sharing, and
-encryption. This package provides tools to set up and manage project
-directories, handle file paths consistently across operating systems,
-organize results using date-based structures, source code from specified
-directories, and perform file operations safely. It ensures consistency
-across projects while accommodating different requirements for various
-types of content.
+Computes chlorophyll a fluorescence transient parameters from fluorescence
+summary data, including minimum and maximum fluorescence, selected
+transient steps, and area. Provides standard photosynthetic performance
+indices and fluxes per reaction center and per cross section. Includes
+helpers to read exported trace tables in supported 'csv' formats and
+validation workflows based on bundled example files, as well as
+visualization tools and an interactive 'shiny' interface. The implemented
+calculations are based on Strasser et al. (2004)
+<doi:10.1007/978-1-4020-3218-9_12> and Stirbet and Govindjee (2011)
+<doi:10.1016/j.jphotobiol.2010.12.010>.
 
 %prep
 %setup -q -c -n %{packname}
