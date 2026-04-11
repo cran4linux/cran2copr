@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NNS
-%global packver   11.6.5
+%global packver   12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.6.5
+Version:          12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -41,14 +41,16 @@ Requires:         R-CRAN-zoo
 NNS (Nonlinear Nonparametric Statistics) leverages partial moments – the
 fundamental elements of variance that asymptotically approximate the area
 under f(x) – to provide a robust foundation for nonlinear analysis while
-maintaining linear equivalences.  NNS delivers a comprehensive suite of
-advanced statistical techniques, including: Numerical integration,
-Numerical differentiation, Clustering, Correlation, Dependence, Causal
-analysis, ANOVA, Regression, Classification, Seasonality, Autoregressive
-modeling, Normalization, Stochastic dominance and Advanced Monte Carlo
-sampling.  All routines based on: Viole, F. and Nawrocki, D. (2013),
-Nonlinear Nonparametric Statistics: Using Partial Moments (ISBN:
-1490523995).
+maintaining linear equivalences.  Designed for real-world data that
+violates symmetry, linearity, or distributional assumptions, NNS delivers
+a comprehensive suite of advanced statistical techniques, including:
+Numerical integration, Numerical differentiation, Clustering, Correlation,
+Dependence, Causal analysis, ANOVA, Regression, Classification,
+Seasonality, Autoregressive modeling, Normalization, Stochastic
+superiority / dominance and Advanced Monte Carlo sampling.  All routines
+based on: Viole, F. and Nawrocki, D. (2013), Nonlinear Nonparametric
+Statistics: Using Partial Moments (ISBN: 1490523995, Second edition:
+<https://ovvo-financial.github.io/NNS/book/>).
 
 %prep
 %setup -q -c -n %{packname}

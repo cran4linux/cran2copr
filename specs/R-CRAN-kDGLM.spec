@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kDGLM
-%global packver   1.2.12
+%global packver   1.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.12
+Version:          1.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Dynamic Generalized Linear Models
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Rfast >= 2.0.8
 BuildRequires:    R-CRAN-extraDistr >= 1.9.1
 BuildRequires:    R-CRAN-generics >= 0.1.3
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-Rfast >= 2.0.8
 Requires:         R-CRAN-extraDistr >= 1.9.1
 Requires:         R-CRAN-generics >= 0.1.3
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rdpack 
 
 %description

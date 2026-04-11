@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  peermodels
-%global packver   0.10.3
+%global __requires_exclude ^libmpi
+%global packname  StatDeriveR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client-Side R API Wrapper for Peer Models Network Model Repository
+Summary:          Step-by-Step Derivation and Simulation Verification in Mathematical Statistics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Enables direct cloud access to health care decision models hosted on the
-PRISM server of the Peer Models Network.
+Provides step-by-step derivations of key results in mathematical
+statistics, including transformations of random variables, order
+statistics, and sampling distributions. The package combines analytical
+derivation with Monte Carlo simulation to compare theoretical and
+empirical results, facilitating deeper understanding of statistical theory
+and its computational implementation. The methods are motivated by
+standard treatments in mathematical statistics (Hogg, McKean, and Craig,
+2019, ISBN: 9780134686991).
 
 %prep
 %setup -q -c -n %{packname}

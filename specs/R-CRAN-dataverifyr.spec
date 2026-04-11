@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataverifyr
-%global packver   0.1.8
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight, Flexible, and Fast Data Validation Package that Can Handle All Sizes of Data
 

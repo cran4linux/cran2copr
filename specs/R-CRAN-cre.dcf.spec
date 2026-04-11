@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cre.dcf
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discounted Cash Flow Tools for Commercial Real Estate
 
@@ -38,13 +38,15 @@ Requires:         R-CRAN-yaml
 Provides 'R' utilities to build unlevered and levered discounted cash flow
 (DCF) tables for commercial real estate (CRE) assets. Functions generate
 bullet and amortising debt schedules, compute credit metrics such as debt
-coverage ratios (DCR), debt service coverage ratios (DSCR), interest
-coverage ratios, debt yield ratios, and forward loan-to-value ratios (LTV)
-based on net operating income (NOI). The toolkit evaluates refinancing
-feasibility under alternative market scenarios and supports end-to-end
-scenario execution from a YAML (YAML Ain't Markup Language) configuration
-file parsed with 'yaml'. Includes helpers for sensitivity analysis,
-covenant diagnostics, and reproducible vignettes.
+service coverage ratios (DSCR), debt yield ratios, and forward
+loan-to-value ratios (LTV), and expose an explicit property-level
+operating chain from gross effective income (GEI) to net operating income
+(NOI) and property before-tax cash flow (PBTCF). The toolkit supports
+end-to-end scenario execution from a YAML (YAML Ain't Markup Language)
+configuration file parsed with 'yaml', includes helpers for effective
+rent, constrained loan underwriting, and simplified SPV-level tax
+simulations, and ships reproducible vignettes for methodological and
+applied use cases.
 
 %prep
 %setup -q -c -n %{packname}

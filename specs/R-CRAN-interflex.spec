@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  interflex
-%global packver   1.2.8
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiplicative Interaction Models Diagnostics and Visualization
+Summary:          Estimation, Diagnostics and Visualization of Conditional Marginal Effects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-lfe >= 2.6.2291
 BuildRequires:    R-CRAN-sandwich >= 2.3.4
 BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
 BuildRequires:    R-CRAN-mgcv >= 1.8.16
 BuildRequires:    R-CRAN-foreach >= 1.4.3
 BuildRequires:    R-CRAN-Lmoments >= 1.2.3
-BuildRequires:    R-CRAN-doParallel >= 1.0.10
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-pcse 
 BuildRequires:    R-CRAN-gtable 
@@ -33,21 +36,32 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-ModelMetrics 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-AER 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-DoubleML 
+BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-lfe >= 2.6.2291
 Requires:         R-CRAN-sandwich >= 2.3.4
 Requires:         R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-mgcv >= 1.8.16
 Requires:         R-CRAN-foreach >= 1.4.3
 Requires:         R-CRAN-Lmoments >= 1.2.3
-Requires:         R-CRAN-doParallel >= 1.0.10
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-grid 
 Requires:         R-CRAN-ggplotify 
+Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-pcse 
 Requires:         R-CRAN-gtable 
@@ -55,15 +69,29 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-ModelMetrics 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-AER 
 Requires:         R-CRAN-future 
+Requires:         R-splines 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-DoubleML 
+Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-progressr 
 
 %description
-Performs diagnostic tests of multiplicative interaction models and plots
-non-linear marginal effects of a treatment on an outcome across different
-values of a moderator.
+Performs estimation, diagnostics, and visualization of conditional
+marginal effects and group average treatment effects of a treatment on an
+outcome across different values of a moderator. Optionally integrates with
+the 'mlr3extralearners' package for additional machine learning backends
+compatible with the double machine learning estimators.
+'mlr3extralearners' is not on CRAN but can be obtained from
+<https://github.com/mlr-org/mlr3extralearners>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SeleMix
-%global packver   1.0.4
+%global packname  psychReport
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Selective Editing via Mixture Models
+Summary:          Reproducible Reports in Psychology
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-xtable 
 
 %description
-Detection of outliers and influential errors using a latent variable
-model.
+Helper functions for producing reports in Psychology (Reproducible
+Research). Provides required formatted strings (APA style) for use in
+'Knitr'/'Latex' integration within *.Rnw files.
 
 %prep
 %setup -q -c -n %{packname}

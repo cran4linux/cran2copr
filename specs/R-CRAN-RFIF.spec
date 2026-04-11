@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RFIF
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Iterative Filtering (FIF) with Portable FFT Backend
 
@@ -23,7 +23,8 @@ Provides an R interface to a C implementation of Fast Iterative Filtering
 (IMFs) and a residual. The package uses Fast Fourier Transform library
 FFTW, if found.  If not, it provides instructions to install it for your
 OS.  This is recommended, as R's internal fft(), while avoiding external
-FFT dependencies, is two orders of magnitude slower.
+FFT dependencies, is two orders of magnitude slower.  See vignette
+'Installing FFTW for RFIF' for RFIF installation instructions.
 
 %prep
 %setup -q -c -n %{packname}

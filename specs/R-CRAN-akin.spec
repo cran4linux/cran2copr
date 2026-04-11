@@ -1,40 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quasar
-%global packver   0.2.1
+%global packname  akin
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Valid Inference on Multiple Quantile Regressions
+Summary:          Functional Utilities for Data Processing
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-RcppAlgos >= 2.9.3
+BuildRequires:    R-CRAN-data.table >= 1.18.2.0
+BuildRequires:    R-CRAN-RVerbalExpressions >= 0.1.0
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-erer 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-listenv 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sn 
-Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-RcppAlgos >= 2.9.3
+Requires:         R-CRAN-data.table >= 1.18.2.0
+Requires:         R-CRAN-RVerbalExpressions >= 0.1.0
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-erer 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-listenv 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pracma 
+Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-sn 
 
 %description
-The approach is based on the closed testing procedure to control
-familywise error rate in a strong sense. The local tests implemented are
-Wald-type and rank-score. The method is described in De Santis, et al.,
-(2026), <doi:10.48550/arXiv.2511.07999>.
+Covers several areas of data processing: batch-splitting, reading and
+writing of large data files, data tiling, one-hot encoding and decoding of
+data tiles, stratified proportional (random or probabilistic) data
+sampling, data normalization and thresholding, substring location and
+commonality inside strings and location and tabulation of amino acids,
+modifications or associated monoisotopic masses inside modified peptides.
+The extractor utility implements code from 'Matrix.utils', Varrichio C
+(2020), <https://cran.r-project.org/package=Matrix.utils>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mixexp
-%global packver   1.2.7.1
+%global packname  MRgrowth
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design and Analysis of Mixture Experiments
+Summary:          Mark-Recapture Growth Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-daewr 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-daewr 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Functions for creating designs for mixture experiments, making ternary
-contour plots, and making mixture effect plots.
+Researchers often need to calculate body-size growth rates for individuals
+that do not have associated age data. These growth rates are based on
+mark-recapture data where an individual was captured and measured at time
+1 then recaptured and measured at time 2. The sizes at each time and
+amount of time between captures can be used to calculate growth rates.
+'MRgrowth' follows the approach in Edmonds et al. (2021)
+<doi:10.1371/journal.pone.0259978> and provides functions to calculate
+growth using three formulas, the Faben's reformulation of the von
+Bertalanffy formula, the Gompertz formula, and a logistic formula.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SeleMix
-%global packver   1.0.4
+%global packname  uuidx
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Selective Editing via Mixture Models
+Summary:          Modern UUIDs for R with a Rust Backend
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 
 %description
-Detection of outliers and influential errors using a latent variable
-model.
+Generate, parse, and validate RFC 9562 UUIDs from R using the Rust 'uuid'
+crate via 'extendr'. Developed by Thomas Bryce Kelly at Icy Seas
+Co-Laboratory LLC. Version 7 UUIDs are the default for new identifiers,
+while versions 4, 5, 6, and legacy version 1 are also supported. Functions
+return character vectors by default and can also expose 16-byte raw
+representations for low-level workflows.
 
 %prep
 %setup -q -c -n %{packname}

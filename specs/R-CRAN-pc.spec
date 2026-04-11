@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pc
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pattern Causality Analysis
 
@@ -16,15 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sdsfun 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-sdsfun 
 Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-CRAN-terra 
 
 %description
@@ -33,8 +37,8 @@ Infer causation from observational data through pattern causality analysis
 (2020) <doi:10.1073/pnas.1918269117>, as well as methodological extensions
 for spatial cross-sectional data introduced by Zhang & Wang (2025)
 <doi:10.1080/13658816.2025.2581207>, together with a systematic
-description proposed in Runge et al. (2023)
-<doi:10.1038/s43017-023-00431-y>.
+description proposed in Lyu et al. (2026)
+<doi:10.1016/j.compenvurbsys.2026.102435>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rtapas
-%global packver   1.2
+%global packname  boostmtree
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Tanglegram Partitions
+Summary:          Boosted Multivariate Trees for Longitudinal Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-randomForestSRC >= 3.5.0
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-distory 
-BuildRequires:    R-CRAN-paco 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-phytools 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-nlme 
+Requires:         R-CRAN-randomForestSRC >= 3.5.0
 Requires:         R-parallel 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-distory 
-Requires:         R-CRAN-paco 
-Requires:         R-CRAN-parallelly 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-vegan 
+Requires:         R-splines 
+Requires:         R-CRAN-nlme 
 
 %description
-Applies a given global-fit method to random partial tanglegrams of a fixed
-size to identify the associations, terminals, and nodes that maximize
-phylogenetic (in)congruence. It also includes functions to compute more
-easily the confidence intervals of classification metrics and plot
-results, reducing computational time. See Llaberia-Robledillo et al.,
-(2023) <doi:10.1093/sysbio/syad016>.
+Implements Friedman's gradient descent boosting algorithm for modeling
+longitudinal response using multivariate tree base learners. Longitudinal
+response could be continuous, binary, nominal or ordinal.  A
+time-covariate interaction effect is modeled using penalized B-splines
+(P-splines) with estimated adaptive smoothing parameter. Although the
+package is design for longitudinal data, it can handle cross-sectional
+data as well. Implementation details are provided in Pande et al. (2017),
+Mach Learn <DOI:10.1007/s10994-016-5597-1>.
 
 %prep
 %setup -q -c -n %{packname}

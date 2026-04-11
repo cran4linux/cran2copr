@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bgmm
-%global packver   1.8.5
+%global __requires_exclude ^libmpi
+%global packname  rurality
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian Mixture Modeling Algorithms and the Belief-Based Mixture Modeling
+Summary:          Classification and Scoring of U.S. County and ZIP Code Rurality
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0
-Requires:         R-core >= 2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-combinat 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-combinat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Two partially supervised mixture modeling methods: soft-label and
-belief-based modeling are implemented. For completeness, we equipped the
-package also with the functionality of unsupervised, semi- and fully
-supervised mixture modeling.  The package can be applied also to selection
-of the best-fitting from a set of models with different component numbers
-or constraints on their structures. For detailed introduction see:
-Przemyslaw Biecek, Ewa Szczurek, Martin Vingron, Jerzy Tiuryn (2012), The
-R Package bgmm: Mixture Modeling with Uncertain Knowledge, Journal of
-Statistical Software <doi:10.18637/jss.v047.i03>.
+Provides USDA Rural-Urban Continuum Codes (RUCC 2023), Rural-Urban
+Commuting Area codes (RUCA 2020), and a composite rurality score for all
+U.S. counties. Functions enable lookup by FIPS code, ZIP code, or county
+name, and easy merging with existing datasets. Data sources include the
+USDA Economic Research Service, U.S. Census Bureau American Community
+Survey, and Census TIGER/Line shapefiles.
 
 %prep
 %setup -q -c -n %{packname}

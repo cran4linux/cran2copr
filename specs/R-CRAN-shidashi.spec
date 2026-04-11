@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shidashi
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny Dashboard Template Modular System with Chat Bot Support
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-S7
 BuildRequires:    R-CRAN-shinychat 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-formatR >= 1.11
 Requires:         R-CRAN-fastmap >= 1.1.0
@@ -43,6 +44,7 @@ Requires:         R-CRAN-S7
 Requires:         R-CRAN-shinychat 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 A template dashboard system with AI agent integrated. Comes with default

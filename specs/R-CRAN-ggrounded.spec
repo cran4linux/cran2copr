@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggrounded
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rounded Bar Plots
 
@@ -19,10 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridGeometry 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
-Requires:         R-CRAN-gridGeometry 
 
 %description
 Creates bar plots with rounded corners using 'ggplot2'. The code in this

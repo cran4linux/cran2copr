@@ -1,28 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SeleMix
-%global packver   1.0.4
+%global packname  tidyactuarial
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Selective Editing via Mixture Models
+Summary:          Tidy Tools for Actuarial Mathematics and Life Contingencies
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Detection of outliers and influential errors using a latent variable
-model.
+Provides tidyverse-aligned tools for actuarial mathematics and life
+contingencies, including life tables, survival probabilities, actuarial
+present values of cash flows, life annuities, multi-life benefits, and
+related quantities. The package emphasizes clear actuarial notation
+consistent with standard curricula (e.g. SOA exams) and supports
+reproducible workflows using modern R.
 
 %prep
 %setup -q -c -n %{packname}

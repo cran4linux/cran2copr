@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sccic
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Control Changes-in-Changes Estimator
 
@@ -25,11 +25,14 @@ Requires:         R-stats
 %description
 Implements the Changes-in-Changes (CIC) estimator of Athey and Imbens
 (2006) <doi:10.1111/j.1468-0262.2006.00668.x> combined with synthetic
-control methods. Provides nonparametric estimation of the entire
-counterfactual distribution of outcomes for a treated group, allowing
-evaluation of average, quantile, and distributional treatment effects.
-Synthetic control weights are constructed via elastic net regularization
-to handle settings with many potential control units.
+control methods. Provides both the continuous CIC estimator (Theorem 3.1)
+and the discrete CIC estimator (Theorem 4.1) for integer-valued outcomes,
+with analytic and bootstrap inference. Also provides nonparametric
+estimation of the entire counterfactual distribution of outcomes for a
+treated group, allowing evaluation of average, quantile, and
+distributional treatment effects. Synthetic control weights are
+constructed via elastic net regularization to handle settings with many
+potential control units.
 
 %prep
 %setup -q -c -n %{packname}

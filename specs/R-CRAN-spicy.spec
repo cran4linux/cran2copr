@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spicy
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Statistics, Summary Tables, and Data Management Tools
 
@@ -45,9 +45,10 @@ labels, classes, missing values, and representative values, with support
 for readable frequency tables, cross-tabulations, association measures for
 contingency tables (Cramer's V, Phi, Goodman-Kruskal Gamma, Kendall's
 Tau-b, Somers' D, and others), categorical and continuous summary tables,
-including APA-style reporting outputs. Includes helpers for interactive
-codebooks, variable label extraction, clipboard export, and row-wise
-descriptive summaries. Designed to make descriptive analysis faster,
+and model-based bivariate tables for continuous outcomes, including
+APA-style reporting outputs. Includes helpers for interactive codebooks,
+variable label extraction, clipboard export, and row-wise descriptive
+summaries. Designed to make descriptive analysis and reporting faster,
 clearer, and easier to work with in practice.
 
 %prep

@@ -1,28 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SeleMix
-%global packver   1.0.4
+%global packname  traits
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Selective Editing via Mixture Models
+Summary:          Species Trait Data from Around the Web
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-data.table >= 1.9.6
+BuildRequires:    R-CRAN-tibble >= 1.3.4
+BuildRequires:    R-CRAN-readr >= 1.1.1
+BuildRequires:    R-CRAN-httr >= 1.1.0
+BuildRequires:    R-CRAN-jsonlite >= 0.9.19
+BuildRequires:    R-CRAN-taxize >= 0.7.4
+BuildRequires:    R-CRAN-crul >= 0.6.0
+BuildRequires:    R-CRAN-rvest >= 0.3.1
+BuildRequires:    R-CRAN-xml2 >= 0.1.2
+BuildRequires:    R-CRAN-hoardr 
+Requires:         R-CRAN-data.table >= 1.9.6
+Requires:         R-CRAN-tibble >= 1.3.4
+Requires:         R-CRAN-readr >= 1.1.1
+Requires:         R-CRAN-httr >= 1.1.0
+Requires:         R-CRAN-jsonlite >= 0.9.19
+Requires:         R-CRAN-taxize >= 0.7.4
+Requires:         R-CRAN-crul >= 0.6.0
+Requires:         R-CRAN-rvest >= 0.3.1
+Requires:         R-CRAN-xml2 >= 0.1.2
+Requires:         R-CRAN-hoardr 
 
 %description
-Detection of outliers and influential errors using a latent variable
-model.
+Species trait data from many sources, including sequence data from NCBI
+(<https://www.ncbi.nlm.nih.gov/>), plant traits from BETYdb, and data from
+EOL Traitbank and BirdLife International.
 
 %prep
 %setup -q -c -n %{packname}

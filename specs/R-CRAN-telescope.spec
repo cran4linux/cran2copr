@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  telescope
-%global packver   0.2-1
+%global packver   0.2-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Mixtures with an Unknown Number of Components
 
@@ -41,7 +41,9 @@ Requires:         R-stats
 %description
 Fits Bayesian finite mixtures with an unknown number of components using
 the telescoping sampler and different component distributions. For more
-details see Frühwirth-Schnatter et al. (2021) <doi:10.1214/21-BA1294>.
+details see Frühwirth-Schnatter et al. (2021) <doi:10.1214/21-BA1294>,
+Malsiner-Walli et al. (in press) <doi:10.1007/s11634-025-00640-x> and
+Malsiner-Walli et al. (2026) <doi:10.48550/arXiv.2603.00277>.
 
 %prep
 %setup -q -c -n %{packname}

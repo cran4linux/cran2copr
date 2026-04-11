@@ -1,41 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastcmprsk
-%global packver   1.26.1
+%global packname  TAG
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.26.1
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fine-Gray Regression via Forward-Backward Scan
+Summary:          Transformed Additive Gaussian Processes
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildRequires:    R-CRAN-dynpred 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-DiceKriging 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dynpred 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-FastGP 
+BuildRequires:    R-CRAN-mlegp 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-DiceKriging 
 Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-FastGP 
+Requires:         R-CRAN-mlegp 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-foreach 
 
 %description
-In competing risks regression, the proportional subdistribution hazards
-(PSH) model is popular for its direct assessment of covariate effects on
-the cumulative incidence function. This package allows for both penalized
-and unpenalized PSH regression in linear time using a novel
-forward-backward scan. Penalties include Ridge, Lease Absolute Shrinkage
-and Selection Operator (LASSO), Smoothly Clipped Absolute Deviation
-(SCAD), Minimax Concave Plus (MCP), and elastic net <doi:
-10.32614/RJ-2021-010>.
+Implement the transformed additive Gaussian (TAG) process and the
+transformed approximately additive Gaussian (TAAG) process proposed in Lin
+and Joseph (2020) <DOI:10.1080/00401706.2019.1665592>. These functions can
+be used to model deterministic computer experiments, obtain predictions at
+new inputs, and quantify the uncertainty of the predictions. This research
+is supported by a U.S. National Science Foundation grant DMS-1712642 and a
+U.S. Army Research Office grant W911NF-17-1-0007.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  normref
-%global packver   0.0.0.1
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Norming
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-openxlsx2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rdpack 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-openxlsx2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rdpack 
@@ -37,12 +39,15 @@ Requires:         R-utils
 Requires:         R-CRAN-withr 
 
 %description
-A toolbox for calculating continuous norms for psychological tests, where
-the norms can be age-dependent. The norms are based Generalized Additive
-Models for Location, Scale, and Shape (GAMLSS) for the test scores in the
-normative sample. The package includes functions for model selection,
-reliability estimation, and calculating norms, including confidence
-intervals. For more details, see Timmerman et al. (2021)
+A toolbox for continuous norming of psychological and educational tests,
+supporting regression-based norming where norms can vary as a continuous
+function of age or another norm predictor. Norms are estimated using
+Generalized Additive Models for Location, Scale, and Shape (GAMLSS),
+enabling flexible modelling of the full score distribution in a normative
+sample. The package supports applications in psychometrics and
+psychological testing, and includes functions for model selection,
+reliability estimation, norm calculation, including confidence intervals,
+and sample size planning. For more details, see Timmerman et al. (2021)
 <doi:10.1037/met0000348>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  panelView
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Panel Data
 
@@ -27,12 +27,14 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-grid 
 
 %description
-Visualizes panel data. It has three main functionalities: (1) it plots the
+Visualizes panel data. It has four main functionalities: (1) it plots the
 treatment status and missing values in a panel dataset; (2) it visualizes
 the temporal dynamics of a main variable of interest; (3) it depicts the
 bivariate relationships between a treatment variable and an outcome
-variable either by unit or in aggregate. For details, see
-<doi:10.18637/jss.v107.i07>.
+variable either by unit or in aggregate; (4) it displays the network
+structure of multi-way fixed effects as a k-partite graph, identifying
+connected components, singletons, and duplicate observations. For details,
+see <doi:10.18637/jss.v107.i07>.
 
 %prep
 %setup -q -c -n %{packname}

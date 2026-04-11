@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GreyZones
-%global packver   0.0.5
+%global packname  ncmR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detection of Grey Zones in Two-Way Inter-Rater Agreement Tables
+Summary:          Fit Neutral Community Model to Microbiome or Ecological Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-irrCAC >= 1.0
-Requires:         R-CRAN-irrCAC >= 1.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-minpack.lm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-minpack.lm 
 
 %description
-Grey zones locally occur in an agreement table due to the subjective
-evaluation of raters based on various factors such as not having uniform
-guidelines, the differences between the raters' level of expertise or low
-variability among the level of the categorical variable. It is important
-to detect grey zones since they cause a negative bias in the estimate of
-the agreement level. This package provides a function for detecting the
-existence of grey zones in two-way inter-rater agreement tables (Demirhan
-and Yilmaz (2023) <doi:10.1186/s12874-022-01759-7>).
+Provides tools for fitting the neutral community model (NCM) to assess the
+role of stochastic processes in community assembly. The package implements
+the framework of Sloan et al. (2006)
+<doi:10.1111/j.1462-2920.2005.00956.x>, enabling users to evaluate neutral
+dynamics in ecological and microbial communities.
 
 %prep
 %setup -q -c -n %{packname}

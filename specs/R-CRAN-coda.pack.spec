@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inspectdf
-%global packver   0.0.12.1
+%global packname  coda.pack
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inspection, Comparison and Visualisation of Data Frames
+Summary:          Meta-Package for Compositional Data Analysis
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggfittext 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggfittext 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-coda.base 
+BuildRequires:    R-CRAN-coda.plot 
+Requires:         R-CRAN-coda.base 
+Requires:         R-CRAN-coda.plot 
 
 %description
-A collection of utilities for columnwise summary, comparison and
-visualisation of data frames.  Functions report missingness, categorical
-levels, numeric distribution, correlation, column types and memory usage.
+Meta-package for compositional data analysis. It attaches the main stable
+packages of the 'coda' ecosystem, currently 'coda.base' and 'coda.plot',
+and provides helper tools to install development extensions from 'GitHub'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,53 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  highlightr
-%global packver   2.0.0
+%global packname  HHBayes
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Conserved Edits Across Versions of a Document
+Summary:          Bayesian Household Transmission Modeling with 'Stan'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstantools >= 2.4.0
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-quanteda.textstats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-zoomerjoin 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstantools >= 2.4.0
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-quanteda.textstats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-zoomerjoin 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstantools
 
 %description
-Input multiple versions of a source document, and receive HTML code for a
-highlighted version of the source document indicating the frequency of
-occurrence of phrases in the different versions. This method is described
-in Chapter 3 of Rogers (2024)
-<https://digitalcommons.unl.edu/dissertations/AAI31240449/>.
+Provides a streamlined pipeline to simulate household infection dynamics,
+estimate transmission parameters, and visualize epidemic timelines. Uses a
+Bayesian approach with 'Stan' that models transmission probability as a
+function of viral load, seasonality and infectivity, multiple infection
+episodes (reinfections), and waning immunity modeling. Li et al. (2026)
+<doi:10.64898/2026.04.01.26349903>).
 
 %prep
 %setup -q -c -n %{packname}

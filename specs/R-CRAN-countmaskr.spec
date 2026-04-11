@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SeleMix
-%global packver   1.0.4
+%global packname  countmaskr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Selective Editing via Mixture Models
+Summary:          Small Cell Masking Tool for One- & Two-Way Tabular Reports
 
-License:          EUPL
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.7.0
-Requires:         R-core >= 2.7.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Detection of outliers and influential errors using a latent variable
-model.
+Provides automated small-cell suppression for one- and two-way frequency
+tables. Cells falling below a user-defined frequency threshold are masked,
+with suppression propagated to secondary cells to prevent indirect
+disclosure. Designed for clinical and health administrative data, the
+package supports a range of tabular structures and fits into reproducible
+reporting pipelines, reducing manual review while applying consistent
+suppression rules across data sharing workflows.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rTPC
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting and Analysing Thermal Performance Curves
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description
-Helps to fit thermal performance curves (TPCs). 'rTPC' contains 26 model
+Helps to fit thermal performance curves (TPCs). 'rTPC' contains 49 model
 formulations previously used to fit TPCs and has helper functions to set
 sensible start parameters, upper and lower parameter limits and estimate
 parameters useful in downstream analyses, such as cardinal temperatures,

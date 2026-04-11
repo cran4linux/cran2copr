@@ -1,49 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iglm
-%global packver   1.2.3
+%global packname  photon
+%global packver   1.0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression under Interference in Connected Populations
+Summary:          High-Performance Geocoding using 'photon'
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rvest 
+Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Matrix 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rvest 
 
 %description
-An implementation of generalized linear models (GLMs) for studying
-relationships among attributes in connected populations, where responses
-of connected units can be dependent, as introduced by Fritz et al. (2025)
-<doi:10.1080/01621459.2025.2565851>. 'igml' extends GLMs for independent
-responses to dependent responses and can be used for studying spillover in
-connected populations and other network-mediated phenomena.
+Features unstructured, structured and reverse geocoding using the 'photon'
+geocoding API <https://photon.komoot.io/>. Facilitates the setup of local
+'photon' instances to enable offline geocoding.
 
 %prep
 %setup -q -c -n %{packname}

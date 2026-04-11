@@ -1,44 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ggrasp
-%global packver   1.2
+%global __requires_exclude ^libmpi
+%global packname  observationalBlocks
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gaussian-Based Genome Representative Selector with Prioritization
+Summary:          Block Designs for Observational Studies
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mixtools 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-bgmm 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mixtools 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-bgmm 
-Requires:         R-CRAN-colorspace 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-iTOS 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-iTOS 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-stats 
 
 %description
-Given a group of genomes and their relationship with each other, the
-package clusters the genomes and selects the most representative members
-of each cluster. Additional data can be provided to the prioritize certain
-genomes. The results can be printed out as a list or a new phylogeny with
-graphs of the trees and distance distributions also available. For
-detailed introduction see: Thomas H Clarke, Lauren M Brinkac, Granger
-Sutton, and Derrick E Fouts (2018), GGRaSP: a R-package for selecting
-representative genomes using Gaussian mixture models, Bioinformatics,
-bty300, <doi:10.1093/bioinformatics/bty300>.
+Creates block designs of fixed size J with at least one treated and
+control unit per block. Blocks larger than pairs better distinguish
+effects caused by a treatment from unmeasured confounding in assignment of
+individuals to treatment. Somewhat counterintuitively, blocks larger than
+pairs can use more units while attaining better covariate balance and
+block homogeneity. A forthcoming manuscript by Brumberg and Rosenbaum
+details the design.
 
 %prep
 %setup -q -c -n %{packname}
