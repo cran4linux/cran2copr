@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MM
-%global packver   1.6-8
+%global packver   1.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.8
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Multiplicative Multinomial Distribution
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-magic >= 1.5.6
 BuildRequires:    R-CRAN-quadform >= 0.0.2
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-Oarray 
 Requires:         R-CRAN-partitions >= 1.9.14
 Requires:         R-CRAN-magic >= 1.5.6
 Requires:         R-CRAN-quadform >= 0.0.2
 Requires:         R-CRAN-abind 
 Requires:         R-methods 
-Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-Oarray 
 
 %description

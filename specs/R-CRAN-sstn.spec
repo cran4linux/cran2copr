@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sstn
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Similarity Test for Normality
 
@@ -14,20 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
 Implements the Self-Similarity Test for Normality (SSTN), a new
 statistical test designed to assess whether a given sample originates from
-a normal distribution. The procedure is based on iteratively estimating
-the characteristic function of the sum of standardized i.i.d. random
-variables and comparing it to the characteristic function of the standard
-normal distribution. A Monte Carlo procedure is used to determine the
-empirical distribution of the test statistic under the null hypothesis.
-Details of the methodology are described in Anarat and Schwender (2025),
-"A normality test based on self-similarity" (Submitted).
+a normal distribution. The method exploits the self-similarity property of
+the normal characteristic function by iteratively transforming and
+comparing standardized empirical characteristic functions. The null
+distribution of the test statistic is obtained via Monte Carlo simulation.
+Details of the methodology are described in Anarat and Schwender (2026),
+"A test for normality based on self-similarity",
+<doi:10.48550/arXiv.2604.03810>.
 
 %prep
 %setup -q -c -n %{packname}

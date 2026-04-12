@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fred
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'Federal Reserve Economic Data'
 
@@ -32,10 +32,14 @@ contains over 800,000 time series from 118 sources covering GDP,
 employment, inflation, interest rates, trade, and more. Dedicated
 functions fetch series observations, search for series, browse categories,
 releases, and tags, and retrieve series metadata. Multiple series can be
-fetched in a single call. Server-side unit transformations (percent
-change, log, etc.) and frequency aggregation are supported. Data is cached
-locally for subsequent calls. This product uses the 'FRED' API but is not
-endorsed or certified by the 'Federal Reserve Bank of St. Louis'.
+fetched in a single call, in long or wide format. Server-side unit
+transformations (percent change, log, etc.) and frequency aggregation are
+supported, with readable transform aliases such as 'yoy_pct' and
+'log_diff'. Real-time and vintage helpers (built on 'ALFRED') return a
+series as it appeared on a given date, the first-release version, every
+revision, or a panel of selected vintages. Data is cached locally for
+subsequent calls. This product uses the 'FRED' API but is not endorsed or
+certified by the 'Federal Reserve Bank of St. Louis'.
 
 %prep
 %setup -q -c -n %{packname}

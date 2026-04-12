@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  akin
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Utilities for Data Processing
 
@@ -43,7 +43,7 @@ Covers several areas of data processing: batch-splitting, reading and
 writing of large data files, data tiling, one-hot encoding and decoding of
 data tiles, stratified proportional (random or probabilistic) data
 sampling, data normalization and thresholding, substring location and
-commonality inside strings and location and tabulation of amino acids,
+commonalities inside strings and location and tabulation of amino acids,
 modifications or associated monoisotopic masses inside modified peptides.
 The extractor utility implements code from 'Matrix.utils', Varrichio C
 (2020), <https://cran.r-project.org/package=Matrix.utils>.

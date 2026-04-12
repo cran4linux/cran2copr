@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  conText
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'a la Carte' on Text (ConText) Embedding Regression
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quanteda >= 3.0.0
+BuildRequires:    R-CRAN-quanteda >= 3.0
 BuildRequires:    R-CRAN-fastDummies >= 1.6.3
 BuildRequires:    R-CRAN-reshape2 >= 1.4.4
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-estimatr
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-quanteda >= 3.0.0
+Requires:         R-CRAN-quanteda >= 3.0
 Requires:         R-CRAN-fastDummies >= 1.6.3
 Requires:         R-CRAN-reshape2 >= 1.4.4
 Requires:         R-CRAN-stringr >= 1.4.0

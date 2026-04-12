@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pecanr
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Partial Eta-Squared for Crossed and Nested Linear Mixed Models
+Summary:          Partial Eta-Squared for Crossed, Nested, and Mixed Linear Mixed Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,8 +22,11 @@ Requires:         R-CRAN-lme4
 
 %description
 Computes partial eta-squared effect sizes for fixed effects in linear
-mixed models fitted with the 'lme4' package. Supports crossed and nested
-random effects structures with any number of grouping factors. Random
+mixed models fitted with the 'lme4' package. Supports crossed, nested, and
+mixed (crossed-and-nested) random effects structures with any number of
+grouping factors. Mixed designs handle cases where grouping factors are
+simultaneously crossed with some variables and nested within others (e.g.,
+photos nested within models, but both crossed with participants). Random
 slope variances are translated to the outcome scale using a variance
 decomposition approach, correctly accounting for predictor scaling and
 interaction terms. Both general and operative effect sizes are provided.
