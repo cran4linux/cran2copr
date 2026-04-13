@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topr
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Custom Plots for Viewing Genetic Association Results
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-magrittr >= 1.5
@@ -24,11 +24,13 @@ BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-egg 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-enshuman 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -36,11 +38,13 @@ Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-egg 
-Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-enshuman 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
 A collection of functions for visualizing,exploring and annotating genetic

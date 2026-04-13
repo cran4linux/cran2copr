@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  salso
-%global packver   0.3.69
+%global packver   0.3.77
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.69
+Version:          0.3.77
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search Algorithms and Loss Functions for Bayesian Clustering
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    cargo
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 
 %description
 The SALSO algorithm is an efficient randomized greedy search method to

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tubern
-%global packver   0.2.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for the YouTube Analytics and Reporting API
 
@@ -17,15 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-checkmate 
 
 %description
-Get statistics and reports from YouTube. To learn more about the YouTube
-Analytics and Reporting API, see
-<https://developers.google.com/youtube/reporting/>.
+Provides access to YouTube Analytics API v2 for retrieving YouTube
+Analytics data including views, engagement metrics, demographics, and
+revenue data. Supports OAuth 2.0 authentication and channel group
+management. See <https://developers.google.com/youtube/analytics/> for API
+documentation.
 
 %prep
 %setup -q -c -n %{packname}

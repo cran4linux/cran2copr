@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HonestDiD
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Inference in Difference-in-Differences and Event Study Designs
 
@@ -20,11 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17
 BuildRequires:    R-CRAN-pracma >= 2.2.5
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-CVXR >= 1.8
 BuildRequires:    R-CRAN-foreach >= 1.4.7
 BuildRequires:    R-CRAN-tibble >= 1.3.4
 BuildRequires:    R-CRAN-Matrix >= 1.2.17
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
-BuildRequires:    R-CRAN-CVXR >= 1.0
 BuildRequires:    R-CRAN-TruncatedNormal >= 1.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
 BuildRequires:    R-CRAN-matrixStats >= 0.63.0
@@ -33,14 +33,15 @@ BuildRequires:    R-CRAN-latex2exp >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ECOSolveR 
 Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17
 Requires:         R-CRAN-pracma >= 2.2.5
 Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-CRAN-CVXR >= 1.8
 Requires:         R-CRAN-foreach >= 1.4.7
 Requires:         R-CRAN-tibble >= 1.3.4
 Requires:         R-CRAN-Matrix >= 1.2.17
 Requires:         R-CRAN-mvtnorm >= 1.1.3
-Requires:         R-CRAN-CVXR >= 1.0
 Requires:         R-CRAN-TruncatedNormal >= 1.0
 Requires:         R-CRAN-dplyr >= 0.7.4
 Requires:         R-CRAN-matrixStats >= 0.63.0
@@ -49,6 +50,7 @@ Requires:         R-CRAN-latex2exp >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ECOSolveR 
 
 %description
 Provides functions to conduct robust inference in

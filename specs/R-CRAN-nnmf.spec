@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nnmf
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonnegative Matrix Factorization
 
@@ -24,8 +24,8 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-Rglpk 
 BuildRequires:    R-CRAN-sparcl 
 BuildRequires:    R-stats 
@@ -38,8 +38,8 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-osqp 
 Requires:         R-parallel 
 Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-Rglpk 
 Requires:         R-CRAN-sparcl 
 Requires:         R-stats 

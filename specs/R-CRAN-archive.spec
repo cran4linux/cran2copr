@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  archive
-%global packver   1.1.12.1
+%global packver   1.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12.1
+Version:          1.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Format Archive and Compression Support
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libarchive-devel
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 

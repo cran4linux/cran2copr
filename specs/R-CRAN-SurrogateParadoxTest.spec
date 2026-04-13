@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurrogateParadoxTest
-%global packver   2.0
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Testing of Surrogate Paradox Assumptions
 
@@ -14,21 +14,45 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MonotonicityTest 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-splines 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
 Requires:         R-CRAN-MonotonicityTest 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-splines 
+Requires:         R-parallel 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-Matrix 
 
 %description
-Provides functions to nonparametrically assess assumptions necessary to
+Provides functions to nonparametrically assess assumptions sufficient to
 prevent the surrogate paradox through hypothesis tests of stochastic
-dominance, monotonicity of regression functions, and non-negative residual
-treatment effects. More details are available in Hsiao et al 2025 (under
-review). A tutorial for this package can be found at
-<https://laylaparast.com/home/SurrogateParadoxTest.html>.
+dominance, monotonicity of conditional mean functions, and non-negative
+residual treatment effect. Details are described in: Hsiao E, Tian L, and
+Parast L (2026). "Avoiding the surrogate paradox: an empirical framework
+for assessing assumptions." Journal of Nonparametric Statistics
+<doi:10.1080/10485252.2025.2498609>. There are also functions to assess
+resilience to the surrogate paradox via calculation of the resilience
+probability, the resilience bound, and the resilience set. Details will be
+available in Hsiao E, Tian L, and Parast L, "Resilience Measures for the
+Surrogate Paradox" (Under Review). Lastly, there is a function to assess
+resilience to the surrogate paradox in the met-analytic setting, described
+in Hsiao E and Parast L, "A Functional-Class Meta-Analytic Framework for
+Quantifying Surrogate Resilience" (Under Review).  A tutorial for this
+package can be found at
+<https://www.laylaparast.com/surrogateparadoxtest>.
 
 %prep
 %setup -q -c -n %{packname}

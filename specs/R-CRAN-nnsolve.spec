@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nnsolve
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Non-Negative Least Squares
 
@@ -16,15 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.1.1
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.1.1
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rfast 
 
 %description
 Provides a fast algorithm for solving non-negative least squares problems.
-It implements the Fast Non-Negative Least Squares algorithm of Bro and de
-Jong (1997)
-<doi:10.1002/(SICI)1099-128X(199709/10)11:5%%3C393::AID-CEM483%%3E3.0.CO;2-L>.
+It implements the Fast Non-Negative Least Squares algorithm. of Bro and De
+Jong (1997)<doi:10.1002/(SICI)1099-128X(199709/10)11:53.0.CO;2-L>.
 
 %prep
 %setup -q -c -n %{packname}

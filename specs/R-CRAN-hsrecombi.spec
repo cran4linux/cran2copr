@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hsrecombi
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Recombination Rate and Maternal LD in Half-Sibs
 
@@ -46,10 +46,10 @@ double heterozygous at the investigated pairs of SNPs. Based on
 recombination rates, genetic distances between markers can be estimated.
 Markers with unusually large recombination rate to markers in close
 proximity (i.e. putatively misplaced markers) shall be discarded in this
-derivation. A workflow description is attached as vignette. *A pipeline is
-available at GitHub* <https://github.com/wittenburg/hsrecombi> Hampel,
-Teuscher, Gomez-Raya, Doschoris, Wittenburg (2018) "Estimation of
-recombination rate and maternal linkage disequilibrium in half-sibs"
+derivation. *A pipeline is available at GitHub*
+<https://github.com/wittenburg/hsrecombi> Hampel, Teuscher, Gomez-Raya,
+Doschoris, Wittenburg (2018) "Estimation of recombination rate and
+maternal linkage disequilibrium in half-sibs"
 <doi:10.3389/fgene.2018.00186>. Gomez-Raya (2012) "Maximum likelihood
 estimation of linkage disequilibrium in half-sib families"
 <doi:10.1534/genetics.111.137521>.
