@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uteals
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shared Utilities to Extend the 'teal' Modules
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-teal
 BuildRequires:    R-CRAN-teal.code 
 BuildRequires:    R-CRAN-tern 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-gridify 
 BuildRequires:    R-CRAN-teal.modules.clinical 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
@@ -60,6 +61,7 @@ Requires:         R-CRAN-teal
 Requires:         R-CRAN-teal.code 
 Requires:         R-CRAN-tern 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-gridify 
 Requires:         R-CRAN-teal.modules.clinical 
 
 %description

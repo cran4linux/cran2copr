@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AIscreenR
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          AI Screening Tools in R for Systematic Reviewing
 
@@ -29,6 +29,9 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-httr2 
@@ -41,11 +44,14 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides functions to conduct title and abstract screening in systematic
 reviews using large language models, such as the Generative Pre-trained
-Transformer (GPT) models from 'OpenAI' <https://platform.openai.com/>.
+Transformer (GPT) models from 'OpenAI' <https://developers.openai.com/>.
 These functions can enhance the quality of title and abstract screenings
 while reducing the total screening time significantly. In addition, the
 package includes tools for quality assessment of title and abstract

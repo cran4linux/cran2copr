@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiScaleR
-%global packver   0.5.0
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Optimizing Scales of Effect
 

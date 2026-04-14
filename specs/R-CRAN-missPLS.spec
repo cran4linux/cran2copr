@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MVar
-%global packver   2.2.8
+%global packname  missPLS
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Analysis
+Summary:          Methods and Reproducible Workflows for Partial Least Squares with Missing Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-plsRglm 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-VIM 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-plsRglm 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-VIM 
 
 %description
-Multivariate analysis, having functions that perform simple correspondence
-analysis (CA) and multiple correspondence analysis (MCA), principal
-components analysis (PCA), canonical correlation analysis (CCA), factorial
-analysis (FA), multidimensional scaling (MDS), linear (LDA) and quadratic
-discriminant analysis (QDA), hierarchical and non-hierarchical cluster
-analysis, simple and multiple linear regression, multiple factor analysis
-(MFA) for quantitative, qualitative, frequency (MFACT) and mixed data,
-biplot, scatter plot, projection pursuit (PP), grant tour method and other
-useful functions for the multivariate analysis.
+Methods-first tooling for reproducing and extending the partial least
+squares regression studies on incomplete data described in Nengsih et al.
+(2019) <doi:10.1515/sagmb-2018-0059>. The package provides simulation
+helpers, missingness generators, imputation wrappers, component-selection
+utilities, real-data diagnostics, and reproducible study orchestration for
+Nonlinear Iterative Partial Least Squares (NIPALS)-Partial Least Squares
+(PLS) workflows.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MVar
-%global packver   2.2.8
+%global packname  comtrade
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Analysis
+Summary:          Access and Analyse UN Comtrade International Trade Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Multivariate analysis, having functions that perform simple correspondence
-analysis (CA) and multiple correspondence analysis (MCA), principal
-components analysis (PCA), canonical correlation analysis (CCA), factorial
-analysis (FA), multidimensional scaling (MDS), linear (LDA) and quadratic
-discriminant analysis (QDA), hierarchical and non-hierarchical cluster
-analysis, simple and multiple linear regression, multiple factor analysis
-(MFA) for quantitative, qualitative, frequency (MFACT) and mixed data,
-biplot, scatter plot, projection pursuit (PP), grant tour method and other
-useful functions for the multivariate analysis.
+Download and analyse international merchandise and services trade data
+from the United Nations Comtrade database <https://comtradeplus.un.org/>.
+Retrieve bilateral trade flows, compute trade analytics (revealed
+comparative advantage, trade concentration, trade balance), and convert
+between commodity classifications (HS, SITC, BEC). Covers 200+ reporter
+countries, 60+ years of goods trade data (1962-present), and services
+trade via EBOPS. Works without registration for basic queries. A free API
+key from <https://comtradedeveloper.un.org/> unlocks full access.
 
 %prep
 %setup -q -c -n %{packname}

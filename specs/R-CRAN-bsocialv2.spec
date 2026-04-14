@@ -1,40 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MVar
-%global packver   2.2.8
+%global packname  bsocialv2
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Analysis
+Summary:          Analysis of Microbial Social Behavior in Bacterial Consortia
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-growthcurver 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-growthcurver 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
 
 %description
-Multivariate analysis, having functions that perform simple correspondence
-analysis (CA) and multiple correspondence analysis (MCA), principal
-components analysis (PCA), canonical correlation analysis (CCA), factorial
-analysis (FA), multidimensional scaling (MDS), linear (LDA) and quadratic
-discriminant analysis (QDA), hierarchical and non-hierarchical cluster
-analysis, simple and multiple linear regression, multiple factor analysis
-(MFA) for quantitative, qualitative, frequency (MFACT) and mixed data,
-biplot, scatter plot, projection pursuit (PP), grant tour method and other
-useful functions for the multivariate analysis.
+Provides an S4 class and methods for analyzing microbial social behavior
+in bacterial consortia. Includes growth parameter extraction, social
+behavior classification (cooperators/cheaters/neutrals), diversity effect
+analysis, consortium assembly path finding, and stability analysis via
+coefficient of variation. Methods are described in Purswani et al. (2017)
+<doi:10.3389/fmicb.2017.00919>.
 
 %prep
 %setup -q -c -n %{packname}

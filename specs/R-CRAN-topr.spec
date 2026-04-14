@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topr
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Custom Plots for Viewing Genetic Association Results
 
@@ -29,7 +29,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-enshuman 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-magrittr >= 1.5
@@ -43,7 +42,6 @@ Requires:         R-utils
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-enshuman 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 
 %description

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  virustotal
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Client for the VirusTotal API
+Summary:          R Client for the 'VirusTotal' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,10 +31,11 @@ Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-base64enc >= 0.1.3
 
 %description
-Provides a comprehensive R interface to the VirusTotal API (v2 and v3), a
-Google service that analyzes files and URLs for viruses, worms, trojans
-and other malware. Features include file/URL scanning, domain
-categorization, passive DNS information, IP reputation analysis, and
+Provides a comprehensive R interface to the 'VirusTotal' API v3.0
+<https://docs.virustotal.com/>, a Google service that analyzes files and
+URLs for viruses, worms, trojans and other malware. Features include
+file/URL scanning, domain categorization, passive DNS information, IP
+reputation analysis, IoC relationships, sandbox analysis, and
 comment/voting systems. Implements rate limiting, error handling, and
 response validation for robust security analysis workflows.
 

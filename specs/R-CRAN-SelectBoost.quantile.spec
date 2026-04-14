@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MVar
-%global packver   2.2.8
+%global packname  SelectBoost.quantile
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Analysis
+Summary:          'SelectBoost'-Style Variable Selection for Quantile Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,25 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-movMF 
+BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-movMF 
+Requires:         R-CRAN-quantreg 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Multivariate analysis, having functions that perform simple correspondence
-analysis (CA) and multiple correspondence analysis (MCA), principal
-components analysis (PCA), canonical correlation analysis (CCA), factorial
-analysis (FA), multidimensional scaling (MDS), linear (LDA) and quadratic
-discriminant analysis (QDA), hierarchical and non-hierarchical cluster
-analysis, simple and multiple linear regression, multiple factor analysis
-(MFA) for quantitative, qualitative, frequency (MFACT) and mixed data,
-biplot, scatter plot, projection pursuit (PP), grant tour method and other
-useful functions for the multivariate analysis.
+A 'SelectBoost'-inspired workflow for sparse quantile regression. The
+package builds correlation neighborhoods, perturbs correlated predictors
+with a directional sampler inspired by the original 'SelectBoost'
+internals, refits penalized quantile regression models on the perturbed
+designs, and aggregates variable-selection frequencies across a path of
+correlation thresholds.
 
 %prep
 %setup -q -c -n %{packname}

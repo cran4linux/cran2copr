@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EGAnet
-%global packver   2.4.0
+%global packver   2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Graph Analysis – a Framework for Estimating the Number of Dimensions in Multivariate Data using Network Psychometrics
 

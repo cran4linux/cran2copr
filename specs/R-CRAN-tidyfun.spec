@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ItemRest
-%global packver   0.2.4
+%global packname  tidyfun
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Item Removal Strategies for Exploratory Factor Analysis
+Summary:          Tidy Functional Data Wrangling and Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,27 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-qgraph 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-tf >= 0.4.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-tf >= 0.4.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Automates the identification and comparative evaluation of item-removal
-strategies in exploratory factor analysis, producing transparent summaries
-(explained variance, loading ranges, reliability) to support comfortable,
-reproducible decisions. The criteria are based on best practices and
-established heuristics (e.g., Costello & Osborne (2005)
-<doi:10.7275/jyj1-4868>, Howard (2016)
-<doi:10.1080/10447318.2015.1087664>). Includes flexible thresholds for
-factor loadings (min_loading) and cross-loading differences
-(loading_diff).
+Represent, visualize, describe and wrangle functional data in tidy data
+frames, building on the 'tf' package. Provides data types for functional
+observations that work as columns in data frames, enabling manipulation
+with 'dplyr' verbs and visualization with 'ggplot2' geoms designed for
+functional data.
 
 %prep
 %setup -q -c -n %{packname}

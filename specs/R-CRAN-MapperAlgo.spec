@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MapperAlgo
-%global packver   1.0.9
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topological Data Analysis: Mapper Algorithm
 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-webshot2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-nortest 
 Requires:         R-CRAN-inaparc 
 Requires:         R-CRAN-ppclust 
 Requires:         R-parallel 
@@ -43,6 +45,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-webshot2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-nortest 
 
 %description
 The Mapper algorithm from Topological Data Analysis, the steps are as

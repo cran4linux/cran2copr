@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eddington
-%global packver   4.2.0
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute a Cyclist's Eddington Number
 
@@ -37,7 +37,9 @@ time, since it does not require initial sorting of the data. These
 functions may also be used for computing h-indices for authors, a metric
 described by Hirsch (2005) <doi:10.1073/pnas.0507655102>. Both are
 specific applications of computing the side length of a Durfee square
-<https://en.wikipedia.org/wiki/Durfee_square>.
+<https://en.wikipedia.org/wiki/Durfee_square>. Some additional
+author-level metrics such as g-index and i10-index are also included in
+the package.
 
 %prep
 %setup -q -c -n %{packname}
