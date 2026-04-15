@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hpa
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributions Hermite Polynomial Approximation
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.11.2
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-RcppParallel >= 5.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-RcppParallel >= 5.1.11.2
+Requires:         R-CRAN-Rcpp >= 1.1.1
 
 %description
 Multivariate conditional and marginal densities, moments, cumulative
 distribution functions as well as binary choice and sample selection
-models based on Hermite polynomial approximation which was proposed and
-described by A. Gallant and D. W. Nychka (1987) <doi:10.2307/1913241>.
+models based on the Hermite polynomial approximation which was proposed
+and described by A. Gallant and D. W. Nychka (1987) <doi:10.2307/1913241>.
 
 %prep
 %setup -q -c -n %{packname}

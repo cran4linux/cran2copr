@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  osmextract
-%global packver   0.6.0
+%global packname  obr
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Import Open Street Map Data Extracts
+Summary:          Access 'Office for Budget Responsibility' Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.8.1
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-sf >= 0.8.1
-Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-readxl 
 Requires:         R-tools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Match, download, convert and import Open Street Map data extracts obtained
-from several providers.
+Provides clean, tidy access to data published by the 'Office for Budget
+Responsibility' ('OBR'), the UK's independent fiscal watchdog. Covers the
+Public Finances Databank (outturn for PSNB, PSND, receipts, and
+expenditure since 1946), the Historical Official Forecasts Database (every
+'OBR' forecast since 2010), the Economic and Fiscal Outlook detailed
+forecast tables (five-year projections from the latest Budget), the
+Welfare Trends Report (incapacity benefit spending and caseloads), and the
+Fiscal Risks and Sustainability Report (50-year state pension
+projections). Data is downloaded from the 'OBR' on first use and cached
+locally for subsequent calls. Data is sourced from the 'OBR' website
+<https://obr.uk>.
 
 %prep
 %setup -q -c -n %{packname}

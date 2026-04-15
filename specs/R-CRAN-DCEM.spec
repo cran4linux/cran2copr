@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  osmextract
-%global packver   0.6.0
+%global packname  DCEM
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Import Open Street Map Data Extracts
+Summary:          Clustering Big Data using Expectation Maximization Star (EM*) Algorithm
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.8.1
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-sf >= 0.8.1
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-MASS >= 7.3.49
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.7
+BuildRequires:    R-CRAN-matrixcalc >= 1.0.3
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-MASS >= 7.3.49
+Requires:         R-CRAN-mvtnorm >= 1.0.7
+Requires:         R-CRAN-matrixcalc >= 1.0.3
+Requires:         R-CRAN-Rcpp >= 1.0.2
 
 %description
-Match, download, convert and import Open Street Map data extracts obtained
-from several providers.
+Implements the Improved Expectation Maximisation EM* and the traditional
+EM algorithm for clustering big data (gaussian mixture models for both
+multivariate and univariate datasets). This version implements the faster
+alternative-EM* that expedites convergence via structure based data
+segregation. The implementation supports both random and K-means++ based
+initialization. Reference: Parichit Sharma, Hasan Kurban, Mehmet Dalkilic
+(2022) <doi:10.1016/j.softx.2021.100944>. Hasan Kurban, Mark Jenne, Mehmet
+Dalkilic (2016) <doi:10.1007/s41060-017-0062-1>.
 
 %prep
 %setup -q -c -n %{packname}

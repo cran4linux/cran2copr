@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bfboinet
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Backfill Bayesian Optimal Interval Design Using Efficacy and Toxicity
 
@@ -22,21 +22,26 @@ BuildRequires:    R-CRAN-copula
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-BOP2FE 
+BuildRequires:    R-CRAN-boinet 
+BuildRequires:    R-CRAN-BOIN 
 Requires:         R-CRAN-Iso 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-BOP2FE 
+Requires:         R-CRAN-boinet 
+Requires:         R-CRAN-BOIN 
 
 %description
-The backfill Bayesian optimal interval design using efficacy and toxicity
-outcomes for dose optimization (BF-BOIN-ET) design is a novel clinical
-trial design to allow patients to be backfilled at lower doses during a
-dose-finding trial while prioritizing the dose-escalation cohort to
-explore a higher dose. The advantages compared to the other designs in
-terms of the percentage of correct optimal dose (OD) selection, reducing
-the sample size, and shortening the duration of the trial, in various
-realistic setting.
+Implements the Backfill Bayesian Optimal Interval Design (BF-BOIN-ET), a
+novel clinical trial methodology for dose optimization that simultaneously
+consider both efficacy and toxicity outcome as described in (Takeda et al
+(2025) <doi:10.1002/pst.2470>). The package has been extended to include a
+seamless two-stage phase I/II trial design with backfill and joint
+efficacy and toxicity monitoring as described in (Takeda et al (2026)
+<doi:10.1002/pst.70092>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lavaangui
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical User Interface with Integrated 'Diagrammer' for 'Lavaan'
 
@@ -58,8 +58,10 @@ latent variable models from the 'lavaan' package. It offers two core
 functions: first, lavaangui() launches a web application that allows users
 to specify models by drawing path diagrams, fitting them, assessing model
 fit, and more; second, plot_lavaan() creates interactive path diagrams
-from models specified in 'lavaan'. Karch (2024) <doi:
-10.1080/10705511.2024.2420678> contains a tutorial.
+from models specified in 'lavaan'. After customizing a diagram
+interactively, export_plot() saves it to a file, enabling reproducible
+scripts without sacrificing fine-grained control over appearance. Karch
+(2024) <doi: 10.1080/10705511.2024.2420678> contains a tutorial.
 
 %prep
 %setup -q -c -n %{packname}

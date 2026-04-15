@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shortr
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Subset Identification in Undirected Weighted Network Models
+Summary:          Develop Concise but Comprehensive Shortened Versions of Psychometric Instruments
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,13 +23,10 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Identifies what optimal subset of a desired number of items should be
-retained in a short version of a psychometric instrument to assess the
-“broadest” proportion of the construct-level content of the set of items
-included in the original version of the said psychometric instrument.
-Expects a symmetric adjacency matrix as input (undirected weighted network
-model). Supports brute force and simulated annealing combinatorial search
-algorithms.
+Operationalizes the identification problem of which subset of items should
+be kept in the shortened version of a said psychometric instrument to best
+represent the set of items comprised in the original version of the said
+psychometric instrument.
 
 %prep
 %setup -q -c -n %{packname}

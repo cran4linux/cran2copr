@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  idar
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Individual Diversity-Area Relationships
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-FD 
 BuildRequires:    R-CRAN-picante 
+BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.random 
 Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-FD 
 Requires:         R-CRAN-picante 
+Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.explore 

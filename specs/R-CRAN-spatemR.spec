@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatemR
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Spatial Autoregresive Models for Mean and Variance
 
@@ -21,10 +21,14 @@ BuildRequires:    R-CRAN-gamlss >= 5.3.1
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-sphet 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-gamlss >= 5.3.1
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-sphet 
+Requires:         R-CRAN-Matrix 
 
 %description
 Modeling spatial dependencies in dependent variables, extending
