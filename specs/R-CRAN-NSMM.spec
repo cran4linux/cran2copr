@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qvirus
-%global packver   0.0.6
+%global packname  NSMM
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantum Computing for Analyzing CD4 Lymphocytes and Antiretroviral Therapy
+Summary:          Non-Stationary Multivariate (Copula-Based) Framework, Hydrological Applications
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-copula 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-stats 
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Resources, tutorials, and code snippets dedicated to exploring the
-intersection of quantum computing and artificial intelligence (AI) in the
-context of analyzing Cluster of Differentiation 4 (CD4) lymphocytes and
-optimizing antiretroviral therapy (ART) for human immunodeficiency virus
-(HIV). With the emergence of quantum artificial intelligence and the
-development of small-scale quantum computers, there's an unprecedented
-opportunity to revolutionize the understanding of HIV dynamics and
-treatment strategies. This project leverages a quantum computer simulator,
-to explore these applications in quantum computing techniques, addressing
-the challenges in studying CD4 lymphocytes and enhancing ART efficacy.
+To account for non-stationary multivariate data, this package implements
+the framework including copula and marginal distributions. In addition to
+modeling and parameter estimations, it allows the computation and
+visualization of multivariate quantile curves for given events. This
+package is useful for a variety of disciplines such as finance,
+climatology and particularly for hydrological applications, where
+dependence structures and marginal parameters may vary over time. This
+framework, based on Chebana & Ouarda (2021)
+<doi:10.1016/j.jhydrol.2020.125907>, integrates both multivariate and
+non-stationary aspects to be more accurate (e.g. for risk assessment) and
+more realistic (e.g. considering climate changes).
 
 %prep
 %setup -q -c -n %{packname}

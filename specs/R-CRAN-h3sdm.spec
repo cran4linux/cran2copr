@@ -1,0 +1,84 @@
+%global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
+%global packname  h3sdm
+%global packver   0.1.0
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Species Distribution Modeling with H3 Grids
+
+License:          MIT + file LICENSE
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-spatialsample 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-yardstick 
+BuildRequires:    R-CRAN-ecospat 
+BuildRequires:    R-CRAN-DALEX 
+BuildRequires:    R-CRAN-stacks 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-spatialsample 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-tune 
+Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-yardstick 
+Requires:         R-CRAN-ecospat 
+Requires:         R-CRAN-DALEX 
+Requires:         R-CRAN-stacks 
+
+%description
+Provides tools for species distribution modeling using H3 hexagonal grids
+(Uber Technologies Inc., 2022, <https://h3geo.org>). Facilitates retrieval
+of species occurrence records, generation of H3 grids, computation of
+landscape metrics, and preparation of spatial data for modern species
+distribution models workflows. Designed for biodiversity and landscape
+ecology research.
+
+%prep
+%setup -q -c -n %{packname}
+
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
+
+%files
+%{rlibdir}/%{packname}

@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pakret
-%global packver   0.3.1
+%global packname  tidyOhdsiSolutions
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'
+Summary:          Tidy Utilities for Observational Medical Outcomes Partnership Common Data Model Workflows
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.51
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr >= 1.51
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
 
 %description
-References and cites 'R' and 'R' packages on the fly in 'R Markdown' and
-'Quarto'. 'pakret' provides a minimalist API that generates preformatted
-citations for 'R' and 'R' packages, and adds their references to a '.bib'
-file directly from within your document.
+Lightweight utilities for working with OMOP (Observational Medical
+Outcomes Partnership) Common Data Model (CDM) data in the Observational
+Health Data Sciences and Informatics ecosystem. Provides base-R
+re-implementations of common 'purrr' functional helpers, tools to convert
+plain data frames into 'CIRCE' concept set expressions, SQL generators for
+resolving concept sets against an OMOP vocabulary schema without requiring
+'CirceR'.
 
 %prep
 %setup -q -c -n %{packname}

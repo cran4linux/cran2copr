@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NMADTA
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis of Multiple Diagnostic Tests
 
@@ -43,13 +43,13 @@ Requires:         R-grDevices
 Requires:         R-CRAN-Rdpack 
 
 %description
-Provides statistical methods for network meta-analysis of 1–5 diagnostic
-tests to simultaneously compare multiple tests within a missing data
-framework, including: - Bayesian hierarchical model for network
-meta-analysis of multiple diagnostic tests (Ma, Lian, Chu, Ibrahim, and
-Chen (2018) <doi:10.1093/biostatistics/kxx025>) - Bayesian Hierarchical
-Summary Receiver Operating Characteristic Model for Network Meta-Analysis
-of Diagnostic Tests (Lian, Hodges, and Chu (2019)
+Provides statistical methods for network meta-analysis of diagnostic tests
+to simultaneously compare multiple tests within a missing data framework,
+including: - Bayesian hierarchical model for network meta-analysis of
+multiple diagnostic tests (Ma, Lian, Chu, Ibrahim, and Chen (2018)
+<doi:10.1093/biostatistics/kxx025>) - Bayesian Hierarchical Summary
+Receiver Operating Characteristic Model for Network Meta-Analysis of
+Diagnostic Tests (Lian, Hodges, and Chu (2019)
 <doi:10.1080/01621459.2018.1476239>).
 
 %prep

@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openssl
-%global packver   2.4.0
+%global packname  GFFStrandLoc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Encryption, Signatures and Certificates Based on OpenSSL
+Summary:          Strand-Wise Gene and Protein Extraction from GFF3 Files
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openssl-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-askpass 
-Requires:         R-CRAN-askpass 
+BuildArch:        noarch
 
 %description
-Bindings to OpenSSL libssl and libcrypto, plus custom SSH key parsers.
-Supports RSA, DSA and EC curves P-256, P-384, P-521, and curve25519.
-Cryptographic signatures can either be created and verified manually or
-via x509 certificates. AES can be used in cbc, ctr or gcm mode for
-symmetric encryption; RSA for asymmetric (public key) encryption or EC for
-Diffie Hellman. High-level envelope functions combine RSA and AES for
-encrypting arbitrary sized data. Other utilities include key generators,
-hash functions (md5, sha1, sha256, etc), base64 encoder, a secure random
-number generator, and 'bignum' math methods for manually performing crypto
-calculations on large multibyte integers.
+Facilitates the extraction and organization of strand-specific genomic
+features from GFF3 files. In many species and variants, high quality
+genome annotations are not always available, necessitating de novo
+annotation using tools such as AUGUSTUS (Stanke et al., 2006;
+<doi:10.1093/nar/gkl200>). However, downstream processing of such
+annotations to obtain structured information, such as strand-wise gene
+locations, transcript regions, and associated protein identifiers—can be
+computationally intensive and complex. 'GFFStrandLoc' provides a
+streamlined framework to parse GFF3 files and generate structured outputs
+containing strand-wise and region-wise genomic coordinates for each
+transcript, along with their associated protein information. Additionally,
+it enables users to define custom promoter lengths and extract
+corresponding promoter region coordinates for genes in a strand-aware
+manner. By simplifying post-annotation processing, it enhances the
+usability of de novo annotated genomic datasets for downstream analysis
+and interpretation.
 
 %prep
 %setup -q -c -n %{packname}

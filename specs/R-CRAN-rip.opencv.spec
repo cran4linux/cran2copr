@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pakret
-%global packver   0.3.1
+%global packname  rip.opencv
+%global packver   0.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'
+Summary:          Interface to 'OpenCV' Image Processing Routines
 
-License:          GPL (>= 3)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.51
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr >= 1.51
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
 
 %description
-References and cites 'R' and 'R' packages on the fly in 'R Markdown' and
-'Quarto'. 'pakret' provides a minimalist API that generates preformatted
-citations for 'R' and 'R' packages, and adds their references to a '.bib'
-file directly from within your document.
+R interface for calling 'OpenCV' routines that works by translating R
+objects to 'OpenCV' classes and back. Low-level wrappers for several
+'OpenCV' routines are provided as 'Rcpp' modules. In addition, high level
+interfaces are provided for a limited selection of common operations.
 
 %prep
 %setup -q -c -n %{packname}

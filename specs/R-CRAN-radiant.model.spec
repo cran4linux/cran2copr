@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  radiant.model
-%global packver   1.6.9
+%global packver   1.6.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.9
+Version:          1.6.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Menu for Radiant: Business Analytics using R and Shiny
 
@@ -43,7 +43,6 @@ BuildRequires:    R-CRAN-ggrepel >= 0.8
 BuildRequires:    R-CRAN-data.tree >= 0.7.4
 BuildRequires:    R-CRAN-broom >= 0.7.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-vip >= 0.3.2
 BuildRequires:    R-CRAN-ranger >= 0.11.2
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-yaml 
@@ -73,7 +72,6 @@ Requires:         R-CRAN-ggrepel >= 0.8
 Requires:         R-CRAN-data.tree >= 0.7.4
 Requires:         R-CRAN-broom >= 0.7.0
 Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-vip >= 0.3.2
 Requires:         R-CRAN-ranger >= 0.11.2
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-yaml 

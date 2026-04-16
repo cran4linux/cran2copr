@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fingerPro
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Comprehensive Package for Sediment Source Unmixing
+Summary:          Unmixing Model Framework
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-crayon >= 1.4.2
 BuildRequires:    R-CRAN-GGally >= 1.3.2
-BuildRequires:    R-CRAN-rgl >= 1.2.8
 BuildRequires:    R-CRAN-Ternary >= 1.2.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-reshape >= 0.8.7
@@ -43,7 +42,6 @@ Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-crayon >= 1.4.2
 Requires:         R-CRAN-GGally >= 1.3.2
-Requires:         R-CRAN-rgl >= 1.2.8
 Requires:         R-CRAN-Ternary >= 1.2.2
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-reshape >= 0.8.7
@@ -53,18 +51,33 @@ Requires:         R-CRAN-RcppProgress >= 0.4
 Requires:         R-CRAN-Rcpp >= 0.11.3
 
 %description
-"This package quantifies the provenance of sediments in a catchment or
-study area. Based on a characterization of the sediment sources and the
-end sediment mixtures, a mixing model algorithm is applied to the sediment
-mixtures to estimate the relative contribution of each potential source.
-The package includes several graphs to help users in their data
-understanding, such as box plots, correlation, PCA, and LDA graphs. In
-addition, new developments such as the Consensus Ranking (CR), Consistent
-Tracer Selection (CTS), and Linear Variability Propagation (LVP) methods
-are included to correctly apply the fingerprinting technique and increase
-dataset and model understanding. A new method based on Conservative
-Balance (CB) method has also been included to enable the use of isotopic
-tracers."
+Quantifies the provenance of sediments by applying a mixing model
+algorithm to end sediment mixtures based on a comprehensive
+characterization of the sediment sources. The 'fingerPro' model builds
+upon the foundational concept of using mass balance linear equations for
+sediment source quantification by incorporating several distinct technical
+advancements. It employs an optimization approach to normalize
+discrepancies in tracer ranges and minimize the objective function. Latin
+hypercube sampling is used to explore all possible combinations of source
+contributions (0-100%%), mitigating the risk of local minima. Uncertainty
+in source estimates is quantified through a Monte Carlo routine, and the
+model includes additional metrics, such as the normalized error of the
+virtual mixture, to detect mathematical inconsistencies, non-physical
+solutions, and biases. A new linear variability propagation (LVP) method
+is also included to address and quantify potential bias in model outcomes,
+particularly when dealing with dominant or non-contributing sources and
+high source variability, offering a significant advancement for field
+studies where direct comparison with theoretical apportionments is not
+feasible. In addition to the unmixing model, a complete framework for
+tracer selection is included. Several methods are implemented to evaluate
+tracer behaviour by considering both source and mixture information. These
+include the Consistent Tracer Selection (CTS) method to explore all tracer
+combinations and select the optimal ones improving the robustness and
+interpretability of the model results. A Conservative Balance (CB) method
+is also incorporated to enable the use of isotopic tracers. The package
+also provides several graphical tools to support data exploration and
+interpretation, including box plots, correlation plots, Linear
+Discriminant Analysis (LDA) and Principal Component Analysis (PCA).
 
 %prep
 %setup -q -c -n %{packname}

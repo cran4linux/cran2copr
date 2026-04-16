@@ -1,42 +1,53 @@
 %global __brp_check_rpaths %{nil}
-%global packname  diffeRenTES
-%global packver   0.3.2
+%global __requires_exclude ^libmpi
+%global packname  modeldiagramR
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation of TES-Based Cell Differentiation Trees
+Summary:          Generate Model Diagrams for Linear Mixed Effect Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BoolNet 
-BuildRequires:    R-CRAN-DOT 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-BoolNet 
-Requires:         R-CRAN-DOT 
-Requires:         R-CRAN-igraph 
-Requires:         R-tools 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-DiagrammeR 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-DiagrammeR 
 
 %description
-Computes the ATM (Attractor Transition Matrix) structure and the tree-like
-structure describing the cell differentiation process (based on the
-Threshold Ergodic Set concept introduced by Serra and Villani), starting
-from the Boolean networks with synchronous updating scheme of the
-'BoolNet' R package. TESs (Threshold Ergodic Sets) are the mathematical
-abstractions that represent the different cell types arising during
-ontogenesis. TESs and the powerful model of biological differentiation
-based on Boolean networks to which it belongs have been firstly described
-in "A Dynamical Model of Genetic Networks for Cell Differentiation"
-Villani M, Barbieri A, Serra R (2011) A Dynamical Model of Genetic
-Networks for Cell Differentiation. PLOS ONE 6(3): e17703.
+Generates 'DiagrammeR' model diagrams for hierarchical linear mixed
+effects models. Details can be found in Linse (2026)
+<doi:10.6339/26-JDS1222>.
 
 %prep
 %setup -q -c -n %{packname}

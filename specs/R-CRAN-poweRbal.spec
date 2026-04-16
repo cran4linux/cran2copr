@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  poweRbal
-%global packver   0.0.1.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Tree Models and the Power of Tree Shape Statistics
 
@@ -22,13 +22,13 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-treebalance 
 BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-diversitree 
+BuildRequires:    R-CRAN-memoise 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-treebalance 
 Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-diversitree 
+Requires:         R-CRAN-memoise 
 
 %description
 The first goal of this package is to provide a multitude of tree models,
@@ -36,9 +36,9 @@ i.e., functions that generate rooted binary trees with a given number of
 leaves. Second, the package allows for an easy evaluation and comparison
 of tree shape statistics by estimating their power to differentiate
 between different tree models. Please note that this R package was
-developed alongside the manuscript "Tree balance in phylogenetic models"
-by S. J. Kersting, K. Wicke, and M. Fischer (2024)
-<doi:10.48550/arXiv.2406.05185>, which provides further background and the
+developed alongside the manuscript 'Tree balance in phylogenetic models'
+by S. J. Kersting, K. Wicke, and M. Fischer (2025)
+<doi:10.1098/rstb.2023.0303>, which provides further background and the
 respective mathematical definitions. This project was supported by the
 project ArtIGROW, which is a part of the WIR!-Alliance ArtIFARM –
 Artificial Intelligence in Farming funded by the German Federal Ministry

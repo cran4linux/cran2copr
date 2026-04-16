@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RFIF
-%global packver   1.0.1
+%global packname  nmfkc
+%global packver   0.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Iterative Filtering (FIF) with Portable FFT Backend
+Summary:          Non-Negative Matrix Factorization with Kernel Covariates
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-Provides an R interface to a C implementation of Fast Iterative Filtering
-(FIF) for decomposing a univariate signal into intrinsic mode functions
-(IMFs) and a residual. The package uses Fast Fourier Transform library
-FFTW, if found.  If not, it provides instructions to install it for your
-OS.  This is recommended, as R's internal fft(), while avoiding external
-FFT dependencies, is two orders of magnitude slower.  See vignette
-'Installing FFTW for RFIF' for RFIF installation instructions.
+Performs Non-negative Matrix Factorization (NMF) with Kernel Covariates.
+Given an observation matrix and kernel covariates, it optimizes both a
+basis matrix and a parameter matrix. Notably, if the kernel matrix is an
+identity matrix, the method simplifies to standard NMF. Also provides NMF
+with Random Effects (NMF-RE) via nmfre(), which estimates a mixed-effects
+model combining covariate-driven scores with unit-specific random effects
+together with wild bootstrap inference, and NMF-based Structural Equation
+Modeling (NMF-SEM) via nmf.sem(), which fits a two-block input-output
+model for blind source separation and path analysis. References: Satoh
+(2025) <doi:10.48550/arXiv.2403.05359>; Satoh (2025)
+<doi:10.48550/arXiv.2510.10375>; Satoh (2025)
+<doi:10.48550/arXiv.2512.18250>; Satoh (2026)
+<doi:10.48550/arXiv.2603.01468>; Satoh (2026)
+<doi:10.1007/s42081-025-00314-0>.
 
 %prep
 %setup -q -c -n %{packname}

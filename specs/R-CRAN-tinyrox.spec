@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pakret
-%global packver   0.3.1
+%global packname  tinyrox
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'
+Summary:          Minimal R Documentation Generator
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.51
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr >= 1.51
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-rmarkdown 
 
 %description
-References and cites 'R' and 'R' packages on the fly in 'R Markdown' and
-'Quarto'. 'pakret' provides a minimalist API that generates preformatted
-citations for 'R' and 'R' packages, and adds their references to a '.bib'
-file directly from within your document.
+A deterministic, dependency-free documentation generator for R packages.
+Generates valid Rd files and NAMESPACE from 'roxygen2'-style comments
+using only base R. Supports a strict subset of tags with no markdown
+parsing, no inference magic, and explicit-only behavior.
 
 %prep
 %setup -q -c -n %{packname}

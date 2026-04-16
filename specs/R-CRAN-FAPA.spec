@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cograph
-%global packver   2.1.1
+%global packname  FAPA
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Visualization of Complex Networks
+Summary:          Factor Analytic Profile Analysis of Ipsatized Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,28 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-boot 
+Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Provides tools for the analysis, visualization, and manipulation of
-dynamical, social (Saqr et al. (2024) <doi:10.1007/978-3-031-54464-4_10>)
-and complex networks (Saqr et al. (2025) <doi:10.1145/3706468.3706513>).
-The package supports multiple network formats and offers flexible tools
-for heterogeneous, multi-layer, and hierarchical network analysis with
-simple syntax and extensive toolset.
+Implements Factor Analytic Profile Analysis of Ipsatized Data ('FAPA'), a
+metric inferential framework for pattern detection and person-level
+reconstruction in multivariate profile data.  After row-centering
+(ipsatization) to remove profile elevation, 'FAPA' applies singular value
+decomposition ('SVD') to recover shared core profiles and individual
+pattern weights.  Dimensionality is determined by a variance-matched
+Horn's parallel analysis.  A three-stage bootstrap verification framework
+assesses (1) dimensionality via parallel analysis, (2) subspace stability
+via Procrustes principal angles, and (3) profile replicability via
+Tucker's congruence coefficients.  BCa bootstrap confidence intervals for
+core-profile coordinates are computed via the canonical 'boot' package
+implementation of Davison and Hinkley (1997)
+<doi:10.1017/CBO9780511802843>.
 
 %prep
 %setup -q -c -n %{packname}

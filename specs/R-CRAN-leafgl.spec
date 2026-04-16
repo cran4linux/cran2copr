@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leafgl
-%global packver   0.2.2
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Performance 'WebGl' Rendering for Package 'leaflet'
 
@@ -17,17 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonify 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-yyjsonr 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonify 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-yyjsonr 
 Requires:         R-grDevices 
 
 %description

@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pakret
-%global packver   0.3.1
+%global packname  MLCausal
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cite 'R' Packages on the Fly in 'R Markdown' and 'Quarto'
+Summary:          Causal Inference Methods for Multilevel and Clustered Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.51
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr >= 1.51
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-sandwich >= 3.0.0
+BuildRequires:    R-CRAN-lmtest >= 0.9.38
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-sandwich >= 3.0.0
+Requires:         R-CRAN-lmtest >= 0.9.38
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-stats 
 
 %description
-References and cites 'R' and 'R' packages on the fly in 'R Markdown' and
-'Quarto'. 'pakret' provides a minimalist API that generates preformatted
-citations for 'R' and 'R' packages, and adds their references to a '.bib'
-file directly from within your document.
+Provides an end-to-end workflow for estimating average treatment effects
+in clustered (multilevel) observational data. Core functionality includes
+cluster-aware propensity score estimation using fixed effects and
+Mundlak-style specifications, inverse probability weighting,
+within-cluster nearest-neighbor matching, covariate balance diagnostics at
+both individual and cluster-mean levels, outcome regression with
+cluster-robust standard errors, propensity score overlap visualization,
+and tipping-point sensitivity analysis for omitted cluster-level
+confounding.
 
 %prep
 %setup -q -c -n %{packname}

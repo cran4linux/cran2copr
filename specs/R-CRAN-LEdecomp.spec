@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LEdecomp
-%global packver   1.0.4
+%global packver   1.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decompose Life Expectancy by Age (and Cause)
 
@@ -32,8 +32,8 @@ Requires:         R-CRAN-ggplot2
 A set of all-cause and cause-specific life expectancy sensitivity and
 decomposition methods, including Arriaga (1984) <doi:10.2307/2061029>,
 others documented by Ponnapalli (2005) <doi:10.4054/DemRes.2005.12.7>,
-lifetable, numerical, and other algorithmic approaches such as Horiuchi et
-al (2008) <doi:10.1353/dem.0.0033>, or Andreev et al (2002)
+lifetable, numerical, and other analytic or algorithmic approaches such as
+Horiuchi et al (2008) <doi:10.1353/dem.0.0033>, or Andreev et al (2002)
 <doi:10.4054/DemRes.2002.7.14>.
 
 %prep
