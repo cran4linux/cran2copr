@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LobsterCatch
-%global packver   0.1.0
+%global packname  motmot
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models the Capture Processes in American Lobster Trap Fishery
+Summary:          Models of Trait Macroevolution on Trees
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildRequires:    R-CRAN-ape >= 3.0.7
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-caper 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ape >= 3.0.7
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-caper 
+Requires:         R-methods 
 
 %description
-Simulate lobster catch process in a trap fishery. Factors such as lobster
-density on ocean floor, their movement, trap saturation and bait shrinkage
-rate can be modeled. Details of the methods for modeling those processes
-can be found in: Addison and Bell (1997) <doi:10.1071/MF97169>.
+Functions for fitting models of trait evolution on phylogenies for
+continuous traits. The majority of functions are described in Thomas and
+Freckleton (2012) <doi:10.1111/j.2041-210X.2011.00132.x> and allow tests
+of variation in the rates of trait evolution.
 
 %prep
 %setup -q -c -n %{packname}

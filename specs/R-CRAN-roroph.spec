@@ -1,58 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BREADR
-%global packver   1.1.0
+%global packname  roroph
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimates Degrees of Relatedness (Up to the Second Degree) for Extreme Low-Coverage Data
+Summary:          Philippine Roll-on/Roll-Off (RoRo) Connectivity and Transport Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ArchipelagoEngine 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggstatsplot 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+Requires:         R-CRAN-ArchipelagoEngine 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggstatsplot 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
 
 %description
-The goal of the package is to provide an easy-to-use method for estimating
-degrees of relatedness (up to the second degree) for extreme low-coverage
-data. The package also allows users to quantify and visualise the level of
-confidence in the estimated degrees of relatedness.
+Provides the first standardized dataset of the Philippines'
+Roll-on/Roll-off (RoRo) shipping network, reflecting the 2024-2026
+operational state. It digitizes fragmented records from the Maritime
+Industry Authority (MARINA) and Philippine Ports Authority (PPA) into a
+unified framework for transport modeling. The package includes 108
+bidirectional provincial links across the Western, Central, and Eastern
+Nautical Highways, complete with GADM-standardized naming, geospatial
+coordinates, and metrics such as distance, travel time, and vessel
+frequency. Methodology follows Anselin (1988, ISBN:9024737354) and LeSage
+and Pace (2009) <doi:10.1201/9781420064254> for spatial weight
+construction. Data sources include "MARINA Inventory of RoRo Routes"
+<https://marina.gov.ph> and "PPA Port Statistics"
+<https://www.ppa.com.ph/ppa_statistics>. Designed to support research in
+economic geography and disaster-response logistics.
 
 %prep
 %setup -q -c -n %{packname}

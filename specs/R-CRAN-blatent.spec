@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blatent
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Variable Models
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-R6 
@@ -23,8 +24,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-R6 
@@ -32,7 +33,6 @@ Requires:         R-stats
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Estimation of latent variable models using Bayesian methods. Currently

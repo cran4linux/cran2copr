@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MultiSpline
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spline-Based Nonlinear Modeling for Multilevel and Longitudinal Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,29 +23,29 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-splines 
 Requires:         R-stats 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-splines 
 
 %description
-Provides tools for fitting, predicting, and visualizing nonlinear
-relationships in single-level, multilevel, and longitudinal regression
-models. Nonlinear functional forms are represented using natural cubic
-splines from 'splines' and smooth terms from 'mgcv'. The package offers a
-unified interface for specifying nonlinear effects, interactions with time
-variables, random-intercept clustering structures, and additional linear
-covariates. Utilities are included to generate prediction grids and
-produce effect plots, facilitating interpretation and visualization of
-nonlinear relationships in applied regression workflows. The
-implementation builds on established methods for spline-based regression
-and mixed-effects modeling (Hastie and Tibshirani, 1990
-<doi:10.1201/9780203738535>; Bates et al., 2015
-<doi:10.18637/jss.v067.i01>; Wood, 2017 <doi:10.1201/9781315370279>).
-Applications include hierarchical and longitudinal data structures common
-in education, health, and social science research.
+Provides a unified framework for fitting, predicting, and interpreting
+nonlinear relationships in single-level, multilevel, and longitudinal
+regression models. Flexible functional forms are supported using natural
+cubic splines ('splines'), B-splines ('splines'), and GAM smooths
+('mgcv'). Supports two-way and nested clustering via 'lme4', automatic
+knot selection by AIC or BIC, multilevel R-squared decomposition
+(Nakagawa-Schielzeth marginal and conditional R-squared with
+level-specific variance partitioning), a postestimation suite returning
+first and second derivatives with confidence bands, turning points and
+inflection regions, and a model comparison workflow contrasting linear,
+polynomial, and spline fits by AIC, BIC, and likelihood-ratio tests.
+Cluster heterogeneity in nonlinear effects is supported via random-slope
+spline terms.
 
 %prep
 %setup -q -c -n %{packname}

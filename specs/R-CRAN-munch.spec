@@ -1,32 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairmetrics
-%global packver   1.0.8
+%global packname  munch
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fairness Evaluation Metrics with Confidence Intervals for Binary Protected Attributes
+Summary:          Rich Inline Text for 'grid' Graphics and 'flextable'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-commonmark 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-gdtools 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-systemfonts 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-commonmark 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-gdtools 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-methods 
+Requires:         R-CRAN-systemfonts 
+Requires:         R-CRAN-xml2 
 
 %description
-A collection of functions for computing fairness metrics for machine
-learning and statistical models, including confidence intervals for each
-metric. The package supports the evaluation of group-level fairness
-criterion commonly used in fairness research, particularly in healthcare
-for binary protected attributes. It is based on the overview of fairness
-in machine learning written by Gao et al (2025) <doi:10.1002/sim.70234>.
+Renders rich inline text (bold, italic, code, links, images) in grid
+graphics and 'ggplot2', from markdown or 'flextable' chunks. Provides
+grobs, theme elements, and geometry layers for styled text rendering. Only
+works with graphics devices that support 'systemfonts', such as those
+provided by 'ragg', 'svglite', or 'ggiraph'. The 'cairo_pdf' device is
+also supported when fonts are installed at the system level.
 
 %prep
 %setup -q -c -n %{packname}

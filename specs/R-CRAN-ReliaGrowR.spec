@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReliaGrowR
-%global packver   0.4
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Reliability Growth Analysis and Repairable Systems Modeling
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,22 +18,27 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-plumber 
 BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-plumber 
 Requires:         R-CRAN-segmented 
 Requires:         R-stats 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975) (No. AMSAATR138),
-Piecewise Weibull NHPP by Guo et al. (2010)
+Modeling and plotting functions for Reliability Growth Analysis (RGA) and
+Non-Homogeneous Poisson Process (NHPP) models for repairable systems. RGA
+models include the Duane (1962) <doi:10.1109/TA.1964.4319640>, NHPP by
+Crow (1975) (No. AMSAATR138), Piecewise Weibull NHPP by Guo et al. (2010)
 <doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull NHPP with Change
 Point Detection based on the 'segmented' package by Muggeo (2024)
-<https://cran.r-project.org/package=segmented>.
+<https://cran.r-project.org/package=segmented>. Repairable systems
+functions include the Mean Cumulative Function (MCF) using the
+Nelson-Aalen estimator, parametric Power Law and Log-Linear NHPP models,
+and forecasting.
 
 %prep
 %setup -q -c -n %{packname}

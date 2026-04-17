@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ieTest
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Indirect Effects Testing Methods in Mediation Analysis
 
@@ -22,17 +22,16 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppDist 
 BuildRequires:    R-CRAN-twosamples 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-RcppDist 
 Requires:         R-CRAN-twosamples 
 Requires:         R-CRAN-MASS 

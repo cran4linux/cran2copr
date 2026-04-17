@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggseg
-%global packver   2.1.1
+%global packname  senatebR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plotting Tool for Brain Atlases
+Summary:          Collect Data from the Brazilian Federal Senate Open Data API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggseg.formats 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggseg.formats 
-Requires:         R-grid 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-jsonlite >= 1.8.8
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-httr >= 1.4.7
+BuildRequires:    R-CRAN-xml2 >= 1.3.6
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-rvest >= 1.0.0
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-jsonlite >= 1.8.8
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-httr >= 1.4.7
+Requires:         R-CRAN-xml2 >= 1.3.6
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-rvest >= 1.0.0
 
 %description
-Provides a 'ggplot2' geom and position for visualizing brain region data
-on cortical, subcortical, and white matter tract atlases. Brain atlas
-geometries are stored as simple features ('sf'), enabling seamless
-integration with the 'ggplot2' ecosystem including faceting, custom
-scales, and themes.  Mowinckel & Vidal-Piñeiro (2020)
-<doi:10.1177/2515245920928009>.
+Provides functions to access and collect data from the Brazilian Federal
+Senate open data API and website. Covers senators, legislative materials,
+committees, voting records, speeches, provisional measures, vetoes, and
+legislative agendas, returning results as tidy data frames ready for
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

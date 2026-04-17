@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggseg
-%global packver   2.1.1
+%global packname  RobustMediate
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plotting Tool for Brain Atlases
+Summary:          Causal Mediation Analysis with Diagnostics and Sensitivity Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggseg.formats 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-broom 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggseg.formats 
-Requires:         R-grid 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-broom 
 
 %description
-Provides a 'ggplot2' geom and position for visualizing brain region data
-on cortical, subcortical, and white matter tract atlases. Brain atlas
-geometries are stored as simple features ('sf'), enabling seamless
-integration with the 'ggplot2' ecosystem including faceting, custom
-scales, and themes.  Mowinckel & Vidal-Piñeiro (2020)
-<doi:10.1177/2515245920928009>.
+Provides tools for causal mediation analysis with continuous treatments
+using inverse probability weighting (IPW). Estimates natural direct and
+indirect effects over a user-defined treatment grid and supports flexible
+dose-response mediation analysis. Includes diagnostic procedures for
+assessing covariate balance in both treatment and mediator models using
+standardized mean differences. Implements pathway-specific extensions of
+the impact threshold for a confounding variable (ITCV; Frank, 2000
+<doi:10.1177/0049124100029002001>) adapted to mediation settings. Provides
+joint sensitivity analysis combining E-values (VanderWeele and Ding, 2017
+<doi:10.7326/M16-2607>) and violations of sequential ignorability (Imai,
+Keele, and Yamamoto, 2010 <doi:10.1214/10-STS321>). Additional utilities
+include visualization of dose-response mediation functions, robustness
+profiles, fragility summaries, and formatted outputs for applied research.
+Supports clustered data structures and multiple outcome families.
 
 %prep
 %setup -q -c -n %{packname}

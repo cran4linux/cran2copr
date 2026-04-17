@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairmetrics
-%global packver   1.0.8
+%global packname  GWnorm
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fairness Evaluation Metrics with Confidence Intervals for Binary Protected Attributes
+Summary:          G-Wishart Normalising Constants for Gaussian Graphical Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-BDgraph 
+BuildRequires:    R-CRAN-CholWishart 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.1.1
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-BDgraph 
+Requires:         R-CRAN-CholWishart 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-A collection of functions for computing fairness metrics for machine
-learning and statistical models, including confidence intervals for each
-metric. The package supports the evaluation of group-level fairness
-criterion commonly used in fairness research, particularly in healthcare
-for binary protected attributes. It is based on the overview of fairness
-in machine learning written by Gao et al (2025) <doi:10.1002/sim.70234>.
+Computes G-Wishart normalising constants through a Fourier approach.
+Either exact analytical results, numerical integration or Monte Carlo
+estimation are employed. Details at C. Wong, G. Moffa and J. Kuipers
+(2024), <doi:10.48550/arXiv.2404.06803>.
 
 %prep
 %setup -q -c -n %{packname}

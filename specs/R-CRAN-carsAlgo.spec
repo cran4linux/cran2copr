@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairmetrics
-%global packver   1.0.8
+%global packname  carsAlgo
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fairness Evaluation Metrics with Confidence Intervals for Binary Protected Attributes
+Summary:          Competitive Adaptive Reweighted Sampling (CARS) Algorithm
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A collection of functions for computing fairness metrics for machine
-learning and statistical models, including confidence intervals for each
-metric. The package supports the evaluation of group-level fairness
-criterion commonly used in fairness research, particularly in healthcare
-for binary protected attributes. It is based on the overview of fairness
-in machine learning written by Gao et al (2025) <doi:10.1002/sim.70234>.
+Implements Competitive Adaptive Reweighted Sampling (CARS) algorithm for
+variable selection from high-dimensional dataset using Partial Least
+Squares (PLS) regression models. CARS algorithm iteratively applies the
+Monte Carlo sub-sampling and exponential variable elimination techniques
+to identify/select the most informative variables/features subjected to
+minimal cross-validated RMSE score. The implementation of CARS algorithm
+is inspired from the work of Li et al. (2009)
+<doi:10.1016/j.aca.2009.06.046>. This algorithm is widely applied in
+near-infrared (NIR), mid-infrared (MIR), hyperspectral chemometrics areas,
+etc.
 
 %prep
 %setup -q -c -n %{packname}

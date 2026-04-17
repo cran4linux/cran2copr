@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pressuRe
-%global packver   0.2.5
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imports, Processes, and Visualizes Biomechanical Pressure Data
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-Morpho 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rdist 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-Rvcg 
 BuildRequires:    R-CRAN-scales 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-Morpho 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rdist 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-Rvcg 
 Requires:         R-CRAN-scales 

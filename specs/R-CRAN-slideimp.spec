@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slideimp
-%global packver   0.5.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Numeric Matrices K-NN and PCA Imputation
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-carrier 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-mirai 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-mlpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEnsmallen 
 Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-carrier 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-mirai 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 
 %description
 Fast k-nearest neighbors (K-NN) and principal component analysis (PCA)

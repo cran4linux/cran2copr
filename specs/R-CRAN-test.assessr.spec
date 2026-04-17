@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  test.assessr
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Package Test Reliability and Quality
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-covr 
@@ -29,11 +30,12 @@ BuildRequires:    R-CRAN-remotes
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-RUnit 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tinytest 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-covr 
@@ -45,7 +47,7 @@ Requires:         R-CRAN-remotes
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-RUnit 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tinytest 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 

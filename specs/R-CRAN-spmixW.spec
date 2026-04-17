@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairmetrics
-%global packver   1.0.8
+%global packname  spmixW
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fairness Evaluation Metrics with Confidence Intervals for Binary Protected Attributes
+Summary:          Bayesian Spatial Panel Data Models with Convex Combinations of Weight Matrices
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-coda 
 
 %description
-A collection of functions for computing fairness metrics for machine
-learning and statistical models, including confidence intervals for each
-metric. The package supports the evaluation of group-level fairness
-criterion commonly used in fairness research, particularly in healthcare
-for binary protected attributes. It is based on the overview of fairness
-in machine learning written by Gao et al (2025) <doi:10.1002/sim.70234>.
+Bayesian Markov chain Monte Carlo (MCMC) estimation of spatial panel data
+models including Spatial Autoregressive (SAR), Spatial Durbin Model (SDM),
+Spatial Error Model (SEM), Spatial Durbin Error Model (SDEM), and Spatial
+Lag of X (SLX) specifications with fixed effects. Supports convex
+combinations of multiple spatial weight matrices and Bayesian Model
+Averaging (BMA) over subsets of weight matrices. Implements the convex
+combination spatial weight matrix methodology of Debarsy and LeSage (2021)
+<doi:10.1080/07350015.2020.1840993> and the Bayesian spatial panel data
+models of LeSage and Pace (2009, ISBN:9781420064247).
 
 %prep
 %setup -q -c -n %{packname}

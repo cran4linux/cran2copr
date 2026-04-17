@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairmetrics
-%global packver   1.0.8
+%global packname  glm4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fairness Evaluation Metrics with Confidence Intervals for Binary Protected Attributes
+Summary:          Fitting Generalized Linear Models Using Sparse Matrices
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MatrixModels 
 BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MatrixModels 
 Requires:         R-stats 
 
 %description
-A collection of functions for computing fairness metrics for machine
-learning and statistical models, including confidence intervals for each
-metric. The package supports the evaluation of group-level fairness
-criterion commonly used in fairness research, particularly in healthcare
-for binary protected attributes. It is based on the overview of fairness
-in machine learning written by Gao et al (2025) <doi:10.1002/sim.70234>.
+Fits Generalised Linear Models (GLMs) with sparse and dense 'Matrix'
+matrices for memory efficiency. Acts as a wrapper for the glm4() function
+in the 'MatrixModels' package <doi:10.32614/CRAN.package.MatrixModels>,
+but adds convenient model methods and functions designed to mimic those
+associated with the glm() function from the 'stats' package.
 
 %prep
 %setup -q -c -n %{packname}

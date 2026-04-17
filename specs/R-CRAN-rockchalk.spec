@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rockchalk
-%global packver   1.8.157
+%global packver   1.8.164
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.157
+Version:          1.8.164
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Estimation and Presentation
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-reformulas >= 0.4.3
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-carData 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-kutils 
+Requires:         R-CRAN-reformulas >= 0.4.3
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-lme4 

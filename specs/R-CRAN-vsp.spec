@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vsp
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vintage Sparse PCA for Semi-Parametric Factor Analysis
 
@@ -14,32 +14,48 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-invertiforms 
 BuildRequires:    R-CRAN-LRMF3 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-clue 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-invertiforms 
 Requires:         R-CRAN-LRMF3 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-withr 
 
 %description
