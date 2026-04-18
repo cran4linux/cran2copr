@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfacebookstat
-%global packver   2.13.1
+%global packver   2.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.1
+Version:          2.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data from Facebook API Marketing
 

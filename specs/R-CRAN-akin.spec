@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  akin
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Utilities for Data Processing
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-RcppAlgos >= 2.9.3
 BuildRequires:    R-CRAN-data.table >= 1.18.2.0
 BuildRequires:    R-CRAN-RVerbalExpressions >= 0.1.0
 BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-erer 
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-listenv 
 BuildRequires:    R-CRAN-Matrix 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-RcppAlgos >= 2.9.3
 Requires:         R-CRAN-data.table >= 1.18.2.0
 Requires:         R-CRAN-RVerbalExpressions >= 0.1.0
 Requires:         R-CRAN-callr 
-Requires:         R-CRAN-erer 
 Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-listenv 
 Requires:         R-CRAN-Matrix 

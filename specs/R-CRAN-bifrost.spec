@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bifrost
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Branch-Level Inference Framework for Recognizing Optimal Shifts in Traits
 
@@ -47,8 +47,8 @@ in Smith et al. (2023) <doi:10.1111/nph.19099> and Berv et al. (2024)
 described in Clavel et al. (2019) <doi:10.1093/sysbio/syy045> and
 implemented in the mvgls() function from the 'mvMORPH' package.
 Documentation and vignettes are available at
-<https://jakeberv.com/bifrost/>, including the introductory vignette at
-<https://jakeberv.com/bifrost/articles/jaw-shape-vignette.html>.
+<https://jakeberv.com/bifrost/>, including worked examples for the
+jaw-shape dataset.
 
 %prep
 %setup -q -c -n %{packname}

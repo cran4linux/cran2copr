@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  magclass
-%global packver   6.13.2
+%global packver   7.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.13.2
+Version:          7.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Class and Tools for Handling Spatial-Temporal Data
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description

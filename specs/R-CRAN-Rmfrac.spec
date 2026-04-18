@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rmfrac
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Statistical Analysis of Multifractional Processes
 
@@ -54,7 +54,7 @@ Requires:         R-utils
 Simulation of several fractional and multifractional processes. Includes
 Brownian and fractional Brownian motions, bridges and Gaussian Haar-based
 multifractional processes (GHBMP). Implements the methods from Ayache,
-Olenko and Samarakoon (2025) <doi:10.48550/arXiv.2503.07286> for
+Olenko and Samarakoon (2026) <doi:10.1016/j.matcom.2026.01.033> for
 simulation of GHBMP. Estimation of Hurst functions and local fractal
 dimension. Clustering realisations based on the Hurst functions. Several
 functions to estimate and plot geometric statistics of the processes and

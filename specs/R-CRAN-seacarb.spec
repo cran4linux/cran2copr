@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seacarb
-%global packver   3.3.3
+%global packver   3.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          3.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seawater Carbonate Chemistry
 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-gsw
 Requires:         R-CRAN-SolveSAPHE 
 
 %description
-Calculates parameters of the seawater carbonate system and assists the
+Calculates parameters of the seawater carbonate system and assists in
 design of ocean acidification perturbation experiments.
 
 %prep
