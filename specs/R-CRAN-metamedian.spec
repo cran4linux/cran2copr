@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metamedian
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Medians
 
@@ -40,9 +40,9 @@ et al. (2021) <doi:10.1177/09622802211047348>, and McGrath et al. (2023)
 <doi:10.1177/09622802221139233>) are implemented to estimate
 study-specific (difference of) means and their standard errors in order to
 estimate the pooled (difference of) means. Methods for meta-analyzing
-median survival times (McGrath et al. (2025)
-<doi:10.48550/arXiv.2503.03065>) are also implemented. See McGrath et al.
-(2024) <doi:10.1002/jrsm.1686> for a detailed guide on using the package.
+median survival times (McGrath et al. (2026) <doi:10.1002/sim.70533>) are
+also implemented. See McGrath et al. (2024) <doi:10.1002/jrsm.1686> for a
+detailed guide on using the package.
 
 %prep
 %setup -q -c -n %{packname}

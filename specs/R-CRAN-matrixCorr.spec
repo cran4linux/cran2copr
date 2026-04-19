@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matrixCorr
-%global packver   0.10.0
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Correlation and Association Estimators
 
@@ -29,15 +29,16 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-rlang 
 
 %description
-Compute correlation, association, and agreement measures for small to
-high-dimensional datasets through a consistent matrix-oriented interface.
-Supports classical correlations (Pearson, Spearman, Kendall), distance
-correlation, partial correlation with regularised estimators, shrinkage
-correlation for p >= n settings, robust correlations including biweight
-mid-correlation, percentage-bend, and skipped correlation, latent-variable
-methods for binary and ordinal data, repeated-measures correlation, and
-agreement analyses based on Bland-Altman methods and Lin's concordance
-correlation coefficient, including repeated-measures extensions.
+Compute correlation, association, agreement, and reliability measures for
+small to high-dimensional datasets through a consistent matrix-oriented
+interface. Supports classical correlations (Pearson, Spearman, Kendall),
+distance correlation, partial correlation with regularised estimators,
+shrinkage correlation for p >= n settings, robust correlations including
+biweight mid-correlation, percentage-bend, and skipped correlation,
+latent-variable methods for binary and ordinal data, pairwise and overall
+intraclass correlation for wide data, repeated-measures correlation, and
+agreement analyses based on Bland-Altman methods, Lin's concordance
+correlation coefficient, and repeated-measures intraclass correlation.
 Implemented with optimized C++ backends using BLAS/OpenMP and memory-aware
 symmetric updates, and returns standard R objects with print/summary/plot
 methods plus optional Shiny viewers for matrix inspection. Methods based

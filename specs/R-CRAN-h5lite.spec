@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  h5lite
-%global packver   2.0.0.2
+%global packver   2.1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.2
+Version:          2.1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified 'HDF5' Interface
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-hdf5lib >= 2.0.0.5
+BuildRequires:    R-CRAN-hdf5lib >= 2.1.1.0
 
 %description
 A user-friendly interface for the Hierarchical Data Format 5 ('HDF5')

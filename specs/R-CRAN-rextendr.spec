@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rextendr
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Call Rust Code from R using the 'extendr' Crate
+Summary:          Build 'Rust' Powered 'R' Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,18 +15,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Recommends:       cargo
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glue >= 1.7.0
 BuildRequires:    R-CRAN-pkgbuild >= 1.4.0
 BuildRequires:    R-CRAN-rlang >= 1.0.5
 BuildRequires:    R-CRAN-brio 
-BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-stringi 
@@ -36,11 +36,11 @@ Requires:         R-CRAN-glue >= 1.7.0
 Requires:         R-CRAN-pkgbuild >= 1.4.0
 Requires:         R-CRAN-rlang >= 1.0.5
 Requires:         R-CRAN-brio 
-Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-stringi 
@@ -48,10 +48,13 @@ Requires:         R-CRAN-vctrs
 Requires:         R-CRAN-withr 
 
 %description
-Provides functions to compile and load Rust code from R, similar to how
-'Rcpp' or 'cpp11' allow easy interfacing with C++ code. Also provides
-helper functions to create R packages that use Rust code. Under the hood,
-the Rust crate 'extendr' is used to do all the heavy lifting.
+Provides a framework for creating high-performance 'R' packages powered by
+the 'Rust' programming language using the 'extendr' Rust crate.  It offers
+'usethis'-like functions to scaffold and develop 'Rust' powered 'R'
+packages, including utilities for publishing to CRAN, managing
+dependencies, configuring development environments, and rendering 'Rust'
+code in 'knitr' documents. Additionally, it provides functions to compile
+and evaluate 'Rust' code directly from 'R' for interactive development.
 
 %prep
 %setup -q -c -n %{packname}
