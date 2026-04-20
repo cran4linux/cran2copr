@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncmR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Neutral Community Model to Microbiome or Ecological Data
 
@@ -17,12 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-showtext 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-showtext 
 
 %description
 Provides tools for fitting the neutral community model (NCM) to assess the

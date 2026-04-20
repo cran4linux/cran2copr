@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  osrm.backend
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings for 'Open Source Routing Machine'
 
@@ -20,13 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-ps 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-ps 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Install and control 'Open Source Routing Machine' ('OSRM') backend

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  faunabr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore Catálogo Taxônomico da Fauna do Brasil Database
 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-data.table >= 1.14.8
 A collection of functions designed to retrieve, filter and spatialize data
 from the Catálogo Taxônomico da Fauna do Brasil. For more information
 about the dataset, please visit
-<http://fauna.jbrj.gov.br/fauna/listaBrasil/>.
+<https://fauna.jbrj.gov.br/fauna/listaBrasil/>.
 
 %prep
 %setup -q -c -n %{packname}

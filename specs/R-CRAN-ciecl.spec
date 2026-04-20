@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ciecl
-%global packver   0.9.2
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          International Classification of Diseases 'ICD-10'/'ICD-11' for Chile
 
@@ -25,8 +25,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-comorbidity 
-BuildRequires:    R-CRAN-gt 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringdist 
@@ -35,13 +33,11 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-comorbidity 
-Requires:         R-CRAN-gt 
 
 %description
 Tools for working with the International Classification of Diseases
 ('ICD-10' Chile official 'MINSAL'/'DEIS' v2018). Includes optimized 'SQL'
-search with 'SQLite', fuzzy matching of medical terms (Jaro-Winkler),
+search with 'SQLite', fuzzy matching of medical terms ('Jaro-Winkler'),
 Charlson and Elixhauser comorbidity calculation, 'WHO' 'ICD-11' 'API'
 integration, and hierarchical code validation. Data from Centro FIC Chile
 'DEIS' <https://deis.minsal.cl/centrofic/>.
