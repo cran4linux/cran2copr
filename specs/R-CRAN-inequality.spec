@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  maestro
-%global packver   1.1.0
+%global packname  inequality
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Orchestration of Data Pipelines
+Summary:          Inequality Measurement, Decomposition, and Poverty Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,39 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-lubridate >= 1.9.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-tictoc 
-BuildRequires:    R-CRAN-timechange 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-lubridate >= 1.9.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-tictoc 
-Requires:         R-CRAN-timechange 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Framework for creating and orchestrating data pipelines. Organize,
-orchestrate, and monitor multiple pipelines in a single project. Use tags
-to decorate functions with scheduling parameters and configuration.
+Tools for measuring income and wealth inequality. Computes the Gini
+coefficient with bootstrap or asymptotic confidence intervals following
+Davidson (2009) <doi:10.1016/j.jeconom.2008.09.011>, the extended S-Gini
+family, Theil T and L indices (generalised entropy family), the Atkinson
+index, the Kolm absolute inequality index, Palma ratio, Hoover index,
+percentile ratios, and Lorenz curves. Supports between-within group
+decomposition following Bourguignon (1979) <doi:10.2307/1914138>, income
+share tabulation, concentration indices for health inequality with
+Erreygers (2009) correction, Kakwani tax progressivity and
+Reynolds-Smolensky redistribution indices, Foster-Greer-Thorbecke poverty
+measures including the Sen index, growth incidence curves following
+Ravallion and Chen (2003) <doi:10.1016/S0165-1765(02)00205-7>, and Wolfson
+polarisation. All functions accept optional survey weights and work with
+data from any source.
 
 %prep
 %setup -q -c -n %{packname}

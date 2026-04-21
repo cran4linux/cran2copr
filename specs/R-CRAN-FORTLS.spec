@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FORTLS
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Processing of Terrestrial-Based Technologies Point Cloud Data for Forestry Purposes
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-Distance 
@@ -37,7 +37,7 @@ BuildRequires:    R-CRAN-VoxR
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-Distance 

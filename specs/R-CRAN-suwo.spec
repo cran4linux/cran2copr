@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popbayes
-%global packver   1.3
+%global packname  suwo
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Model to Estimate Population Trends from Counts Series
+Summary:          Access Nature Media Repositories
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-R2jags 
-Requires:         R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-RecordLinkage 
+BuildRequires:    R-CRAN-leaflet 
+Requires:         R-CRAN-httr2 >= 1.1.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
+Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-tools 
+Requires:         R-CRAN-RecordLinkage 
+Requires:         R-CRAN-leaflet 
 
 %description
-Infers the trends of one or several animal populations over time from
-series of counts. It does so by accounting for count precision (provided
-or inferred based on expert knowledge, e.g. guesstimates), smoothing the
-population rate of increase over time, and accounting for the maximum
-demographic potential of species. Inference is carried out in a Bayesian
-framework. This work is part of the FRB-CESAB working group AfroBioDrivers
-<https://www.fondationbiodiversite.fr/en/the-frb-in-action/programs-and-projects/le-cesab/afrobiodrivers/>.
+Streamline searching, downloading and formatting of nature media files
+(e.g. audios, photos) from online repositories. The package offers
+functions for obtaining media metadata from online repositories,
+downloading associated media files and updating data sets with new
+records.
 
 %prep
 %setup -q -c -n %{packname}

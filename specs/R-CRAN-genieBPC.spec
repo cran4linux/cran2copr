@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genieBPC
-%global packver   2.0.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Project GENIE BioPharma Collaborative Data Processing Pipeline
 
@@ -14,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.2
 BuildRequires:    R-CRAN-cli >= 2.5.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-dtplyr >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.6
+BuildRequires:    R-CRAN-dplyr >= 1.0.7
+BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sunburstR 
@@ -32,9 +32,9 @@ Requires:         R-CRAN-tibble >= 3.1.2
 Requires:         R-CRAN-cli >= 2.5.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dtplyr >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.6
+Requires:         R-CRAN-dplyr >= 1.0.7
+Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sunburstR 

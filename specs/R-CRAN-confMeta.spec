@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggtaxplot
-%global packver   0.0.1
+%global packname  confMeta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Plots to Visualize Taxonomy
+Summary:          Confidence Curves and P-Value Functions for Meta-Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,39 +18,29 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ReplicationSuccess 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-ggalluvial 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-meta 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ReplicationSuccess 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-ggalluvial 
-Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 
 %description
-Provides a comprehensive suite of functions for processing and visualizing
-taxonomic data. It includes functionality to clean and transform taxonomic
-data, categorize it into hierarchical ranks (such as Phylum, Class, Order,
-Family, and Genus), and calculate the relative abundance of each category.
-The package also generates a color palette for visual representation of
-the taxonomic data, allowing users to easily identify and differentiate
-between various taxonomic groups. Additionally, it features a river plot
-visualization to effectively display the distribution of individuals
-across different taxonomic ranks, facilitating insights into taxonomic
-visualization.
+Provides tools for the combination of individual study results in
+meta-analyses using 'p-value' functions. Implements various combination
+methods including those by Fisher, Stouffer, Tippett, Edgington along with
+weighted generalizations. Contains functionality for the visualization and
+calculation of confidence curves and drapery plots to summarize evidence
+across studies.
 
 %prep
 %setup -q -c -n %{packname}

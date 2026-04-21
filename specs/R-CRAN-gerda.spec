@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gerda
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          German Election Database (GERDA)
 
@@ -18,29 +18,26 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-readr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-tibble 
 
 %description
-Provides tools to download comprehensive datasets of local, state, and
-federal election results in Germany from 1990 to 2025. The package
-facilitates access to data on turnout, vote shares for major parties, and
-demographic information across different levels of government (municipal,
-state, and federal). It offers access to geographically harmonized
-datasets that account for changes in municipal boundaries over time and
-incorporate mail-in voting districts. Includes bundled county-level
-covariates from INKAR and municipality-level Census 2022 data. Users can
-easily retrieve, clean, and standardize German electoral data, making it
-ready for analysis. Data is sourced from
+Provides tools to download datasets of German elections covering local,
+state, federal, mayoral, European Parliament, and county (Kreistag)
+elections, with federal county-level coverage from 1953 and other families
+extending through 2025. The package supplies turnout, vote shares, and
+derived indicators at the municipal and county level, including
+geographically harmonized datasets that account for changes in municipal
+boundaries over time and incorporate mail-in voting districts. Bundled
+data includes county-level INKAR covariates (1995-2022) and
+municipality-level Zensus 2022 indicators. Data is sourced from
 <https://github.com/awiedem/german_election_data>.
 
 %prep

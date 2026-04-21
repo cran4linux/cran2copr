@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  resemble
-%global packver   2.2.5
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Memory-Based Learning in Spectral Chemometrics
+Summary:          Similarity Retrieval and Local Learning for Spectral Chemometrics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table >= 1.9.8
-BuildRequires:    R-CRAN-magrittr >= 1.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-mathjaxr >= 1.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-data.table >= 1.9.8
-Requires:         R-CRAN-magrittr >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-mathjaxr >= 1.0
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-RhpcBLASctl 
 
 %description
-Functions for dissimilarity analysis and memory-based learning (MBL, a.k.a
-local modeling) in complex spectral data sets. Most of these functions are
-based on the methods presented in Ramirez-Lopez et al. (2013)
+Functions for dissimilarity analysis and machine learning in complex
+spectral data sets, including memory-based learning (MBL), optimal subset
+search and selection, and retrieval-based modelling with model libraries.
+Supports local learning, optimisation of spectral libraries, and ensemble
+prediction from precomputed models. Most of these functions are based on
+the methods presented in Ramirez-Lopez et al. (2013)
 <doi:10.1016/j.geoderma.2012.12.014>.
 
 %prep

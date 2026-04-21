@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popbayes
-%global packver   1.3
+%global packname  drrglm
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Model to Estimate Population Trends from Counts Series
+Summary:          Doubly Regularized Matrix-Variate Regression
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-R2jags 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
 
 %description
-Infers the trends of one or several animal populations over time from
-series of counts. It does so by accounting for count precision (provided
-or inferred based on expert knowledge, e.g. guesstimates), smoothing the
-population rate of increase over time, and accounting for the maximum
-demographic potential of species. Inference is carried out in a Bayesian
-framework. This work is part of the FRB-CESAB working group AfroBioDrivers
-<https://www.fondationbiodiversite.fr/en/the-frb-in-action/programs-and-projects/le-cesab/afrobiodrivers/>.
+The doubly regularized matrix-variate regression solves a
+low-rank-plus-sparse structure for matrix-variate generalized linear
+models through a weighted combination of nuclear-norm and L1-norm. The
+methodology implemented by this package is described in the paper "Doubly
+Regularized Matrix-Variate Regression", which has been tentatively
+accepted for publication but does not yet have a DOI or URL. A formal
+citation will be added in a future update once the final publication
+details are available.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tynding
-%global packver   0.1.2
+%global packname  hrbrthemes
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Typst' Bindings
+Summary:          Additional Themes, Theme Components and Utilities for 'ggplot2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.5.2
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-scales 
+Requires:         R-tools 
+Requires:         R-CRAN-magrittr 
+Requires:         R-utils 
 
 %description
-Provides bindings to the 'Typst' typesetting system, enabling users to
-compile 'Typst' documents directly from R. The package interfaces with the
-'Typst' 'Rust' library to render documents, making it possible to
-integrate 'Typst'-based workflows into R scripts, reports, and
-reproducible research pipelines. It supports programmatic document
-generation, compilation, and output handling, facilitating seamless use of
-'Typst' alongside tools such as knitr and Quarto.
+A compilation of extra 'ggplot2' themes, scales and utilities, including a
+spell check function for plot label fields and an overall emphasis on
+typography. A copy of the 'Google' font 'Roboto Condensed' is also
+included.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multibias
-%global packver   1.7.2
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Bias Analysis in Causal Inference
 
@@ -33,16 +33,15 @@ Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-purrr >= 1.0.0
 
 %description
-Quantify the causal effect of a binary exposure on a binary outcome with
-adjustment for multiple biases. The functions can simultaneously adjust
-for any combination of uncontrolled confounding, exposure/outcome
-misclassification, and selection bias. The underlying method generalizes
-the concept of combining inverse probability of selection weighting with
-predictive value weighting. Simultaneous multi-bias analysis can be used
-to enhance the validity and transparency of real-world evidence obtained
-from observational, longitudinal studies. Based on the work from Paul
-Brendel, Aracelis Torres, and Onyebuchi Arah (2023)
-<doi:10.1093/ije/dyad001>.
+Quantify exposure-outcome causal effects with adjustment for multiple
+biases. The functions can simultaneously adjust for any combination of
+uncontrolled confounding, exposure/outcome misclassification, and
+selection bias. The underlying method generalizes the combination of
+inverse probability of selection weighting with predictive value
+weighting. Simultaneous multi-bias analysis can be used to enhance the
+validity and transparency of real-world evidence obtained from
+observational, longitudinal studies. Based on the work from Paul Brendel,
+Aracelis Torres, and Onyebuchi Arah (2023) <doi:10.1093/ije/dyad001>.
 
 %prep
 %setup -q -c -n %{packname}
