@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oceanic
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Location Identify Tool
 
@@ -21,13 +21,11 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-spData 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-maps 
-Requires:         R-CRAN-spData 
 Requires:         R-methods 
 
 %description

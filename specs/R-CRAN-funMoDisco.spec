@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funMoDisco
-%global packver   1.1.0
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Motif Discovery in Functional Data
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-fda 
@@ -34,12 +33,12 @@ BuildRequires:    R-CRAN-class
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-dplyr 
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-fda 

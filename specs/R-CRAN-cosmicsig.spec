@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cosmicsig
-%global packver   1.1.1
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mutational Signatures from COSMIC (Catalogue of Somatic Mutations in Cancer)
 
@@ -24,8 +24,7 @@ The 'signature' variable contains the latest mutational signature profiles
 released on COSMIC <https://cancer.sanger.ac.uk/signatures/> for 3
 mutation types: * Single base substitutions in the context of preceding
 and following bases, * Doublet base substitutions, and * Small insertions
-and deletions. The 'etiology' variable provides the known or hypothesized
-causes of signatures. 'cosmicsig' stands for COSMIC signatures. Please run
+and deletions. 'cosmicsig' stands for COSMIC signatures. Please run
 ?'cosmicsig' for more information.
 
 %prep

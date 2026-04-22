@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moewishart
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixture-of-Experts Wishart Models for Covariance Data
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-loo 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-loo 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
 Methods for maximum likelihood and Bayesian estimation for the Wishart

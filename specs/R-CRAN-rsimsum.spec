@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsimsum
-%global packver   0.13.0
+%global packver   0.13.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Simulation Studies Including Monte Carlo Error
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-rlang >= 1.2.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-rlang >= 1.2.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-scales 

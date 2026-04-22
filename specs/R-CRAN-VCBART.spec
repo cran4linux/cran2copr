@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VCBART
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Varying Coefficient Models with Bayesian Additive Regression Trees
 
@@ -31,7 +31,7 @@ by approximating the coefficient functions with Bayesian Additive
 Regression Trees. Implements a Metropolis-within-Gibbs sampler to simulate
 draws from the posterior over coefficient function evaluations. VC models
 with independent observations or repeated observations can be fit. For
-more details see Deshpande et al. (2024) <doi:10.1214/24-BA1470>.
+more details see Deshpande et al. (2026) <doi:10.1214/24-BA1470>.
 
 %prep
 %setup -q -c -n %{packname}

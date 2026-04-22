@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppArmadillo
-%global packver   15.2.4-1
+%global packver   15.2.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          15.2.4.1
+Version:          15.2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
@@ -44,11 +44,7 @@ with LAPACK, or one of its high performance drop-in replacements (such as
 The 'RcppArmadillo' package includes the header files from the 'Armadillo'
 library; users do not need to install 'Armadillo' itself in order to use
 'RcppArmadillo'. Starting from release 15.0.0, the minimum compilation
-standard is C++14 so 'Armadillo' version 14.6.3 is included as a fallback
-when an R package forces the C++11 standard. Package authors should set a
-'#define' to select the 'current' version, or select the 'legacy' version
-(also chosen as default) if they must. See 'GitHub issue #475' for
-details.
+standard is C++14.
 
 Since release 7.800.0, 'Armadillo' is licensed under Apache License 2;
 previous releases were under licensed as MPL 2.0 from version 3.800.0

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mcount
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marginalized Count Regression Models
 
@@ -13,21 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bbmle 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-boot.pval 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-bbmle 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-boot.pval 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-robustbase 
 Requires:         R-stats 
 
 %description
-Implementation of marginalized models for zero-inflated count data. This
-package provides a tool to implement an estimation algorithm for the
-marginalized count models, which directly makes inference on the effect of
-each covariate on the marginal mean of the outcome. The method involves
-the marginalized zero-inflated Poisson model described in Long et al.
-(2014) <doi:10.1002/sim.6293>.
+Implementation of marginalized models for zero-inflated count data. The
+package provides tools to estimate marginalized count regression models
+for direct inference on the effect of covariates on the marginal mean of
+the outcome. The methods include the marginalized zero-inflated Poisson
+(MZIP) model described in Long et al. (2014) <doi:10.1002/sim.6293> and
+the marginalized zero- and N-inflated binomial (MZNIB) model, which
+extends marginalized modeling to fractional count outcomes with boundary
+inflation at zero and the upper limit.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KLINK
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kinship Analysis with Linked Markers
 
@@ -17,31 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.8.1
-BuildRequires:    R-CRAN-forrel >= 1.8.0
-BuildRequires:    R-CRAN-shiny >= 1.10.0
-BuildRequires:    R-CRAN-gt >= 1.0.0
-BuildRequires:    R-CRAN-pedprobr >= 1.0.0
-BuildRequires:    R-CRAN-pedmut >= 0.9.0
-BuildRequires:    R-CRAN-verbalisr >= 0.7.1
+BuildRequires:    R-CRAN-pedtools >= 2.9.0
+BuildRequires:    R-CRAN-forrel 
 BuildRequires:    R-CRAN-norSTR 
+BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-pedFamilias 
+BuildRequires:    R-CRAN-pedmut 
+BuildRequires:    R-CRAN-pedprobr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-verbalisr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-pedtools >= 2.8.1
-Requires:         R-CRAN-forrel >= 1.8.0
-Requires:         R-CRAN-shiny >= 1.10.0
-Requires:         R-CRAN-gt >= 1.0.0
-Requires:         R-CRAN-pedprobr >= 1.0.0
-Requires:         R-CRAN-pedmut >= 0.9.0
-Requires:         R-CRAN-verbalisr >= 0.7.1
+Requires:         R-CRAN-pedtools >= 2.9.0
+Requires:         R-CRAN-forrel 
 Requires:         R-CRAN-norSTR 
+Requires:         R-CRAN-gt 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-pedFamilias 
+Requires:         R-CRAN-pedmut 
+Requires:         R-CRAN-pedprobr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-verbalisr 
 Requires:         R-CRAN-xml2 
 
 %description

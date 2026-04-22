@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MIRDD
-%global packver   0.1.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Tool by Multiple Imputation for Regression Discontinuity Designs
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Amelia 
 BuildRequires:    R-CRAN-rdrobust 
@@ -27,11 +27,12 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-Estimates local average treatment effects based on regression
-discontinuity designs (RDD) and multiple imputation regression
+Estimates average treatment effects at the cutoff based on sharp
+regression discontinuity designs (RDD) and multiple imputation regression
 discontinuity designs (MIRDD). It provides diagnostic tools for RDD by
 comparing results with those from MIRDD, as proposed in Takahashi (2023)
-<doi:10.1080/03610918.2021.1960374>.
+<doi:10.1080/03610918.2021.1960374>. The package includes datasets from
+Takahashi (2023).
 
 %prep
 %setup -q -c -n %{packname}

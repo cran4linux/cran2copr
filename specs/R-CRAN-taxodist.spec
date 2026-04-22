@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxodist
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Taxonomic Distance and Phylogenetic Lineage Computation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-httr >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -31,6 +32,7 @@ Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Computes phylogenetic distances between any two taxa using hierarchical
@@ -39,9 +41,11 @@ lineage data retrieved from The Taxonomicon
 of all life based on Systema Naturae 2000 (Brands, 1989
 <http://taxonomicon.taxonomy.nl>). Given any two taxon names, retrieves
 their full lineages, identifies the most recent common ancestor (MRCA),
-and computes a dissimilarity index based on the depth of the most recent
-common ancestor. Supports individual distance queries, pairwise distance
-matrices, clade filtering, and lineage utilities.
+and computes a dissimilarity index based on lineage depth. Outputs native
+dist objects, enabling direct integration with the R statistical ecosystem
+for hierarchical clustering, principal coordinate analysis (PCoA), and
+multivariate ecological analyses. Supports individual distance queries,
+pairwise distance matrices, clade filtering, and lineage utilities.
 
 %prep
 %setup -q -c -n %{packname}

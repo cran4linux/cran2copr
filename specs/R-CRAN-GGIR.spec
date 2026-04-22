@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIR
-%global packver   3.3-4
+%global packver   3.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.4
+Version:          3.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -56,7 +56,7 @@ acceleration sensors as described in Migueles and colleagues (JMPB 2019),
 and van Hees and colleagues (JApplPhysiol 2014; PLoSONE 2015). The package
 has been developed and tested for binary data from 'GENEActiv'
 <https://activinsights.com/>, binary (.gt3x) and .csv-export data from
-'Actigraph' <https://theactigraph.com> devices, and binary (.cwa) and
+'Actigraph' <https://ametris.com/> devices, and binary (.cwa) and
 .csv-export data from 'Axivity' <https://axivity.com>. These devices are
 currently widely used in research on human daily physical activity.
 Further, the package can handle accelerometer data file from any other

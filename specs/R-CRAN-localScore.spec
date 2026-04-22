@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  localScore
-%global packver   2.0.3
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package for Sequence Analysis by Local Score
 
@@ -24,7 +24,8 @@ Requires:         R-utils
 %description
 Functionalities for calculating the local score and calculating
 statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
+given distribution (D. Robelin, S. Déjean, S. Mercier (2025)
+<doi:10.24072/pcjournal.650> ; S. Mercier and J.-J. Daudin (2001)
 <https://hal.science/hal-00714174/>) ; S. Karlin and S. Altschul (1990)
 <https://pmc.ncbi.nlm.nih.gov/articles/PMC53667/> ; S. Mercier, D. Cellier
 and F. Charlot (2003) <https://hal.science/hal-00937529v1/> ; A. Lagnoux,
