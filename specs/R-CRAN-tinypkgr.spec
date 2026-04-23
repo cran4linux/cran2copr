@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rtematres
-%global packver   0.2
+%global packname  tinypkgr
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The rtematres API package
+Summary:          Minimal R Package Development Utilities
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-gdata 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-gdata 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-curl 
 
 %description
-Exploit controlled vocabularies organized on tematres servers.
+Lightweight wrappers around 'R CMD INSTALL', 'R CMD check', 'R CMD build',
+'win-builder' uploads, and 'CRAN' submission. Provides functions for
+installing, loading, checking, building, and submitting R packages with
+minimal dependencies (only 'curl' for uploads). Background on R package
+development is in Wickham and Bryan (2023, ISBN:9781098134945), "Writing R
+Extensions" <https://cran.r-project.org/doc/manuals/R-exts.html>, and the
+'CRAN' Repository Policy
+<https://cran.r-project.org/web/packages/policies.html>.
 
 %prep
 %setup -q -c -n %{packname}

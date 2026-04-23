@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  processx
-%global packver   3.8.7
+%global packver   3.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.7
+Version:          3.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Execute and Control System Processes
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-ps >= 1.2.0
+BuildRequires:    R-CRAN-ps >= 1.9.3
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ps >= 1.2.0
+Requires:         R-CRAN-ps >= 1.9.3
 Requires:         R-CRAN-R6 
 Requires:         R-utils 
 

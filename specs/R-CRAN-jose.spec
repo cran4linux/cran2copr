@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jose
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          JavaScript Object Signing and Encryption
 
@@ -28,8 +28,8 @@ Signatures (JWS, rfc7515) and encode/decode JSON Web Tokens (JWT, rfc7519)
 <https://datatracker.ietf.org/wg/jose/documents/>. These standards provide
 modern signing and encryption formats that are natively supported by
 browsers via the JavaScript WebCryptoAPI
-<https://www.w3.org/TR/WebCryptoAPI/#jose>, and used by services like
-OAuth 2.0, LetsEncrypt, and Github Apps.
+<https://www.w3.org/TR/webcrypto/#jose>, and used by services like OAuth
+2.0, LetsEncrypt, and Github Apps.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  archeofrag
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis in Archaeology from Refitting Fragments
 
@@ -31,8 +31,8 @@ Requires:         R-methods
 Requires:         R-utils 
 
 %description
-Methods to analyse spatial units in archaeology from the relationships
-between refitting fragmented objects scattered in these units (e.g.
+Methods to analyse spatial units in archaeology from the refitting
+relationships between fragments of objects scattered in these units (e.g.
 stratigraphic layers). Graphs are used to model archaeological
 observations. The package is mainly based on the 'igraph' package for
 graph analysis. Functions can: 1) create, manipulate, visualise, and

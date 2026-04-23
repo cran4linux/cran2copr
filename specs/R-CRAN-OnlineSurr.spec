@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OnlineSurr
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Surrogate Evaluation for Jointly Longitudinal Outcome and Surrogate
 
@@ -38,11 +38,12 @@ Requires:         R-CRAN-Rdpack
 
 %description
 Tools for surrogate evaluation in longitudinal studies using state-space
-models. The package estimates treatment effects over time with and without
-adjustment for surrogate information, summarizes the proportion of
-treatment effect explained by a longitudinal surrogate, quantifies
-uncertainty via bootstrap resampling, and provides plotting and summary
-utilities for fitted models.
+models as proposed in Santos Jr. and Parast
+(2026)<doi:10.48550/arXiv.2604.12882>. The package estimates treatment
+effects over time with and without adjustment for surrogate information,
+summarizes the proportion of treatment effect explained by a longitudinal
+surrogate, quantifies uncertainty via bootstrap resampling, and provides
+plotting and summary utilities for fitted models.
 
 %prep
 %setup -q -c -n %{packname}

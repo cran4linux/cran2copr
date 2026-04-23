@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  utsf
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate Time Series Forecasting
 
@@ -27,6 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-vctsfr 
+BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-Cubist 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-forecast 
@@ -37,6 +38,7 @@ Requires:         R-methods
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-vctsfr 
+Requires:         R-CRAN-xgboost 
 
 %description
 An engine for univariate time series forecasting using different

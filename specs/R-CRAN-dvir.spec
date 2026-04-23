@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dvir
-%global packver   3.3.0
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disaster Victim Identification
 
@@ -14,23 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.6.0
-BuildRequires:    R-CRAN-forrel >= 1.5.2
-BuildRequires:    R-CRAN-pedprobr >= 0.8.0
-BuildRequires:    R-CRAN-verbalisr >= 0.7.1
+BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-forrel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-pedFamilias 
+BuildRequires:    R-CRAN-pedprobr 
 BuildRequires:    R-CRAN-ribd 
-Requires:         R-CRAN-pedtools >= 2.6.0
-Requires:         R-CRAN-forrel >= 1.5.2
-Requires:         R-CRAN-pedprobr >= 0.8.0
-Requires:         R-CRAN-verbalisr >= 0.7.1
+BuildRequires:    R-CRAN-verbalisr 
+Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-forrel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-pedFamilias 
+Requires:         R-CRAN-pedprobr 
 Requires:         R-CRAN-ribd 
+Requires:         R-CRAN-verbalisr 
 
 %description
 Joint DNA-based disaster victim identification (DVI), as described in

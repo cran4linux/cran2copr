@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vartest
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests for Variance Homogeneity
 
@@ -20,13 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-SuppDists 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-PearsonDS 
 Requires:         R-stats 
 Requires:         R-CRAN-SuppDists 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-PearsonDS 
 
 %description
-Performs 20 omnibus tests for testing the composite hypothesis of variance
-homogeneity.
+Performs 18 omnibus tests yielding a total of 28 distinct methodological
+variations for testing the composite hypothesis of variance homogeneity.
 
 %prep
 %setup -q -c -n %{packname}

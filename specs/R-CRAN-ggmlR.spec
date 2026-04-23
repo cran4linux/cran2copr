@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmlR
-%global packver   0.7.5
+%global packver   0.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.7.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'GGML' Tensor Operations for Machine Learning
 
@@ -19,7 +19,9 @@ BuildRequires:    vulkan-loader-devel
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-R6 
 
 %description
 Provides 'R' bindings to the 'GGML' tensor library for machine learning,

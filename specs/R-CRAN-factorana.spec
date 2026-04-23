@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamlss.demo
-%global packver   4.3-3
+%global packname  factorana
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demos for GAMLSS
+Summary:          Factor Model Estimation with Latent Variables
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.4.0
-Requires:         R-core >= 2.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rpanel >= 1.1.1
-BuildRequires:    R-CRAN-gamlss.dist 
-BuildRequires:    R-CRAN-gamlss.tr 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-rpanel >= 1.1.1
-Requires:         R-CRAN-gamlss.dist 
-Requires:         R-CRAN-gamlss.tr 
-Requires:         R-tcltk 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nnet 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-grDevices 
+Requires:         R-utils 
 
 %description
-Demos for smoothing and gamlss.family distributions.
+A flexible framework for estimating factor models with multiple latent
+variables. Supports linear, probit, ordered probit, and multinomial logit
+model components. Features include multi-stage estimation, automatic
+parameter initialization, analytical gradients and Hessians, and parallel
+estimation. Methods are described in Heckman, Humphries, and Veramendi
+(2016) <doi:10.1016/j.jeconom.2015.12.001>, Heckman, Humphries, and
+Veramendi (2018) <doi:10.1086/698760>, and Humphries, Joensen, and
+Veramendi (2024) <doi:10.1257/pandp.20241026>.
 
 %prep
 %setup -q -c -n %{packname}

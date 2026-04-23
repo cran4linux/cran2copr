@@ -1,34 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyLP
-%global packver   0.1-7
+%global packname  bunddev
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Linear Programming
+Summary:          Discover and Call 'Bund.dev' APIs
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ROI 
-BuildRequires:    R-CRAN-FuzzyNumbers 
-BuildRequires:    R-CRAN-ROI.plugin.glpk 
-Requires:         R-CRAN-ROI 
-Requires:         R-CRAN-FuzzyNumbers 
-Requires:         R-CRAN-ROI.plugin.glpk 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yaml 
 
 %description
-Provides methods to solve Fuzzy Linear Programming Problems with fuzzy
-constraints (following different approaches proposed by Verdegay,
-Zimmermann, Werners and Tanaka), fuzzy costs, and fuzzy technological
-matrix.
+Provides a registry of APIs listed on <https://bund.dev> and a core
+'OpenAPI' client layer to explore specs and perform requests. Adapter
+helpers return tidy data frames for supported APIs, with optional response
+caching and rate limiting guidance.
 
 %prep
 %setup -q -c -n %{packname}

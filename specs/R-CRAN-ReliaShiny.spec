@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReliaShiny
-%global packver   0.4.1
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Shiny' App for Reliability Analysis
 
@@ -20,14 +20,18 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ReliaGrowR 
 BuildRequires:    R-CRAN-ReliaPlotR 
+BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-WeibullR 
+BuildRequires:    R-CRAN-WeibullR.ALT 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyWidgets 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ReliaGrowR 
 Requires:         R-CRAN-ReliaPlotR 
+Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-WeibullR 
+Requires:         R-CRAN-WeibullR.ALT 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyWidgets 

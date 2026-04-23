@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDSim
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulating Climate Data for Research and Modelling
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-trend 
+BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-readr 
@@ -27,6 +29,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-trend 
+Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-readr 
@@ -43,7 +47,7 @@ Generate synthetic station-based monthly climate time-series including
 temperature and rainfall, export to Network Common Data Form (NetCDF), and
 provide visualization helpers for climate workflows. The approach is
 inspired by statistical weather generator concepts described in Wilks
-(1992) <doi:10.1016/S0168-1923(99)00037-4> and Richardson (1981)
+(1999) <doi:10.1016/S0168-1923(99)00037-4> and Richardson (1981)
 <doi:10.1029/WR017i001p00182>.
 
 %prep

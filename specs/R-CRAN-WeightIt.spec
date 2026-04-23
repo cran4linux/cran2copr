@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeightIt
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighting for Covariate Balance in Observational Studies
 
@@ -19,16 +19,18 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cobalt >= 4.6.1
 BuildRequires:    R-CRAN-cli >= 3.6.5
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-arg >= 0.1.0
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-cobalt >= 4.6.1
 Requires:         R-CRAN-cli >= 3.6.5
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-arg >= 0.1.0
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-generics 
 Requires:         R-utils 
@@ -45,8 +47,8 @@ interfacing directly with the 'cobalt' package. Methods for estimating
 weighted regression models that take into account uncertainty in the
 estimation of the weights via M-estimation or bootstrapping are available.
 See the vignette "Installing Supporting Packages" for instructions on how
-to install any package 'WeightIt' uses, including those that may not be on
-CRAN.
+to install any optional package 'WeightIt' uses, including those that may
+not be on CRAN.
 
 %prep
 %setup -q -c -n %{packname}

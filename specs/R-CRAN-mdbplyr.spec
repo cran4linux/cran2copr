@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamlss.foreach
-%global packver   1.1-6
+%global packname  mdbplyr
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Computations for Distributional Regression
+Summary:          A Native Lazy Analytical Backend for MongoDB
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.2.1
-Requires:         R-core >= 2.2.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gamlss 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gamlss.data 
-BuildRequires:    R-CRAN-gamlss.dist 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-gamlss 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-gamlss.data 
-Requires:         R-CRAN-gamlss.dist 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Computational intensive calculations for Generalized Additive Models for
-Location Scale and Shape, <doi:10.1111/j.1467-9876.2005.00510.x>.
+Provides a disciplined, lazy subset of 'dplyr' semantics for MongoDB
+aggregation pipelines. Queries remain lazy until collect() and compile
+into MongoDB-native aggregation stages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggseg3d
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive 3D Brain Atlas Visualization
 
@@ -43,8 +43,8 @@ Plot brain atlases as interactive 3D meshes using 'Three.js' via
 'htmlwidgets', or render publication-quality static images through 'rgl'
 and 'rayshader'. A pipe-friendly API lets you map data onto brain regions,
 control camera angles, toggle region edges, overlay glass brains, and
-snapshot or ray-trace the result.  Additional atlases are available
-through the 'ggsegverse' r-universe.  Mowinckel & Vidal-Piñeiro (2020)
+snapshot or ray-trace the result. Additional atlases are available through
+the 'ggsegverse' r-universe. Mowinckel & Vidal-Piñeiro (2020)
 <doi:10.1177/2515245920928009>.
 
 %prep

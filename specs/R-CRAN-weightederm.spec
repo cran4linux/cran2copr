@@ -1,26 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rFerns
-%global packver   5.0.0
+%global __requires_exclude ^libmpi
+%global packname  weightederm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Ferns Classifier
+Summary:          Weighted Empirical Risk Minimization for Changepoint Regression
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate >= 1.28
+Requires:         R-CRAN-reticulate >= 1.28
 
 %description
-Provides the random ferns classifier by Ozuysal, Calonder, Lepetit and Fua
-(2009) <doi:10.1109/TPAMI.2009.23>, modified for generic and multi-label
-classification and featuring OOB error approximation and importance
-measure as introduced in Kursa (2014) <doi:10.18637/jss.v061.i10>.
+R interface to the 'weightederm' package for 'Python', which provides
+'scikit-learn'-style estimators for offline change point regression (data
+segmentation) via weighted empirical risk minimization. Supports
+least-squares, Huber, and logistic losses with fixed or cross-validated
+numbers of change points. Wraps 'Python' via 'reticulate'. Arpino and
+Venkataramanan (2026) <doi:10.48550/arXiv.2604.11746>.
 
 %prep
 %setup -q -c -n %{packname}

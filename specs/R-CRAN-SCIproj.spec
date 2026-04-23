@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCIproj
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates a Scientific Project Skeleton as an R Package
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-usethis >= 2.0.0
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-usethis >= 2.0.0
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-cli 
 
 %description
 Provides a template for new research projects structured as an R
