@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  directlabels
-%global packver   2026.4.23
+%global packname  peticontrast
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.23
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Direct Labels for Multicolor Plots
+Summary:          Professional Contrast Coding for OLS Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grid >= 3.0.0
-BuildRequires:    R-CRAN-quadprog 
-Requires:         R-grid >= 3.0.0
-Requires:         R-CRAN-quadprog 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-An extensible framework for automatically placing direct labels onto
-multicolor 'lattice' or 'ggplot2' plots. Label positions are described
-using Positioning Methods which can be re-used across several different
-plots. There are heuristics for examining "trellis" and "ggplot" objects
-and inferring an appropriate Positioning Method.
+Automates sum coding (also known as effect coding) for Ordinary Least
+Squares (OLS) regression models. This approach is specifically designed to
+handle seasonal time series and categorical variables by comparing each
+group to the grand mean, rather than a single baseline category. This
+ensures that the intercept represents the unweighted grand mean of the
+dependent variable. For a comprehensive overview of contrast coding
+systems, see the UCLA Advanced Research Computing documentation (2021)
+<https://stats.oarc.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/>.
 
 %prep
 %setup -q -c -n %{packname}

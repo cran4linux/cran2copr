@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggguides
-%global packver   1.1.6
+%global packname  SurprisalAnalysis
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplified Legend and Guide Alignment for 'ggplot2'
+Summary:          Information Theoretic Analysis of Gene Expression Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-matlib 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-CRAN-matlib 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-DT 
 
 %description
-Provides one-liner functions for common legend and guide operations in
-'ggplot2'. Simplifies legend positioning, styling, wrapping, and
-collection across multi-panel plots created with 'patchwork' or 'cowplot'.
+Implements Surprisal analysis for gene expression data such as RNA-seq or
+microarray experiments. Surprisal analysis is an information-theoretic
+method that decomposes gene expression data into a baseline state and
+constraint-associated deviations, capturing coordinated gene expression
+patterns under different biological conditions. References:
+Kravchenko-Balasha N. et al. (2014) <doi:10.1371/journal.pone.0108549>.
+Zadran S. et al. (2014) <doi:10.1073/pnas.1414714111>. Su Y. et al. (2019)
+<doi:10.1371/journal.pcbi.1007034>. Bogaert K. A. et al. (2018)
+<doi:10.1371/journal.pone.0195142>.
 
 %prep
 %setup -q -c -n %{packname}

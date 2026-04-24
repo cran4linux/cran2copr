@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidymodels
-%global packver   1.4.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'Tidymodels' Packages
 
@@ -17,47 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.5
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
-BuildRequires:    R-CRAN-tune >= 2.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
+BuildRequires:    R-CRAN-cli >= 3.6.6
+BuildRequires:    R-CRAN-tune >= 2.1.0
 BuildRequires:    R-CRAN-modeldata >= 1.5.1
-BuildRequires:    R-CRAN-dials >= 1.4.2
-BuildRequires:    R-CRAN-hardhat >= 1.4.2
-BuildRequires:    R-CRAN-parsnip >= 1.3.3
-BuildRequires:    R-CRAN-yardstick >= 1.3.2
-BuildRequires:    R-CRAN-recipes >= 1.3.1
-BuildRequires:    R-CRAN-rsample >= 1.3.1
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-parsnip >= 1.5.0
+BuildRequires:    R-CRAN-dials >= 1.4.3
+BuildRequires:    R-CRAN-hardhat >= 1.4.3
+BuildRequires:    R-CRAN-yardstick >= 1.4.0
+BuildRequires:    R-CRAN-recipes >= 1.3.2
+BuildRequires:    R-CRAN-rsample >= 1.3.2
+BuildRequires:    R-CRAN-tidyr >= 1.3.2
 BuildRequires:    R-CRAN-workflows >= 1.3.0
+BuildRequires:    R-CRAN-purrr >= 1.2.2
+BuildRequires:    R-CRAN-dplyr >= 1.2.1
 BuildRequires:    R-CRAN-conflicted >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 1.1.6
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.2.0
 BuildRequires:    R-CRAN-workflowsets >= 1.1.1
-BuildRequires:    R-CRAN-purrr >= 1.1.0
-BuildRequires:    R-CRAN-broom >= 1.0.9
-BuildRequires:    R-CRAN-infer >= 1.0.9
-BuildRequires:    R-CRAN-rstudioapi >= 0.17.1
+BuildRequires:    R-CRAN-infer >= 1.1.0
+BuildRequires:    R-CRAN-broom >= 1.0.12
+BuildRequires:    R-CRAN-rstudioapi >= 0.18.0
 BuildRequires:    R-CRAN-tailor >= 0.1.0
-Requires:         R-CRAN-cli >= 3.6.5
-Requires:         R-CRAN-ggplot2 >= 3.5.2
-Requires:         R-CRAN-tune >= 2.0.0
+Requires:         R-CRAN-ggplot2 >= 4.0.3
+Requires:         R-CRAN-cli >= 3.6.6
+Requires:         R-CRAN-tune >= 2.1.0
 Requires:         R-CRAN-modeldata >= 1.5.1
-Requires:         R-CRAN-dials >= 1.4.2
-Requires:         R-CRAN-hardhat >= 1.4.2
-Requires:         R-CRAN-parsnip >= 1.3.3
-Requires:         R-CRAN-yardstick >= 1.3.2
-Requires:         R-CRAN-recipes >= 1.3.1
-Requires:         R-CRAN-rsample >= 1.3.1
-Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-parsnip >= 1.5.0
+Requires:         R-CRAN-dials >= 1.4.3
+Requires:         R-CRAN-hardhat >= 1.4.3
+Requires:         R-CRAN-yardstick >= 1.4.0
+Requires:         R-CRAN-recipes >= 1.3.2
+Requires:         R-CRAN-rsample >= 1.3.2
+Requires:         R-CRAN-tidyr >= 1.3.2
 Requires:         R-CRAN-workflows >= 1.3.0
+Requires:         R-CRAN-purrr >= 1.2.2
+Requires:         R-CRAN-dplyr >= 1.2.1
 Requires:         R-CRAN-conflicted >= 1.2.0
-Requires:         R-CRAN-rlang >= 1.1.6
-Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.2.0
 Requires:         R-CRAN-workflowsets >= 1.1.1
-Requires:         R-CRAN-purrr >= 1.1.0
-Requires:         R-CRAN-broom >= 1.0.9
-Requires:         R-CRAN-infer >= 1.0.9
-Requires:         R-CRAN-rstudioapi >= 0.17.1
+Requires:         R-CRAN-infer >= 1.1.0
+Requires:         R-CRAN-broom >= 1.0.12
+Requires:         R-CRAN-rstudioapi >= 0.18.0
 Requires:         R-CRAN-tailor >= 0.1.0
 
 %description

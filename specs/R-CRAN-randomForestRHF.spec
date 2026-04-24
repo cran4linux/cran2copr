@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  directlabels
-%global packver   2026.4.23
+%global packname  randomForestRHF
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.23
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Direct Labels for Multicolor Plots
+Summary:          Random Hazard Forests
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-grid >= 3.0.0
-BuildRequires:    R-CRAN-quadprog 
-Requires:         R-grid >= 3.0.0
-Requires:         R-CRAN-quadprog 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-randomForestSRC >= 3.3.1
+BuildRequires:    R-CRAN-varPro >= 3.0.0
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-randomForestSRC >= 3.3.1
+Requires:         R-CRAN-varPro >= 3.0.0
+Requires:         R-CRAN-survival 
 
 %description
-An extensible framework for automatically placing direct labels onto
-multicolor 'lattice' or 'ggplot2' plots. Label positions are described
-using Positioning Methods which can be re-used across several different
-plots. There are heuristics for examining "trellis" and "ggplot" objects
-and inferring an appropriate Positioning Method.
+Random Hazard Forests (RHF) extend Random Survival Forests (RSF) by
+directly estimating the hazard function and by accommodating
+time-dependent covariates through counting-process style inputs. The
+package fits tree ensembles for dynamic survival prediction, returning
+hazard, cumulative hazard, integrated hazard, and related performance
+summaries for training and test data. The methods build on Random Survival
+Forests described by Ishwaran et al. (2008) <doi:10.1214/08-AOAS169> and
+on nonparametric hazard modeling with time-dependent covariates described
+by Lee et al. (2021) <doi:10.1214/20-AOS2028>.
 
 %prep
 %setup -q -c -n %{packname}

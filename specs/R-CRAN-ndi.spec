@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ndi
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neighborhood Deprivation Indices
 
@@ -52,7 +52,7 @@ disparity in the United States. Some indices are considered "spatial"
 because they consider the values of neighboring (i.e., adjacent) census
 geographies in their computation, while other indices are "aspatial"
 because they only consider the value within each census geography. Two
-types of aspatial neighborhood deprivation indices (NDI) are available:
+types of aspatial neighborhood deprivation indices (NDI) are available,
 including: (1) based on Messer et al. (2006)
 <doi:10.1007/s11524-006-9094-x> and (2) based on Andrews et al. (2020)
 <doi:10.1080/17445647.2020.1750066> and Slotman et al. (2022)

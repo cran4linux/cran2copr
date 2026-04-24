@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  directlabels
-%global packver   2026.4.23
+%global packname  InfluenceBorrowing
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.23
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Direct Labels for Multicolor Plots
+Summary:          Adaptive Influence-Based Borrowing for Hybrid Control Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grid >= 3.0.0
-BuildRequires:    R-CRAN-quadprog 
-Requires:         R-grid >= 3.0.0
-Requires:         R-CRAN-quadprog 
+BuildRequires:    R-CRAN-KRLS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-KRLS 
+Requires:         R-stats 
 
 %description
-An extensible framework for automatically placing direct labels onto
-multicolor 'lattice' or 'ggplot2' plots. Label positions are described
-using Positioning Methods which can be re-used across several different
-plots. There are heuristics for examining "trellis" and "ggplot" objects
-and inferring an appropriate Positioning Method.
+Implements the adaptive influence-based borrowing framework proposed by
+Qinwei Yang, Jingyi Li, Peng Wu, and Shu Yang (2026+) in the paper
+``Improving Treatment Effect Estimation in Trials through Adaptive
+Borrowing of External Controls" <doi:10.48550/arXiv.2604.13973> for
+augmenting Randomized Controlled Trials (RCTs) with External Control (EC)
+data. This package provides a comprehensive workflow to: (1) quantify the
+comparability of external control samples using influence scores
+approximated via the influence function of the M-estimator; (2) construct
+candidate borrowing subsets and select the optimal subset that minimizes
+the Mean Squared Error (MSE); and (3) calibrate systematic differences in
+external outcomes using R-learner methods implemented via Ordinary Least
+Squares or Kernel Ridge Regression.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  directlabels
-%global packver   2026.4.23
+%global packname  rethinker
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.23
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Direct Labels for Multicolor Plots
+Summary:          'RethinkDB' Client
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grid >= 3.0.0
-BuildRequires:    R-CRAN-quadprog 
-Requires:         R-grid >= 3.0.0
-Requires:         R-CRAN-quadprog 
+BuildRequires:    R-CRAN-rjson 
+Requires:         R-CRAN-rjson 
 
 %description
-An extensible framework for automatically placing direct labels onto
-multicolor 'lattice' or 'ggplot2' plots. Label positions are described
-using Positioning Methods which can be re-used across several different
-plots. There are heuristics for examining "trellis" and "ggplot" objects
-and inferring an appropriate Positioning Method.
+A full-featured 'RethinkDB' <https://rethinkdb.com/> client for R; allows
+users to store JSON-serialised data in a robust, distributed no-SQL
+system, use rich queries and react to data changes in real-time.
 
 %prep
 %setup -q -c -n %{packname}

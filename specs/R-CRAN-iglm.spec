@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iglm
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression under Interference in Connected Populations
 
@@ -26,6 +26,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ragg 
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-R6 
@@ -36,6 +37,7 @@ Requires:         R-parallel
 Requires:         R-methods 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ragg 
 
 %description
 An implementation of generalized linear models (GLMs) for studying

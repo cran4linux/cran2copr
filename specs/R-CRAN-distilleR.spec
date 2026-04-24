@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  directlabels
-%global packver   2026.4.23
+%global packname  distilleR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.23
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Direct Labels for Multicolor Plots
+Summary:          A Wrap Around the 'DistillerSR' APIs
 
-License:          GPL-3
+License:          EUPL-1.2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-grid >= 3.0.0
-BuildRequires:    R-CRAN-quadprog 
-Requires:         R-grid >= 3.0.0
-Requires:         R-CRAN-quadprog 
+BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-tibble >= 3.3.0
+BuildRequires:    R-CRAN-checkmate >= 2.3.1
+BuildRequires:    R-CRAN-readr >= 2.1.5
+BuildRequires:    R-CRAN-jsonlite >= 1.8.7
+BuildRequires:    R-CRAN-glue >= 1.7.0
+BuildRequires:    R-CRAN-readxl >= 1.4.3
+BuildRequires:    R-CRAN-httr2 >= 1.2.1
+Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-tibble >= 3.3.0
+Requires:         R-CRAN-checkmate >= 2.3.1
+Requires:         R-CRAN-readr >= 2.1.5
+Requires:         R-CRAN-jsonlite >= 1.8.7
+Requires:         R-CRAN-glue >= 1.7.0
+Requires:         R-CRAN-readxl >= 1.4.3
+Requires:         R-CRAN-httr2 >= 1.2.1
 
 %description
-An extensible framework for automatically placing direct labels onto
-multicolor 'lattice' or 'ggplot2' plots. Label positions are described
-using Positioning Methods which can be re-used across several different
-plots. There are heuristics for examining "trellis" and "ggplot" objects
-and inferring an appropriate Positioning Method.
+Interface to 'DistillerSR' APIs. See
+<https://apidocs.evidencepartners.com/> for more details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clustermq
-%global packver   0.9.9
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluate Function Calls on HPC Schedulers (LSF, SGE, SLURM, PBS/Torque)
+Summary:          Evaluate Function Calls on HPC Schedulers (SLURM, LSF, SGE, GCS, OCS, PBS, Torque)
 
 License:          Apache License (== 2.0) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

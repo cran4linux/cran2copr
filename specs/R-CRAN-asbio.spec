@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asbio
-%global packver   1.13
+%global packver   1.13-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13
+Version:          1.13.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Statistical Tools for Biologists
 
@@ -52,8 +52,8 @@ Requires:         R-CRAN-tkrplot
 
 %description
 Contains functions from: Aho, K. (2014) Foundational and Applied
-Statistics for Biologists using R.  CRC/Taylor and Francis, Boca Raton,
-FL, ISBN: 978-1-4398-7338-0.
+Statistics for Biologists using R. CRC/Taylor and Francis, Boca Raton, FL,
+ISBN: 978-1-4398-7338-0.
 
 %prep
 %setup -q -c -n %{packname}

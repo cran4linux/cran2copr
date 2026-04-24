@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tlsR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection and Spatial Analysis of Tertiary Lymphoid Structures
 
@@ -24,6 +24,9 @@ BuildRequires:    R-CRAN-fastICA >= 1.2.3
 BuildRequires:    R-CRAN-FNN >= 1.1.3
 BuildRequires:    R-CRAN-dbscan >= 1.1.10
 BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-spatstat.explore >= 3.0.0
@@ -32,6 +35,9 @@ Requires:         R-CRAN-fastICA >= 1.2.3
 Requires:         R-CRAN-FNN >= 1.1.3
 Requires:         R-CRAN-dbscan >= 1.1.10
 Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-methods 
 
 %description

@@ -1,55 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesERtools
-%global packver   0.2.5
+%global packname  DownBallotR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Exposure-Response Analysis Tools
+Summary:          Access Federal, State, and Local Election Data
 
-License:          Apache License 2.0
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstanemax >= 0.1.9
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-tidybayes 
-BuildRequires:    R-CRAN-posterior 
-Requires:         R-CRAN-rstanemax >= 0.1.9
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-tidybayes 
-Requires:         R-CRAN-posterior 
 
 %description
-Suite of tools that facilitate exposure-response analysis using Bayesian
-methods. The package provides a streamlined workflow for fitting types of
-models that are commonly used in exposure-response analysis - linear and
-Emax for continuous endpoints, logistic linear and logistic Emax for
-binary endpoints, as well as performing simulation and visualization.
-Learn more about the workflow at
-<https://genentech.github.io/BayesERbook/>.
+Provides an 'R' interface for downloading and standardizing election data
+to support research workflows. Election results are published by states
+through heterogeneous and often dynamic web interfaces that are not
+consistently accessible through existing 'R' packages or APIs. To address
+this, the package wraps state-specific 'Python' web scrapers through the
+'reticulate' package, enabling access to dynamic content while exposing
+consistent 'R' functions for querying election availability and results
+across jurisdictions. The package is intended for responsible use and
+relies on publicly accessible election result pages.
 
 %prep
 %setup -q -c -n %{packname}

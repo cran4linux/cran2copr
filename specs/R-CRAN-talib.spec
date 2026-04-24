@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  talib
-%global packver   0.9-0
+%global packver   0.9-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'TA-Lib' for Technical Analysis and Candlestick Patterns
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 
 %description
-Interface to the 'TA-Lib' (Technical Analysis Library) C library,
+Interface to the 'TA-Lib' (Technical Analysis Library) 'C' library,
 providing access to 150+ indicators (e.g. Average Directional Movement
 Index (ADX), Moving Average Convergence Divergence (MACD), Relative
 Strength Index (RSI), Stochastic Oscillator, Bollinger Bands), candlestick
 pattern recognition, and rolling-window utilities. Core computations are
-implemented in C for fast Open-High-Low-Close-Volume (OHLCV) time-series
+implemented in 'C' for fast Open-High-Low-Close-Volume (OHLCV) time-series
 feature engineering and rule-based signal generation, with optional
 interactive visualization via 'plotly'.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ultrapolaRplot
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Ultrasound Tongue Traces
 
@@ -14,27 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rjson 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Cairo 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggsignif 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rjson 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Cairo 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggsignif 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-vegan 
 
 %description
 Plots traced ultrasound tongue imaging data according to a polar
@@ -42,12 +54,16 @@ coordinate system. There is currently support for plotting means and
 standard deviations of each category's trace; Smoothing Splines Analysis
 of Variance (SSANOVA) could be implemented as well.  The origin of the
 polar coordinates may be defined manually or automatically determined
-based on different algorithms. Currently 'ultrapolaRplot' supports
-ultrasound tongue imaging trace data from 'UltraTrace'
-(<https://github.com/SwatPhonLab/UltraTrace>). 'UltraTrace' is capable of
-importing data from Articulate Instruments AAA. 'read_textgrid.R' is
-required for opening TextGrids to determine category and alignment
-information of ultrasound traces.
+based on different algorithms. Points for each category can be split into
+two groups (anterior and posterior) at the point of maximum curvature of
+each trace. User can specify rays to intersect various parts of the
+tongue; intersections along these rays serve as input for a pairwise
+t-test to measure significant contrasts between segments. Currently
+'ultrapolaRplot' supports ultrasound tongue imaging trace data from
+'UltraTrace' (<https://github.com/SwatPhonLab/UltraTrace>). 'UltraTrace'
+is capable of importing data from Articulate Instruments AAA.
+'read_textgrid.R' is required for opening TextGrids to determine category
+and alignment information of ultrasound traces.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  precondition
-%global packver   0.1.0
+%global packname  dynasim
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Precondition, Postcondition, and Sanity Checks
+Summary:          Dynamics Similarity Coefficient
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 1.0.6
-Requires:         R-CRAN-rlang >= 1.0.6
+BuildArch:        noarch
 
 %description
-Implements fast, safe, and customizable assertions routines, which can be
-used in place of base::stopifnot().
+Implements the quantile-graph based Dynamics Similarity Coefficient (DSC)
+for comparing intrinsic dynamics of time series.
 
 %prep
 %setup -q -c -n %{packname}

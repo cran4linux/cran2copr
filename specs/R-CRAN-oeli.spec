@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.7.5
+%global packver   0.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.7.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Some Utilities for Developing Data Science Software
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-benchmarkme 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-hexSticker 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-SimMultiCorrData 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
@@ -49,7 +49,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-hexSticker 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-SimMultiCorrData 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 

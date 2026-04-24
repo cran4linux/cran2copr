@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebdm
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Bivariate Dependency from Marginal Data
 
@@ -23,13 +23,11 @@ Requires:         R-stats
 %description
 Provides statistical methods for estimating bivariate dependency
 (correlation) from marginal summary statistics across multiple studies.
-The package supports three modules: (1) bivariate correlation estimation
-for binary outcomes, (2) bivariate correlation estimation for continuous
-outcomes, and (3) estimation of component-wise means and variances under a
-conditional two-component Gaussian mixture model for a continuous variable
-stratified by a binary class label. These methods enable
-privacy-preserving joint estimation when individual-level data are
-unavailable. The approaches are detailed in Shang, Tsao, and Zhang (2025a)
+The package supports three modules of bivariate joint distribution
+estimated from marginal summary data: (1) two binary, (2) two continuous,
+(3) one binary and one continuous These methods enable privacy-preserving
+joint estimation when individual-level data are unavailable. The
+approaches are detailed in Shang, Tsao, and Zhang (2025a)
 <doi:10.48550/arXiv.2505.03995> and Shang, Tsao, and Zhang (2025b)
 <doi:10.48550/arXiv.2508.02057>.
 

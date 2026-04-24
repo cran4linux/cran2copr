@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  directlabels
-%global packver   2026.4.23
+%global packname  fdclassify
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.23
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Direct Labels for Multicolor Plots
+Summary:          Supervised Classification for Functional Data via Signed Depth
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-grid >= 3.0.0
-BuildRequires:    R-CRAN-quadprog 
-Requires:         R-grid >= 3.0.0
-Requires:         R-CRAN-quadprog 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-modeest 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-modeest 
 
 %description
-An extensible framework for automatically placing direct labels onto
-multicolor 'lattice' or 'ggplot2' plots. Label positions are described
-using Positioning Methods which can be re-used across several different
-plots. There are heuristics for examining "trellis" and "ggplot" objects
-and inferring an appropriate Positioning Method.
+Provides a suite of supervised classifiers for functional data based on
+the concept of signed depth. The core pipeline computes Fraiman-Muniz (FM)
+functional depth in either its Tukey or Simplicial variant, derives a
+signed depth by comparing each curve to a reference median curve via the
+signed distance integral, and feeds the resulting scalar summary into
+several classifiers: the k-Ranked Nearest Neighbour (k-RNN) rule, a
+moving-average smoother, a kernel-density Bayes rule, logistic regression
+on signed depth and distance to the mode, and a generalised additive model
+(GAM) classifier. Cross-validation routines for tuning the neighbourhood
+size k and parametric bootstrap confidence intervals are also included.
 
 %prep
 %setup -q -c -n %{packname}

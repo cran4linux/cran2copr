@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  directlabels
-%global packver   2026.4.23
+%global packname  khaos
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.23
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Direct Labels for Multicolor Plots
+Summary:          Bayesian Sparse Polynomial Chaos Expansion
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grid >= 3.0.0
-BuildRequires:    R-CRAN-quadprog 
-Requires:         R-grid >= 3.0.0
-Requires:         R-CRAN-quadprog 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-An extensible framework for automatically placing direct labels onto
-multicolor 'lattice' or 'ggplot2' plots. Label positions are described
-using Positioning Methods which can be re-used across several different
-plots. There are heuristics for examining "trellis" and "ggplot" objects
-and inferring an appropriate Positioning Method.
+Implements Bayesian polynomial chaos expansion methods for surrogate
+modeling, uncertainty quantification, and sensitivity analysis. Includes
+sparse regression-based approaches and adaptive Bayesian models based on
+reversible-jump Markov chain Monte Carlo. Optional screening and
+basis-enrichment strategies are provided to improve scalability in
+moderate to high dimensions.
 
 %prep
 %setup -q -c -n %{packname}
