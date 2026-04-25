@@ -1,47 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rilostat
-%global packver   2.5.0
+%global packname  eppoFindeR
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access and Manipulation of ILOSTAT Labour Statistics
+Summary:          Interface to the EPPO Database and Public APIs
 
-License:          BSD_2_clause + file LICENSE
+License:          EUPL-1.2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.5
 BuildRequires:    R-CRAN-tibble >= 3.3.0
-BuildRequires:    R-CRAN-haven >= 2.5.0
-BuildRequires:    R-CRAN-readr >= 2.1.5
-BuildRequires:    R-CRAN-stringr >= 1.5.2
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-checkmate >= 2.3.1
+BuildRequires:    R-CRAN-jsonlite >= 1.8.8
+BuildRequires:    R-CRAN-glue >= 1.7.0
+BuildRequires:    R-CRAN-httr2 >= 1.2.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-cli >= 3.6.5
 Requires:         R-CRAN-tibble >= 3.3.0
-Requires:         R-CRAN-haven >= 2.5.0
-Requires:         R-CRAN-readr >= 2.1.5
-Requires:         R-CRAN-stringr >= 1.5.2
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-checkmate >= 2.3.1
+Requires:         R-CRAN-jsonlite >= 1.8.8
+Requires:         R-CRAN-glue >= 1.7.0
+Requires:         R-CRAN-httr2 >= 1.2.1
 Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.2
 
 %description
-Provides functions to access and manipulate data from the ILOSTAT database
-<https://ilostat.ilo.org>, the International Labour Organization's
-repository of labour statistics. Supports bulk download of datasets,
-metadata retrieval, and tools for filtering, reshaping, and analysing
-data.
+Provides an interface to the public APIs of the European and Mediterranean
+Plant Protection Organization (EPPO) database. It enables users to
+retrieve EPPO data by accessing specific services and datasets. The
+package also includes utilities for data wrangling, including the
+integration of taxonomy with rank information. See
+<https://data.eppo.int/apis/> for more details.
 
 %prep
 %setup -q -c -n %{packname}

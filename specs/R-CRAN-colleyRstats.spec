@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colleyRstats
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Streamline Statistical Analysis and Reporting
 
@@ -14,15 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5.0
-Requires:         R-core >= 4.5.0
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-effectsize >= 1.0.1
-BuildRequires:    R-CRAN-ggpmisc >= 0.6.3
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
+BuildRequires:    R-CRAN-statsExpressions >= 2.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.2.1
+BuildRequires:    R-CRAN-effectsize >= 1.0.2
+BuildRequires:    R-CRAN-ggstatsplot >= 1.0.0
+BuildRequires:    R-CRAN-ggpmisc >= 0.7.0
 BuildRequires:    R-CRAN-report >= 0.6.3
-BuildRequires:    R-CRAN-ggstatsplot >= 0.13.4
 BuildRequires:    R-CRAN-ARTool >= 0.11.2
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-clipr 
@@ -41,12 +42,13 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-ggplot2 >= 4.0.1
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-effectsize >= 1.0.1
-Requires:         R-CRAN-ggpmisc >= 0.6.3
+Requires:         R-CRAN-ggplot2 >= 4.0.3
+Requires:         R-CRAN-statsExpressions >= 2.0.0
+Requires:         R-CRAN-dplyr >= 1.2.1
+Requires:         R-CRAN-effectsize >= 1.0.2
+Requires:         R-CRAN-ggstatsplot >= 1.0.0
+Requires:         R-CRAN-ggpmisc >= 0.7.0
 Requires:         R-CRAN-report >= 0.6.3
-Requires:         R-CRAN-ggstatsplot >= 0.13.4
 Requires:         R-CRAN-ARTool >= 0.11.2
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-clipr 

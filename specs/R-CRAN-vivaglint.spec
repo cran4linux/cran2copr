@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netropy
-%global packver   0.3.0
+%global packname  vivaglint
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Entropy Analysis of Network Data
+Summary:          Analysis Tools for 'Viva Glint' Survey Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-readr >= 2.0.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-purrr >= 0.3.0
+Requires:         R-CRAN-readr >= 2.0.0
+Requires:         R-CRAN-lubridate >= 1.7.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-purrr >= 0.3.0
 
 %description
-Statistical entropy analysis of network data as introduced by Frank and
-Shafie (2016) <doi:10.1177/0759106315615511>, and a in textbook which is
-in progress.
+Provides functions for importing, validating, and analyzing 'Viva Glint'
+survey data exports, with optional API-based import via the 'Microsoft
+Graph' API. Includes tools for data reshaping, question-level analysis,
+multi-cycle comparisons, organizational hierarchy analysis, factor
+analysis, and correlation analysis. Harman (1960, ISBN: 0226316513);
+Husser (2017) <doi:10.1002/9781118901731.iecrm0048>.
 
 %prep
 %setup -q -c -n %{packname}

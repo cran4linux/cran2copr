@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncar
-%global packver   0.6.0
+%global packname  cooccure
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Noncompartmental Analysis for Pharmacokinetic Report
+Summary:          Co-Occurrence Network Construction and Manipulation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NonCompart >= 0.7.0
-BuildRequires:    R-CRAN-rtf 
-Requires:         R-CRAN-NonCompart >= 0.7.0
-Requires:         R-CRAN-rtf 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Conduct a noncompartmental analysis with industrial strength. Some
-features are 1) CDISC SDTM terms 2) Automatic or manual slope selection 3)
-Supporting both 'linear-up linear-down' and 'linear-up log-down' method 4)
-Interval(partial) AUCs with 'linear' or 'log' interpolation method 5)
-Produce pdf, rtf, text report files. * Reference: Gabrielsson J, Weiner D.
-Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and
-Applications. 5th ed. 2016. (ISBN:9198299107).
+Constructs co-occurrence networks from several types of input data, such
+as delimited fields, long/bipartite tables, binary matrices, or wide
+sequences. Returns tidy edge data frames and supports optional scaling,
+splitting into several networks, thresholding, and subsetting. Provides
+eight similarity measures, including Jaccard, cosine, and association
+strength. Supports export to several network and file formats. Network
+construction and analysis methods follow Saqr, Lopez-Pernas, Conde, and
+Hernandez-Garcia (2024, <doi:10.1007/978-3-031-54464-4_15>).
 
 %prep
 %setup -q -c -n %{packname}

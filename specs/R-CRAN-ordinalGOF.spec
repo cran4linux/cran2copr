@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncar
-%global packver   0.6.0
+%global packname  ordinalGOF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Noncompartmental Analysis for Pharmacokinetic Report
+Summary:          Goodness-of-Fit Tests for Ordinal Regression Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NonCompart >= 0.7.0
-BuildRequires:    R-CRAN-rtf 
-Requires:         R-CRAN-NonCompart >= 0.7.0
-Requires:         R-CRAN-rtf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-VGAM 
 
 %description
-Conduct a noncompartmental analysis with industrial strength. Some
-features are 1) CDISC SDTM terms 2) Automatic or manual slope selection 3)
-Supporting both 'linear-up linear-down' and 'linear-up log-down' method 4)
-Interval(partial) AUCs with 'linear' or 'log' interpolation method 5)
-Produce pdf, rtf, text report files. * Reference: Gabrielsson J, Weiner D.
-Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and
-Applications. 5th ed. 2016. (ISBN:9198299107).
+Provides goodness-of-fit tests for ordinal regression models, including
+the Fagerland-Hosmer ordinal test, reproducing same output as 'Stata'.
+Supports polr(), vglm(), and binary glm() models. See Fagerland and Hosmer
+(2013) <doi:10.1002/sim.5645> and Fagerland and Hosmer (2017)
+<doi:10.1177/1536867X1701700308> for details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netropy
-%global packver   0.3.0
+%global packname  PSor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Entropy Analysis of Network Data
+Summary:          Semiparametric Principal Stratification Analysis Beyond Monotonicity
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geex 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geex 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Statistical entropy analysis of network data as introduced by Frank and
-Shafie (2016) <doi:10.1177/0759106315615511>, and a in textbook which is
-in progress.
+Estimates principal causal effects under principal stratification using a
+margin-free, conditional odds ratio sensitivity parameter. This framework
+unifies the monotonicity assumption and the counterfactual intermediate
+independence assumption, allowing for robust analysis when monotonicity
+may not hold. Computes point estimates, standard errors, and confidence
+intervals for conditionally doubly robust and debiased machine learning
+estimators. The methodological details are described in Tong, Kahan,
+Harhay, and Li (2025) <doi:10.48550/arXiv.2501.17514>.
 
 %prep
 %setup -q -c -n %{packname}

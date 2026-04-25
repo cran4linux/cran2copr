@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Select
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Determines Species Probabilities Based on Functional Traits
 
@@ -49,7 +49,7 @@ functional diversity and entropy simultaneously. This package can also be
 used to generate experimental assemblages to test the effects of
 community-level traits on community dynamics and ecosystem function. The
 method is based on theory discussed in Laughlin (2014, Ecology Letters)
-<doi:10.1111/ele.12288>.
+and Laughlin et al. (2018, Methods in Ecology and Evolution).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncar
-%global packver   0.6.0
+%global packname  qkiosk
+%global packver   0.2.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.2.31
 Release:          1%{?dist}%{?buildtag}
-Summary:          Noncompartmental Analysis for Pharmacokinetic Report
+Summary:          'QUANTkiosk' API Client
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NonCompart >= 0.7.0
-BuildRequires:    R-CRAN-rtf 
-Requires:         R-CRAN-NonCompart >= 0.7.0
-Requires:         R-CRAN-rtf 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-zoo 
 
 %description
-Conduct a noncompartmental analysis with industrial strength. Some
-features are 1) CDISC SDTM terms 2) Automatic or manual slope selection 3)
-Supporting both 'linear-up linear-down' and 'linear-up log-down' method 4)
-Interval(partial) AUCs with 'linear' or 'log' interpolation method 5)
-Produce pdf, rtf, text report files. * Reference: Gabrielsson J, Weiner D.
-Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and
-Applications. 5th ed. 2016. (ISBN:9198299107).
+Provide access to 'QUANTkiosk' platform of regulatory and corporate data
+relevant to financial markets including point-in-time fundamentals,
+ownership and symbology.
 
 %prep
 %setup -q -c -n %{packname}

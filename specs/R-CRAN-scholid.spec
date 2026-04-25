@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scholid
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Scholarly and Academic Identifiers
+Summary:          Scholarly and Academic Identifier Utilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,12 +19,13 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Tools for detecting, normalizing, classifying, and extracting scholarly
-identifier strings. The package provides lightweight, dependency-free
-helpers for common identifier systems such as DOIs, ORCID iDs, ISBNs,
-ISSNs, arXiv identifiers, and PubMed identifiers. Functions are designed
-to be vectorized, predictable, and suitable as low-level building blocks
-for other R packages and data workflows.
+Detects, normalizes, classifies, and extracts scholarly identifier
+strings. Provides lightweight, dependency-free helpers for common
+identifier systems such as DOIs, ORCID iDs, ISBNs, ISSNs, arXiv
+identifiers, and PubMed identifiers. Functions are vectorized,
+predictable, and suitable as low-level building blocks for other R
+packages and data workflows. For online lookup, conversion, metadata
+retrieval, and linked identifier discovery, see 'scholidonline'.
 
 %prep
 %setup -q -c -n %{packname}

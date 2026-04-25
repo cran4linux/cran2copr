@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncar
-%global packver   0.6.0
+%global packname  hotpatchR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Noncompartmental Analysis for Pharmacokinetic Report
+Summary:          Runtime Namespace Patching Utilities for R Packages
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NonCompart >= 0.7.0
-BuildRequires:    R-CRAN-rtf 
-Requires:         R-CRAN-NonCompart >= 0.7.0
-Requires:         R-CRAN-rtf 
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-testthat >= 3.0.0
 
 %description
-Conduct a noncompartmental analysis with industrial strength. Some
-features are 1) CDISC SDTM terms 2) Automatic or manual slope selection 3)
-Supporting both 'linear-up linear-down' and 'linear-up log-down' method 4)
-Interval(partial) AUCs with 'linear' or 'log' interpolation method 5)
-Produce pdf, rtf, text report files. * Reference: Gabrielsson J, Weiner D.
-Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and
-Applications. 5th ed. 2016. (ISBN:9198299107).
+Provides utilities for runtime hotpatching of locked R package namespaces.
+The package enables dynamic injection of function patches into sealed
+package environments without rebuilding or redeploying the package. This
+is particularly useful for legacy containerized workflows where package
+versions are frozen in place. The core functionality includes
+inject_patch() to inject patches into package namespaces, undo_patch() to
+restore original functions, apply_hotfix_file() to apply patches from
+external R scripts, and test_patched_dir() to run test suites against
+patched packages. The package implements namespace surgery techniques that
+allow internal callers to automatically see patched functions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncar
-%global packver   0.6.0
+%global packname  lfebd3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Noncompartmental Analysis for Pharmacokinetic Report
+Summary:          Generation and Analysis of Confounded and Fractional Factorial Block Designs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NonCompart >= 0.7.0
-BuildRequires:    R-CRAN-rtf 
-Requires:         R-CRAN-NonCompart >= 0.7.0
-Requires:         R-CRAN-rtf 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Conduct a noncompartmental analysis with industrial strength. Some
-features are 1) CDISC SDTM terms 2) Automatic or manual slope selection 3)
-Supporting both 'linear-up linear-down' and 'linear-up log-down' method 4)
-Interval(partial) AUCs with 'linear' or 'log' interpolation method 5)
-Produce pdf, rtf, text report files. * Reference: Gabrielsson J, Weiner D.
-Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and
-Applications. 5th ed. 2016. (ISBN:9198299107).
+Provides tools to generate and analyze 3-level linear factorial block
+designs, including complete factorial layouts, fractional factorial
+layouts, confounded factorial layouts, and design-characteristic
+summaries. The package includes utilities for recursive ternary
+construction, defining-contrast identification, alias/confounding
+summaries, incidence matrix construction, and design optimality
+diagnostics.The methodological framework follows foundational work on
+Gupta (1983) <doi:10.1111/j.2517-6161.1983.tb01253.x>. These methods
+assist in selecting, comparing, and studying factorial and fractional
+factorial block designs for large experimental situations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncar
-%global packver   0.6.0
+%global packname  npfseir
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Noncompartmental Analysis for Pharmacokinetic Report
+Summary:          Nested Particle Filter for Stochastic SEIR Epidemic Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NonCompart >= 0.7.0
-BuildRequires:    R-CRAN-rtf 
-Requires:         R-CRAN-NonCompart >= 0.7.0
-Requires:         R-CRAN-rtf 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Conduct a noncompartmental analysis with industrial strength. Some
-features are 1) CDISC SDTM terms 2) Automatic or manual slope selection 3)
-Supporting both 'linear-up linear-down' and 'linear-up log-down' method 4)
-Interval(partial) AUCs with 'linear' or 'log' interpolation method 5)
-Produce pdf, rtf, text report files. * Reference: Gabrielsson J, Weiner D.
-Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and
-Applications. 5th ed. 2016. (ISBN:9198299107).
+Implements the online Bayesian inference framework for joint state and
+parameter estimation in a stochastic
+Susceptible-Exposed-Infectious-Recovered (SEIR) epidemic model with a
+time-varying transmission rate. The log-transmission rate is modelled as a
+latent Ornstein-Uhlenbeck (OU) process with exact Gaussian discrete-time
+transitions. Inference is performed via the nested particle filter (NPF)
+of Crisan and Miguez (2018) <doi:10.3150/17-BEJ954>, which maintains an
+outer particle layer over the OU hyperparameters and, for each outer
+particle, an inner bootstrap filter over epidemic states. The Cori-style
+renewal-equation estimator follows Cori et al. (2013)
+<doi:10.1093/aje/kwt133>. The package also provides utilities for
+simulation, posterior summarisation, and forecasting.
 
 %prep
 %setup -q -c -n %{packname}

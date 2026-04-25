@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netropy
-%global packver   0.3.0
+%global packname  palettephines
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Entropy Analysis of Network Data
+Summary:          Analytical Color Palettes for Philippine Phenology
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-ggraph 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Statistical entropy analysis of network data as introduced by Frank and
-Shafie (2016) <doi:10.1177/0759106315615511>, and a in textbook which is
-in progress.
+Provides specialized color palettes representing phenological transitions
+and biological lifecycles within Philippine landscapes. Rather than
+abstract gradients, these scales are anchored to topologically grounded
+states such as agricultural maturity, seasonal vegetation shifts, and
+environmental readiness. Palettes are indexed against the Biologische
+Bundesanstalt, Bundessortenamt und CHemische Industrie (BBCH) scale
+(Meier, 2023)
+<https://www.openagrar.de/servlets/MCRFileNodeServlet/openagrar_derivate_00010428/BBCH-Skala_en.pdf>
+for terrestrial vegetation and the Reef Health Index (RHI) framework
+(McField and Kramer, 2007) <https://www.healthyreefs.org> for marine
+ecosystems. This ensures scientific interoperability across archipelagic
+spatial models, aligning with global standards for ecological
+state-transition modeling (Schwartz, 2013)
+<doi:10.1007/978-94-007-6925-0>.
 
 %prep
 %setup -q -c -n %{packname}

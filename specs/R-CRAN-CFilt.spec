@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CFilt
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommendation by Collaborative Filtering
+Summary:          Collaborative Filtering Models for Recommendation Systems
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-R6 
 
 %description
-Provides methods and functions to implement a Recommendation System based
-on Collaborative Filtering Methodology. See Aggarwal (2016)
-<doi:10.1007/978-3-319-29659-3> for an overview.
+Implements collaborative filtering methods for recommendation systems
+based on user-item interaction data. Supports both explicit feedback
+(ratings) and implicit feedback (consumption). The package uses efficient
+sparse matrix representations and provides incremental updates for users,
+items, and similarity structures through an R6 class-based architecture.
+See Aggarwal (2016) <doi:10.1007/978-3-319-29659-3> for an overview.
 
 %prep
 %setup -q -c -n %{packname}
