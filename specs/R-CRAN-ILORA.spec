@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ILORA
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'ILORA': Indian Alien Flora Information Database Retrieval
+Summary:          Indian Alien Flora Information Database Retrieval
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,13 +45,14 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-tidyr 
 
 %description
-Provides tools to access, query, and visualize species occurrence data
-from the 'ILORA' package. The package enables users to retrieve species
-names, explore available variables, and extract species-level data based
-on user-defined criteria. It also supports exploratory data analysis and
-visualization to facilitate ecological and bio-geographical research.
-Further details about the database are available at
-<https://ilora2020.wixsite.com/ilora2020>.
+The Indian Alien Flora Information (ILORA) database contains 14
+invasion-relevant variables for 1388 alien plant species in India. The
+package enables exploration of the database using user-defined criteria.
+Using this package, users can retrieve variable-specific and species-level
+data from the database. The package also supports exploratory data
+analysis and visualization to give users an idea of the variables of
+interest. Further details about the database are available at
+<https://iloradb.wixsite.com/alienflora>.
 
 %prep
 %setup -q -c -n %{packname}

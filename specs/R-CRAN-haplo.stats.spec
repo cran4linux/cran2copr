@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ambiorix
-%global packver   3.0.0
+%global packname  haplo.stats
+%global packver   1.9.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.9.8.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Framework Inspired by 'Express.js'
+Summary:          Statistical Analysis of Haplotypes with Traits and Covariates when Linkage Phase is Ambiguous
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-promises >= 1.5.0
-BuildRequires:    R-CRAN-webutils >= 1.2.0
-BuildRequires:    R-CRAN-mime >= 0.13
-BuildRequires:    R-CRAN-yyjsonr >= 0.1.20
-BuildRequires:    R-CRAN-log 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-promises >= 1.5.0
-Requires:         R-CRAN-webutils >= 1.2.0
-Requires:         R-CRAN-mime >= 0.13
-Requires:         R-CRAN-yyjsonr >= 0.1.20
-Requires:         R-CRAN-log 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httpuv 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-arsenal 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-assertthat 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-arsenal 
+Requires:         R-CRAN-MASS 
 
 %description
-A web framework inspired by 'express.js' to build any web service from
-multi-page websites to 'RESTful' application programming interfaces.
+Routines for the analysis of indirectly measured haplotypes. The
+statistical methods assume that all subjects are unrelated and that
+haplotypes are ambiguous (due to unknown linkage phase of the genetic
+markers). The main functions are: haplo.em(), haplo.glm(), haplo.score(),
+and haplo.power(); all of which have detailed examples in the vignette.
 
 %prep
 %setup -q -c -n %{packname}

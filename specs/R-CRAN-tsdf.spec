@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tsdf
-%global packver   1.1-8
+%global packver   1.1-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
-Release:          3%{?dist}%{?buildtag}
+Version:          1.1.9
+Release:          1%{?dist}%{?buildtag}
 Summary:          Two-/Three-Stage Designs for Phase 1&2 Clinical Trials
 
 License:          GPL-2
@@ -18,16 +19,24 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Calculate optimal Zhong's two-/three-stage Phase II designs (see Zhong
-(2012) <doi:10.1016/j.cct.2012.07.006>). Generate Target Toxicity decision
-table for Phase I dose-finding (two-/three-stage). This package also
-allows users to run dose-finding simulations based on customized decision
-table.
+Calculates Zhong's optimal two-/three-stage Phase II designs for
+single-arm trials, generates target-toxicity decision tables for
+two-/three-stage Phase I dose-finding, and supports dose-finding
+simulations using custom decision tables. The Phase II design is based on
+Zhong (2012) <doi:10.1016/j.cct.2012.07.006>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -35,9 +44,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

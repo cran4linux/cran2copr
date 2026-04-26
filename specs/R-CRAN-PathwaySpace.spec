@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PathwaySpace
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Projection of Network Signals along Geodesic Paths
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RGraphSpace >= 1.1.0
+BuildRequires:    R-CRAN-RGraphSpace >= 1.2
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -28,8 +28,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-RGraphSpace >= 1.1.0
+Requires:         R-CRAN-RGraphSpace >= 1.2
 Requires:         R-methods 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -40,20 +41,22 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
 Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-lifecycle 
 
 %description
 For a given graph containing vertices, edges, and a signal associated with
 the vertices, the 'PathwaySpace' package performs a convolution operation,
 which involves a weighted combination of neighboring vertices and their
-associated signals. The package then uses a decay function to project
-these signals, creating geodesic paths on a 2D-image space. 'PathwaySpace'
-could have various applications, such as visualizing network data in a
-graphical format that highlights the relationships and signal strengths
-between vertices. It can be particularly useful for understanding the
-influence of signals through complex networks. By combining graph theory,
-signal processing, and visualization, the 'PathwaySpace' package provides
-a novel way of representing graph data.
+associated signals. The package uses a decay function to project these
+signals, creating geodesic paths on a 2D-image space. 'PathwaySpace' has
+various applications, such as visualizing network data in a graphical
+format that highlights the relationships and signal strengths between
+vertices. By combining graph theory, signal processing, and visualization,
+'PathwaySpace' provides a way of representing graph data on a continuous
+projection space. Based on methods introduced in Tercan et al. (2025)
+<doi:10.1016/j.xpro.2025.103681> and Ellrott et al. (2025)
+<doi:10.1016/j.ccell.2024.12.002>.
 
 %prep
 %setup -q -c -n %{packname}

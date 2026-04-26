@@ -1,50 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mschart
-%global packver   0.4.1
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chart Generation for 'Microsoft Word' and 'Microsoft PowerPoint' Documents
+Summary:          Chart Generation for 'Microsoft Word', 'Microsoft Excel' and 'Microsoft PowerPoint' Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-officer >= 0.3.6
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-officer >= 0.7.4
 BuildRequires:    R-CRAN-cellranger 
-BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-officer >= 0.3.6
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-officer >= 0.7.4
 Requires:         R-CRAN-cellranger 
-Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-data.table 
 Requires:         R-grDevices 
 Requires:         R-CRAN-htmltools 
-Requires:         R-utils 
 Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-writexl 
 
 %description
-Create native charts for 'Microsoft PowerPoint' and 'Microsoft Word'
-documents. These can then be edited and annotated. Functions are provided
-to let users create charts, modify and format their content. The chart's
-underlying data is automatically saved within the 'Word' document or
-'PowerPoint' presentation. It extends package 'officer' that does not
-contain any feature for 'Microsoft' native charts production.
+Create native charts for 'Microsoft PowerPoint', 'Microsoft Excel' and
+'Microsoft Word' documents. The resulting charts can then be edited and
+annotated in the host application. It provides functions to create charts
+and to modify their content and formatting. The chart's underlying data is
+automatically saved within the 'Word', 'Excel' or 'PowerPoint' file. It
+extends the 'officer' package, which does not provide native 'Microsoft'
+chart production.
 
 %prep
 %setup -q -c -n %{packname}

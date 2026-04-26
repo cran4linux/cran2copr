@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VoronoiBiomedPlot
-%global packver   0.3
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tesselation Visualization Plots for 2D Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -32,8 +32,8 @@ tesselation plots, and combined ellipse-Voronoi plots. Designed to
 visualize class separation in 2D data, raw of from projection techniques
 like principal component analysis (PCA), partial least squares
 discriminant analysis (PLS-DA) or others. For more details see Lotsch and
-Kringel (2026) and Lotsch and Ultsch (2024)
-<doi:10.1016/j.imu.2024.101573>.
+Kringel (2026) and Lotsch, J., and Kringel, D. (2026)
+<doi:10.1371/journal.pone.0333653>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RGraphSpace
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight Interface Between 'igraph' and 'ggplot2' Graphics
 
@@ -14,43 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-ggrastr 
-BuildRequires:    R-CRAN-circlize 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
 Requires:         R-grid 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-ggrastr 
-Requires:         R-CRAN-circlize 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics in a normalized
-coordinate system. 'RGraphSpace' implements new geometric objects using
-'ggplot2' prototypes, customized for side-by-side visualization of
-multiple graphs. By scaling shapes and graph elements, 'RGraphSpace' helps
-to create layered visualizations that stay coherent across multiple
-graphs.
+An interface to integrate 'igraph' and 'ggplot2' graphics within a
+normalized coordinate system. 'RGraphSpace' implements geometric objects
+based on 'ggplot2' prototypes, optimized for the representation of large
+networks. The package provides three specialized 'geoms' to translate
+graph data into geometric layers, supporting customization of aesthetics
+and visual styles. These 'geoms' use a dual-anchor normalization approach
+to align layers, required for analyses where network elements must be
+referenced to a spatial map. 'RGraphSpace' aims to facilitate side-by-side
+visualization of multiple graphs spatially aligned with reference maps and
+images.
 
 %prep
 %setup -q -c -n %{packname}

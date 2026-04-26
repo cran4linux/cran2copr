@@ -1,46 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ambiorix
-%global packver   3.0.0
+%global packname  blaster
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Framework Inspired by 'Express.js'
+Summary:          Native R Implementation of an Efficient BLAST-Like Algorithm
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-promises >= 1.5.0
-BuildRequires:    R-CRAN-webutils >= 1.2.0
-BuildRequires:    R-CRAN-mime >= 0.13
-BuildRequires:    R-CRAN-yyjsonr >= 0.1.20
-BuildRequires:    R-CRAN-log 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-promises >= 1.5.0
-Requires:         R-CRAN-webutils >= 1.2.0
-Requires:         R-CRAN-mime >= 0.13
-Requires:         R-CRAN-yyjsonr >= 0.1.20
-Requires:         R-CRAN-log 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httpuv 
-Requires:         R-methods 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-A web framework inspired by 'express.js' to build any web service from
-multi-page websites to 'RESTful' application programming interfaces.
+Implementation of an efficient BLAST-like sequence comparison algorithm,
+written in 'C++11' and using native R datatypes. Blaster is based on
+'nsearch' - Schmid et al (2018) <doi:10.1101/399782>.
 
 %prep
 %setup -q -c -n %{packname}

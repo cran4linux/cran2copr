@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lakhesis
-%global packver   1.1
+%global packname  neuroimaGene
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consensus Seriation for Binary Data
+Summary:          Transcriptomic Atlas of Neuroimaging Derived Phenotypes
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,34 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-ca 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-bslib 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-ca 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggseg 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-RSQLite 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggseg 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-RSQLite 
 
 %description
-Determining consensus seriations for binary incidence matrices, using a
-two-step process of Procrustes-fit correspondence analysis for heuristic
-selection of partial seriations and iterative regression to establish a
-single consensus. Contains the Lakhesis Calculator, a graphical platform
-for identifying seriated sequences. Collins-Elliott (2024)
-<https://volweb.utk.edu/~scolli46/sceLakhesis.pdf>.
+Contains functions to query and visualize the Neuroimaging features
+associated with genetically regulated gene expression (GReX). The primary
+utility, neuroimaGene(), relies on a list of user-defined genes and
+returns a table of neuroimaging features (NIDPs) associated with each
+gene. This resource is designed to assist in the interpretation of
+genome-wide and transcriptome-wide association studies that evaluate brain
+related traits. Bledsoe (2024) <doi:10.1016/j.ajhg.2024.06.002>. In
+addition there are several visualization functions that generate summary
+plots and 2-dimensional visualizations of regional brain measures.
+Mowinckel (2020).
 
 %prep
 %setup -q -c -n %{packname}

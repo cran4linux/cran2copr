@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  harmony
-%global packver   1.2.4
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast, Sensitive, and Accurate Integration of Single Cell Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-cowplot 
@@ -25,6 +25,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RhpcBLASctl 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-Rcpp 
@@ -36,11 +37,12 @@ Requires:         R-methods
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RhpcBLASctl 
+Requires:         R-CRAN-cli 
 
 %description
 Implementation of the Harmony algorithm for single cell integration,
-described in Korsunsky et al <doi:10.1038/s41592-019-0619-0>. Package
-includes a standalone Harmony function and interfaces to external
+described in Patikas, Yao, et al. <doi:10.64898/2026.03.16.711825>.
+Package includes a standalone Harmony function and interfaces to external
 frameworks.
 
 %prep

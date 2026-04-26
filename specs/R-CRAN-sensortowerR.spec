@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sensortowerR
-%global packver   0.9.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Sensor Tower' Mobile App Intelligence API
 
@@ -49,13 +49,13 @@ Requires:         R-utils
 %description
 Interface to the 'Sensor Tower' API
 <https://app.sensortower.com/api/docs/app_analysis> for mobile app
-analytics and market intelligence. Provides functions to retrieve app
-metadata, publisher information, download and revenue estimates, active
-user metrics, category rankings, and market trends. The package includes
-data processing utilities to clean and aggregate metrics across platforms,
-automatic app name resolution, and tools for generating professional
-analytics dashboards. Supports both iOS and Android app ecosystems with
-unified data structures for cross-platform analysis.
+analytics and market intelligence. Provides a small, consistent set of
+functions to retrieve app metadata, publisher information, download and
+revenue estimates, active user metrics, category rankings, and market
+trends. Four core verbs ('st_metrics', 'st_rankings', 'st_app'/'st_apps',
+'st_filter') cover the common workflows with standardized parameters and
+tidyverse-friendly output. Supports both iOS and Android app ecosystems
+with unified data structures for cross-platform analysis.
 
 %prep
 %setup -q -c -n %{packname}
