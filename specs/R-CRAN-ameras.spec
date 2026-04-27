@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ameras
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Multiple Exposure Realizations in Association Studies
 
@@ -14,28 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-nimble 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-MCMCvis 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MCMCvis 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-stats 
 Requires:         R-CRAN-nimble 
 Requires:         R-CRAN-RcppEigen 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-MCMCvis 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-memoise 
 Requires:         R-methods 
+Requires:         R-CRAN-MCMCvis 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Analyze association studies with multiple realizations of a noisy or

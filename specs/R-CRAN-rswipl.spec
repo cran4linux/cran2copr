@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rswipl
-%global packver   10.1.5
+%global packver   10.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.1.5
+Version:          10.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Embed 'SWI'-'Prolog'
 
@@ -20,9 +20,7 @@ BuildRequires:    libarchive-devel
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-gmp 
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-gmp 
 
 %description
 Interface to 'SWI'-'Prolog', <https://www.swi-prolog.org/>. This package

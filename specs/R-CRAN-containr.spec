@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  containr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Containerize Your 'R' Project
 
@@ -17,16 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-httr 
 
 %description
 Provides tools for containerizing 'R' projects. The core function,

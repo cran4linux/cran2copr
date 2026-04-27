@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmrc
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Tidy 'HMRC' Statistical Data
 
@@ -21,23 +21,30 @@ BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-readODS >= 2.3.0
 BuildRequires:    R-CRAN-readxl >= 1.4.0
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-readODS >= 2.3.0
 Requires:         R-CRAN-readxl >= 1.4.0
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Provides functions to download, parse, and tidy statistical data published
-by 'HM Revenue and Customs' ('HMRC') on 'GOV.UK'. Covers monthly tax
-receipts (41 tax heads from 2016), VAT (from 1973), fuel duties (from
-1990), tobacco duties (from 1991), annual Corporation Tax receipts, stamp
-duty, research and development tax credit statistics (from 2000), tax gap
-estimates, Income Tax liabilities by income range, and monthly property
-transaction counts. File URLs are resolved at runtime via the 'GOV.UK'
-Content API <https://www.gov.uk/api/content>, so data is always current
-without hardcoded URLs. Files are cached locally between sessions.
+by 'HM Revenue and Customs' ('HMRC') on 'GOV.UK'. Returns annotated
+'hmrc_tbl' data frames with provenance metadata (source URL, fetch time,
+vintage, cell methods) for reproducible fiscal research. Covers monthly
+tax receipts (41 tax heads from 2008), 'VAT' (from 1973), fuel duties
+(from 1990), tobacco duties (from 1991), annual 'Corporation Tax'
+receipts, stamp duty, research and development tax credit statistics (from
+2000), tax gap estimates, 'Income Tax' liabilities by income range, and
+monthly property transaction counts. File URLs are resolved at runtime via
+the 'GOV.UK' Content API <https://www.gov.uk/api/content>, so data is
+always current without hardcoded URLs. Files are cached locally between
+sessions.
 
 %prep
 %setup -q -c -n %{packname}
