@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  UniversalCVI
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hard and Soft Cluster Validity Indices
 
@@ -47,7 +47,7 @@ Sun (2005) <doi:10.1109/ACC.2005.1470111>, N. Wiroonsri (2024)
 <doi:10.1016/j.patcog.2023.109910>, N. Wiroonsri, O. Preedasawakul (2023)
 <doi:10.48550/arXiv.2308.14785>, C. H. Wu, C. S. Ouyang, L. W. Chen, L. W.
 Lu (2015) <doi:10.1109/TFUZZ.2014.2322495>, X. Xie, G. Beni (1991)
-<doi:10.1109/34.85677> and Rousseeuw (1987) and Kaufman and
+<doi:10.1109/34.85677> and P.J. Rousseeuw (1987) and L. Kaufman and P.J.
 Rousseeuw(2009) <doi:10.1016/0377-0427(87)90125-7> and
 <doi:10.1002/9780470316801> C. Alok. (2010).
 

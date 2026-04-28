@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatsoc
-%global packver   0.2.2
+%global packver   0.2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Animal Relocation Data by Spatial and Temporal Relationship
+Summary:          Group Animal Relocation Data by Spatial and Temporal Relationship and Measure Intragroup Social Dynamics
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,25 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.10.5
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-units >= 0.8.6
 BuildRequires:    R-CRAN-adehabitatHR >= 0.4.21
+BuildRequires:    R-CRAN-lwgeom >= 0.2.15
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-data.table >= 1.10.5
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-units >= 0.8.6
 Requires:         R-CRAN-adehabitatHR >= 0.4.21
+Requires:         R-CRAN-lwgeom >= 0.2.15
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-CircStats 
 Requires:         R-stats 
-Requires:         R-CRAN-units 
+Requires:         R-CRAN-rlang 
 
 %description
 Detects spatial and temporal groups in GPS relocations (Robitaille et al.
 (2019) <doi:10.1111/2041-210X.13215>).  It can be used to convert GPS
 relocations to gambit-of-the-group format to build proximity-based social
-networks In addition, the randomizations function provides data-stream
-randomization methods suitable for GPS data.
+networks, and perform data-stream randomization methods suitable for GPS
+data. Also provides measures of intragroup social dynamics including
+distance and direction to leaders, centroids and nearest neighbours.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vecvec
-%global packver   1.0.0
+%global packname  FrailtyCompRisk
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construct Mixed Type Data Structures with Vectors of Vectors
+Summary:          Competing Risks Models for Multi-Center Survival Data with Frailty
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-S7 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
-Requires:         R-CRAN-vctrs 
 
 %description
-Mixed type vectors are useful for combining semantically similar classes.
-Some examples of semantically related classes include time across
-different granularities (e.g. daily, monthly, annual) and probability
-distributions (e.g. Normal, Uniform, Poisson). These groups of vector
-types typically share common statistical operations which vary in results
-with the attributes of each vector. The 'vecvec' data structure
-facilitates efficient storage and computation across multiple vectors
-within the same object.
+Implements methods for analyzing competing risks data in multi-center
+survival studies using frailty models. The approach relies on a mixed
+proportional hazards model for the sub-distribution, allowing for
+cluster-specific random effects. The package provides tools for model
+estimation with or without frailty using Maximum Likelihood (ML) and
+Restricted Maximum Likelihood (REML). It supports flexible modeling of
+between-center heterogeneity and is particularly suited for multi-center
+clinical trials or registries. Core features include data simulation,
+likelihood computation, cluster-dependent censoring options, and testing
+of frailty effects. For methodological details, see Katsahian et al.
+(2006) <doi:10.1002/sim.2684>.
 
 %prep
 %setup -q -c -n %{packname}

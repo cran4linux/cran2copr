@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JLPM
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Latent Process Models
 
@@ -14,17 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-survival >= 2.37.2
 BuildRequires:    R-CRAN-marqLevAlg >= 2.0.6
 BuildRequires:    R-CRAN-lcmm 
-BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-spacefillr 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-survival >= 2.37.2
 Requires:         R-CRAN-marqLevAlg >= 2.0.6
 Requires:         R-CRAN-lcmm 
-Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-spacefillr 
 Requires:         R-CRAN-stringr 
 
 %description

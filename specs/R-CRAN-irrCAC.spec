@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vecvec
-%global packver   1.0.0
+%global packname  irrCAC
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construct Mixed Type Data Structures with Vectors of Vectors
+Summary:          Computing the Extent of Agreement among Raters with Chance-Corrected Agreement Coefficient (CAC)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-S7 
-Requires:         R-stats 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Mixed type vectors are useful for combining semantically similar classes.
-Some examples of semantically related classes include time across
-different granularities (e.g. daily, monthly, annual) and probability
-distributions (e.g. Normal, Uniform, Poisson). These groups of vector
-types typically share common statistical operations which vary in results
-with the attributes of each vector. The 'vecvec' data structure
-facilitates efficient storage and computation across multiple vectors
-within the same object.
+Contains a series of R functions for calculating various chance-corrected
+agreement coefficients (CAC) among 2 or more raters. Among the CAC
+coefficients covered are Cohen's kappa, Conger's kappa, Fleiss' kappa,
+Brennan-Prediger coefficient, Gwet's AC1/AC2 coefficients, and
+Krippendorff's alpha. Multiple sets of weights are proposed for computing
+weighted analyses. Also included in this package is Bangdiwala's B
+coefficient.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  toolero
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Research Workflows
 
@@ -27,6 +27,11 @@ BuildRequires:    R-CRAN-renv
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
@@ -37,6 +42,11 @@ Requires:         R-CRAN-renv
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-withr 
 
 %description
 Provides utility functions to help researchers implement best practices

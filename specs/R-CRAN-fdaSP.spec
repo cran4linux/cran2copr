@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdaSP
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Functional Data Analysis Methods
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-splines 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-CVXR 
 
 %description
 Provides algorithms to fit linear regression models under several popular

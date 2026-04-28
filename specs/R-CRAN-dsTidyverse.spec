@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsTidyverse
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DataSHIELD' 'Tidyverse' Serverside Package
+Summary:          'DataSHIELD' 'Tidyverse' Server-Side Package
 
 License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
 
 %description
 Implementation of selected 'Tidyverse' functions within 'DataSHIELD', an
@@ -28,9 +30,9 @@ open-source federated analysis solution in R. Currently, DataSHIELD
 contains very limited tools for data manipulation, so the aim of this
 package is to improve the researcher experience by implementing essential
 functions for data manipulation, including subsetting, filtering,
-grouping, and renaming variables. This is the serverside package which
+grouping, and renaming variables. This is the server-side package which
 should be installed on the server holding the data, and is used in
-conjuncture with the clientside package 'dsTidyverseClient' which is
+conjunction with the client-side package 'dsTidyverseClient' which is
 installed in the local R environment of the analyst. For more information,
 see <https://tidyverse.org/> and <https://datashield.org/>.
 

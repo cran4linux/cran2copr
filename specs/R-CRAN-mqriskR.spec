@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vecvec
-%global packver   1.0.0
+%global packname  mqriskR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construct Mixed Type Data Structures with Vectors of Vectors
+Summary:          Actuarial Risk Modeling and Life Contingencies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-S7 
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-vctrs 
+Requires:         R-utils 
 
 %description
-Mixed type vectors are useful for combining semantically similar classes.
-Some examples of semantically related classes include time across
-different granularities (e.g. daily, monthly, annual) and probability
-distributions (e.g. Normal, Uniform, Poisson). These groups of vector
-types typically share common statistical operations which vary in results
-with the attributes of each vector. The 'vecvec' data structure
-facilitates efficient storage and computation across multiple vectors
-within the same object.
+Provides functions for actuarial risk modeling, including survival models,
+life annuities, multiple-decrement models, and mortality improvement
+projections. The package is designed to align with standard actuarial
+notation and supports teaching, exam preparation, and reproducible
+actuarial analysis. The methods are based on standard actuarial references
+including Camilli, Duncan and London (2014, ISBN:9781625423474) "Models
+for Quantifying Risk" and Dickson, Hardy and Waters (2020,
+ISBN:9781108478083) "Actuarial Mathematics for Life Contingent Risks".
 
 %prep
 %setup -q -c -n %{packname}

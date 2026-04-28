@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vecvec
-%global packver   1.0.0
+%global packname  documentosbr
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construct Mixed Type Data Structures with Vectors of Vectors
+Summary:          Validate Brazilian Administrative Registers - Valida Documentos
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-S7 
-Requires:         R-stats 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
 
 %description
-Mixed type vectors are useful for combining semantically similar classes.
-Some examples of semantically related classes include time across
-different granularities (e.g. daily, monthly, annual) and probability
-distributions (e.g. Normal, Uniform, Poisson). These groups of vector
-types typically share common statistical operations which vary in results
-with the attributes of each vector. The 'vecvec' data structure
-facilitates efficient storage and computation across multiple vectors
-within the same object.
+Contains functions to validate administrative register as CPF (Cadastro de
+Pessoa Fisica), CNPJ (Cadastro de Pessoa Juridica), PIS (Programa de
+Integracao Social), CNES (Cadastro Nacional de Saude). Builds from and
+improves on previous package from IPEA validaRA
+<https://github.com/ipea/validaRA>. It can check individual registers or
+help creating a table summarizing validity of a set.
 
 %prep
 %setup -q -c -n %{packname}

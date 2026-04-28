@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vecvec
+%global packname  routing
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Construct Mixed Type Data Structures with Vectors of Vectors
+Summary:          'Express.js' Like Routing for R Web Frameworks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-S7 
-Requires:         R-stats 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-httpcode 
+BuildRequires:    R-CRAN-pater 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httpcode 
+Requires:         R-CRAN-pater 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-R6 
+Requires:         R-utils 
 
 %description
-Mixed type vectors are useful for combining semantically similar classes.
-Some examples of semantically related classes include time across
-different granularities (e.g. daily, monthly, annual) and probability
-distributions (e.g. Normal, Uniform, Poisson). These groups of vector
-types typically share common statistical operations which vary in results
-with the attributes of each vector. The 'vecvec' data structure
-facilitates efficient storage and computation across multiple vectors
-within the same object.
+It aims to provide R web frameworks a routing mechanism of HTTP requests
+inspired by the battle tested 'Express.js' web framework.
 
 %prep
 %setup -q -c -n %{packname}

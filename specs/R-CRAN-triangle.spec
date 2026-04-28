@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  triangle
-%global packver   1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distribution Functions and Parameter Estimates for the Triangle Distribution
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.1
-Requires:         R-core >= 2.14.1
+BuildRequires:    R-devel >= 4.1.3
+Requires:         R-core >= 4.1.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-stats4 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-stats4 
 Requires:         R-methods 
+Requires:         R-CRAN-boot 
 
 %description
 Provides the "r, q, p, and d" distribution functions for the triangle

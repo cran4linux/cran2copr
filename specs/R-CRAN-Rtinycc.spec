@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rtinycc
-%global packver   0.1.8
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Builds the 'TinyCC' Command-Line Interface and Library for 'C' Scripting in 'R'
 

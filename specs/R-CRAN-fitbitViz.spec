@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitbitViz
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Fitbit' Visualizations
 
@@ -19,8 +19,6 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-raster >= 3.6.3
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-patchwork 
@@ -29,7 +27,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-varian 
 BuildRequires:    R-CRAN-paletteer 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-hms 
@@ -40,15 +37,11 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-leafgl 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rayshader 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-raster >= 3.6.3
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-patchwork 
@@ -57,7 +50,6 @@ Requires:         R-stats
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-varian 
 Requires:         R-CRAN-paletteer 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-hms 
@@ -68,17 +60,14 @@ Requires:         R-grDevices
 Requires:         R-CRAN-leafgl 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rayshader 
 Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-reshape2 
 
 %description
-Connection to the 'Fitbit' Web API
-<https://dev.fitbit.com/build/reference/web-api/> by including 'ggplot2'
-Visualizations, 'Leaflet' and 3-dimensional 'Rayshader' Maps. The
-3-dimensional 'Rayshader' Map requires the installation of the
+Visualization of pre-downloaded 'Fitbit' personal health data using
+'ggplot2' Visualizations, 'Leaflet' and 3-dimensional 'Rayshader' Maps.
+The 3-dimensional 'Rayshader' Map requires the installation of the
 'CopernicusDEM' R package which includes the 30- and 90-meter elevation
 data.
 
