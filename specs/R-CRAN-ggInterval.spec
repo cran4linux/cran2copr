@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggInterval
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing Interval-Valued Data using 'ggplot2'
+Summary:          Visualizing Interval-Valued Data Using 'ggplot2'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -53,11 +53,11 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-vctrs 
 
 %description
-Implements an extension of 'ggplot2' (formerly 'ggESDA') and visualizes
-symbolic interval-valued data with various plots, offering more general
-and flexible input arguments. Additionally, it provides a function to
-transform classical data into symbolic data using both clustering
-algorithms and customized methods.
+Extends 'ggplot2' for visualizing interval-valued data with scatter plots,
+histograms, index plots, boxplots, radar plots, PCA displays, and
+correlation heatmaps. The package also converts classical data tables into
+interval-valued data using clustering algorithms or user-defined
+groupings.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nFunNN
-%global packver   1.0
+%global packname  greenbook
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonlinear Functional Principal Component Analysis using Neural Networks
+Summary:          HM Treasury Green Book Cost-Benefit Analysis Primitives
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-fda 
-Requires:         R-splines 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-stats 
-Requires:         R-CRAN-torch 
+Requires:         R-utils 
 
 %description
-Implementation for 'nFunNN' method, which is a novel nonlinear functional
-principal component analysis method using neural networks. The crucial
-function of this package is nFunNNmodel().
+Implements cost-benefit analysis primitives from HM Treasury Green Book
+guidance (HM Treasury, 2022, 2026): the kinked Social Time Preference Rate
+('STPR'), discount factors, net present value ('NPV'), equivalent annual
+cost, and real-terms rebasing using the GDP deflator. Designed for UK
+central government appraisal and evaluation. Bundled parameter tables
+carry vintage metadata for reproducibility.
 
 %prep
 %setup -q -c -n %{packname}

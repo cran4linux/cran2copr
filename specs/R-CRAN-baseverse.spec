@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baseverse
-%global packver   0.1.0
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modern Base-R Functions
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 
 %description
 Includes modern base-R functions. Functions beginning with p_ are wrapper
-functions to existing base-R functions, supporting native piping.
-base_match() and base_when() mimic case_match() and case_when() from
-'dplyr' but return a factor by default with levels ordered according to
-user input. et() mimics count() from 'dplyr'.
+functions for existing base-R functions, supporting native piping. Other
+functions are wrapper functions for core base-R features, including
+bracket notation and dollar-sign notation. base_match() and base_when()
+mimic case_match() and case_when() from 'dplyr' but return a factor by
+default with levels ordered according to user input. et() mimics count()
+from 'dplyr'.
 
 %prep
 %setup -q -c -n %{packname}

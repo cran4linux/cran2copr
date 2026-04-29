@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  temper
-%global packver   1.1.0
+%global packname  vasicekfit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporal Encoder-Masked Probabilistic Ensemble Regressor
+Summary:          Extended Vasicek Credit Loss Model with Macroeconomic Factors
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
-BuildRequires:    R-CRAN-imputeTS >= 3.3
-BuildRequires:    R-CRAN-lubridate >= 1.9.2
-BuildRequires:    R-CRAN-scales >= 1.3.0
-BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-torch >= 0.11.0
-Requires:         R-CRAN-ggplot2 >= 3.5.1
-Requires:         R-CRAN-imputeTS >= 3.3
-Requires:         R-CRAN-lubridate >= 1.9.2
-Requires:         R-CRAN-scales >= 1.3.0
-Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-torch >= 0.11.0
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Implements a probabilistic ensemble time-series forecaster that combines
-an auto-encoder with a neural decision forest whose split variables are
-learned through a differentiable feature-mask layer. Functions are written
-with 'torch' tensors and provide CRPS (Continuous Ranked Probability
-Scores) training plus mixture-distribution post-processing.
+Fits the extended Vasicek single-factor credit loss model where the
+probability of default depends on macroeconomic covariates. Maximum
+likelihood estimates of all parameters, including asset value correlation,
+are obtained via closed-form probit-transformed OLS regression; see
+Mayorov (2026) <doi:10.2139/ssrn.6506378> for derivation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hydroTSM
-%global packver   0.7-0.1
+%global packver   0.8-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0.1
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Management and Analysis for Hydrological Modelling
 
@@ -27,6 +27,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-timechange 
 Requires:         R-CRAN-zoo >= 1.7.2
 Requires:         R-CRAN-xts >= 0.9.7
 Requires:         R-CRAN-e1071 
@@ -37,6 +38,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-timechange 
 
 %description
 S3 functions for management, analysis, interpolation and plotting of time

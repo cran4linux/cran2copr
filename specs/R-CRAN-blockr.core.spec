@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blockr.core
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Web-Framework for Data Manipulation and Visualization
 
@@ -21,6 +21,11 @@ BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-bsicons 
+BuildRequires:    R-datasets 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-vctrs 
@@ -36,6 +41,11 @@ Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-bsicons 
+Requires:         R-datasets 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-vctrs 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  demofit
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Mortality Curve Fitting and Mortality Forecasting Tools
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-CRAN-MortalityLaws 
 BuildRequires:    R-CRAN-NlcOptim 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-forecast 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-minpack.lm
 Requires:         R-CRAN-MortalityLaws 
 Requires:         R-CRAN-NlcOptim 
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 
@@ -39,7 +41,8 @@ parameter estimation. Offers tools for forecasting mortality rates guided
 by mortality curves. For modelling details see: Tabeau (2001)
 <doi:10.1007/0-306-47562-6_1>, Renshaw and Haberman (2006)
 <doi:10.1016/j.insmatheco.2005.12.001>, Cairns et al. (2009)
-<doi:10.1080/10920277.2009.10597538>.
+<doi:10.1080/10920277.2009.10597538>, Li and Lee (2005) <doi:
+10.1353/dem.2005.0021>.
 
 %prep
 %setup -q -c -n %{packname}

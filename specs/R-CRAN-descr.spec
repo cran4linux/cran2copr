@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  descr
-%global packver   1.1.8
+%global packver   1.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Statistics
 
@@ -31,10 +31,10 @@ Requires:         R-stats
 Weighted frequency and contingency tables of categorical variables and of
 the comparison of the mean value of a numerical variable by the levels of
 a factor, and methods to produce xtable objects of the tables and to plot
-them. There are also functions to facilitate the character encoding
-conversion of objects, to quickly convert fixed width files into csv ones,
-and to export a data.frame to a text file with the necessary R and SPSS
-codes to reread the data.
+them. There are also functions to facilitate character encoding conversion
+of objects, to quickly convert fixed-width files into CSV ones, and to
+export a data.frame to a text file with the necessary R and SPSS codes to
+reread the data.
 
 %prep
 %setup -q -c -n %{packname}
