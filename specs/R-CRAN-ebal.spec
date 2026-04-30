@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ebal
-%global packver   0.1-8
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Entropy Reweighting to Create Balanced Samples
 
@@ -16,19 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Package implements entropy balancing, a data preprocessing procedure
-described in Hainmueller (2008, <doi:10.1093/pan/mpr025>) that allows
-users to reweight a dataset such that the covariate distributions in the
-reweighted data satisfy a set of user specified moment conditions. This
-can be useful to create balanced samples in observational studies with a
-binary treatment where the control group data can be reweighted to match
-the covariate moments in the treatment group. Entropy balancing can also
-be used to reweight a survey sample to known characteristics from a target
-population.
+Implements entropy balancing, a data preprocessing procedure described in
+Hainmueller (2012, <doi:10.1093/pan/mpr025>) that allows users to reweight
+a dataset such that the covariate distributions in the reweighted data
+satisfy a set of user-specified moment conditions. Useful for creating
+balanced samples in observational studies with a binary treatment where
+the control group is reweighted to match the covariate moments of the
+treatment group, and for reweighting a survey sample to known
+characteristics from a target population.
 
 %prep
 %setup -q -c -n %{packname}

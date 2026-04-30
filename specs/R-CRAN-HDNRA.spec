@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDNRA
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Location Testing with Normal-Reference Approaches
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
@@ -31,37 +31,41 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-We provide a collection of various classical tests and latest
-normal-reference tests for comparing high-dimensional mean vectors
-including two-sample and general linear hypothesis testing (GLHT) problem.
-Some existing tests for two-sample problem [see Bai, Zhidong, and Hewa
-Saranadasa.(1996) <https://www.jstor.org/stable/24306018>; Chen, Song Xi,
-and Ying-Li Qin.(2010) <doi:10.1214/09-aos716>; Srivastava, Muni S., and
-Meng Du.(2008) <doi:10.1016/j.jmva.2006.11.002>; Srivastava, Muni S.,
-Shota Katayama, and Yutaka Kano.(2013)<doi:10.1016/j.jmva.2012.08.014>].
-Normal-reference tests for two-sample problem [see Zhang, Jin-Ting, Jia
-Guo, Bu Zhou, and Ming-Yen Cheng.(2020)
-<doi:10.1080/01621459.2019.1604366>; Zhang, Jin-Ting, Bu Zhou, Jia Guo,
-and Tianming Zhu.(2021) <doi:10.1016/j.jspi.2020.11.008>; Zhang, Liang,
-Tianming Zhu, and Jin-Ting Zhang.(2020)
-<doi:10.1016/j.ecosta.2019.12.002>; Zhang, Liang, Tianming Zhu, and
-Jin-Ting Zhang.(2023) <doi:10.1080/02664763.2020.1834516>; Zhang,
-Jin-Ting, and Tianming Zhu.(2022) <doi:10.1080/10485252.2021.2015768>;
-Zhang, Jin-Ting, and Tianming Zhu.(2022) <doi:10.1007/s42519-021-00232-w>;
-Zhu, Tianming, Pengfei Wang, and Jin-Ting Zhang.(2023)
-<doi:10.1007/s00180-023-01433-6>]. Some existing tests for GLHT problem
-[see Fujikoshi, Yasunori, Tetsuto Himeno, and Hirofumi Wakaki.(2004)
-<doi:10.14490/jjss.34.19>; Srivastava, Muni S., and Yasunori
-Fujikoshi.(2006) <doi:10.1016/j.jmva.2005.08.010>; Yamada, Takayuki, and
-Muni S. Srivastava.(2012) <doi:10.1080/03610926.2011.581786>; Schott,
-James R.(2007) <doi:10.1016/j.jmva.2006.11.007>; Zhou, Bu, Jia Guo, and
-Jin-Ting Zhang.(2017) <doi:10.1016/j.jspi.2017.03.005>]. Normal-reference
-tests for GLHT problem [see Zhang, Jin-Ting, Jia Guo, and Bu Zhou.(2017)
-<doi:10.1016/j.jmva.2017.01.002>; Zhang, Jin-Ting, Bu Zhou, and Jia
-Guo.(2022) <doi:10.1016/j.jmva.2021.104816>; Zhu, Tianming, Liang Zhang,
-and Jin-Ting Zhang.(2022) <doi:10.5705/ss.202020.0362>; Zhu, Tianming, and
-Jin-Ting Zhang.(2022) <doi:10.1007/s00180-021-01110-6>; Zhang, Jin-Ting,
-and Tianming Zhu.(2022) <doi:10.1016/j.csda.2021.107385>].
+Provides inverse-free high-dimensional location tests for two-sample and
+general linear hypothesis testing (GLHT) problems under equal or unequal
+covariance structures. The package implements classical
+normal-approximation procedures, scale-invariant procedures,
+normal-reference procedures based on covariance-matched Gaussian
+companions, and F-type normal-reference calibrations for heteroscedastic
+Behrens-Fisher and GLHT settings. Implemented two-sample
+normal-approximation and scale-invariant procedures include Bai and
+Saranadasa (1996) <https://www.jstor.org/stable/24306018>, Chen and Qin
+(2010) <doi:10.1214/09-aos716>, Srivastava and Du (2008)
+<doi:10.1016/j.jmva.2006.11.002>, and Srivastava et al. (2013)
+<doi:10.1016/j.jmva.2012.08.014>. Implemented two-sample normal-reference
+procedures include Zhang, Guo, Zhou and Cheng (2020)
+<doi:10.1080/01621459.2019.1604366>, Zhang, Zhou, Guo and Zhu (2021)
+<doi:10.1016/j.jspi.2020.11.008>, Zhang, Zhu and Zhang (2020)
+<doi:10.1016/j.ecosta.2019.12.002>, Zhang, Zhu and Zhang (2023)
+<doi:10.1080/02664763.2020.1834516>, Zhang and Zhu (2022)
+<doi:10.1080/10485252.2021.2015768>, Zhang and Zhu (2022)
+<doi:10.1007/s42519-021-00232-w>, and Zhu, Wang and Zhang (2023)
+<doi:10.1007/s00180-023-01433-6>. Implemented GLHT normal-approximation
+procedures include Fujikoshi et al. (2004) <doi:10.14490/jjss.34.19>,
+Srivastava and Fujikoshi (2006) <doi:10.1016/j.jmva.2005.08.010>, Yamada
+and Srivastava (2012) <doi:10.1080/03610926.2011.581786>, Schott (2007)
+<doi:10.1016/j.jmva.2006.11.007>, and Zhou, Guo and Zhang (2017)
+<doi:10.1016/j.jspi.2017.03.005>. Implemented GLHT normal-reference
+procedures include Zhang, Guo and Zhou (2017)
+<doi:10.1016/j.jmva.2017.01.002>, Zhang, Zhou and Guo (2022)
+<doi:10.1016/j.jmva.2021.104816>, Zhu, Zhang and Zhang (2022)
+<doi:10.5705/ss.202020.0362>, Zhu and Zhang (2022)
+<doi:10.1007/s00180-021-01110-6>, Zhang and Zhu (2022)
+<doi:10.1016/j.csda.2021.107385>, and Cao et al. (2024)
+<doi:10.1007/s00362-024-01530-8>. The package also includes the
+random-integration normal-approximation GLHT procedure of Li et al. (2025)
+<doi:10.1007/s00362-024-01624-3>. A package-level overview is given in
+Wang, Zhu and Zhang (2026) <doi:10.1016/j.csda.2025.108269>.
 
 %prep
 %setup -q -c -n %{packname}

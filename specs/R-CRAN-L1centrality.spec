@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  L1centrality
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph/Network Analysis Based on L1 Centrality
 
@@ -14,18 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -35,8 +41,8 @@ Requires:         R-CRAN-withr
 Analyze graph/network data using L1 centrality and prestige. Functions for
 deriving global, local, and group L1 centrality/prestige are provided.
 Routines for visual inspection of a graph/network are also provided.
-Details are in Kang and Oh (2025a) <doi:10.1080/01621459.2025.2520467>,
-Kang and Oh (2025b) <doi:10.1080/00031305.2025.2563730>, and Kang (2025)
+Details are in Kang and Oh (2026a) <doi:10.1080/01621459.2025.2520467>,
+Kang and Oh (2026b) <doi:10.1080/00031305.2025.2563730>, and Kang (2025)
 <doi:10.23170/snu.000000188358.11032.0001856>.
 
 %prep

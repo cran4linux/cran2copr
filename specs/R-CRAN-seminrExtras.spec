@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seminrExtras
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conduct Additional Modeling and Analysis for 'seminr'
 
@@ -19,13 +19,26 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-seminr >= 2.4.0
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rpart 
 Requires:         R-CRAN-seminr >= 2.4.0
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-CRAN-rpart 
 
 %description
-Supplemental functions for estimating and analysing structural equation
-models including Cross Validated Prediction and Testing (CVPAT, Liengaard
-et al., 2021 <doi:10.1111/deci.12445>).
+Supplementary tools for evaluating and validating partial least squares
+structural equation models estimated with 'seminr'. Provides methods for
+predictive model assessment, importance-performance analysis with
+necessary condition testing, overfitting diagnostics, measurement model
+verification, mediator contribution analysis, unobserved heterogeneity
+detection via latent class and prediction-oriented segmentation, and
+congruence coefficient testing. All functions accept estimated 'seminr'
+model objects and return results with print, summary, and plot methods.
 
 %prep
 %setup -q -c -n %{packname}

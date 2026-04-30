@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NumericEnsembles
-%global packver   1.0.5
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Runs 18 Individual and 14 Ensembles of Models
 
@@ -54,7 +54,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tree 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vip 
 BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-Cubist 
 Requires:         R-CRAN-Metrics 
@@ -93,7 +92,6 @@ Requires:         R-stats
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tree 
 Requires:         R-utils 
-Requires:         R-CRAN-vip 
 Requires:         R-CRAN-xgboost 
 
 %description

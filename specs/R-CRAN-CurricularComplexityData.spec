@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CurricularComplexityData
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data for Exploring Curricular Complexity
 
@@ -22,10 +22,8 @@ BuildArch:        noarch
 Provides 'igraph' objects representing engineering plans of study across
 multiple disciplines and institutions. The data are intended for use with
 the 'CurricularComplexity' package (Reeping, 2026)
-<https://CRAN.R-project.org/package=CurricularComplexity> to support
-analyses of curricular structure. The package leverages network analysis
-approaches implemented in 'igraph' (Csárdi et al., 2025)
-<doi:10.5281/zenodo.7682609>.
+<doi:10.32614/CRAN.package.CurricularComplexity> to support analyses of
+curricular structure.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPArotation
-%global packver   2025.3-1
+%global packver   2026.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.3.1
+Version:          2026.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gradient Projection Factor Rotation
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.0
-Requires:         R-core >= 2.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 Requires:         R-stats 
 
 %description
-Gradient Projection Algorithms for Factor Rotation. For details see
-?GPArotation. When using this package, please cite Bernaards and Jennrich
-(2005) <doi:10.1177/0013164404272507> 'Gradient Projection Algorithms and
-Software for Arbitrary Rotation Criteria in Factor Analysis'.
+Gradient projection algorithms for orthogonal and oblique rotation of
+factor loadings matrices in factor analysis. Implements a comprehensive
+set of rotation criteria including quartimax, quartimin, oblimin, geomin,
+simplimax, the Crawford-Ferguson family, and target rotation, among
+others. Supports multiple random starts. For details see Bernaards and
+Jennrich (2005) <doi:10.1177/0013164404272507>.
 
 %prep
 %setup -q -c -n %{packname}

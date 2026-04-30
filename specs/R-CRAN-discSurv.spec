@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  discSurv
-%global packver   2.0.0
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Time Survival Analysis
 
@@ -17,27 +18,39 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-treeClust 
-BuildRequires:    R-CRAN-functional 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-gee 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rpart.plot 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-gbutils 
 Requires:         R-CRAN-treeClust 
-Requires:         R-CRAN-functional 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-gee 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-mvnfast 
+Requires:         R-utils 
+Requires:         R-CRAN-rpart.plot 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-gbutils 
 
 %description
 Provides data transformations, estimation utilities, predictive evaluation

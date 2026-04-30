@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  socialmixr
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Social Mixing Matrices for Infectious Disease Modelling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-countrycode 
@@ -53,7 +53,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-methods 
 
 %description
-Provides methods for sampling contact matrices from diary data for use in
+Methods for sampling contact matrices from diary data for use in
 infectious disease modelling, as discussed in Mossong et al. (2008)
 <doi:10.1371/journal.pmed.0050074>.
 

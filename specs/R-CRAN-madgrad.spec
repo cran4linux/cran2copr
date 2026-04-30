@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  madgrad
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'MADGRAD' Method for Stochastic Optimization
 
@@ -27,7 +28,7 @@ Optimization algorithm. MADGRAD is a 'best-of-both-worlds' optimizer with
 the generalization performance of stochastic gradient descent and at least
 as fast convergence as that of Adam, often faster. A drop-in
 optim_madgrad() implementation is provided based on Defazio et al (2020)
-<arxiv:2101.11075>.
+<doi:10.48550/arXiv.2101.11075>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

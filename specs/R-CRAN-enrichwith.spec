@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enrichwith
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods to Enrich R Objects with Extra Components
 
@@ -19,19 +19,20 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 
 %description
-Provides the "enrich" method to enrich list-like R objects with new,
-relevant components. The current version has methods for enriching objects
-of class 'family', 'link-glm', 'lm', 'glm' and 'betareg'. The resulting
-objects preserve their class, so all methods associated with them still
-apply. The package also provides the 'enriched_glm' function that has the
-same interface as 'glm' but results in objects of class 'enriched_glm'. In
-addition to the usual components in a `glm` object, 'enriched_glm' objects
-carry an object-specific simulate method and functions to compute the
-scores, the observed and expected information matrix, the first-order
-bias, as well as model densities, probabilities, and quantiles at
-arbitrary parameter values. The package can also be used to produce
-customizable source code templates for the structured implementation of
-methods to compute new components and enrich arbitrary objects.
+Provides the "enrich()" method for augmenting list-like R objects with
+additional, model-specific components. Methods are currently available for
+objects of class "family", "link-glm", "lm", "glm", and "betareg".
+Enriched objects retain their original class and remain compatible with
+existing methods. For example, enriching a "glm" object produces an
+"enriched_glm" object that also inherits from "glm". In addition to the
+standard components, the "enriched_glm" object includes methods for
+simulation and functions to compute scores, observed and expected
+information matrices, first-order bias, and other model quantities such as
+densities, probabilities, and quantiles, which can be evaluated at
+use-supplied parameter values. The package also provides tools for
+generating customizable source code templates for the structured
+implementation of methods to compute new components and enrich arbitrary
+objects.
 
 %prep
 %setup -q -c -n %{packname}

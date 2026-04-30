@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FAfA
-%global packver   0.5
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor Analysis for All
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Amelia 
 BuildRequires:    R-CRAN-EFA.MRFA 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-bsicons
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-golem 
@@ -66,7 +65,6 @@ Requires:         R-CRAN-bsicons
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-energy 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-golem 

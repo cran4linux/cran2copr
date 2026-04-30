@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saros
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Automatic Reporting of Ordinary Surveys
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-ggiraph
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-mschart 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-rlang 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-ggiraph
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-mschart 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-rlang 

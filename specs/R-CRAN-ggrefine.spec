@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggrefine
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pretty 'ggplot2' Themes
+Summary:          Publication-Quality 'ggplot2' Themes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,10 +35,9 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-viridis 
 
 %description
-A set of complete 'ggplot2' themes and refine functions for plot
-appearance. The themes are designed to work seamlessly with the refine
-functions, which adjust gridlines and axis elements to suit the
-particulars of a plot.
+Complete themes for publication-quality 'ggplot2' visualisation. Also
+provides functions to modify these based on the positional axis scales and
+focus of a particular plot.
 
 %prep
 %setup -q -c -n %{packname}

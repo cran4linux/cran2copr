@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  classmap
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Classification Results
 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-diptest 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
@@ -41,6 +43,8 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-diptest 
 
 %description
 Tools to visualize the results of a classification or a regression. The
@@ -49,16 +53,20 @@ plots, class maps, predictions plots, and predictions correlation plots.
 Implements the techniques described and illustrated in Raymaekers J.,
 Rousseeuw P.J., Hubert M. (2022). Class maps for visualizing
 classification results. emph{Technometrics}, 64(2), 151–165.
-doi{10.1080/00401706.2021.1927849} (open access), Raymaekers J.,
+<doi:10.1080/00401706.2021.1927849> (open access), Raymaekers J.,
 Rousseeuw P.J.(2022). Silhouettes and quasi residual plots for neural nets
 and tree-based classifiers. emph{Journal of Computational and Graphical
-Statistics}, 31(4), 1332–1343. doi{10.1080/10618600.2022.2050249}, and
-Rousseeuw, P.J. (2025). Explainable Linear and Generalized Linear Models
-by the Predictions Plot. <doi:10.48550/arXiv.2412.16980> (open access).
-Examples can be found in the vignettes:
+Statistics}, 31(4), 1332–1343. <doi:10.1080/10618600.2022.2050249>, and
+Rousseeuw, P.J. (2026). Explainable Linear and Generalized Linear Models
+by the Predictions Plot. The American Statistician, 80, 157-163,
+<doi:10.1080/00031305.2025.2539235> (open access), and Montalcini, C.,
+Rousseeuw, P.J. (2025). The bixplot: A variation on the boxplot suited for
+bimodal data, <doi:10.48550/arXiv.2510.09276> (open access). Examples can
+be found in the vignettes:
 "Discriminant_analysis_examples","K_nearest_neighbors_examples",
 "Support_vector_machine_examples", "Rpart_examples",
-"Random_forest_examples", "Neural_net_examples", and "predsplot_examples".
+"Random_forest_examples", "Neural_net_examples", "predsplot_examples", and
+"bixplot_examples".
 
 %prep
 %setup -q -c -n %{packname}
