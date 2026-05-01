@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyllm
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Integration of Large Language Models
 
@@ -52,13 +52,15 @@ Requires:         R-CRAN-lifecycle
 
 %description
 A tidy interface for integrating large language model (LLM) APIs such as
-'Claude', 'Openai', 'Gemini','Mistral' and local models via 'Ollama' into
-R workflows. The package supports text and media-based interactions,
-interactive message history, batch request APIs, and a tidy,
-pipeline-oriented interface for streamlined integration into data
-workflows. Web services are available at <https://www.anthropic.com>,
-<https://openai.com>, <https://aistudio.google.com/>,
-<https://mistral.ai/> and <https://ollama.com>.
+'Claude', 'OpenAI', 'Gemini', 'Mistral', and local models via 'Ollama'
+into R workflows. The package supports text, image, audio, video, and
+document interactions; a unified media interface for attaching inline
+files or uploading to provider file stores; batch request APIs for
+cost-efficient large-scale processing; and a pipeline-oriented interface
+for seamless integration into data workflows. Web services are available
+at <https://www.anthropic.com>, <https://openai.com>,
+<https://aistudio.google.com/>, <https://mistral.ai/> and
+<https://ollama.com>.
 
 %prep
 %setup -q -c -n %{packname}

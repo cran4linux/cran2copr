@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qtl2convert
-%global packver   0.30
+%global packver   0.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Data among QTL Mapping Packages
 

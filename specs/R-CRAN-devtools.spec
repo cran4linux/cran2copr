@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  devtools
-%global packver   2.5.1
+%global packver   2.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.1
+Version:          2.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Make Developing R Packages Easier
 
@@ -24,9 +24,9 @@ BuildRequires:    R-CRAN-usethis >= 3.2.1
 BuildRequires:    R-CRAN-withr >= 3.0.2
 BuildRequires:    R-CRAN-rversions >= 3.0.0
 BuildRequires:    R-CRAN-pkgdown >= 2.2.0
-BuildRequires:    R-CRAN-fs >= 2.0.1
+BuildRequires:    R-CRAN-fs >= 2.1.0
 BuildRequires:    R-CRAN-memoise >= 2.0.1
-BuildRequires:    R-CRAN-pkgload >= 1.5.1
+BuildRequires:    R-CRAN-pkgload >= 1.5.2
 BuildRequires:    R-CRAN-pkgbuild >= 1.4.8
 BuildRequires:    R-CRAN-desc >= 1.4.3
 BuildRequires:    R-CRAN-rcmdcheck >= 1.4.0
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-sessioninfo >= 1.2.3
 BuildRequires:    R-CRAN-rlang >= 1.2.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.5
 BuildRequires:    R-CRAN-urlchecker >= 1.0.1
-BuildRequires:    R-CRAN-pak >= 0.9.3
+BuildRequires:    R-CRAN-pak >= 0.9.5
 BuildRequires:    R-CRAN-profvis >= 0.4.0
 BuildRequires:    R-CRAN-ellipsis >= 0.3.3
 BuildRequires:    R-CRAN-miniUI >= 0.1.2
@@ -45,9 +45,9 @@ Requires:         R-CRAN-usethis >= 3.2.1
 Requires:         R-CRAN-withr >= 3.0.2
 Requires:         R-CRAN-rversions >= 3.0.0
 Requires:         R-CRAN-pkgdown >= 2.2.0
-Requires:         R-CRAN-fs >= 2.0.1
+Requires:         R-CRAN-fs >= 2.1.0
 Requires:         R-CRAN-memoise >= 2.0.1
-Requires:         R-CRAN-pkgload >= 1.5.1
+Requires:         R-CRAN-pkgload >= 1.5.2
 Requires:         R-CRAN-pkgbuild >= 1.4.8
 Requires:         R-CRAN-desc >= 1.4.3
 Requires:         R-CRAN-rcmdcheck >= 1.4.0
@@ -55,7 +55,7 @@ Requires:         R-CRAN-sessioninfo >= 1.2.3
 Requires:         R-CRAN-rlang >= 1.2.0
 Requires:         R-CRAN-lifecycle >= 1.0.5
 Requires:         R-CRAN-urlchecker >= 1.0.1
-Requires:         R-CRAN-pak >= 0.9.3
+Requires:         R-CRAN-pak >= 0.9.5
 Requires:         R-CRAN-profvis >= 0.4.0
 Requires:         R-CRAN-ellipsis >= 0.3.3
 Requires:         R-CRAN-miniUI >= 0.1.2

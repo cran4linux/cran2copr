@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  altmeta
-%global packver   4.3
+%global packver   4.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3
+Version:          4.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternative Meta-Analysis Methods
 
@@ -44,8 +44,9 @@ bivariate generalized linear mixed models for synthesizing odds ratios,
 relative risks, and risk differences (Chu et al., 2012
 <doi:10.1177/0962280210393712>) - tests and measures for between-study
 heterogeneity (Lin et al., 2017 <doi:10.1111/biom.12543>; Wang et al.,
-2022 <doi:10.1002/sim.9261>); - measures, tests, and visualization tools
-for publication bias or small-study effects (Lin and Chu, 2018
+2022 <doi:10.1002/sim.9261>; Yu et al., 2025
+<doi:10.1186/s12874-025-02719-7>); - measures, tests, and visualization
+tools for publication bias or small-study effects (Lin and Chu, 2018
 <doi:10.1111/biom.12817>; Lin, 2019 <doi:10.1002/jrsm.1340>; Lin, 2020
 <doi:10.1177/0962280220910172>; Shi et al., 2020 <doi:10.1002/jrsm.1415>);
 - meta-analysis of combining standardized mean differences and odds ratios

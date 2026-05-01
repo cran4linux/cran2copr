@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestGenerator
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration Unit Tests for Pharmacoepidemiological Studies
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-omopgenerics 
+BuildRequires:    R-CRAN-RPostgres 
 Requires:         R-CRAN-CDMConnector >= 2.5.1
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readxl 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-omopgenerics 
+Requires:         R-CRAN-RPostgres 
 
 %description
 An R interface to load testing data in the 'OMOP' Common Data Model

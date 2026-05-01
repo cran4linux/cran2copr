@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfm
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recency, Frequency and Monetary Value Analysis
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
@@ -28,8 +30,10 @@ BuildRequires:    R-CRAN-treemapify
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xplorerr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 

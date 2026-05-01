@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BivLaplaceRL
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bivariate Laplace Transforms, Stochastic Orders, and Entropy Measures in Reliability
 
@@ -23,25 +23,29 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-Implements methods for bivariate Laplace transforms of residual lives and
-reversed residual lives, associated stochastic ordering concepts, and
-dynamic entropy measures for reliability analysis. The package covers
-three primary research areas: (1) Bivariate Laplace transform of residual
-lives and stochastic comparisons based on the bivariate Laplace transform
-order of residual lives (BLt-rl), including weak bivariate hazard rate,
-mean residual life, and relative mean residual life orders, nonparametric
-estimation, and NBUHR/NWUHR aging class characterisation (Jayalekshmi,
-Rajesh, and Nair, 2022, <doi:10.1080/03610926.2022.2085874>); (2)
-Bivariate Laplace transform order of reversed residual lives (BLt-Rrl),
-reversed hazard gradient, reversed mean residual life, and the associated
-stochastic orders (weak bivariate reversed hazard rate, weak bivariate
-reversed mean residual life); (3) Residual entropy generating function, a
-dynamic version of Golomb's (1966) information generating function whose
-derivative yields the residual entropy of Ebrahimi and Pellerey (1995),
-with nonparametric estimation and distribution characterisation.
-Parametric families supported include the Gumbel bivariate exponential,
+Implements methods for bivariate and univariate Laplace transforms of
+residual lives and reversed residual lives, associated stochastic ordering
+concepts, and entropy measures for reliability analysis. The package
+covers: (1) Bivariate Laplace transform of residual lives and stochastic
+comparisons based on the bivariate Laplace transform order of residual
+lives (BLt-rl), including weak bivariate hazard rate, mean residual life,
+and relative mean residual life orders, nonparametric estimation, and
+NBUHR/NWUHR aging class characterisation; Jayalekshmi, Rajesh, and Nair
+(2022) "Bivariate Laplace Transform of Residual Lives and Their
+Properties" <doi:10.1080/03610926.2022.2085874>; (2) Bivariate Laplace
+transform order of reversed residual lives (BLt-Rrl), reversed hazard
+gradient, reversed mean residual life, and the associated stochastic
+orders (weak bivariate reversed hazard rate, weak bivariate reversed mean
+residual life); Jayalekshmi, Rajesh, and Nair (2022) "Bivariate Laplace
+Transform Order and Ordering of Reversed Residual Lives"
+<doi:10.1142/S0218539322500061>; (3) Univariate Laplace transform of
+residual life, hazard rate, mean residual life, and the corresponding
+stochastic orders (Lt-rl order, hazard rate order, MRL order), together
+with a nonparametric estimator. Shannon entropy and Golomb's (1966)
+information generating function are also provided. Parametric families
+supported include the Gumbel bivariate exponential,
 Farlie-Gumbel-Morgenstern (FGM), bivariate power, and Schur-constant
-distributions.  Plotting utilities and a simulation framework for
+distributions. Plotting utilities and a simulation framework for
 evaluating estimator performance are also provided.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marginme
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Relative Risks, Risk Differences, and Marginal Effects from Mixed Models Using Marginal Standardization
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmmrBase >= 1.0.2
+BuildRequires:    R-CRAN-glmmrBase >= 1.4.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-glmmrBase >= 1.0.2
+Requires:         R-CRAN-glmmrBase >= 1.4.0
 Requires:         R-methods 
 
 %description
-Functionality to estimate relative risks, risk differences, and partial
-effects from mixed model. Marginalisation over random effect terms is
-accomplished using Markov Chain Monte Carlo.
+Estimation of relative risks, risk differences, and partial effects from
+mixed model. Marginalisation over random effect terms is accomplished
+using Markov Chain Monte Carlo.
 
 %prep
 %setup -q -c -n %{packname}

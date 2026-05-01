@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xxdi
-%global packver   1.3.1
+%global packver   1.26.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.26.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Package for Evaluating Scholarly Expertise Indices for Institutional Research Assessment
+Summary:          An R Package for Evaluating Expertise Indices for Research Strength Assessment
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,13 +19,11 @@ Requires:         R-core >= 4.4.2.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 4.3.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
 BuildRequires:    R-CRAN-tidyr >= 1.3.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-agop >= 0.2.4
 Requires:         R-stats >= 4.3.3
 Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-Matrix >= 1.6.1.1
 Requires:         R-CRAN-tidyr >= 1.3.1
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-agop >= 0.2.4

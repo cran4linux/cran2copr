@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rts2
-%global packver   0.10.2
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Real-Time Disease Surveillance
 
@@ -23,30 +23,33 @@ BuildRequires:    R-CRAN-rstan >= 2.30.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-lubridate >= 1.9.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-glmmrBase >= 1.1.0
+BuildRequires:    R-CRAN-glmmrBase >= 1.3.0
 BuildRequires:    R-CRAN-sf >= 1.0.14
 BuildRequires:    R-CRAN-stars >= 0.6.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-SparseChol >= 0.3.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-fmesher 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-raster >= 3.6.1
 Requires:         R-CRAN-rstan >= 2.30.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-lubridate >= 1.9.0
-Requires:         R-CRAN-glmmrBase >= 1.1.0
+Requires:         R-CRAN-glmmrBase >= 1.3.0
 Requires:         R-CRAN-sf >= 1.0.14
 Requires:         R-CRAN-stars >= 0.6.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-fmesher 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-rstantools
 
 %description
