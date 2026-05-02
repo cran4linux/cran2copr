@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  binb
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          'binb' is not 'Beamer'
 
@@ -28,9 +28,9 @@ Requires:         R-CRAN-codetools
 A collection of 'LaTeX' styles using 'Beamer' customization for pdf-based
 presentation slides in 'RMarkdown'. At present it contains 'RMarkdown'
 adaptations of the LaTeX themes 'Metropolis' (formerly 'mtheme') theme by
-Matthias Vogelgesang and others (now included in 'TeXLive'), the 'IQSS' by
-Ista Zahn (which is included here), and the 'Monash' theme by Rob J
-Hyndman. Additional (free) fonts may be needed: 'Metropolis' prefers
+Matthias Vogelgesang and others (now included in 'TeXLive'), the 'IQSS'
+them by Ista Zahn (which is included here), and the 'Monash' theme by Rob
+J Hyndman. Additional (free) fonts may be needed: 'Metropolis' prefers
 'Fira', and 'IQSS' requires 'Libertinus'.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slideimp
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Numeric Matrices K-NN and PCA Imputation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-CRAN-carrier 
 BuildRequires:    R-CRAN-checkmate 
@@ -27,6 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-mlpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEnsmallen 
+BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-bigmemory 
 Requires:         R-CRAN-carrier 
 Requires:         R-CRAN-checkmate 

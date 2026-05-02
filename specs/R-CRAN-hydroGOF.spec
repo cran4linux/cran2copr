@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hydroGOF
-%global packver   0.6-0.1
+%global packver   0.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Functions for Comparison of Simulated and Observed Hydrological Time Series
 
@@ -18,13 +18,13 @@ BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-zoo >= 1.7.2
+BuildRequires:    R-CRAN-hydroTSM >= 0.8.6
 BuildRequires:    R-CRAN-xts >= 0.8.2
-BuildRequires:    R-CRAN-hydroTSM >= 0.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-zoo >= 1.7.2
+Requires:         R-CRAN-hydroTSM >= 0.8.6
 Requires:         R-CRAN-xts >= 0.8.2
-Requires:         R-CRAN-hydroTSM >= 0.5.0
 Requires:         R-methods 
 Requires:         R-stats 
 

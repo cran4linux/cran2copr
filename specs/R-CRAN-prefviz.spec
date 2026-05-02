@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prefviz
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizes Preference Data via Ternary Plots in Two and Higher Dimensions
+Summary:          Visualizes Preferential Data in One and More Contests
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,30 +18,37 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-prefio 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-geozoo 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-prefio 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-geozoo 
 
 %description
-Visualises preference and ranking data by extending traditional ternary
-plots to support high-dimensional simplexes. The package provides methods
-to transform compositional data into coordinates suitable for 2D and
-high-dimensional ternary plots (see Cook & Laa (2024)
-<https://dicook.github.io/mulgar_book/>). Compatibility with interactive
-visualization packages such as 'plotly' or 'detourr' allows users to
-explore high-dimensional preference structures dynamically.
+A visualization toolkit for preferential data, such as ranked-choice
+election results, tournament outcomes, and survey responses. The package
+provides methods to visualise the preference distribution of one contest
+with bar charts and pairwise comparisons of two contestants, as well as
+methods to visualise multiple contests through 2D and high-dimensional
+simplex plots both statically and interactively. HD simplex displays are
+implemented via projection methods using the 'tourr' and 'detourr'
+packages, enabling dynamic exploration of high-dimensional preference
+structure. For more details on HD simplex projection, see Wickham et al.
+(2011) <doi:10.21105/joss.03419>.
 
 %prep
 %setup -q -c -n %{packname}

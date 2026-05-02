@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecoXCorr
-%global packver   0.2.2
+%global packname  GxEScanR
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lagged Cross-Correlation Analysis of Environmental Time Series
+Summary:          Run GWAS/GWEIS Scans Using Binary Dosage Files
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-performance 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-performance 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shiny 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-lsReg 
+BuildRequires:    R-CRAN-BinaryDosage 
+Requires:         R-CRAN-lsReg 
+Requires:         R-CRAN-BinaryDosage 
 
 %description
-Tools for analysing lagged relationships between environmental variables
-and ecological or epidemiological time series. The package implements a
-workflow to aggregate meteorological data over multiple lagged intervals,
-fit regression models, including mixed-effect models using 'glmmTMB', for
-each lag window, and visualise varied models outcomes (effect strength and
-direction, model prediction error...) using cross-correlation maps
-('CCM').
+Tools to run genome-wide association study (GWAS) and genome-wide by
+environment interaction study (GWEIS) scans using the genetic data stored
+in a binary dosage file. The user provides a data frame with the subject's
+covariate data and the information about the binary dosage file returned
+by the BinaryDosage::getbdinfo() routine.
 
 %prep
 %setup -q -c -n %{packname}

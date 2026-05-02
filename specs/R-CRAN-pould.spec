@@ -1,37 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bplsr
-%global packver   1.0.5
+%global packname  pould
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian partial least squares regression
+Summary:          Phased or Unphased Linkage Disequilibrium
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-haplo.stats 
+BuildRequires:    R-CRAN-gap 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-statmod 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-BIGDAWG 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-haplo.stats 
+Requires:         R-CRAN-gap 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-BIGDAWG 
+Requires:         R-graphics 
+Requires:         R-CRAN-stringr 
 
 %description
-Fits the Bayesian partial least squares regression model introduced in
-Urbas et al. (2024) <doi:10.1214/24-AOAS1947>. Suitable for univariate and
-multivariate regression with high-dimensional data.
+Computes the D', Wn, and conditional asymmetric linkage disequilibrium
+(ALD) measures for pairs of genetic loci. Performs these linkage
+disequilibrium (LD) calculations on phased genotype data recorded using
+Genotype List (GL) String or columnar formats. Alternatively, generates
+expectation-maximization (EM) estimated haplotypes from phased data, or
+performs LD calculations on EM estimated haplotypes. Performs sign tests
+comparing LD values for phased and unphased datasets, and generates
+heat-maps for each LD measure. Described by Osoegawa et al. (2019a)
+<doi:10.1016/j.humimm.2019.01.010>, and Osoegawa et. al. (2019b)
+<doi:10.1016/j.humimm.2019.05.018>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spCF
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coarse-to-Fine Spatial Modeling
 
@@ -16,25 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Provides functions for coarse-to-fine spatial modeling (CFSM), enabling
-fast spatial prediction, regression, and uncertainty quantification. For
-further details, see Murakami et al. (2025)
-<doi:10.48550/arXiv.2510.00968>.
+fast spatial prediction, regression, and uncertainty quantification. This
+method is suitable for moderate to large samples. For further details, see
+Murakami et al. (2026) <doi:10.1111/gean.70034>.
 
 %prep
 %setup -q -c -n %{packname}
