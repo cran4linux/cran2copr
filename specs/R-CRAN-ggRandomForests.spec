@@ -1,51 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kerasnip
-%global packver   0.1.2
+%global packname  ggRandomForests
+%global packver   2.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          2.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Bridge Between 'keras' and 'tidymodels'
+Summary:          Visually Exploring Random Forests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-keras3 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-randomForestSRC >= 3.4.0
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-parsnip >= 1.0.0
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-keras3 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-randomForestSRC >= 3.4.0
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-survival 
+Requires:         R-parallel 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-lobstr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides a seamless bridge between 'keras' and the 'tidymodels'
-frameworks. It allows for the dynamic creation of 'parsnip' model
-specifications for 'keras' models.
+Graphic elements for exploring Random Forests using the 'randomForest' or
+'randomForestSRC' package for survival, regression and classification
+forests and 'ggplot2' package plotting. Implements visualisations of the
+methods described in Breiman (2001) <doi:10.1023/A:1010933404324> and
+Ishwaran, Kogalur, Blackstone, and Lauer (2008) <doi:10.1214/08-AOAS169>.
 
 %prep
 %setup -q -c -n %{packname}

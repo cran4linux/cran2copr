@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trendseries
-%global packver   1.2.0
+%global packname  HTDV
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Trends from Time Series
+Summary:          Hypothesis Testing for Dependent Variables with Unbalanced Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,36 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dlm 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-hpfilter 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-mFilter 
-BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-CRAN-rstan >= 2.26.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tsbox 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dlm 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-hpfilter 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-mFilter 
-Requires:         R-CRAN-RcppRoll 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tsbox 
+Requires:         R-parallel 
+Requires:         R-CRAN-rstantools
 
 %description
-Extract trends from monthly and quarterly economic time series. Provides
-two main functions: augment_trends() for pipe-friendly 'tibble' workflows
-and extract_trends() for direct time series analysis. Includes established
-econometric filters such as Hodrick-Prescott (HP), Baxter-King,
-Christiano-Fitzgerald, and Hamilton, alongside moving averages and
-smoothing methods. Smart defaults are tuned for common economic
-frequencies following Ravn and Uhlig (2002)
-<doi:10.1162/003465302317411604>.
+Implements hierarchical Bayesian inference, robust frequentist inference,
+and distribution-free inference for dependent and unbalanced data under
+strong-mixing conditions. Supports triangular-array, weighted-sum and
+mixingale convergence regimes with Whittle and composite likelihoods,
+heteroskedasticity-and-autocorrelation-consistent variance estimation,
+block bootstrap with automatic block length, fixed-bandwidth HAR
+inference, adaptive conformal prediction, Bayesian decision under Region
+of Practical Equivalence, bridge-sampling Bayes factors, and predictive
+comparison via the Widely Applicable Information Criterion and
+leave-future-out cross-validation. Methods follow Andrews (1991)
+<doi:10.2307/2938229>, Kiefer and Vogelsang (2005)
+<doi:10.1017/S0266466605050565>, Patton, Politis and White (2009)
+<doi:10.1080/07474930802459016>, Vehtari, Gelman and Gabry (2017)
+<doi:10.1007/s11222-016-9696-4>, Kruschke (2018)
+<doi:10.1177/2515245918771304>, and Gibbs and Candes (2021)
+<doi:10.48550/arXiv.2106.00170>.
 
 %prep
 %setup -q -c -n %{packname}

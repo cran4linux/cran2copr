@@ -1,51 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kerasnip
-%global packver   0.1.2
+%global packname  PRBMSdesigns
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Bridge Between 'keras' and 'tidymodels'
+Summary:          Partially Residual Balanced Multi-Session Designs
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-keras3 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-parsnip >= 1.0.0
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-keras3 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-lobstr 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides a seamless bridge between 'keras' and the 'tidymodels'
-frameworks. It allows for the dynamic creation of 'parsnip' model
-specifications for 'keras' models.
+Provides functions for generating novel partially residual balanced
+multi-session designs. These designs arrange products over sessions and
+periods under partial balance restrictions and compute canonical
+efficiency factors for direct and residual (carryover) effects. For
+general background on PRBMS and related crossover design literature, see
+Aggarwal and Jha (2006) <doi:10.1080/03610920600695824> and Fardos et al.
+(2023) <doi:10.18576/jsap/120227>.
 
 %prep
 %setup -q -c -n %{packname}

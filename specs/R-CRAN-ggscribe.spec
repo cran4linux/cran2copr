@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kerasnip
-%global packver   0.1.2
+%global packname  ggscribe
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Bridge Between 'keras' and 'tidymodels'
+Summary:          Publication-Quality 'ggplot2' Annotation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,35 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-farver 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-keras3 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-parsnip >= 1.0.0
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-farver 
+Requires:         R-CRAN-glue 
+Requires:         R-grid 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-keras3 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-lobstr 
+Requires:         R-CRAN-scales 
 
 %description
-Provides a seamless bridge between 'keras' and the 'tidymodels'
-frameworks. It allows for the dynamic creation of 'parsnip' model
-specifications for 'keras' models.
+Annotation helper functions for publication-quality 'ggplot2'
+visualisation. These functions make it easier to annotate plots in a way
+that stays consistent with the set theme.
 
 %prep
 %setup -q -c -n %{packname}

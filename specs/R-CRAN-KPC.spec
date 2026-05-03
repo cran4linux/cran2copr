@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KPC
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Partial Correlation Coefficient
 
@@ -53,9 +53,9 @@ coefficient – a measure of conditional dependence” (URL listed below).
 When X is empty, KPC measures the unconditional dependence between Y and
 Z, which has been described in Deb, N., P. Ghosal, and B. Sen (2020),
 “Measuring association on topological spaces using kernels and geometric
-graphs” <arXiv:2010.01768>, and it is implemented in the functions KMAc()
-and Klin() in this package. The latter can be computed in near linear
-time.
+graphs” <doi:10.48550/arXiv.2010.01768>, and it is implemented in the
+functions KMAc() and Klin() in this package. The latter can be computed in
+near linear time.
 
 %prep
 %setup -q -c -n %{packname}

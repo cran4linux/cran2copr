@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kerasnip
-%global packver   0.1.2
+%global packname  joinpointR
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Bridge Between 'keras' and 'tidymodels'
+Summary:          Tidy Tools for Joinpoint Regression Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,35 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-keras3 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-parsnip >= 1.0.0
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-keras3 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-officer 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-lobstr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-officer 
 
 %description
-Provides a seamless bridge between 'keras' and the 'tidymodels'
-frameworks. It allows for the dynamic creation of 'parsnip' model
-specifications for 'keras' models.
+Provides tools to fit joinpoint regression models with a log-linear
+specification by levels of a categorical variable. The package acts as a
+wrapper around the 'segmented' package, facilitating model fitting,
+selection, and interpretation. It includes functions to estimate the
+Annual Percent Change (APC) and the Average Annual Percent Change (AAPC),
+along with their 95%% confidence intervals, and to generate formatted
+summary tables and plots of results.
 
 %prep
 %setup -q -c -n %{packname}
