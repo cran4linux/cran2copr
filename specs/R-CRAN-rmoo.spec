@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmoo
-%global packver   0.2.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Objective Optimization in R
 
@@ -21,18 +21,22 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-GA 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-BBmisc 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-GA 
 Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-BBmisc 
 
 %description
 The 'rmoo' package is a framework for multi- and many-objective

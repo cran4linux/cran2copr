@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SBOAtools
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Secretary Bird Optimization for Continuous Optimization and Neural Networks
+Summary:          Secretary Bird Optimization for Continuous Optimization and Neural Network Training
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,9 +23,13 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-Provides an implementation of secretary bird optimization for
-general-purpose continuous optimization and for training
-single-hidden-layer feed-forward neural network models.
+Provides an implementation of Secretary Bird Optimization for
+general-purpose continuous optimization, benchmark optimization, and
+training single-hidden-layer feed-forward neural network models. The
+implemented optimizer is based on the Secretary Bird Optimization
+Algorithm proposed by Fu et al. (2024) <doi:10.1007/s10462-024-10729-y>.
+The neural network training functionality is based on Dilber and Özdemir
+(2026) <doi:10.1007/s00521-026-11874-x>.
 
 %prep
 %setup -q -c -n %{packname}

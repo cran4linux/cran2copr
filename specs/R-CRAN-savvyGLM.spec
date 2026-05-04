@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  savvyGLM
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Linear Models with Slab and Shrinkage Estimators
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CVXR >= 1.8.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-glmnet 
@@ -26,7 +25,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-glm2 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-CVXR >= 1.8.0
+BuildRequires:    R-CRAN-CVXR 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-glmnet 
@@ -35,6 +34,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-glm2 
 Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-CVXR 
 
 %description
 Provides a flexible framework for fitting generalized linear models (GLMs)

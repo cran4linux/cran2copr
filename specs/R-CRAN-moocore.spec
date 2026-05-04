@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moocore
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Mathematical Functions for Multi-Objective Optimization
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-Rdpack 
 
 %description
 Fast implementations of mathematical operations and performance metrics

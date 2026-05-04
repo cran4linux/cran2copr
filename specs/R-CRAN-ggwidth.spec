@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggwidth
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardise 'ggplot2' Geom Width
+Summary:          Publication-Quality 'ggplot2' Geom Width
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,12 +18,16 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-grid 
+Requires:         R-CRAN-rlang 
 
 %description
-Standardise the width in 'ggplot2' geoms to appear visually consistent
-across plots with different numbers of categories, panel dimensions, and
-orientations.
+Width helper functions for publication-quality 'ggplot2' visualisation.
+These functions make it easier to create geoms such as bars that have a
+consistent width appearance across plots.
 
 %prep
 %setup -q -c -n %{packname}

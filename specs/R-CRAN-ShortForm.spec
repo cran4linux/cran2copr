@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ShortForm
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Short Form Creation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lavaan >= 0.5.22
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,6 +26,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-lavaan >= 0.5.22
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
@@ -35,6 +36,7 @@ Requires:         R-methods
 Requires:         R-CRAN-doSNOW 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-rlang 
 
 %description
 Performs automatic creation of short forms of scales with an ant colony
