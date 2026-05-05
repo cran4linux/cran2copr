@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DDD
-%global packver   5.2.4
+%global packver   5.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.4
+Version:          5.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversity-Dependent Diversification
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-ape
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-subplex 
 BuildRequires:    R-CRAN-DEoptim 
+BuildRequires:    R-CRAN-pso 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-SparseM 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-ape
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-subplex 
 Requires:         R-CRAN-DEoptim 
+Requires:         R-CRAN-pso 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-SparseM 

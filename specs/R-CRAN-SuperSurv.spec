@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SuperSurv
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Framework for Machine Learning Ensembles in Survival Analysis
 
@@ -42,9 +42,9 @@ the Brier score, Uno's C-index, and time-dependent area under the curve
 ensembles, including Shapley additive explanations (SHAP), and estimation
 of covariate-adjusted restricted mean survival time (RMST) contrasts. The
 methodology is related to treatment-specific survival curve estimation
-using machine learning described by Westling, Luedtke, Gilbert and Carone
-(2024) <doi:10.1080/01621459.2023.2205060>, and the unified ensemble
-framework described in Lyu et al. (2026) <doi:10.64898/2026.03.11.711010>.
+using machine learning described by Westling et al. (2024)
+<doi:10.1080/01621459.2023.2205060>, and the unified ensemble framework
+described in Lyu et al. (2026) <doi:10.64898/2026.03.11.711010>.
 
 %prep
 %setup -q -c -n %{packname}

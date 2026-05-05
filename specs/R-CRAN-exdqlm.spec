@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exdqlm
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Dynamic Quantile Linear Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
@@ -24,12 +24,13 @@ BuildRequires:    R-CRAN-tictoc
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-crch 
 BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-GeneralizedHyperbolic 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -41,18 +42,27 @@ Requires:         R-CRAN-tictoc
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-crch 
 Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-GeneralizedHyperbolic 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Routines for Bayesian estimation and analysis of dynamic quantile linear
-models utilizing the extended asymmetric Laplace error distribution, also
-known as extended dynamic quantile linear models (exDQLM) described in
-Barata et al (2020) <doi:10.1214/21-AOAS1497>.
+Bayesian quantile-regression routines for dynamic state-space models and
+static regression under the extended asymmetric Laplace (exAL) error
+distribution. The dynamic state-space models are extended dynamic quantile
+linear models (exDQLMs). The package combines dynamic exDQLM inference via
+LDVB, MCMC, and legacy ISVB with static exAL regression via LDVB and MCMC,
+reduced AL/DQLM paths through fixed skewness, component builders for
+trend/seasonality/regression blocks, static shrinkage priors including
+ridge, regularized horseshoe, and 'rhs_ns', evidence lower bound
+diagnostics, optional C++ accelerators, and posterior predictive synthesis
+across separately fitted quantiles through 'quantileSynthesis()'. Dynamic
+exDQLM methods are described in Barata et al. (2020)
+<doi:10.1214/21-AOAS1497>.
 
 %prep
 %setup -q -c -n %{packname}

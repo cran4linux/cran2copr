@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psychTools
-%global packver   2.5.7.22
+%global packver   2.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.7.22
+Version:          2.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Accompany the 'psych' Package for Psychological Research
 
@@ -19,10 +19,8 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-rtf 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-rtf 
 
 %description
 Support functions, data sets, and vignettes for the 'psych' package.

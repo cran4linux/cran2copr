@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blends
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Blend Colour Palettes
+Summary:          Blend Colours and Palettes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,7 +23,9 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-scales 
 
 %description
-Blend colour palettes using blend modes such as multiply and screen.
+Colour blend functions. These functions make it easier to blend colours
+and palettes using digital blend modes such as multiply, screen, and
+overlay.
 
 %prep
 %setup -q -c -n %{packname}

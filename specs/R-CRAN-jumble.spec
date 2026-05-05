@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jumble
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Discrete Colour Palette
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 
 %description
-A pretty discrete colour palette that is also relatively colourblind and
-contrast-safe for a light background.
+A discrete colour palette. These colours make it easier to create
+relatively accessible and colour-blind safe visualisation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qshap
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Calculation of Feature Contributions in Boosting Trees
 
@@ -39,11 +39,15 @@ Requires:         R-CRAN-progress
 %description
 Computes feature-specific R-squared (R2) contributions for boosting tree
 models using a Shapley-value-based decomposition of the total R-squared in
-polynomial time. Supports models fitted with 'XGBoost' and 'LightGBM', and
-provides efficient parallel implementations suitable for large-scale
-problems. Multiple visualization tools are included for interpreting and
-communicating feature contributions. The methodology is described in
-Jiang, Zhang, and Zhang (2025) <doi:10.48550/arXiv.2407.03515>.
+polynomial time. Supports models fitted with 'XGBoost', 'LightGBM', and
+'CatBoost', with optimized backend-specific implementations and cached
+tree summaries suitable for large-scale problems. Multiple visualization
+tools are included for interpreting and communicating feature
+contributions. The methodology is described in Jiang, Zhang, and Zhang
+(2025) <doi:10.48550/arXiv.2407.03515>. Optional 'CatBoost' support uses
+the R package 'catboost', which is not distributed on CRAN; installation
+instructions and released binaries are provided by the CatBoost project at
+<https://catboost.ai/docs/en/concepts/r-installation>.
 
 %prep
 %setup -q -c -n %{packname}

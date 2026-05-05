@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FD
-%global packver   1.0-12.3
+%global packver   1.0-12.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12.3
+Version:          1.0.12.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Functional Diversity (FD) from Multiple Traits, and Other Tools for Functional Ecology
 

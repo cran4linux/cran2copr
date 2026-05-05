@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialrisk
-%global packver   0.7.3
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Spatial Risk
+Summary:          Spatial Concentration and Radius-Based Risk Calculations
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,45 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-tmap 
 BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
-Requires:         R-CRAN-tmap 
 Requires:         R-CRAN-units 
-Requires:         R-CRAN-viridis 
 
 %description
-Provides methods for spatial risk calculations, focusing on efficient
-determination of the sum of observations within a circle of a given
-radius. These methods are particularly relevant for applications such as
-insurance, where recent European Commission regulations require the
-calculation of the maximum insured value of fire risk policies for all
-buildings that are partly or fully located within a 200 m radius. The
-underlying problem is described by Church (1974) <doi:10.1007/BF01942293>.
+Provides methods for spatial concentration and radius-based risk
+calculations. The package focuses on efficient determination of the sum of
+observations within a given radius, identifying local concentration
+hotspots, and aggregating point data to polygon geometries. These methods
+are useful for applications such as insurance, urban analytics,
+environmental exposure analysis, and other spatial point pattern
+workflows. The underlying maximum covering problem is described by Church
+(1974) <doi:10.1007/BF01942293>.
 
 %prep
 %setup -q -c -n %{packname}

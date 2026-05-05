@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  balnet
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pathwise Estimation of Covariate Balancing Propensity Scores
 
@@ -28,9 +28,9 @@ Requires:         R-methods
 Provides pathwise estimation of regularized logistic propensity score
 models using covariate balancing loss functions rather than maximum
 likelihood. Regularization paths are fit via the 'adelie' elastic-net
-solver with a 'glmnet'-like interface and objectives that directly target
-covariate balance for the ATE and ATT. For details, see Sverdrup & Hastie
-(2026) <doi:10.48550/arXiv.2602.18577>.
+solver with a 'glmnet'-like interface, yielding balancing weights that
+target covariate balance for the ATE and ATT. For details, see Sverdrup &
+Hastie (2026) <doi:10.48550/arXiv.2602.18577>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GLMBasedRaschEstimation
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          GLM-Based Estimation for Rasch Model Parameters
 
@@ -17,9 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-DT 
 Requires:         R-graphics 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-shiny 
 Requires:         R-stats 
 
 %description

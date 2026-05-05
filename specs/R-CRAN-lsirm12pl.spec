@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lsirm12pl
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Space Item Response Model
 
@@ -60,16 +60,16 @@ Requires:         R-CRAN-purrr
 
 %description
 Analysis of dichotomous, ordinal, and continuous response data using
-latent space item response models (LSIRMs). Provides 1PL and 2PL LSIRMs
+latent space item response model ('LSIRM'). Provides 1PL and 2PL 'LSIRM'
 for binary response data as described in Jeon et al. (2021)
-<doi:10.1007/s11336-021-09762-5>, extensions for continuous response data,
-and graded response models (GRM) for Likert-scale ordinal data as
-described in De Carolis et al. (2025) <doi:10.1080/00273171.2025.2605678>.
-Supports Bayesian model selection with spike-and-slab priors, adaptive
-MCMC algorithms, and methods for handling missing data under missing at
-random (MAR) and missing completely at random (MCAR) assumptions. Provides
-various diagnostic plots to inspect the latent space and summaries of
-estimated parameters.
+<doi:10.1007/s11336-021-09762-5>, graded response models ('GRM') for
+ordinal data (De Carolis et al., 2025,
+<doi:10.1080/00273171.2025.2605678>), and extensions for continuous
+response data. Supports Bayesian model selection with spike-and-slab
+priors, adaptive MCMC algorithms, and methods for handling missing data
+under missing at random ('MAR') and missing completely at random ('MCAR')
+assumptions. Provides various diagnostic plots to inspect the latent space
+and summaries of estimated parameters.
 
 %prep
 %setup -q -c -n %{packname}
