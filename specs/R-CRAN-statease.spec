@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exams2forms
-%global packver   0.2-1
+%global packname  statease
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Embedding 'exams' Exercises as Forms in 'rmarkdown' or 'quarto' Documents
+Summary:          Simplified Statistical Analysis with Plain-English Interpretation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-exams >= 2.4.2
-BuildRequires:    R-grDevices 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-exams >= 2.4.2
-Requires:         R-grDevices 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
 
 %description
-Automatic generation of quizzes or individual questions as (interactive)
-forms within 'rmarkdown' or 'quarto' documents based on 'R/exams'
-exercises.
+A toolkit for common statistical analyses including descriptive
+statistics, Student's t-test (one-sample, independent, and paired), and
+one-way Analysis of Variance (ANOVA). Each function automatically
+interprets results in plain English, reporting effect sizes (Cohen's d,
+eta-squared), confidence intervals, and p-value interpretations. Post-hoc
+Tukey Honestly Significant Difference (HSD) tests are automatically
+applied following significant ANOVA results. A master function
+automatically detects the appropriate test based on the structure of the
+input data. Methods are based on Cohen, J. (1988)
+<doi:10.4324/9780203771587>, Tukey, J. W. (1949) <doi:10.2307/3001913>,
+and Shapiro and Wilk (1965) <doi:10.2307/2333709>.
 
 %prep
 %setup -q -c -n %{packname}

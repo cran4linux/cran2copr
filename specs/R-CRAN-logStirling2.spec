@@ -1,43 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exams2forms
-%global packver   0.2-1
+%global packname  logStirling2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Embedding 'exams' Exercises as Forms in 'rmarkdown' or 'quarto' Documents
+Summary:          Fast Stirling Numbers of the Second Kind
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-exams >= 2.4.2
-BuildRequires:    R-grDevices 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-exams >= 2.4.2
-Requires:         R-grDevices 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Automatic generation of quizzes or individual questions as (interactive)
-forms within 'rmarkdown' or 'quarto' documents based on 'R/exams'
-exercises.
+Provides efficient tools for calculating Stirling numbers of the second
+kind and their logarithms. Includes an exact arbitrary-precision
+implementation using 'gmp' that avoids numerical cancellation, a fast C++
+backend with internal caching for log-scale calculations, and Temme's
+asymptotic approximation for very large inputs.
 
 %prep
 %setup -q -c -n %{packname}

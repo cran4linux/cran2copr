@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BEACH
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.3.2
+Release:          1%{?dist}%{?buildtag}
 Summary:          Biometric Exploratory Analysis Creation House
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,38 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-WriteXLS >= 3.5.1
-BuildRequires:    R-CRAN-devtools >= 1.9
-BuildRequires:    R-CRAN-plyr >= 1.8.2
-BuildRequires:    R-CRAN-xtable >= 1.7.4
-BuildRequires:    R-CRAN-rJava >= 0.9.6
-BuildRequires:    R-CRAN-sas7bdat >= 0.5
-BuildRequires:    R-CRAN-rtf >= 0.4.11
-BuildRequires:    R-CRAN-shiny >= 0.12.2
-BuildRequires:    R-CRAN-haven >= 0.1.1
-BuildRequires:    R-CRAN-DT >= 0.1
-Requires:         R-CRAN-WriteXLS >= 3.5.1
-Requires:         R-CRAN-devtools >= 1.9
-Requires:         R-CRAN-plyr >= 1.8.2
-Requires:         R-CRAN-xtable >= 1.7.4
-Requires:         R-CRAN-rJava >= 0.9.6
-Requires:         R-CRAN-sas7bdat >= 0.5
-Requires:         R-CRAN-rtf >= 0.4.11
-Requires:         R-CRAN-shiny >= 0.12.2
-Requires:         R-CRAN-haven >= 0.1.1
-Requires:         R-CRAN-DT >= 0.1
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-WriteXLS 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-WriteXLS 
 
 %description
-A platform is provided for interactive analyses with a goal of totally
-easy to develop, deploy, interact, and explore (TEDDIE). Using this
-package, users can create customized analyses and make them available to
-end users who can perform interactive analyses and save analyses to RTF or
-HTML files. It allows developers to focus on R code for analysis, instead
-of dealing with html or shiny code.
+A platform for interactive data analysis designed to simplify development,
+deployment, interaction, and exploration (TEDDIE). The package enables
+users to create customized analyses and deploy them to end users, who can
+perform interactive analyses and export results to RTF or HTML files. It
+allows developers to focus on R code for analysis rather than managing
+HTML or Shiny application code.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -57,6 +59,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

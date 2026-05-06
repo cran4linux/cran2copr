@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GitStats
-%global packver   2.5.2
+%global packname  emln
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standardized Git Repository Data
+Summary:          Organize, Handle, and Explore Ecological Multilayer Networks
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mirai >= 2.0.0
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-mirai >= 2.0.0
-Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-hablar 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-hablar 
+Requires:         R-CRAN-rlang 
 
 %description
-Obtain standardized data from multiple 'Git' services, including 'GitHub'
-and 'GitLab'. Designed to be 'Git' service-agnostic, this package assists
-teams with activities spread across various 'Git' platforms by providing a
-unified way to access repository data.
+Data and analysis of ecological multilayer networks, including
+standardization of data structures and functions to convert between them.
+Includes an interactive multilayer network visualizer (beta, paper
+forthcoming), and a collection of 78 empirical ecological multilayer
+network datasets. This work was supported by research grant ISF (Israel
+Science Foundation) 1281/20 to Shai Pilosof. Noa Frydman (2023)
+<doi:10.1111/2041-210X.14225>.
 
 %prep
 %setup -q -c -n %{packname}

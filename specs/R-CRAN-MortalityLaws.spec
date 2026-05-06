@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MortalityLaws
-%global packver   2.1.3
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Mortality Models, Life Tables and HMD
 
@@ -20,14 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-RCurl >= 1.95
 BuildRequires:    R-CRAN-httr >= 1.4.5
 BuildRequires:    R-CRAN-pbapply >= 1.3.4
-BuildRequires:    R-CRAN-minpack.lm >= 1.2
 BuildRequires:    R-CRAN-rvest >= 1.0.3
 BuildRequires:    R-CRAN-tidyr >= 0.8.1
 BuildRequires:    R-methods 
 Requires:         R-CRAN-RCurl >= 1.95
 Requires:         R-CRAN-httr >= 1.4.5
 Requires:         R-CRAN-pbapply >= 1.3.4
-Requires:         R-CRAN-minpack.lm >= 1.2
 Requires:         R-CRAN-rvest >= 1.0.3
 Requires:         R-CRAN-tidyr >= 0.8.1
 Requires:         R-methods 

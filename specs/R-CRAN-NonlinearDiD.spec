@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CausalMixGPD
-%global packver   0.8.0
+%global packname  NonlinearDiD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Nonparametric Conditional Density Modeling in Causal Inference and Clustering with a Heavy-Tail Extension
+Summary:          Staggered Difference-in-Differences with Nonlinear Outcomes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-ggplot2 
 
 %description
-The presence of a heavy tail is a feature of many scenarios when risk
-management involves extremely rare events. While parametric distributions
-may give adequate representation of the mode of data, they are likely to
-misrepresent heavy tails, and completely nonparametric approaches lack a
-rigorous mechanism for tail extrapolation; see Pickands (1975)
-<doi:10.1214/aos/1176343003>. The package 'CausalMixGPD' implements tools
-for Bayesian analysis of heavy-tailed outcomes by combining Dirichlet
-process mixture models for the body of the distribution with optional
-generalized Pareto tails. The method allows for unconditional and
-covariate-modulated mixtures, implements MCMC estimation using 'nimble',
-and extends to mixtures of different arms' outcomes with application to
-causal inference in the Rubin (1974) <doi:10.1037/h0037350> framework.
-Posterior summaries include density functions, quantiles, expected values,
-survival functions, and causal effects, with an emphasis on tail quantiles
-and functional measures sensitive to the tail.
+Implements difference-in-differences estimators for staggered treatment
+adoption with binary, count, and other nonlinear outcomes. Extends
+Callaway and Sant'Anna (2021) <doi:10.1016/j.jeconom.2020.12.001> to
+handle the fundamental identification challenges that arise with nonlinear
+outcome models (logit, probit, Poisson) in heterogeneous treatment timing
+designs. Provides group-time average treatment effects on the treated
+(ATT), aggregation schemes, and pre-treatment parallel trends tests
+appropriate for nonlinear settings. Methods include doubly-robust
+semiparametric estimators, nonparametric bounds, and an odds-ratio DiD
+approach for binary outcomes. Methods extend Callaway and Sant'Anna (2021)
+<doi:10.1016/j.jeconom.2020.12.001>, Roth and Sant'Anna (2023)
+<doi:10.3982/ECTA19255>, and Wooldridge (2023) <doi:10.1093/ectj/utad016>.
 
 %prep
 %setup -q -c -n %{packname}

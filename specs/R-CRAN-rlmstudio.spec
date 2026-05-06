@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exams2forms
-%global packver   0.2-1
+%global packname  rlmstudio
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Embedding 'exams' Exercises as Forms in 'rmarkdown' or 'quarto' Documents
+Summary:          Access and Control LM Studio
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-exams >= 2.4.2
-BuildRequires:    R-grDevices 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-exams >= 2.4.2
-Requires:         R-grDevices 
-Requires:         R-tools 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
 Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
 
 %description
-Automatic generation of quizzes or individual questions as (interactive)
-forms within 'rmarkdown' or 'quarto' documents based on 'R/exams'
-exercises.
+A community-maintained 'R' wrapper for the 'LM Studio' command line
+interface and API. Provides functions to manage the local daemon and
+server, download and load models, and interact with Large Language Models
+(LLMs).
 
 %prep
 %setup -q -c -n %{packname}

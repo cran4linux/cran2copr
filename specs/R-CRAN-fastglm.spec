@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastglm
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Stable Fitting of Generalized Linear Models using 'RcppEigen'
 
@@ -14,16 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.13
 BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.13
 Requires:         R-CRAN-bigmemory 
 Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Formula 
 
 %description
 Fits generalized linear models efficiently using 'RcppEigen'. The

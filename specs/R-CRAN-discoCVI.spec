@@ -1,43 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exams2forms
-%global packver   0.2-1
+%global packname  discoCVI
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Embedding 'exams' Exercises as Forms in 'rmarkdown' or 'quarto' Documents
+Summary:          Implementation of the DISCO Metric for Internal Clustering Evaluation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-exams >= 2.4.2
-BuildRequires:    R-grDevices 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-exams >= 2.4.2
-Requires:         R-grDevices 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-FNN 
+Requires:         R-stats 
 
 %description
-Automatic generation of quizzes or individual questions as (interactive)
-forms within 'rmarkdown' or 'quarto' documents based on 'R/exams'
-exercises.
+Implementation of the DISCO (Density-based Internal Score for Clusterings
+with nOise) metric, a cluster validity index for evaluating density-based
+clustering results without ground truth labels. DISCO is the first index
+to explicitly assess the quality of noise point assignments in addition to
+cluster quality. It uses density-connectivity distance derived from a
+minimum spanning tree of the mutual-reachability graph, providing
+interpretable, bounded scores in [-1, 1]. Higher scores indicate better
+clustering. Based on Beer et al. (2025) <doi:10.48550/arXiv.2503.00127>.
 
 %prep
 %setup -q -c -n %{packname}

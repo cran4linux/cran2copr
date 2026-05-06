@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BoundIRT
-%global packver   0.0.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Bounded Continuous Item Response Theory Models to Data
 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rmutil 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstantools >= 2.6.0
@@ -34,8 +34,8 @@ Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rmutil 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-rstantools
 
 %description
@@ -54,9 +54,9 @@ Mellenbergh (1994)<doi:10.1207/s15327906mbr2903_2>, and the Simplex IRT
 model by Flores et al. (2020)<doi:10.1007/978-3-030-43469-4_8>. All models
 can be fitted with or without zero-one inflation (Molenaar et al.,
 2022)<doi:10.3102/10769986221108455>. Model fit comparisons can be
-conducted using the Watanabe–Akaike information criterion (WAIC), the
-deviance information criterion (DIC), and the fully marginalized
-likelihood (i.e., Bayes factors).
+conducted using the Watanabe-Akaike information criterion (WAIC),
+leave-one-out cross-validation information citerion (LOOIC) and the fully
+marginalized likelihood (i.e., Bayes factors).
 
 %prep
 %setup -q -c -n %{packname}

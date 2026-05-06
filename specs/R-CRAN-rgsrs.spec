@@ -1,43 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exams2forms
-%global packver   0.2-1
+%global packname  rgsrs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Embedding 'exams' Exercises as Forms in 'rmarkdown' or 'quarto' Documents
+Summary:          Query the FDA Global Substance Registration System (GSRS) API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-exams >= 2.4.2
-BuildRequires:    R-grDevices 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-exams >= 2.4.2
-Requires:         R-grDevices 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-pingr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-pingr 
 
 %description
-Automatic generation of quizzes or individual questions as (interactive)
-forms within 'rmarkdown' or 'quarto' documents based on 'R/exams'
-exercises.
+Provides functions to query the FDA Global Substance Registration System
+(GSRS) REST API (<https://gsrs.ncats.nih.gov/api/v1/>). Enables
+programmatic access to substance records, UNII identifiers, synonyms,
+external codes, and chemical structures for over 170,000 registered
+substances.
 
 %prep
 %setup -q -c -n %{packname}

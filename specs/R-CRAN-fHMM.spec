@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fHMM
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Hidden Markov Models to Financial Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-oeli >= 0.3.0
+BuildRequires:    R-CRAN-oeli >= 0.7.6
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.3.0
+Requires:         R-CRAN-oeli >= 0.7.6
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 

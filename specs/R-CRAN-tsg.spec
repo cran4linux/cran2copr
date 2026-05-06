@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsg
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Publication-Ready Statistical Tables
 
@@ -29,7 +29,13 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-qpdf 
 Requires:         R-CRAN-yaml >= 2.3.10
 Requires:         R-CRAN-jsonlite >= 2.0.0
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -42,7 +48,13 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gt 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-qpdf 
 
 %description
 A collection of functions for generating frequency tables and

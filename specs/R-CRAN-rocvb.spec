@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNAmf
-%global packver   1.1.4
+%global packname  rocvb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recursive Non-Additive Emulator for Multi-Fidelity Data
+Summary:          ROC-Based Inference for Diagnostic Accuracy Under Verification Bias
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plgp 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-emplik 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-plgp 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-emplik 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-scales 
+Requires:         R-grid 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pROC 
+Requires:         R-stats 
 
 %description
-Performs RNA emulation and active learning proposed by Heo and Sung (2025)
-<doi:10.1080/00401706.2024.2376173> for multi-fidelity computer
-experiments. The RNA emulator is particularly useful when the simulations
-with different fidelity level are nonlinearly correlated. The
-hyperparameters in the model are estimated by maximum likelihood
-estimation.
+Provides point estimates and confidence intervals for receiver operating
+characteristic (ROC)–based diagnostic accuracy metrics for tests and
+biomarkers subject to verification bias. Supported metrics include the
+Area Under the ROC Curve (AUC), the Youden index, and the sensitivity at a
+user‑specified specificity level for two‑class continuous tests under
+missing‑at‑random (MAR) disease verification. Point estimation follows
+Alonzo and Pepe (2005) <doi:10.1111/j.1467-9876.2005.00477.x>. Multiple
+types of confidence intervals are implemented and compared, including
+bootstrap‑based, Method of Variance Estimates Recovery (MOVER)–based, and
+empirical likelihood (EL)–based intervals; see Wang et al. (2025)
+<doi:10.1177/09622802251322989> and <https://github.com/swang1021/rocvb>.
 
 %prep
 %setup -q -c -n %{packname}

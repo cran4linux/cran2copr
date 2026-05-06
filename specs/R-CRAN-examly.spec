@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  examly
-%global packver   0.2.0
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Metrics and Reporting Tool
 
@@ -17,44 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-officer 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-tidyr 
 
 %description
 A 'Shiny'-based toolkit for item/test analysis. It is designed for
 multiple-choice, true-false, and open-ended questions. The toolkit is
 usable with datasets in 1-0 or other formats. Key analyses include
-difficulty, discrimination, response-option analysis, reports. The
-classical test theory methods used are described in Ebel & Frisbie (1991,
-ISBN:978-0132892314).
+difficulty, discrimination, response-option analysis, and reports. The
+classical test theory methods used are described in Ebel and Frisbie
+(1991, ISBN:978-0132892314).
 
 %prep
 %setup -q -c -n %{packname}
