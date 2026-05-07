@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mgsub
-%global packver   1.7.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Safe, Multiple, Simultaneous String Substitution
 
@@ -15,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 
 %description
 Designed to enable simultaneous substitution in strings in a safe fashion.

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vectra
-%global packver   0.5.1
+%global packname  ibkrcp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Columnar Query Engine for Larger-than-RAM Data
+Summary:          R Client for the Interactive Brokers Client Portal API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rlang 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+Requires:         R-CRAN-httr2 
 
 %description
-A minimal columnar query engine with lazy execution on datasets larger
-than RAM. Provides 'dplyr'-like verbs (filter(), select(), mutate(),
-group_by(), summarise(), joins, window functions) and common aggregations
-(n(), sum(), mean(), min(), max(), sd(), first(), last()) backed by a pure
-C11 pull-based execution engine and a custom on-disk format ('.vtr').
+Provides a lightweight R interface to the Interactive Brokers (IBKR)
+Client Portal REST API
+<https://www.interactivebrokers.com/campus/ibkr-api-page/cpapi-v1/>.
+Functions cover session management, account and portfolio queries, market
+data retrieval, and order placement and cancellation. Requires a locally
+running IBKR Client Portal Gateway.
 
 %prep
 %setup -q -c -n %{packname}

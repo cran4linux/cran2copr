@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ShortForm
-%global packver   0.5.7
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Short Form Creation
 
@@ -18,9 +18,6 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lavaan >= 0.5.22
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-doSNOW 
@@ -28,9 +25,6 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-lavaan >= 0.5.22
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-methods 
 Requires:         R-CRAN-doSNOW 

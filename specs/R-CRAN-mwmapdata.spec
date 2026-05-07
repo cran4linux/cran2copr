@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SubTite
-%global packver   4.0.5
+%global __requires_exclude ^libmpi
+%global packname  mwmapdata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Subgroup Specific Optimal Dose Assignment
+Summary:          Spatial Boundary Data for Malawi Administrative Levels
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf 
 
 %description
-Chooses subgroup specific optimal doses in a phase I dose finding clinical
-trial allowing for subgroup combination and simulates clinical trials
-under the subgroup specific time to event continual reassessment method.
-Chapple, A.G., Thall, P.F. (2018) <doi:10.1002/pst.1891>.
+Provides official spatial boundary datasets for Malawi at multiple
+administrative levels: country (level 0), regions (level 1), districts
+(level 2), and traditional authorities (level 3). Also includes Lake
+Malawi boundary data. Boundary data are the Common Operational Datasets
+(COD-AB) sourced from the National Statistics Office of Malawi and
+distributed via the OCHA Humanitarian Data Exchange (HDX), version 02
+<https://data.humdata.org/dataset/cod-ab-mwi>. Intended for use with the
+'mwmap' package or any spatial analysis workflow requiring Malawi
+administrative boundaries.
 
 %prep
 %setup -q -c -n %{packname}

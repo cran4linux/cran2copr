@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sprtt
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Probability Ratio Tests Toolbox
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
@@ -25,6 +26,13 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-piggyback 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
@@ -33,20 +41,27 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-piggyback 
 
 %description
-It is a toolbox for Sequential Probability Ratio Tests (SPRT), Wald (1945)
-<doi:10.2134/agronj1947.00021962003900070011x>. SPRTs are applied to the
-data during the sampling process, ideally after each observation. At any
-stage, the test will return a decision to either continue sampling or
-terminate and accept one of the specified hypotheses. The seq_ttest()
-function performs one-sample, two-sample, and paired t-tests for testing
-one- and two-sided hypotheses (Schnuerch & Erdfelder (2019)
-<doi:10.1037/met0000234>). The seq_anova() function allows to perform a
-sequential one-way fixed effects ANOVA (Steinhilber et al. (2023)
-<doi:10.31234/osf.io/m64ne>). Learn more about the package by using
-vignettes "browseVignettes(package = "sprtt")" or go to the website
-<https://meikesteinhilber.github.io/sprtt/>.
+A toolbox for Sequential Probability Ratio Tests (SPRT) based on Wald
+(1945) <doi:10.2134/agronj1947.00021962003900070011x>. SPRTs are applied
+during the sampling process, ideally after each observation, and at every
+stage return a decision to either continue sampling or terminate and
+accept one of the specified hypotheses. The `seq_ttest()` function
+performs one-sample, two-sample, and paired t-tests for one- and two-sided
+hypotheses (Schnuerch & Erdfelder (2019) <doi:10.1037/met0000234>). The
+`seq_anova()` function performs a sequential one-way fixed effects ANOVA
+(Steinhilber et al. (2024) <doi:10.1037/met0000677>). The
+`plan_sample_size()` function helps plan sequential studies by simulating
+required sample sizes across a range of effect sizes. For more
+information, see the vignettes browseVignettes(package = "sprtt") or the
+package website <https://meikesteinhilber.github.io/sprtt/>.
 
 %prep
 %setup -q -c -n %{packname}

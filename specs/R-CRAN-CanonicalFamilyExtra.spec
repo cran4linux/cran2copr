@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcube
-%global packver   0.5
+%global packname  CanonicalFamilyExtra
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulations and Visualizations of Rubik's Cube (with Mods)
+Summary:          Extra Canonical Link Family Objects for Generalized Linear Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides simplified methods for managing classic Rubik's cubes and many
-other modifications of it (such as NxNxN size cubes, void cubes and
-8-coloured cubes - so called octa cubes). Includes functions of handling
-special syntax for managing such cubes; and different approach to plotting
-3D cubes without using external libraries (for example 'OpenGL').
+Extra family objects in "weird" scenarios, particularly logistic or
+log-linear model with unbounded or non-binary/non-integer outcomes.
+Provides binomial_extra() and poisson_extra() as generalizations of
+binomial() and poisson(). The use of canonical link with the corresponding
+working likelihood in glm() ensures convexity, making model fitting
+reliable and independent of starting value. Robert WM Wedderburn (1974)
+<doi:10.1093/biomet/61.3.439> and Peter McCullagh (1983)
+<doi:10.1214/aos/1176346056> justified this method to fit generalized
+linear (mean) models with quasi-/working likelihood.
 
 %prep
 %setup -q -c -n %{packname}

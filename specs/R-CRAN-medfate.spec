@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  medfate
-%global packver   4.8.4
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8.4
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediterranean Forest Simulation
 
@@ -17,13 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-meteoland >= 2.0.0
+BuildRequires:    R-CRAN-meteoland >= 2.2.6
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-meteoland >= 2.0.0
+Requires:         R-CRAN-meteoland >= 2.2.6
 Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-methods 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-units 
 
 %description
 Simulate Mediterranean forest functioning and dynamics using cohort-based

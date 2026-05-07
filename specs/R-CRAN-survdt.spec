@@ -1,31 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BE
-%global packver   0.2.4
+%global packname  survdt
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bioequivalence Study Data Analysis
+Summary:          Improved Methods for Survival Analysis under Double Truncation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rtf 
-Requires:         R-CRAN-rtf 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-Analyze bioequivalence study data with industrial strength. Sample size
-could be determined for various crossover designs, such as 2x2 design, 2x4
-design, 4x4 design, Balaam design, Two-sequence dual design, and William
-design. Reference: Chow SC, Liu JP. Design and Analysis of Bioavailability
-and Bioequivalence Studies. 3rd ed. (2009, ISBN:978-1-58488-668-6).
+Contains existing and novel methods for nonparametric analysis and Cox
+regression analysis with doubly truncated survival data, as described in
+Vazquez and Xie (2025) <doi:10.1007/s10985-025-09650-5>. Includes survival
+curves and hazard estimates through nonparametric maximum likelihood
+estimation, various tests for detecting group differences or non-ignorable
+sampling bias, and inverse probability weighted Cox regression with
+several options of nonparametric weights. Also implements diagnostics for
+key modeling assumptions such as quasi-independent truncation and the
+positivity assumption. Closed-form standard errors are available for all
+estimates, i.e. bootstrapping is not required.
 
 %prep
 %setup -q -c -n %{packname}

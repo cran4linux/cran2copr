@@ -1,34 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ar.matrix
-%global packver   0.1.0
+%global packname  INLAspacetime
+%global packver   0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Auto Regressive Data from Precision Matricies
+Summary:          Spatial and Spatio-Temporal Models using 'INLA'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-inlabru >= 2.14
+BuildRequires:    R-CRAN-INLAtools > 0.1.3
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sparseMVN 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-fmesher 
+Requires:         R-CRAN-inlabru >= 2.14
+Requires:         R-CRAN-INLAtools > 0.1.3
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sparseMVN 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-fmesher 
 
 %description
-Using sparse precision matricies and Choleski factorization simulates data
-that is auto-regressive.
+Prepare objects to implement models over spatial and spacetime domains
+with the 'INLA' package (<https://www.r-inla.org>). These objects contain
+data to for the 'cgeneric' interface in 'INLA', enabling fast parallel
+computations. We implemented the spatial barrier model, see Bakka et. al.
+(2019) <doi:10.1016/j.spasta.2019.01.002>, and some of the spatio-temporal
+models proposed in Lindgren et. al. (2024)
+<https://raco.cat/index.php/SORT/article/view/428665>. Details are
+provided in the available vignettes and from the URL bellow.
 
 %prep
 %setup -q -c -n %{packname}

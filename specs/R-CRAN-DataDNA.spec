@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  HCT
-%global packver   0.1.3
+%global __requires_exclude ^libmpi
+%global packname  DataDNA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates Significance Criteria and Power for a Single Arm Trial
+Summary:          Data Frame Fingerprints and Lineage Figures
 
-License:          GNU General Public License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan 
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-htmltools 
 
 %description
-Given a database of previous treatment/placebo estimates, their standard
-errors and sample sizes, the program calculates a significance criteria
-and power estimate that takes into account the among trial variation.
+Profiles R data frames as compact data fingerprints using schema, shape,
+missingness, distribution, category, uniqueness, time, and role signals.
+It compares versions, identifies close relatives in a library of
+historical data sets, and renders portable HTML cards plus static PNG/PDF
+lineage figures for reports.
 
 %prep
 %setup -q -c -n %{packname}

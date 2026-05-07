@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GRAPE
-%global packver   0.1.1
+%global packname  ipeval
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gene-Ranking Analysis of Pathway Expression
+Summary:          Evaluation of Interventional Predictions
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-prodlim 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-prodlim 
 
 %description
-Gene-Ranking Analysis of Pathway Expression (GRAPE) is a tool for
-summarizing the consensus behavior of biological pathways in the form of a
-template, and for quantifying the extent to which individual samples
-deviate from the template. GRAPE templates are based only on the relative
-rankings of the genes within the pathway and can be used for
-classification of tissue types or disease subtypes. GRAPE can be used to
-represent gene-expression samples as vectors of pathway scores, where each
-pathway score indicates the departure from a given collection of reference
-samples. The resulting pathway- space representation can be used as the
-feature set for various applications, including survival analysis and
-drug-response prediction. Users of GRAPE should use the following
-citation: Klein MI, Stern DF, and Zhao H. GRAPE: A pathway template method
-to characterize tissue-specific functionality from gene expression
-profiles. BMC Bioinformatics, 18:317 (June 2017).
+Provides methods to evaluate predictive performance of models that
+estimate risks under hypothetical intervention scenarios
+(interventional/causal/counterfactual predictions) with observational data
+subject to treatment-outcome confounding. Inverse probability of treatment
+weighting (IPTW) is used to construct a pseudopopulation in which all
+individuals receive a specified intervention, enabling assessment of
+agreement between predicted risks under the intervention and observed
+outcomes in the pseudo-population corresponding to that intervention.
+Package supports binary and time-to-event outcomes under binary
+interventions made at a single time point. Performance measures supported
+are AUC (Area Under the receiving operating characteristic Curve), Brier
+score, observed-expected ratio, and calibration plots. Methods implemented
+in this package are based on work by Keogh and Van Geloven (2024)
+<DOI:10.1097/EDE.0000000000001713>.
 
 %prep
 %setup -q -c -n %{packname}

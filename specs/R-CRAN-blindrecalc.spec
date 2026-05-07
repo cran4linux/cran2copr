@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blindrecalc
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Blinded Sample Size Recalculation
 
@@ -26,7 +26,7 @@ Computation of key characteristics and plots for blinded sample size
 recalculation. Continuous as well as binary endpoints are supported in
 superiority and non-inferiority trials. See Baumann, Pilz, Kieser (2022)
 <doi:10.32614/RJ-2022-001> for a detailed description. The implemented
-methods include the approaches by Lu, K. (2019) <doi:10.1002/pst.1737>,
+methods include the approaches by Lu, K. (2016) <doi:10.1002/pst.1737>,
 Kieser, M. and Friede, T. (2000)
 <doi:10.1002/(SICI)1097-0258(20000415)19:7%%3C901::AID-SIM405%%3E3.0.CO;2-L>,
 Friede, T. and Kieser, M. (2004) <doi:10.1002/pst.140>, Friede, T.,
