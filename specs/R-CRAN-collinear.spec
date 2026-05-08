@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  collinear
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Multicollinearity Management
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-spatialData 
 Requires:         R-CRAN-recipes >= 1.0.9
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-spatialData 
 
 %description
 Provides a comprehensive and automated workflow for managing

@@ -1,29 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggversa
-%global packver   0.1.1
+%global packname  amp.sim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conjuntos de Datos para 'Graficas Versatiles con ggplot2'
+Summary:          Flexible Simulation Utilities for Pharmacometric Modeling
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-NMdata >= 0.2.3
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-NMdata >= 0.2.3
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Una coleccion de conjuntos de datos para el libro "Graficas versatiles con
-ggplot: Analisis visuales de datos", por Raymond L. Tremblay y Julian
-Hernandez-Serrano. Incluye datos de ecologia, salud publica, educacion,
-economia y biodiversidad para la ensenanza de visualizacion de datos con
-'ggplot2'.
+The goal of 'amp.sim' is to transform 'NONMEM' models into R syntax so
+they can be used for simulations using the 'deSolve', 'nlmixr2' or
+'mrgsolve' package. Additionally, functionality is included to aid
+simulations performed directly in 'NONMEM' and to automatically create
+shiny apps for simulation models.
 
 %prep
 %setup -q -c -n %{packname}

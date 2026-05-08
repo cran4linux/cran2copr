@@ -1,22 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CoSMoS
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Complete Stochastic Modelling Solution
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
@@ -29,12 +28,15 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-mAr 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-directlabels 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-animation 
 BuildRequires:    R-CRAN-ggquiver 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppNumerical 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-data.table 
 Requires:         R-utils 
@@ -47,12 +49,12 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-mAr 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-directlabels 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-animation 
 Requires:         R-CRAN-ggquiver 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Makes univariate, multivariate, or random fields simulations precise and

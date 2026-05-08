@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ATbounds
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bounding Treatment Effects by Limited Information Pooling
 
@@ -28,9 +29,10 @@ bounds are designed to be robust in challenging situations, for example,
 when the conditioning variables take on a large number of different values
 in the observed sample, or when the overlap condition is violated. This
 robustness is achieved by only using limited "pooling" of information
-across observations. For more details, see the paper by Lee and Weidner
-(2021), "Bounding Treatment Effects by Pooling Limited Information across
-Observations," <arXiv:2111.05243>.
+across observations. For more details, see the paper by Lee and Weidner,
+"Bounding Treatment Effects by Pooling Limited Information across
+Observations," forthcoming at the Journal of Econometrics,
+<doi:10.48550/arXiv.2111.05243>.
 
 %prep
 %setup -q -c -n %{packname}

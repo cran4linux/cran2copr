@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoBMA
-%global packver   3.6.1
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.1
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian Meta-Analyses
 
@@ -17,7 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    jags-devel
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-BayesTools >= 0.2.19
+BuildRequires:    R-CRAN-BayesTools >= 0.3.0
+BuildRequires:    R-CRAN-bridgesampling 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-stats 
@@ -28,7 +32,11 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-BayesTools >= 0.2.19
+Requires:         R-CRAN-BayesTools >= 0.3.0
+Requires:         R-CRAN-bridgesampling 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
 Requires:         R-CRAN-runjags 
 Requires:         R-CRAN-rjags 
 Requires:         R-stats 
@@ -41,20 +49,19 @@ Requires:         R-CRAN-coda
 Requires:         R-CRAN-ggplot2 
 
 %description
-A framework for estimating ensembles of meta-analytic, meta-regression,
-and multilevel models (assuming either presence or absence of the effect,
-heterogeneity, publication bias, and moderators). The RoBMA framework uses
-Bayesian model-averaging to combine the competing meta-analytic models
-into a model ensemble, weights the posterior parameter distributions based
-on posterior model probabilities and uses Bayes factors to test for the
-presence or absence of the individual components (e.g., effect vs. no
-effect; Bartoš et al., 2022, <doi:10.1002/jrsm.1594>; Maier, Bartoš &
-Wagenmakers, 2022, <doi:10.1037/met0000405>; Bartoš et al., 2025,
-<doi:10.1037/met0000737>). Users can define a wide range of prior
-distributions for the effect size, heterogeneity, publication bias
-(including selection models and PET-PEESE), and moderator components. The
-package provides convenient functions for summary, visualizations, and fit
-diagnostics.
+A framework for Bayesian meta-analysis, including model estimation, prior
+specification, model comparison, prediction, summaries, visualizations,
+and diagnostics. The package fits single and model-averaged meta-analytic,
+meta-regression, multilevel, publication bias adjusted, and generalized
+linear mixed models The model-averaged meta-analytic models combine
+competing models based on their predictive performance, weight inference
+by posterior model probabilities, and test model components using Bayes
+factors (e.g., effect vs. no effect; Bartoš et al., 2022,
+<doi:10.1002/jrsm.1594>; Maier, Bartoš & Wagenmakers, 2022,
+<doi:10.1037/met0000405>; Bartoš et al., 2025, <doi:10.1037/met0000737>).
+Users can specify flexible prior distributions for effect sizes,
+heterogeneity, publication bias (including selection models and
+PET-PEESE), and moderators.
 
 %prep
 %setup -q -c -n %{packname}

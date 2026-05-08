@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoBSA
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian Survival Analysis
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    jags-devel
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-BayesTools >= 0.2.14
+BuildRequires:    R-CRAN-BayesTools >= 0.3.0
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-runjags 
@@ -27,7 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-BayesTools >= 0.2.14
+Requires:         R-CRAN-BayesTools >= 0.3.0
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-runjags 

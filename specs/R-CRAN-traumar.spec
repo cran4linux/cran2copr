@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traumar
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Metrics for Trauma System Performance
 
@@ -17,38 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
-BuildRequires:    R-CRAN-tibble >= 3.3.0
-BuildRequires:    R-CRAN-lubridate >= 1.9.4
-BuildRequires:    R-CRAN-stringr >= 1.5.1
-BuildRequires:    R-CRAN-patchwork >= 1.3.1
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
+BuildRequires:    R-CRAN-tibble >= 3.3.1
+BuildRequires:    R-CRAN-lubridate >= 1.9.5
+BuildRequires:    R-CRAN-stringr >= 1.6.0
+BuildRequires:    R-CRAN-patchwork >= 1.3.2
+BuildRequires:    R-CRAN-tidyr >= 1.3.2
+BuildRequires:    R-CRAN-purrr >= 1.2.2
+BuildRequires:    R-CRAN-dplyr >= 1.2.1
 BuildRequires:    R-CRAN-tidyselect >= 1.2.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-hms >= 1.1.3
-BuildRequires:    R-CRAN-nemsqar >= 1.1.0
-BuildRequires:    R-CRAN-infer >= 1.0.8
+BuildRequires:    R-CRAN-hms >= 1.1.4
+BuildRequires:    R-CRAN-nemsqar >= 1.1.2
+BuildRequires:    R-CRAN-infer >= 1.1.0
 BuildRequires:    R-CRAN-nortest >= 1.0.4
-BuildRequires:    R-CRAN-purrr >= 1.0.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.5.2
-Requires:         R-CRAN-tibble >= 3.3.0
-Requires:         R-CRAN-lubridate >= 1.9.4
-Requires:         R-CRAN-stringr >= 1.5.1
-Requires:         R-CRAN-patchwork >= 1.3.1
-Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-ggplot2 >= 4.0.3
+Requires:         R-CRAN-tibble >= 3.3.1
+Requires:         R-CRAN-lubridate >= 1.9.5
+Requires:         R-CRAN-stringr >= 1.6.0
+Requires:         R-CRAN-patchwork >= 1.3.2
+Requires:         R-CRAN-tidyr >= 1.3.2
+Requires:         R-CRAN-purrr >= 1.2.2
+Requires:         R-CRAN-dplyr >= 1.2.1
 Requires:         R-CRAN-tidyselect >= 1.2.1
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-hms >= 1.1.3
-Requires:         R-CRAN-nemsqar >= 1.1.0
-Requires:         R-CRAN-infer >= 1.0.8
+Requires:         R-CRAN-hms >= 1.1.4
+Requires:         R-CRAN-nemsqar >= 1.1.2
+Requires:         R-CRAN-infer >= 1.1.0
 Requires:         R-CRAN-nortest >= 1.0.4
-Requires:         R-CRAN-purrr >= 1.0.4
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lfebd3
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generation and Analysis of Confounded and Fractional Factorial Block Designs
+Summary:          Generation and Analysis of 3-Level and 5-Level Factorial Block Designs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,16 +27,15 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides tools to generate and analyze 3-level linear factorial block
-designs, including complete factorial layouts, fractional factorial
-layouts, confounded factorial layouts, and design-characteristic
-summaries. The package includes utilities for recursive ternary
-construction, defining-contrast identification, alias/confounding
-summaries, incidence matrix construction, and design optimality
-diagnostics.The methodological framework follows foundational work on
-Gupta (1983) <doi:10.1111/j.2517-6161.1983.tb01253.x>. These methods
-assist in selecting, comparing, and studying factorial and fractional
-factorial block designs for large experimental situations.
+Provides tools to generate and analyze 3-level and 5-level linear
+factorial block designs, including complete factorial layouts, fractional
+factorial layouts, confounded factorial layouts, and design-characteristic
+summaries. The package includes utilities for recursive construction,
+defining-contrast identification, alias and confounding summaries,
+incidence matrix construction, and selected design-characteristic
+diagnostics. The methodological framework follows foundational work on
+factorial block designs, including Gupta (1983)
+<doi:10.1111/j.2517-6161.1983.tb01253.x>.
 
 %prep
 %setup -q -c -n %{packname}

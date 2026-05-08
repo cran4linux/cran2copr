@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggversa
-%global packver   0.1.1
+%global packname  s7contract
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conjuntos de Datos para 'Graficas Versatiles con ggplot2'
+Summary:          'Go'-Like Interfaces and 'Rust'-Like Traits with 'S7'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-S7 
+Requires:         R-CRAN-S7 
 
 %description
-Una coleccion de conjuntos de datos para el libro "Graficas versatiles con
-ggplot: Analisis visuales de datos", por Raymond L. Tremblay y Julian
-Hernandez-Serrano. Incluye datos de ecologia, salud publica, educacion,
-economia y biodiversidad para la ensenanza de visualizacion de datos con
-'ggplot2'.
+Contract helpers built with 'S7' for expressing runtime protocols around
+ordinary 'S7' dispatch. Structural interfaces describe small sets of
+required 'S7' generics, while explicit traits record registered
+implementations with optional default methods and associated metadata.
+Optional runtime checks can validate argument and return specifications in
+contract-scoped evaluation.
 
 %prep
 %setup -q -c -n %{packname}

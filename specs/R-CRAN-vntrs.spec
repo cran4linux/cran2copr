@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vntrs
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Neighborhood Trust Region Search
 
@@ -25,16 +25,14 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-Rcpp 
 
 %description
-An algorithm for nonlinear global optimization based on the variable
-neighbourhood trust region search (VNTRS) algorithm proposed by Bierlaire
-et al. (2009) "A Heuristic for Nonlinear Global Optimization"
-<doi:10.1287/ijoc.1090.0343>. The algorithm combines variable
-neighbourhood exploration with a trust-region framework to efficiently
-search the solution space. It can terminate a local search early if the
-iterates are converging toward a previously visited local optimum or if
-further improvement within the current region is unlikely. In addition to
-global optimization, the algorithm can also be applied to identify
-multiple local optima.
+Implements the variable neighborhood trust region search (VNTRS) algorithm
+for nonlinear global optimization, following Bierlaire et al. (2009) "A
+Heuristic for Nonlinear Global Optimization" <doi:10.1287/ijoc.1090.0343>.
+The method combines neighborhood exploration with a trust-region framework
+to search the solution space efficiently. It can terminate a local search
+early when the iterates converge toward a previously visited local optimum
+or when further improvement within the current region is unlikely. The
+algorithm can also be used to identify multiple local optima.
 
 %prep
 %setup -q -c -n %{packname}

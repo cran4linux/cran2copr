@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggversa
-%global packver   0.1.1
+%global packname  qgarch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conjuntos de Datos para 'Graficas Versatiles con ggplot2'
+Summary:          Quadratic GARCH-in-Mean Models for Volatility Feedback
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Una coleccion de conjuntos de datos para el libro "Graficas versatiles con
-ggplot: Analisis visuales de datos", por Raymond L. Tremblay y Julian
-Hernandez-Serrano. Incluye datos de ecologia, salud publica, educacion,
-economia y biodiversidad para la ensenanza de visualizacion de datos con
-'ggplot2'.
+Fits quadratic generalized autoregressive conditional
+heteroskedasticity-in-mean (QGARCH-M) models motivated by Campbell and
+Hentschel (1992). The package supports models with lambda fixed at zero,
+lambda restricted to a function of the remaining parameters, lambda
+estimated freely, and a threshold extension with state-dependent lambda.
+It also provides tools for starting values, estimation, forecasting,
+likelihood-ratio testing, moment diagnostics, and replication with the
+included monthly U.S. stock market dataset.
 
 %prep
 %setup -q -c -n %{packname}

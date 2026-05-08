@@ -1,54 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ellmer
-%global packver   0.4.1
+%global packname  toro
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chat with Large Language Models
+Summary:          Interactive & Customisable Maps using the 'MapLibre GL JS' Library
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-promises >= 1.5.0
-BuildRequires:    R-CRAN-later >= 1.4.0
-BuildRequires:    R-CRAN-httr2 >= 1.2.1
-BuildRequires:    R-CRAN-coro >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-S7 >= 0.2.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-promises >= 1.5.0
-Requires:         R-CRAN-later >= 1.4.0
-Requires:         R-CRAN-httr2 >= 1.2.1
-Requires:         R-CRAN-coro >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-S7 >= 0.2.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-sf 
 
 %description
-Chat with large language models from a range of providers including
-'Claude' <https://claude.ai>, 'OpenAI' <https://chatgpt.com>, and more.
-Supports streaming, asynchronous calls, tool calling, and structured data
-extraction.
+Create interactive maps that can keep up with complex visualisations and
+large datasets, with this useful interface to the 'MapLibre GL JS'
+(<https://maplibre.org/maplibre-gl-js/docs/>) library. Users can create
+maps directly in the console, or as an HTML widget within 'Shiny' web
+applications, and render spatial data quickly with many customisable
+options (clusters, custom icons, map layers, and backgrounds). The goal of
+the package is to make it easier to interpret and explore large spatial
+datasets within the context of a 'Shiny' dashboard, without having long
+loading times waiting for a map to update with new data.
 
 %prep
 %setup -q -c -n %{packname}

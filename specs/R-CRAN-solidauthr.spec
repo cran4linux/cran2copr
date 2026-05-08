@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggversa
-%global packver   0.1.1
+%global packname  solidauthr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conjuntos de Datos para 'Graficas Versatiles con ggplot2'
+Summary:          Solid OIDC Client Credentials Authentication
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-uuid 
 
 %description
-Una coleccion de conjuntos de datos para el libro "Graficas versatiles con
-ggplot: Analisis visuales de datos", por Raymond L. Tremblay y Julian
-Hernandez-Serrano. Incluye datos de ecologia, salud publica, educacion,
-economia y biodiversidad para la ensenanza de visualizacion de datos con
-'ggplot2'.
+Authenticates against Community Solid Server identity providers using
+OAuth client credentials with DPoP proofs and performs authenticated
+requests against Solid resources.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggversa
-%global packver   0.1.1
+%global packname  datazoom.social
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conjuntos de Datos para 'Graficas Versatiles con ggplot2'
+Summary:          Simplify Access to Brazilian Social Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-PNADcIBGE 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-PNADcIBGE 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Una coleccion de conjuntos de datos para el libro "Graficas versatiles con
-ggplot: Analisis visuales de datos", por Raymond L. Tremblay y Julian
-Hernandez-Serrano. Incluye datos de ecologia, salud publica, educacion,
-economia y biodiversidad para la ensenanza de visualizacion de datos con
-'ggplot2'.
+Provides tools for downloading and processing microdata from the PNAD
+Contínua (PNADC, Continuous National Household Sample Survey), a rotating
+panel survey published quarterly by IBGE (Brazilian Institute of Geography
+and Statistics). Includes panel identification algorithms for linking
+individuals across survey waves.
 
 %prep
 %setup -q -c -n %{packname}

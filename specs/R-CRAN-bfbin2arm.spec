@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bfbin2arm
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Bayes Factor Design for Two-Arm Binomial Trials
+Summary:          Bayes Factor Design for Two-Arm Binomial Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,20 +19,24 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-stats 
 Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-parallel 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-patchwork 
 
 %description
-Design and analysis of two-arm binomial clinical (phase II) trials using
-Bayes factors. Implements Bayes factors for point-null and directional
-hypotheses, predictive densities under different hypotheses, and power and
-sample size calibration with optional frequentist type-I error and power.
+Design and analysis of one- and two-stage two-arm binomial clinical phase
+II trials using Bayes factors. Implements Bayes factors for point-null and
+directional hypotheses, predictive densities under different hypotheses,
+and power and sample size calibration.
 
 %prep
 %setup -q -c -n %{packname}

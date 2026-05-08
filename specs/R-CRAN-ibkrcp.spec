@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ibkrcp
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for the Interactive Brokers Client Portal API
 
@@ -22,11 +22,9 @@ Requires:         R-CRAN-httr2
 
 %description
 Provides a lightweight R interface to the Interactive Brokers (IBKR)
-Client Portal REST API
-<https://www.interactivebrokers.com/campus/ibkr-api-page/cpapi-v1/>.
-Functions cover session management, account and portfolio queries, market
-data retrieval, and order placement and cancellation. Requires a locally
-running IBKR Client Portal Gateway.
+Client Portal REST API. Functions cover session management, account and
+portfolio queries, market data retrieval, and order placement and
+cancellation. Requires a locally running IBKR Client Portal Gateway.
 
 %prep
 %setup -q -c -n %{packname}

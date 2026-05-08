@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ellmer
-%global packver   0.4.1
+%global packname  CepalStatR
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chat with Large Language Models
+Summary:          Access to the 'CEPALSTAT API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,38 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-promises >= 1.5.0
-BuildRequires:    R-CRAN-later >= 1.4.0
-BuildRequires:    R-CRAN-httr2 >= 1.2.1
-BuildRequires:    R-CRAN-coro >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-S7 >= 0.2.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-promises >= 1.5.0
-Requires:         R-CRAN-later >= 1.4.0
-Requires:         R-CRAN-httr2 >= 1.2.1
-Requires:         R-CRAN-coro >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-S7 >= 0.2.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reactable 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-collapsibleTree 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-collapsibleTree 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Chat with large language models from a range of providers including
-'Claude' <https://claude.ai>, 'OpenAI' <https://chatgpt.com>, and more.
-Supports streaming, asynchronous calls, tool calling, and structured data
-extraction.
+Explore metadata and retrieve indicators from the statistical portal of
+the Economic Commission for Latin America and the Caribbean
+<https://statistics.cepal.org/portal/cepalstat/>. Provides a reproducible
+interface to access the 'CEPALSTAT API', organize data into tidy formats,
+and generate both static and interactive visualizations.
 
 %prep
 %setup -q -c -n %{packname}

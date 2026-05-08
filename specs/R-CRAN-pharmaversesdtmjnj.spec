@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pharmaversesdtmjnj
-%global packver   0.0.1
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          J&J Innovative Medicine SDTM Test Data
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pharmaversesdtm >= 1.2.0
+BuildRequires:    R-CRAN-random.cdisc.data 
 Requires:         R-CRAN-pharmaversesdtm >= 1.2.0
+Requires:         R-CRAN-random.cdisc.data 
 
 %description
 A set of Study Data Tabulation Model (SDTM) datasets constructed by

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lmtp
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Causal Effects of Feasible Interventions Based on Modified Treatment Policies
 
@@ -20,30 +20,28 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-future >= 1.17.0
 BuildRequires:    R-CRAN-data.table >= 1.13.0
+BuildRequires:    R-CRAN-ife >= 0.2.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-origami 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-isotone 
-BuildRequires:    R-CRAN-ife 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-future >= 1.17.0
 Requires:         R-CRAN-data.table >= 1.13.0
+Requires:         R-CRAN-ife >= 0.2.0
 Requires:         R-stats 
 Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-origami 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-isotone 
-Requires:         R-CRAN-ife 
 Requires:         R-CRAN-lifecycle 
 
 %description

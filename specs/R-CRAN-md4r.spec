@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  md4r
-%global packver   0.5.2.0
+%global packver   0.5.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2.0
+Version:          0.5.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markdown Parser Implemented using the 'MD4C' Library
 
@@ -14,32 +14,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-textutils 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-textutils 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides an R wrapper for the 'MD4C' (Markdown for 'C') library. Functions
-exist for parsing markdown ('CommonMark' compliant) along with support for
-other common markdown extensions (e.g. GitHub flavored markdown, 'LaTeX'
-equation support, etc.). The package also provides a number of higher
-level functions for exploring and manipulating markdown abstract syntax
-trees as well as translating and displaying the documents.
+Provides an R wrapper for the 'MD4C' (Markdown for 'C') library.
+Functions exist for parsing markdown ('CommonMark' compliant) along with
+support for other common markdown extensions (e.g. 'GitHub' flavored
+markdown, 'LaTeX' equation support, etc.). The package also provides a
+number of higher level functions for exploring and manipulating markdown
+abstract syntax trees as well as translating and displaying the documents.
 
 %prep
 %setup -q -c -n %{packname}

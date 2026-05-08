@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggversa
-%global packver   0.1.1
+%global packname  rocTools
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conjuntos de Datos para 'Graficas Versatiles con ggplot2'
+Summary:          Tools for Distribution-Based ROC Smoothing Using 'pROC'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pROC >= 1.19.0
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-pROC >= 1.19.0
+Requires:         R-CRAN-MASS 
 
 %description
-Una coleccion de conjuntos de datos para el libro "Graficas versatiles con
-ggplot: Analisis visuales de datos", por Raymond L. Tremblay y Julian
-Hernandez-Serrano. Incluye datos de ecologia, salud publica, educacion,
-economia y biodiversidad para la ensenanza de visualizacion de datos con
-'ggplot2'.
+Extends the functionality of the 'pROC' package for conducting smoothed
+receiver operating characteristic (ROC) curve analysis. Enables automated
+selection of the distribution families to be fit when smoothing ROC curves
+via the population probability density function estimation strategy
+described by Leeflang et al. (2008) <doi:10.1373/clinchem.2007.096032>, as
+well as generation of diagnostic performance and cutoff estimates from the
+resultant smoothed curves.
 
 %prep
 %setup -q -c -n %{packname}
