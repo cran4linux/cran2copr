@@ -7,7 +7,7 @@
 
 Name:           R-%{packname}
 Version:        0.5.8
-Release:        1%{?dist}%{?buildtag}
+Release:        2%{?dist}%{?buildtag}
 Summary:        Package Manager for the 'cran2copr' Project
 
 License:        MIT
@@ -117,7 +117,7 @@ install -D -m 0644 selinux/%{modulename}.pp.bz2 \
 # main
 %dir %{rlibdir}/%{packname}
 %doc %{rlibdir}/%{packname}/html
-%doc %{rlibdir}/%{packname}/NEWS.md
+%doc %{rlibdir}/%{packname}/*.md
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/NAMESPACE
