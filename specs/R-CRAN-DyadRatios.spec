@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DyadRatios
-%global packver   1.4
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dyad Ratios Algorithm
+Summary:          Dyad Ratios Algorithm for Latent Variable Estimation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-progress 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Estimates the Dyad Ratios Algorithm for pooling and smoothing poll
-estimates. The Dyad Ratios Algorithm smooths both forward and backward in
-time over polling results allowing differences in both question type and
-polling house. The result is an estimate of a single latent variable that
-describes the systematic trend over time in the (noisy) polling results.
-See James A. Stimson (2018) <doi:10.1177/0759106318761614> and the
-package's vignette for more details.
+Implements the Dyad Ratios algorithm for estimating latent variables from
+time-series survey data. The algorithm estimates a latent mood dimension
+(or two dimensions) from a set of issue opinion series. Supports annual,
+quarterly, monthly, and daily aggregation intervals, optional exponential
+smoothing, and up to two latent dimensions. Input data can be provided as
+a data frame or read from delimited text files. Based on Stimson's 'MCalc'
+C++ program. See Stimson (2018) <doi:10.1177/0759106318761614> for more
+details.
 
 %prep
 %setup -q -c -n %{packname}

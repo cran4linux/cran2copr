@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kollaR
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event Classification, Visualization and Analysis of Eye Tracking Data
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-scales 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-ggpubr
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-scales 

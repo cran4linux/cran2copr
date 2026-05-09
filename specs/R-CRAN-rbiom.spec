@@ -1,27 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbiom
-%global packver   2.2.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read/Write, Analyze, and Visualize 'BIOM' Data
+Summary:          Integrated Analysis and Visualization of Microbiome Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ecodive 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-fillpattern 
 BuildRequires:    R-CRAN-ggbeeswarm 
@@ -31,13 +33,11 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-vegan 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
@@ -45,6 +45,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ecodive 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-fillpattern 
 Requires:         R-CRAN-ggbeeswarm 
@@ -54,13 +55,11 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-slam 
 Requires:         R-CRAN-vegan 
 
 %description
@@ -68,7 +67,7 @@ A toolkit for working with Biological Observation Matrix ('BIOM') files.
 Read/write all 'BIOM' formats. Compute rarefaction, alpha diversity, and
 beta diversity (including 'UniFrac'). Summarize counts by taxonomic level.
 Subset based on metadata. Generate visualizations and statistical
-analyses. CPU intensive operations are coded in C for speed.
+analyses.
 
 %prep
 %setup -q -c -n %{packname}

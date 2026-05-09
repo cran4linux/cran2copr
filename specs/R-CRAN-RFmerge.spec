@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nmw
-%global packver   0.3.0
+%global packname  RFmerge
+%global packver   0.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Understanding Nonlinear Mixed Effects Modeling for Population Pharmacokinetics
+Summary:          Merging of Satellite Datasets with Ground Observations using Random Forests
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-MASS 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-pbapply 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-zoo 
+Requires:         R-parallel 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-pbapply 
 
 %description
-This shows how NONMEM(R) software works. NONMEM's classical estimation
-methods like 'First Order(FO) approximation', 'First Order Conditional
-Estimation(FOCE)', and 'Laplacian approximation' are explained.
-Additionally, provides functions for post-run processing of NONMEM output
-files, generating comprehensive PDF diagnostic reports including objective
-function value analysis, parameter estimates, prediction diagnostics,
-residual diagnostics, empirical Bayes estimate (EBE) analysis, input data
-summary, and individual pharmacokinetic parameter distributions.
+S3 implementation of the Random Forest MErging Procedure (RF-MEP), which
+combines two or more satellite-based datasets (e.g., precipitation
+products, topography) with ground observations to produce a new dataset
+with improved spatio-temporal distribution of the target field. In
+particular, this package was developed to merge different Satellite-based
+Rainfall Estimates (SREs) with measurements from rain gauges, in order to
+obtain a new precipitation dataset where the time series in the rain
+gauges are used to correct different types of errors present in the SREs.
+However, this package might be used to merge other
+hydrological/environmental gridded datasets with point observations. For
+details, see Baez-Villanueva et al. (2020)
+<doi:10.1016/j.rse.2019.111606>. Bugs / comments / questions /
+collaboration of any kind are very welcomed.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  semmcmc
-%global packver   0.0.6
+%global __requires_exclude ^libmpi
+%global packname  vectra
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Structural Equation Modeling in Multiple Omics Data Integration
+Summary:          Columnar Query Engine for Larger-than-RAM Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-msm 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-msm 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides Markov Chain Monte Carlo (MCMC) routine for the structural
-equation modelling described in Maity et. al. (2020)
-<doi:10.1093/bioinformatics/btaa286>. This MCMC sampler is useful when one
-attempts to perform an integrative survival analysis for multiple
-platforms of the Omics data where the response is time to event and the
-predictors are different omics expressions for different platforms.
+A minimal columnar query engine with lazy execution on datasets larger
+than RAM. Provides 'dplyr'-like verbs (filter(), select(), mutate(),
+group_by(), summarise(), joins, window functions) and common aggregations
+(n(), sum(), mean(), min(), max(), sd(), first(), last()) backed by a pure
+C11 pull-based execution engine and a custom on-disk format ('.vtr').
+Reads and writes 'GeoTIFF' (including tiled and 'BigTIFF' layouts) and a
+tiled raster format ('.vec') with overview pyramids and time cubes for
+larger-than-RAM raster data.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

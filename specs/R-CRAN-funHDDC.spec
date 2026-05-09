@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sahpm
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  funHDDC
+%global packver   2.3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.3.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Selection using Simulated Annealing
+Summary:          Univariate and Multivariate Model-Based Clustering in Group-Specific Functional Subspaces
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-fda 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-fda 
 
 %description
-Highest posterior model is widely accepted as a good model among available
-models. In terms of variable selection highest posterior model is often
-the true model. Our stochastic search process SAHPM based on simulated
-annealing maximization method tries to find the highest posterior model by
-maximizing the model space with respect to the posterior probabilities of
-the models. This package currently contains the SAHPM method only for
-linear models. The codes for GLM will be added in future.
+The funHDDC algorithm allows to cluster functional univariate (Bouveyron
+and Jacques, 2011, <doi:10.1007/s11634-011-0095-6>) or multivariate data
+(Schmutz et al., 2018) by modeling each group within a specific functional
+subspace.
 
 %prep
 %setup -q -c -n %{packname}

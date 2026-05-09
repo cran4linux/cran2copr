@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PGaovR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Experimental Data using ANOVA and Mean Comparison
 
@@ -36,7 +36,7 @@ Randomized Block Design (RBD), Latin Square Design (LSD), Factorial
 Randomized Block Design (FRBD), split-plot design, and strip-plot design.
 The package implements one-factor and two-factor analysis of variance
 (ANOVA) and offers multiple comparison procedures, including Least
-Significant Difference (LSD), Tukey, and Duncan tests, to compare
+Significant Difference (lsd), Tukey, and Duncan tests, to compare
 treatment means in single-factor and factorial experiments. The methods
 follow classical experimental design principles described in Gomez and
 Gomez (1984, Statistical Procedures for Agricultural Research, John Wiley

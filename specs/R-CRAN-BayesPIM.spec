@@ -1,29 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rsmatrix
-%global packver   0.2.10
+%global packname  BayesPIM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrices for Repeat-Sales Price Indexes
+Summary:          Bayesian Prevalence-Incidence Mixture Model
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.5.0
-Requires:         R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggamma 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-actuar 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggamma 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-actuar 
 
 %description
-Calculate the matrices in Shiller (1991,
-<doi:10.1016/S1051-1377(05)80028-2>) that serve as the foundation for many
-repeat-sales price indexes.
+Models time-to-event data from interval-censored screening studies. It
+accounts for latent prevalence at baseline and incorporates
+misclassification due to imperfect test sensitivity. For usage details,
+see the package vignette "BayesPIM_intro". Further details can be found in
+Klausch, Lissenberg-Witte and Coupé (2026) <doi:10.1002/sim.70433>.
 
 %prep
 %setup -q -c -n %{packname}

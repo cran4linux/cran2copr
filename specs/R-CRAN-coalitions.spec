@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Routliers
-%global packver   0.0.0.3
+%global packname  coalitions
+%global packver   0.6.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.3
+Version:          0.6.27
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Outliers Detection
+Summary:          Bayesian "Now-Cast" Estimation of Event Probabilities in Multi-Party Democracies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr > 0.5.0
+BuildRequires:    R-CRAN-purrr > 0.2.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-dplyr > 0.5.0
+Requires:         R-CRAN-purrr > 0.2.2
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
 
 %description
-Detecting outliers using robust methods, i.e. the Median Absolute
-Deviation (MAD) for univariate outliers; Leys, Ley, Klein, Bernard, &
-Licata (2013) <doi:10.1016/j.jesp.2013.03.013> and the Mahalanobis-Minimum
-Covariance Determinant (MMCD) for multivariate outliers; Leys, C., Klein,
-O., Dominicy, Y. & Ley, C. (2018) <doi:10.1016/j.jesp.2017.09.011>. There
-is also the more known but less robust Mahalanobis distance method, only
-for comparison purposes.
+An implementation of a Bayesian framework for the opinion poll based
+estimation of event probabilities in multi-party electoral systems (Bender
+and Bauer (2018) <doi:10.21105/joss.00606>).
 
 %prep
 %setup -q -c -n %{packname}

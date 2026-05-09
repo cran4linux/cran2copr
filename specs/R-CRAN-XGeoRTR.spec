@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multiMarker
-%global packver   1.0.1
+%global packname  XGeoRTR
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Latent Variable Model to Infer Food Intake from Multiple Biomarkers
+Summary:          Backend-Neutral Explainable Geometry State and Operators
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-ordinalNet 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-ordinalNet 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A latent variable model based on factor analytic and mixture of experts
-models, designed to infer food intake from multiple biomarkers data. The
-model is framed within a Bayesian hierarchical framework, which provides
-flexibility to adapt to different biomarker distributions and facilitates
-inference on food intake from biomarker data alone, along with the
-associated uncertainty. Details are in D'Angelo, et al. (2020)
-<arXiv:2006.02995>.
+Provides the platform layer for explanation geometry in R. The package
+standardizes generic explanation tables into a normalized backend state
+object, computes embeddings, diagnostics, and multiscale level-of-detail
+summaries, and serializes backend-neutral state for reproducible
+workflows. It also exposes selected long-table and regular-grid views for
+downstream use-case packages. Rendering and viewport orchestration are
+delegated to downstream frontends such as 'ggWebGL'.
 
 %prep
 %setup -q -c -n %{packname}

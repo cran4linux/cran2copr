@@ -1,37 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesMallowsSMC2
-%global packver   0.3.0
+%global packname  CatPredi
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nested Sequential Monte Carlo for the Bayesian Mallows Model
+Summary:          Optimal Categorisation of Continuous Variables in Prediction Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-CPE 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-CPE 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-graphics 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-rms 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
-Provides nested sequential Monte Carlo algorithms for performing
-sequential inference in the Bayesian Mallows model, which is a widely used
-probability model for rank and preference data. The package implements the
-SMC2 (Sequential Monte Carlo Squared) algorithm for handling sequentially
-arriving rankings and pairwise preferences, including support for complete
-rankings, partial rankings, and pairwise comparisons. The methods are
-based on Sorensen (2025) <doi:10.1214/25-BA1564>.
+Allows the user to categorise a continuous predictor variable in a
+logistic or a Cox proportional hazards regression setting, by maximising
+the discriminative ability of the model. I Barrio, I Arostegui, MX
+Rodriguez-Alvarez, JM Quintana (2015) <doi:10.1177/0962280215601873>. I
+Barrio, MX Rodriguez-Alvarez, L Meira-Machado, C Esteban, I Arostegui
+(2017) <https://www.idescat.cat/sort/sort411/41.1.3.barrio-etal.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

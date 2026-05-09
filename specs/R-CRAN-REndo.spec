@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REndo
-%global packver   2.4.11
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.11
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Linear Models with Endogenous Regressors using Latent Instrumental Variables
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-methods >= 3.4
 BuildRequires:    R-stats >= 3.4
 BuildRequires:    R-utils >= 3.4
@@ -25,9 +25,11 @@ BuildRequires:    R-CRAN-AER >= 1.2.5
 BuildRequires:    R-CRAN-Matrix >= 1.2.14
 BuildRequires:    R-CRAN-Formula >= 1.2
 BuildRequires:    R-CRAN-data.table >= 1.11.8
+BuildRequires:    R-CRAN-ks >= 1.10.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.18.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.0.8
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-copula >= 1.0.0
 BuildRequires:    R-CRAN-lmtest >= 0.9.35
 BuildRequires:    R-CRAN-reformulas >= 0.4.4
 BuildRequires:    R-CRAN-RcppEigen 
@@ -40,9 +42,11 @@ Requires:         R-CRAN-AER >= 1.2.5
 Requires:         R-CRAN-Matrix >= 1.2.14
 Requires:         R-CRAN-Formula >= 1.2
 Requires:         R-CRAN-data.table >= 1.11.8
+Requires:         R-CRAN-ks >= 1.10.0
 Requires:         R-CRAN-lme4 >= 1.1.18.1
 Requires:         R-CRAN-mvtnorm >= 1.0.8
 Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-copula >= 1.0.0
 Requires:         R-CRAN-lmtest >= 0.9.35
 Requires:         R-CRAN-reformulas >= 0.4.4
 

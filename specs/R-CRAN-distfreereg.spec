@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distfreereg
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distribution-Free Goodness-of-Fit Testing for Regression
 
@@ -27,11 +27,13 @@ Requires:         R-CRAN-lme4
 Requires:         R-methods 
 
 %description
-Implements the distribution-free goodness-of-fit regression test for the
-mean structure of parametric models introduced in Khmaladze (2021)
-<doi:10.1007/s10463-021-00786-3>. The test is implemented for general
-functions with minimal distributional assumptions as well as common models
-(e.g., lm, glm) with the usual assumptions.
+Implements the distribution-free goodness-of-fit regression testing
+procedure, introduced by Estate Khmaladze (2021,
+<doi:10.1007/s10463-021-00786-3>) to test whether or not the mean
+structure of a parametric model belongs to a specified model family. The
+test is implemented for general mean functions with minimal distributional
+assumptions as well as common models (e.g., lm, glm) with the usual model
+assumptions.
 
 %prep
 %setup -q -c -n %{packname}

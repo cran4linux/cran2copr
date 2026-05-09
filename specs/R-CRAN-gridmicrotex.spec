@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  horseshoenlm
-%global packver   0.0.6
+%global __requires_exclude ^libmpi
+%global packname  gridmicrotex
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonlinear Regression using Horseshoe Prior
+Summary:          Native 'LaTeX' Math Rendering for Grid Graphics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-msm 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-msm 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-systemfonts 
+BuildRequires:    R-tools 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-systemfonts 
+Requires:         R-tools 
 
 %description
-Provides the posterior estimates of the regression coefficients when
-horseshoe prior is specified. The regression models considered here are
-logistic model for binary response and log normal accelerated failure time
-model for right censored survival response. The linear model analysis is
-also available for completeness. All models provide deviance information
-criterion and widely applicable information criterion. See
-<doi:10.1111/rssc.12377> Maity et. al. (2019) <doi:10.1111/biom.13132>
-Maity et. al. (2020).
+Renders 'LaTeX' math equations as native R grid graphics objects (grobs)
+using the 'MicroTeX' 'C++' library as the layout engine. Produces
+resolution-independent vector output that works on any R graphics device,
+with no external 'LaTeX' installation required.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

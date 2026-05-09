@@ -1,29 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rsmatrix
-%global packver   0.2.10
+%global packname  BiplotML
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Matrices for Repeat-Sales Price Indexes
+Summary:          Logistic Biplot Estimation Using Machine Learning Algorithms
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.5.0
-Requires:         R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-RSpectra 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-RSpectra 
 
 %description
-Calculate the matrices in Shiller (1991,
-<doi:10.1016/S1051-1377(05)80028-2>) that serve as the foundation for many
-repeat-sales price indexes.
+Implements methods for fitting logistic biplot models to multivariate
+binary data. The logistic biplot represents individuals as points and
+binary variables as directed vectors in a low-dimensional subspace; the
+orthogonal projection of each individual onto a variable vector
+approximates the expected probability that the corresponding
+characteristic is present. Available fitting methods include conjugate
+gradient algorithms, a coordinate descent Majorization-Minimization (MM)
+algorithm, and a block coordinate descent algorithm based on data
+projection that supports matrices with missing values and allows new
+individuals to be projected as supplementary rows without refitting the
+model. A cross-validation procedure is provided to select the number of
+latent dimensions k. References: Babativa-Marquez and Vicente-Villardon
+(2021) <doi:10.3390/math9162015>; Vicente-Villardon and Galindo (2006,
+ISBN:9780470973196).
 
 %prep
 %setup -q -c -n %{packname}

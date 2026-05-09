@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  subincomeR
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Global Sub-National Income Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-curl 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-zip
 Provides access to granular sub-national income data from the MCC-PIK
 Database Of Sub-national Economic Output (DOSE). The package downloads and
 processes the data from its open repository on 'Zenodo'
-(<https://zenodo.org/records/13773040>). Functions are provided to fetch
+(<https://zenodo.org/records/20035157>). Functions are provided to fetch
 data at multiple geographic levels, match coordinates to administrative
 regions, and access associated geometries.
 

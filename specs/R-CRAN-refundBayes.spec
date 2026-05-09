@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  refundBayes
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression with Functional Data
 
@@ -19,8 +19,6 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rstan >= 2.29.0
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-CRAN-brms 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-refund 
 BuildRequires:    R-CRAN-splines2 
@@ -28,8 +26,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.29.0
 Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-CRAN-brms 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-refund 
 Requires:         R-CRAN-splines2 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  automatedRecLin
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Record Linkage Based on an Entropy-Maximizing Classifier
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-blocking 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-densityratio 
 BuildRequires:    R-CRAN-FixedPoint 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-reclin2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-blocking 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-densityratio 
 Requires:         R-CRAN-FixedPoint 

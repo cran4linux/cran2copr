@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PetfindeR
-%global packver   2.1.0
+%global __requires_exclude ^libmpi
+%global packname  topcc
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Petfinder' API Wrapper
+Summary:          Topological Correlation Coefficient
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Wrapper of the 'Petfinder API'
-<https://www.petfinder.com/developers/v2/docs/> that implements methods
-for interacting with and extracting data from the 'Petfinder' database.
-The 'Petfinder REST API' allows access to the 'Petfinder' database, one of
-the largest online databases of adoptable animals and animal welfare
-organizations across North America.
+Topological correlation coefficient is used to identify dependencies
+between Time-Dependent Objects and is applicable to objects such as time
+series, chaotic systems, and dynamic networks.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -42,6 +46,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MCPAN
-%global packver   1.1-22
+%global packname  forecastADAPT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.22
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Comparisons Using Normal Approximation
+Summary:          Computation of Adaptive Forecast
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-multcomp 
-Requires:         R-graphics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-testcorr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-stats 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-plyr 
+Requires:         R-graphics 
+Requires:         R-CRAN-lubridate 
+Requires:         R-grDevices 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-testcorr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Multiple contrast tests and simultaneous confidence intervals based on
-normal approximation. With implementations for binomial proportions in a
-2xk setting (risk difference and odds ratio), poly-3-adjusted tumour
-rates, biodiversity indices (multinomial data) and expected values under
-lognormal assumption. Approximative power calculation for multiple
-contrast tests of binomial and Gaussian data.
+The function forAD() implements the adaptive forecasting procedure of
+Giraitis, Kapetanios and Price (2013) <doi:10.1016/j.jeconom.2013.04.003>.
+The method can be iterated (e.g., adapt²) and combined with autoregressive
+(AR) forecasting. These approaches are computationally simple and adapt
+automatically to structural changes without requiring prior specification
+of the underlying data-generating process. They are applicable to both
+stationary and non-stationary time series. The numerical and graphical
+outputs assist in selecting an appropriate forecasting method,
+particularly one that minimises mean squared forecast error (MSFE) and
+yields uncorrelated forecast errors.
 
 %prep
 %setup -q -c -n %{packname}
