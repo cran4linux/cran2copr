@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecolRxC
-%global packver   0.1.1-10
+%global packver   0.1.1-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.10
+Version:          0.1.1.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference of RxC Tables by Latent Structure Approaches
 
@@ -16,9 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Estimates RxC (R by C) vote transfer matrices (ecological contingency
@@ -27,9 +31,15 @@ approaches. References: Park, W.-H. (2008). ''Ecological Inference and
 Aggregate Analysis of Election''. PhD Dissertation. University of
 Michigan.
 <https://deepblue.lib.umich.edu/bitstream/handle/2027.42/58525/wpark_1.pdf>
+Pavía, J.M. and Thomsen, S.R. (2025) ''ecolRxC: Ecological inference
+estimation of RxC tables using latent structure approaches''. Political
+Science Research and Methods, 13(4), 943-961. <doi:10.1017/psrm.2024.57>
 Thomsen, S.R. (1987, ISBN:87-7335-037-2). ''Danish Elections 1920 79: a
 Logit Approach to Ecological Analysis and Inference''. Politica, Aarhus,
-Denmark.
+Denmark. Acknowledgements: The authors wish to thank Generalitat
+Valenciana (Conselleria de Educacion, Cultura y Universidades), grant
+CIACIO/2023/031, and Ministerio de Economia e Innovacion, grant
+PID2021-128228NB-I00, for supporting this research.
 
 %prep
 %setup -q -c -n %{packname}

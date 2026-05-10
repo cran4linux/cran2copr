@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotdap
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Visualize Data from 'ERDDAP™' Servers via the 'rerddap' Package
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-cmocean
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-cmocean
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-isoband 
 Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 

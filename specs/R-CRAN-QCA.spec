@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QCA
-%global packver   3.24
+%global packver   3.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.24
+Version:          3.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Qualitative Comparative Analysis
 
@@ -20,20 +20,18 @@ BuildRequires:    R-CRAN-admisc > 0.39
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-declared 
 BuildRequires:    R-CRAN-venn 
-BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-admisc > 0.39
 Requires:         R-methods 
 Requires:         R-CRAN-declared 
 Requires:         R-CRAN-venn 
-Requires:         R-CRAN-lpSolve 
 
 %description
 An extensive set of functions to perform Qualitative Comparative Analysis:
 crisp sets ('csQCA'), temporal ('tQCA'), multi-value ('mvQCA') and fuzzy
-sets ('fsQCA'), using a GUI - graphical user interface. 'QCA' is a
-methodology that bridges the qualitative and quantitative divide in social
-science research. It uses a Boolean minimization algorithm, resulting in a
-minimal causal configuration associated with a given phenomenon.
+sets ('fsQCA'). 'QCA' is a methodology that bridges the qualitative and
+quantitative divide in social science research. It uses a Boolean
+minimization algorithm, resulting in a minimal causal configuration
+associated with a given phenomenon.
 
 %prep
 %setup -q -c -n %{packname}

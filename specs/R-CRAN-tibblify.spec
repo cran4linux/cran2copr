@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmapshaper
-%global packver   0.6.1
+%global packname  tibblify
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'mapshaper' for 'Geospatial' Operations
+Summary:          Rectangle Nested Lists
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,29 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 >= 6.0.0
-BuildRequires:    R-CRAN-readr >= 2.1.0
-BuildRequires:    R-CRAN-geojsonsf >= 2.0.5
-BuildRequires:    R-CRAN-sp >= 1.4.0
-BuildRequires:    R-CRAN-jsonify >= 1.2.3
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-methods 
-Requires:         R-CRAN-V8 >= 6.0.0
-Requires:         R-CRAN-readr >= 2.1.0
-Requires:         R-CRAN-geojsonsf >= 2.0.5
-Requires:         R-CRAN-sp >= 1.4.0
-Requires:         R-CRAN-jsonify >= 1.2.3
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-cli >= 3.6.2
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-withr >= 2.5.2
+BuildRequires:    R-CRAN-rlang >= 1.2.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-vctrs >= 0.7.2
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-cli >= 3.6.2
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-withr >= 2.5.2
+Requires:         R-CRAN-rlang >= 1.2.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-vctrs >= 0.7.2
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Edit and simplify 'geojson', 'Spatial', and 'sf' objects.  This is wrapper
-around the 'mapshaper' 'JavaScript' library by Matthew Bloch
-<https://github.com/mbloch/mapshaper/> to perform topologically-aware
-polygon simplification, as well as other operations such as clipping,
-erasing, dissolving, and converting 'multi-part' to 'single-part'
-geometries.
+A tool to rectangle a nested list, that is to convert it into a 'tibble'.
+This is done automatically or according to a given specification. A common
+use case is for nested lists coming from parsing 'JSON' files, or the
+'JSON' responses of 'REST' 'APIs'. 'Rectangling' uses the 'vctrs' package,
+and therefore offers a wide support of vector types.
 
 %prep
 %setup -q -c -n %{packname}

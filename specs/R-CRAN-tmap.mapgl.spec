@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmap.mapgl
-%global packver   0.1.0
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions to 'tmap' with Two New Modes: 'mapbox' and 'maplibre'
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tmap >= 4.2
-BuildRequires:    R-CRAN-mapgl >= 0.4
+BuildRequires:    R-CRAN-tmap >= 4.3
+BuildRequires:    R-CRAN-mapgl >= 0.4.1
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
@@ -31,8 +31,8 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tmaptools 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-tmap >= 4.2
-Requires:         R-CRAN-mapgl >= 0.4
+Requires:         R-CRAN-tmap >= 4.3
+Requires:         R-CRAN-mapgl >= 0.4.1
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rTensor
-%global packver   1.4.9
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.9
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Tensor Analysis and Decomposition
 
@@ -30,10 +30,11 @@ across modes, calculating the Frobenius norm, and taking the inner product
 between two tensors. Familiar array operations are overloaded, such as
 index subsetting via '[' and element-wise operations. rTensor also
 implements various tensor decomposition, including CP, GLRAM, MPCA, PVD,
-and Tucker. For tensors with 3 modes, rTensor also implements transpose,
-t-product, and t-SVD, as defined in Kilmer et al. (2013). Some auxiliary
-functions include the Khatri-Rao product, Kronecker product, and the
-Hadamard product for a list of matrices.
+Tucker, INDSCAL, RESCAL, DEDICOM, PARAFAC2, and 2DLDA. For tensors with 3
+modes, rTensor also implements transpose, t-product, and t-SVD, as defined
+in Kilmer et al. (2013). Some auxiliary functions include the Khatri-Rao
+product, Kronecker product, and the Hadamard product for a list of
+matrices.
 
 %prep
 %setup -q -c -n %{packname}

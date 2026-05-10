@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmap.glyphs
-%global packver   0.1
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'tmap' for Creating Glyphs
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tmap >= 4.1
+BuildRequires:    R-CRAN-tmap >= 4.3
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-tmap >= 4.1
+Requires:         R-CRAN-tmap >= 4.3
 Requires:         R-CRAN-data.table 
 
 %description

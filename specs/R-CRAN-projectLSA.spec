@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projectLSA
-%global packver   0.0.8
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny Application for Latent Structure Analysis with a Graphical User Interface
 
@@ -21,13 +21,18 @@ BuildRequires:    R-CRAN-colourpicker
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glca 
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-poLCA 
 BuildRequires:    R-CRAN-psych 
@@ -35,6 +40,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-semPlot 
 BuildRequires:    R-CRAN-semptools 
 BuildRequires:    R-CRAN-shiny 
@@ -50,13 +57,18 @@ Requires:         R-CRAN-colourpicker
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glca 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-officer 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-poLCA 
 Requires:         R-CRAN-psych 
@@ -64,6 +76,8 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-semPlot 
 Requires:         R-CRAN-semptools 
 Requires:         R-CRAN-shiny 

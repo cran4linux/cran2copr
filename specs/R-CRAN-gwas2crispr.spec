@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gwas2crispr
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          GWAS-to-CRISPR Data Pipeline for High-Throughput SNP Target Extraction
 
@@ -23,20 +23,22 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-readr 
-Requires:         R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides a reproducible pipeline to conduct genome‑wide association
-studies (GWAS) and extract single‑nucleotide polymorphisms (SNPs) for a
+Provides a reproducible pipeline to conduct genome-wide association
+studies (GWAS) and extract single-nucleotide polymorphisms (SNPs) for a
 human trait or disease. Given aggregated GWAS dataset(s) and a
-user‑defined significance threshold, the package retrieves significant
+user-defined significance threshold, the package retrieves significant
 SNPs from the GWAS Catalog and the Experimental Factor Ontology (EFO),
 annotates their gene context, and can write a harmonised metadata table in
 comma-separated values (CSV) format, genomic intervals in the Browser

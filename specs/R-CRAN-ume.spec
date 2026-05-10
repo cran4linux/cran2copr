@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ume
-%global packver   1.5.2
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ultrahigh-Resolution Mass Spectrometry Data Evaluation for Complex Organic Matter
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Provides tools for assigning molecular formulas from exact masses obtained

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtemis.core
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Utilities for the 'rtemis' Ecosystem
 
@@ -28,11 +28,11 @@ Requires:         R-CRAN-S7
 
 %description
 Utilities used across packages of the 'rtemis' ecosystem. Includes the
-msg() messaging system and the fmt() formatting system. Provides test_*
-functions that return logical values, check_* functions that throw
-informative errors, and clean_* functions that return validated and
-coerced values. This code began as part of the 'rtemis' package
-(<doi:10.32614/CRAN.package.rtemis>).
+msg() messaging system and the fmt() formatting system. Provides a library
+of 'S7' properties, test_* functions that return logical values, check_*
+functions that throw informative errors, and clean_* functions that return
+validated and coerced values. This code began as part of the 'rtemis'
+package (<doi:10.32614/CRAN.package.rtemis>).
 
 %prep
 %setup -q -c -n %{packname}

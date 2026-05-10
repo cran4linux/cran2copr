@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  odbc
-%global packver   1.6.4.1
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4.1
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to ODBC Compatible Databases (using the DBI Interface)
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-blob >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-DBI >= 1.0.0
@@ -35,6 +36,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
+Requires:         R-CRAN-vctrs 
 
 %description
 A DBI-compatible interface to ODBC databases.

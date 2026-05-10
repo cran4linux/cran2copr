@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  waterfalls
-%global packver   1.0.0
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Waterfall Charts using 'ggplot2' Simply
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
 
 %description
 A not uncommon task for quants is to create 'waterfall charts'. There
