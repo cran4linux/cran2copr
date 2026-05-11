@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARDL
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          ARDL, ECM and Bounds-Test for Cointegration
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-lmtest
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-aod 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dynlm 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-lmtest
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-zoo 
+Requires:         R-stats 
 
 %description
 Creates complex autoregressive distributed lag (ARDL) models and

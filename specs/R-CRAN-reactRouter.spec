@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reactRouter
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'React Router' for 'shiny' Apps and 'Quarto'
 
@@ -14,25 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shiny.react 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shiny.react 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-jsonlite 
 
 %description
-You can easily share url pages using 'React Router' in 'shiny'
-applications and 'Quarto' documents. The package wraps the
-'react-router-dom' 'React' library and provides access to hash routing to
-navigate on multiple url pages.
+Provides a wrapper around the 'react-router-dom' 'React' library for use
+in 'Shiny' applications and 'Quarto' documents. Enables client-side
+routing with hash, memory, and browser history strategies, nested routes,
+dynamic segments, data loaders, actions, and navigation hooks.
 
 %prep
 %setup -q -c -n %{packname}

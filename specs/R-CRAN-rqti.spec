@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqti
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Tests According to QTI 2.1 Standard
 
@@ -23,42 +23,38 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-servr 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-textutils 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-exams 
+BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-servr 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-stringr 
 Requires:         R-methods 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-zip 
-Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-textutils 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-exams 
+Requires:         R-CRAN-base64enc 
 
 %description
 Create tests and tasks compliant with the Question & Test Interoperability
