@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdth
-%global packver   1.3-4
+%global packname  SmoothWin
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequency Distribution Tables, Histograms and Polygons
+Summary:          Soft Windowing for Linear and Non-Linear Models
 
-License:          GPL (>= 2)
+License:          LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-Rfast 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-Rfast 
 
 %description
-Perform frequency distribution tables, associated histograms and polygons
-from vector, data.frame and matrix objects for numerical and categorical
-variables.
+Fits symmetric soft windowing to linear and non-linear models by assigning
+exponential weights over time around specified modes; bandwidth and
+sharpness of the windows are chosen by a grid search and comparison
+diagnostics (Hamed Haselimashhadi et al (2019)
+<doi:10.1093/bioinformatics/btz744>).
 
 %prep
 %setup -q -c -n %{packname}

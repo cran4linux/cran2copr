@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bpca
-%global packver   1.3-9
+%global packver   1.4-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.9
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biplot of Multivariate Data Based on Principal Components Analysis
+Summary:          Biplot Analysis for Multivariate Data Using Principal Components
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-rgl 
@@ -25,8 +25,9 @@ Requires:         R-CRAN-rgl
 Requires:         R-CRAN-xtable 
 
 %description
-Implements biplot (2d and 3d) of multivariate data based on principal
-components analysis and diagnostic tools of the quality of the reduction.
+Provides tools for creating 2D and 3D biplots of multivariate data based
+on principal components analysis, together with diagnostics for reduction
+quality and enhanced visualization of variables and objects.
 
 %prep
 %setup -q -c -n %{packname}

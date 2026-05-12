@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLwrap
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Modelling for Everyone
 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-workflows
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-innsight 
-BuildRequires:    R-CRAN-fastshap 
+BuildRequires:    R-CRAN-shapr 
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-ggplot2 
@@ -52,7 +52,7 @@ Requires:         R-CRAN-workflows
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-innsight 
-Requires:         R-CRAN-fastshap 
+Requires:         R-CRAN-shapr 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-ggplot2 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IBclust
-%global packver   1.2.1
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Bottleneck Methods for Clustering Mixed-Type Data
 
@@ -22,15 +22,14 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-rje 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-rje 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-RcppEigen 
 
 %description
 Implements multiple variants of the Information Bottleneck ('IB') method
@@ -39,7 +38,7 @@ for clustering datasets containing continuous, categorical
 deterministic, agglomerative, generalized, and standard 'IB' clustering
 algorithms that preserve relevant information while forming interpretable
 clusters. The Deterministic Information Bottleneck is described in Costa
-et al. (2024) <doi:10.48550/arXiv.2407.03389>. The standard 'IB' method
+et al. (2026) <doi:10.1016/j.patcog.2026.113580>. The standard 'IB' method
 originates from Tishby et al. (2000) <doi:10.48550/arXiv.physics/0004057>,
 the agglomerative variant from Slonim and Tishby (1999)
 <https://papers.nips.cc/paper/1651-agglomerative-information-bottleneck>,

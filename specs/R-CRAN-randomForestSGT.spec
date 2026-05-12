@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdth
-%global packver   1.3-4
+%global packname  randomForestSGT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequency Distribution Tables, Histograms and Polygons
+Summary:          Random Forest Super Greedy Trees
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-randomForestSRC >= 3.6.2
+BuildRequires:    R-CRAN-varPro >= 3.1.0
+Requires:         R-CRAN-randomForestSRC >= 3.6.2
+Requires:         R-CRAN-varPro >= 3.1.0
 
 %description
-Perform frequency distribution tables, associated histograms and polygons
-from vector, data.frame and matrix objects for numerical and categorical
-variables.
+Implements random forest Super Greedy Trees (SGTs) for regression. SGTs
+extend classification and regression tree splitting by fitting
+lasso-penalized local parametric models at tree nodes, producing sparse
+univariate and multivariate geometric cuts such as axis-aligned splits,
+hyperplanes, ellipsoids, hyperboloids, and interaction-based cuts.  Trees
+are grown best-split-first by selecting cuts that reduce empirical risk,
+and ensembles provide out-of-bag error estimation, prediction on new data,
+variable filtering, tuning of the hcut complexity parameter,
+coordinate-descent lasso fitting, variable importance, and local
+coefficient summaries. For the underlying method, see Ishwaran (2026)
+<doi:10.1007/s10462-026-11541-6>.
 
 %prep
 %setup -q -c -n %{packname}

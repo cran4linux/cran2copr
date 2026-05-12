@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggplate
-%global packver   0.3.1
+%global packname  stepssurvey
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Layout Plots of Biological Culture Plates and Microplates
+Summary:          Analyse WHO STEPS Survey Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,31 +17,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-farver 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-farver 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-survey 
+Requires:         R-tools 
 
 %description
-Enables users to create simple plots of biological culture plates as well
-as microplates. Both continuous and discrete values can be plotted onto
-the plate layout.
+Provides a complete analysis pipeline for the WHO STEPwise Approach to NCD
+Risk Factor Surveillance (STEPS) as described in Riley et al. (2016)
+<doi:10.2105/AJPH.2015.302962>. Imports raw survey data ('CSV', 'Excel',
+'Stata', 'SPSS'), applies WHO-standard cleaning and recoding, sets up
+complex survey designs, computes all standard NCD indicators (tobacco,
+alcohol, diet, physical activity, anthropometry, blood pressure,
+biochemical), and generates publication-ready tables, visualisations, and
+'Word'/'HTML' reports (fact sheet, data book, country report).
 
 %prep
 %setup -q -c -n %{packname}

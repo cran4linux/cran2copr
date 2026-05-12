@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manureshed
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Nutrient Balance Analysis Across Agricultural and Municipal Systems
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
@@ -70,7 +70,11 @@ Engineering Education and Centers, NSF Engineering Research Center for
 Advancing Sustainable and Distributed Fertilizer Production (CASFER), NSF
 20-553 Gen-4 Engineering Research Centers award 2133576. We thank Dr.
 Robert D. Sabo (U.S. Environmental Protection Agency) for his valuable
-contributions to the conceptual development and review of this work.
+contributions to the conceptual development and review of this work. We
+acknowledge Dr. Sheri Spiegal (U.S. Department of Agriculture–Agricultural
+Research Service) for foundational contributions to the manureshed
+classification framework (Spiegal et al. 2020)
+<doi:10.1016/j.agsy.2020.102813>.
 
 %prep
 %setup -q -c -n %{packname}

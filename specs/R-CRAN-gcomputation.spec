@@ -1,50 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baymedr
-%global packver   0.2
+%global packname  gcomputation
+%global packver   0.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.34
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation of Bayes Factors for Common Biomedical Designs
+Summary:          Causal Inference by using G-Computation
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pso 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-pso 
-Requires:         R-CRAN-rms 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-hdnom 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-hdnom 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mice 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-BAYesian inference for MEDical designs in R. Functions for the computation
-of Bayes factors for common biomedical research designs. Implemented are
-functions to test the equivalence (equiv_bf), non-inferiority (infer_bf),
-and superiority (super_bf) of an experimental group compared to a control
-group on a continuous outcome measure, as well as functions for simulating
-survival data and calculating a Bayes factor for Cox proportional hazards
-models. Bayes factors for these tests can be computed based on raw data or
-summary statistics.
+Several functions and S3 methods for G-computation and emulation of
+clinical trials. It allows for flexible estimation of the outcome model,
+especially penalized regressions (Lasso, Ridge, or Elasticnet) for binary,
+continuous, counting, or right-censored time-to-event outcomes. Average
+treatment effect among the entire population (ATE) or among the treated
+population (ATT) can be estimated. The method for time-to-events is
+described by Chatton et al. (2020) <doi:10.1038/s41598-020-65917-x>.  For
+a binary outcome, details are available in the paper proposed by Chatton
+et al. (2022) <doi:10.1177/09622802211047345>.
 
 %prep
 %setup -q -c -n %{packname}

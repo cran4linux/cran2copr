@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  algaeClassify
-%global packver   2.0.5
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Query the 'Algaebase' Online Database, Standardize Phytoplankton Taxonomic Data, and Perform Functional Group Classifications
 
@@ -19,18 +19,14 @@ Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ritis 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RCurl 
 Requires:         R-CRAN-lubridate 
 Requires:         R-stats 
-Requires:         R-CRAN-ritis 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
-Requires:         R-CRAN-RCurl 
 
 %description
 Functions that facilitate the use of accepted taxonomic nomenclature,
@@ -49,23 +45,22 @@ also be checked against a variety of taxonomic databases using the 'Global
 Names Resolver' service via its API
 (<https://resolver.globalnames.org/api>). In addition, currently accepted
 and outdated synonyms, and higher taxonomy, can be extracted for lists of
-species from the 'ITIS' database using wrapper functions for the ritis
-package. The 'algaeClassify' package is a product of the GEISHA (Global
-Evaluation of the Impacts of Storms on freshwater Habitat and Structure of
-phytoplankton Assemblages), funded by CESAB (Centre for Synthesis and
-Analysis of Biodiversity) and the U.S. Geological Survey John Wesley
-Powell Center for Synthesis and Analysis, with data and other support
-provided by members of GLEON (Global Lake Ecology Observation Network).
-DISCLAIMER: This software has been approved for release by the U.S.
-Geological Survey (USGS). Although the software has been subjected to
-rigorous review, the USGS reserves the right to update the software as
-needed pursuant to further analysis and review. No warranty, expressed or
-implied, is made by the USGS or the U.S. Government as to the
-functionality of the software and related material nor shall the fact of
-release constitute any such warranty. Furthermore, the software is
-released on condition that neither the USGS nor the U.S. Government shall
-be held liable for any damages resulting from its authorized or
-unauthorized use.
+species from the 'ITIS' database via its JSON web service API. The
+'algaeClassify' package is a product of the GEISHA (Global Evaluation of
+the Impacts of Storms on freshwater Habitat and Structure of phytoplankton
+Assemblages), funded by CESAB (Centre for Synthesis and Analysis of
+Biodiversity) and the U.S. Geological Survey John Wesley Powell Center for
+Synthesis and Analysis, with data and other support provided by members of
+GLEON (Global Lake Ecology Observation Network). DISCLAIMER: This software
+has been approved for release by the U.S. Geological Survey (USGS).
+Although the software has been subjected to rigorous review, the USGS
+reserves the right to update the software as needed pursuant to further
+analysis and review. No warranty, expressed or implied, is made by the
+USGS or the U.S. Government as to the functionality of the software and
+related material nor shall the fact of release constitute any such
+warranty. Furthermore, the software is released on condition that neither
+the USGS nor the U.S. Government shall be held liable for any damages
+resulting from its authorized or unauthorized use.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataquieR
-%global packver   2.8.7
+%global packver   2.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.7
+Version:          2.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-emmeans
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MultinomialCI 
 BuildRequires:    R-CRAN-parallelMap 
 BuildRequires:    R-CRAN-R.devices 
 BuildRequires:    R-CRAN-rlang 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-emmeans
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MultinomialCI 
 Requires:         R-CRAN-parallelMap 
 Requires:         R-CRAN-R.devices 
 Requires:         R-CRAN-rlang 

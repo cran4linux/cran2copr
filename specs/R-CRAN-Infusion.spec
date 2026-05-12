@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Infusion
-%global packver   2.3.0
+%global packver   2.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Using Simulation
 
@@ -51,10 +51,8 @@ Requires:         R-CRAN-viridisLite
 %description
 Implements functions for simulation-based inference. In particular,
 implements functions to perform likelihood inference from data summaries
-whose distributions are simulated, as first described in Rousset et al.
-(2017) <doi:10.1111/1755-0998.12627>. The package implements more advanced
-methods described in Rousset et al. (2025)
-<doi:10.1101/2024.09.30.615940>.
+whose distributions are simulated, as described in Rousset et al. (2026)
+<doi:10.24072/pcjournal.721>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,53 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  highlightr
-%global packver   2.0.1
+%global packname  mectx
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Conserved Edits Across Versions of a Document
+Summary:          MEchanistic Clustering - Treatment eXposure Framework
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-quanteda.textstats 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-zoomerjoin 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-umap 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-quanteda.textstats 
-Requires:         R-CRAN-stringi 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-zoomerjoin 
+Requires:         R-CRAN-umap 
 
 %description
-Input multiple versions of a source document, and receive HTML code for a
-highlighted version of the source document indicating the frequency of
-occurrence of phrases in the different versions. This method is described
-in Chapter 3 of Rogers (2024)
-<https://digitalcommons.unl.edu/dissertations/AAI31240449/>.
+Implements the MEC-TX (MEchanistic Clustering - Treatment eXposure)
+framework for encoding, clustering, and survival analysis of real-world
+oncology treatment timelines. Provides functions for normalising
+medication records, computing treatment intervals, performing k-means
+clustering in PCA space, assigning line-of-therapy labels, and comparing
+survival outcomes across treatment groups. Designed for use with
+registry-based cohorts such as the ORIEN AVATAR dataset. Methods follow
+the digital-twin framework described in Dhrubo and Spakowicz (2026)
+<https://github.com/spakowiczlab/mec-tx>. treatment timelines using the
+MEC-TX digital-twin framework.
 
 %prep
 %setup -q -c -n %{packname}

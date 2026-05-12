@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiview
-%global packver   0.8
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cooperative Learning for Multi-View Analysis
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-glmnet >= 4.2
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -25,7 +25,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-glmnet >= 4.2
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-RColorBrewer 

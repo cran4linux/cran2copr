@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdth
-%global packver   1.3-4
+%global packname  gamutil
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequency Distribution Tables, Histograms and Polygons
+Summary:          Utilities to Facilitate Modeling Routines with Generalized Additive Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-metR 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-metR 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Perform frequency distribution tables, associated histograms and polygons
-from vector, data.frame and matrix objects for numerical and categorical
-variables.
+After fitting a Generalized Additive (Mixed) Model, the next step is often
+to obtain predicted values for certain combinations of predictors for
+visualization of estimated effects in the model. It involves constructing
+a new data frame, add predicted values, and finally makes a (contour)
+plot. This package is intended to facilitate these steps to visualize
+estimated effects in a generalized additive model. The underlying modeling
+methodology is described in Wood (2017, ISBN:9781498728331).
 
 %prep
 %setup -q -c -n %{packname}

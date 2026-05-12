@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdth
-%global packver   1.3-4
+%global packname  curves
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequency Distribution Tables, Histograms and Polygons
+Summary:          Model-Agnostic Response Curves for Fitted Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-cowplot 
 
 %description
-Perform frequency distribution tables, associated histograms and polygons
-from vector, data.frame and matrix objects for numerical and categorical
-variables.
+Create model-agnostic response-curve diagnostics for fitted prediction
+models. Supports profile curves, partial dependence, individual
+conditional expectation, and accumulated local effects; univariate curves,
+bivariate surfaces, ensemble summaries across multiple models, ALE-based
+interaction ranking, and optional raster-linked exploration with 'terra'
+and 'shiny'. Static displays are returned as 'ggplot2' plots. For more
+details on the methods see Molnar (2025)
+<https://christophm.github.io/interpretable-ml-book/>.
 
 %prep
 %setup -q -c -n %{packname}

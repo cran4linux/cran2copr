@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdth
-%global packver   1.3-4
+%global packname  TidyPanel
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequency Distribution Tables, Histograms and Polygons
+Summary:          Universal Messy Panel Data Cleaner
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readxl 
 
 %description
-Perform frequency distribution tables, associated histograms and polygons
-from vector, data.frame and matrix objects for numerical and categorical
-variables.
+A robust toolkit designed to standardize and clean complex tabular data
+from commercial enterprise systems, healthcare records, logistics
+software, and HR databases. Features include intelligent regex parsing for
+domain-specific noise (currencies, percentages), gap-based block
+clustering, and automated messy table resolution. Methods draw on tidy
+data principles described in Wickham (2014) <doi:10.18637/jss.v059.i10>
+and the 'readxl' parsing infrastructure described in Wickham & Bryan
+(2023) <https://readxl.tidyverse.org>.
 
 %prep
 %setup -q -c -n %{packname}

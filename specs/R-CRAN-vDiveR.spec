@@ -1,53 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  highlightr
-%global packver   2.0.1
+%global packname  vDiveR
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Conserved Edits Across Versions of a Document
+Summary:          Visualization of Viral Protein Sequence Diversity Dynamics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-quanteda.textstats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-zoomerjoin 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rentrez 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-grid 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-quanteda.textstats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-zoomerjoin 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rentrez 
+Requires:         R-CRAN-scales 
+Requires:         R-utils 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-patchwork 
 
 %description
-Input multiple versions of a source document, and receive HTML code for a
-highlighted version of the source document indicating the frequency of
-occurrence of phrases in the different versions. This method is described
-in Chapter 3 of Rogers (2024)
-<https://digitalcommons.unl.edu/dissertations/AAI31240449/>.
+To ease the visualization of outputs from Diversity Motif Analyser
+('DiMA'; <https://github.com/BVU-BILSAB/DiMA>). 'vDiveR' allows
+visualization of the diversity motifs (index and its variants – major,
+minor and unique) for elucidation of the underlying inherent dynamics.
+Please refer <https://vdiver-manual.readthedocs.io/en/latest/> for more
+information.
 
 %prep
 %setup -q -c -n %{packname}

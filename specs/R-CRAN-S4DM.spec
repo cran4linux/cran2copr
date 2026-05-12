@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  S4DM
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Sample Size Species Distribution Modeling
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-densratio >= 0.3.1
 BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-densratio 
 BuildRequires:    R-CRAN-flexclust 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-kernlab 
@@ -32,8 +32,8 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-densratio >= 0.3.1
 Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-densratio 
 Requires:         R-CRAN-flexclust 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-kernlab 
@@ -54,7 +54,8 @@ species with small sample sizes (e.g., poorly sampled species or rare
 species). While these methods can also be used on well-sampled taxa, they
 are united by the fact that they can be utilized with relatively few data
 points. More details on the currently implemented methodologies can be
-found in Drake and Richards (2018) <doi:10.1002/ecs2.2373>, Drake (2015)
+found in Maitner et al. (2026) <doi:10.1002/ecog.08112>, Drake and
+Richards (2018) <doi:10.1002/ecs2.2373>, Drake (2015)
 <doi:10.1098/rsif.2015.0086>, and Drake (2014) <doi:10.1890/ES13-00202.1>.
 
 %prep

@@ -1,29 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdth
-%global packver   1.3-4
+%global packname  cgvR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequency Distribution Tables, Histograms and Polygons
+Summary:          Interactive 3D Visualization of Large Cayley Graphs via Vulkan
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-Perform frequency distribution tables, associated histograms and polygons
-from vector, data.frame and matrix objects for numerical and categorical
-variables.
+Provides interactive 3D visualization for large-scale Cayley graphs.
+Specifically designed for analyzing state spaces of the 'TopSpin' puzzle.
+Leverages the 'Datoviz' library and Vulkan-based GPU rendering for smooth
+real-time exploration of large graphs and complex state transitions.
+Implements efficient coordinate mapping for high-dimensional permutation
+groups, allowing users to visualize the connectivity and structural
+properties of the puzzle's state space. The rendering engine provides
+high-performance visuals and interactive camera controls, making it
+suitable for mathematical analysis of group-theoretic puzzles within the R
+environment.
 
 %prep
 %setup -q -c -n %{packname}

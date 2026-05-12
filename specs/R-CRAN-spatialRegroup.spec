@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  amp.sim
-%global packver   0.1.1
+%global packname  spatialRegroup
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Simulation Utilities for Pharmacometric Modeling
+Summary:          Iterative Spatial Regrouping of Administrative Units by Attributive Affinity
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.2.3
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-NMdata >= 0.2.3
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-lifecycle 
 
 %description
-The goal of 'amp.sim' is to transform 'NONMEM' models into R syntax so
-they can be used for simulations using the 'deSolve', 'nlmixr2' or
-'mrgsolve' package. Additionally, functionality is included to aid
-simulations performed directly in 'NONMEM' and to automatically create
-shiny apps for simulation models.
+Evaluates the statistical coherence of existing administrative partitions
+(e.g. inter-municipal groupings, districts) by identifying spatial units
+whose attributive profile is more similar to a neighbouring group than to
+their own. Border units are iteratively reassigned to the group they are
+most affine with, based on Euclidean or Mahalanobis distance computed on
+user-supplied numeric variables, with optional per-variable weighting and
+standardisation. Spatial contiguity is enforced throughout: isolated
+candidates are reintegrated into their original group, disconnected
+fragments are resolved, and empty groups are restored. Convergence is
+monitored via an eta-squared cohesion criterion. The resulting partition
+can be compared to the original administrative delineation using
+multilevel models, providing a quantitative measure of boundary
+inefficiency.
 
 %prep
 %setup -q -c -n %{packname}
