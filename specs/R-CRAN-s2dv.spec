@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  s2dv
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seasonal to Decadal Verification
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-ncdf4
 BuildRequires:    R-CRAN-NbClust 
 BuildRequires:    R-CRAN-easyNCDF 
 BuildRequires:    R-CRAN-easyVerification 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-multiApply >= 2.1.1
 Requires:         R-CRAN-SpecsVerification >= 0.5.0
 Requires:         R-CRAN-abind 
@@ -51,6 +53,8 @@ Requires:         R-CRAN-ncdf4
 Requires:         R-CRAN-NbClust 
 Requires:         R-CRAN-easyNCDF 
 Requires:         R-CRAN-easyVerification 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-zoo 
 
 %description
 An advanced version of package 's2dverification'. Intended for seasonal to

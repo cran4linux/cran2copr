@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caretSDM
-%global packver   1.5
+%global packver   1.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build Species Distribution Modeling using 'caret'
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-CoordinateCleaner
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ECDFniche 
 BuildRequires:    R-CRAN-ecospat 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-furrr 
@@ -65,6 +66,7 @@ Requires:         R-CRAN-CoordinateCleaner
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ECDFniche 
 Requires:         R-CRAN-ecospat 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-furrr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trackopt
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Track Numerical Optimization
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-utils 
 
 %description
-Tracks parameter value, gradient, and Hessian at each iteration of
+Tracks parameter values, gradients, and Hessians at each iteration of
 numerical optimizers. Useful for analyzing optimization progress,
 diagnosing issues, and studying convergence behavior.
 

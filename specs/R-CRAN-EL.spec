@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EL
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Sample Empirical Likelihood
 
@@ -27,10 +27,12 @@ Requires:         R-CRAN-ggplot2
 Empirical likelihood (EL) inference for two-sample problems. The following
 statistics are included: the difference of two-sample means, smooth Huber
 estimators, quantile (qdiff) and cumulative distribution functions
-(ddiff), probability-probability (P-P) and quantile-quantile (Q-Q) plots
-as well as receiver operating characteristic (ROC) curves. EL calculations
-are based on J. Valeinis, E. Cers (2011)
-<http://home.lu.lv/~valeinis/lv/petnieciba/EL_TwoSample_2011.pdf>.
+(fdiff), probability-probability (P-P) and quantile-quantile (Q-Q) plots
+as well as receiver operating characteristic (ROC) curves. Also includes
+two-sample block-wise empirical likelihood (BEL) and a frequency-domain
+empirical likelihood test for autocorrelation differences (FDEL). Methods
+for EL, P-P, Q-Q, ROC, qdiff and fdiff are based on Valeinis and Cers
+(2011) <http://home.lu.lv/~valeinis/lv/petnieciba/EL_TwoSample_2011.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

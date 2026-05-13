@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggerror
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Error Geoms for 'ggplot2'
 
@@ -19,18 +19,18 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 
 %description
-Extends the 'ggplot2' error geoms. geom_error() accepts an 'error'
-aesthetic with auto-inference of the orientation. It also supports
-'error_neg' and 'error_pos' for asymmetric cases, with full control over
-aesthetics per side, such as color, width etc... The package also includes
-a vignette covering it's main usecases - symmetric, asymmetric, one-sided,
-and per-side styling.
+Extends the 'ggplot2' error geoms. geom_error() accepts an error aesthetic
+with auto-inference of the orientation. It also supports `error_neg` and
+`error_pos` for asymmetric cases, with full control over aesthetics per
+side, such as color, width etc...
 
 %prep
 %setup -q -c -n %{packname}

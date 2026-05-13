@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nemsqar
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          National Emergency Medical Service Quality Alliance Measure Calculations
 
@@ -17,24 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-lubridate >= 1.9.4
+BuildRequires:    R-CRAN-tibble >= 3.3.1
+BuildRequires:    R-CRAN-lubridate >= 1.9.5
+BuildRequires:    R-CRAN-dplyr >= 1.2.1
 BuildRequires:    R-CRAN-tidyselect >= 1.2.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-hms >= 1.1.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-lubridate >= 1.9.4
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tibble >= 3.3.1
+Requires:         R-CRAN-lubridate >= 1.9.5
+Requires:         R-CRAN-dplyr >= 1.2.1
 Requires:         R-CRAN-tidyselect >= 1.2.1
-Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-hms >= 1.1.4
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Designed to automate the calculation of Emergency Medical Service (EMS)

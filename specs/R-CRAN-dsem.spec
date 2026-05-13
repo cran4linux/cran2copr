@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsem
-%global packver   1.7.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Structural Equation Models
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-TMB >= 1.9.18
 BuildRequires:    R-CRAN-RTMB >= 1.7
-BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-sem 
 BuildRequires:    R-CRAN-igraph 
@@ -28,8 +28,8 @@ BuildRequires:    R-grid
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.9.18
 Requires:         R-CRAN-RTMB >= 1.7
-Requires:         R-CRAN-TMB 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-sem 
 Requires:         R-CRAN-igraph 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stylo
-%global packver   0.7.5
+%global packver   0.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stylometric Multivariate Analyses
 
@@ -17,16 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-tcltk2 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-pamr 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-tsne 
-Requires:         R-tcltk 
-Requires:         R-CRAN-tcltk2 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-pamr 
 Requires:         R-CRAN-e1071 
@@ -39,8 +35,8 @@ Supervised and unsupervised multivariate methods, supplemented by GUI and
 some visualizations, to perform various analyses in the field of
 computational stylistics, authorship attribution, etc. For further
 reference, see Eder et al. (2016),
-<https://journal.r-project.org/archive/2016/RJ-2016-007/index.html>. You
-are also encouraged to visit the Computational Stylistics Group's website
+<https://journal.r-project.org/articles/RJ-2016-007/index.html>. You are
+also encouraged to visit the Computational Stylistics Group's website
 <https://computationalstylistics.github.io/>, where a reasonable amount of
 information about the package and related projects are provided.
 

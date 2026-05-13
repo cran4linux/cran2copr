@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QUALYPSO
-%global packver   2.3
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partitioning Uncertainty Components of an Incomplete Ensemble of Climate Projections
 
@@ -23,12 +23,18 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-statmod 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-statmod 
 
 %description
 These functions use data augmentation and Bayesian techniques for the
