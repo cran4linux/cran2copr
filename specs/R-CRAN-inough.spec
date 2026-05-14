@@ -1,52 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggdibbler
-%global packver   0.6.5
+%global packname  inough
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Uncertainty to Data Visualisations
+Summary:          Inattention Detection Pipeline for Psychophysical Tasks
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-distributional 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-distributional 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A 'ggplot2' extension for visualising uncertainty with the goal of signal
-suppression. Usually, uncertainty visualisation focuses on expressing
-uncertainty as a distribution or probability, whereas 'ggdibbler'
-differentiates itself by viewing an uncertainty visualisation as an
-adjustment to an existing graphic that incorporates the inherent
-uncertainty in the estimates.  You provide the code for an existing plot,
-but replace any of the variables with a vector of distributions, and it
-will convert the visualisation into it's signal suppression counterpart.
+Three-stage pipeline for detecting inattention episodes in long
+psychophysical tasks (200+ trials). Uses accuracy residuals and response
+pattern signals to locate, sharpen, and formally test candidate
+inattention regions at trial-level precision.
 
 %prep
 %setup -q -c -n %{packname}

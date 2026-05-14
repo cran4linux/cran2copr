@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  checkhelper
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deal with Check Outputs
 
@@ -14,38 +14,48 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-whisker >= 0.4
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-covr 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rcmdcheck 
 BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-whisker >= 0.4
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-covr 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pkgbuild 
+Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rcmdcheck 
 Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 

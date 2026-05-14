@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggdibbler
-%global packver   0.6.5
+%global packname  geoDeltaAudit
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Uncertainty to Data Visualisations
+Summary:          Quantifying Variable Change Induced by Administrative Boundary Transformations
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-distributional 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-distributional 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-sf 
 
 %description
-A 'ggplot2' extension for visualising uncertainty with the goal of signal
-suppression. Usually, uncertainty visualisation focuses on expressing
-uncertainty as a distribution or probability, whereas 'ggdibbler'
-differentiates itself by viewing an uncertainty visualisation as an
-adjustment to an existing graphic that incorporates the inherent
-uncertainty in the estimates.  You provide the code for an existing plot,
-but replace any of the variables with a vector of distributions, and it
-will convert the visualisation into it's signal suppression counterpart.
+Tools for auditing how analytic variables change when data are transformed
+across administrative boundary systems. The package is agnostic to data
+source, variable type, and administrative geography, and is designed to
+quantify transformation-induced change without attributing blame to any
+specific boundary definition or allocation scheme.
 
 %prep
 %setup -q -c -n %{packname}

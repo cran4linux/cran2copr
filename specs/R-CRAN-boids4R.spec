@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  censusapi
-%global packver   0.10.0
+%global packname  boids4R
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data from the Census APIs
+Summary:          Reynolds-Style Boids and Swarm Simulation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A wrapper for the U.S. Census Bureau APIs that returns data frames of
-Census data and metadata. Available datasets include the Decennial Census,
-American Community Survey, Small Area Health Insurance Estimates, Small
-Area Income and Poverty Estimates, Population Estimates and Projections,
-and more.
+Provides deterministic two- and three-dimensional boids and swarm
+simulations for R. The package implements Reynolds-style separation,
+alignment, and cohesion rules with optional obstacles, attractors,
+predators, species parameters, and reproducible frame export. Simulation
+state is renderer-neutral; optional adapters can hand frame data to
+visualization packages such as 'ggWebGL'. The model follows Reynolds
+(1987) <doi:10.1145/37402.37406>.
 
 %prep
 %setup -q -c -n %{packname}

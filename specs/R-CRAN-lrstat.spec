@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lrstat
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Calculation for Non-Proportional Hazards and Beyond
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-RcppParallel >= 5.1.5
 BuildRequires:    R-parallel >= 3.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-shiny >= 1.7.1
-BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-RcppThread 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-RcppParallel >= 5.1.5
 Requires:         R-parallel >= 3.5
 Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-shiny >= 1.7.1
-Requires:         R-CRAN-mvtnorm >= 1.1.3
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-rlang >= 1.0.6
 

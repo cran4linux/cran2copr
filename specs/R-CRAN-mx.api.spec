@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mx.api
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimal Matrix Client-Server API
 
@@ -24,11 +24,13 @@ Requires:         R-CRAN-jsonlite
 
 %description
 A minimal-dependency client for the 'Matrix' Client-Server HTTP API
-<https://spec.matrix.org/>, suitable for talking to a 'Synapse' homeserver
-<https://element-hq.github.io/synapse/>. Covers login, room management,
-message send and history, and media upload or download. End-to-end
-encryption is out of scope; use unencrypted rooms or a separate crypto
-package.
+<https://spec.matrix.org/>, suitable for talking to a 'Synapse'
+<https://element-hq.github.io/synapse/> or 'Conduit' <https://conduit.rs/>
+homeserver. Covers login, room management, message send and history, media
+upload or download, and the transport endpoints needed to coordinate
+end-to-end encryption (device-key and one-time-key publication, key query
+and claim, to-device events). Encryption itself is out of scope; pair with
+a separate crypto package.
 
 %prep
 %setup -q -c -n %{packname}

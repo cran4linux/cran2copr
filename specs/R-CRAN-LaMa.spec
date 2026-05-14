@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LaMa
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Numerical Maximum Likelihood Estimation for Latent Markov Models
 
@@ -16,7 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RTMB >= 1.7
+BuildRequires:    R-CRAN-RTMB >= 1.9
+BuildRequires:    R-CRAN-RTMBdist >= 1.0.4
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -26,9 +27,9 @@ BuildRequires:    R-CRAN-splines2
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-RTMBdist 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-RTMB >= 1.7
+Requires:         R-CRAN-RTMB >= 1.9
+Requires:         R-CRAN-RTMBdist >= 1.0.4
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -38,7 +39,6 @@ Requires:         R-CRAN-splines2
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-RTMBdist 
 
 %description
 A variety of latent Markov models, including hidden Markov models, hidden

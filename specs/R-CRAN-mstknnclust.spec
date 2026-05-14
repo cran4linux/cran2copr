@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mstknnclust
-%global packver   0.3.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MST-kNN Clustering Algorithm
 
@@ -14,20 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-stats 
-BuildRequires:    R-base 
 Requires:         R-CRAN-igraph 
-Requires:         R-stats 
-Requires:         R-base 
 
 %description
-Implements the MST-kNN clustering algorithm which was proposed by
-Inostroza-Ponta, M. (2008)
-<https://trove.nla.gov.au/work/28729389?selectedversion=NBD44634158>.
+Implements the MST-kNN clustering algorithm proposed by Inostroza-Ponta
+(2008) <https://trove.nla.gov.au/work/28729389>. The algorithm determines
+the number of clusters automatically by recursively intersecting the
+Minimum Spanning Tree (MST) and the k-Nearest Neighbor (kNN) proximity
+graphs constructed from a pairwise distance matrix.  The value of k is
+selected via a connectivity criterion (the smallest k such that the kNN
+graph is connected, bounded by floor(log(n))).  The package requires only
+a distance matrix as input and returns cluster assignments, an 'igraph'
+network, and partition metadata.
 
 %prep
 %setup -q -c -n %{packname}

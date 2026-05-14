@@ -1,46 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nmfkc
-%global packver   0.7.3
+%global packname  openNCAI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Negative Matrix Factorization with Kernel Covariates
+Summary:          Calculates a Natural Capital Assets Index
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-slider 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-slider 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Performs Non-negative Matrix Factorization (NMF) with Kernel Covariates.
-Given an observation matrix and kernel covariates, it optimizes both a
-basis matrix and a parameter matrix. Notably, if the kernel matrix is an
-identity matrix, the method simplifies to standard NMF. Also provides NMF
-with Random Effects (NMF-RE) via nmfre(), which estimates a mixed-effects
-model combining covariate-driven scores with unit-specific random effects
-together with wild bootstrap inference, and NMF-based Structural Equation
-Modeling (NMF-SEM) via nmf.sem(), which fits a two-block input-output
-model for blind source separation and path analysis. References: Satoh
-(2025) <doi:10.48550/arXiv.2403.05359>; Satoh (2025)
-<doi:10.48550/arXiv.2510.10375>; Satoh (2025)
-<doi:10.48550/arXiv.2512.18250>; Satoh (2026)
-<doi:10.48550/arXiv.2603.01468>; Satoh (2026)
-<doi:10.1007/s42081-025-00314-0>.
+Calculates a regional natural capital assets index (NCAI) following the
+methodology designed by NatureScot for Scotland as described in Albon,
+Balana, Brooker & Eastwood (2014)
+<https://www.nature.scot/sites/default/files/2025-06/naturescot-commissioned-report-751.pdf>
+and McKenna et al. (2019) <doi:10.1016/J.ECOLIND.2019.105645>. Processes
+habitat extent and condition data alongside metadata and weighting systems
+to produce a yearly single figure indexed relative to a base-year value of
+100.
 
 %prep
 %setup -q -c -n %{packname}

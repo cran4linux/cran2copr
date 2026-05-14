@@ -1,46 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nmfkc
-%global packver   0.7.3
+%global packname  splikit
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Negative Matrix Factorization with Kernel Covariates
+Summary:          Analysing RNA Splicing in Single-Cell RNA Sequencing Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
 
 %description
-Performs Non-negative Matrix Factorization (NMF) with Kernel Covariates.
-Given an observation matrix and kernel covariates, it optimizes both a
-basis matrix and a parameter matrix. Notably, if the kernel matrix is an
-identity matrix, the method simplifies to standard NMF. Also provides NMF
-with Random Effects (NMF-RE) via nmfre(), which estimates a mixed-effects
-model combining covariate-driven scores with unit-specific random effects
-together with wild bootstrap inference, and NMF-based Structural Equation
-Modeling (NMF-SEM) via nmf.sem(), which fits a two-block input-output
-model for blind source separation and path analysis. References: Satoh
-(2025) <doi:10.48550/arXiv.2403.05359>; Satoh (2025)
-<doi:10.48550/arXiv.2510.10375>; Satoh (2025)
-<doi:10.48550/arXiv.2512.18250>; Satoh (2026)
-<doi:10.48550/arXiv.2603.01468>; Satoh (2026)
-<doi:10.1007/s42081-025-00314-0>.
+Provides analysis of high-dimensional single-cell splicing data. Offers a
+framework to extract and work with ratio-based data structures derived
+from single-cell RNA sequencing experiments. Provides both a modern 'R6'
+object-oriented interface and direct matrix manipulation functions. Core
+functionalities are implemented in 'C++' via 'Rcpp' to ensure high
+performance and scalability on large datasets.
 
 %prep
 %setup -q -c -n %{packname}

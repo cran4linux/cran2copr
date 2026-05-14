@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  censusapi
-%global packver   0.10.0
+%global packname  drogonR
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data from the Census APIs
+Summary:          High-Performance HTTP Server for R via 'Drogon'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-later >= 1.4.4
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-processx 
+Requires:         R-CRAN-later >= 1.4.4
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-processx 
 
 %description
-A wrapper for the U.S. Census Bureau APIs that returns data frames of
-Census data and metadata. Available datasets include the Decennial Census,
-American Community Survey, Small Area Health Insurance Estimates, Small
-Area Income and Poverty Estimates, Population Estimates and Projections,
-and more.
+Provides an 'R' interface to the 'Drogon' high-performance 'C++' 'HTTP'
+server framework (<https://github.com/drogonframework/drogon>). Offers a
+'plumber'-style application programming interface for building 'REST'
+services from 'R' with substantially higher throughput.
 
 %prep
 %setup -q -c -n %{packname}

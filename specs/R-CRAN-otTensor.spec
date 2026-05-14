@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  censusapi
-%global packver   0.10.0
+%global packname  otTensor
+%global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data from the Census APIs
+Summary:          Optimal Tensor Transport
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-A wrapper for the U.S. Census Bureau APIs that returns data frames of
-Census data and metadata. Available datasets include the Decennial Census,
-American Community Survey, Small Area Health Insurance Estimates, Small
-Area Income and Poverty Estimates, Population Estimates and Projections,
-and more.
+An optimal transport (OT) method, which can handle tensors of any order by
+learning possibly multiple transport plans. For the details of the
+methods, see Kerdoncuff et al. (2022) <doi:10.1609/aaai.v36i7.20695>.
 
 %prep
 %setup -q -c -n %{packname}

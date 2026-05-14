@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TrialSimulator
-%global packver   1.17.1
+%global packver   1.18.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.17.1
+Version:          1.18.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Trial Simulator
 
@@ -16,9 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,13 +24,13 @@ BuildRequires:    R-CRAN-gMCPLite
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rpact 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-copula 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggplot2 
@@ -40,6 +38,7 @@ Requires:         R-CRAN-gMCPLite
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rpact 
 Requires:         R-CRAN-rstudioapi 

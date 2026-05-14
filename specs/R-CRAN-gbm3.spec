@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  censusapi
-%global packver   0.10.0
+%global packname  gbm3
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data from the Census APIs
+Summary:          Generalized Boosted Regression Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-splines 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-lattice 
+Requires:         R-splines 
 
 %description
-A wrapper for the U.S. Census Bureau APIs that returns data frames of
-Census data and metadata. Available datasets include the Decennial Census,
-American Community Survey, Small Area Health Insurance Estimates, Small
-Area Income and Poverty Estimates, Population Estimates and Projections,
-and more.
+Extensions to Freund and Schapire's AdaBoost algorithm, Y. Freund and R.
+Schapire (1997) <doi:10.1006/jcss.1997.1504> and Friedman's gradient
+boosting machine, J.H. Friedman (2001) <doi:10.1214/aos/1013203451>.
+Includes regression methods for least squares, absolute loss,
+t-distribution loss, quantile regression, logistic, Poisson, Cox
+proportional hazards partial likelihood, AdaBoost exponential loss,
+Huberized hinge loss, and Learning to Rank measures (LambdaMART).
 
 %prep
 %setup -q -c -n %{packname}

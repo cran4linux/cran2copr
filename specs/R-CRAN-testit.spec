@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  testit
-%global packver   0.18
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Package for Testing R Packages
 
@@ -19,8 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provides two convenience functions assert() and test_pkg() to facilitate
-testing R packages.
+A minimal, dependency-free testing framework for R packages. Write tests
+as simple R expressions that return TRUE, using assert() for assertions
+(with informative error messages on failure), has_error() / has_warning()
+/ has_message() for testing conditions, and test_pkg() to run all tests
+with full access to internal (non-exported) package functions. Snapshot
+testing via Markdown files is also supported.
 
 %prep
 %setup -q -c -n %{packname}

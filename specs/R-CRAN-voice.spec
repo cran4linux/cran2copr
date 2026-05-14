@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  voice
-%global packver   0.5.4
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Speaker Recognition, Voice Analysis and Mood Inference via Music Theory
 
@@ -14,12 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-seewave 
@@ -29,11 +32,12 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-wrassp 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-seewave 
@@ -43,8 +47,6 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-wrassp 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-httr 
 
 %description
 Provides tools for audio data analysis, including feature extraction,

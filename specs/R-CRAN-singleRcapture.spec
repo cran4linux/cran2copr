@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  singleRcapture
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Source Capture-Recapture Models
 
@@ -36,13 +36,14 @@ Requires:         R-parallel
 Implementation of single-source capture-recapture methods for population
 size estimation using zero-truncated, zero-one truncated and
 zero-truncated one-inflated Poisson, Geometric and Negative Binomial
-regression as well as Zelterman's and Chao's regression. Package includes
-point and interval estimators for the population size with variances
-estimated using analytical or bootstrap method. Details can be found in:
-van der Heijden et all. (2003) <doi:10.1191/1471082X03st057oa>, Böhning
-and van der Heijden (2019) <doi:10.1214/18-AOAS1232>, Böhning et al.
-(2020) Capture-Recapture Methods for the Social and Medical Sciences or
-Böhning and Friedl (2021) <doi:10.1007/s10260-021-00556-8>.
+regression as well as Zelterman's, Chao's and ratio-regression estimators.
+Package includes point and interval estimators for the population size
+with variances estimated using analytical or bootstrap method. Details can
+be found in: van der Heijden et all. (2003)
+<doi:10.1191/1471082X03st057oa>, Böhning and van der Heijden (2019)
+<doi:10.1214/18-AOAS1232>, Böhning et al. (2020) Capture-Recapture Methods
+for the Social and Medical Sciences or Böhning and Friedl (2021)
+<doi:10.1007/s10260-021-00556-8>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  censusapi
-%global packver   0.10.0
+%global packname  psgc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data from the Census APIs
+Summary:          Philippine Standard Geographic Code
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli 
 
 %description
-A wrapper for the U.S. Census Bureau APIs that returns data frames of
-Census data and metadata. Available datasets include the Decennial Census,
-American Community Survey, Small Area Health Insurance Estimates, Small
-Area Income and Poverty Estimates, Population Estimates and Projections,
-and more.
+Provides access to the Philippine Standard Geographic Code (PSGC), an
+official classification system for geographic areas in the Philippines
+published by the Philippine Statistics Authority (PSA). Includes area
+names, geographic levels (Region, Province, City, Municipality,
+Sub-Municipality, and Barangay), and census population figures across
+multiple PSA publication releases. Offers utilities to look up individual
+codes, filter by geographic level, track code changes across releases via
+a built-in crosswalk, and retrieve population data in long or wide format.
 
 %prep
 %setup -q -c -n %{packname}

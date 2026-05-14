@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nmfkc
-%global packver   0.7.3
+%global packname  CircularBoxplots
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Negative Matrix Factorization with Kernel Covariates
+Summary:          Grouped Boxplots for Circular Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-grDevices 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-plot3D 
 Requires:         R-grDevices 
 
 %description
-Performs Non-negative Matrix Factorization (NMF) with Kernel Covariates.
-Given an observation matrix and kernel covariates, it optimizes both a
-basis matrix and a parameter matrix. Notably, if the kernel matrix is an
-identity matrix, the method simplifies to standard NMF. Also provides NMF
-with Random Effects (NMF-RE) via nmfre(), which estimates a mixed-effects
-model combining covariate-driven scores with unit-specific random effects
-together with wild bootstrap inference, and NMF-based Structural Equation
-Modeling (NMF-SEM) via nmf.sem(), which fits a two-block input-output
-model for blind source separation and path analysis. References: Satoh
-(2025) <doi:10.48550/arXiv.2403.05359>; Satoh (2025)
-<doi:10.48550/arXiv.2510.10375>; Satoh (2025)
-<doi:10.48550/arXiv.2512.18250>; Satoh (2026)
-<doi:10.48550/arXiv.2603.01468>; Satoh (2026)
-<doi:10.1007/s42081-025-00314-0>.
+Plotting functions to create circular boxplots for grouped data. The
+primary 2-dimensional version creates concentric circular boxplots for
+specified groups, scaling the width of each boxplot to adjust for human
+perception. The 3-dimensional version maps these plots onto a torus which
+is suitable for periodic circular data such as wind direction over the
+course of a year. An example dataset of this type is provided for
+reference. For examples of circular boxplots and additional implementation
+details, see Berlinski et al. (2026) <doi:10.48550/arXiv.2602.05335>.
 
 %prep
 %setup -q -c -n %{packname}

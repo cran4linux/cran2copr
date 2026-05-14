@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pboost
-%global packver   0.2.1
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Profile Boosting Framework for Parametric Models
 
@@ -17,27 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Formula >= 1.2.5
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-betareg 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-rqPen 
+Requires:         R-CRAN-Formula >= 1.2.5
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-betareg 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ncvreg 
+Requires:         R-CRAN-rqPen 
 
 %description
 A profile boosting framework for feature selection in parametric models.
 It offers a unified interface pboost() and several wrapped models,
 including linear model, generalized linear models, quantile regression,
-Cox proportional hazards model, beta regression. An S3 interface EBIC() is
-provided as the stopping rule for the profile boosting by default.
+Cox proportional hazards model, beta regression, spatial auto-regressive
+models.
 
 %prep
 %setup -q -c -n %{packname}

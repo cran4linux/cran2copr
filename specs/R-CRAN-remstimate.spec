@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  remstimate
-%global packver   2.3.14
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.14
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimization Frameworks for Tie-Oriented and Actor-Oriented Relational Event Models
 
@@ -16,16 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-remify >= 3.2.4
-BuildRequires:    R-CRAN-remstats >= 3.2.1
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-remify >= 4.0.0
+BuildRequires:    R-CRAN-remstats >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-trust 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-remify >= 3.2.4
-Requires:         R-CRAN-remstats >= 3.2.1
-Requires:         R-methods 
+Requires:         R-CRAN-remify >= 4.0.0
+Requires:         R-CRAN-remstats >= 4.0.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-trust 
 Requires:         R-CRAN-mvnfast 
@@ -35,14 +33,9 @@ A comprehensive set of tools designed for optimizing likelihood within a
 tie-oriented (Butts, C., 2008, <doi:10.1111/j.1467-9531.2008.00203.x>) or
 an actor-oriented modelling framework (Stadtfeld, C., & Block, P., 2017,
 <doi:10.15195/v4.a14>) in relational event networks. The package
-accommodates both frequentist and Bayesian approaches. The frequentist
-approaches that the package incorporates are the Maximum Likelihood
-Optimization (MLE) and the Gradient-based Optimization (GDADAMAX). The
-Bayesian methodologies included in the package are the Bayesian Sampling
-Importance Resampling (BSIR) and the Hamiltonian Monte Carlo (HMC). The
-flexibility of choosing between frequentist and Bayesian optimization
-approaches allows researchers to select the estimation approach which
-aligns the most with their analytical preferences.
+accommodates both frequentist and Bayesian approaches. Maximum Likelihood
+Optimization (MLE) is supported. Bayesian estimation is done via
+Hamiltonian Monte Carlo (HMC).
 
 %prep
 %setup -q -c -n %{packname}

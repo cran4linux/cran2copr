@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nmfkc
-%global packver   0.7.3
+%global packname  parasiteR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Negative Matrix Factorization with Kernel Covariates
+Summary:          A Theorical-Practical Approach to Parasitological Data Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-BlakerCI 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-grDevices 
+Requires:         R-CRAN-BlakerCI 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-readr 
 
 %description
-Performs Non-negative Matrix Factorization (NMF) with Kernel Covariates.
-Given an observation matrix and kernel covariates, it optimizes both a
-basis matrix and a parameter matrix. Notably, if the kernel matrix is an
-identity matrix, the method simplifies to standard NMF. Also provides NMF
-with Random Effects (NMF-RE) via nmfre(), which estimates a mixed-effects
-model combining covariate-driven scores with unit-specific random effects
-together with wild bootstrap inference, and NMF-based Structural Equation
-Modeling (NMF-SEM) via nmf.sem(), which fits a two-block input-output
-model for blind source separation and path analysis. References: Satoh
-(2025) <doi:10.48550/arXiv.2403.05359>; Satoh (2025)
-<doi:10.48550/arXiv.2510.10375>; Satoh (2025)
-<doi:10.48550/arXiv.2512.18250>; Satoh (2026)
-<doi:10.48550/arXiv.2603.01468>; Satoh (2026)
-<doi:10.1007/s42081-025-00314-0>.
+Standardizes and streamlines the processing of parasitological data by
+integrating descriptive analyses of parasite count distributions,
+automated calculation of parasitological indices and their dispersion
+measures, and intuitive visualizations for representing these metrics
+(Bush et al. 1997 <doi:10.2307/3284227>, Reiczigel et al. 2019
+<doi:10.1016/j.pt.2019.01.003>).
 
 %prep
 %setup -q -c -n %{packname}

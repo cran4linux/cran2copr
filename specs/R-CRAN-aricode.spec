@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aricode
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Computations of Standard Clustering Comparison Measures
 
@@ -18,19 +18,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Implements an efficient O(n) algorithm based on bucket-sorting for fast
 computation of standard clustering comparison measures. Available measures
 include adjusted Rand index (ARI), normalized information distance (NID),
-normalized mutual information (NMI), adjusted mutual information (AMI),
-normalized variation information (NVI) and entropy, as described in Vinh
-et al (2009) <doi:10.1145/1553374.1553511>. Include AMI (Adjusted Mutual
-Information) since version 0.1.2, a modified version of ARI (MARI), as
-described in Sundqvist et al. <doi:10.1007/s00180-022-01230-7> and simple
-Chi-square distance since version 1.0.0.
+normalized mutual information (NMI), normalized variation information
+(NVI) and entropy, as described in Vinh et al (2009)
+<doi:10.1145/1553374.1553511>. Include AMI (Adjusted Mutual Information)
+since version 0.1.2, a modified version of ARI (MARI), as described in
+Sundqvist et al. <doi:10.1007/s00180-022-01230-7> and simple Chi-square
+distance since version 1.0.0.
 
 %prep
 %setup -q -c -n %{packname}
