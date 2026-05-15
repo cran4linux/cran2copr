@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eq5dsuite
-%global packver   1.0.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling and Analysing EQ-5d Data
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rappdirs 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-RColorBrewer 

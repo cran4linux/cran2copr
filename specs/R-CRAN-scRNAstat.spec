@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scRNAstat
-%global packver   0.1.1.1
+%global packver   0.1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.1
+Version:          0.1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Pipeline to Process Single Cell RNAseq Data
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-DBI 
 Requires:         R-CRAN-Seurat 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-DBI 
 
 %description
 A pipeline that can process single or multiple Single Cell RNAseq samples

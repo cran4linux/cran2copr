@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GIFTr
+%global packname  symTensor
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          GIFT Questions Format Generator from Dataframes
+Summary:          Symmetric Matrix and Tensor Decomposition
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-rTensor 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-A framework and functions to create 'MOODLE' quizzes. 'GIFTr' takes
-dataframe of questions of four types: multiple choices, numerical, true or
-false and short answer questions, and exports a text file formatted in
-'MOODLE' GIFT format. You can prepare a spreadsheet in any software and
-import it into R to generate any number of questions with 'HTML',
-'markdown' and 'LaTeX' support.
+Provides symmetric matrix and tensor operations and decomposition
+algorithms including symmetric NMF (symNMF), PageRank, Label Propagation,
+Higher-order Power Method, and TOPHITS. Designed to work with 'rTensor'
+objects. Methods are described in Kuang et al. (2012)
+<doi:10.1137/1.9781611972825.10>, Kolda and Mayo (2011)
+<doi:10.1137/100801482>, and Kolda and Bader (2006)
+<doi:10.1137/1.9781611972764.26>.
 
 %prep
 %setup -q -c -n %{packname}

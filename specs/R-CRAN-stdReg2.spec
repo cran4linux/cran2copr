@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stdReg2
-%global packver   1.0.3
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Standardization for Causal Inference
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-drgee 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-drgee 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-sandwich 
 
 %description
 Contains more modern tools for causal inference using regression

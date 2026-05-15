@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PSpower
-%global packver   0.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sample Size Calculation for Propensity Score Analysis
+Summary:          Sample Size and Power for Propensity Score Weighted Estimators
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Sample size calculations in causal inference with observational data are
-increasingly desired. This package is a tool to calculate sample size
-under prespecified power with minimal summary quantities needed.
+Computes sample size and power for causal inference studies that use
+propensity score (PS) weighting. Supports continuous, binary, and
+time-to-event (survival) outcomes under four estimands: average treatment
+effect (ATE), average treatment effect on the treated (ATT), average
+treatment effect on the controls (ATC), and average treatment effect on
+the overlap population (ATO). For continuous and binary outcomes, the
+asymptotic variance of the Hajek inverse probability weighting estimator
+is derived under a logit-normal propensity score model, approximated by a
+Beta distribution matched through the Bhattacharyya overlap coefficient.
+For survival outcomes, the asymptotic variance of the propensity-score-
+weighted partial likelihood estimator is used for randomized trials and
+observational studies. The Schoenfeld formula is also available for
+randomized trial settings.
 
 %prep
 %setup -q -c -n %{packname}

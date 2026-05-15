@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  usa
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Updated US State Facts and Figures
 
@@ -14,17 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-tibble >= 2.1.3
 
 %description
-Updated versions of the 1970's "US State Facts and Figures" objects from
+Updated versions of the 1970s "US State Facts and Figures" objects from
 the 'datasets' package included with R. The new data is compiled from a
-number of sources, primarily from United States Census Bureau or the
-relevant federal agency.
+number of sources, primarily from the United States Census Bureau or the
+relevant federal agency. Modern tidy tibbles provide richer state-level
+data including identifiers, geography, capitals, demographics, and
+socioeconomic statistics. Convenience vectors parallel the base 'datasets'
+state objects but extend coverage to all 51 jurisdictions: the 50 states
+and the District of Columbia.
 
 %prep
 %setup -q -c -n %{packname}

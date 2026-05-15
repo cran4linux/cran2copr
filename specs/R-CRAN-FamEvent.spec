@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FamEvent
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Family Age-at-Onset Data Simulation and Penetrance Estimation
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -43,7 +43,7 @@ designs. Appropriate ascertainment correction is utilized to estimate
 age-dependent penetrance functions either parametrically from the fitted
 model or nonparametrically from the data. The Expectation and Maximization
 algorithm can infer missing genotypes and carrier probabilities estimated
-from family's genotype and phenotype information or from a fitted model.
+from family's genotype and phenotype information or from fitted models.
 Plot functions include pedigrees of simulated families and predicted
 penetrance curves based on specified parameter values. For more
 information see Choi, Y.-H., Briollais, L., He, W. and Kopciuk, K. (2021)

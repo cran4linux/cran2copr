@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GFDsurv
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests for Survival Data in General Factorial Designs
 
@@ -48,8 +48,8 @@ general framework of survival factorial designs with possibly
 heterogeneous survival and/or censoring distributions, for crossed designs
 with an arbitrary number of factors and nested designs with up to three
 factors. Ditzhaus, Dobler and Pauly (2020) <doi:10.1177/0962280220980784>
-Ditzhaus, Janssen, Pauly (2020) <arXiv: 2004.10818v2> Dobler and Pauly
-(2019) <doi:10.1177/0962280219831316>.
+Ditzhaus, Genuneit, Janssen, Pauly (2023) <doi:10.1111/biom.13575> Dobler
+and Pauly (2019) <doi:10.1177/0962280219831316>.
 
 %prep
 %setup -q -c -n %{packname}

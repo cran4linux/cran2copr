@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PStrata
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Principal Stratification Analysis in R
 
@@ -20,8 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
@@ -29,8 +27,6 @@ BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rstan 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
@@ -40,11 +36,12 @@ Requires:         R-CRAN-rstantools
 Estimating causal effects in the presence of post-treatment confounding
 using principal stratification. 'PStrata' allows for customized
 monotonicity assumptions and exclusion restriction assumptions, with
-automatic full Bayesian inference supported by 'Stan'. The main function
-to use in this package is PStrata(), which provides posterior estimates of
-principal causal effects with uncertainty quantification. Visualization
-tools are also provided for diagnosis and interpretation. See Liu and Li
-(2023) <doi:10.48550/arXiv.2304.02740> for details.
+automatic full Bayesian inference supported by 'Stan'. The main workflow
+is PStrataModel() to specify the model, fit() to run MCMC sampling,
+estimate() to extract potential outcomes, and contrast() to compute causal
+effects. Visualization tools are provided for diagnosis and
+interpretation. See Liu and Li (2023) <doi:10.48550/arXiv.2304.02740> for
+details.
 
 %prep
 %setup -q -c -n %{packname}

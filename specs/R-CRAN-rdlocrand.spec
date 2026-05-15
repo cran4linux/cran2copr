@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdlocrand
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Randomization Methods for RD Designs
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,19 +23,15 @@ Requires:         R-CRAN-AER
 Requires:         R-CRAN-sandwich 
 
 %description
-The regression discontinuity (RD) design is a popular quasi-experimental
-design for causal inference and policy evaluation. Under the local
-randomization approach, RD designs can be interpreted as randomized
-experiments inside a window around the cutoff. This package provides tools
-to perform randomization inference for RD designs under local
-randomization: rdrandinf() to perform hypothesis testing using
+Provides tools to perform randomization inference for RD designs under
+local randomization: rdrandinf() to perform hypothesis testing using
 randomization inference, rdwinselect() to select a window around the
 cutoff in which randomization is likely to hold, rdsensitivity() to assess
 the sensitivity of the results to different window lengths and null
 hypotheses and rdrbounds() to construct Rosenbaum bounds for sensitivity
 to unobserved confounders. See Cattaneo, Titiunik and Vazquez-Bare (2016)
 <https://rdpackages.github.io/references/Cattaneo-Titiunik-VazquezBare_2016_Stata.pdf>
-for further methodological details.
+for further methodological details, and references.
 
 %prep
 %setup -q -c -n %{packname}

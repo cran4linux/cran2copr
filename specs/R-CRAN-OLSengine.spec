@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RonFHIR
-%global packver   0.4.0
+%global packname  OLSengine
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Search Interface to the 'HL7 FHIR' REST API
+Summary:          Transparent and Assisted Linear Modeling Engine
 
-License:          BSD 3-clause License + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-CRAN-stringr 
 
 %description
-R on FHIR is an easy to use wrapper around the 'HL7 FHIR' REST API (STU 3
-and R4). It provides tools to easily read and search resources on a FHIR
-server and brings the results into the R environment. R on FHIR is based
-on the FhirClient of the official 'HL7 FHIR .NET API', also made by
-Firely.
+A transparent, modular, and base-R implemented statistical engine for
+linear regression (OLS), analysis of variance (ANOVA), and logistic
+regression (Logit). Designed under the principle of "assisted simplicity",
+it features an integrated methodological "customs" (Aduana) that
+automatically audits mathematical assumptions (e.g., multicollinearity,
+heteroskedasticity, normality, and perfect separation) and outputs
+publication-ready, APA-formatted tables. It deliberately avoids hidden
+heuristics and external dependencies, ensuring computational transparency
+and reproducibility for applied research.
 
 %prep
 %setup -q -c -n %{packname}

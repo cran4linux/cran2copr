@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CorBin
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  solvency2rfr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate High-Dimensional Binary Data with Correlation Structures
+Summary:          'EIOPA' Risk-Free Interest Rate Term Structures for Solvency II
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.2.0
+BuildRequires:    R-CRAN-readxl >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-tibble >= 3.2.0
+Requires:         R-CRAN-readxl >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 
 %description
-We design algorithms with linear time complexity with respect to the
-dimension for three commonly studied correlation structures, including
-exchangeable, decaying-product and K-dependent correlation structures, and
-extend the algorithms to generate binary data of general non-negative
-correlation matrices with quadratic time complexity. Jiang, W., Song, S.,
-Hou, L. and Zhao, H. "A set of efficient methods to generate
-high-dimensional binary data with specified correlation structures." The
-American Statistician. See <doi:10.1080/00031305.2020.1816213> for a
-detailed presentation of the method.
+Downloads and parses the risk-free interest rate ('RFR') term structures
+published monthly by the European Insurance and Occupational Pensions
+Authority ('EIOPA') for Solvency II calculations. Provides a tidy data
+frame interface to the data, accessed via the official 'EIOPA' feed at
+<https://www.eiopa.europa.eu/feed/53/rss_en>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

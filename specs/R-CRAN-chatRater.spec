@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chatRater
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Rating Text/Image Stimuli
+Summary:          A Tool for Rating Text/Image/Audio Stimuli via 'LLMs'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openai 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-openai 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-base64enc 
 Requires:         R-tools 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Evaluates stimuli using Large Language Models APIs with URL support.
+Evaluates stimuli using Large Language Models. Supports multiple LLM
+providers: 'OpenAI', 'Anthropic', 'Ollama', 'LM Studio', 'DeepSeek',
+'Groq', 'Mistral', and 'OpenAI-compatible' endpoints. Stimuli: plain text,
+local image/audio files, or image URLs. Audio is transcribed via 'OpenAI
+Whisper' before rating. Supports numeric, text, and raw return types.
 
 %prep
 %setup -q -c -n %{packname}

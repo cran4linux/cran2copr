@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GenomeAdmixR
-%global packver   2.1.12
+%global packver   2.1.13.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
+Version:          2.1.13.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Admixture of Genomes
 

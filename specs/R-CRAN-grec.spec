@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grec
-%global packver   1.6.3
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gradient-Based Recognition of Spatial Patterns in Environmental Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-imagine >= 2.1.2
 BuildRequires:    R-utils 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-imagine >= 2.1.2
 Requires:         R-utils 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
 
 %description
 Provides algorithms for detection of spatial patterns from oceanographic

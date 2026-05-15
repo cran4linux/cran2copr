@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rd2d
-%global packver   0.0.3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boundary Regression Discontinuity Designs
+Summary:          Estimation and Inference for Boundary Discontinuity Designs
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,18 +20,24 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
 
 %description
-Provides estimation and inference procedures for boundary regression
-discontinuity (RD) designs using local polynomial methods, based on either
-bivariate coordinates or distance-based approaches. Methods are developed
-in Cattaneo, Titiunik, and Yu (2025)
-<https://mdcattaneo.github.io/papers/Cattaneo-Titiunik-Yu_2025_BoundaryRD.pdf>.
+Provides pointwise and uniform estimation and inference methods for
+boundary discontinuity (BD) designs, a causal inference design that
+generalizes univariate regression discontinuity (RD) designs to settings
+with bivariate scores. Implements local polynomial methods for
+location-based and distance-based analyses, including sharp and fuzzy
+designs, data-driven bandwidth selection, pointwise confidence intervals,
+and uniform confidence bands. Methodology is developed in Cattaneo,
+Titiunik, and Yu (2026) <doi:10.48550/arXiv.2505.05670> for location-based
+methods and Cattaneo, Titiunik, and Yu (2026)
+<doi:10.48550/arXiv.2510.26051> for distance-based methods. For an
+overview and empirical guidance, see Cattaneo, Titiunik, and Yu (2026)
+<doi:10.48550/arXiv.2511.06474>. The companion software article is
+Cattaneo, Titiunik, and Yu (2025) <doi:10.48550/arXiv.2505.07989>.
 
 %prep
 %setup -q -c -n %{packname}

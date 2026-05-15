@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moc.gapbk
-%global packver   0.1.3
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Objective Clustering Algorithm Guided by a-Priori Biological Knowledge
 
@@ -14,32 +14,32 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-amap 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-nsga2R 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-doMPI 
 Requires:         R-stats 
-Requires:         R-CRAN-amap 
+Requires:         R-utils 
 Requires:         R-CRAN-nsga2R 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-utils 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-doMPI 
 
 %description
 Implements the Multi-Objective Clustering Algorithm Guided by a-Priori
-Biological Knowledge (MOC-GaPBK) which was proposed by Parraga-Alava, J.
-et. al. (2018) <doi:10.1186/s13040-018-0178-4>.
+Biological Knowledge ('MOC-GaPBK') proposed by Parraga-Alava and others
+(2018) <doi:10.1186/s13040-018-0178-4>. The algorithm performs gene
+clustering using 'NSGA-II' as the underlying multi-objective evolutionary
+engine, together with Path-Relinking and Pareto Local Search as
+intensification and diversification strategies. Two versions of the
+Xie-Beni validity index are used as objective functions, one per distance
+matrix, so that prior biological knowledge can be incorporated through the
+second matrix.
 
 %prep
 %setup -q -c -n %{packname}
