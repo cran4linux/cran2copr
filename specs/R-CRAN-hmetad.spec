@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmetad
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit the Meta-D' Model of Confidence Ratings Using 'brms'
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-stringr >= 1.6.0
 BuildRequires:    R-CRAN-abind >= 1.4.8
 BuildRequires:    R-CRAN-tidyr >= 1.3.2
 BuildRequires:    R-CRAN-dplyr >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 1.1.7
+BuildRequires:    R-CRAN-rlang >= 1.2.0
 BuildRequires:    R-stats 
 Requires:         R-CRAN-tidybayes >= 3.0.7
 Requires:         R-CRAN-brms >= 2.23.0
@@ -35,7 +35,7 @@ Requires:         R-CRAN-stringr >= 1.6.0
 Requires:         R-CRAN-abind >= 1.4.8
 Requires:         R-CRAN-tidyr >= 1.3.2
 Requires:         R-CRAN-dplyr >= 1.2.0
-Requires:         R-CRAN-rlang >= 1.1.7
+Requires:         R-CRAN-rlang >= 1.2.0
 Requires:         R-stats 
 
 %description

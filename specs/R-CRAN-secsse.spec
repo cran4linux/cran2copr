@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secsse
-%global packver   3.5.0
+%global packver   3.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          3.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Several Examined and Concealed States-Dependent Speciation and Extinction
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-DDD >= 5.0
+BuildRequires:    R-CRAN-DDD >= 5.2.4
 BuildRequires:    R-CRAN-BH >= 1.81.0.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-utils 
@@ -27,7 +27,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-treestats 
-Requires:         R-CRAN-DDD >= 5.0
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-DDD >= 5.2.4
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-utils 
 Requires:         R-CRAN-ape 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-treestats 
+Requires:         R-CRAN-pracma 
 
 %description
 Simultaneously infers state-dependent diversification across two or more

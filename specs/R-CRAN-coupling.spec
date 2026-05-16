@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MultinomialCI
-%global packver   1.2
+%global __requires_exclude ^libmpi
+%global packname  coupling
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Confidence Intervals for Multinomial Proportions According to the Method by Sison and Glaz
+Summary:          Analysis of Coupling Coordination Degree
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppThread 
 
 %description
-An implementation of a method for building simultaneous confidence
-intervals for the probabilities of a multinomial distribution given a set
-of observations, proposed by Sison and Glaz in their paper: Sison, C.P and
-J. Glaz. Simultaneous confidence intervals and sample size determination
-for multinomial proportions. Journal of the American Statistical
-Association, 90:366-369 (1995). The method is an R translation of the SAS
-code implemented by May and Johnson in their paper: May, W.L. and W.D.
-Johnson. Constructing two-sided simultaneous confidence intervals for
-multinomial proportions for small counts in a large number of cells.
-Journal of Statistical Software 5(6) (2000). Paper and code available at
-<DOI:10.18637/jss.v005.i06>.
+Implements coupling coordination degree (CCD) models and supports
+metacoupling analysis following Tang et al. (2021)
+<doi:10.1016/j.scs.2021.103405>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +32,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

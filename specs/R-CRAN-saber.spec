@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saber
-%global packver   0.3.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Code Analysis and Project Context for R
+Summary:          Context Engineering for Large Language Model Agents
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 
 %description
-Parses R source files into Abstract Syntax Tree (AST) symbol indices,
-traces function callers across projects, discovers project dependency
-graphs, generates project briefings, and provides package introspection
-tools. Designed for AI coding agents that need structured code
-understanding.
+Context-engineering primitives for Artificial Intelligence (AI) coding
+agents working in R. Assembles agent context from memory and instruction
+files ('AGENTS.md', 'CLAUDE.md'), traces function call blast radius across
+projects, generates project briefings, parses source into Abstract Syntax
+Tree (AST) symbol indices, discovers dependency graphs, and introspects
+installed packages. Zero dependencies.
 
 %prep
 %setup -q -c -n %{packname}

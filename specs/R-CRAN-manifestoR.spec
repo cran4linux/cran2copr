@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manifestoR
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Process Data and Documents of the Manifesto Project
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.12
 BuildRequires:    R-CRAN-dplyr >= 0.7.5
 BuildRequires:    R-CRAN-tm >= 0.7.12
-BuildRequires:    R-CRAN-functional >= 0.6
 BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-NLP >= 0.2.0
 BuildRequires:    R-utils 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.12
 Requires:         R-CRAN-dplyr >= 0.7.5
 Requires:         R-CRAN-tm >= 0.7.12
-Requires:         R-CRAN-functional >= 0.6
 Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-NLP >= 0.2.0
 Requires:         R-utils 

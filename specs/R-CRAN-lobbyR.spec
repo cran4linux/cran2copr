@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lobbyR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Federal Lobbying Disclosures
 
@@ -33,13 +33,13 @@ Requires:         R-CRAN-tidyr
 %description
 Gives users seeking federal lobbying disclosures an easier way to query
 the API maintained by the Senate federal lobbying disclosures database
-<https://lda.senate.gov/api/redoc/v1/> to find out how much companies and
-other entities are spending to lobby Congress and the federal government.
-It allows for search terms such as keywords, time periods and entity
-names. It then attempts to clean, or at least flag, filings that could
-provide incorrect results when seeking to answer the question: How much is
-being spent on lobbying our Congress and the administration and what
-issues do they care about?
+<https://lda.gov/api/redoc/v1/> to find out how much companies and other
+entities are spending to lobby Congress and the federal government. It
+allows for search terms such as keywords, time periods and entity names.
+It then attempts to clean, or at least flag, filings that could provide
+incorrect results when seeking to answer the question: How much is being
+spent on lobbying our Congress and the administration and what issues do
+they care about?
 
 %prep
 %setup -q -c -n %{packname}

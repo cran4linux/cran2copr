@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  penetrance
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Penetrance Estimation in Family-Based Studies
 
@@ -34,12 +34,12 @@ Requires:         R-grDevices
 
 %description
 Implements statistical methods for estimating disease penetrance in
-family-based studies. Penetrance refers to the probability of disease§
+family-based studies. Penetrance refers to the probability of disease
 manifestation in individuals carrying specific genetic variants. The
 package provides tools for age-specific penetrance estimation, handling
 missing data, and accounting for ascertainment bias in family studies.
-Cite as: Kubista, N., Braun, D. & Parmigiani, G. (2024)
-<doi:10.48550/arXiv.2411.18816>.
+Cite as: Kubista, N., Braun, D. & Parmigiani, G. (2024) <d
+10.1093/bioadv/vbaf154>.
 
 %prep
 %setup -q -c -n %{packname}

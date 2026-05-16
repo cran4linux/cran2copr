@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  santoku
-%global packver   1.2.0
+%global packname  metANN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Versatile Cutting Tool
+Summary:          Metaheuristic and Gradient-Based Optimization for Neural Network Training and Continuous Problems
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A tool for cutting data into intervals. Allows singleton intervals. Always
-includes the whole range of data by default. Flexible labelling.
-Convenience functions for cutting by quantiles etc. Handles dates, times,
-units and other vectors.
+Provides tools for general-purpose continuous optimization and
+feed-forward artificial neural network training using metaheuristic and
+gradient-based optimization algorithms. The package supports benchmark
+function optimization, regression, binary classification, and multi-class
+classification with multilayer perceptrons. The package implements several
+optimization methods, including particle swarm optimization Kennedy and
+Eberhart (1995) <doi:10.1109/ICNN.1995.488968>, differential evolution
+Storn and Price (1997) <doi:10.1023/A:1008202821328>, grey wolf optimizer
+Mirjalili et al. (2014) <doi:10.1016/j.advengsoft.2013.12.007>, secretary
+bird optimization Fu et al. (2024) <doi:10.1007/s10462-024-10729-y>, and
+Adam Kingma and Ba (2015) <doi:10.48550/arXiv.1412.6980>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Require
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Installing and Loading R Packages for Reproducible Workflows
 
@@ -14,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pak 
 BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-methods 
+Requires:         R-CRAN-pak 
 Requires:         R-CRAN-sys 
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
 A single key function, 'Require' that makes rerun-tolerant versions of
-'install.packages' and `require` for CRAN packages, packages no longer on
+'install.packages' and 'require' for CRAN packages, packages no longer on
 CRAN (i.e., archived), specific versions of packages, and GitHub packages.
 This approach is developed to create reproducible workflows that are
 flexible and fast enough to use while in development stages, while able to

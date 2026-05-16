@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EstemPMM
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Polynomial Maximization Method for Non-Gaussian Regression
 
@@ -38,7 +38,8 @@ regression, 'AR'/'MA'/'ARMA'/'ARIMA' models, and bootstrap inference.
 Methodology described in Zabolotnii, Warsza, and Tkachenko (2018)
 <doi:10.1007/978-3-319-77179-3_75>, Zabolotnii, Tkachenko, and Warsza
 (2022) <doi:10.1007/978-3-031-03502-9_37>, and Zabolotnii, Tkachenko, and
-Warsza (2023) <doi:10.1007/978-3-031-25844-2_21>.
+Warsza (2023) <doi:10.1007/978-3-031-25844-2_21>, and Zabolotnii (2025)
+<doi:10.48550/arXiv.2511.07059>.
 
 %prep
 %setup -q -c -n %{packname}

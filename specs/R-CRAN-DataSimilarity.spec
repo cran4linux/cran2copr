@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataSimilarity
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantifying Similarity of Datasets and Multivariate Two- And k-Sample Testing
 
@@ -29,8 +29,9 @@ provides newly implemented methods as well as wrapper functions for
 existing methods that enable calling many different methods in a unified
 framework. The methods were selected from the review and comparison of
 Stolte et al. (2024) <doi:10.1214/24-SS149>. An empirical comparison of
-the methods for categorical data was performed in Stolte et al. (2025)
-<doi:10.17877/DE290R-25572>.
+the methods was performed in Stolte et al. (2026)
+<doi:10.48550/arXiv.2604.11458> for categorical data and in Stolte et al.
+(2026) <doi:10.48550/arXiv.2604.12327> for numeric data.
 
 %prep
 %setup -q -c -n %{packname}

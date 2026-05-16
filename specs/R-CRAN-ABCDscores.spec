@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ABCDscores
-%global packver   6.1.0
+%global packver   7.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1.0
+Version:          7.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Scores of the Adolescent Brain Cognitive Development (ABCD) Study
 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -43,6 +45,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-data.table 
 
 %description
 Provides functions to compute summary scores (besides proprietary ones)

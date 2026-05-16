@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MIRDD
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Tool by Multiple Imputation for Regression Discontinuity Designs
 
@@ -32,7 +32,7 @@ regression discontinuity designs (RDD) and multiple imputation regression
 discontinuity designs (MIRDD). It provides diagnostic tools for RDD by
 comparing results with those from MIRDD, as proposed in Takahashi (2023)
 <doi:10.1080/03610918.2021.1960374>. The package includes datasets from
-Takahashi (2023).
+Takahashi (2023) and Takahashi (2026) <doi:10.1016/j.softx.2026.102707>.
 
 %prep
 %setup -q -c -n %{packname}

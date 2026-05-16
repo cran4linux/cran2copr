@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmmrBase
-%global packver   1.4.0
+%global packname  mcqAnalysis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalised Linear Mixed Models in R
+Summary:          Classical Test Theory Item Analysis for Multiple-Choice Tests
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-Matrix >= 1.3.1
-BuildRequires:    R-CRAN-Rcpp >= 1.0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Matrix >= 1.3.1
-Requires:         R-CRAN-Rcpp >= 1.0.11
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Specification, analysis, simulation, and fitting of generalised linear
-mixed models. Includes Markov Chain Monte Carlo Maximum likelihood model
-fitting for a range of models, non-linear fixed effect specifications, a
-wide range of flexible covariance functions that can be combined
-arbitrarily, robust and bias-corrected standard error estimation, power
-calculation, data simulation, and more.
+A unified toolkit for classical test theory (CTT) item analysis of
+multiple-choice test data, including item difficulty (p-value), item
+discrimination (point-biserial correlation and upper-lower 27-percent
+discrimination index), per-distractor analysis (frequency, proportion, and
+discrimination), and Haladyna's distractor efficiency. A wrapper function
+returns a tidy 'mcq_analysis' object with print, plot
+(difficulty-discrimination scatter), and APA-style table methods for
+direct inclusion in journal manuscripts. Implemented in pure R with no
+compiled code and minimal dependencies.
 
 %prep
 %setup -q -c -n %{packname}

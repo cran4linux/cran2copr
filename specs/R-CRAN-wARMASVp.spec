@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wARMASVp
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Winsorized ARMA Estimation for Higher-Order Stochastic Volatility Models
 
@@ -25,17 +25,20 @@ Requires:         R-CRAN-gsignal
 Requires:         R-stats 
 
 %description
-Estimation, simulation, hypothesis testing, and forecasting for univariate
-higher-order stochastic volatility SV(p) models. Supports Gaussian,
-Student-t, and Generalized Error Distribution (GED) innovations, with
-optional leverage effects. Estimation uses closed-form Winsorized ARMA-SV
-(W-ARMA-SV) moment-based methods that avoid numerical optimization.
-Hypothesis testing includes Local Monte Carlo (LMC) and Maximized Monte
-Carlo (MMC) procedures for leverage effects, heavy tails, and
-autoregressive order selection. Forecasting is based on Kalman filtering
-and smoothing. See Ahsan and Dufour (2021)
-<doi:10.1016/j.jeconom.2020.01.018>, Ahsan, Dufour, and Rodriguez Rondon
-(2025) for details.
+Estimation, simulation, hypothesis testing, AR-order selection, and
+forecasting for univariate higher-order stochastic volatility SV(p)
+models. Supports Gaussian, Student-t, and Generalized Error Distribution
+(GED) innovations, with optional leverage effects. Estimation uses
+closed-form Winsorized ARMA-SV (W-ARMA-SV) moment-based methods that avoid
+numerical optimization. Hypothesis testing includes Local Monte Carlo
+(LMC) and Maximized Monte Carlo (MMC) procedures for leverage effects,
+heavy tails, and autoregressive order. AR-order selection is also
+available via information criteria (BIC/AIC) using the Kalman-filter
+quasi-likelihood and the Hannan-Rissanen ARMA residual variance.
+Forecasting is based on Kalman filtering and smoothing. See Ahsan and
+Dufour (2021) <doi:10.1016/j.jeconom.2021.03.008>, Ahsan, Dufour, and
+Rodriguez-Rondon (2025) <doi:10.1111/jtsa.12851>, and Ahsan, Dufour, and
+Rodriguez-Rondon (2026) <doi:10.34989/swp-2026-8> for details.
 
 %prep
 %setup -q -c -n %{packname}

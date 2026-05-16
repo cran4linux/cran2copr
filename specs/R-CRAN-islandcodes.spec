@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  saeMSPE
-%global packver   1.4
+%global packname  islandcodes
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computing MSPE Estimates in Small Area Estimation
+Summary:          Reference Data and Helpers for Small Island States and Territories
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-smallarea 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-smallarea 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-countrycode >= 1.5.0
+Requires:         R-CRAN-countrycode >= 1.5.0
 
 %description
-Compute various common mean squared predictive error (MSPE) estimators, as
-well as several existing variance component predictors as a byproduct, for
-FH model (Fay and Herriot, 1979) and NER model (Battese et al., 1988) in
-small area estimation.
+A curated reference list of countries and territories with classifications
+for Small Island Developing States (SIDS), sub-national island
+jurisdictions (SNIJ), World Bank region and income group, and political
+association. Sub-sovereign cases such as Aruba, Curacao, Bonaire, Sint
+Maarten, the French overseas territories, and Aaland Islands are
+represented with disambiguating codes that standard country-code packages
+often collapse or omit. Provides predicate helpers and a tidy joiner
+intended to extend rather than replace 'countrycode'. Source data is
+maintained at
+<https://github.com/University-of-Aruba/island-research-reference-data>
+and licensed CC BY 4.0.
 
 %prep
 %setup -q -c -n %{packname}

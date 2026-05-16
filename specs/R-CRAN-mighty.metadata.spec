@@ -1,59 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wearables
-%global packver   0.11.3
+%global packname  mighty.metadata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Read and Convert Wearables Data
+Summary:          Manage 'CDISC' 'ADaM' Dataset Specifications in 'YAML' Format
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-S7schema >= 0.1.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-padr 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RHRV 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-sparklyr 
-BuildRequires:    R-CRAN-varian 
-BuildRequires:    R-CRAN-waveslim 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-zephyr 
+Requires:         R-CRAN-S7schema >= 0.1.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-padr 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RHRV 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-sparklyr 
-Requires:         R-CRAN-varian 
-Requires:         R-CRAN-waveslim 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-S7 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-zephyr 
 
 %description
-Package to read Empatica E4, Embrace Plus, and Nowatch data, perform
-several transformations, perform signal processing and analyses, including
-batch analyses.
+Load, validate, and manipulate Clinical Data Interchange Standards
+Consortium ('CDISC') Analysis Data Model ('ADaM') dataset metadata stored
+as 'YAML' files. Metadata files are validated against a JSON schema.
+Provides functions to inspect and modify columns, parameters, and
+row-level operations within and across 'ADaM' domains. Designed for use
+with the 'mighty' framework.
 
 %prep
 %setup -q -c -n %{packname}

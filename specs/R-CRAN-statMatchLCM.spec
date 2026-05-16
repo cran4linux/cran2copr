@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tok
-%global packver   0.2.2
+%global packname  statMatchLCM
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Text Tokenization
+Summary:          Statistical Matching Using Latent Class Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cargo
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-StatMatch 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-StatMatch 
 
 %description
-Interfaces with the 'Hugging Face' tokenizers library to provide
-implementations of today's most used tokenizers such as the 'Byte-Pair
-Encoding' algorithm <https://huggingface.co/docs/tokenizers/index>. It's
-extremely fast for both training new vocabularies and tokenizing texts.
+Tools for statistical matching based on latent class models. The package
+implements statistical matching procedures based on latent class models.
+It allows researchers to perform data integration when no unique
+identifiers are available by modeling the joint distribution of variables
+through latent categorical structures. The package supports estimation of
+latent class models, probabilistic matching between donor and recipient
+data sets, and generation of synthetic linked data under uncertainty. It
+is particularly useful in survey research and data fusion applications
+where combining information from multiple sources is required while
+preserving statistical properties and accounting for measurement error and
+missing data mechanisms.
 
 %prep
 %setup -q -c -n %{packname}
