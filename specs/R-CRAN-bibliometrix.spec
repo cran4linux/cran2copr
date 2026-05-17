@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bibliometrix
-%global packver   5.3.0
+%global packver   5.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.0
+Version:          5.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinycssloaders >= 1.1.0
+BuildRequires:    R-CRAN-pubmedR >= 1.0.1
 BuildRequires:    R-CRAN-contentanalysis >= 1.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
@@ -28,13 +29,14 @@ BuildRequires:    R-CRAN-ca
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-openalexR 
 BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-pubmedR 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
@@ -48,7 +50,9 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-shinycssloaders >= 1.1.0
+Requires:         R-CRAN-pubmedR >= 1.0.1
 Requires:         R-CRAN-contentanalysis >= 1.0.0
 Requires:         R-stats 
 Requires:         R-grDevices 
@@ -59,13 +63,14 @@ Requires:         R-CRAN-ca
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-openalexR 
 Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-pubmedR 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
@@ -79,6 +84,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-xml2 
 
 %description
 Tool for quantitative research in scientometrics and bibliometrics. It

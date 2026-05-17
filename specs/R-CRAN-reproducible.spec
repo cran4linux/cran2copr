@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reproducible
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhance Reproducibility of R Code
 
@@ -19,9 +19,9 @@ BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-filelock >= 1.0.3
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-fpCompare 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-lobstr 
@@ -30,9 +30,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-CRAN-filelock >= 1.0.3
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-fpCompare 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-lobstr 

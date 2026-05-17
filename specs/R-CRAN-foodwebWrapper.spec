@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  foodwebWrapper
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhanced Wrapper to Show Which Functions Call What
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvbutils 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-textshaping
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-mvbutils 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  printtree
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Print Directory Trees for R Projects and Folders
 
@@ -19,15 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provides tools to print a compact, readable directory tree for a folder or
-project. The package can automatically detect common project roots (e.g.,
-'RStudio' '.Rproj' files) and formats output for quick inspection of code
-and data organization. It supports typical tree customizations such as
-limiting depth, excluding files using ignore patterns, and producing
-clean, aligned text output suitable for console use, reports, and
-reproducible documentation. A snapshot helper can also render the tree
-output to a PNG image for sharing in issues, teaching material, or project
-documentation.
+Quickly visualize 'R' project directory structures with automatic project
+detection and clean tree output.
 
 %prep
 %setup -q -c -n %{packname}

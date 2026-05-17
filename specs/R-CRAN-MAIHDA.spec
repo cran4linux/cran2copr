@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MAIHDA
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Analysis of Individual Heterogeneity and Discriminatory Accuracy
 
@@ -22,13 +22,23 @@ BuildRequires:    R-CRAN-lme4 >= 1.1.27
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-lme4 >= 1.1.27
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-reformulas 
 Requires:         R-stats 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides a comprehensive toolkit for conducting Multilevel Analysis of

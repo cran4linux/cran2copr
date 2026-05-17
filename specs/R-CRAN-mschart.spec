@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mschart
-%global packver   0.4.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chart Generation for 'Microsoft Word', 'Microsoft Excel' and 'Microsoft PowerPoint' Documents
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-CRAN-officer >= 0.7.4
+BuildRequires:    R-CRAN-officer >= 0.7.5
 BuildRequires:    R-CRAN-cellranger 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-grDevices 
@@ -28,7 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-CRAN-officer >= 0.7.4
+Requires:         R-CRAN-officer >= 0.7.5
 Requires:         R-CRAN-cellranger 
 Requires:         R-CRAN-data.table 
 Requires:         R-grDevices 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bbk
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Central Bank APIs
 
@@ -35,24 +35,13 @@ Requires:         R-utils
 Requires:         R-CRAN-xml2 
 
 %description
-A client for retrieving data and metadata from major central bank APIs. It
-supports access to the 'Bundesbank SDMX Web Service API'
-(<https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>),
-the 'Swiss National Bank Data Portal' (<https://data.snb.ch/en>), the
-'European Central Bank Data Portal API'
-(<https://data.ecb.europa.eu/help/api/overview>), the 'Bank of England
-Interactive Statistical Database'
-(<https://www.bankofengland.co.uk/boeapps/database>), the 'Banco de España
-API'
-(<https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>),
-the 'Bank for International Settlements SDMX Web Service'
-(<https://stats.bis.org/api-doc/v1/>), the 'Banque de France Web Service'
-(<https://webstat.banque-france.fr/en/pages/guide-migration-api/>), the
-'Norges Bank SDMX Web Service'
-(<https://www.norges-bank.no/en/topics/Statistics/open-data/>), the
-'Oesterreichische Nationalbank Web Service'
-(<https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>),
-and 'Bank of Canada Valet API' (<https://www.bankofcanada.ca/valet/docs>).
+A client for retrieving data and metadata from central bank APIs including
+'Banco de España' (BdE), 'Banco de Portugal' (BdP), 'Bank for
+International Settlements' (BIS), 'Bank of Canada' (BoC), 'Bank of
+England' (BoE), 'Bank of Japan' (BoJ), 'Banque de France' (BdF), 'Deutsche
+Bundesbank' (BBk), 'European Central Bank' (ECB), 'National Bank of
+Poland' (NBP), 'Norges Bank' (NoB), 'Oesterreichische Nationalbank'
+(OeNB), 'Sveriges Riksbank' (SRb), and 'Swiss National Bank' (SNB).
 
 %prep
 %setup -q -c -n %{packname}

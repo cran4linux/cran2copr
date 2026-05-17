@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Boruta
-%global packver   9.0.0
+%global packver   10.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.0.0
+Version:          10.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Algorithm for All Relevant Feature Selection
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ranger 
-Requires:         R-CRAN-ranger 
+BuildRequires:    R-CRAN-fru 
+Requires:         R-CRAN-fru 
 
 %description
 An all relevant feature selection wrapper algorithm. It finds relevant

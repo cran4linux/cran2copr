@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statease
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistical Analysis with Plain-English Interpretation
 
@@ -20,15 +20,16 @@ BuildArch:        noarch
 
 %description
 A toolkit for common statistical analyses including descriptive
-statistics, Student's t-test (one-sample, independent, and paired), and
-one-way Analysis of Variance (ANOVA). Each function automatically
-interprets results in plain English, reporting effect sizes (Cohen's d,
-eta-squared), confidence intervals, and p-value interpretations. Post-hoc
-Tukey Honestly Significant Difference (HSD) tests are automatically
-applied following significant ANOVA results. A master function
-automatically detects the appropriate test based on the structure of the
-input data. Methods are based on Cohen, J. (1988)
-<doi:10.4324/9780203771587>, Tukey, J. W. (1949) <doi:10.2307/3001913>,
+statistics, Student's t-tests (one-sample, independent, and paired),
+one-way and two-way Analysis of Variance (ANOVA), chi-square tests,
+correlation analysis, and simple linear regression. Each function
+automatically interprets results in plain English, reporting effect sizes
+(Cohen's d, eta-squared, Cramer's V, R-squared), confidence intervals, and
+p-value interpretations. Post-hoc Tukey Honestly Significant Difference
+(HSD) tests are automatically applied following significant ANOVA results.
+A master function automatically detects the appropriate test based on the
+structure of the input data. Methods are based on Cohen, J. (1988)
+<doi:10.4324/9780203771587>, Tukey, J. W.  (1949) <doi:10.2307/3001913>,
 and Shapiro and Wilk (1965) <doi:10.2307/2333709>.
 
 %prep
