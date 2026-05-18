@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdpower
-%global packver   2.3
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Calculations for RD Designs
+Summary:          Power, Sample Size, and Minimum Detectable Effect Calculations for RD Designs
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rdrobust 
-Requires:         R-CRAN-rdrobust 
+BuildRequires:    R-CRAN-rdrobust >= 4.0.0
+Requires:         R-CRAN-rdrobust >= 4.0.0
 
 %description
 The regression discontinuity (RD) design is a popular quasi-experimental
 design for causal inference and policy evaluation. The 'rdpower' package
-provides tools to perform power, sample size and MDE calculations in RD
-designs: rdpower() calculates the power of an RD design, rdsampsi()
-calculates the required sample size to achieve a desired power and rdmde()
-calculates minimum detectable effects. See Cattaneo, Titiunik and
-Vazquez-Bare (2019)
+provides tools to perform power, sample size, and minimum detectable
+effect calculations in RD designs: rdpower() calculates the power of an RD
+design, rdsampsi() calculates the required sample size to achieve a
+desired power, and rdmde() calculates minimum detectable effects. See
+Cattaneo, Titiunik and Vazquez-Bare (2019)
 <https://rdpackages.github.io/references/Cattaneo-Titiunik-VazquezBare_2019_Stata.pdf>
 for further methodological details.
 

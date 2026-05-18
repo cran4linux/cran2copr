@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdmulti
-%global packver   1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of RD Designs with Multiple Cutoffs or Scores
+Summary:          Robust Local Polynomial Methods for RD Designs with Multiple Cutoffs or Multiple Scores
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,17 +19,19 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rdrobust 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rdrobust 
+Requires:         R-CRAN-rlang 
 
 %description
-The regression discontinuity (RD) design is a popular quasi-experimental
-design for causal inference and policy evaluation. The 'rdmulti' package
-provides tools to analyze RD designs with multiple cutoffs or scores:
-rdmc() estimates pooled and cutoff specific effects for multi-cutoff
-designs, rdmcplot() draws RD plots for multi-cutoff designs and rdms()
-estimates effects in cumulative cutoffs or multi-score designs. See
-Cattaneo, Titiunik and Vazquez-Bare (2020)
+The 'rdmulti' package implements estimation, inference, and graphical
+procedures for regression discontinuity (RD) designs with multiple cutoffs
+or multiple scores. rdmc() provides point estimation and robust
+bias-corrected inference for multi-cutoff designs, rdmcplot() provides
+data-driven RD plots for multi-cutoff designs, and rdms() provides point
+estimation and robust bias-corrected inference for multi-score designs.
+See Cattaneo, Titiunik and Vazquez-Bare (2020)
 <https://rdpackages.github.io/references/Cattaneo-Titiunik-VazquezBare_2020_Stata.pdf>
 for further methodological details.
 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xiacf
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantifying Nonlinear Dependence and Lead-Lag Dynamics via Chatterjee's Xi
+Summary:          Nonlinear Dependence and Lead-Lag Analysis via Chatterjee's Xi
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-Rcpp >= 1.1.0
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-Rcpp >= 1.1.0
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-progressr 
 Requires:         R-stats 
 
@@ -42,11 +42,11 @@ series data. It extends the original metric to time series analysis by
 providing the Xi-Autocorrelation Function (Xi-ACF) and
 Xi-Cross-Correlation Function (Xi-CCF). The package allows users to test
 for non-linear dependence using Iterative Amplitude Adjusted Fourier
-Transform (IAAFT) surrogate data. Main functions include xi_acf() and
-xi_ccf() for computation, along with matrix extraction tools.
-Methodologies are based on Chatterjee (2021)
-<doi:10.1080/01621459.2020.1758115> and surrogate data testing methods by
-Schreiber and Schmitz (1996) <doi:10.1103/PhysRevLett.77.635>.
+Transform (IAAFT) surrogate data with strict Family-Wise Error Rate
+('FWER') control via Max-statistic approaches. Methodologies are based on
+Chatterjee (2021) <doi:10.1080/01621459.2020.1758115> and surrogate data
+testing methods by Schreiber and Schmitz (1996)
+<doi:10.1103/PhysRevLett.77.635>.
 
 %prep
 %setup -q -c -n %{packname}

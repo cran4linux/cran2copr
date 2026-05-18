@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aebdata
-%global packver   0.1.5
+%global packname  hyper.gam
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the Atlas do Estado Brasileiro
+Summary:          Generalized Additive Models with Hyper Column
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.6
+Requires:         R-core >= 4.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-plotly 
 
 %description
-Facilitates access to the data from the Atlas do Estado Brasileiro
-(<https://www.ipea.gov.br/atlasestado/>), maintained by the Instituto de
-Pesquisa Econômica Aplicada (Ipea). It allows users to search for specific
-series, list series or themes, and download data when available.
+An interactive HTML widget of the perspective plot for generalized
+additive models.  An alternative solution of the function mgcv::vis.gam().
 
 %prep
 %setup -q -c -n %{packname}

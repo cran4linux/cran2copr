@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nativeORT
-%global packver   0.1.2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Native 'R' 'ONNX' Runtime
+Summary:          Native R 'ONNX' Runtime
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,13 +24,13 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-glue 
 
 %description
-Provides 'R' native 'ONNX' model inference without requiring 'Python',
+Provides R native 'ONNX' model inference without requiring 'Python',
 'reticulate' bindings, or 'TensorFlow'. This package directly binds the
 'ONNX Runtime' C API via 'Rcpp', enabling real-time inference for '.onnx'
-engines, all within 'R'. Standard CPU execution is supported as well as
-the 'CoreML' Execution Provider (CEP) for Apple Silicon, all without
-external bindings. This package handles OS detection, linking 'ONNX'
-libraries, and inference. For more information about 'ONNX Runtime' see
+engines, all within R. Standard CPU execution is supported as well as the
+'CoreML' Execution Provider (CEP) for Apple Silicon, all without external
+bindings. This package handles OS detection, linking 'ONNX' libraries, and
+inference. For more information about 'ONNX Runtime' see
 <https://onnxruntime.ai/>.
 
 %prep

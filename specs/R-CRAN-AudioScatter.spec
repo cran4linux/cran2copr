@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AudioScatter
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Audiogram Scattergrams
 
@@ -33,9 +33,12 @@ Requires:         R-CRAN-magrittr
 %description
 Creates pre- and post- intervention scattergrams based on audiometric
 data. These scattergrams are formatted for publication in Otology &
-Neurotology and other otolaryngology journals. For more details, see
-Gurgel et al (2012) <doi:10.1177/0194599812458401>, Oghalai and Jackler
-(2016) <doi:10.1177/0194599816638314>.
+Neurotology and other otolaryngology journals. For more details and
+instructions on how to use this package, please reference Pan and Oghalai
+(2026) <doi: 10.1097/MAO.0000000000004693>. For further history on the
+development of scattergrams for reporting audiometric results in clinical
+trials, please see Gurgel et al (2012) <doi:10.1177/0194599812458401>,
+Oghalai and Jackler (2016) <doi:10.1177/0194599816638314>.
 
 %prep
 %setup -q -c -n %{packname}

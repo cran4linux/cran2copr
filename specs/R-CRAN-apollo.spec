@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  apollo
-%global packver   0.3.7
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Choice Model Estimation and Application
 
@@ -29,13 +29,13 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-RSGHB 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.0
@@ -51,13 +51,13 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-parallel 
 Requires:         R-CRAN-Deriv 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-RSGHB 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-MCMCpack 
 
 %description
 Choice models are a widely used technique across numerous scientific
