@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cjoint
-%global packver   2.1.1
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          AMCE Estimator for Conjoint Experiments
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
+Requires:         R-grDevices 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PEAXAI
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Efficiency Analysis Using Explainable Artificial Intelligence
 
@@ -21,26 +21,30 @@ BuildRequires:    R-CRAN-Benchmarking
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-deaR 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fastshap 
+BuildRequires:    R-CRAN-kernelshap 
 BuildRequires:    R-CRAN-iml 
+BuildRequires:    R-CRAN-isotone 
+BuildRequires:    R-CRAN-lime 
+BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-PRROC 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-rminer 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-isotone 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-Benchmarking 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-deaR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fastshap 
+Requires:         R-CRAN-kernelshap 
 Requires:         R-CRAN-iml 
+Requires:         R-CRAN-isotone 
+Requires:         R-CRAN-lime 
+Requires:         R-CRAN-np 
 Requires:         R-CRAN-PRROC 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-rminer 
-Requires:         R-stats 
 Requires:         R-CRAN-rms 
-Requires:         R-CRAN-isotone 
+Requires:         R-stats 
 
 %description
 Provides a probabilistic framework that integrates Data Envelopment

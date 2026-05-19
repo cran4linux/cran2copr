@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KMT
+%global packname  sparseVCBART
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Khmaladze Martingale Transformation Goodness-of-Fit Test
+Summary:          Sparse Varying Coefficient BART with Global-Local Priors"
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-gumbel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-graphics 
-Requires:         R-CRAN-gumbel 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
 
 %description
-Consider a goodness-of-fit problem of testing whether a random sample
-comes from one sample location-scale model where location and scale
-parameters are unknown. It is well known that
-Khmaladze-martingale-transformation method proposed by Khmaladze (1981)
-<doi:10.1137/1126027> provides asymptotic distribution free test. This
-package provides test statistic and critical value of the test for normal,
-Cauchy, and logistic distributions. This package used the main algorithm
-proposed by Kim (2020) <doi:10.1007/s00180-020-00971-7> and tests for
-other distributions will be available at the later version.
+Fits sparse linear varying coefficient models (VCMs), which assert a
+linear relationship between an outcome and several covariates that is
+allowed to change as functions of additional variables known as effect
+modifiers. Designed for high-dimensional settings where the number of
+covariates (i.e., number of slopes) is comparable to or larger than the
+number of observations. Approximates the coefficient functions using a
+version of Bayesian Additive Regression Trees that can perform
+global-local shrinkage. For more details see Ghosh, Bhogale, and Deshpande
+(2026+) <doi:10.48550/arXiv.2510.08204>.
 
 %prep
 %setup -q -c -n %{packname}

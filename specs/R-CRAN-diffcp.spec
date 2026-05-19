@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProduceR
-%global packver   1.2
+%global packname  diffcp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Concise and Efficient Tools for Everyday Statistical Production
+Summary:          Differentiating Through Cone Programs
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clarabel 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clarabel 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A set of concise and efficient tools for statistical production. Can also
-be used for data management. In statistical production, you deal with
-complex data and need to control your process at each step of your work.
-Concise functions are very helpful, because you do not hesitate to use
-them. The following functions are included in the package. 'dup' checks
-duplicates. 'miss' checks missing values. 'tac' computes contingency table
-of all columns. 'toc' compares two tables, spotting significant
-deviations. 'chi2_find' compares columns within a data.frame, spotting
-related categories of (a more complex function).
+A pure-R port of the Python 'diffcp' package. Computes the derivative of
+the optimal solution map of a convex cone program, treating the program as
+an implicit function of its data (constraint matrix, offset, objective
+coefficients, and optionally a quadratic), mirroring Agrawal et al. (2019)
+<doi:10.48550/arXiv.1904.09043>.
 
 %prep
 %setup -q -c -n %{packname}

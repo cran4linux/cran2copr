@@ -1,55 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  joinpointR
-%global packver   0.6.0
+%global packname  gedi2
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Tools for Joinpoint Regression Models
+Summary:          Gene Expression Decomposition and Integration
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-R6 >= 2.5.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-officer 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-R6 >= 2.5.0
+Requires:         R-CRAN-Matrix >= 1.3.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-segmented 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-officer 
+Requires:         R-utils 
 
 %description
-Provides tools to fit joinpoint regression models with a log-linear
-specification by levels of a categorical variable. The package acts as a
-wrapper around the 'segmented' package, facilitating model fitting,
-selection, and interpretation. It includes functions to estimate the
-Annual Percent Change (APC) and the Average Annual Percent Change (AAPC),
-along with their 95%% confidence intervals, and to generate formatted
-summary tables and plots of results.
+A memory-efficient implementation for integrating gene expression data
+from single-cell RNA sequencing experiments. Uses a C++ backend with thin
+R wrappers to enable analysis of large-scale single-cell datasets. The
+package supports multiple data modalities including count matrices, paired
+data (splicing, RNA velocity, CITE-seq), and binary indicators. It
+implements a latent variable model with block coordinate descent
+optimization for dimensionality reduction and batch effect correction.
+Core algorithms are described in Madrigal et al. (2024)
+<doi:10.1038/s41467-024-50963-0>.
 
 %prep
 %setup -q -c -n %{packname}

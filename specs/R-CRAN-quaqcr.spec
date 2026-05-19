@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bit64
-%global packver   4.8.2
+%global packname  quaqcr
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A S3 Class for Vectors of 64bit Integers
+Summary:          Quick ATAC-Seq QC
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bit >= 4.0.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-bit >= 4.0.0
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-methods 
-Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Package 'bit64' provides serializable S3 atomic 64bit (signed) integers.
-These are useful for handling database keys and exact counting in +-2^63.
-WARNING: do not use them as replacement for 32bit integers, integer64 are
-not supported for subscripting by R-core and they have different semantics
-when combined with double, e.g. integer64 + double => integer64. Class
-integer64 can be used in vectors, matrices, arrays and data.frames.
-Methods are available for coercion from and to logicals, integers,
-doubles, characters and factors as well as many elementwise and summary
-functions. Many fast algorithmic operations such as 'match' and 'order'
-support inter- active data exploration and manipulation and optionally
-leverage caching.
+A wrapper around the 'quaqc' program described in Tremblay and Questa
+(2024) <doi:10.1093/bioinformatics/btae649>. 'quaqc' allows for assay for
+transposase-accessible chromatin using sequencing (ATAC-seq) specific
+quality control and read filtering of next-generation sequencing (NGS)
+data with minimal processing time and extremely low memory overhead. Any
+number of samples can be processed, using multiple threads if desired.
+'quaqc' outputs a comprehensive set of aligned read metrics, including
+alignment size, fragment size, percent duplicates, mapq scores, read
+depth, GC content, and others. Although designed for ATAC-seq data,
+'quaqc' can also be used for other unspliced DNA sequencing experiments
+(such as chromatin immunoprecipitation sequencing, or ChIP-seq) as many of
+the metrics are related to general sequencing quality. This R package also
+provides additional utilities for custom analyses and plotting of 'quaqc'
+results.
 
 %prep
 %setup -q -c -n %{packname}

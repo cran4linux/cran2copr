@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pensar
-%global packver   0.4.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          LLM Wiki Engine
 
@@ -17,16 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-yaml 
 
 %description
-Maintains a persistent, compounding knowledge base from source documents.
-Ingests articles, chat logs, briefings, and messages into a structured
-vault of markdown files with 'YAML' frontmatter and wikilinks. The vault
-is designed for large language model (LLM) agents to summarize,
-cross-reference, and maintain; humans curate sources, edit, and ask
-questions.
+Personal wiki engine with a large language model (LLM) as research
+assistant. Supports guided sessions through a 'Claude Code'
+<https://github.com/anthropics/claude-code> skill bundle and autonomous
+research runs from R via autoresearch(). Results land in a structured
+vault of markdown pages with 'YAML' frontmatter and wikilinks, ready for
+hand-editing in your favourite editor alongside the LLM. Vaults are seeded
+with 'CLAUDE.md' and 'AGENTS.md' so 'Claude Code', 'Codex'
+<https://github.com/openai/codex>, and other agents share the same
+operating instructions. Can adopt an existing 'Obsidian'
+<https://obsidian.md/> vault in place via init_vault(adopt = TRUE).
 
 %prep
 %setup -q -c -n %{packname}

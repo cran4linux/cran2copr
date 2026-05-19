@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProduceR
-%global packver   1.2
+%global packname  seqwrap
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Concise and Efficient Tools for Everyday Statistical Production
+Summary:          Item-by-Item Iterative Model Fitting
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-DHARMa 
+BuildRequires:    R-CRAN-broom.mixed 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-pbapply 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-CRAN-DHARMa 
+Requires:         R-CRAN-broom.mixed 
 
 %description
-A set of concise and efficient tools for statistical production. Can also
-be used for data management. In statistical production, you deal with
-complex data and need to control your process at each step of your work.
-Concise functions are very helpful, because you do not hesitate to use
-them. The following functions are included in the package. 'dup' checks
-duplicates. 'miss' checks missing values. 'tac' computes contingency table
-of all columns. 'toc' compares two tables, spotting significant
-deviations. 'chi2_find' compares columns within a data.frame, spotting
-related categories of (a more complex function).
+Models high-dimensional data, such as RNA-seq or proteomic data using an
+item-by-item strategy. The package contains functions to wrap
+high-dimensional data and iterate over them using established R packages
+for regression modelling (e.g., 'glmmTMB' or 'mgcv').
 
 %prep
 %setup -q -c -n %{packname}

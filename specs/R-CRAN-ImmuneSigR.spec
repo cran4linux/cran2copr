@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProduceR
-%global packver   1.2
+%global packname  ImmuneSigR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Concise and Efficient Tools for Everyday Statistical Production
+Summary:          Immune Cell Signature Retrieval and Single-Cell Scoring
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 
 %description
-A set of concise and efficient tools for statistical production. Can also
-be used for data management. In statistical production, you deal with
-complex data and need to control your process at each step of your work.
-Concise functions are very helpful, because you do not hesitate to use
-them. The following functions are included in the package. 'dup' checks
-duplicates. 'miss' checks missing values. 'tac' computes contingency table
-of all columns. 'toc' compares two tables, spotting significant
-deviations. 'chi2_find' compares columns within a data.frame, spotting
-related categories of (a more complex function).
+Provides a literature-derived database of immune cell markers formatted as
+Gene Matrix Transposed (GMT) files. Users can search immune cell
+signatures, retrieve marker lists, export GMT files, create custom marker
+sets, and score gene-by-cell expression matrices with dependency-free
+rank-based or mean-expression methods. Cell subpopulations are
+distinguished by their source PMIDs. For the core curation of the lung
+cell atlas, see Travaglini et al. (2020) <doi:10.1038/s41586-020-2922-4>.
+For the pan-cancer B cell signatures, see Fitzsimons et al. (2024)
+<doi:10.1016/j.ccell.2024.09.011>.
 
 %prep
 %setup -q -c -n %{packname}

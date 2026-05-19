@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProduceR
-%global packver   1.2
+%global packname  ewens
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Concise and Efficient Tools for Everyday Statistical Production
+Summary:          Ewens Distribution
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-copula >= 1.0
+Requires:         R-CRAN-copula >= 1.0
 
 %description
-A set of concise and efficient tools for statistical production. Can also
-be used for data management. In statistical production, you deal with
-complex data and need to control your process at each step of your work.
-Concise functions are very helpful, because you do not hesitate to use
-them. The following functions are included in the package. 'dup' checks
-duplicates. 'miss' checks missing values. 'tac' computes contingency table
-of all columns. 'toc' compares two tables, spotting significant
-deviations. 'chi2_find' compares columns within a data.frame, spotting
-related categories of (a more complex function).
+Implements the probability mass function of, and random draws from, the
+Ewens distribution, a probability distribution over partitions of integer,
+as described in Ewens (1972) <doi:10.1016/0040-5809(72)90035-4>.
 
 %prep
 %setup -q -c -n %{packname}

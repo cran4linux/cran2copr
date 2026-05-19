@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  somhca
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Organising Maps Coupled with Hierarchical Cluster Analysis
 
@@ -42,8 +42,9 @@ analysis (SOM-HCA) for clustering and visualization of high-dimensional
 data. The package includes functions to estimate the optimal map size
 based on various quality measures and to generate a model using the
 selected dimensions. It also performs hierarchical clustering on the map
-nodes to group similar units. Documentation about the SOM-HCA method is
-provided in Pastorelli et al. (2024) <doi:10.1002/xrs.3388>.
+nodes or other data to group similar units. Documentation about the
+SOM-HCA method is provided in Pastorelli et al. (2024)
+<doi:10.1002/xrs.3388>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  collapse
-%global packver   2.1.6
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced and Fast Data Transformation
 
@@ -35,7 +35,9 @@ with nested data, fast data object conversions, functions for memory
 efficient R programming, and helpers to effectively deal with variable
 labels, attributes, and missing data. It seamlessly supports base R
 objects/classes as well as 'units', 'integer64', 'xts'/ 'zoo', 'tibble',
-'grouped_df', 'data.table', 'sf', and 'pseries'/'pdata.frame'.
+'grouped_df', 'data.table', 'sf', and 'pseries'/'pdata.frame'. For a
+concise overview of the package see Krantz (2026)
+<doi:10.18637/jss.v116.i01>.
 
 %prep
 %setup -q -c -n %{packname}

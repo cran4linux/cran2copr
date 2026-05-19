@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProduceR
-%global packver   1.2
+%global packname  REFT
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Concise and Efficient Tools for Everyday Statistical Production
+Summary:          Root Exudate Feature Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-webchem 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-webchem 
+Requires:         R-CRAN-rlang 
 
 %description
-A set of concise and efficient tools for statistical production. Can also
-be used for data management. In statistical production, you deal with
-complex data and need to control your process at each step of your work.
-Concise functions are very helpful, because you do not hesitate to use
-them. The following functions are included in the package. 'dup' checks
-duplicates. 'miss' checks missing values. 'tac' computes contingency table
-of all columns. 'toc' compares two tables, spotting significant
-deviations. 'chi2_find' compares columns within a data.frame, spotting
-related categories of (a more complex function).
+Provides tools for molecule-oriented and reaction-centred analysis of root
+exudate datasets. It supports structural matching based on 'PubChem',
+calculation of molecular descriptors, and inference of candidate
+microbe-associated metabolic reactions using Kyoto Encyclopedia of Genes
+and Genomes ('KEGG') identifiers and Enzyme Commission ('EC') numbers. For
+background on these databases, see Kanehisa et al. (2023)
+<doi:10.1093/nar/gkac963> and Kim et al. (2023) <doi:10.1093/nar/gkac956>.
 
 %prep
 %setup -q -c -n %{packname}

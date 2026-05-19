@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dress.graph
-%global packver   0.8.3
+%global packname  submitr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DRESS - A Continuous Framework for Structural Graph Refinement
+Summary:          Scaffold and Submit Computational Jobs to HTC Schedulers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-yaml 
 
 %description
-DRESS is a deterministic, parameter-free framework for continuous
-structural graph refinement. It iterates a nonlinear dynamical system on
-real-valued edge similarities and produces a graph fingerprint as a sorted
-edge-value vector once the iteration reaches a prescribed stopping
-criterion. The resulting fingerprint is self-contained,
-isomorphism-invariant by construction, reproducible across vertex
-labelings under the reference implementation, numerically robust in
-practice, and efficient to compute with straightforward parallelization
-and distribution.
+Provides scaffolding tools to help researchers prepare and submit
+computational jobs to high-throughput computing (HTC) schedulers.
+Generates the files required to run containerized R analyses on
+'HTCondor', including submit files and executable scripts, and wraps the
+system commands needed to stage files, submit jobs, monitor status, and
+retrieve results from a CHTC submit node. Provides 'htc_config()' for
+managing connection details and SSH connection reuse guidance. Works
+naturally alongside 'containr' for container image management and
+'toolero' for dataset splitting and project scaffolding.
 
 %prep
 %setup -q -c -n %{packname}
