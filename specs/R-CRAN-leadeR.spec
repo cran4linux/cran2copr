@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bedrockbio
-%global packver   1.3.1
+%global packname  leadeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open-Access Computational Biology Datasets
+Summary:          Profiling Leaders at a Distance
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-spacyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-countries 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-spacyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-countries 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-purrr 
 
 %description
-Efficiently access the 'Bedrock Bio' library of open-access computational
-biology datasets. Lazily query datasets backed by 'DuckDB' and 'Apache
-Iceberg', with support for predicate pushdown and column projection to the
-cloud storage backend. This enables quick, iterative access to otherwise
-massive, unwieldy datasets without downloading them in full. See
-<https://bedrock.bio> for available datasets and documentation.
+Profiles political leaders at a distance from text data such as speeches,
+interviews, press conferences, and other public statements. Computes
+Leadership Trait Analysis scores for seven personality traits -- including
+need for power, conceptual complexity, and self-confidence -- and
+classifies leaders into one of eight leadership styles. Also computes
+Operational Code Analysis scores summarising a leader's beliefs about
+politics and the use of power.
 
 %prep
 %setup -q -c -n %{packname}

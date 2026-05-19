@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neo2R
-%global packver   2.4.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neo4j to R
 
@@ -14,25 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-utils 
 
 %description
 The aim of neo2R is to provide simple and low level connectors for
 querying neo4j graph databases (<https://neo4j.com/>). The objects
 returned by the query functions are either lists or data.frames with very
-few post-processing. It allows fast processing of queries returning many
-records. And it let the user handle post-processing according to the data
-model and his needs.
+little post-processing. It allows fast processing of queries returning
+many records. And it let the users handle post-processing according to the
+data model and their needs.
 
 %prep
 %setup -q -c -n %{packname}

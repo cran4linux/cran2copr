@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgexf
-%global packver   0.16.3
+%global packname  dataset
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build, Import, and Export GEXF Graph Files
+Summary:          Create Data Frames for Exchange and Reuse
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-ISOcodes 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-servr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-igraph 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-ISOcodes 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-servr 
+Requires:         R-CRAN-vctrs 
 
 %description
-Create, read, and write 'GEXF' (Graph Exchange 'XML' Format) graph files
-(used in 'Gephi' and others). Using the 'XML' package, rgexf allows
-reading and writing GEXF files, including attributes, 'GEXF' visual
-attributes (such as color, size, and position), network dynamics (for both
-edges and nodes), and edges' weights. Users can build/handle graphs
-element-by-element or massively through data frames, visualize the graph
-on a web browser through 'gexf-js' (a 'javascript' library), and interact
-with the 'igraph' package.
+The 'dataset' package helps create semantically rich, machine-readable,
+and interoperable datasets in R. It extends tidy data frames with metadata
+that preserves meaning, improves interoperability, and makes datasets
+easier to publish, exchange, and reuse in line with ISO and W3C standards.
 
 %prep
 %setup -q -c -n %{packname}
-sed -i '/system.file/d' %{packname}/man/plot.gexf.Rd
+
 # fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping

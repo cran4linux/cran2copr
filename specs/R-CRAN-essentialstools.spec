@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  essentialstools
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets and Utilities for Essentials of Statistics for the Behavioral Sciences
 
@@ -26,14 +26,12 @@ Requires:         R-CRAN-pwr
 
 %description
 Provides instructional datasets and simple wrapper functions for selected
-analyses used in 'Essentials of Statistics for the Behavioral Sciences'.
-The package is intended to support textbook examples by distributing data
-in a form that is easy for students and instructors to access within R.
-Current functionality includes packaged datasets and convenience wrappers
-for functions from 'ez', 'pwr', and 'WebPower' for analysis of variance
-and statistical power calculations. The package is designed as a companion
-resource for teaching and learning in introductory and intermediate
-statistics courses.
+analyses used in 'Essentials of Statistics for the Behavioral Sciences'
+(Gravetter et al., 2026). The package is intended to support textbook
+examples by distributing data in a form that is easy for students and
+instructors to access within R. Current functionality includes packaged
+datasets and convenience wrappers for functions from 'ez', 'pwr', and
+'WebPower' for analysis of variance and statistical power calculations.
 
 %prep
 %setup -q -c -n %{packname}

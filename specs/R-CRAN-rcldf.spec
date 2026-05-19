@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcldf
-%global packver   1.5.1
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Linguistic Data in the Cross Linguistic Data Format (CLDF)
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bib2df >= 1.1.1
 BuildRequires:    R-CRAN-archive 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-csvwr
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
@@ -32,12 +33,14 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-versionsort 
 Requires:         R-CRAN-bib2df >= 1.1.1
 Requires:         R-CRAN-archive 
 Requires:         R-CRAN-csvwr 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
@@ -47,6 +50,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-tools 
 Requires:         R-CRAN-urltools 
 Requires:         R-utils 
+Requires:         R-CRAN-versionsort 
 
 %description
 Cross-Linguistic Data Format (CLDF) is a framework for storing

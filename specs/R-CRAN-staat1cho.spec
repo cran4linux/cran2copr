@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcamelsCL
-%global packver   0.2-0
+%global packname  staat1cho
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Handling of the CAMELS-CL Dataset
+Summary:          Study Indicators Based on Dutch Higher Education Data (1CHO)
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.7.78
-BuildRequires:    R-CRAN-zoo >= 1.7.2
-BuildRequires:    R-CRAN-hydroTSM >= 0.5.0
-BuildRequires:    R-CRAN-httr2 
-Requires:         R-CRAN-terra >= 1.7.78
-Requires:         R-CRAN-zoo >= 1.7.2
-Requires:         R-CRAN-hydroTSM >= 0.5.0
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
 
 %description
-Download and handle spatial and temporal data from the CAMELS-CL dataset
-(Catchment Attributes and Meteorology for Large Sample Studies, Chile)
-<https://camels.cr2.cl/>, developed by Alvarez-Garreton et al. (2018)
-<doi:10.5194/hess-22-5817-2018>. The package does not generate new data,
-it only facilitates direct access to the original dataset for hydrological
-analyses.
+Calculates enrolment, graduation, dropout, and programme-switch indicators
+from the Dutch higher education registration data (1CHO) supplied by DUO.
+Includes an interactive 'Shiny' dashboard for exploring results.
 
 %prep
 %setup -q -c -n %{packname}

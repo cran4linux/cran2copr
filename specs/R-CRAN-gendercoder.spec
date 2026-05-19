@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VBTree
+%global packname  gendercoder
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Binary Tree to Make Your Data Management More Efficient
+Summary:          Recodes Sex/Gender Descriptions into a Standard Set
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tensorA 
-Requires:         R-CRAN-tensorA 
 
 %description
-Vector binary tree provides a new data structure, to make your data
-visiting and management more efficient. If the data has structured column
-names, it can read these names and factorize them through specific split
-pattern, then build the mappings within double list, vector binary tree,
-array and tensor mutually, through which the batched data processing is
-achievable easily. The methods of array and tensor are also applicable.
-Detailed methods are described in Chen Zhang et al. (2020)
-<doi:10.35566/isdsa2019c8>.
+Provides dictionary-based tools for recoding free-text gender responses
+into consistent categories while preserving gender diversity where
+possible. The package standardises spelling, capitalization, whitespace,
+and common variants through curated named character-vector dictionaries,
+supports either detailed or collapsed output categories, and can retain
+original unmatched responses for manual review. It also includes helpers
+for creating custom dictionaries from approximate string matches and a
+local interactive application for recoding uploaded data files.
 
 %prep
 %setup -q -c -n %{packname}

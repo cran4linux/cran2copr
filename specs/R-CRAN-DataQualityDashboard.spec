@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bedrockbio
-%global packver   1.3.1
+%global packname  DataQualityDashboard
+%global packver   2.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.8.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open-Access Computational Biology Datasets
+Summary:          Execute and View Data Quality Checks on OMOP CDM Database
 
-License:          GPL (>= 3)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-DatabaseConnector >= 2.0.2
+BuildRequires:    R-CRAN-SqlRender >= 1.10.1
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ParallelLogger 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-DatabaseConnector >= 2.0.2
+Requires:         R-CRAN-SqlRender >= 1.10.1
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ParallelLogger 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-readr 
 
 %description
-Efficiently access the 'Bedrock Bio' library of open-access computational
-biology datasets. Lazily query datasets backed by 'DuckDB' and 'Apache
-Iceberg', with support for predicate pushdown and column projection to the
-cloud storage backend. This enables quick, iterative access to otherwise
-massive, unwieldy datasets without downloading them in full. See
-<https://bedrock.bio> for available datasets and documentation.
+Assesses data quality in Observational Medical Outcomes Partnership Common
+Data Model (OMOP CDM) databases. Executes data quality checks and provides
+an R 'shiny' application to view the results.
 
 %prep
 %setup -q -c -n %{packname}

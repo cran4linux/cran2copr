@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcamelsCL
-%global packver   0.2-0
+%global packname  sobol
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Handling of the CAMELS-CL Dataset
+Summary:          Quasi-Monte Carlo Sobol Sequence Generator
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.7.78
-BuildRequires:    R-CRAN-zoo >= 1.7.2
-BuildRequires:    R-CRAN-hydroTSM >= 0.5.0
-BuildRequires:    R-CRAN-httr2 
-Requires:         R-CRAN-terra >= 1.7.78
-Requires:         R-CRAN-zoo >= 1.7.2
-Requires:         R-CRAN-hydroTSM >= 0.5.0
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-methods 
+Requires:         R-CRAN-checkmate 
 
 %description
-Download and handle spatial and temporal data from the CAMELS-CL dataset
-(Catchment Attributes and Meteorology for Large Sample Studies, Chile)
-<https://camels.cr2.cl/>, developed by Alvarez-Garreton et al. (2018)
-<doi:10.5194/hess-22-5817-2018>. The package does not generate new data,
-it only facilitates direct access to the original dataset for hydrological
-analyses.
+Provides a fast and efficient implementation of Sobol sequences for
+quasi-Monte Carlo methods. The Sobol sequence is a low-discrepancy
+sequence with the property that for all values of N, its subsequence x1,
+..., xN has a low discrepancy. It can be used to generate quasi-random
+numbers for use in Monte Carlo integration and other simulation methods.
+This implementation is based on the algorithms described by Bratley and
+Fox (1988) <doi:10.1145/42288.214372> and uses direction numbers from Joe
+and Kuo (2008) <doi:10.1145/1358628.1358630>. The package includes both
+batch and incremental interfaces with support for arbitrary starting
+indices and reproducible sequences. It uses 'Rcpp' for efficient 'C++'
+integration.
 
 %prep
 %setup -q -c -n %{packname}

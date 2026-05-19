@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MixtureFitting
-%global packver   0.6.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting of Univariate Mixture Distributions to Data using Various Approaches
 
@@ -16,12 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.0.1
 Requires:         R-core >= 2.0.1
+BuildRequires:    R-CRAN-sn 
+Requires:         R-CRAN-sn 
 
 %description
 Methods for fitting mixture distributions to univariate data using
 expectation maximization, HWHM and other methods. Supports Gaussian,
-Cauchy, Student's t and von Mises mixtures. For more details see Merkys
-(2018)
+Cauchy, Student's t, skew-normal and von Mises mixtures. For more details
+see Merkys (2018)
 <https://www.lvb.lt/permalink/370LABT_NETWORK/1m6ui06/alma9910036312108451>.
 
 %prep

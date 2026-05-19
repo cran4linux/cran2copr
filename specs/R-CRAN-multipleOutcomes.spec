@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multipleOutcomes
-%global packver   0.4
+%global packver   0.16.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.16.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Asymptotic Covariance Matrix of Regression Models for Multiple Outcomes
+Summary:          Joint Covariance and Treatment-Effect Tests for Multiple Outcomes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-mmrm >= 0.3.15
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-momentfit 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-mmrm >= 0.3.15
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-momentfit 
-Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Regression models can be fitted for multiple outcomes simultaneously. This
-package computes estimates of parameters across fitted models and returns
-the matrix of asymptotic covariance. Various applications of this package,
-including CUPED (Controlled Experiments Utilizing Pre-Experiment Data),
-multiple comparison adjustment, are illustrated.
+Fits generalized linear models, Cox proportional-hazards models, log-rank
+tests, generalized estimating equations, mixed models with repeated
+measures, Kaplan-Meier curves, and quantile differences jointly across
+multiple endpoints, and returns the full asymptotic covariance matrix
+linking them. Implements PATED (Prognostic Assisted Treatment Effect
+Detection), a randomized-trial method that exploits balanced prognostic
+covariates to tighten standard errors and increase statistical power
+without introducing bias.
 
 %prep
 %setup -q -c -n %{packname}

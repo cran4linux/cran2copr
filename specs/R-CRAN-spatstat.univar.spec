@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.univar
-%global packver   3.1-7
+%global packver   3.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.7
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          One-Dimensional Probability Distribution Support for the 'spatstat' Family
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.2.2
+BuildRequires:    R-CRAN-spatstat.utils >= 3.2.3
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-spatstat.utils >= 3.2.2
+Requires:         R-CRAN-spatstat.utils >= 3.2.3
 Requires:         R-stats 
 Requires:         R-graphics 
 
@@ -27,7 +27,8 @@ Requires:         R-graphics
 Estimation of one-dimensional probability distributions including kernel
 density estimation, weighted empirical cumulative distribution functions,
 Kaplan-Meier and reduced-sample estimators for right-censored data, heat
-kernels, kernel properties, quantiles and integration.
+kernels, special distributions, kernel properties, quantiles and
+integration.
 
 %prep
 %setup -q -c -n %{packname}

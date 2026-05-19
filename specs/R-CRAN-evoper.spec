@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evoper
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evolutionary Parameter Estimation for 'Repast Simphony' Models
 
@@ -19,7 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rrepast 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-logging 
+BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,7 +31,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RNetLogo 
 Requires:         R-CRAN-rrepast 
 Requires:         R-methods 
-Requires:         R-CRAN-logging 
+Requires:         R-CRAN-logger 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-ggplot2 

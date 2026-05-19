@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCDB
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Access and Maintain Time-Based Versioned Data (Slowly-Changing-Dimension)
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.4.0
+BuildRequires:    R-CRAN-dbplyr >= 2.5.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dbplyr >= 2.4.0
+Requires:         R-CRAN-dbplyr >= 2.5.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 

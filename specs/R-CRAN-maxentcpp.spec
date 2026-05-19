@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcamelsCL
-%global packver   0.2-0
+%global packname  maxentcpp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Handling of the CAMELS-CL Dataset
+Summary:          Maximum Entropy Species Distribution Modeling ('C++' Implementation)
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.7.78
-BuildRequires:    R-CRAN-zoo >= 1.7.2
-BuildRequires:    R-CRAN-hydroTSM >= 0.5.0
-BuildRequires:    R-CRAN-httr2 
-Requires:         R-CRAN-terra >= 1.7.78
-Requires:         R-CRAN-zoo >= 1.7.2
-Requires:         R-CRAN-hydroTSM >= 0.5.0
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-methods 
 
 %description
-Download and handle spatial and temporal data from the CAMELS-CL dataset
-(Catchment Attributes and Meteorology for Large Sample Studies, Chile)
-<https://camels.cr2.cl/>, developed by Alvarez-Garreton et al. (2018)
-<doi:10.5194/hess-22-5817-2018>. The package does not generate new data,
-it only facilitates direct access to the original dataset for hydrological
-analyses.
+'C++' implementation of Maximum Entropy (Maxent) species distribution
+modeling with R bindings via 'Rcpp'. Provides a high-performance
+reimplementation of the Maxent algorithm for modeling species geographic
+distributions from occurrence data and environmental variables, following
+Phillips et al. (2006) <doi:10.1016/j.ecolmodel.2005.03.026>. Supports
+linear, quadratic, product, hinge, and threshold feature transformations,
+spatial projection in raw, logistic, and cloglog scales, and model
+diagnostics including Area Under the ROC Curve (AUC), variable importance,
+response curves, and Multivariate Environmental Similarity Surfaces (MESS)
+maps.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  portfolioBacktest
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Backtesting of Portfolios over Multiple Datasets
 
@@ -61,7 +61,9 @@ different subsets of the stock universe. The results can be later assessed
 and ranked with tables based on a number of performance criteria (e.g.,
 expected return, volatility, Sharpe ratio, drawdown, turnover rate, return
 on investment, computational time, etc.), as well as plotted in a number
-of ways with nice barplots and boxplots.
+of ways with nice barplots and boxplots. See Chapter 8 (Portfolio
+Backtesting) of the book: Daniel P. Palomar, "Portfolio Optimization:
+Theory and Application", Cambridge University Press, 2025.
 
 %prep
 %setup -q -c -n %{packname}

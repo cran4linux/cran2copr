@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcamelsCL
-%global packver   0.2-0
+%global packname  BayesPPR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Handling of the CAMELS-CL Dataset
+Summary:          Bayesian Projection Pursuit Regression
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.7.78
-BuildRequires:    R-CRAN-zoo >= 1.7.2
-BuildRequires:    R-CRAN-hydroTSM >= 0.5.0
-BuildRequires:    R-CRAN-httr2 
-Requires:         R-CRAN-terra >= 1.7.78
-Requires:         R-CRAN-zoo >= 1.7.2
-Requires:         R-CRAN-hydroTSM >= 0.5.0
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Download and handle spatial and temporal data from the CAMELS-CL dataset
-(Catchment Attributes and Meteorology for Large Sample Studies, Chile)
-<https://camels.cr2.cl/>, developed by Alvarez-Garreton et al. (2018)
-<doi:10.5194/hess-22-5817-2018>. The package does not generate new data,
-it only facilitates direct access to the original dataset for hydrological
-analyses.
+Bayesian fitting of projection pursuit regression model. Built to handle
+continuous and categorical inputs and scalar output (Collins et al., 2023
+<DOI:10.1007/s11222-023-10334-z>).
 
 %prep
 %setup -q -c -n %{packname}

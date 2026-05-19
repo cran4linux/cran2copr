@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autotesteR
-%global packver   0.1.7
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Functions for Basic Statistical Tests
 
@@ -22,19 +22,37 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-FSA 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-ggExtra 
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vcd 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-FSA 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-ggExtra 
 Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-vcd 
 
 %description
 Provides simple and intuitive functions for basic statistical analyses.

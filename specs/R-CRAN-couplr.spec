@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  couplr
-%global packver   1.2.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Pairing and Matching via Linear Assignment
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-tibble >= 3.0.0
@@ -30,6 +31,7 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-methods 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Solves optimal pairing and matching problems using linear assignment

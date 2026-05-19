@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  poissonsuperlearner
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Poisson Super Learner
 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-mgcv 
 
 %description
-Provides tools for fitting piece-wise constant hazard models for survival
+Provides tools for fitting piecewise-constant hazard models for survival
 and competing risks data, including ensemble hazard estimation via the
 Super Learner framework. The package supports estimation of survival
 functions and absolute risk predictions from fitted cause-specific hazard

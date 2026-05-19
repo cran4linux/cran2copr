@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  umx
-%global packver   4.60.0
+%global packver   4.65.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.60.0
+Version:          4.65.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling and Twin Modeling in R
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-OpenMx >= 2.20.0
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
@@ -30,20 +31,20 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-paran 
 BuildRequires:    R-CRAN-polycor 
+BuildRequires:    R-CRAN-quantmod 
 BuildRequires:    R-CRAN-R2HTML 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-gert 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-paran 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-psychTools 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-OpenMx >= 2.20.0
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-gert 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
@@ -54,17 +55,16 @@ Requires:         R-methods
 Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-paran 
 Requires:         R-CRAN-polycor 
+Requires:         R-CRAN-quantmod 
 Requires:         R-CRAN-R2HTML 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-scales 
 Requires:         R-utils 
 Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-gert 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-paran 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-psychTools 
+Requires:         R-CRAN-zoo 
 
 %description
 Quickly create, run, and report structural equation models, and twin

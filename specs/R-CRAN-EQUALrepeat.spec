@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EQUALrepeat
-%global packver   0.4.0
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithm Driven Time Series Analysis for Researchers without Coding Skills
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-DescTools
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-rstatix 
-BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-urca 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-DescTools
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-rstatix 
-Requires:         R-CRAN-irr 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-urca 
