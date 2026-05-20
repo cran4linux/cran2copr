@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spicy
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Statistics, Summary Tables, and Data Management Tools
 
@@ -39,17 +39,17 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-utils 
 
 %description
-Provides tools for descriptive data analysis, variable inspection, data
-management, and tabulation workflows in 'R'. Summarizes variable metadata,
-labels, classes, missing values, and representative values, with support
-for readable frequency tables, cross-tabulations, association measures for
-contingency tables (Cramer's V, Phi, Goodman-Kruskal Gamma, Kendall's
-Tau-b, Somers' D, and others), categorical and continuous summary tables,
-and model-based bivariate tables for continuous outcomes, including
-APA-style reporting outputs. Includes helpers for interactive codebooks,
-variable label extraction, clipboard export, and row-wise descriptive
-summaries. Designed to make descriptive analysis and reporting faster,
-clearer, and easier to work with in practice.
+Provides tabulation, descriptive-summary, and variable-inspection tools
+for applied data analysis. Frequency tables and cross-tabulations with
+contingency-table association measures (Cramer's V, Phi, Goodman-Kruskal
+Gamma, Kendall's Tau-b, Somers' D, and others); categorical and continuous
+summary tables; regression coefficient tables for one or more 'lm' or
+'glm' fits side by side; and outcome-by-group comparison tables from
+linear models with optional additive covariate adjustment. All table
+outputs follow APA conventions and expose 'broom'-compatible 'tidy()' /
+'glance()' methods for downstream pipelines. Helpers cover interactive
+codebooks, variable-label extraction, clipboard export, and row-wise
+descriptive summaries.
 
 %prep
 %setup -q -c -n %{packname}

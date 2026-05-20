@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TKCat
-%global packver   1.1.14
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.14
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tailored Knowledge Catalog
 
@@ -14,26 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonvalidate >= 1.3.2
-BuildRequires:    R-CRAN-ReDaMoR >= 0.7.0
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ReDaMoR >= 1.0.0
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ClickHouseHTTP 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-getPass 
+BuildRequires:    R-CRAN-askpass 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-future 
@@ -43,22 +41,20 @@ BuildRequires:    R-CRAN-uuid
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-roxygen2 
 Requires:         R-CRAN-jsonvalidate >= 1.3.2
-Requires:         R-CRAN-ReDaMoR >= 0.7.0
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ReDaMoR >= 1.0.0
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ClickHouseHTTP 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-getPass 
+Requires:         R-CRAN-askpass 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-future 
@@ -73,9 +69,9 @@ Facilitate the management of data from knowledge resources that are
 frequently used alone or together in research environments. In 'TKCat',
 knowledge resources are manipulated as modeled database (MDB) objects.
 These objects provide access to the data tables along with a general
-description of the resource and a detail data model documenting the
+description of the resource and a detailed data model documenting the
 tables, their fields and their relationships. These MDBs are then gathered
-in catalogs that can be easily explored an shared. Finally, 'TKCat'
+in catalogs that can be easily explored and shared. Finally, 'TKCat'
 provides tools to easily subset, filter and combine MDBs and create new
 catalogs suited for specific needs.
 

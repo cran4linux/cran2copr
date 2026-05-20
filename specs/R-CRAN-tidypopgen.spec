@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidypopgen
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Population Genetics
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-bigparallelr 
 BuildRequires:    R-CRAN-bigsnpr 
@@ -36,10 +36,9 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-UpSetR 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rmio 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-bigparallelr 
 Requires:         R-CRAN-bigsnpr 
@@ -58,7 +57,6 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-UpSetR 
 Requires:         R-CRAN-vctrs 
 
 %description

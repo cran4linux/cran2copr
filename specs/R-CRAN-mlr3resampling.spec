@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3resampling
-%global packver   2026.2.24
+%global packver   2026.5.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.2.24
+Version:          2026.5.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Algorithms for 'mlr3' Framework
 
@@ -16,21 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-mlr3 >= 1.0.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-mlr3misc 
-BuildRequires:    R-CRAN-pbdMPI 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-mlr3 >= 1.0.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-mlr3misc 
-Requires:         R-CRAN-pbdMPI 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
 A supervised learning algorithm inputs a train set, and outputs a
@@ -40,11 +42,11 @@ know if subsets are similar enough so that we can get accurate predictions
 on one subset, after training on Other subsets? And how do we know if
 training on All subsets would improve prediction accuracy, relative to
 training on the Same subset? SOAK, Same/Other/All K-fold cross-validation,
-<doi:10.48550/arXiv.2410.08643> can be used to answer these questions, by
-fixing a test subset, training models on Same/Other/All subsets, and then
-comparing test error rates (Same versus Other and Same versus All). Also
-provides code for estimating how many train samples are required to get
-accurate predictions on a test set.
+<doi:10.1002/sam.70055> can be used to answer these questions, by fixing a
+test subset, training models on Same/Other/All subsets, and then comparing
+test error rates (Same versus Other and Same versus All). Also provides
+code for estimating how many train samples are required to get accurate
+predictions on a test set.
 
 %prep
 %setup -q -c -n %{packname}
