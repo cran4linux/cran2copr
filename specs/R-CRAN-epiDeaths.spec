@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  predictsr
-%global packver   0.2.1
+%global packname  epiDeaths
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'PREDICTS' Biodiversity Database
+Summary:          Functions for Calculating Mortality Indicators
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-logger 
 
 %description
-Fetches the 'PREDICTS' database and relevant metadata from the Data Portal
-at the Natural History Museum, London <https://data.nhm.ac.uk>. Data were
-collated from over 400 existing spatial comparisons of local-scale
-biodiversity exposed to different intensities and types of anthropogenic
-pressures, from sites around the world. These data are described in Hudson
-et al. (2013) <doi:10.1002/ece3.2579>.
+Provides functions for calculating mortality indicators. These include
+geometric interpolation between two periods and projections for future
+years, as described in the textbook by Laurenti, Mello Jorge, Lebrão and
+Gotlieb (2005, ISBN:9788512408309), the standardised mortality ratio
+(Bruce, Pope and Stanistreet, 2018, ISBN:9781118665411), the age-adjusted
+mortality rate (direct standardisation), years of potential life lost
+(Gardner and Sanborn, 1990, <doi:10.1097/00001648-199007000-00012>; Ma,
+Ward, Siegel and Jemal, 2015, <doi:10.1001/jama.2015.12319>), and
+age-standardised years of potential life lost (Silva Filho et al., 2024
+<doi:10.1590/1413-81232024293.04702023EN>). Confidence intervals for the
+standardised mortality ratio are obtained according to Vandenbroucke
+(1982) <doi:10.1093/oxfordjournals.aje.a113306> and Ulm (1990)
+<doi:10.1093/oxfordjournals.aje.a115507>. The function also includes a
+function that produces a graph similar to an age pyramid.
 
 %prep
 %setup -q -c -n %{packname}

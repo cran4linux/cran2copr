@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ryandexdirect
-%global packver   3.6.2
+%global packver   3.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.2
+Version:          3.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data From 'Yandex Direct'
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-utils 
 Requires:         R-CRAN-httr 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr2 
 
 %description
 Load data from 'Yandex Direct' API V5

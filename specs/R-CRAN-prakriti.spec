@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GDILM.SEIRS
-%global packver   0.0.6
+%global packname  prakriti
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Modeling of Infectious Disease with Reinfection
+Summary:          Color Palettes Inspired by India's Natural Landscapes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ngspatial 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ngspatial 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Geographically Dependent Individual Level Models (GDILMs) within the
-Susceptible-Exposed-Infectious-Recovered-Susceptible (SEIRS) framework are
-applied to model infectious disease transmission, incorporating
-reinfection dynamics. This package employs a likelihood based Monte Carlo
-Expectation Conditional Maximization (MCECM) algorithm for estimating
-model parameters. It also provides tools for GDILM fitting, parameter
-estimation, AIC calculation on real pandemic data, and simulation studies
-customized to user-defined model settings.
+Curated color palettes drawn from India's natural beauty - Himalayan snow,
+Thar dunes, Kerala backwaters, Andaman reefs, Spiti's cold desert,
+Kashmir's autumn chinar, and more. Provides discrete and continuous
+palettes with first-class 'ggplot2' integration through
+scale_color_prakriti() and scale_fill_prakriti(), plus base graphics
+helpers for displaying palettes.
 
 %prep
 %setup -q -c -n %{packname}

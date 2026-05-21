@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statuser
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools Designed for End Users
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-marginaleffects 
@@ -23,6 +23,9 @@ BuildRequires:    R-CRAN-rsvg
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-beeswarm 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-marginaleffects 
@@ -30,6 +33,9 @@ Requires:         R-CRAN-rsvg
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-beeswarm 
 Requires:         R-utils 
 
 %description

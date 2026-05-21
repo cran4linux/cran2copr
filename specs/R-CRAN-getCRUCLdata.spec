@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  predictsr
-%global packver   0.2.1
+%global packname  getCRUCLdata
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'PREDICTS' Biodiversity Database
+Summary:          'CRU' 'CL' v. 2.0 Climatology Client
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-brio 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-brio 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-logger 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-terra 
 
 %description
-Fetches the 'PREDICTS' database and relevant metadata from the Data Portal
-at the Natural History Museum, London <https://data.nhm.ac.uk>. Data were
-collated from over 400 existing spatial comparisons of local-scale
-biodiversity exposed to different intensities and types of anthropogenic
-pressures, from sites around the world. These data are described in Hudson
-et al. (2013) <doi:10.1002/ece3.2579>.
+Provides functions that automate downloading and importing University of
+East Anglia Climate Research Unit ('CRU') 'CL' v. 2.0 climatology data,
+facilitates the calculation of minimum temperature and maximum temperature
+and formats the data into a data.table object or a 'terra' 'SpatRaster'
+object.  'CRU' 'CL' v. 2.0 data are a gridded climatology of 1961-1990
+monthly means released in 2002 and cover all land areas (excluding
+Antarctica) at 10 arc minutes (0.1666667 degree) resolution.  For more
+information see the description of the data provided by the University of
+East Anglia Climate Research Unit,
+<https://crudata.uea.ac.uk/cru/data/hrg/tmc/readme.txt>.
 
 %prep
 %setup -q -c -n %{packname}

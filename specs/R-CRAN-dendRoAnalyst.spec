@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dendRoAnalyst
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for Processing and Analyzing Dendrometer Data
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-base 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,9 +31,15 @@ BuildRequires:    R-CRAN-forecast
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-pspline 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-changepoint 
+BuildRequires:    R-CRAN-WaveletComp 
 Requires:         R-base 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -46,7 +52,13 @@ Requires:         R-CRAN-forecast
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-pspline 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-changepoint 
+Requires:         R-CRAN-WaveletComp 
 
 %description
 There are various functions for managing and cleaning data before the

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gctsc
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian and Student-t Copula Models for Count Time Series
 
@@ -21,12 +21,16 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-TruncatedNormal 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-TruncatedNormal 
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-car 
 
 %description
 Provides likelihood-based inference for Gaussian and Student-t copula

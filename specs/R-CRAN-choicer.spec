@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  predictsr
-%global packver   0.2.1
+%global packname  choicer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'PREDICTS' Biodiversity Database
+Summary:          Discrete Choice Models for Economic Applications
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Fetches the 'PREDICTS' database and relevant metadata from the Data Portal
-at the Natural History Museum, London <https://data.nhm.ac.uk>. Data were
-collated from over 400 existing spatial comparisons of local-scale
-biodiversity exposed to different intensities and types of anthropogenic
-pressures, from sites around the world. These data are described in Hudson
-et al. (2013) <doi:10.1002/ece3.2579>.
+Fast estimation of discrete-choice models for applied economics.
+Likelihoods, analytical gradients and Hessians are implemented in C++ with
+'OpenMP' parallelism, scaling efficiently to specifications with many
+alternative-specific constants. Post-estimation routines return predicted
+shares, own- and cross-price elasticities, and diversion ratios. Supports
+multinomial logit ('MNL'), mixed logit ('MXL'), and nested logit ('NL').
 
 %prep
 %setup -q -c -n %{packname}

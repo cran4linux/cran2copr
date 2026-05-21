@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  predictsr
-%global packver   0.2.1
+%global packname  bibnets
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'PREDICTS' Biodiversity Database
+Summary:          Importing, Constructing, and Exporting Bibliometric Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Fetches the 'PREDICTS' database and relevant metadata from the Data Portal
-at the Natural History Museum, London <https://data.nhm.ac.uk>. Data were
-collated from over 400 existing spatial comparisons of local-scale
-biodiversity exposed to different intensities and types of anthropogenic
-pressures, from sites around the world. These data are described in Hudson
-et al. (2013) <doi:10.1002/ece3.2579>.
+Imports, constructs, and exports bibliometric networks from scholarly
+metadata. Reads 'Scopus', 'Web of Science', 'BibTeX', 'RIS', 'OpenAlex',
+'Lens.org', 'Dimensions', and 'Crossref' exports. Goes beyond standard
+co-networks with attention-weighted networks (lead, last, proximity,
+circular position weights), position-aware counting (harmonic, arithmetic,
+geometric, golden-ratio), similarity and dissimilarity normalisations,
+temporal networks with fixed, sliding, and cumulative windows,
+disparity-filter backbone extraction, historiograph construction, and
+local citation scoring. Methods described in López-Pernas, Saqr & Apiola
+(2023) <doi:10.1007/978-3-031-25336-2_5>.
 
 %prep
 %setup -q -c -n %{packname}

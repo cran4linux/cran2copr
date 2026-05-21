@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extraoperators
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Binary Relational and Logical Operators
 
@@ -30,7 +30,7 @@ operations to be used in quotes on the right hand side for the same
 object, on the left hand side. The %%e%% operator allows something like
 set-builder notation (see for example
 <https://en.wikipedia.org/wiki/Set-builder_notation>) to be used on the
-right hand side. All operators have built in prefixes defined for all,
+right hand side. Operators have built in prefixes defined for all, any,
 subset, and which to reduce the amount of code needed for common tasks,
 such as return those values that are true.
 

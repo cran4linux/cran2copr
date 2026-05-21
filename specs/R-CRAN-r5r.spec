@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r5r
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rapid Realistic Routing with 'R5'
 
@@ -21,11 +21,12 @@ BuildRequires:    R-CRAN-sf >= 1.0.12
 BuildRequires:    R-CRAN-rJava >= 0.9.10
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-utils 
@@ -34,11 +35,12 @@ Requires:         R-CRAN-sf >= 1.0.12
 Requires:         R-CRAN-rJava >= 0.9.10
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-isoband 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-utils 

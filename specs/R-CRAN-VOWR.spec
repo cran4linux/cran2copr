@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  predictsr
-%global packver   0.2.1
+%global packname  VOWR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'PREDICTS' Biodiversity Database
+Summary:          Vital Operational Waiting Risk for Healthcare Systems
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-survminer 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-survminer 
 
 %description
-Fetches the 'PREDICTS' database and relevant metadata from the Data Portal
-at the Natural History Museum, London <https://data.nhm.ac.uk>. Data were
-collated from over 400 existing spatial comparisons of local-scale
-biodiversity exposed to different intensities and types of anthropogenic
-pressures, from sites around the world. These data are described in Hudson
-et al. (2013) <doi:10.1002/ece3.2579>.
+Vital Operational Waiting Risk (VOWR) provides tools for analysing monthly
+Referral-to-Treatment (RTT) panel data in healthcare systems. The package
+supports provider-level profiling, operational risk classification,
+waiting-time volatility assessment, Kaplan-Meier survival analysis, Cox
+proportional hazards modelling, and visualisation of time-to-threshold
+breach patterns. It is designed to help analysts and decision-makers
+identify providers with high waiting times, unstable performance, and
+increased risk of earlier threshold breach. The survival modelling methods
+follow Cox (1972) <doi:10.1111/j.2517-6161.1972.tb00899.x> and Kaplan and
+Meier (1958) <doi:10.1080/01621459.1958.10501452>.
 
 %prep
 %setup -q -c -n %{packname}

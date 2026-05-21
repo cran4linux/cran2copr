@@ -1,52 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openairmaps
-%global packver   0.10.1
+%global packname  dqcheckr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Maps of Air Pollution Data
+Summary:          Automated Data Quality Checks for Recurring Dataset Deliveries
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openair >= 3.1.0
-BuildRequires:    R-CRAN-leaflet >= 2.2.0
-BuildRequires:    R-CRAN-purrr >= 1.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-openair >= 3.1.0
-Requires:         R-CRAN-leaflet >= 2.2.0
-Requires:         R-CRAN-purrr >= 1.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-rlang 
 
 %description
-Combine the air quality data analysis methods of 'openair' with the
-JavaScript 'Leaflet' (<https://leafletjs.com/>) library. Functionality
-includes plotting site maps, "directional analysis" figures such as polar
-plots, and air mass trajectories.
+Automates quality verification of recurring external dataset deliveries.
+For each new file arrival, it runs single-snapshot quality checks,
+compares the file to the previous delivery, writes a self-contained 'HTML'
+report, and records summary statistics in a local 'SQLite' database for
+long-term trend tracking. Supports 'CSV' and fixed-width formats. Custom
+organisation-specific checks can be supplied as plain R files.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  predictsr
-%global packver   0.2.1
+%global packname  BetaDanish
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'PREDICTS' Biodiversity Database
+Summary:          The Beta-Danish Distribution for Lifetime Data Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-tools 
 
 %description
-Fetches the 'PREDICTS' database and relevant metadata from the Data Portal
-at the Natural History Museum, London <https://data.nhm.ac.uk>. Data were
-collated from over 400 existing spatial comparisons of local-scale
-biodiversity exposed to different intensities and types of anthropogenic
-pressures, from sites around the world. These data are described in Hudson
-et al. (2013) <doi:10.1002/ece3.2579>.
+Implements the four-parameter Beta-Danish distribution and its
+three-parameter submodel for survival and reliability analysis, based on
+Ahmad and Danish (2025) <doi:10.2478/jamsi-2025-0010>. Provides functions
+for density, distribution, quantile, hazard, and random generation.
+Includes maximum likelihood estimation for complete and right-censored
+data, goodness-of-fit assessment, comparison with standard lifetime
+distributions, and publication-quality visualizations. Advanced modules
+support Accelerated Failure Time (AFT) regression, mixture and
+promotion-time cure models, and competing risks analysis.
 
 %prep
 %setup -q -c -n %{packname}

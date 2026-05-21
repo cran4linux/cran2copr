@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NonlinearDiD
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Staggered Difference-in-Differences with Nonlinear Outcomes
 
@@ -16,14 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
@@ -32,18 +31,22 @@ Requires:         R-CRAN-lmtest
 Requires:         R-CRAN-ggplot2 
 
 %description
-Implements difference-in-differences estimators for staggered treatment
-adoption with binary, count, and other nonlinear outcomes. Extends
-Callaway and Sant'Anna (2021) <doi:10.1016/j.jeconom.2020.12.001> to
-handle the fundamental identification challenges that arise with nonlinear
-outcome models (logit, probit, Poisson) in heterogeneous treatment timing
-designs. Provides group-time average treatment effects on the treated
-(ATT), aggregation schemes, and pre-treatment parallel trends tests
-appropriate for nonlinear settings. Methods include doubly-robust
-semiparametric estimators, nonparametric bounds, and an odds-ratio DiD
-approach for binary outcomes. Methods extend Callaway and Sant'Anna (2021)
-<doi:10.1016/j.jeconom.2020.12.001>, Roth and Sant'Anna (2023)
-<doi:10.3982/ECTA19255>, and Wooldridge (2023) <doi:10.1093/ectj/utad016>.
+Supports staggered difference-in-differences designs with nonlinear
+outcomes for both panel and repeated cross-section data. Implements
+estimators for staggered treatment adoption with binary, count, and other
+nonlinear outcomes, extending Callaway and Sant'Anna (2021)
+<doi:10.1016/j.jeconom.2020.12.001> to settings with nonlinear outcome
+models such as logit, probit, and Poisson. For panel data, units are
+followed over time and 'idname' identifies repeated observations. For
+repeated cross-section data, observations are independent within each time
+period; 'idname' is optional and may identify survey records or
+households, but the estimator does not require the same units to appear
+across periods. Repeated cross-section estimation includes pooled
+quasi-maximum likelihood approaches motivated by Wooldridge (2023)
+<doi:10.1093/ectj/utad016>, with optional weighting and clustered
+inference. Methods also draw on Roth and Sant'Anna (2023)
+<doi:10.3982/ECTA19402> and Sant'Anna and Zhao (2020)
+<doi:10.1016/j.jeconom.2020.06.003>.
 
 %prep
 %setup -q -c -n %{packname}
