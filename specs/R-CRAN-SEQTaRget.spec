@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SEQTaRget
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Trial Emulation
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-parglm 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-fastglm 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-parallelly 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-parglm 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-fastglm 

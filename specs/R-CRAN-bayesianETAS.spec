@@ -1,45 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  performance
-%global packver   0.17.0
+%global packname  bayesianETAS
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessment of Regression Models Performance
+Summary:          Bayesian Estimation of the Temporal and Spatio-Temporal ETAS Models for Earthquake Occurrences
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.5.0
-BuildRequires:    R-CRAN-datawizard >= 1.3.1
-BuildRequires:    R-CRAN-bayestestR >= 0.17.0
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.5.0
-Requires:         R-CRAN-datawizard >= 1.3.1
-Requires:         R-CRAN-bayestestR >= 0.17.0
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Utilities for computing measures to assess model quality, which are not
-directly provided by R's 'base' or 'stats' packages. These include e.g.
-measures like r-squared, intraclass correlation coefficient (Nakagawa,
-Johnson & Schielzeth (2017) <doi:10.1098/rsif.2017.0213>), root mean
-squared error or functions to check models for overdispersion, singularity
-or zero-inflation and more. Functions apply to a large variety of
-regression models, including generalized linear models, mixed effects
-models and Bayesian models. References: Lüdecke et al. (2021)
-<doi:10.21105/joss.03139>.
+The Epidemic Type Aftershock Sequence (ETAS) model is widely used for
+modelling and forecasting earthquake occurrences. This package implements
+Bayesian estimation routines for both the temporal and spatial ETAS model,
+allowing samples to be drawn from the full posterior distribution of the
+model parameters given an earthquake catalogue. The methods are described
+in Ross (2021) "Bayesian Estimation of the ETAS Model for Earthquake
+Occurrences" <doi:10.1785/0120200198>.
 
 %prep
 %setup -q -c -n %{packname}

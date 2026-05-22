@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rddensity
-%global packver   2.6
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulation Testing Based on Density Discontinuity
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -27,10 +27,10 @@ Density discontinuity testing (a.k.a. manipulation testing) is commonly
 employed in regression discontinuity designs and other program evaluation
 settings to detect perfect self-selection (manipulation) around a cutoff
 where treatment/policy assignment changes. This package implements
-manipulation testing procedures using the local polynomial density
-estimators: rddensity() to construct test statistics and p-values given a
-prespecified cutoff, rdbwdensity() to perform data-driven bandwidth
-selection, and rdplotdensity() to construct density plots.
+manipulation testing procedures using local polynomial density estimators:
+rddensity() constructs test statistics and p-values given a prespecified
+cutoff, rdbwdensity() performs data-driven bandwidth selection, and
+rdplotdensity() constructs density plots.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bmgarch
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Multivariate GARCH Models
 
@@ -45,12 +45,13 @@ Requires:         R-CRAN-rstantools
 Fit Bayesian multivariate GARCH models using 'Stan' for full Bayesian
 inference. Generate (weighted) forecasts for means, variances (volatility)
 and correlations. Currently DCC(P,Q), CCC(P,Q), pdBEKK(P,Q), and BEKK(P,Q)
-parameterizations are implemented, based either on a multivariate gaussian
-normal or student-t distribution. DCC and CCC models are based on Engle
-(2002) <doi:10.1198/073500102288618487> and Bollerslev (1990). The BEKK
-parameterization follows Engle and Kroner (1995)
-<doi:10.1017/S0266466600009063> while the pdBEKK as well as the estimation
-approach for this package is described in Rast et al. (2020)
+parameterizations are implemented, alongside a constant covariance
+baseline (that can be used for testing whether GARCH is warranted), based
+either on a multivariate gaussian normal or student-t distribution. DCC
+and CCC models are based on Engle (2002) <doi:10.1198/073500102288618487>
+and Bollerslev (1990). The BEKK parameterization follows Engle and Kroner
+(1995) <doi:10.1017/S0266466600009063> while the pdBEKK as well as the
+estimation approach for this package is described in Rast et al. (2020)
 <doi:10.31234/osf.io/j57pk>. The fitted models contain 'rstan' objects and
 can be examined with 'rstan' functions.
 

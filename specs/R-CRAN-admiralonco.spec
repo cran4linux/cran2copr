@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiralonco
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Oncology Extension Package for ADaM in 'R' Asset Library
 
@@ -43,7 +43,7 @@ ADaM datasets are a mandatory part of any New Drug or Biologics License
 Application submitted to the United States Food and Drug Administration
 (FDA). Analysis derivations are implemented in accordance with the
 "Analysis Data Model Implementation Guide" (CDISC Analysis Data Model Team
-(2021), <https://www.cdisc.org/standards/foundational/adam>). The package
+(2021), <https://www.cdisc.org/standards/foundational/adam>).  The package
 is an extension package of the 'admiral' package.
 
 %prep

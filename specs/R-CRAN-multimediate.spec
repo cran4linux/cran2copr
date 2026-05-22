@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multimediate
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Mediation Analysis in Presence of Multiple Mediators Uncausally Related
 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-timereg
 Estimates key quantities in causal mediation analysis - including average
 causal mediation effects (indirect effects), average direct effects, total
 effects, and proportions mediated - in the presence of multiple uncausally
-related mediators. Methods are described by Jérolon et al., (2021)
+related mediators. Methods are described by Jerolon et al., (2021)
 <doi:10.1515/ijb-2019-0088> and extended to accommodate survival outcomes
 as described by Domingo-Relloso et al., (2024)
 <doi:10.1101/2024.02.16.24302923>.

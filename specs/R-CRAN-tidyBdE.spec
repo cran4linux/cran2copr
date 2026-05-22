@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyBdE
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from Bank of Spain
+Summary:          Retrieve Data from 'Banco de España'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,11 +33,11 @@ Requires:         R-CRAN-tidyr
 Requires:         R-utils 
 
 %description
-Tools to download data series from 'Banco de España' ('BdE') on 'tibble'
-format. 'Banco de España' is the national central bank and, within the
-framework of the Single Supervisory Mechanism ('SSM'), the supervisor of
-the Spanish banking system along with the European Central Bank. This
-package is in no way sponsored endorsed or administered by 'Banco de
+Tools for retrieving time series data from 'Banco de España' ('BdE') as
+'tibble' objects. 'Banco de España' is the national central bank and,
+within the framework of the Single Supervisory Mechanism ('SSM'), the
+supervisor of the Spanish banking system alongside the European Central
+Bank. This package is not sponsored, endorsed or administered by 'Banco de
 España'.
 
 %prep

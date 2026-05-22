@@ -1,44 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yahoofinancer
-%global packver   0.5.0
+%global packname  smriti
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetch Data from Yahoo Finance API
+Summary:          Automated Routing Engine for Longitudinal Missing Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-missForest 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-missForest 
+Requires:         R-CRAN-MASS 
 
 %description
-Obtain historical and near real time data related to stocks, index and
-currencies from the Yahoo Finance API. This package is community
-maintained and is not officially supported by 'Yahoo'. The accuracy of
-data is only as correct as provided on <https://finance.yahoo.com/>.
+An automated routing engine for longitudinal missing data. It utilizes a
+Lagrange-constrained Random Forest based on sample size, missingness rate,
+and skew to preserve structural variance.
 
 %prep
 %setup -q -c -n %{packname}

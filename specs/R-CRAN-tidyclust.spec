@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyclust
-%global packver   0.2.4
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Common API to Clustering
 
@@ -14,11 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-tune >= 2.1.0
 BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-flexclust >= 1.3.6
 BuildRequires:    R-CRAN-dials >= 1.3.0
@@ -28,17 +29,19 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-parsnip >= 1.0.2
 BuildRequires:    R-CRAN-hardhat >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rsample >= 1.0.0
-BuildRequires:    R-CRAN-tune >= 1.0.0
 BuildRequires:    R-CRAN-philentropy >= 0.9.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-modelenv >= 0.2.0
 BuildRequires:    R-CRAN-generics >= 0.1.2
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-tune >= 2.1.0
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-flexclust >= 1.3.6
 Requires:         R-CRAN-dials >= 1.3.0
@@ -48,13 +51,14 @@ Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-rlang >= 1.0.6
 Requires:         R-CRAN-parsnip >= 1.0.2
 Requires:         R-CRAN-hardhat >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rsample >= 1.0.0
-Requires:         R-CRAN-tune >= 1.0.0
 Requires:         R-CRAN-philentropy >= 0.9.0
 Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-modelenv >= 0.2.0
 Requires:         R-CRAN-generics >= 0.1.2
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-mclust 
 Requires:         R-stats 
 Requires:         R-utils 
 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lpdensity
-%global packver   2.5
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Polynomial Density Estimation and Inference
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,14 +23,14 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-MASS 
 
 %description
-Without imposing stringent distributional assumptions or shape
-restrictions, nonparametric estimation has been popular in economics and
-other social sciences for counterfactual analysis, program evaluation, and
-policy recommendations. This package implements a novel density (and
-derivatives) estimator based on local polynomial regressions, documented
-in Cattaneo, Jansson and Ma (2022) <doi:10.18637/jss.v101.i02>:
-lpdensity() to construct local polynomial based density (and derivatives)
-estimator, and lpbwdensity() to perform data-driven bandwidth selection.
+Implements local polynomial distribution and density methods for point
+estimation, inference and bandwidth selection, documented in Cattaneo,
+Jansson and Ma (2020) <doi:10.1080/01621459.2019.1635480>, Cattaneo,
+Jansson and Ma (2022) <doi:10.18637/jss.v101.i02>, and Cattaneo, Jansson
+and Ma (2024) <doi:10.1016/j.jeconom.2021.01.006>. lpdensity() constructs
+local polynomial distribution and density estimators with robust
+bias-corrected inference, and lpbwdensity() implements data-driven
+bandwidth selection.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rtpcr
-%global packver   2.1.8
+%global packname  cvcqv
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.8
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          qPCR Data Analysis
+Summary:          Coefficient of Variation (CV) with Confidence Intervals (CI)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,37 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lmerTest 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lmerTest 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-grid 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-SciViews 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-MBESS 
+Requires:         R-CRAN-dplyr >= 0.8.0.1
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-SciViews 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-MBESS 
 
 %description
-Tools for qPCR data analysis using Delta Ct and Delta Delta Ct methods,
-including t-test, Wilcoxon-test, ANOVA models, and publication-ready
-visualizations. The package supports multiple target, and multiple
-reference genes, and uses a calculation framework adopted from Ganger et
-al. (2017) <doi:10.1186/s12859-017-1949-5> and Taylor et al. (2019)
-<doi:10.1016/j.tibtech.2018.12.002>, covering both the Livak and Pfaffl
-methods.
+Provides some easy-to-use functions and classes to calculate variability
+measures such as coefficient of variation with confidence intervals
+provided with all available methods. References are 'Panichkitkosolkul'
+(2013) <doi:10.1155/2013/324940>, 'Altunkaynak' & 'Gamgam' (2018)
+<doi:10.1080/03610918.2018.1435800>, 'Albatineh', 'Kibria', Wilcox &
+'Zogheib' (2014) <doi:10.1080/02664763.2013.847405>.
 
 %prep
 %setup -q -c -n %{packname}

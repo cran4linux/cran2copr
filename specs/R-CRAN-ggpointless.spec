@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpointless
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Geometries and Stats for 'ggplot2'
 
@@ -19,19 +19,29 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-farver 
 Requires:         R-grid 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description
-A collection of layers for 'ggplot2'.
+A collection of layers for 'ggplot2'. Provides geoms built on linear and
+radial gradients from the 'grid' package, giving areas, bars, paths,
+rectangles, and ridgelines a fading or glowing visual effect. Also
+includes mathematically driven layers — catenary curves, Chaikin's
+corner-cutting smoothing (Chaikin, 1974,
+<doi:10.1016/0146-664X(74)90028-8>), and Fourier-series reconstruction —
+plus Lexis diagrams, isotype bar charts.
 
 %prep
 %setup -q -c -n %{packname}

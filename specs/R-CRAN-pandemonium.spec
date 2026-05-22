@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pandemonium
-%global packver   0.2.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Analysis in Linked Spaces
 
@@ -17,54 +17,54 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-plotly >= 4.12.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-tibble >= 3.3.1
+BuildRequires:    R-CRAN-alphahull >= 2.5
+BuildRequires:    R-CRAN-magrittr >= 2.0.4
+BuildRequires:    R-CRAN-tidyr >= 1.3.2
+BuildRequires:    R-CRAN-tourr >= 1.2.6
+BuildRequires:    R-CRAN-crosstalk >= 1.2.2
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-shinythemes >= 1.2.0
+BuildRequires:    R-CRAN-dendextend >= 1.19.1
+BuildRequires:    R-CRAN-shiny >= 1.13.0
+BuildRequires:    R-CRAN-rlang >= 1.1.7
+BuildRequires:    R-CRAN-viridis >= 0.6.5
+BuildRequires:    R-CRAN-shinyFeedback >= 0.4.0
+BuildRequires:    R-CRAN-DT >= 0.34.0
+BuildRequires:    R-CRAN-uwot >= 0.2.4
 BuildRequires:    R-CRAN-detourr >= 0.2.0
-BuildRequires:    R-CRAN-tourr 
+BuildRequires:    R-CRAN-ggpcp >= 0.2.0
+BuildRequires:    R-CRAN-Rtsne >= 0.17
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-fpc 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crosstalk 
-BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-alphahull 
-BuildRequires:    R-CRAN-uwot 
-BuildRequires:    R-CRAN-shinyFeedback 
-BuildRequires:    R-CRAN-ggpcp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-plotly >= 4.12.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-tibble >= 3.3.1
+Requires:         R-CRAN-alphahull >= 2.5
+Requires:         R-CRAN-magrittr >= 2.0.4
+Requires:         R-CRAN-tidyr >= 1.3.2
+Requires:         R-CRAN-tourr >= 1.2.6
+Requires:         R-CRAN-crosstalk >= 1.2.2
+Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-shinythemes >= 1.2.0
+Requires:         R-CRAN-dendextend >= 1.19.1
+Requires:         R-CRAN-shiny >= 1.13.0
+Requires:         R-CRAN-rlang >= 1.1.7
+Requires:         R-CRAN-viridis >= 0.6.5
+Requires:         R-CRAN-shinyFeedback >= 0.4.0
+Requires:         R-CRAN-DT >= 0.34.0
+Requires:         R-CRAN-uwot >= 0.2.4
 Requires:         R-CRAN-detourr >= 0.2.0
-Requires:         R-CRAN-tourr 
+Requires:         R-CRAN-ggpcp >= 0.2.0
+Requires:         R-CRAN-Rtsne >= 0.17
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-fpc 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crosstalk 
-Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-alphahull 
-Requires:         R-CRAN-uwot 
-Requires:         R-CRAN-shinyFeedback 
-Requires:         R-CRAN-ggpcp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-viridis 
 
 %description
 A 'shiny' GUI that performs high dimensional cluster analysis. This tool

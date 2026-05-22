@@ -1,44 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yahoofinancer
-%global packver   0.5.0
+%global packname  CopernicusDataspace
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetch Data from Yahoo Finance API
+Summary:          Search Download and Handle Data from the Copernicus Data Space Ecosystem
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-aws.s3 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-memoise 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xml2 
 
 %description
-Obtain historical and near real time data related to stocks, index and
-currencies from the Yahoo Finance API. This package is community
-maintained and is not officially supported by 'Yahoo'. The accuracy of
-data is only as correct as provided on <https://finance.yahoo.com/>.
+The Copernicus Data Space Ecosystem, is an open ecosystem that provides
+free instant access to a wide range of data and services from the
+Copernicus Sentinel missions and more on our planet’s land, oceans and
+atmosphere. This package provides entry points to several APIs allowing
+users to access the data directly in R.
 
 %prep
 %setup -q -c -n %{packname}

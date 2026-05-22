@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EDOtrans
-%global packver   0.2.5
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Euclidean Distance-Optimized Data Transformation
 
@@ -16,16 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ABCanalysis 
+BuildRequires:    R-CRAN-cABCanalysis 
 BuildRequires:    R-CRAN-opGMMassessment 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-ABCanalysis 
+Requires:         R-CRAN-cABCanalysis 
 Requires:         R-CRAN-opGMMassessment 
 
 %description
