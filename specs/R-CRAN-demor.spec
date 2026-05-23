@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mathml
-%global packver   1.8
+%global packname  demor
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate R Expressions to 'MathML' and 'LaTeX'/'MathJax'
+Summary:          Methods for Demographic Analysis
 
-License:          FreeBSD
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rolog >= 0.9.14
-BuildRequires:    R-CRAN-xfun >= 0.49
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-rolog >= 0.9.14
-Requires:         R-CRAN-xfun >= 0.49
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-splines 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-scales 
+Requires:         R-splines 
 
 %description
-Translate R expressions to 'MathML' or 'MathJax'/'LaTeX' so that they can
-be rendered in R markdown documents and shiny apps. This package depends
-on R package 'rolog', which requires an installation of the 'SWI'-'Prolog'
-runtime either from 'swi-prolog.org' or from R package 'rswipl'.
+Implements life tables, fertility and mortality indicators, decomposition
+methods, Lee-Carter mortality forecasting, Leslie matrices, and population
+pyramids for demographic analysis. Methods are described in Preston et al.
+(2001, ISBN:1557864519) and Ustyuzhanin (2025)
+<doi:10.17323/demreview.v12i4.30415>.
 
 %prep
 %setup -q -c -n %{packname}

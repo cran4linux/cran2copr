@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mathml
-%global packver   1.8
+%global packname  megatrees
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate R Expressions to 'MathML' and 'LaTeX'/'MathJax'
+Summary:          Subsets of Randomly Selected Phylogenies from Existing Mega-Phylogenies
 
-License:          FreeBSD
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rolog >= 0.9.14
-BuildRequires:    R-CRAN-xfun >= 0.49
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-rolog >= 0.9.14
-Requires:         R-CRAN-xfun >= 0.49
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-ape 
+Requires:         R-CRAN-ape 
 
 %description
-Translate R expressions to 'MathML' or 'MathJax'/'LaTeX' so that they can
-be rendered in R markdown documents and shiny apps. This package depends
-on R package 'rolog', which requires an installation of the 'SWI'-'Prolog'
-runtime either from 'swi-prolog.org' or from R package 'rswipl'.
+There are an increasing number of mega-phylogenies available nowadays,
+with many of them being sets of thousands of posterior distribution
+phylogenies. For ecological studies, we may need to randomly select many
+such posterior phylogenies to conduct analyses. This data package serves
+this purpose by providing a small number (100 or 50) of randomly selected
+posterior phylogenies (if available) so that we can readily use them for
+our downstream analyses without repeating the downloading and selecting
+processes.
 
 %prep
 %setup -q -c -n %{packname}

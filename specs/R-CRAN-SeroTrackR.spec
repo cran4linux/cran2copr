@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeroTrackR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Serology-Based Data Analysis and Visualization
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-stats 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-stats 

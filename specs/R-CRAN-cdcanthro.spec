@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cdcanthro
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sex- and Age-Standardized Metrics from the Centers for Disease and Control (CDC) Growth Charts
+Summary:          Sex- and Age-Standardized Metrics from the Centers for Disease Control and Prevention (CDC) Growth Charts
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-tibble 
 Requires:         R-stats 
 
 %description
 Calculation of sex- and age-standardized growth metrics based on the 2000
 CDC growth charts. Provides functions to generate z-scores and percentiles
-for weight, height, and BMI using the LMS method (lambda-mu-sigma).
-Includes extended BMI-z scores for values above the 95th percentile to
-more accurately characterize the sex- and age-standardized BMI of children
-with very high BMIs.
+for weight, height, and body mass index (BMI) using the LMS method
+(lambda-mu-sigma). Includes extended BMI z-scores for values above the
+95th percentile to more accurately characterize the sex- and
+age-standardized BMI of children with very high BMIs.
 
 %prep
 %setup -q -c -n %{packname}

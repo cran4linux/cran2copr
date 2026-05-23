@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fmpcloudr
-%global packver   0.1.5
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Access to the 'FMP Cloud' and 'Financial Modeling Prep' API
 
@@ -30,11 +31,10 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-lubridate 
 
 %description
-Use R to access to the 'FMP Cloud' API <https://fmpcloud.io/> and
-'Financial Modeling Prep' API
-<https://financialmodelingprep.com/developer/docs/>. Data available
-includes stock prices, market indexes, company fundamentals, 13F holdings
-data, and much more. A valid API token must be set to enable functions.
+Use R to access to the 'Financial Modeling Prep' API
+<https://site.financialmodelingprep.com>. Data available includes stock
+prices, market indexes, company fundamentals, 13F holdings data, and much
+more. A valid API token must be set to enable functions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

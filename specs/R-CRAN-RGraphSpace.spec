@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RGraphSpace
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight Interface Between 'igraph' and 'ggplot2' Graphics
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggrastr 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggrastr 
