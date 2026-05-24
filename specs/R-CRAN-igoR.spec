@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  igoR
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Intergovernmental Organizations Database
+Summary:          Access the Intergovernmental Organizations Database
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,10 +19,10 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 
 %description
-Tools to extract information from the Intergovernmental Organizations
-('IGO') Database (v3), provided by the Correlates of War Project
-<https://correlatesofwar.org/>. See also Pevehouse, J. C. et al. (2020)
-<doi:10.1177/0022343319881175>.
+Tools for searching, extracting and recoding information from the
+Intergovernmental Organizations ('IGO') Database (v3), distributed by the
+Correlates of War Project <https://correlatesofwar.org/>. See also
+Pevehouse, J. C. et al. (2020) <doi:10.1177/0022343319881175>.
 
 %prep
 %setup -q -c -n %{packname}

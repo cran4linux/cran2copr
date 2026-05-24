@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qtlcharts
-%global packver   0.20
+%global packname  impARI
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Graphics for QTL Experiments
+Summary:          Improving Permutation-Based All-Resolutions Inference ('impARI')
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
-BuildArch:        noarch
-BuildRequires:    R-CRAN-qtl >= 1.30
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-qtl >= 1.30
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
-Web-based interactive charts (using D3.js) for the analysis of
-experimental crosses to identify genetic loci (quantitative trait loci,
-QTL) contributing to variation in quantitative traits. Broman (2015)
-<doi:10.1534/genetics.114.172742>.
+The goal is to improve a permutation-based approach (R package: 'pARI')
+for simultaneous inference on the true discovery proportion by a
+branch-and-bound algorithm. It is designed to return a list with a
+bracketing for the true discovery proportion, rather than a single lower
+bound from 'pARI'. For more details see Andreella. A (2023)
+<doi:10.1002/sim.9725>.
 
 %prep
 %setup -q -c -n %{packname}

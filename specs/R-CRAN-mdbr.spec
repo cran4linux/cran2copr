@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mdbr
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Microsoft Access Files
 
-License:          GPL-3
+License:          GPL-3 | LGPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 Recommends:       mdbtools
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Use the open source 'MDB Tools' utilities
-<https://github.com/mdbtools/mdbtools/>. Primarily used for converting
-proprietary Microsoft Access files to simple text files and then reading
-those as data frames.
+Work with Microsoft Access '.mdb' and '.accdb' files using the open source
+'MDB Tools' library <https://github.com/mdbtools/mdbtools/>. The library
+is compiled and bundled with the package, so no external installation is
+required. Provides high-level helpers for reading tables, exporting to CSV
+or JSON, inspecting table definitions, and running SQL queries. Also
+exposes a full read-only 'DBI' interface for use with standard database
+workflows.
 
 %prep
 %setup -q -c -n %{packname}

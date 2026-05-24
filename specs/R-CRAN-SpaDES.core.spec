@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaDES.core
-%global packver   3.1.0
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Utilities for Developing and Running Spatially Explicit Discrete Event Models
 
@@ -58,9 +58,7 @@ include additional functionality by running user-built modules. Includes
 conditional scheduling, restart after interruption, packaging of reusable
 modules, tools for developing arbitrary automated workflows, automated
 interweaving of modules of different temporal resolution, and tools for
-visualizing and understanding the within-project dependencies. The
-suggested package 'NLMR' can be installed from the repository
-(<https://PredictiveEcology.r-universe.dev>).
+visualizing and understanding the within-project dependencies.
 
 %prep
 %setup -q -c -n %{packname}

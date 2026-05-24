@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   8.1
+%global packver   8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1
+Version:          8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-bigstatsr 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-emplik 
-BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -34,6 +33,7 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rangen 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-rgl 
@@ -43,7 +43,6 @@ BuildRequires:    R-stats
 Requires:         R-CRAN-bigstatsr 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-emplik 
-Requires:         R-CRAN-energy 
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -57,6 +56,7 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-osqp 
 Requires:         R-CRAN-quadprog 
 Requires:         R-parallel 
+Requires:         R-CRAN-rangen 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-rgl 
@@ -70,10 +70,10 @@ of distributions for compositional data are some of the functions
 included. We further include functions for percentages (or proportions).
 The standard textbook for such data is John Aitchison's (1986) "The
 statistical analysis of compositional data". Relevant papers include: a)
-Tsagris M.T., Preston S. and Wood A.T.A. (2011). "A data-based power
+Tsagris M.T., Preston S. and Wood A.T.A. (2011). "A data--based power
 transformation for compositional data". Fourth International International
 Workshop on Compositional Data Analysis. <doi:10.48550/arXiv.1106.1451>.
-b) Tsagris M. (2014). "The k-NN algorithm for compositional data: a
+b) Tsagris M. (2014). "The k--NN algorithm for compositional data: a
 revised approach with and without zero values present". Journal of Data
 Science, 12(3): 519--534. <doi:10.6339/JDS.201407_12(3).0008>. c) Tsagris
 M. (2015). "A novel, divergence based, regression for compositional data".
@@ -97,7 +97,7 @@ without zero values". Journal of Data Science, 17(1): 219--238.
 <doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2020).
 "A folded model for compositional data analysis". Australian and New
 Zealand Journal of Statistics, 62(2): 249--277. <doi:10.1111/anzs.12289>.
-j) Alenazi A.A. (2022). "f-divergence regression models for compositional
+j) Alenazi A.A. (2022). "f--divergence regression models for compositional
 data". Pakistan Journal of Statistics and Operation Research, 18(4):
 867--882. <doi:10.18187/pjsor.v18i4.3969>. k) Tsagris M. and Stewart C.
 (2022). "A Review of Flexible Transformations for Modeling Compositional
@@ -106,16 +106,17 @@ Data". In Advances and Innovations in Statistics and Data Science, pp.
 review of compositional data analysis and recent advances". Communications
 in Statistics--Theory and Methods, 52(16): 5535--5567.
 <doi:10.1080/03610926.2021.2014890>. m) Tsagris M., Alenazi A. and Stewart
-C. (2023). "Flexible non-parametric regression models for compositional
+C. (2023). "Flexible non--parametric regression models for compositional
 response data with zeros". Statistics and Computing, 33(106).
 <doi:10.1007/s11222-023-10277-5>. n) Tsagris. M. (2025). "Constrained
-least squares simplicial-simplicial regression". Statistics and Computing,
-35(27). <doi:10.1007/s11222-024-10560-z>. o) Sevinc V. and Tsagris. M.
-(2025). "Energy Based Equality of Distributions Testing for Compositional
-Data". <doi:10.48550/arXiv.2412.05199>. p) Tsagris M. and Alzeley O.
-(2025). "Scalable approximation of the transformation-free linear
-simplicial-simplicial regression via constrained iterative reweighted
-least squares". <doi:10.48550/arXiv.2511.13296>.
+least squares simplicial--simplicial regression". Statistics and
+Computing, 35(27). <doi:10.1007/s11222-024-10560-z>. o) Sevinc V. and
+Tsagris. M. (2026). "Energy Based Equality of Distributions Testing for
+Compositional Data". Communications in Statistics--Simulation and
+Computation. <doi:10.1080/03610918.2026.2636167>. p) Tsagris M. and
+Alzeley O. (2025). "Scalable approximation of the transformation--free
+linear simplicial--simplicial regression via constrained iterative
+reweighted least squares". <doi:10.48550/arXiv.2511.13296>.
 
 %prep
 %setup -q -c -n %{packname}

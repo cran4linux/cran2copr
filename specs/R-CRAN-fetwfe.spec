@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fetwfe
-%global packver   1.5.0
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fused Extended Two-Way Fixed Effects
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix >= 1.6.0
-BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-grpreg 
 Requires:         R-CRAN-Matrix >= 1.6.0
-Requires:         R-CRAN-expm 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-grpreg 
 

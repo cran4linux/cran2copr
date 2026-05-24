@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glasstabs
-%global packver   0.2.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animated Glass-Style Tabs and Multi-Select Filter for 'Shiny'
 
@@ -23,12 +23,20 @@ Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-htmltools >= 0.5.0
 
 %description
-Tools for creating animated glassmorphism-style tab navigation and
-multi-select dropdown filters in 'shiny' applications. The package
-provides a tab navigation component and a searchable multi-select widget
-with multiple checkbox indicator styles, select-all controls, and
-customizable colour themes. The widgets are compatible with standard
-'shiny' layouts and 'bs4Dash' dashboards.
+Tools for creating animated glassmorphism-style tab navigation and select
+filter widgets in 'Shiny' applications. Provides a tab navigation
+component with a sliding glass halo animation, a searchable multi-select
+dropdown, and a single-select dropdown — all with multiple colour themes
+and server-side update helpers. Tabs support icons, numeric badges,
+disable/enable toggling, runtime append/remove, reactive rendering via
+'renderGlassTabs()', URL bookmarking, and compact mode for dashboard card
+layouts. 'glassTabCondition()' generates 'conditionalPanel()' condition
+strings without needing to recall the internal input key pattern.
+'glasstabs_news()' displays the release notes from the R console. Built-in
+example apps can be launched with 'runGlassExample()'. All widgets are
+compatible with standard 'Shiny' layouts and 'bs4Dash' dashboards. For
+full documentation and examples see Arthur (2026)
+<https://prigasg.github.io/glasstabs/>.
 
 %prep
 %setup -q -c -n %{packname}

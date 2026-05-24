@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maskedcauses
-%global packver   0.9.3
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood Models for Systems with Masked Component Cause of Failure
 
@@ -21,10 +21,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-likelihood.model 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-dist.structure 
 Requires:         R-stats 
 Requires:         R-CRAN-likelihood.model 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-dist.structure 
 
 %description
 Maximum likelihood estimation for series systems where the component cause

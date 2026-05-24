@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  serieshaz
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Series System Distributions from Dynamic Failure Rate Components
 
@@ -22,19 +22,25 @@ BuildRequires:    R-CRAN-algebraic.dist
 BuildRequires:    R-CRAN-likelihood.model 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-dist.structure 
 Requires:         R-CRAN-flexhaz 
 Requires:         R-CRAN-algebraic.dist 
 Requires:         R-CRAN-likelihood.model 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-dist.structure 
 
 %description
 Compose multiple dynamic failure rate distributions into series system
 distributions where the system hazard equals the sum of component hazards.
 Supports hazard, survival, cumulative distribution function, density,
 sampling, and maximum likelihood estimation fitting via the dfr_dist()
-class from 'flexhaz'. Methods for series system reliability follow Barlow
-and Proschan (1975, ISBN:0898713692).
+class from 'flexhaz'. Series distributions implement the 'dist.structure'
+protocol so structural queries (phi, min_paths, min_cuts,
+system_signature, structural importance, reliability, dual) and the
+importance measures from 'dist.structure' work directly on serieshaz
+objects. Methods for series system reliability follow Barlow and Proschan
+(1975, ISBN:0898713692).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RTL
-%global packver   1.3.7
+%global packver   1.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Tool Library - Trading, Risk, Analytics for Commodities
 
@@ -24,19 +24,16 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-timetk 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-numDeriv 
@@ -48,19 +45,16 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-timetk 
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-TTR 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-numDeriv 
@@ -68,7 +62,7 @@ Requires:         R-CRAN-numDeriv
 %description
 A toolkit for Commodities 'analytics', risk management and trading
 professionals. Includes functions for API calls to
-<https://commodities.morningstar.com/#/>,
+<https://www.zema.global/platforms/zema-marketplace>,
 <https://developer.genscape.com/>, and
 <https://www.bankofcanada.ca/valet/docs>.
 

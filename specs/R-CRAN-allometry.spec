@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  allometry
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Examples of Datasets on Allometry
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 
 %description
 Examples of datasets on allometry, the study of the relationship of
-biological traits to body size. This package contains the dataset of
+biological traits to body size. This package contains the datasets of
 morphological measurement taken from 113 maritime earwigs (Anisolabis
-maritima) by Matsuzawa and Konuma (2025) <doi:10.1093/biolinnean/blaf031>.
+maritima) by Matsuzawa and Konuma (2025) <doi:10.1093/biolinnean/blaf031>,
+and taken from 507 Helm’s stag beetles (Geodorcus helmsi) collected by
+Grey et al. (2025) <doi:10.1093/biolinnean/blae024>.
 
 %prep
 %setup -q -c -n %{packname}

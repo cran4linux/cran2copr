@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaARMA
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Beta Autoregressive Moving Average Models
 
@@ -18,15 +18,24 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-gridExtra 
 
 %description
 Fits Beta Autoregressive Moving Average (BARMA) models for time series
 data distributed in the standard unit interval (0, 1). The estimation is
 performed via the conditional maximum likelihood method using the
-Broyden-Fletcher-Goldfarb-Shanno (BFGS) quasi-Newton algorithm. The
-package includes tools for model fitting, diagnostic checking, and
-forecasting. Based on the work of Rocha and Cribari-Neto (2009)
+Broyden-Fletcher-Goldfarb-Shanno (BFGS) quasi-Newton algorithm. A ridge
+penalization scheme is available to improve numerical stability of the
+estimation, as proposed by Cribari-Neto, Costa and Fonseca (2025)
+<doi:10.1214/25-BJPS645>. The package includes tools for model fitting,
+diagnostic checking, and forecasting, along with two hydro-environmental
+datasets from Brazil. Based on the work of Rocha and Cribari-Neto (2009)
 <doi:10.1007/s11749-008-0112-z> and the associated erratum Rocha and
 Cribari-Neto (2017) <doi:10.1007/s11749-017-0528-4>. The original code was
 developed by Fabio M. Bayer.

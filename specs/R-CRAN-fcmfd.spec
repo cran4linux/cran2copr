@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fcmfd
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy C-Means for Fuzzy Data
 
@@ -28,9 +28,9 @@ triangular fuzzy numbers (TFNs). The package extends the classical fuzzy
 C-means algorithm to better handle uncertainty in ordinal scales and
 includes automatic selection of the number of clusters using the Xie-Beni
 validity index. References: Coppi, R., D'Urso, P., and Giordani, P.
-(2012), Fuzzy and possibilistic clustering for fuzzy data,
-<doi:10.1016/j.csda.2010.09.013>. Xie, X. L. and Beni, G. (1991), A
-validity measure for fuzzy clustering, <doi:10.1109/34.85677>.
+(2012), "Fuzzy and possibilistic clustering for fuzzy data",
+<doi:10.1016/j.csda.2010.09.013>. Xie, X. L. and Beni, G. (1991), "A
+validity measure for fuzzy clustering", <doi:10.1109/34.85677>.
 
 %prep
 %setup -q -c -n %{packname}

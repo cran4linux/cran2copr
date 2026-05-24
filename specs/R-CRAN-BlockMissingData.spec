@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qtlcharts
-%global packver   0.20
+%global packname  BlockMissingData
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Graphics for QTL Experiments
+Summary:          Integrating Multi-Source Block-Wise Missing Data in Model Selection
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-qtl >= 1.30
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-glmnetcr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-qtl >= 1.30
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-graphics 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-glmnetcr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Web-based interactive charts (using D3.js) for the analysis of
-experimental crosses to identify genetic loci (quantitative trait loci,
-QTL) contributing to variation in quantitative traits. Broman (2015)
-<doi:10.1534/genetics.114.172742>.
+Model selection method with multiple block-wise imputation for block-wise
+missing data; see Xue, F., and Qu, A. (2021)
+<doi:10.1080/01621459.2020.1751176>.
 
 %prep
 %setup -q -c -n %{packname}
