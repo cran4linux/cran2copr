@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TukeyC
-%global packver   1.3-44
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.44
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conventional Tukey Test
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-xtable 
@@ -23,13 +23,11 @@ Requires:         R-CRAN-emmeans
 Requires:         R-CRAN-xtable 
 
 %description
-Provides tools to perform multiple comparison analyses, based on the
-well-known Tukey's "Honestly Significant Difference" (HSD) test. In models
-involving interactions, 'TukeyC' stands out from other R packages by
-implementing intuitive and easy-to-use functions. In addition to
-accommodating traditional R methods such as lm() and aov(), it has also
-been extended to objects of the lmer() class, that is, mixed models with
-fixed effects. For more details see Tukey (1949) <doi:10.2307/3001913>.
+Performs multiple comparison analyses using Tukey's Honestly Significant
+Difference (HSD) test, with intuitive letter grouping of means for
+balanced and unbalanced designs. Accepts input from 'formula', 'aov',
+'lm', 'aovlist', and 'lmerMod' objects, including straightforward handling
+of interactions. For more details see Tukey (1949) <doi:10.2307/3001913>.
 
 %prep
 %setup -q -c -n %{packname}

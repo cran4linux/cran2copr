@@ -1,73 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hbsaems
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Bayes Small Area Estimation Model using 'Stan'
+Summary:          Hierarchical Bayesian Area-Level Small Area Estimation Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brms 
-BuildRequires:    R-CRAN-bayesplot 
-BuildRequires:    R-CRAN-bridgesampling 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-minerva 
-BuildRequires:    R-CRAN-priorsense 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
+BuildRequires:    R-CRAN-mice >= 3.14.0
+BuildRequires:    R-CRAN-rstantools >= 2.4.0
+BuildRequires:    R-CRAN-brms >= 2.18.0
+BuildRequires:    R-CRAN-coda >= 0.19.4
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-XICOR 
-Requires:         R-CRAN-brms 
-Requires:         R-CRAN-bayesplot 
-Requires:         R-CRAN-bridgesampling 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-minerva 
-Requires:         R-CRAN-priorsense 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-shinydashboard 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.3.5
+Requires:         R-CRAN-mice >= 3.14.0
+Requires:         R-CRAN-rstantools >= 2.4.0
+Requires:         R-CRAN-brms >= 2.18.0
+Requires:         R-CRAN-coda >= 0.19.4
 Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-CRAN-XICOR 
+Requires:         R-utils 
 
 %description
-Implementing Hierarchical Bayesian Small Area Estimation models using the
-'brms' package as the computational backend. The modeling framework
-follows the methodological foundations described in area-level models.
-This package is designed to facilitate a principled Bayesian workflow,
-enabling users to conduct prior predictive checks, model fitting,
-posterior predictive checks, model comparison, and sensitivity analysis in
-a coherent and reproducible manner. It supports flexible model
-specifications via 'brms' and promotes transparency in model development,
-aligned with the recommendations of modern Bayesian data analysis
-practices, implementing methods described in Rao and Molina (2015)
-<doi:10.1002/9781118735855>.
+Fits area-level Hierarchical Bayesian Small Area Estimation models. The
+methodological foundation follows the standard area-level Small Area
+Estimation literature, primarily Rao and Molina (2015, ISBN:
+9781118735787) <doi:10.1002/9781118735855>, while computational
+implementation is adapted to the parameterisation and prior-specification
+conventions of the 'brms' package <doi:10.18637/jss.v080.i01>, which
+targets the Stan back-end. Supports a principled Bayesian workflow
+<doi:10.48550/arXiv.2011.01808>, with prior predictive checks, convergence
+diagnostics, model comparison, spatial random effects, custom
+distributions, missing-data handling, and a bilingual 'shiny' application
+for non-programmer analysts.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bpbounds
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Bounds for the Average Causal Effect Due to Balke and Pearl and Extensions
 
@@ -14,21 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 
 %description
 Implementation of the nonparametric bounds for the average causal effect
 under an instrumental variable model by Balke and Pearl (Bounds on
 Treatment Effects from Studies with Imperfect Compliance, JASA, 1997, 92,
-439, 1171-1176, <doi:10.2307/2965583>). The package can calculate bounds
-for a binary outcome, a binary treatment/phenotype, and an instrument with
-either 2 or 3 categories. The package implements bounds for situations
-where these 3 variables are measured in the same dataset (trivariate data)
-or where the outcome and instrument are measured in one study and the
-treatment/phenotype and instrument are measured in another study
-(bivariate data).
+439, 1171-1176, <doi:10.1080/01621459.1997.10474074>). The package can
+calculate bounds for a binary outcome, a binary treatment/phenotype, and
+an instrument with either 2 or 3 categories. The package implements bounds
+for situations where these 3 variables are measured in the same dataset
+(trivariate data) or where the outcome and instrument are measured in one
+study and the treatment/phenotype and instrument are measured in another
+study (bivariate data).
 
 %prep
 %setup -q -c -n %{packname}

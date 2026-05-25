@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ScottKnott
-%global packver   1.3-3
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The ScottKnott Clustering Algorithm
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-base 
-BuildRequires:    R-CRAN-doBy 
+BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-xtable 
-Requires:         R-base 
-Requires:         R-CRAN-doBy 
+Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-xtable 
 
 %description
-Perform the balanced (Scott and Knott, 1974) and unbalanced
-<doi:10.1590/1984-70332017v17n1a1> Scott & Knott algorithm.
+Performs the Scott & Knott (1974) clustering algorithm as a multiple
+comparison method in the Analysis of Variance context, for both balanced
+and unbalanced <doi:10.1590/1984-70332017v17n1a1> designs. Accepts input
+from 'formula', 'aov', 'lm', 'aovlist', and 'lmerMod' objects.
 
 %prep
 %setup -q -c -n %{packname}

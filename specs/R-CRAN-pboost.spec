@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pboost
-%global packver   0.4.8
+%global packver   0.4.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          0.4.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Profile Boosting Framework for Parametric Models
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-ncvreg 
 BuildRequires:    R-CRAN-rqPen 
+BuildRequires:    R-CRAN-spatialreg 
 Requires:         R-CRAN-Formula >= 1.2.5
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-ncvreg 
 Requires:         R-CRAN-rqPen 
+Requires:         R-CRAN-spatialreg 
 
 %description
 A profile boosting framework for feature selection in parametric models.

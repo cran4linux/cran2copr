@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.random
-%global packver   3.4-5
+%global packver   3.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.5
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Generation Functionality for the 'spatstat' Family
 
@@ -16,22 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.geom >= 3.7.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.2.2
+BuildRequires:    R-CRAN-spatstat.geom >= 3.8.1
+BuildRequires:    R-CRAN-spatstat.utils >= 3.2.3
+BuildRequires:    R-CRAN-spatstat.univar >= 3.2.0
+BuildRequires:    R-CRAN-spatstat.sparse >= 3.2.0
 BuildRequires:    R-CRAN-spatstat.data >= 3.1.9
-BuildRequires:    R-CRAN-spatstat.univar >= 3.1.6
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-spatstat.geom >= 3.7.0
-Requires:         R-CRAN-spatstat.utils >= 3.2.2
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-spatstat.geom >= 3.8.1
+Requires:         R-CRAN-spatstat.utils >= 3.2.3
+Requires:         R-CRAN-spatstat.univar >= 3.2.0
+Requires:         R-CRAN-spatstat.sparse >= 3.2.0
 Requires:         R-CRAN-spatstat.data >= 3.1.9
-Requires:         R-CRAN-spatstat.univar >= 3.1.6
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-grDevices 
+Requires:         R-CRAN-Matrix 
 
 %description
 Functionality for random generation of spatial data in the 'spatstat'

@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slopes
-%global packver   1.0.1
+%global packname  RFIF
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate Slopes of Roads, Rivers and Trajectories
+Summary:          Fast Iterative Filtering (FIF) with Portable FFT Backend
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-geodist 
-BuildRequires:    R-CRAN-colorspace 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-raster 
-Requires:         R-methods 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-geodist 
-Requires:         R-CRAN-colorspace 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Calculates the slope (longitudinal gradient or steepness) of linear
-geographic features such as roads (for more details, see Ariza-López et
-al. (2019) <doi:10.1038/s41597-019-0147-x>) and rivers (for more details,
-see Cohen et al. (2018) <doi:10.1016/j.jhydrol.2018.06.066>). It can use
-local Digital Elevation Model (DEM) data or download DEM data via the
-'ceramic' package. The package also provides functions to add elevation
-data to linestrings and visualize elevation profiles.
+Provides an R interface to a C implementation of Fast Iterative Filtering
+(FIF) for decomposing a univariate signal into intrinsic mode functions
+(IMFs) and a residual. The package uses Fast Fourier Transform library
+FFTW, if found.  If not, it provides instructions to install it for your
+OS.  This is recommended, as R's internal fft(), while avoiding external
+FFT dependencies, is two orders of magnitude slower.  See vignette
+'Installing FFTW for RFIF' for RFIF installation instructions.
 
 %prep
 %setup -q -c -n %{packname}

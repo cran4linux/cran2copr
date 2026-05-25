@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Copula.surv
-%global packver   3.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Bivariate Survival Data Based on Copulas
 
@@ -21,11 +21,12 @@ BuildRequires:    R-CRAN-MASS
 Requires:         R-CRAN-MASS 
 
 %description
-Simulating bivariate survival data from copula models. Estimation of the
-association parameter in copula models. Two different ways to estimate the
-association parameter in copula models are implemented. A goodness-of-fit
-test for a given copula model is implemented. See Emura, Lin and Wang
-(2010) <doi:10.1016/j.csda.2010.03.013> for details.
+Simulating bivariate survival data from various copula models. Estimating
+bivariate copula models with semiparametric or Weibull margins under
+various copulas. Two different ways to estimate the association parameter
+in copula models are implemented. A goodness-of-fit test for the Gumbel
+and Clayton copulas is also implemented for semiparametric models. See
+Emura, Lin and Wang (2010) <doi:10.1016/j.csda.2010.03.013> for details.
 
 %prep
 %setup -q -c -n %{packname}
