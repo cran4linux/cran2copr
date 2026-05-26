@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AIUQ
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ab Initio Uncertainty Quantification
 
@@ -21,10 +21,14 @@ BuildRequires:    R-CRAN-SuperGauss >= 2.0.3
 BuildRequires:    R-CRAN-plot3D >= 1.4
 BuildRequires:    R-CRAN-fftwtools >= 0.9.11
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RobustGaSP 
+BuildRequires:    R-CRAN-geometry 
 Requires:         R-CRAN-SuperGauss >= 2.0.3
 Requires:         R-CRAN-plot3D >= 1.4
 Requires:         R-CRAN-fftwtools >= 0.9.11
 Requires:         R-methods 
+Requires:         R-CRAN-RobustGaSP 
+Requires:         R-CRAN-geometry 
 
 %description
 Uncertainty quantification and inverse estimation by probabilistic

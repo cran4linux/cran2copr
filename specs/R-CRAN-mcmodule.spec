@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcmodule
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modular Monte Carlo Risk Analysis
 
@@ -30,10 +30,10 @@ Requires:         R-utils
 Framework for building modular Monte Carlo risk analysis models. It
 extends the capabilities of 'mc2d' to facilitate working with multiple
 risk pathways, variates and scenarios. It provides tools to organize risk
-analysis in independent flexible modules, perform multivariate Monte Carlo
-node operations, automate the creation of Monte Carlo nodes and visualise
-risk analysis models. For more details see Ciria (2025)
-<https://nataliaciria.com/mcmodule/>.
+analysis in independent flexible modules, align multivariate mcnodes,
+automate the creation of mcnodes, visualise model structure, assess
+convergence, and perform sensitivity analysis. For more details see Ciria
+(2026) <https://nataliaciria.com/mcmodule/>.
 
 %prep
 %setup -q -c -n %{packname}

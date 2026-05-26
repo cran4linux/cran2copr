@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pannotator
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisation and Annotation of 360 Degree Imagery
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-colourpicker 
@@ -28,23 +28,22 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-jsonify 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leafpm 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rintrojs 
+BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-shinyhelper 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-bslib 
@@ -58,23 +57,22 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-golem 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-jsonify 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leafpm 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rintrojs 
+Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-shinyhelper 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-stringr 
 Requires:         R-tools 
 Requires:         R-utils 
 

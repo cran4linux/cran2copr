@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meta
-%global packver   8.3-0
+%global packver   8.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.3.0
+Version:          8.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-metafor >= 3.0.0
 BuildRequires:    R-CRAN-metabook >= 0.2.0
-BuildRequires:    R-CRAN-metadat 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lme4 
@@ -34,9 +33,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-metafor >= 3.0.0
 Requires:         R-CRAN-metabook >= 0.2.0
-Requires:         R-CRAN-metadat 
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lme4 
@@ -51,6 +50,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cli 
 
 %description
 User-friendly general package providing standard methods for meta-analysis

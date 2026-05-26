@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  locatexec
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection and Localization of Executable Files
 
@@ -21,13 +22,13 @@ Requires:         R-utils
 
 %description
 A set of functions to locate some programs available on the user machine.
-The package provides functions to locate 'Node.js', 'npm', 'LibreOffice',
-'Microsoft Word', 'Microsoft PowerPoint', 'Microsoft Excel', 'Python',
-'pip', 'Mozilla Firefox' and 'Google Chrome'. User can test the
-availability of a program with eventually a version and call it with
-function system2() or system(). This allows the use of a single function
-to retrieve the path to a program regardless of the operating system and
-its configuration.
+It can locate 'Node.js', 'npm', 'LibreOffice', 'Microsoft Word',
+'Microsoft PowerPoint', 'Microsoft Excel', 'Python', 'pip', 'Mozilla
+Firefox', 'Google Chrome', 'Air' and 'Pandoc'. The user can test the
+availability of a program, optionally with a required version, and call it
+with the functions system2() or system(). This allows the use of a single
+function to retrieve the path to a program regardless of the operating
+system and its configuration.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

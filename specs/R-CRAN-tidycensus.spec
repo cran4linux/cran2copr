@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidycensus
-%global packver   1.8.0
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load US Census Boundary and Attribute Data as 'tidyverse' and 'sf'-Ready Data Frames
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-tigris
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-units 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-tigris
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-units 

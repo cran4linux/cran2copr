@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggincerta
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extend 'ggplot2' with Layers and Scales for Spatial Uncertainty Visualization
 
@@ -18,24 +18,28 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
-Requires:         R-stats 
 Requires:         R-CRAN-withr 
 
 %description

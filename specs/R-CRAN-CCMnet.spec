@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CCMnet
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Congruence Class Models for Networks
 
@@ -48,11 +48,14 @@ Requires:         R-CRAN-tidyr
 Requires:         R-utils 
 
 %description
-Provides an implementation of Congruence Class Models for generating
-networks. It facilitates sampling networks based on specific topological
-properties and attribute mixing patterns using a Markov Chain Monte Carlo
-framework. The implementation builds upon code from the 'ergm' package;
-see Handcock et al. (2008) <doi:10.18637/jss.v024.i01>.
+Provides an implementation of Congruence Class Models (CCMs) for
+generating networks. For additional details on CCMs see Goyal, Blitzstein,
+and De Gruttola (2014) <doi:10.1017/nws.2014.2> and Goyal, De Gruttola,
+Martin, Rennert, and Onnela <doi:10.48550/arXiv.2603.02467>. 'ccmnet'
+facilitates sampling networks based on specific topological properties and
+attribute mixing patterns using a Markov Chain Monte Carlo framework. The
+implementation builds upon code from the 'ergm' package; see Handcock,
+Hunter, Butts, Goodreau, and Morris (2008) <doi:10.18637/jss.v024.i01>.
 
 %prep
 %setup -q -c -n %{packname}

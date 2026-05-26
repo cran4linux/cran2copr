@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmmr
-%global packver   1.0-0.1
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          "Mixture and Hidden Markov Models with R" Datasets and Example Code
+Summary:          Mixture and Hidden Markov Models with R: Datasets and Example Code
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,8 +19,10 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-depmixS4 
 BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-depmixS4 
 Requires:         R-stats4 
+Requires:         R-CRAN-boot 
 
 %description
 Datasets and code examples that accompany our book Visser & Speekenbrink
