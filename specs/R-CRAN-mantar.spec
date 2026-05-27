@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mantar
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missingness Alleviation for Network Analysis
 
@@ -34,10 +34,10 @@ representing partial correlations while accounting for missing data.
 Networks are estimated via neighborhood selection or regularization, with
 model selection guided by information criteria. Missing data can be
 handled primarily via multiple imputation or a maximum likelihood-based
-approach, as demonstrated by Nehler and Schultze (2025a)
-<doi:10.31234/osf.io/qpj35> and Nehler and Schultze (2025b)
-<doi:10.1080/00273171.2025.2503833>. Deletion-based approaches are also
-available but play a secondary role.
+approach, as demonstrated by Nehler and Schultze (2025)
+<doi:10.1080/00273171.2025.2503833> and Nehler and Schultze (2026)
+<doi:10.1037/met0000828>. Deletion-based approaches are also available but
+play a secondary role.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SChangeBlock
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Structural Change Detection by an Analysis of Variability Between Blocks of Observations
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-robcp 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-robcp 
+Requires:         R-methods 
 
 %description
 Provides methods to detect structural changes in time series or random

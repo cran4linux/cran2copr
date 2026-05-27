@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestGenerator
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integration Unit Tests for Pharmacoepidemiological Studies
 
@@ -29,12 +29,14 @@ BuildRequires:    R-CRAN-duckdb
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-omopgenerics 
 BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-usethis 
 Requires:         R-CRAN-CDMConnector >= 2.5.1
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readxl 
@@ -47,12 +49,14 @@ Requires:         R-CRAN-duckdb
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-omopgenerics 
 Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-usethis 
 
 %description
 An R interface to load testing data in the 'OMOP' Common Data Model

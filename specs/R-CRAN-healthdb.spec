@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  healthdb
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with Healthcare Databases
 
@@ -19,9 +19,9 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dbplyr >= 2.5.1
 BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-data.table >= 1.18.4
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-clock 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -30,9 +30,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dbplyr >= 2.5.1
 Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-data.table >= 1.18.4
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-clock 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 

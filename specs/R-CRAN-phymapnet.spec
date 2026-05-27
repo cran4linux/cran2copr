@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phymapnet
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogeny-Guided Bayesian Microbial Network Inference
 
@@ -19,11 +19,9 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-GUniFrac 
 BuildRequires:    R-CRAN-compositions 
 Requires:         R-stats 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-GUniFrac 
 Requires:         R-CRAN-compositions 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  immunogenetr
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Toolkit for Clinical HLA Informatics
 
@@ -19,8 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.3
 BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-stringi >= 1.7.0
 BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-xml2 >= 1.3.6
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
@@ -30,8 +29,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-tibble >= 3.1.3
 Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-stringi >= 1.7.0
 Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-xml2 >= 1.3.6
 Requires:         R-CRAN-tidyr >= 1.3.0

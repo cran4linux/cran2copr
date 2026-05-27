@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  elcf4R
-%global packver   0.4.0
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Electricity Load Curves Forecasting at Individual Level
 
@@ -48,11 +48,11 @@ Implements forecasting methods for individual electricity load curves,
 including Kernel Wavelet Functional (KWF), clustered KWF, Generalized
 Additive Models (GAM), Multivariate Adaptive Regression Splines (MARS),
 and Long Short-Term Memory (LSTM) models. Provides normalized dataset
-adapters for iFlex, StoreNet, Low Carbon London, and REFIT; download and
-read support for IDEAL and GX; explicit Python backend selection for
-TensorFlow-based LSTM fits; helpers for daily segmentation and
-rolling-origin benchmarking; and compact shipped example panels and
-benchmark-result datasets.
+adapters for iFlex, StoreNet, Smart-Grid Smart-City, Low Carbon London,
+and REFIT; download and read support for IDEAL and GX; explicit Python
+backend selection for TensorFlow-based LSTM fits; helpers for daily
+segmentation and rolling-origin benchmarking; and compact shipped example
+panels and benchmark-result datasets.
 
 %prep
 %setup -q -c -n %{packname}

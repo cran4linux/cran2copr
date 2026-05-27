@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  apa7
-%global packver   0.1.0
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Writing Documents in American Psychological Association Style, Seventh Edition
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-signs
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-flextable 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-signs
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-xfun 
 
 %description
 Create American Psychological Association Style, Seventh Edition

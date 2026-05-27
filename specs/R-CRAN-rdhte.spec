@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdhte
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heterogeneous Treatment Effects in Regression Discontinuity Designs
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rdrobust 
+BuildRequires:    R-CRAN-rdrobust >= 4.0.0
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-multcomp 
-Requires:         R-CRAN-rdrobust 
+Requires:         R-CRAN-rdrobust >= 4.0.0
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-multcomp 
 
@@ -28,14 +28,13 @@ Requires:         R-CRAN-multcomp
 Understanding heterogeneous causal effects based on pretreatment
 covariates is a crucial step in modern empirical work in data science.
 Building on the recent developments in Calonico et al (2025)
-<https://rdpackages.github.io/references/Calonico-Cattaneo-Farrell-Palomba-Titiunik_2025_HTERD.pdf>,
-this package provides tools for estimation and inference of heterogeneous
-treatment effects in Regression Discontinuity (RD) Designs. The package
-includes two main commands: 'rdhte' to conduct estimation and robust
-bias-corrected inference for conditional RD treatment effects (given
-choice of bandwidth parameter); 'rdbwhte', which implements automatic
-bandwidth selection methods; and 'rdhte_lincom' to test linear
-combinations of parameters.
+<doi:10.48550/arXiv.2503.13696>, this package provides tools for
+estimation and inference of heterogeneous treatment effects in Regression
+Discontinuity (RD) Designs. The package includes two main commands:
+'rdhte' to conduct estimation and robust bias-corrected inference for
+conditional RD treatment effects (given choice of bandwidth parameter);
+'rdbwhte', which implements automatic bandwidth selection methods; and
+'rdhte_lincom' to test linear combinations of parameters.
 
 %prep
 %setup -q -c -n %{packname}

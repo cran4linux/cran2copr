@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIDmultiplegtDYN
-%global packver   2.3.3
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation in Difference-in-Difference Designs with Multiple Groups and Periods
+Summary:          Estimation in Staggered First Switch Designs, where Groups Experience their First Treatment Change at Different Points in Time
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

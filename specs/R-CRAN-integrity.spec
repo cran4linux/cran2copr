@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  integrity
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tests Checking for Implausible Values in Clinical Trials Data
+Summary:          Assessing the Integrity and Trustworthiness of Clinical Trials Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,17 +35,17 @@ Requires:         R-CRAN-car
 Requires:         R-CRAN-rlang 
 
 %description
-Sixteen individual participant data-specific checks in a report-style
-result. Items are automated where possible, and are grouped into eight
-domains, including unusual data patterns, baseline characteristics,
-correlations, date violations, patterns of allocation, internal and
-external inconsistencies, and plausibility of data. The package may be
+The integrity package implements the IPD Integrity Tool, a structured and
+transparent framework for evaluating the integrity of individual
+participant data (IPD) from randomised trials (see Hunter et al. (2024)
+<doi:10.1002/jrsm.1738> and <doi:10.32614/RJ-2017-008>). It supports users
+to identify potential issues, such as unusual data patterns, implausible
+values, lack of expected correlations, date violations, and
+inconsistencies. The package provides reproducible workflows for
+screening, documenting and summarising integrity concerns, and may be
 applied by evidence synthesists, editors, and others to determine whether
-a randomised controlled trial may be considered trustworthy to contribute
-to the evidence base that informs policy and practice. For more details,
-see Hunter et al. (2024) <doi:10.1002/jrsm.1738> and
-<doi:10.32614/RJ-2017-008> in the same issue of Research Synthesis
-Methods.
+a randomised trial may be considered sufficiently trustworthy to
+contribute to the evidence base that informs policy and practice.
 
 %prep
 %setup -q -c -n %{packname}

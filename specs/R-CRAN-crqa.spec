@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crqa
-%global packver   2.0.7
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unidimensional and Multidimensional Methods for Recurrence Quantification Analysis
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-rdist 
@@ -23,6 +25,10 @@ BuildRequires:    R-CRAN-tseriesChaos
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-rdist 
@@ -30,6 +36,8 @@ Requires:         R-CRAN-tseriesChaos
 Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
 
 %description
 Auto, Cross and Multi-dimensional recurrence quantification analysis.
