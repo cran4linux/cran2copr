@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastshap
-%global packver   0.1.1
+%global packname  nara
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Approximate Shapley Values
+Summary:          Native Raster Image Tools
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-foreach 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-colorfast 
+Requires:         R-CRAN-colorfast 
 
 %description
-Computes fast (relative to other implementations) approximate Shapley
-values for any supervised learning model. Shapley values help to explain
-the predictions from any black box model using ideas from game theory; see
-Strumbel and Kononenko (2014) <doi:10.1007/s10115-013-0679-x> for details.
+Native rasters are a core R image format which use a compact color
+representation. This color representation closely aligns with graphics
+device internals meaning that these images can be rendered quickly. This
+package provides functions to quickly create, manipulate and composite
+native rasters.
 
 %prep
 %setup -q -c -n %{packname}

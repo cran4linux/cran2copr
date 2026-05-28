@@ -1,52 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  LPRelevance
-%global packver   3.3
+%global __requires_exclude ^libmpi
+%global packname  rwicc
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relevance-Integrated Statistical Inference Engine
+Summary:          Regression with Interval-Censored Covariates
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.3
-Requires:         R-core >= 4.0.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-biglm 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-BayesGOF 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-leaps 
-BuildRequires:    R-CRAN-locfdr 
-BuildRequires:    R-CRAN-Bolstad2 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-lobstr 
+BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-polynom 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-biglm 
+Requires:         R-CRAN-lubridate 
 Requires:         R-stats 
-Requires:         R-CRAN-BayesGOF 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-leaps 
-Requires:         R-CRAN-locfdr 
-Requires:         R-CRAN-Bolstad2 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-lobstr 
+Requires:         R-CRAN-arm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-polynom 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-caret 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Provide methods to perform customized inference at individual level by
-taking contextual covariates into account. Three main functions are
-provided in this package: (i) LASER(): it generates specially-designed
-artificial relevant samples for a given case; (ii) g2l.proc(): computes
-customized fdr(z|x); and (iii) rEB.proc(): performs empirical Bayes
-inference based on LASERs. The details can be found in Mukhopadhyay, S.,
-and Wang, K (2021, <arXiv:2004.09588>).
+Provides functions to simulate and analyze data for a regression model
+with an interval censored covariate, as described in Morrison et al.
+(2021) <doi:10.1111/biom.13472>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  movedesign
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Study Design Toolbox for Movement Ecology Studies
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-ctmm >= 0.6.1
@@ -23,21 +23,20 @@ BuildRequires:    R-CRAN-golem >= 0.3.2
 BuildRequires:    R-CRAN-config >= 0.3.1
 BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-CRAN-bsplus 
-BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-gdtools 
+BuildRequires:    R-CRAN-gfonts 
 BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-parsedate 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-rintrojs 
@@ -54,6 +53,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-shiny >= 1.7.1
@@ -62,21 +62,20 @@ Requires:         R-CRAN-golem >= 0.3.2
 Requires:         R-CRAN-config >= 0.3.1
 Requires:         R-CRAN-bayestestR 
 Requires:         R-CRAN-bsplus 
-Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-gdtools 
+Requires:         R-CRAN-gfonts 
 Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggtext 
 Requires:         R-grDevices 
-Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-lubridate 
 Requires:         R-parallel 
 Requires:         R-CRAN-parsedate 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-quarto 
 Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-rintrojs 
@@ -93,6 +92,7 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-viridis 
 

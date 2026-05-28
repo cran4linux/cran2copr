@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GWnorm
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          G-Wishart Normalising Constants for Gaussian Graphical Models
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-BDgraph
 BuildRequires:    R-CRAN-CholWishart 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-igraph 
@@ -29,12 +31,16 @@ Requires:         R-CRAN-BDgraph
 Requires:         R-CRAN-CholWishart 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-hypergeo 
+Requires:         R-CRAN-gsl 
 
 %description
 Computes G-Wishart normalising constants through a Fourier approach.
 Either exact analytical results, numerical integration or Monte Carlo
 estimation are employed. Details at C. Wong, G. Moffa and J. Kuipers
-(2024), <doi:10.48550/arXiv.2404.06803>.
+(2024), <doi:10.48550/arXiv.2404.06803>. Also includes approximations of
+the ratio of normalising constants, see details at C. Wong, G. Moffa and
+J. Kuipers (2025), <doi:10.48550/arXiv.2503.13046>.
 
 %prep
 %setup -q -c -n %{packname}

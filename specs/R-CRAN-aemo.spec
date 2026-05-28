@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aemo
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Australian Energy Market Operator Data
 
@@ -29,14 +29,14 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Fetch Australian Energy Market Operator ('AEMO') public data from 'NEMweb'
-<http://nemweb.com.au> and the Market Management System Data Model
-('MMSDM') historical archive. Provides tidy access to 5-minute and
-30-minute wholesale electricity prices, regional demand, dispatch-unit
-output, interconnector flows, rooftop photovoltaic generation, generator
-bids, predispatch forecasts, frequency control ancillary services markets,
-and gas market data across the National Electricity Market ('NEM')
-regions. Data is published by AEMO under its Copyright Permissions Notice
+Fetch Australian Energy Market Operator (AEMO) public data from 'NEMweb'
+<http://nemweb.com.au> and the Market Management System Data Model (MMSDM)
+historical archive. Provides tidy access to 5-minute and 30-minute
+wholesale electricity prices, regional demand, dispatch-unit output,
+interconnector flows, rooftop photovoltaic generation, generator bids,
+predispatch forecasts, frequency control ancillary services markets, and
+gas market data across the National Electricity Market (NEM) regions. Data
+is published by AEMO under its Copyright Permissions Notice
 <https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions>.
 
 %prep

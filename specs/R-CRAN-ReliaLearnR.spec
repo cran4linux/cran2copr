@@ -1,27 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReliaLearnR
-%global packver   0.3
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learning Modules for Reliability Analysis
 
-License:          CC BY 4.0
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-learnr 
+BuildRequires:    R-CRAN-learnr >= 0.11.0
 BuildRequires:    R-CRAN-ReliaGrowR 
 BuildRequires:    R-CRAN-WeibullR 
 BuildRequires:    R-CRAN-WeibullR.ALT 
-Requires:         R-CRAN-learnr 
+Requires:         R-CRAN-learnr >= 0.11.0
 Requires:         R-CRAN-ReliaGrowR 
 Requires:         R-CRAN-WeibullR 
 Requires:         R-CRAN-WeibullR.ALT 
@@ -29,7 +29,8 @@ Requires:         R-CRAN-WeibullR.ALT
 %description
 Learning modules for reliability analysis including modules for
 Reliability, Availability, and Maintainability (RAM) Analysis, Life Data
-Analysis, and Reliability Testing.
+Analysis, Reliability Testing, Repairable Systems Analysis, and
+Reliability Block Diagrams.
 
 %prep
 %setup -q -c -n %{packname}

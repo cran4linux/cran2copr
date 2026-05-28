@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TwoWayFEWeights
-%global packver   2.0.4
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Weights Attached to the Two-Way Fixed Effects Regressions
 
@@ -14,30 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fixest 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-haven 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fixest 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-haven 
 
 %description
-Estimates the weights and measure of robustness to treatment effect
-heterogeneity attached to two-way fixed effects regressions. Clément de
-Chaisemartin, Xavier D'Haultfœuille (2020) <DOI: 10.1257/aer.20181169>.
+Computes the implicit weights attached to two-way fixed effects
+regressions, as well as summary measures of these regressions' robustness
+to heterogeneous treatment effects. Based on de Chaisemartin and
+D'Haultfoeuille (2020) <DOI:10.1257/aer.20181169>.
 
 %prep
 %setup -q -c -n %{packname}

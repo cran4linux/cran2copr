@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDGHMM
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hidden Markov Models for Multivariate Panel Data
 
@@ -19,10 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-Matrix 
 
 %description
 Estimates hidden Markov models from the family of Cholesky-decomposed

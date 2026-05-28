@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diffcp
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differentiating Through Cone Programs
 
@@ -29,9 +29,9 @@ Requires:         R-methods
 Requires:         R-CRAN-Rcpp 
 
 %description
-A pure-R port of the Python 'diffcp' package. Computes the derivative of
-the optimal solution map of a convex cone program, treating the program as
-an implicit function of its data (constraint matrix, offset, objective
+A port of the 'python' 'diffcp' package. Computes the derivative of the
+optimal solution map of a convex cone program, treating the program as an
+implicit function of its data (constraint matrix, offset, objective
 coefficients, and optionally a quadratic), mirroring Agrawal et al. (2019)
 <doi:10.48550/arXiv.1904.09043>.
 

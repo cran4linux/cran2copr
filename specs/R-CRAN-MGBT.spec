@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MGBT
-%global packver   1.0.7
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Grubbs-Beck Low-Outlier Test
 
@@ -13,15 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 
 %description
 Compute the multiple Grubbs-Beck low-outlier test on positively
 distributed data and utilities for noninterpretive U.S. Geological Survey
-annual peak-streamflow data processing discussed in Cohn et al. (2013)
-<doi:10.1002/wrcr.20392> and England et al. (2017) <doi:10.3133/tm4B5>.
+annual peak-streamflow data processing discussed in Cohn et al. (2013) and
+England et al. (2017) <doi:10.3133/tm4B5>. Other utilities for working
+with peak streamflow are provided.
 
 %prep
 %setup -q -c -n %{packname}

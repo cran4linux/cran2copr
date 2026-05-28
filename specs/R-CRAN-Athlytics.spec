@@ -1,51 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Athlytics
-%global packver   0.1.2
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Advanced Sports Performance Analysis for 'Strava' Data
+Summary:          Sports Physiology Analysis from Local 'Strava' Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rStrava 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rStrava 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-zoo 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Advanced sports performance analysis and modeling for activity data
-retrieved from 'Strava'. This package focuses on applying established
-sports science models and statistical methods to gain deeper insights into
-training load, performance prediction, recovery status, and identifying
-key performance factors, extending basic data analysis capabilities.
+Tools for reproducible, offline analysis of endurance-training data
+exported from 'Strava'. Provides data import, quality-control,
+cohort-reference, and visualization helpers for sports-science indicators
+including acute:chronic workload ratio, aerobic efficiency, cardiovascular
+decoupling, exposure, and personal-best profiles.
 
 %prep
 %setup -q -c -n %{packname}

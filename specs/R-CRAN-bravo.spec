@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bravo
-%global packver   3.2.2
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Screening and Variable Selection
 
@@ -19,13 +19,30 @@ Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-Matrix >= 1.2.17
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-memuse 
+BuildRequires:    R-CRAN-shinyjs 
 Requires:         R-CRAN-Matrix >= 1.2.17
 Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-memuse 
+Requires:         R-CRAN-shinyjs 
 
 %description
 Performs Bayesian variable screening and selection for ultra-high
-dimensional linear regression models.
+dimensional linear regression models.Also contains an user friendly web
+application to perform multi trait GWAS.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  symmoments
-%global packver   1.2.1.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Symbolic Central and Noncentral Moments of the Multivariate Normal Distribution
 
@@ -17,14 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-multipol 
+BuildRequires:    R-CRAN-mpoly 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-multipol 
+Requires:         R-CRAN-mpoly 
 
 %description
 Symbolic central and non-central moments of the multivariate normal

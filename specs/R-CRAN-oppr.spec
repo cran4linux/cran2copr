@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oppr
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Project Prioritization
 
@@ -14,45 +14,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ape >= 5.2
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-R6 >= 2.5.1
 BuildRequires:    R-CRAN-withr >= 2.4.1
 BuildRequires:    R-CRAN-tibble >= 2.0.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
+BuildRequires:    R-CRAN-highs >= 1.10.0.3
 BuildRequires:    R-CRAN-rlang >= 1.1.3
 BuildRequires:    R-CRAN-cli >= 1.0.1
-BuildRequires:    R-CRAN-proto >= 1.0.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.100.5.0
 BuildRequires:    R-CRAN-RcppProgress >= 0.4.1
 BuildRequires:    R-CRAN-tidytree >= 0.3.3
 BuildRequires:    R-CRAN-viridisLite >= 0.3.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-BuildRequires:    R-CRAN-uuid >= 0.1.2
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17
 Requires:         R-CRAN-ape >= 5.2
 Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-R6 >= 2.5.1
 Requires:         R-CRAN-withr >= 2.4.1
 Requires:         R-CRAN-tibble >= 2.0.0
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-Matrix >= 1.3.0
+Requires:         R-CRAN-highs >= 1.10.0.3
 Requires:         R-CRAN-rlang >= 1.1.3
 Requires:         R-CRAN-cli >= 1.0.1
-Requires:         R-CRAN-proto >= 1.0.0
 Requires:         R-CRAN-tidytree >= 0.3.3
 Requires:         R-CRAN-viridisLite >= 0.3.0
 Requires:         R-CRAN-assertthat >= 0.2.0
-Requires:         R-CRAN-uuid >= 0.1.2
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
 
 %description
 A decision support tool for prioritizing conservation projects.
@@ -65,7 +63,10 @@ prioritizations. After defining a project prioritization problem,
 solutions can be obtained using exact algorithms, heuristic algorithms, or
 random processes. In particular, it is recommended to install the 'Gurobi'
 optimizer (available from <https://www.gurobi.com>) because it can
-identify optimal solutions very quickly. Finally, methods are provided for
+identify optimal solutions very quickly. The 'rcbc' R package (available
+at <https://github.com/dirkschumacher/rcbc>) can also be used to generate
+solutions using the CBC optimization software
+(<https://github.com/coin-or/Cbc>). Finally, methods are provided for
 comparing different prioritizations and evaluating their benefits. For
 more information, see Hanson et al. (2019) <doi:10.1111/2041-210X.13264>.
 
