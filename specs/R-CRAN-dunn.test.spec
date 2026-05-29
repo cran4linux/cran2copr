@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dunn.test
-%global packver   1.3.7
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dunn's Test of Multiple Comparisons Using Rank Sums
 
@@ -18,22 +18,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scrutiny 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scrutiny 
 
 %description
-Computes Dunn's test (1964) for stochastic dominance and reports the
+Computes Dunn's test (1964) for stochastic superiority and reports the
 results among multiple pairwise comparisons after a Kruskal-Wallis test
-for 0th-order stochastic dominance among k groups (Kruskal and Wallis,
-1952). 'dunn.test' makes k(k-1)/2 multiple pairwise comparisons based on
-Dunn's z-test-statistic approximations to the actual rank statistics. The
-null hypothesis for each pairwise comparison is that the probability of
+for stochastic superiority among k groups (Kruskal and Wallis, 1952).
+'dunn.test' makes k(k-1)/2 multiple pairwise comparisons based on Dunn's
+z-test-statistic approximations to the actual rank statistics. The null
+hypothesis for each pairwise comparison is that the probability of
 observing a randomly selected value from the first group that is larger
 than a randomly selected value from the second group equals one half; this
 null hypothesis corresponds to that of the Wilcoxon-Mann-Whitney rank-sum
-test. Like the rank-sum test, if the data can be assumed to be continuous,
-and the distributions are assumed identical except for a difference in
-location, Dunn's test may be understood as a test for median difference
-and for mean difference. 'dunn.test' accounts for tied ranks.
+test. 'dunn.test' accounts for tied ranks.
 
 %prep
 %setup -q -c -n %{packname}

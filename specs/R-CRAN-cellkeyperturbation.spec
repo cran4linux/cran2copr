@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  whSample
-%global packver   0.9.6.2
+%global __requires_exclude ^libmpi
+%global packname  cellkeyperturbation
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Sampling
+Summary:          Cell Key Perturbation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +18,15 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-bit64 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-bit64 
 
 %description
-Interactive tools for generating random samples. Users select an .xlsx,
-.csv, or delimited .txt file with population data and are walked through
-selecting the sample type (Simple Random Sample or Stratified), the number
-of backups desired, and a "stratify_on" value (if desired). The sample
-size is determined using a normal approximation to the hypergeometric
-distribution based on Nicholson (1956) <doi:10.1214/aoms/1177728270>. An
-.xlsx file is created with the sample and key metadata for reference. It
-is menu-driven and lets users pick an output directory. See vignettes for
-a detailed walk-through.
+Provides functions to generate frequency tables and apply cell key
+perturbation to protect against statistical disclosure in tabular outputs.
+The implemented methods are described in "Cell Key Perturbation User
+Guide"
+<https://github.com/ONSdigital/cell-key-perturbation-R/blob/main/documentation/SML_UserDoc_CKP_R.md>.
+Developed at the UK Office for National Statistics.
 
 %prep
 %setup -q -c -n %{packname}
@@ -52,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

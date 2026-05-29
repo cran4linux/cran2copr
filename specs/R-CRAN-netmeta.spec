@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmeta
-%global packver   3.4-0
+%global packver   3.5-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 8.3.0
+BuildRequires:    R-CRAN-meta >= 8.5.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-MASS 
@@ -30,7 +30,10 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-meta >= 8.3.0
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-meta >= 8.5.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-MASS 
@@ -43,6 +46,9 @@ Requires:         R-grid
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggrepel 
 
 %description
 A comprehensive set of functions providing frequentist methods for network
@@ -61,10 +67,11 @@ curve (SUCRA) (Salanti et al., 2013) <doi:10.1016/j.jclinepi.2010.03.016>;
 without resampling) according to Rücker & Schwarzer (2015)
 <doi:10.1186/s12874-015-0060-8>; - split direct and indirect evidence to
 check consistency (Dias et al., 2010) <doi:10.1002/sim.3767>, (Efthimiou
-et al., 2019) <doi:10.1002/sim.8158>; - league table with network
-meta-analysis results; - 'comparison-adjusted' funnel plot (Chaimani &
-Salanti, 2012) <doi:10.1002/jrsm.57>; - net heat plot and design-based
-decomposition of Cochran's Q according to Krahn et al. (2013)
+et al., 2019) <doi:10.1002/sim.8158>; - scatter plot to visualize local
+inconsistency (Wilson et al., 2026) <doi:10.1017/rsm.2026.10082>; - league
+table with network meta-analysis results; - 'comparison-adjusted' funnel
+plot (Chaimani & Salanti, 2012) <doi:10.1002/jrsm.57>; - net heat plot and
+design-based decomposition of Cochran's Q according to Krahn et al. (2013)
 <doi:10.1186/1471-2288-13-35>; - measures characterizing the flow of
 evidence between two treatments by König et al. (2013)
 <doi:10.1002/sim.6001>; - automated drawing of network graphs described in
@@ -74,8 +81,8 @@ Bruggemann, 2014) <doi:10.1002/cem.2569>; (Rücker & Schwarzer, 2017)
 <doi:10.1002/jrsm.1270>; - contribution matrix as described in
 Papakonstantinou et al. (2018) <doi:10.12688/f1000research.14770.3> and
 Davies et al. (2022) <doi:10.1002/sim.9346>; - network meta-regression
-with a single continuous or binary covariate; - subgroup network
-meta-analysis.
+with a single continuous or binary covariate (Kwarteng et al., 2026)
+<doi:10.21203/rs.3.rs-8235913/v1>; - subgroup network meta-analysis.
 
 %prep
 %setup -q -c -n %{packname}

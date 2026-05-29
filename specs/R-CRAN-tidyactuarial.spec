@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyactuarial
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Tools for Actuarial Mathematics and Life Contingencies
 
@@ -17,28 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
 Provides tidyverse-aligned tools for actuarial mathematics and life
 contingencies, including life tables, survival probabilities, actuarial
-present values of cash flows, life annuities, multi-life benefits, and
-related quantities. The package emphasizes clear actuarial notation
-consistent with standard curricula (e.g. SOA exams) and supports
-reproducible workflows using modern R.
+present values of cash flows, life annuities, life insurance, premiums,
+reserves, multiple-life calculations, Monte Carlo simulation, and
+deterministic cash-flow diagrams. The package emphasizes clear actuarial
+notation, reproducible workflows, and pipe-friendly tools for actuarial
+education and applied actuarial analysis.
 
 %prep
 %setup -q -c -n %{packname}

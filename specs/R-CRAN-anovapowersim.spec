@@ -1,70 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  realestatebr
+%global packname  anovapowersim
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Brazilian Real Estate Data into R
+Summary:          Simple Power Simulations for ANOVAs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-rbcb 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyxl 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-rbcb 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyxl 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-zoo 
 
 %description
-Provides access to Brazilian real estate market data from multiple
-official sources: the Central Bank of Brazil (BCB)
-<https://www.bcb.gov.br/>, the Brazilian Association of Real Estate
-Developers (ABRAINC) <https://abrainc.org.br/>, the Brazilian Association
-of Real Estate Credit and Savings Entities (ABECIP)
-<https://www.abecip.org.br/>, the Getulio Vargas Foundation (FGV)
-<https://portalibre.fgv.br/>, and the Bank for International Settlements
-(BIS) <https://www.bis.org/>.
+A-priori power simulations and power-calculations for within, between and
+mixed ANOVAs based on target (partial) eta-squared values. Supports
+complex designs with more than two factors and their interactions with a
+single function call.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  esviz
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Functions for Climate Science and Services
 
@@ -45,6 +45,9 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-CRAN-webshot2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-easyNCDF >= 0.1.4
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -73,6 +76,9 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-mapproj 
 Requires:         R-CRAN-webshot2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sp 
+Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
 
 %description
 A plotting package for climate science and services. Provides a set of

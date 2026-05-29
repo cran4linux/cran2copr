@@ -1,41 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  matahari
-%global packver   0.1.4
+%global packname  llmshieldr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spy on Your R Session
+Summary:          Safety Guardrails for Large Language Model Workflows
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-stringi 
 
 %description
-Conveniently log everything you type into the R console. Logs are are
-stored as tidy data frames which can then be analyzed using 'tidyverse'
-style tools.
+A model-agnostic safety layer for developers building with large language
+model (LLM) applications. Maps starter controls to the Open Worldwide
+Application Security Project Top 10 for Large Language Model Applications
+2025 risk categories <https://genai.owasp.org/llm-top-10/> via a modular
+rule engine. Supports regular-expression rules, lightweight natural
+language processing (NLP) intent checks, optional scanners, and semantic
+large language model reviewer checks on prompts, conversations, retrieved
+context, tool inputs and outputs, streaming chunks, and model outputs.
+Supports workflows with the 'Ollama' local web service
+<https://ollama.com/> via 'ellmer', remote reviewer endpoints, and other
+chat interfaces callable from 'R'. Intended as an experimental guardrail
+layer that teams should evaluate against their own workflows before
+relying on it in production.
 
 %prep
 %setup -q -c -n %{packname}

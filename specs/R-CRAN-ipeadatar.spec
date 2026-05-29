@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ipeadatar
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          API Wrapper for 'Ipeadata'
 
@@ -13,33 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sjlabelled 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sjlabelled 
+Requires:         R-CRAN-tibble 
 
 %description
-Allows direct access to the macroeconomic, financial and regional database
-maintained by Brazilian Institute for Applied Economic Research ('Ipea').
-This R package uses the 'Ipeadata' API. For more information, see
-<http://www.ipeadata.gov.br/>.
+Provides direct access to the macroeconomic, financial, and regional
+database maintained by the Institute for Applied Economic Research (Ipea)
+via the Ipeadata API. For more information, see
+<https://www.ipeadata.gov.br/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  keypress
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wait for a Key Press in a Terminal
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Wait for a single key press at the 'R' prompt. This works in terminals,
-but does not currently work in the 'Windows' 'GUI', the 'OS X' 'GUI'
+Wait for a single key press at the 'R' prompt.  This works in terminals,
+but does not currently work in the 'Windows' 'GUI', the 'macOS' 'GUI'
 ('R.app'), in 'Emacs' 'ESS', in an 'Emacs' shell buffer or in 'R Studio'.
 In these cases 'keypress' stops with an error message.
 

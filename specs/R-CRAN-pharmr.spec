@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pharmr
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Pharmpy' 'Pharmacometrics' Library
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate >= 1.38
-BuildRequires:    R-CRAN-vegawidget >= 0.5.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.8.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-reticulate >= 1.38
-Requires:         R-CRAN-vegawidget >= 0.5.0
+Requires:         R-CRAN-htmltools >= 0.5.8.1
 Requires:         R-CRAN-cli 
 Requires:         R-utils 
 

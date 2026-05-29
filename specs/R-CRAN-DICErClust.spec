@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rGhanaCensus
-%global packver   0.1.0
+%global packname  DICErClust
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          2021 Ghana Population and Housing Census Results as Data Frames
+Summary:          Deep Significance Clustering for Clinical Risk Stratification
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-argparser 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-pROC 
+Requires:         R-CRAN-argparser 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-pROC 
 
 %description
-Datasets from the 2021 Ghana Population and Housing Census Results. Users
-can access results as 'tidyverse' and 'sf'-Ready Data Frames.  The data in
-this package is scraped from pdf reports released by the Ghana Statistical
-Service website <https://census2021.statsghana.gov.gh/> . The package
-currently only contains datasets from the literacy and education reports.
-Namely, school attendance data for respondents aged 3 years and above.
+We provide an R implementation of Deep Significance Clustering (DICE), a
+self-supervised learning framework designed to identify clinically
+meaningful and risk-stratified patient subgroups from electronic health
+record (EHR) data. DICE jointly optimizes deep representation learning,
+clustering, and outcome prediction while enforcing statistical
+significance between predicted outcomes and cluster membership. This
+integrated optimization produces subgroups that are both clinically
+coherent and predictive, addressing a gap where traditional unsupervised
+clustering methods and supervised risk prediction models alone may fail to
+generate actionable clinical groupings. See Huang et al. (2021)
+<doi:10.1093/jamia/ocab203>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lakhesis
-%global packver   1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consensus Seriation for Binary Data
 
@@ -42,8 +42,9 @@ Determining consensus seriations for binary incidence matrices, using a
 two-step process of Procrustes-fit correspondence analysis for heuristic
 selection of partial seriations and iterative regression to establish a
 single consensus. Contains the Lakhesis Calculator, a graphical platform
-for identifying seriated sequences. Collins-Elliott (2024)
-<https://volweb.utk.edu/~scolli46/sceLakhesis.pdf>.
+for identifying seriated sequences. Collins-Elliott (2026) "Lakhesis:
+Consensus Seriation via Iterative Regression of Partial Rankings for
+Binary Data" <doi:10.1080/02664763.2026.2672564>.
 
 %prep
 %setup -q -c -n %{packname}

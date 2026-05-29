@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forestSAS
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Spatial Structure Analysis Systems
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-spatstat.data 
+BuildRequires:    R-CRAN-ggimage 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-spatstat.data 
+Requires:         R-CRAN-ggimage 
+Requires:         R-CRAN-reshape2 
+Requires:         R-utils 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
 
