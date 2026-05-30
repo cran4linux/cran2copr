@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rduckhts
-%global packver   1.2.1-0.1.0
+%global packver   1.3.0-0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1.0.1.0
+Version:          1.3.0.0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DuckDB' High Throughput Sequencing File Formats Reader Extension
 
@@ -33,6 +33,8 @@ Sequencing file formats with 'DuckDB'. The 'DuckDB' C extension API
 <https://duckdb.org/docs/stable/clients/c/api> and its 'htslib' dependency
 are compiled from vendored sources during package installation. James K
 Bonfield and co-authors (2021) <doi:10.1093/gigascience/giab007>.
+VariantKey / RegionKey support follows Nicola Asuni (2018)
+<doi:10.1101/473744>.
 
 %prep
 %setup -q -c -n %{packname}

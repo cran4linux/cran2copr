@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resmush
-%global packver   1.0.1
+%global packname  ModLR
+%global packver   0.1.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.29
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimize and Compress Image Files with 'reSmush.it'
+Summary:          Information-Theoretic Approach for Moderation Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-rlang 
 
 %description
-Optimize and compress local image files, directories and online images
-with the 'reSmush.it' API <https://resmush.it/>. Supports 'png',
-'jpg/jpeg', 'gif', 'bmp' and 'tiff' files.
+Provides a robust implementation of information-theoretic moderation
+analysis using multi-model inference based on Akaike's Information
+Criterion (AIC) and its small-sample corrected form (Corrected AIC). The
+package enables researchers to compare competing model specifications and
+helps distinguish true interaction effects from nonlinear relationships
+that may produce spurious moderation. The methods build on Daryanto (2019)
+<doi:10.1016/j.jbusres.2019.06.012>.
 
 %prep
 %setup -q -c -n %{packname}

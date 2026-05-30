@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treeSS
-%global packver   0.1.44
+%global packver   0.1.50
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.44
+Version:          0.1.50
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tree-Spatial Scan Statistic for Cluster Detection
 

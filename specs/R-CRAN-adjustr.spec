@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbrsa
+%global packname  adjustr
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetch Turkish Banking Sector Data from the Turkish Banking Regulation and Supervision Agency
+Summary:          Stan Model Adjustments and Sensitivity Analyses using Importance Sampling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.8.0
-BuildRequires:    R-CRAN-rlang >= 1.1.6
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-writexl 
-Requires:         R-CRAN-jsonlite >= 1.8.0
-Requires:         R-CRAN-rlang >= 1.1.6
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-writexl 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-rstantools
 
 %description
-The goal of the 'rbrsa' package is to provide automated access to banking
-sector data from the Turkish Banking Regulation and Supervision Agency
-(BRSA, known as BDDK in Turkish). The package retrieves tables from two
-distinct publication portals maintained by the BRSA: The Monthly Bulletin
-Portal <https://www.bddk.org.tr/bultenaylik> and The FinTurk Data System
-<https://www.bddk.org.tr/BultenFinturk>.
+Assess the sensitivity of a Bayesian model (fitted using 'Stan' via
+'rstan', 'brms', or 'cmdstanr') to the specification of its likelihood and
+priors. Users provide a series of alternate sampling specifications, and
+the package uses Pareto-smoothed importance sampling (PSIS) to estimate
+posterior quantities of interest under each specification, without needing
+to refit the model. Methods are based on Vehtari, Simpson, Gelman, Yao,
+and Gabry (2024) <doi:10.48550/arXiv.1507.02646>.
 
 %prep
 %setup -q -c -n %{packname}

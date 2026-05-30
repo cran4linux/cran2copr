@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ameras
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Multiple Exposure Realizations in Association Studies
 
@@ -27,6 +27,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-MCMCvis 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-stats 
 Requires:         R-CRAN-nimble 
@@ -38,6 +40,8 @@ Requires:         R-methods
 Requires:         R-CRAN-MCMCvis 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
 Analyze association studies with multiple realizations of a noisy or

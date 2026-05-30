@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geobounds
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from 'geoBoundaries'
+Summary:          Download Administrative Boundary Data from 'geoBoundaries'
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,10 +33,11 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Tools to download data from 'geoBoundaries'
-<https://www.geoboundaries.org/>. Several administration levels available.
-See Runfola, D. et al. (2020) geoBoundaries: A global database of
-political administrative boundaries. PLOS ONE 15(4): 1-9.
+Tools for downloading administrative boundary data from 'geoBoundaries'
+<https://www.geoboundaries.org/> across multiple administrative levels.
+Boundary data are returned as 'sf' objects for mapping and spatial
+analysis. See Runfola, D. et al. (2020) "geoBoundaries: A global database
+of political administrative boundaries." PLOS ONE 15(4), e0231866.
 <doi:10.1371/journal.pone.0231866>.
 
 %prep

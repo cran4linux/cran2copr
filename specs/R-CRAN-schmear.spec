@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resmush
-%global packver   1.0.1
+%global packname  schmear
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimize and Compress Image Files with 'reSmush.it'
+Summary:          Build Structured Data Frame Subtypes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-Optimize and compress local image files, directories and online images
-with the 'reSmush.it' API <https://resmush.it/>. Supports 'png',
-'jpg/jpeg', 'gif', 'bmp' and 'tiff' files.
+Provides developer-focused helper functions and S3 classes to ease the
+creation of structured subtypes of data frames. Developers can require
+certain columns and types to be present, and can enforce crossing and
+nesting relationships between values in different columns. Type-specific
+metadata and attributes are preserved through common data frame
+manipulations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xiacf
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Dependence and Lead-Lag Analysis via Chatterjee's Xi
 
@@ -39,14 +39,16 @@ Requires:         R-stats
 %description
 Computes Chatterjee's non-parametric correlation coefficient for time
 series data. It extends the original metric to time series analysis by
-providing the Xi-Autocorrelation Function (Xi-ACF) and
-Xi-Cross-Correlation Function (Xi-CCF). The package allows users to test
-for non-linear dependence using Iterative Amplitude Adjusted Fourier
-Transform (IAAFT) surrogate data with strict Family-Wise Error Rate
-('FWER') control via Max-statistic approaches. Methodologies are based on
-Chatterjee (2021) <doi:10.1080/01621459.2020.1758115> and surrogate data
-testing methods by Schreiber and Schmitz (1996)
-<doi:10.1103/PhysRevLett.77.635>.
+providing the univariate Xi-Autocorrelation Function (Xi-ACF), directional
+Xi-Cross-Correlation Function (Xi-CCF), and multivariate network
+evaluation matrices. The package allows users to test for non-linear
+dependence using Iterative Amplitude Adjusted Fourier Transform (IAAFT)
+and Multivariate IAAFT (MIAAFT) surrogate data with strict Family-Wise
+Error Rate ('FWER') control via Max-statistic approaches. Methodologies
+are based on Chatterjee (2021) <doi:10.1080/01621459.2020.1758115>,
+surrogate data testing methods by Schreiber and Schmitz (1996)
+<doi:10.1103/PhysRevLett.77.635>, and local structural identification by
+Watanabe (2026) <doi:10.2139/ssrn.6829431>.
 
 %prep
 %setup -q -c -n %{packname}

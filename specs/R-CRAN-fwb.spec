@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fwb
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fractional Weighted Bootstrap
 
@@ -18,15 +18,15 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pbapply >= 1.7.2
-BuildRequires:    R-CRAN-rlang >= 1.1.6
-BuildRequires:    R-CRAN-chk >= 0.10.0
+BuildRequires:    R-CRAN-rlang >= 1.2.0
+BuildRequires:    R-CRAN-arg >= 0.1.1
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-pbapply >= 1.7.2
-Requires:         R-CRAN-rlang >= 1.1.6
-Requires:         R-CRAN-chk >= 0.10.0
+Requires:         R-CRAN-rlang >= 1.2.0
+Requires:         R-CRAN-arg >= 0.1.1
 Requires:         R-CRAN-generics 
 Requires:         R-graphics 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eulerr
-%global packver   7.1.0
+%global packver   8.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1.0
+Version:          8.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Area-Proportional Euler and Venn Diagrams with Ellipses
 
@@ -14,25 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-polyclip 
-BuildRequires:    R-CRAN-polylabelr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-GenSA 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-polyclip 
-Requires:         R-CRAN-polylabelr 
-Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-stats 
 Requires:         R-utils 
 

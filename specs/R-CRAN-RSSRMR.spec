@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resmush
-%global packver   1.0.1
+%global packname  RSSRMR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimize and Compress Image Files with 'reSmush.it'
+Summary:          Robust Self-Representation Sparse Reconstruction and Manifold Regularization
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-robustbase 
+Requires:         R-stats 
 
 %description
-Optimize and compress local image files, directories and online images
-with the 'reSmush.it' API <https://resmush.it/>. Supports 'png',
-'jpg/jpeg', 'gif', 'bmp' and 'tiff' files.
+Feature selection and clustering classification under the presence of
+multivariate outliers in high-dimensional unlabeled data.
 
 %prep
 %setup -q -c -n %{packname}

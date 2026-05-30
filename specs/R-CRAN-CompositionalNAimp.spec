@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompositionalNAimp
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Value Imputation with Compositional Data
 
@@ -31,8 +31,8 @@ Functions to perform missing value imputation with compositional data
 using the Jensen-Shannon divergence based k--NN and a--k--NN algorithms.
 The functions are based on the following paper: Tsagris M., Alenazi A. and
 Stewart C. (2026). "A Jensen--Shannon divergence based k--NN algorithm for
-missing value imputation in compositional data". Journal of Applied
-Statistics (Accepted for publication).
+missing value imputation in compositional data",
+<doi:10.1080/02664763.2026.2677908>.
 
 %prep
 %setup -q -c -n %{packname}

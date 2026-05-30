@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resmush
-%global packver   1.0.1
+%global packname  shinyStep
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimize and Compress Image Files with 'reSmush.it'
+Summary:          User-Editable R Functions in 'Shiny' Apps with a Step Debugger
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-shinyAce >= 0.4.0
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-shinyAce >= 0.4.0
 
 %description
-Optimize and compress local image files, directories and online images
-with the 'reSmush.it' API <https://resmush.it/>. Supports 'png',
-'jpg/jpeg', 'gif', 'bmp' and 'tiff' files.
+A pair of 'Shiny' modules that let end users of a 'Shiny' application
+author their own R functions directly in the browser. Host apps can expose
+these modules as extension points where user-supplied code augments or
+replaces built-in logic, without requiring users to modify the app's
+source. Each module embeds an 'Ace' editor with a structured argument
+table, an in-frame R console rooted in the paused function's local
+environment, and a step debugger that handles for, while, repeat, and
+if/else blocks at any nesting depth. Two module flavours are provided:
+solo editors for testing a function in isolation with literal argument
+values, and embedded editors for pausing a function mid-execution inside a
+larger host program.
 
 %prep
 %setup -q -c -n %{packname}

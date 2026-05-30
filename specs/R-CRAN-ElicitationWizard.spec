@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resmush
-%global packver   1.0.1
+%global packname  ElicitationWizard
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimize and Compress Image Files with 'reSmush.it'
+Summary:          LLM-Based Bayesian Prior Elicitation Wizard
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-ellmer 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-commonmark 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-ellmer 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-commonmark 
 
 %description
-Optimize and compress local image files, directories and online images
-with the 'reSmush.it' API <https://resmush.it/>. Supports 'png',
-'jpg/jpeg', 'gif', 'bmp' and 'tiff' files.
+'Shiny' application for eliciting Bayesian prior distributions using large
+language models (LLMs). Supports multiple LLM experts, linear opinion
+pooling, and the Delphi method for iterative consensus. For more details
+see J. R. Falconer et al. (2022) <doi:10.1287/deca.2022.0451> and D. Selby
+et al. (2025) <doi:10.1002/sta4.70054>.
 
 %prep
 %setup -q -c -n %{packname}

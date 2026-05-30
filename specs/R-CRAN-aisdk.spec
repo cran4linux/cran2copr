@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aisdk
-%global packver   1.1.0
+%global packver   1.4.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.4.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified Interface for AI Model Providers
 
@@ -30,9 +30,9 @@ BuildRequires:    R-parallel
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-openssl 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
@@ -46,9 +46,9 @@ Requires:         R-parallel
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-methods 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-openssl 
 
 %description
 A production-grade AI toolkit for R featuring a layered architecture

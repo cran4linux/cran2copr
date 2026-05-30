@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resmush
-%global packver   1.0.1
+%global packname  GWPR.light
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimize and Compress Image Files with 'reSmush.it'
+Summary:          Geographically Weighted Panel Regression
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-fixest 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
+Requires:         R-CRAN-fixest 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-plm 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Optimize and compress local image files, directories and online images
-with the 'reSmush.it' API <https://resmush.it/>. Supports 'png',
-'jpg/jpeg', 'gif', 'bmp' and 'tiff' files.
+A modern, first implementation of Geographically Weighted Panel Regression
+(GWPR) for spatial panel data. The package provides a unified public API
+supporting Gaussian and binomial family models, within/pooling/random
+panel effects, three bandwidth search strategies (grid, Stochastic
+Gradient Descent, random), five kernel functions, and optional parallel
+execution via the 'future' framework. Diagnostic tools include spatial
+Moran's I, local F-test, Hausman test, and Lagrange Multiplier test.
 
 %prep
 %setup -q -c -n %{packname}

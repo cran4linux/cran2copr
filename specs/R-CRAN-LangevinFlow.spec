@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  resmush
-%global packver   1.0.1
+%global packname  LangevinFlow
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimize and Compress Image Files with 'reSmush.it'
+Summary:          Langevin Diffusion Samplers with a C++ Backend
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Optimize and compress local image files, directories and online images
-with the 'reSmush.it' API <https://resmush.it/>. Supports 'png',
-'jpg/jpeg', 'gif', 'bmp' and 'tiff' files.
+Provides lightweight, dependency-minimal implementations of Langevin
+diffusion based Markov chain Monte Carlo samplers, including the
+Unadjusted Langevin Algorithm (ULA) and the Metropolis-Adjusted Langevin
+Algorithm (MALA). The core sampling loops are written in C++ via 'Rcpp'
+and 'RcppArmadillo' for performance, while exposing a simple R-level
+interface where the user supplies the gradient of the negative log-density
+(and, for MALA, the negative log-density itself). Intended as a building
+block for Bayesian inference and stochastic optimization rather than a
+full probabilistic programming framework. Methods follow Roberts and
+Tweedie (1996) <doi:10.2307/3318418> and Roberts and Rosenthal (1998)
+<doi:10.1111/1467-9868.00123>.
 
 %prep
 %setup -q -c -n %{packname}
