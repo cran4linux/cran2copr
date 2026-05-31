@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.management
-%global packver   0.10.0
+%global packname  TemporalHazard
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Management & Governance Services
+Summary:          Temporal Parametric Hazard Modeling
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.8.0
-Requires:         R-CRAN-paws.common >= 0.8.0
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Interface to 'Amazon Web Services' management and governance services,
-including 'CloudWatch' application and infrastructure monitoring, 'Auto
-Scaling' for automatically scaling resources, and more
-<https://aws.amazon.com/>.
+Provides native R implementations of the multiphase parametric hazard
+model of Blackstone, Naftel, and Turner (1986)
+<doi:10.1080/01621459.1986.10478314> with a focus on behavioral parity,
+transparent numerics, and reproducible validation against reference
+outputs from the original 'C'/'SAS' HAZARD program, originally developed
+at the University of Alabama at Birmingham (UAB). The 'SAS'/'C' code and
+this R package are currently developed and maintained at The Cleveland
+Clinic Foundation, and the R code was wholly developed at The Cleveland
+Clinic Foundation. The generalized temporal decomposition family extends
+to longitudinal mixed-effects settings (Rajeswaran et al. 2018
+<doi:10.1177/0962280215623583>). The package is intentionally implemented
+in pure R first; performance-critical paths may later be accelerated with
+'Rcpp' without changing the public interface.
 
 %prep
 %setup -q -c -n %{packname}

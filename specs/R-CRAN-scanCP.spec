@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.management
-%global packver   0.10.0
+%global packname  scanCP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Management & Governance Services
+Summary:          Deep Learning–Based Changepoint Detection with Local Neural Models
 
-License:          Apache License (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.8.0
-Requires:         R-CRAN-paws.common >= 0.8.0
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-RSNNS 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-RSNNS 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-parallel 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Interface to 'Amazon Web Services' management and governance services,
-including 'CloudWatch' application and infrastructure monitoring, 'Auto
-Scaling' for automatically scaling resources, and more
-<https://aws.amazon.com/>.
+Implementation of deep learning–based changepoint detection algorithm
+designed for time series with smooth local fluctuations. The method fits
+localized feed‑forward neural networks to approximate the underlying
+smooth component and constructs a residual‑based detector that isolates
+abrupt structural changes. A fully data‑adaptive empirical cumulative
+distribution function (ECDF) based thresholding rule and refinement
+procedures yield accurate changepoint localization without parametric
+assumptions on noise or trend structure.
 
 %prep
 %setup -q -c -n %{packname}

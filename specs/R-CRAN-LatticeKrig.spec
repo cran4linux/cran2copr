@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LatticeKrig
-%global packver   9.3.0
+%global packver   9.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.3.0
+Version:          9.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Resolution Kriging Based on Markov Random Fields
 
@@ -21,11 +21,13 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-spam64 
 BuildRequires:    R-CRAN-fftwtools 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-fields >= 9.9
 Requires:         R-methods 
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-spam64 
 Requires:         R-CRAN-fftwtools 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Methods for the interpolation of large spatial datasets. This package uses

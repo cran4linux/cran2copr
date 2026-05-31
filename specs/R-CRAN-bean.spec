@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sizeMat
-%global packver   1.2.0
+%global packname  bean
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Size at Sexual Maturity
+Summary:          Data Thinning of Species Occurrences in Environmental Space
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-MASS 
-Requires:         R-grDevices 
-Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-terra 
 
 %description
-Estimate morphometric and gonadal size at sexual maturity for organisms,
-usually fish and invertebrates. It includes methods for classification
-based on relative growth (using principal components analysis,
-hierarchical clustering, discriminant analysis), logistic regression
-(Frequentist or Bayes), parameters estimation and some basic plots.
-Optional ggplot-style graphics are available for selected plot methods.
+A suite of tools to mitigate sampling bias in species occurrence records
+by thinning data in the environmental space (E-space). This process can
+improve the accuracy and precision of species distribution models (SDM,
+also known as ecological niche models, ENM). The package offers a
+data-driven protocol to determine thinning parameters using kernel-density
+bandwidth selection. Two thinning methods are provided (stochastic and
+deterministic) to reduce over-sampled environmental conditions and
+down-weight outlier observations. The name 'bean' reflects the core
+principle of the method: each 'pod' (a grid cell in E-space) is allowed to
+contain only a limited number of 'beans' (occurrence points). See
+Silverman (1986, ISBN:978-0-412-24620-3) and Rousseeuw and Leroy (2003,
+ISBN:978-0-471-48855-2) for the underlying statistical methods.
 
 %prep
 %setup -q -c -n %{packname}

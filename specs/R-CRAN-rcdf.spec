@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcdf
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Toolkit for Working with Encrypted Parquet Files
 
@@ -18,37 +18,25 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-utils >= 4.0.0
-BuildRequires:    R-CRAN-RSQLite >= 2.2.0
 BuildRequires:    R-CRAN-openssl >= 2.1.1
 BuildRequires:    R-CRAN-jsonlite >= 1.8.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-uuid >= 0.1.2
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-tools 
+BuildRequires:    R-stats 
 Requires:         R-utils >= 4.0.0
-Requires:         R-CRAN-RSQLite >= 2.2.0
 Requires:         R-CRAN-openssl >= 2.1.1
 Requires:         R-CRAN-jsonlite >= 1.8.0
-Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-uuid >= 0.1.2
-Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-zip 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-tools 
+Requires:         R-stats 
 
 %description
 Utilities for reading, writing, and managing RCDF files, including

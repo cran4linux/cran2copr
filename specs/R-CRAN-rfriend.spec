@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfriend
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides Batch Functions and Visualisation for Basic Statistical Procedures
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-MuMIn 
@@ -40,7 +39,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-this.path 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-writexl 
@@ -57,7 +55,6 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-magick 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-MuMIn 
@@ -68,7 +65,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rstatix 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-this.path 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-writexl 

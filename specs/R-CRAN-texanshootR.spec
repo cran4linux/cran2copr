@@ -1,44 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sizeMat
-%global packver   1.2.0
+%global packname  texanshootR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Size at Sexual Maturity
+Summary:          Reproducible Audit Trails for Indefensible Research
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-MASS 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-tools 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-splines 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Estimate morphometric and gonadal size at sexual maturity for organisms,
-usually fish and invertebrates. It includes methods for classification
-based on relative growth (using principal components analysis,
-hierarchical clustering, discriminant analysis), logistic regression
-(Frequentist or Bayes), parameters estimation and some basic plots.
-Optional ggplot-style graphics are available for selected plot methods.
+Provides a structured, terminal-first interface for exploratory model
+search, including transformation grids, predictor-subset enumeration,
+interaction screening, principled- sounding sample restrictions, outcome
+engineering, and model-form escalation (polynomial / spline wraps, robust
+M-estimation, generalized linear model (GLM) family swaps,
+random-intercept lifts). Persistent run history, achievement tracking, and
+reportable output generators (manuscript, presentation, funding letter,
+graphical abstract, reviewer response) are included.
 
 %prep
 %setup -q -c -n %{packname}

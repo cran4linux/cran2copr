@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.management
-%global packver   0.10.0
+%global packname  kronxNBC
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Management & Governance Services
+Summary:          Clock of Regimes Naive Bayes Classifier (Student-t)
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.8.0
-Requires:         R-CRAN-paws.common >= 0.8.0
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-naivebayes 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-naivebayes 
 
 %description
-Interface to 'Amazon Web Services' management and governance services,
-including 'CloudWatch' application and infrastructure monitoring, 'Auto
-Scaling' for automatically scaling resources, and more
-<https://aws.amazon.com/>.
+Computes and fits a heavy-tailed Student-t Naive Bayes classifier for
+non-stationary financial market regime analysis (Clock of Regimes, COR).
+The core innovation is a profile grid search over the degrees-of-freedom
+parameter nu that prevents numerical underflow and structural
+classification failures when identifying fat-tailed Stress regimes.
+Provides S3 methods for fitting, prediction, summarising, plotting, and
+parameter extraction.
 
 %prep
 %setup -q -c -n %{packname}

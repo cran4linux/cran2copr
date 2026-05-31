@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssmodels
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Selection Models
 
@@ -17,16 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-pracma >= 2.3.8
 BuildRequires:    R-CRAN-sn >= 2.1.0
 BuildRequires:    R-CRAN-miscTools >= 0.6.26
-Requires:         R-CRAN-numDeriv >= 2016.8.1.1
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-pracma >= 2.3.8
 Requires:         R-CRAN-sn >= 2.1.0
 Requires:         R-CRAN-miscTools >= 0.6.26
+Requires:         R-CRAN-MASS 
 
 %description
 In order to facilitate the adjustment of the sample selection models

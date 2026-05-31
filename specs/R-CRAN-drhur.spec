@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drhur
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learning R with Dr. Hu
 
@@ -17,11 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-learnr >= 0.10.1
-Requires:         R-CRAN-learnr >= 0.10.1
+BuildRequires:    R-CRAN-quarto 
+Requires:         R-CRAN-quarto 
 
 %description
-Tutarials of R learning easily and happily.
+Provides interactive workshops for learning R easily and happily. Each
+workshop is a self-contained 'Quarto' Live document whose code cells run
+in the browser via 'WebAssembly', so learners can read the instructions
+and run the exercises side by side without a local R setup. The materials
+accompany the "Learning R with Dr. Hu" workshop series.
 
 %prep
 %setup -q -c -n %{packname}

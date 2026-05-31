@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  wheatmap
-%global packver   0.2.0
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Incrementally Build Complex Plots using Natural Semantics
 
@@ -17,13 +18,17 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-pals 
 Requires:         R-grid 
+Requires:         R-CRAN-gtable 
 Requires:         R-stats 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-pals 
 
 %description
 Builds complex plots, heatmaps in particular, using natural semantics.

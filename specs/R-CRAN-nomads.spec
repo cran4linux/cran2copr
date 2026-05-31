@@ -1,30 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.management
-%global packver   0.10.0
+%global packname  nomads
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Management & Governance Services
+Summary:          Nomadic Pectoral Sandpiper Movement Data
 
-License:          Apache License (>= 2.0)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.8.0
-Requires:         R-CRAN-paws.common >= 0.8.0
 
 %description
-Interface to 'Amazon Web Services' management and governance services,
-including 'CloudWatch' application and infrastructure monitoring, 'Auto
-Scaling' for automatically scaling resources, and more
-<https://aws.amazon.com/>.
+Provides satellite tracking data from nomadic pectoral sandpipers
+published in Kempenaers and Valcu (2017) <doi:10.1038/nature20813>. The
+data can also serve as benchmark data for clustering movement tracks.
 
 %prep
 %setup -q -c -n %{packname}

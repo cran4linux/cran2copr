@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Omisc
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Univariate Bootstrapping and Other Things
+Summary:          DeFries-Fulker Analysis and Univariate Bootstrapping
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,25 +18,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-base 
 BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-copula 
 Requires:         R-CRAN-MASS 
-Requires:         R-base 
 Requires:         R-stats 
+Requires:         R-parallel 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-copula 
 
 %description
-Primarily devoted to implementing the Univariate Bootstrap (as well as the
-Traditional Bootstrap). In addition there are multiple functions for
-DeFries-Fulker behavioral genetics models. The univariate bootstrapping
-functions, DeFries-Fulker functions, regression and traditional
-bootstrapping functions form the original core. Additional features may
-come online later, however this software is a work in progress. For more
-information about univariate bootstrapping see: Lee and Rodgers (1998) and
-Beasley et al (2007) <doi:10.1037/1082-989X.12.4.414>.
+Implements the Univariate Bootstrap and the Traditional (Naive) Bootstrap
+for resampling multivariate data while preserving covariance structure.
+Also provides functions for DeFries-Fulker behavioral genetics models,
+including the Rodgers-Kohler formulation with robust standard errors.
 
 %prep
 %setup -q -c -n %{packname}
