@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  progressify
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Progress Reporting of Common Functions via One Magic Function
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -30,8 +30,10 @@ combining this function with R's native pipe operator, you have a
 straightforward way to report progress on iterative computations with
 minimal refactoring, e.g. 'lapply(x, fcn) |> progressify()' and
 'purrr::map(x, fcn) |> progressify()'. It is compatible with the
-'futurize' package for parallelization, e.g. 'lapply(x, fcn) |>
-progressify() |> futurize()' and 'purrr::map(x, fcn) |> futurize() |>
+parallel-processing map-reduce packages 'future.apply', 'furrr',
+'crossmap', 'foreach', 'doFuture', and 'futurize'. It also supports
+domain-specific packages including 'boot', 'fwb', 'lme4', 'partykit',
+'sandwich', and 'SimDesign', e.g. 'boot::boot(data, stat, R) |>
 progressify()'.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyfinance
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Finance Helper Functions
 
@@ -27,15 +27,12 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.3
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-nanoparquet >= 0.5.1
 BuildRequires:    R-CRAN-slider >= 0.3.1
-BuildRequires:    R-CRAN-frenchdata >= 0.2.0
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-sandwich >= 3.1.0
 Requires:         R-CRAN-dbplyr >= 2.5.0
@@ -47,15 +44,12 @@ Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.3
 Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-nanoparquet >= 0.5.1
 Requires:         R-CRAN-slider >= 0.3.1
-Requires:         R-CRAN-frenchdata >= 0.2.0
-Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readMDTable
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Markdown Tables into Tibbles
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 2.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-readr >= 2.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 

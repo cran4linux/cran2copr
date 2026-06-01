@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Nestimate
-%global packver   0.4.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Estimation, Bootstrap, and Higher-Order Analysis
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-glasso
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-brglm2 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glasso 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-brglm2 
+Requires:         R-CRAN-nnet 
 
 %description
 Estimate, compare, and analyze dynamic and psychological networks using a

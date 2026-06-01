@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pridit
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Component Analysis Applied to Ridit Scoring
+Summary:          Composite Scoring via Principal Component Analysis of Ridit Scores
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Implements the 'PRIDIT' (Principal Component Analysis applied to 'RIDITs')
-scoring system described in Brockett et al. (2002)
-<doi:10.1111/1539-6975.00027>. Provides functions for ridit scoring
-originally developed by Bross (1958) <doi:10.2307/2527727>, calculating
-'PRIDIT' weights, and computing final 'PRIDIT' scores for multivariate
-analysis of ordinal data.
+Implements 'PRIDIT' (Principal Component Analysis applied to 'RIDITs'), an
+unsupervised, nonparametric method for aggregating ordinal, categorical,
+and continuous indicators into a single interpretable composite score.
+Originally proposed by Brockett et al. (2002)
+<doi:10.1111/1539-6975.00027> for insurance fraud detection and extended
+to hospital quality measurement by Lieberthal (2008)
+<doi:10.1111/j.1475-6773.2007.00821.x> and Lieberthal and Comer (2013)
+<doi:10.1111/rmir.12009>. The package provides: (1) low-level functions
+ridit(), PRIDITweight(), and PRIDITscore(); (2) a unified pridit() entry
+point returning a classed object with print, summary, 'autoplot', and
+'coef' methods; (3) pridit_boot() for bootstrap confidence intervals on
+scores and weights; (4) a step_pridit() recipe step for out-of-sample
+scoring within the 'tidymodels' framework; and (5) pridit_longitudinal()
+for panel data, computing cross-period stability of scores and weights.
 
 %prep
 %setup -q -c -n %{packname}
