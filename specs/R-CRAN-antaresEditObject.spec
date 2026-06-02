@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  antaresEditObject
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Edit an 'Antares' Simulation
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-antaresRead >= 2.4.2
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-cli 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-zip 
 
 %description
 Edit an 'Antares' simulation before running it : create new areas, links,

@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcextTools
+%global packname  RsimdDispatch
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analytical Procedures in Support of Brazilian Public Sector External Auditing
+Summary:          Runtime 'SIMD' Dispatch Templates for 'C' Code in 'R' Packages
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-visNetwork 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-visNetwork 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Set of analytical procedures based on advanced data analysis in support of
-Brazil's public sector external control activity.
+Provides templates and a working example for runtime Single Instruction
+Multiple Data ('SIMD') dispatch in 'C' code used by 'R' packages. Packages
+can stage scalar and architecture-specific kernel objects during
+configuration, then select a compiled and CPU-supported implementation at
+runtime through guarded function pointers. The package also vendors the
+header-only 'SIMDe' library for downstream packages through the
+'LinkingTo' field.
 
 %prep
 %setup -q -c -n %{packname}

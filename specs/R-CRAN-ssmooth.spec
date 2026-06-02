@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sumR
-%global packver   0.4.16
+%global packname  ssmooth
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate Summation of Series
+Summary:          Smooth Raster Time Series
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Application of theoretical results which ensure that the summation of an
-infinite discrete series is within an arbitrary margin of error of its
-true value. The C code under the hood is shared through header files to
-allow users to sum their own low level functions as well. Based on the
-paper by Braden (1992) <doi: 10.2307/2324995>.
+Smooth a sequence of 'terra' rasters using various algorithms (currently
+moving average, weighted moving average, and exponential smoothing). Also
+includes wrappers to smooth a vector time-series using these same
+algorithms. All smoothers use 'Rcpp' implementations for performance.
 
 %prep
 %setup -q -c -n %{packname}

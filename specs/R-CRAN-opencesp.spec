@@ -1,32 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GOLDprice
-%global packver   0.1.0
+%global packname  opencesp
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gold Price Data
+Summary:          Generation and Evaluation of Synthetic Tabular Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-readxl 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-fastmap 
+BuildRequires:    R-CRAN-PCAmixdata 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-mice 
+Requires:         R-stats 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-rpart 
+Requires:         R-parallel 
+Requires:         R-CRAN-fastmap 
+Requires:         R-CRAN-PCAmixdata 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-mice 
 
 %description
-A collection of gold price data in various currencies in the form of USD,
-EUR, JPY, GBP, CAD, CHF, INR, CNY, TRY, SAR, IDR, AED, THB, VND, EGP, KRW,
-RUB, ZAR, and AUD. This data comes from the World Gold Council. In
-addition, the data is in the form of daily, weekly, monthly (average and
-the end of period), quarterly (average and the end of period), and yearly
-(average and the end of period).
+Various tools developed as part of the Open-CESP (Centre de recherche en
+Epidémiologie et Santé des Populations) initiative to generate and
+evaluate synthetic datasets for statistical disclosure control. This
+includes tools to investigate the risk-utility tradeoff achievable with
+given synthesis methods, as well as statistical tools to estimate
+(conditional) probability distributions. The main eventual aim is to help
+researchers and statisticians disseminate open research data.
 
 %prep
 %setup -q -c -n %{packname}

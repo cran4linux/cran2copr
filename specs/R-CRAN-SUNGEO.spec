@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chilemapas
-%global packver   0.4.0
+%global packname  SUNGEO
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mapas de las Divisiones Politicas y Administrativas de Chile (Maps of the Political and Administrative Divisions of Chile)
+Summary:          Sub-National Geospatial Data Archive: Geoprocessing Toolkit
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,31 +18,50 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-measurements 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-cartogram 
+BuildRequires:    R-CRAN-packcircles 
+BuildRequires:    R-CRAN-rmapshaper 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-measurements 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-cartogram 
+Requires:         R-CRAN-packcircles 
+Requires:         R-CRAN-rmapshaper 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-curl 
 
 %description
-Mapas terrestres con topologias simplificadas. Estos mapas no tienen
-precision geodesica, por lo que aplica el DFL-83 de 1979 de la Republica
-de Chile y se consideran referenciales sin validez legal. No se incluyen
-los territorios antarticos y bajo ningun evento estos mapas significan que
-exista una cesion u ocupacion de territorios soberanos en contra del
-Derecho Internacional por parte de Chile. Esta paquete esta documentado
-intencionalmente en castellano asciificado para que funcione sin problema
-en diferentes plataformas. (Terrestrial maps with simplified toplogies.
-These maps lack geodesic precision, therefore DFL-83 1979 of the Republic
-of Chile applies and are considered to have no legal validity. Antartic
-territories are excluded and under no event these maps mean there is a
-cession or occupation of sovereign territories against International Laws
-from Chile. This package was intentionally documented in asciified spanish
-to make it work without problem on different platforms.)
+Integrates spatially-misaligned GIS datasets across incompatible
+geographic units. Part of the Sub-National Geospatial Data Archive System.
+For the underlying methods, see Zhukov, Byers, Davidson, and Kollman
+(2024) "Integrating Data Across Misaligned Spatial Units," Political
+Analysis, Volume 32, Number 1, pp. 17-33 <doi:10.1017/pan.2023.5>.
 
 %prep
 %setup -q -c -n %{packname}

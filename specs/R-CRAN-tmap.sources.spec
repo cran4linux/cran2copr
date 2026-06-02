@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ExpDes.pt
-%global packver   1.2.2
+%global __requires_exclude ^libmpi
+%global packname  tmap.sources
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pacote Experimental Designs (Portugues)
+Summary:          Data Sources for 'tmap'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stargazer 
-Requires:         R-CRAN-stargazer 
+BuildRequires:    R-CRAN-tmap >= 4.3
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-freestiler 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-servr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-tmap >= 4.3
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-freestiler 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-servr 
+Requires:         R-CRAN-cli 
 
 %description
-Pacote para análise de delineamentos experimentais (DIC, DBC e DQL),
-experimentos em esquema fatorial duplo (em DIC e DBC), experimentos em
-parcelas subdivididas (em DIC e DBC), experimentos em esquema fatorial
-duplo com um tratamento adicional (em DIC e DBC), experimentos em fatorial
-triplo (em DIC e DBC) e experimentos em esquema fatorial triplo com um
-tratamento adicional (em DIC e DBC), fazendo analise de variancia e
-comparacao de multiplas medias (para tratamentos qualitativos), ou
-ajustando modelos de regressao ate a terceira potencia (para tratamentos
-quantitativos); analise de residuos (Ferreira, Cavalcanti and Nogueira,
-2014) <doi:10.4236/am.2014.519280>.
+Provides support for a variety of spatial data sources in 'tmap',
+including remote, tiled, and streaming formats. Enables the use of
+external vector and raster data without requiring full data import,
+facilitating efficient visualization workflows.
 
 %prep
 %setup -q -c -n %{packname}

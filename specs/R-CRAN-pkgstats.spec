@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgstats
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metrics of R Packages
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ami 
 BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,10 +25,10 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-ami 
 Requires:         R-CRAN-brio 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
@@ -39,6 +38,7 @@ Requires:         R-CRAN-memoise
 Requires:         R-methods 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-sys 
 Requires:         R-CRAN-withr 
 

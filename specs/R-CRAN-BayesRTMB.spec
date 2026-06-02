@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shiny.fluent
-%global packver   0.4.0
+%global packname  BayesRTMB
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microsoft Fluent UI for Shiny Apps
+Summary:          Bayesian Inference Using 'RTMB'
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny.react >= 0.4.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-shiny.react >= 0.4.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-RTMB 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-RTMB 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-MASS 
 
 %description
-A rich set of UI components for building Shiny applications, including
-inputs, containers, overlays, menus, and various utilities. All components
-from Fluent UI (the underlying JavaScript library) are available and have
-usage examples in R.
+Provides tools for Markov chain Monte Carlo (MCMC) and Maximum A
+Posteriori (MAP) estimation utilizing the 'RTMB' package. It supports
+various statistical models including generalized linear mixed models,
+factor analysis, item response theory, and multidimensional unfolding. The
+package allows users to easily transition between frequentist and Bayesian
+paradigms using a unified interface. Automatic differentiation and Laplace
+approximation follow Kristensen et al. (2016) <doi:10.18637/jss.v070.i05>,
+and MCMC sampling uses the No-U-Turn Sampler described by Hoffman and
+Gelman (2014) <https://jmlr.org/papers/v15/hoffman14a.html>.
 
 %prep
 %setup -q -c -n %{packname}

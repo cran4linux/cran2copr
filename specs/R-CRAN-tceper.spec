@@ -1,47 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mnirs
-%global packver   0.6.5
+%global packname  tceper
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Muscle Near-Infrared Spectroscopy Processing and Analysis
+Summary:          Access the 'Open Data API' of Pernambuco Court of Accounts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-janitor 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-janitor 
 
 %description
-Read, process, and analyse data from muscle near-infrared spectroscopy
-(mNIRS) devices. Import raw data from .csv or .xls(x) files and return
-time-series data and metadata. Includes standardised methods for cleaning,
-filtering, and pre-processing mNIRS data for subsequent analysis. Also
-includes a custom plot theme and colour palette. Intended for mNIRS
-researchers and practitioners in exercise physiology, sports science, and
-clinical rehabilitation with minimal coding experience required.
+An R interface to the 'Open Data API' of the Tribunal de Contas do Estado
+de Pernambuco (TCE-PE), the Court of Accounts of the State of Pernambuco,
+Brazil. Provides tidy, ready-to-use functions to query public data on
+revenues, expenditures, commitments, procurement, contracts, agreements,
+public works, legal processes, personnel and reference tables for all
+state and municipal government entities in Pernambuco. All results are
+returned as tibbles with column names converted to 'snake_case' by
+default. Uses 'httr2' for HTTP requests and 'cli' for user-friendly
+messages. See <https://sistemas.tcepe.tc.br/DadosAbertos/> for the API
+documentation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bfbin2arm
-%global packver   0.1.3
+%global packname  eiIT
+%global packver   0.0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayes Factor Design for Two-Arm Binomial Trials
+Summary:          Ecological Inference via Information Theory
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-nloptr 
 Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-dplyr 
-Requires:         R-parallel 
 Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-nloptr 
 
 %description
-Design and analysis of one- and two-stage binomial clinical phase II
-trials using Bayes factors. Implements Bayes factors for point-null and
-directional hypotheses, predictive densities under different hypotheses,
-and power and sample size calibration. Both one-arm trials with only a
-single treatment arm and two-arm trials with treatment and control arm are
-implemented for the one- and two-stage designs.
+Estimates RxC transfer matrices from aggregated marginal data using a
+two-stage (GME+IPF) information-theoretic approach within a two-step
+(global+local) estimation procedure. The resulting matrices are consistent
+with observed row and column marginals across collections of subtables
+(e.g. precincts, polling stations, or districts). References: Golan, A.,
+Judge, G., & Miller, D. (1996). Maximum Entropy Econometrics: Robust
+Estimation with Limited Data. Wiley. Judge, G., Miller, D.J., & Cho,
+W.K.T. (2004). An information theoretic approach to ecological estimation
+and inference. In G. King, O. Rosen, & M. A. Tanner (Eds.), Ecological
+Inference: New Methodological Strategies (pp. 162–187). Cambridge
+University Press. Mittelhammer, R., Judge, G., & Miller, D. (2000).
+Econometric Foundations. Cambridge University Press. Pavia, J.M. (2023)
+<doi:10.1007/s43545-023-00658-y> Acknowledgements: The author wish to
+thank Conselleria de Economia, Hacienda y Administracion Publica (grant
+CIACIO/2023/031) for supporting this research.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  confidenceSim
+%global packname  corMLPE
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highly Customizable, Parallelized Simulations of Frequentist Confidence Clinical Trials
+Summary:          Correlation Structures for Symmetric Relational Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rpact >= 4.0.0
-BuildRequires:    R-CRAN-genodds >= 1.1.2
-BuildRequires:    R-CRAN-confidenceCurves >= 0.2.0
-Requires:         R-CRAN-rpact >= 4.0.0
-Requires:         R-CRAN-genodds >= 1.1.2
-Requires:         R-CRAN-confidenceCurves >= 0.2.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Simulate one or many frequentist confidence clinical trials based on a
-specified set of parameters.  From a two-arm, single-stage trial to a
-perpetually run Adaptive Platform Trial, this package offers vast
-flexibility to customize your trial and observe operational
-characterisitics over thousands of instances.
+Implements correlation structures for symmetric relational data (e.g.
+pairwise distances and dissimilarities) that interface with models using
+'nlme'-style correlation structures. The maximum likelihood population
+effects method is described by Clarke et al. (2002)
+<doi:10.1198/108571102320>.
 
 %prep
 %setup -q -c -n %{packname}

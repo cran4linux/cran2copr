@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scAnnotate
-%global packver   0.3
+%global packname  mvBayes
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Automated Cell Type Annotation Tool for Single-Cell RNA-Sequencing Data
+Summary:          Multivariate Bayesian Regression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Seurat >= 5.0.1
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-harmony 
-BuildRequires:    R-CRAN-SeuratObject 
-Requires:         R-CRAN-Seurat >= 5.0.1
-Requires:         R-CRAN-glmnet 
-Requires:         R-stats 
-Requires:         R-CRAN-harmony 
-Requires:         R-CRAN-SeuratObject 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-BASS 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-splines 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-BASS 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-cli 
+Requires:         R-splines 
 
 %description
-An entirely data-driven cell type annotation tools, which requires
-training data to learn the classifier, but not biological knowledge to
-make subjective decisions. It consists of three steps: preprocessing
-training and test data, model fitting on training data, and cell
-classification on test data. See Xiangling Ji,Danielle Tsao, Kailun Bai,
-Min Tsao, Li Xing, Xuekui Zhang.(2022)<doi:10.1101/2022.02.19.481159> for
-more details.
+Fit, plot, and predict a multivariate response, using an arbitrary
+univariate Bayesian regression model to independently fit basis components
+(e.g., principal components) of the response (Francom et al., 2025
+<DOI:10.1137/24M1644092>).
 
 %prep
 %setup -q -c -n %{packname}

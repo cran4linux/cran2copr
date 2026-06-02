@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adcontabil
-%global packver   1.1.8
+%global packname  cloudosR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accounting Analysis
+Summary:          'Lifebit' Platform 'API' Client
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Provides methods for processing corporate balance sheets with a focus on
-the Brazilian reporting format. Includes data standardization,
-classification by accounting categories, and aggregation of values.
-Supports accounting and financial analyses of companies, improving
-efficiency and ensuring reproducibility of empirical studies.
+Interacts with the 'Lifebit' Platform Cohort Browser 'API'
+<https://cloudos.lifebit.ai>. Enables schema discovery, table exploration,
+and read-only 'SQL' query execution with policy-aware behavior and
+team-based access control for cohort data analysis. Requires
+bastion-enabled workspaces for 'API' access.
 
 %prep
 %setup -q -c -n %{packname}

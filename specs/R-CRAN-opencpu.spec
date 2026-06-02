@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opencpu
-%global packver   2.2.14
+%global packver   2.2.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.14
+Version:          2.2.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Producing and Reproducing Results
 
@@ -54,13 +54,14 @@ Requires:         R-CRAN-openssl
 
 %description
 A system for embedded scientific computing and reproducible research with
-R. The OpenCPU server exposes a simple but powerful HTTP api for RPC and
-data interchange with R. This provides a reliable and scalable foundation
-for statistical services or building R web applications. The OpenCPU
-server runs either as a single-user development server within the
-interactive R session, or as a multi-user Linux stack based on Apache2.
-The entire system is fully open source and permissively licensed. The
-OpenCPU website has detailed documentation and example apps.
+R as described in <doi:10.48550/arXiv.1406.4806>. The OpenCPU server
+exposes a simple but powerful HTTP api for RPC and data interchange with
+R. This provides a reliable and scalable foundation for statistical
+services or building R web applications. The OpenCPU server runs either as
+a single-user development server within the interactive R session, or as a
+multi-user Linux stack based on Apache2. The entire system is fully open
+source and permissively licensed. The OpenCPU website has detailed
+documentation and example apps.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesMultiMode
-%global packver   0.7.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Mode Inference
 
@@ -47,15 +47,14 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-Rdpack 
 
 %description
-A two-step Bayesian approach for mode inference following Cross,
-Hoogerheide, Labonne and van Dijk (2024)
-<doi:10.1016/j.econlet.2024.111579>). First, a mixture distribution is
-fitted on the data using a sparse finite mixture (SFM) Markov chain Monte
-Carlo (MCMC) algorithm. The number of mixture components does not have to
-be known; the size of the mixture is estimated endogenously through the
-SFM approach. Second, the modes of the estimated mixture at each MCMC draw
-are retrieved using algorithms specifically tailored for mode detection.
-These estimates are then used to construct posterior probabilities for the
+A two-step Bayesian approach for mode inference (Baştürk et al., 2026)
+<doi:10.18637/jss.v116.i03>. First, a mixture distribution is fitted on
+the data using a sparse finite mixture (SFM) Markov chain Monte Carlo
+(MCMC) algorithm. The number of mixture components does not have to be
+known; the size of the mixture is estimated endogenously through the SFM
+approach. Second, the modes of the estimated mixture at each MCMC draw are
+retrieved using algorithms specifically tailored for mode detection. These
+estimates are then used to construct posterior probabilities for the
 number of modes, their locations and uncertainties, providing a powerful
 tool for mode inference.
 

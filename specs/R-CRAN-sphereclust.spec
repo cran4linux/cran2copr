@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gripp
-%global packver   0.2.21
+%global packname  sphereclust
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.21
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Inverse Problem Platform
+Summary:          Model Based Clustering for Spherical Data Using Elliptically Symmetric Distributions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-GenSA 
-BuildRequires:    R-CRAN-GA 
-Requires:         R-utils 
-Requires:         R-CRAN-GenSA 
-Requires:         R-CRAN-GA 
+BuildRequires:    R-CRAN-Directional 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-mixture 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rangen 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Directional 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-mixture 
+Requires:         R-parallel 
+Requires:         R-CRAN-rangen 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Set of functions designed to solve inverse problems. The direct problem is
-used to calculate a cost function to be minimized. Here are listed some
-papers using Inverse Problems solvers and sensitivity analysis: (Jader
-Lugon Jr.; Antonio J. Silva Neto 2011)
-<doi:10.1590/S1678-58782011000400003>. (Jader Lugon Jr.; Antonio J. Silva
-Neto; Pedro P.G.W. Rodrigues 2008) <doi:10.1080/17415970802082864>. (Jader
-Lugon Jr.; Antonio J. Silva Neto; Cesar C. Santana 2008)
-<doi:10.1080/17415970802082922>.
+Model based clustering with spherical data using mixtures of elliptically
+symmetric distributions, namely mixtures of spherical elliptically
+symmetric projected Cauchy (SESPC) or mixtures of elliptically symmetric
+angular Gaussian (ESAG) distributions. The relevant paper is: Perdikis T.,
+Alharbi N. and Tsagris M. (2026). <doi:10.48550/arXiv.2605.27496>.
 
 %prep
 %setup -q -c -n %{packname}

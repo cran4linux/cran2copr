@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SOPIE
-%global packver   1.6
+%global __requires_exclude ^libmpi
+%global packname  csemGT
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Estimation of the Off-Pulse Interval of a Pulsar
+Summary:          Conditional Standard Error of Measurement in Generalizability Theory
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-ADGofTest 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-ADGofTest 
-Requires:         R-grDevices 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Provides functions to non-parametrically estimate the off-pulse interval
-of a source function originating from a pulsar. The technique is based on
-a sequential application of P-values obtained from goodness-of-fit tests
-for the uniform distribution, such as the Kolmogorov-Smirnov, Cramer-von
-Mises, Anderson-Darling and Rayleigh goodness-of-fit tests.
+Estimates the per-person conditional standard error of measurement (CSEM)
+under the persons-by-items single-facet crossed design of Generalizability
+Theory, following Brennan (1998) <doi:10.1177/014662169802200401>.
+Implements three estimators of the relative error variance (full, large_a,
+uncorrelated) and the closed-form absolute error variance, with both
+analytical and item-resampling bootstrap sampling variances, quadratic
+smoothing of CSEMs on observed score, D-study extrapolation, and
+base-graphics plotting.
 
 %prep
 %setup -q -c -n %{packname}

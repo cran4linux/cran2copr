@@ -1,45 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  NicheBarcoding
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  CSwR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Niche-model-Based Species Identification
+Summary:          Companion to the Book "Computational Statistics with R"
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-e1071 >= 1.7.7
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-spider 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-e1071 >= 1.7.7
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-spider 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-CRAN-bench 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-bench 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Species Identification using DNA Barcodes Integrated with Environmental
-Niche Models.
+Provides data sets and functions used in the book "Computational
+Statistics with R" (<https://cswr.nrhstat.org>).
 
 %prep
 %setup -q -c -n %{packname}

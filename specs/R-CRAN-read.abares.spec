@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  read.abares
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Data from the Australian Bureau of Agricultural and Resource Economics and Sciences (ABARES) and Australian Bureau of Statistics (ABS)
+Summary:          Read Australian Agricultural Data from Government Agencies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -55,16 +55,17 @@ Requires:         R-CRAN-whoami
 Requires:         R-CRAN-withr 
 
 %description
-Download and import agricultural data from the Australian Bureau of
+Downloads and imports agricultural data from the Australian Bureau of
 Agricultural and Resource Economics and Sciences (ABARES)
-<https://www.agriculture.gov.au/abares> and Australian Bureau of
-Statistics (ABS) <https://www.abs.gov.au>. Data types serviced include
-spreadsheets, comma separated value (CSV) files, geospatial data including
-shape files and geotiffs covering topics including broadacre crops,
-livestock, soil data, commodities and more. Unifies field names and
-formats for data interoperability making analysis easier by standardising
-names between data formats. Also simplifies importing geospatial data as
-well as correcting issues in the geospatial data upon import.
+<https://www.agriculture.gov.au/abares> and the Australian Bureau of
+Statistics (ABS) <https://www.abs.gov.au>. Supports multiple data formats
+including spreadsheets, comma‑separated value (CSV) files, and geospatial
+data such as shapefiles and GeoTIFFs. Covers topics such as broadacre
+crops, livestock, soils, commodities and related agricultural information.
+The package standardises field names and data formats to improve
+interoperability and simplify analysis. It also streamlines the import of
+geospatial data and corrects common issues found in these data sources
+upon loading.
 
 %prep
 %setup -q -c -n %{packname}

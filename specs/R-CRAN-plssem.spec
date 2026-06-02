@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plssem
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Complex Partial Least Squares Structural Equation Modeling
 
@@ -17,7 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-modsem >= 1.0.17
+BuildRequires:    R-CRAN-modsem >= 1.0.20
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lavaan 
@@ -28,9 +29,13 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-reformulas 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-FNN 
-Requires:         R-CRAN-modsem >= 1.0.17
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-modsem >= 1.0.20
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lavaan 
@@ -41,8 +46,11 @@ Requires:         R-CRAN-Rfast
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-reformulas 
-Requires:         R-parallel 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-MASS 
 
 %description
 Estimate complex Structural Equation Models (SEMs) by fitting Partial

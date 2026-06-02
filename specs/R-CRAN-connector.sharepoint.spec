@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PODES
+%global packname  connector.sharepoint
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Village Potential Statistics of Indonesia
+Summary:          'Microsoft SharePoint' Interface for the 'connector' Package
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-Requires:         R-CRAN-readxl 
+BuildRequires:    R-CRAN-connector >= 1.0.0
+BuildRequires:    R-CRAN-AzureAuth 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-Microsoft365R 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-zephyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-connector >= 1.0.0
+Requires:         R-CRAN-AzureAuth 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-Microsoft365R 
+Requires:         R-CRAN-R6 
+Requires:         R-tools 
+Requires:         R-CRAN-zephyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Village potential statistics (PODES) collects various information on
-village potential and challenges faced by villages in Indonesia.
-Information related to village potential includes economy, security,
-health, employment, communication and information, sports, entertainment,
-development, community empowerment, education, socio-culture,
-transportation in the village. Information related to challenges includes
-natural disasters, public health, environmental pollution, social problems
-and security disturbances that occur in the village.
+Extends the 'connector' package to provide a convenient interface for
+accessing and interacting with 'Microsoft SharePoint' directly from 'R'.
+Supports listing, reading, writing, uploading, downloading, and removing
+files and directories on 'SharePoint' document libraries. Authentication
+is handled through 'Azure' tokens via the 'AzureAuth' package.
 
 %prep
 %setup -q -c -n %{packname}

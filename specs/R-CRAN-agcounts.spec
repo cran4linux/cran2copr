@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  agcounts
-%global packver   0.6.6
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate 'ActiGraph' Counts from Accelerometer Data
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-gsignal 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-GGIR 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -35,12 +34,12 @@ BuildRequires:    R-CRAN-bslib
 BuildRequires:    R-CRAN-read.gt3x 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-gsignal 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-GGIR 
 Requires:         R-stats 
 Requires:         R-utils 

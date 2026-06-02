@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  querychat
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Filter and Query Data Frames in 'shiny' Using an LLM Chat Interface
 
@@ -18,9 +18,10 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-ellmer >= 0.3.0
-BuildRequires:    R-CRAN-shinychat >= 0.3.0
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-ellmer >= 0.4.1
+BuildRequires:    R-CRAN-shinychat >= 0.4.0
+BuildRequires:    R-CRAN-bslib >= 0.11.0
+BuildRequires:    R-CRAN-bsicons 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-htmltools 
@@ -32,9 +33,10 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-whisker 
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-ellmer >= 0.3.0
-Requires:         R-CRAN-shinychat >= 0.3.0
-Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-ellmer >= 0.4.1
+Requires:         R-CRAN-shinychat >= 0.4.0
+Requires:         R-CRAN-bslib >= 0.11.0
+Requires:         R-CRAN-bsicons 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-htmltools 
@@ -48,7 +50,7 @@ Requires:         R-CRAN-whisker
 
 %description
 Adds an LLM-powered chatbot to your 'shiny' app, that can turn your users'
-natural language questions into SQL queries that run against your data,
+natural language questions into 'SQL' queries that run against your data,
 and return the result as a reactive data frame. Use it to drive reactive
 calculations, visualizations, downloads, and more.
 

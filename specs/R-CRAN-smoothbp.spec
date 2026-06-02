@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bmscstan
-%global packver   1.2.1.0
+%global packname  smoothbp
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Multilevel Single Case Models using 'Stan'
+Summary:          Hierarchical Piecewise Regression with Smoothed Change-Points
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-bridgesampling 
 BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-logspline 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan 
+BuildRequires:    R-CRAN-bayesplot 
+Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-bayesplot 
+Requires:         R-stats 
+Requires:         R-CRAN-bridgesampling 
 Requires:         R-CRAN-loo 
-Requires:         R-CRAN-logspline 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-rstantools
+Requires:         R-CRAN-bayesplot 
 
 %description
-Analyse single case analyses against a control group. Its purpose is to
-provide a flexible, with good power and low first type error approach that
-can manage at the same time controls' and patient's data. The use of
-Bayesian statistics allows to test both the alternative and null
-hypothesis. Scandola, M., & Romano, D. (2020, August 3).
-<doi:10.31234/osf.io/sajdq> Scandola, M., & Romano, D. (2021).
-<doi:10.1016/j.neuropsychologia.2021.107834>.
+Fits Bayesian hierarchical piecewise regression models with multiple
+logistic-smoothed change-points. Non-linear parameters (change-point
+locations and transition sharpness) and linear parameters can each be
+conditioned on covariates and factors via flexible design matrices. A
+random-intercept structure is supported for any parameter. Spike-and-slab
+regularization is supported for selecting the number of breakpoints.
+Posterior inference uses a Metropolis-within-Gibbs sampler implemented in
+'Rust' for speed. Methods are based on the smooth transition piecewise
+regression model of Bacon and Watts (1971) <doi:10.2307/2334389> and
+variable selection spike-and-slab priors of Kuo and Mallick (1998)
+<https://www.jstor.org/stable/25053023>.
 
 %prep
 %setup -q -c -n %{packname}

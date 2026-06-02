@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mapboxer
-%global packver   0.4.0
+%global __requires_exclude ^libmpi
+%global packname  smqf
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Interface to 'Mapbox GL JS'
+Summary:          Statistical Methods in Quantitative Finance
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-geojsonsf 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-geojsonsf 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-xts 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-pracma 
 
 %description
-Makes 'Mapbox GL JS' <https://docs.mapbox.com/mapbox-gl-js/api/>, an open
-source JavaScript library that uses WebGL to render interactive maps,
-available within R via the 'htmlwidgets' package. Visualizations can be
-used from the R console, in R Markdown documents and in Shiny apps.
+Provides data and functions used in the book "Statistical Methods in
+Quantitative Finance" by David Ardia (2026).
 
 %prep
 %setup -q -c -n %{packname}
@@ -45,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

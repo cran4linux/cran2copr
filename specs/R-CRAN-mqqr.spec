@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyvpc
-%global packver   1.6.0
+%global packname  mqqr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          VPC Percentiles and Prediction Intervals
+Summary:          Multivariate Quantile-on-Quantile Regression
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,41 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quantreg >= 5.51
-BuildRequires:    R-CRAN-data.table >= 1.9.8
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-quantreg >= 5.0
+BuildRequires:    R-CRAN-plotly >= 4.0.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-egg 
-Requires:         R-CRAN-quantreg >= 5.51
-Requires:         R-CRAN-data.table >= 1.9.8
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-quantreg >= 5.0
+Requires:         R-CRAN-plotly >= 4.0.0
 Requires:         R-stats 
-Requires:         R-CRAN-fastDummies 
 Requires:         R-utils 
-Requires:         R-CRAN-egg 
+Requires:         R-grDevices 
 
 %description
-Perform a Visual Predictive Check (VPC), while accounting for
-stratification, censoring, and prediction correction. Using piping from
-'magrittr', the intuitive syntax gives users a flexible and powerful
-method to generate VPCs using both traditional binning and a new binless
-approach Jamsen et al. (2018) <doi:10.1002/psp4.12319> with Additive
-Quantile Regression (AQR) and Locally Estimated Scatterplot Smoothing
-(LOESS) prediction correction.
+Implements Multivariate Quantile-on-Quantile Regression (m-QQR) of Sinha,
+Ghosh, Hussain, Nguyen and Das (2023) <doi:10.1016/j.eneco.2023.107021>,
+extending the bivariate Quantile-on-Quantile regression of Sim and Zhou
+(2015) <doi:10.1016/j.jbankfin.2015.01.013> to include exogenous
+moderators and controls with optional interaction terms. For each pair of
+quantile levels (theta of the response and tau of the regressor) the
+package fits a locally-weighted quantile regression of y on the principal
+regressor x, a lagged dependent variable, moderators Z and the x*Z
+interaction terms, using Gaussian kernel weights on the empirical
+cumulative distribution function (CDF) distance. Bootstrap standard errors
+and Koenker-Machado pseudo R-squared are reported. Visualisations include
+'MATLAB'-style 'Parula' and 'Jet' 3D surfaces, heatmaps and contour plots
+through 'plotly'.
 
 %prep
 %setup -q -c -n %{packname}

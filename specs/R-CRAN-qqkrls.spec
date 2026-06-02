@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  precviasBR
-%global packver   0.1.0
+%global packname  qqkrls
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Data of Road Precariousness in Brazil
+Summary:          Quantile-on-Quantile Kernel Regularized Least Squares
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-plotly >= 4.0.0
+BuildRequires:    R-CRAN-KRLS >= 1.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-plotly >= 4.0.0
+Requires:         R-CRAN-KRLS >= 1.0.0
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-Fornece acesso eficiente à malha espacial de precariedade viária
-brasileira. O pacote realiza o download em cache e a leitura otimizada
-(via Apache Arrow) de arquivos Parquet particionados, contendo o
-cruzamento de variáveis de infraestrutura do Entorno do Censo Demográfico
-2022 (IBGE) com a malha viária aberta do Overture Maps. [English] Provides
-efficient access to the spatial network of road precariousness in Brazil.
-The package performs cached downloads and optimized reading (via Apache
-Arrow) of partitioned Parquet files. These files contain the intersection
-of infrastructure variables from the 2022 Demographic Census (IBGE) with
-the open street network from Overture Maps. Methodology and datasets are
-detailed in Passos (2026) <doi:10.5281/zenodo.19711448>.
+Implements Quantile-on-Quantile Kernel-Based Regularized Least Squares
+(QQKRLS) as in Adebayo, Ozkan and Eweade (2024)
+<doi:10.1016/j.jclepro.2024.140832>. Combines Kernel-Based Regularized
+Least Squares (KRLS) of Hainmueller and Hazlett (2014)
+<doi:10.1093/pan/mpt019> with the Quantile-on-Quantile regression of Sim
+and Zhou (2015) <doi:10.1016/j.jbankfin.2015.01.013>: for each quantile
+theta of the independent variable the response is fit by KRLS on the
+corresponding sub-sample and the tau-quantile of the resulting pointwise
+marginal effects yields beta(theta, tau). Standard errors come from a
+paired bootstrap. Visualisations use the 'MATLAB' 'Parula' colour map by
+default.
 
 %prep
 %setup -q -c -n %{packname}

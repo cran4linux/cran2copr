@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tremendousr
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  miceDRF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Send Rewards and Incentives with 'Tremendous' from R
+Summary:          Imputation with 'mice' and Distributional Random Forests
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,20 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-drf 
+Requires:         R-CRAN-drf 
 
 %description
-A slightly-opinionated R interface for the 'Tremendous' API
-(<https://www.tremendous.com/>). In addition to supporting GET and POST
-requests, 'tremendousr' has, dare I say, tremendously intuitive functions
-for sending digital rewards and incentives directly from R.
+Provides a custom imputation method for the 'mice' package based on
+distributional random forests. The package implements the
+'mice.impute.DRF' method, which can be used within the standard 'mice'
+workflow. Missing values are imputed by estimating conditional
+distributions with distributional random forests and sampling observed
+responses using forest weights.
 
 %prep
 %setup -q -c -n %{packname}

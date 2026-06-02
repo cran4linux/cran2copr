@@ -1,41 +1,28 @@
 %global __brp_check_rpaths %{nil}
-%global packname  rmytarget
-%global packver   2.4.0
+%global __requires_exclude ^libmpi
+%global packname  nVennR2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load Data from 'MyTarget API v2 and v3'
+Summary:          An Interface to 'nVenn2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+Requires:         R-CRAN-Rcpp >= 1.0.14
 
 %description
-Allows work with 'MyTarget Statistics API v2'
-<https://target.my.com/adv/api-marketing/doc/stat-v2> and 'MyTarget
-Statistics API v3'
-<https://target.my.com/adv/api-marketing/doc/stat-v2#statisticsv3> load
-data by ads, campaigns, agency clients and statistic from your ads
-account.
+Creates quasi-proportional Venn diagrams with an arbitrary number of sets.
+It is related to the old 'nVennR' package, but the algorithm and use have
+been reworked.
 
 %prep
 %setup -q -c -n %{packname}

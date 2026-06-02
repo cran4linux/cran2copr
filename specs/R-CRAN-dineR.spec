@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dineR
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differential Network Estimation in R
 
@@ -16,17 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-CRAN-progress 
 
 %description
 An efficient and convenient set of functions to perform differential
 network estimation through the use of alternating direction method of
-multipliers optimization with a variety of loss functions.
+multipliers optimization with a variety of different loss functions.
 
 %prep
 %setup -q -c -n %{packname}

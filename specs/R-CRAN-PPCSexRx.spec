@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nomesbr
-%global packver   0.0.9
+%global packname  PPCSexRx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Limpa e Simplifica Nomes de Pessoas (Name Cleaner and Simplifier)
+Summary:          Prescribe Sub-Symptom Exercise for Adolescent Concussion
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tictoc 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tictoc 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Limpa e simplifica nomes de pessoas para auxiliar no pareamento de banco
-de dados na ausência de chaves únicas não ambíguas. Detecta e corrige
-erros tipográficos mais comuns, simplifica opcionalmente termos sujeitos
-eventualmente a omissão em cadastros, e simplifica foneticamente suas
-palavras, aplicando variação própria do algoritmo metaphoneBR. (Cleans and
-simplifies person names to assist in database matching when unambiguous
-unique keys are unavailable. Detects and corrects common typos, optionally
-simplifies terms prone to omission in records, and applies phonetic
-simplification using a custom variation of the metaphoneBR algorithm.)
-Mation (2025) <doi:10.6082/uchicago.15104>.
+A clinical decision support system for sub-symptom threshold aerobic
+exercise (SSTAE) prescription in adolescents with persistent
+post-concussion symptoms (PPCS). Implements an evidence-based protocol
+derived from a systematic review of seven studies (Li, 2026;
+<doi:10.17605/osf.io/kvuf6>), encoding safety screening, Buffalo
+Concussion Treadmill Test (BCTT)-guided heart rate prescription,
+session-level progress tracking, and evidence disclosure using the Grading
+of Recommendations, Assessment, Development and Evaluation (GRADE)
+framework into an open-source tool for athletic trainers and clinicians.
+Designed to support implementation in resource-limited settings where BCTT
+equipment may be unavailable. GRADE certainty of evidence: LOW. For
+clinician use only; not a substitute for clinical judgement.
 
 %prep
 %setup -q -c -n %{packname}

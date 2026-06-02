@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsROCrate
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DataSHIELD' RO-Crate Governance Functions
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-opalr >= 3.6.1
 BuildRequires:    R-CRAN-rocrateR >= 0.1.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DSMolgenisArmadillo 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-opalr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RcppTOML 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -30,12 +30,12 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-vtree 
 BuildRequires:    R-CRAN-xptr 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-opalr >= 3.6.1
 Requires:         R-CRAN-rocrateR >= 0.1.0
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DSMolgenisArmadillo 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-opalr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RcppTOML 
 Requires:         R-CRAN-rmarkdown 
