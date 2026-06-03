@@ -1,26 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  ahocorasick
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Fast Multi-Pattern String Matching with the 'Aho-Corasick' Algorithm
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+Provide fast multi-pattern string matching for 'R' using the
+'Aho-Corasick' algorithm, powered by the 'Rust' 'aho-corasick' crate. It
+builds reusable automatons for detecting matches, counting matches,
+locating character, extracting matched text, and replacing matches in
+character vectors. For more details on the 'Aho-Corasick' algorithm,
+please see Aho and Corasick (1975) <doi:10.1145/360825.360855>.
 
 %prep
 %setup -q -c -n %{packname}

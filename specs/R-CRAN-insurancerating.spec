@@ -1,61 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  insurancerating
-%global packver   0.7.5
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analytic Insurance Rating Techniques
+Summary:          Actuarial Tools for Insurance Pricing Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ciTools 
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DHARMa 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-evtree 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-scam 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-ciTools 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DHARMa 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-evtree 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-insight 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-scam 
 Requires:         R-CRAN-stringr 
 
 %description
-Functions to build, evaluate, and visualize insurance rating models. It
-simplifies the process of modeling premiums, and allows to analyze
-insurance risk factors effectively. The package employs a data-driven
-strategy for constructing insurance tariff classes, drawing on the work of
-Antonio and Valdez (2012) <doi:10.1007/s10182-011-0152-7>.
+Provides actuarial tools and building blocks for analysing, modelling,
+refining, and validating insurance rating models. Designed to support
+common GLM-based pricing tasks and the translation of statistical model
+output into practical tariff structures. The package supports the
+construction of insurance tariff classes using a data-driven approach,
+based on the methodology of Antonio and Valdez (2012)
+<doi:10.1007/s10182-011-0152-7>.
 
 %prep
 %setup -q -c -n %{packname}

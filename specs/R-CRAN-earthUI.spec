@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  earthUI
-%global packver   0.1.3
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive 'shiny' GUI for the 'earth' Package
 
@@ -18,15 +18,25 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-earth >= 5.3.0
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-earth >= 5.3.0
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-shiny 
 Requires:         R-stats 
 Requires:         R-tools 

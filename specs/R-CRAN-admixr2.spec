@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ICCDesign
-%global packver   0.1.1
+%global packname  admixr2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Intraclass Correlation Coefficient (ICC) Design, Calculation and Interactive 'shiny' Toolkit
+Summary:          Aggregate Data Modelling
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,26 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-stats 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-nlmixr2est 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-qs2 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rxode2 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-nlmixr2est 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-qs2 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rxode2 
 
 %description
-A comprehensive toolkit for intraclass correlation coefficient (ICC)
-analysis, integrating three core functionalities: (1) Closed-form sample
-size calculation for ICC estimation with assurance probability, based on
-Zou (2012) <doi:10.1002/sim.5466>; (2) Full implementation of all 10 ICC
-types (6 common + 4 supplementary) for point estimation, exact confidence
-interval calculation, and formal hypothesis testing, following the methods
-of McGraw & Wong (1996) <doi:10.1037/1082-989X.1.1.30> and the standard
-decision framework; (3) An interactive 'shiny' application that guides
-users through ICC type selection, performs calculations, and provides
-reliability evaluation based on the Koo & Li (2016)
-<doi:10.1016/j.jcm.2016.02.012> criteria. Compared to existing packages,
-it provides a unified decision workflow and supports all less common ICC
-variants.
+Fit pharmacokinetic/pharmacodynamic (PK/PD) models to aggregate-level data
+(mean vector and covariance matrix per study) rather than individual-level
+data. Integrates with the 'nlmixr2'/'rxode2' ecosystem via three
+estimation methods: a First-Order ('FO') analytical estimator, a Monte
+Carlo (MC) estimator, and an Iterative Reweighting Monte Carlo ('IRMC')
+estimator. Methods are based on Välitalo (2021)
+<doi:10.1007/s10928-021-09760-1>; software described in van de Beek et al.
+(2025) <doi:10.1007/s10928-025-10011-w>.
 
 %prep
 %setup -q -c -n %{packname}

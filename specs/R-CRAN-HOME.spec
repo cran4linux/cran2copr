@@ -1,26 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  HOME
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Harmonized Orphanhood Mortality Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+Implements indirect demographic methods for estimating adult mortality
+from orphanhood data. The package includes the standard Brass and Hill
+(1973) method
+<https://scholar.google.com/scholar_lookup?&title=Estimating%%20Adult%%20Mortality%%20from%%20Orphanhood&pages=111-23&publication_year=1973&author=Brass%%2CW.&author=Hill.%%2CK.>,
+the regression-based approach developed by Timaeus (1992)
+<https://pubmed.ncbi.nlm.nih.gov/12317481/>, and the adjustments proposed
+by Luy (2012) <doi:10.1007/s13524-012-0101-4> for low-mortality
+populations. A relational model is used to harmonize estimates into
+comparable adult mortality indicators. The package also provides
+diagnostic tools to assess the sensitivity of results to assumptions about
+the mean age of childbearing and the choice of model life table family.
 
 %prep
 %setup -q -c -n %{packname}

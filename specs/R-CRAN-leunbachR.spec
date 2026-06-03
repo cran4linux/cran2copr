@@ -1,26 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  leunbachR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Leunbach Test Equating
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+Implements the Leunbach test equating method, following the 'DIGRAM'
+software written by Svend Kreiner. Both direct and indirect equating are
+available, with parametric bootstrap standard errors and diagnostic
+statistics including the Goodman-Kruskal gamma test and orbit analysis for
+person fit. See Adroher et al. (2019) <doi:10.1186/s12874-019-0768-y> for
+details of the method.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  TestNet
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          A Method for Inferring Microbial Networks with FDR Control
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-permute 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-dcov 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-permute 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-dcov 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+A testing method for inferring microbial networks. It differs from
+existing microbial network analyses in that it provides calibrated results
+by controlling the false discovery rate. The method accounts for the
+complex features of taxa count data. It also accommodates both independent
+and clustered samples, offers separate linear and nonlinear tests for each
+pair of taxa, and includes an omnibus test that bypasses the need to
+specify the type of relationship for each pair of taxa.
 
 %prep
 %setup -q -c -n %{packname}

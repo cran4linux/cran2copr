@@ -1,26 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  catekappa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Design and Analysis of Consistency Tests Based on Kappa Statistic
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-CRAN-kappaSize 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-irr 
+Requires:         R-CRAN-kappaSize 
+Requires:         R-CRAN-shiny 
+Requires:         R-utils 
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+Provides a 'Shiny' application and supporting functions for the design and
+analysis of consistency tests based on Kappa statistic with categorical
+responses. Wraps 'irr' and 'kappaSize' packages.
 
 %prep
 %setup -q -c -n %{packname}

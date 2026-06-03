@@ -1,26 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  PFCI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Penalized Fast Causal Inference for High-Dimensional Structure Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-glasso 
+Requires:         R-methods 
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+Implements Penalized Fast Causal Inference (PFCI), a two-stage causal
+structure learning procedure for high-dimensional settings with potential
+latent variables and selection bias. In the first stage, neighborhood
+selection via the Lasso constructs a sparse undirected skeleton. In the
+second stage, the Fast Causal Inference (FCI) algorithm orients edges on
+this reduced graph, producing a Partial Ancestral Graph (PAG) that
+accounts for latent confounders. The method is consistent under sparsity
+assumptions and substantially faster than standard FCI and RFCI in high
+dimensions. See Pal, Ghosh, and Yang (2025)
+<doi:10.48550/arXiv.2507.00173> for the underlying theory.
 
 %prep
 %setup -q -c -n %{packname}

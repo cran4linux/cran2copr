@@ -1,26 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  DENSaftertransform
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Estimating Density after Logarithmic or Power Transformation of Data
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+Functions for computing: (1) the adaptive normal PI estimate for data
+after the logarithmic transformation; (2) single-bandwidth PI density
+estimate for data after the logarithmic transformation; (3) single
+bandwidth PI estimate for data after the power transformation. See the
+articles: (1) Savchuk, O. (2026, under review). Density estimation for
+log-transformed data; (2) Savchuk, O., Schick A. (2013). Density
+estimation for power transformations. Journal of Nonparametric Statistics,
+25(3), 545-559 <doi:10.1080/10485252.2013.811788>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlogit
-%global packver   1.1-3
+%global packver   2.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multinomial Logit Models
 
@@ -14,23 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dfidx 
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-dfidx 
+BuildRequires:    R-CRAN-dfidx 
+BuildRequires:    R-CRAN-micsr 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-dfidx 
+Requires:         R-CRAN-micsr 
+Requires:         R-CRAN-numDeriv 
 
 %description
 Maximum likelihood estimation of random utility discrete choice models.

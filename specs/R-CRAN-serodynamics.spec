@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FluxSeparator
-%global packver   2.0.0
+%global packname  serodynamics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Separation of Diffusive and Ebullitive Fluxes
+Summary:          Modeling Longitudinal Antibody Responses to Infection
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,52 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-ggmcmc >= 1.5.1.2
+BuildRequires:    R-CRAN-serocalculator >= 1.4.1
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-HMR 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-runjags 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-TTR 
-BuildRequires:    R-CRAN-patchwork 
-Requires:         R-CRAN-broom 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggmcmc >= 1.5.1.2
+Requires:         R-CRAN-serocalculator >= 1.4.1
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-graphics 
-Requires:         R-CRAN-HMR 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-runjags 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-TTR 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Separates diffusive and ebullitive (bubble) fluxes from continuous
-concentration measurements using a running variance approach. Ebullitive
-events are identified when the running variance exceeds a user-set
-threshold. Diffusive fluxes are calculated via linear regression on the
-non-ebullitive portion of the data. See Sø et al. (2024)
-<doi:10.1029/2024JG008035> for details.
+Implements Bayesian hierarchical models for estimating antibody kinetic
+parameters from longitudinal serological data. Fits two-phase within-host
+models capturing antibody rise, peak, and decay following pathogen
+infection, using 'JAGS' for posterior inference. Designed as the upstream
+companion to the 'serocalculator' package for end-to-end
+seroepidemiological analysis. Methods are described in Teunis and
+colleagues (2016) <doi:10.1016/j.epidem.2016.04.001> and Teunis and van
+Eijkeren (2020) <doi:10.1002/sim.8578>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xiacf
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Dependence and Lead-Lag Analysis via Chatterjee's Xi
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 4.0.1
 Requires:         R-CRAN-dplyr >= 1.1.4
@@ -35,6 +36,7 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-progressr 
 Requires:         R-stats 
+Requires:         R-CRAN-parallelly 
 
 %description
 Computes Chatterjee's non-parametric correlation coefficient for time

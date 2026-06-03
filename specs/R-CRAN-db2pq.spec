@@ -1,26 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  db2pq
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Export Database Tables to 'Parquet'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-wrds 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-CRAN-wrds 
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+Tools for exporting 'PostgreSQL' tables to 'Parquet' files, with support
+for chunked writes, column type overrides, and timezone-aware timestamp
+handling. Includes functions for maintaining a local 'Parquet' data
+library sourced from 'WRDS' (Wharton Research Data Services), with
+update-checking based on table metadata, and archive management utilities
+for versioning local data files. See Gow and Ding (2024) "Empirical
+Research in Accounting: Tools and Methods" <doi:10.1201/9781003456230>.
 
 %prep
 %setup -q -c -n %{packname}

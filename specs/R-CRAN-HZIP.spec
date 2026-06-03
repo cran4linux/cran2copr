@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HZIP
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Likelihood-Based Inference for Joint Modeling of Correlated Count and Binary Outcomes with Extra Variability and Zeros
 
@@ -24,9 +24,9 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Formula 
@@ -36,9 +36,9 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-rlang 
 
 %description
 Inference approach for jointly modeling correlated count and binary
@@ -47,7 +47,7 @@ via the Bernoulli component while providing a more accurate assessment of
 the Hierarchical Zero-Inflated Poisson's parsimony (Lizandra C. Fabio,
 Jalmar M. F. Carrasco, Victor H. Lachos and Ming-Hui Chen,
 Likelihood-based inference for joint modeling of correlated count and
-binary outcomes with extra variability and zeros, 2025, under submission).
+binary outcomes with extra variability and zeros, 2026, under submission).
 
 %prep
 %setup -q -c -n %{packname}

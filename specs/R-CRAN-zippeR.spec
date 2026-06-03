@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zippeR
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with United States ZIP Code and ZIP Code Tabulation Area Data
 
@@ -14,39 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-datasets 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spatstat.univar 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidycensus 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tigris 
-Requires:         R-CRAN-cli 
-Requires:         R-datasets 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spatstat.univar 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidycensus 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tigris 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-tidycensus >= 1.0
+BuildRequires:    R-CRAN-tigris >= 1.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-tidycensus >= 1.0
+Requires:         R-CRAN-tigris >= 1.0
 
 %description
 Provides a set of functions for working with American postal codes, which

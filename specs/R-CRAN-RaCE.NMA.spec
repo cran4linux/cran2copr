@@ -1,26 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  luajr
-%global packver   0.3.0
+%global packname  RaCE.NMA
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LuaJIT' Scripting
+Summary:          Rank-Clustered Estimation for Network Meta-Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-invgamma 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-invgamma 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-An interface to 'LuaJIT' <https://luajit.org>, a just-in-time compiler for
-the 'Lua' scripting language <https://www.lua.org>. Allows users to run
-'Lua' code from 'R'.
+An implementation of the RaCE-NMA (Rank-Clustered Estimation for Network
+Meta-Analysis) model for post-hoc clustering of treatments or
+interventions by rank in network meta-analysis data. Functions for model
+estimation, assessment, and displaying results are provided. For more
+details, see Pearce and Zhou (2025) <doi:10.1017/rsm.2025.10049>.
 
 %prep
 %setup -q -c -n %{packname}

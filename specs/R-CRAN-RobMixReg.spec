@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RobMixReg
-%global packver   1.1.0
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Mixture Regression
 
@@ -19,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-flexmix 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-robust 
 BuildRequires:    R-CRAN-lars 
@@ -31,11 +32,10 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-glmnet 
 Requires:         R-CRAN-flexmix 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-gtools 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-robust 
 Requires:         R-CRAN-lars 
@@ -47,7 +47,6 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-stats 
-Requires:         R-CRAN-glmnet 
 
 %description
 Finite mixture models are a popular technique for modelling unobserved
@@ -68,14 +67,21 @@ algorithms, please refer to below references. Reference: Chun Yu, Weixin
 Yao, Kun Chen (2017) <doi:10.1002/cjs.11310>. NeyKov N, Filzmoser P,
 Dimova R et al. (2007) <doi:10.1016/j.csda.2006.12.024>. Bai X, Yao W.
 Boyer JE (2012) <doi:10.1016/j.csda.2012.01.016>. Wennan Chang, Xinyu
-Zhou, Yong Zang, Chi Zhang, Sha Cao (2020) <arXiv:2005.11599>.
+Zhou, Yong Zang, Chi Zhang, Sha Cao (2020)
+<doi:10.48550/arXiv.2005.11599>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -85,6 +91,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

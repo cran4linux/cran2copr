@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gwas2crispr
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          GWAS-to-CRISPR Data Pipeline for High-Throughput SNP Target Extraction
 
@@ -39,18 +39,19 @@ Provides a reproducible pipeline to conduct genome-wide association
 studies (GWAS) and extract single-nucleotide polymorphisms (SNPs) for a
 human trait or disease. Given aggregated GWAS dataset(s) and a
 user-defined significance threshold, the package retrieves significant
-SNPs from the GWAS Catalog and the Experimental Factor Ontology (EFO),
-annotates their gene context, and can write a harmonised metadata table in
+SNPs from the GWAS Catalog using supported trait identifiers, annotates
+their gene context, and can write a harmonised metadata table in
 comma-separated values (CSV) format, genomic intervals in the Browser
 Extensible Data (BED) format, and sequences in the FASTA (text-based
 sequence) format with user-defined flanking regions for clustered
-regularly interspaced short palindromic repeats (CRISPR) guide design. For
-details on the resources and methods see: Buniello et al. (2019)
-<doi:10.1093/nar/gky1120>; Sollis et al. (2023)
-<doi:10.1093/nar/gkac1010>; Jinek et al. (2012)
-<doi:10.1126/science.1225829>; Malone et al. (2010)
-<doi:10.1093/bioinformatics/btq099>; Experimental Factor Ontology (EFO)
-<https://www.ebi.ac.uk/efo>.
+regularly interspaced short palindromic repeats (CRISPR) guide design. The
+existing efo_id argument is retained for backward compatibility. The
+package prepares computational artifacts for downstream workflows; it does
+not perform biological causality testing, clinical interpretation,
+therapeutic design, or wet-lab validation. For details on the resources
+and methods see: Buniello et al. (2019) <doi:10.1093/nar/gky1120>; Sollis
+et al. (2023) <doi:10.1093/nar/gkac1010>; Jinek et al. (2012)
+<doi:10.1126/science.1225829>.
 
 %prep
 %setup -q -c -n %{packname}
