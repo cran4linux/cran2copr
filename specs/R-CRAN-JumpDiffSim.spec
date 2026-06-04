@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depmixS4
-%global packver   1.5-2
+%global packname  JumpDiffSim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependent Mixture Models - Hidden Markov Models of GLMs and Other Distributions in S4
+Summary:          Jump Diffusion Simulation and Calibration for Merton and Kou Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.2
+BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nlme 
-Requires:         R-stats 
-Requires:         R-stats4 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 >= 4.0.2
+Requires:         R-CRAN-numDeriv >= 2016.8.1.1
 Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Fits latent (hidden) Markov models on mixed categorical and continuous
-(time series) data, otherwise known as dependent mixture models, see
-Visser & Speekenbrink (2010, <DOI:10.18637/jss.v036.i07>).
+Implements the Merton (1976) <doi:10.1016/0304-405X(76)90022-2> and Kou
+(2002) <doi:10.1287/mnsc.48.8.1086.166> jump-diffusion models through a
+unified S4 object-oriented interface. Provides exact compound-Poisson
+asset price simulation, maximum likelihood parameter estimation with
+Hessian-based standard errors, Wald-type confidence intervals, European
+option pricing via the Merton analytic series expansion, and
+publication-quality diagnostic plots. All functionality operates entirely
+offline without market data dependencies.
 
 %prep
 %setup -q -c -n %{packname}

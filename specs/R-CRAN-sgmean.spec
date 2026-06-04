@@ -1,40 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depmixS4
-%global packver   1.5-2
+%global packname  sgmean
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependent Mixture Models - Hidden Markov Models of GLMs and Other Distributions in S4
+Summary:          Trimmed Mean Compatible with 'Statgraphics' Method
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nlme 
-Requires:         R-stats 
-Requires:         R-stats4 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Fits latent (hidden) Markov models on mixed categorical and continuous
-(time series) data, otherwise known as dependent mixture models, see
-Visser & Speekenbrink (2010, <DOI:10.18637/jss.v036.i07>).
+Computes the trimmed mean using a proportional discount method on the
+extremes, replicating the behavior of 'Statgraphics' software. Unlike R's
+built-in mean() with trim, this method applies a weighted reduction to
+boundary values rather than removing them entirely.
 
 %prep
 %setup -q -c -n %{packname}

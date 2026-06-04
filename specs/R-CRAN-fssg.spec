@@ -1,40 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depmixS4
-%global packver   1.5-2
+%global packname  fssg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependent Mixture Models - Hidden Markov Models of GLMs and Other Distributions in S4
+Summary:          Parametric Survival Modeling in Bulk
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nlme 
-Requires:         R-stats 
-Requires:         R-stats4 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survAUC 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-SurvMetrics 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-stats 
+Requires:         R-CRAN-survAUC 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-SurvMetrics 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-VGAM 
 
 %description
-Fits latent (hidden) Markov models on mixed categorical and continuous
-(time series) data, otherwise known as dependent mixture models, see
-Visser & Speekenbrink (2010, <DOI:10.18637/jss.v036.i07>).
+A simple tool for the bulk creation and testing of parametric survival
+models. Simply provide 'fssg' with a formula and some data, and let it
+identify the best distributions for you.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyseo
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search Engine Optimization and Social Metadata Helpers for 'Shiny' Apps
+Summary:          Search Engine Optimization, Social Metadata, and Site Verification Helpers for 'Shiny' Apps
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,8 +26,8 @@ Requires:         R-CRAN-jsonlite
 
 %description
 Utilities for injecting search engine optimization (SEO), Open Graph,
-Twitter, and schema.org metadata into 'Shiny' applications from YAML files
-or named lists.
+Twitter, site verification, and schema.org metadata into 'Shiny'
+applications from YAML files or named lists.
 
 %prep
 %setup -q -c -n %{packname}

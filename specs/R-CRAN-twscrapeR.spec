@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depmixS4
-%global packver   1.5-2
+%global packname  twscrapeR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependent Mixture Models - Hidden Markov Models of GLMs and Other Distributions in S4
+Summary:          Twitter/X Scraping via Python's 'twscrape' Library
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nlme 
-Requires:         R-stats 
-Requires:         R-stats4 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-reticulate >= 1.20
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-reticulate >= 1.20
+Requires:         R-CRAN-jsonlite 
 
 %description
-Fits latent (hidden) Markov models on mixed categorical and continuous
-(time series) data, otherwise known as dependent mixture models, see
-Visser & Speekenbrink (2010, <DOI:10.18637/jss.v036.i07>).
+A comprehensive R interface to Python's 'twscrape' library for scraping
+Twitter/X data. This package uses 'reticulate' to provide a seamless R
+interface to the fully functional Python 'twscrape' library. Supports
+searching tweets, user timelines, followers, and more, with built-in rate
+limiting and multi-account support. Built on top of 'twscrape' by vladkens
+<https://github.com/vladkens/twscrape> and inspired by 'snscrape' by
+JustAnotherArchivist <https://github.com/JustAnotherArchivist/snscrape>.
 
 %prep
 %setup -q -c -n %{packname}

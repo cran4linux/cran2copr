@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GetFREData
-%global packver   1.0.1
+%global packname  polish
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading FRE Corporate Data of Public Traded Companies from B3
+Summary:          Polishing Content for 'Word' and 'PowerPoint'
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,44 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-GetDFPData2 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-officer >= 0.6.9
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-commonmark 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-GetDFPData2 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-sloop 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-webshot2 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-officer >= 0.6.9
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-commonmark 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-sloop 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-webshot2 
+Requires:         R-CRAN-xml2 
 
 %description
-Reads corporate data such as board composition and compensation for
-companies traded at B3, the Brazilian exchange <https://www.b3.com.br/>.
-All data is downloaded and imported from the ftp site
-<https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FRE/>.
+Set of functions to polish content for Microsoft 'Word' and 'PowerPoint'
+into 'OOXML'. Polishing is the conversion of the R object into an 'OOXML'
+representation of the object that can then be added to 'Word' or
+'PowerPoint' files.
 
 %prep
 %setup -q -c -n %{packname}

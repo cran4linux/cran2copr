@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  roperators
-%global packver   1.3.14
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.14
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Additional Operators to Help you Write Cleaner R Code
+Summary:          Additional Operators to Help You Write Cleaner R Code
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,17 +23,17 @@ Requires:         R-stats
 Requires:         R-tools 
 
 %description
-Provides string arithmetic, reassignment operators, logical operators that
-handle missing values, and extra logical operators such as floating point
-equality and all or nothing. The intent is to allow R users to write code
-that is easier to read, write, and maintain while providing a friendlier
-experience to new R users from other language backgrounds (such as
-'Python') who are used to concepts such as x += 1 and 'foo' + 'bar'.
-Includes operators for not in, easy floating point comparisons, ===
-equivalent, and SQL-like like operations (), etc. We also added in some
-extra helper functions, such as OS checks, pasting in Oxford comma format,
-and functions to get the first, last, nth, or most common element of a
-vector or word in a string.
+A set of additional operators and helper functions to make R code easier
+to read, write, and maintain. Includes string arithmetic (such as 'foo' +
+'bar'), in-place reassignment operators (such as x += 1), logical
+operators that handle missing values, floating-point and strict
+('JavaScript'-style) equality tests, 'between' operators, and 'SQL'-style
+pattern matching. Also provides convenience helpers for type conversion,
+operating-system checks, complete-cases statistics, and string
+manipulation, such as Oxford-comma pasting and extracting the first, last,
+n-th, or most common element of a vector or word in a string. The goal is
+to give R users, particularly those coming from other languages such as
+'Python', a friendlier and more consistent syntax.
 
 %prep
 %setup -q -c -n %{packname}

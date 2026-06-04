@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  climaemet
-%global packver   1.5.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate AEMET Tools
+Summary:          Tools for AEMET Climate Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.6
 BuildRequires:    R-CRAN-rappdirs >= 0.3.3
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tibble >= 3.0.3
@@ -38,14 +39,15 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.6
 Requires:         R-CRAN-rappdirs >= 0.3.3
+Requires:         R-tools 
 Requires:         R-CRAN-xml2 
 
 %description
-Tools to download the climatic data of the Spanish Meteorological Agency
-(AEMET) directly from R using their API and create scientific graphs
-(climate charts, trend analysis of climate time series, temperature and
-precipitation anomalies maps, warming stripes graphics, climatograms,
-etc.).
+Download meteorological and climate data from the Spanish Meteorological
+Agency (AEMET) directly in R using the AEMET API. Create scientific
+visualizations, including climate charts, climate time series trend
+analyses, temperature and precipitation anomaly maps, warming stripes and
+climatograms.
 
 %prep
 %setup -q -c -n %{packname}

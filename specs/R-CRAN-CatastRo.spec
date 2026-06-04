@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CatastRo
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the API 'Sede Electronica Del Catastro'
+Summary:          Interface to the Spanish 'Catastro' Web Services
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -43,9 +43,9 @@ Requires:         R-utils
 Requires:         R-CRAN-xml2 
 
 %description
-Access public spatial data available under the 'INSPIRE' directive. Tools
-for downloading references and addresses of properties, as well as map
-images.
+Access public spatial data from the Spanish 'Catastro' through its
+'INSPIRE' and related web services. Retrieve parcel, building, address and
+map image data, and convert between parcel references and coordinates.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depmixS4
-%global packver   1.5-2
+%global packname  ParallelTree
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependent Mixture Models - Hidden Markov Models of GLMs and Other Distributions in S4
+Summary:          Visualizing Multilevel Data with Parallel Tree Plots
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-stats4 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Fits latent (hidden) Markov models on mixed categorical and continuous
-(time series) data, otherwise known as dependent mixture models, see
-Visser & Speekenbrink (2010, <DOI:10.18637/jss.v036.i07>).
+Provides two functions: Group_function() and Parallel_Tree().
+Group_function() applies a given function (e.g., mean()) to input
+variable(s) by group across levels of a multilevel data structure, with
+additional data management options. Parallel_Tree() uses 'ggplot2' to
+create parallel coordinate plots (technically a facsimile of parallel
+coordinate plots in a Cartesian coordinate system). Used in combination,
+these functions can create parallel tree plots, a variant of parallel
+coordinate plots useful for visualizing multilevel data.
 
 %prep
 %setup -q -c -n %{packname}

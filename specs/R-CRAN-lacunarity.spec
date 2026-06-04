@@ -1,48 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rerddapUtils
-%global packver   1.0.1
+%global packname  lacunarity
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Utilities for 'rerddap'
+Summary:          Standard and Generalized Lacunarity for Binary Time Series
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-rerddap 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-rerddap 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-plyr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 
 %description
-The 'rerddapUtils' package is an 'R' package that is a set of four main
-functions designed to work with and extend the 'rerddap' package. These
-functions includes one for restricting by season, one for splitting large
-requests, and two for working with projected datasets. There are also two
-utility functions that provide estimates of the size of a proposed
-'rerddap::griddap()' request.
+Estimates lacunarity and generalized lacunarity for unidimensional binary
+time series. The lacunarity index summarizes the similarity of parts from
+different regions of a series at a given scale by averaging the behavior
+of variable size structures of zeros and ones. The generalized lacunarity
+concept provides an enhanced measure of the organization of the gaps over
+all measured scales and over the different arrangements of smaller and
+larger gaps in the series.
 
 %prep
 %setup -q -c -n %{packname}

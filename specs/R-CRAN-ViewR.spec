@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ViewR
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Data Viewer, Filter, and Editor
+Summary:          Advanced Interactive Data Tables and Data Explorer
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,35 +20,39 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shinyjs >= 2.1.0
 BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-htmlwidgets >= 1.6.0
 BuildRequires:    R-CRAN-shinythemes >= 1.2.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.4
 BuildRequires:    R-CRAN-rhandsontable >= 0.3.8
 BuildRequires:    R-CRAN-DT >= 0.27
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-shinyjs >= 2.1.0
 Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-htmlwidgets >= 1.6.0
 Requires:         R-CRAN-shinythemes >= 1.2.0
 Requires:         R-CRAN-htmltools >= 0.5.4
 Requires:         R-CRAN-rhandsontable >= 0.3.8
 Requires:         R-CRAN-DT >= 0.27
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Provides a feature-rich, popup-based interactive interface for viewing,
-exploring, filtering, sorting, editing, analysing, and plotting R data
-frames. Key features include: a searchable, paginated data table with
-drag-and-drop column reordering and variable-label 'tooltips';
-multi-condition filters (AND/OR) with live preview; multi-column sorting;
-column visibility management with search; an Excel-like cell editor
-powered by 'rhandsontable'; find-and-replace across one or all columns
-(literal or regex) with automatic live preview; a Plots tab with
-auto-detected histograms and bar charts for every column; automatic
-'dplyr' code generation reflecting every operation performed in the 'UI';
-one-click CSV export; and a Variable Info tab with type, missing values,
-and summary statistics. The entire interface is launched with a single
-call to ViewR() and works as a popup dialog, in the 'RStudio' Viewer pane,
-or in the system browser.
+An advanced, interactive data table and data explorer for R, delivered as
+a modern, self-contained 'htmlwidget' with a high-performance virtualized
+grid. ViewR renders 'Kaggle'-style micro-dashboard column headers complete
+with data-type badges, mini distribution spark-histograms, and
+data-completeness (missingness) bars. It provides hover metadata cards, a
+sliding Data Insights drawer with interactive histograms and 'Pareto'
+category charts, a multi-condition visual query builder (AND/OR), a column
+visibility picker, and a reproducible code generator that emits 'dplyr',
+base R, and 'SQL' that matches the active filter and column state. The
+interface is implemented entirely in dependency-free vanilla 'JavaScript'
+(no 'React' or build toolchain) and works in the 'RStudio'/'Positron'
+Viewer, inside 'Shiny' apps, in 'R Markdown'/'Quarto', or as a portable
+standalone 'HTML' file. A single call to viewr() opens the explorer; the
+legacy 'Shiny'-gadget ViewR() editor remains available.
 
 %prep
 %setup -q -c -n %{packname}

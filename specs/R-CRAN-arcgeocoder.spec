@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arcgeocoder
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geocoding with the 'ArcGIS' REST API Service
 
@@ -19,15 +19,17 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-utils 
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-utils 
 
 %description
-Lite interface for finding locations of addresses or businesses around the
-world using the 'ArcGIS' REST API service
+Lightweight interface for converting addresses into geographic coordinates
+and coordinates into addresses using the 'ArcGIS' REST API service
 <https://developers.arcgis.com/rest/geocode/api-reference/overview-world-geocoding-service.htm>.
-Address text can be converted to location candidates and a location can be
-converted into an address. No API key required.
+Address text can be converted to location candidates and locations can be
+converted into addresses. No API key is required.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BetaDanish
-%global packver   0.2.0
+%global packname  AIGRA
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Beta-Danish Distribution for Lifetime Data Analysis
+Summary:          Agentic Item Generation, Review, and Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-maxLik 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-maxLik 
-Requires:         R-CRAN-survival 
-Requires:         R-stats 
+BuildRequires:    R-grDevices 
 Requires:         R-graphics 
+Requires:         R-grid 
+Requires:         R-CRAN-reticulate 
 Requires:         R-utils 
-Requires:         R-tools 
+Requires:         R-grDevices 
 
 %description
-Implements the four-parameter Beta-Danish distribution and its
-three-parameter submodel for survival and reliability analysis, based on
-Ahmad and Danish (2025) <doi:10.2478/jamsi-2025-0010>. Provides functions
-for density, distribution, quantile, hazard, and random generation.
-Includes maximum likelihood estimation for complete and right-censored
-data, goodness-of-fit assessment, comparison with standard lifetime
-distributions, and publication-quality visualizations. Advanced modules
-support Accelerated Failure Time (AFT) regression, mixture and
-promotion-time cure models, and competing risks analysis.
+Provides tools for validating, generating, reviewing, reporting, and
+visualising assessment item generation workflows. The package supports
+tabular item-bank templates, item-bank validation, 'Python'-backed agentic
+generation workflows, multimodal diagram generation, quality summaries,
+and 'HTML' reporting. External artificial intelligence services and
+related 'API' calls require user-supplied credentials and are not called
+during package checks. The workflow is informed by automatic item
+generation methods described by Gierl and Haladyna (2013,
+ISBN:9780415897518) and evidence-centered assessment design described by
+Mislevy et al. (2003) <doi:10.1002/j.2333-8504.2003.tb01908.x>.
 
 %prep
 %setup -q -c -n %{packname}

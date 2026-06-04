@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depmixS4
-%global packver   1.5-2
+%global packname  opencltools
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependent Mixture Models - Hidden Markov Models of GLMs and Other Distributions in S4
+Summary:          'OpenCL' Tools for R Package Developers
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
+BuildRequires:    R-CRAN-Rdpack >= 0.11.0
 BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.1.1
+Requires:         R-CRAN-Rdpack >= 0.11.0
 Requires:         R-stats 
-Requires:         R-stats4 
-Requires:         R-methods 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Fits latent (hidden) Markov models on mixed categorical and continuous
-(time series) data, otherwise known as dependent mixture models, see
-Visser & Speekenbrink (2010, <DOI:10.18637/jss.v036.i07>).
+Runtime 'OpenCL' support for R package developers: probe hardware and
+drivers, load and concatenate kernel sources, and manage
+dependency-annotated '.cl' libraries, so packages like 'nmathopencl' and
+other ported libraries can offer GPU acceleration without each
+re-implementing the same plumbing. Vignettes use the 'glmbayes'
+envelope-gradient example and likelihood subgradient methodology (Nygren
+and Nygren, 2006, <doi:10.1198/016214506000000357>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nominatimlite
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface with 'Nominatim' API Service
+Summary:          Interface to the 'Nominatim' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-jsonlite >= 1.7.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.0
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-jsonlite >= 1.7.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-sf >= 0.9.0
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Lite interface for getting data from 'OSM' service 'Nominatim'
+Lightweight interface to the 'OpenStreetMap' 'Nominatim' API
 <https://nominatim.org/release-docs/latest/>. Extract coordinates from
-addresses, find places near a set of coordinates and return spatial
-objects on 'sf' format.
+addresses, retrieve addresses from coordinates, look up amenities and
+addresses, and return results as 'tibble' or 'sf' objects.
 
 %prep
 %setup -q -c -n %{packname}

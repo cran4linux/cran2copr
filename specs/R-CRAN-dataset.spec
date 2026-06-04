@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataset
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Data Frames for Exchange and Reuse
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-haven
 BuildRequires:    R-CRAN-ISOcodes 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
@@ -30,15 +31,19 @@ Requires:         R-CRAN-haven
 Requires:         R-CRAN-ISOcodes 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-pillar 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
 
 %description
-The 'dataset' package helps create semantically rich, machine-readable,
-and interoperable datasets in R. It extends tidy data frames with metadata
-that preserves meaning, improves interoperability, and makes datasets
-easier to publish, exchange, and reuse in line with ISO and W3C standards.
+The 'dataset' package extends tidy data frames with machine-readable
+metadata, semantic definitions, and provenance information. It supports
+incremental semantic stabilization, interoperable dataset exchange, and
+FAIR-oriented publication workflows by preserving contextual metadata
+directly within R objects. The package facilitates the creation, exchange,
+reuse, and RDF serialization of datasets in line with ISO and W3C
+standards.
 
 %prep
 %setup -q -c -n %{packname}

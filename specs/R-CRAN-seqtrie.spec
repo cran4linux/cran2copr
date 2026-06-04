@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seqtrie
-%global packver   0.3.5
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radix Tree and Trie-Based String Distances
 
@@ -19,23 +19,20 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.3
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18.3
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-S7 
 Requires:         R-CRAN-RcppParallel >= 5.1.3
 Requires:         R-CRAN-Rcpp >= 0.12.18.3
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-S7 
 
 %description
 A collection of Radix Tree and Trie algorithms for finding similar
 sequences and calculating sequence distances (Levenshtein and other
 distance metrics). This work was inspired by a trie implementation in
 Python: "Fast and Easy Levenshtein distance using a Trie." Hanov (2011)
-<https://stevehanov.ca/blog/index.php?id=114>.
+<https://stevehanov.ca/blog/index.php?id=114>. It also includes a modified
+version of the Starcode all-pairs search algorithm (Zorita, Cuscó, and
+Filion 2015) <doi:10.1093/bioinformatics/btv053>.
 
 %prep
 %setup -q -c -n %{packname}
