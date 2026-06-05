@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scholid
-%global packver   0.2.0
+%global packname  shinyds
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scholarly and Academic Identifier Utilities
+Summary:          'Shiny' Bindings for Designsystemet Components
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-htmltools >= 0.5.0
 
 %description
-Detects, normalizes, classifies, and extracts scholarly identifier
-strings. Provides lightweight, dependency-free helpers for twenty
-identifier types, including DOIs, ORCID iDs, ISBNs, ISSNs, arXiv and
-PubMed identifiers, ROR and ISNI, OpenAlex and ADS bibcodes, RRID, ARK,
-SWHID, and selected life-science accessions (UniProt, RefSeq, SRA, GEO,
-BioProject, and genome assemblies). Functions are vectorized, predictable,
-and suitable as low-level building blocks for other R packages and data
-workflows. Use 'scholid_types()' for the authoritative type list. For
-online lookup, conversion, metadata retrieval, and linked identifier
-discovery, see 'scholidonline'.
+Provides 'R' wrappers for the Designsystemet component library
+<https://designsystemet.no>, enabling use of Norwegian government design
+system components in Shiny applications. Includes web components and
+CSS-based HTML components with full Shiny input binding support.
 
 %prep
 %setup -q -c -n %{packname}

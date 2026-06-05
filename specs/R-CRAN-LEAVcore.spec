@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scholid
-%global packver   0.2.0
+%global packname  LEAVcore
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scholarly and Academic Identifier Utilities
+Summary:          Constitution of Core Collections using Length of Encoded Attribute Values
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stratification 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-stratification 
 
 %description
-Detects, normalizes, classifies, and extracts scholarly identifier
-strings. Provides lightweight, dependency-free helpers for twenty
-identifier types, including DOIs, ORCID iDs, ISBNs, ISSNs, arXiv and
-PubMed identifiers, ROR and ISNI, OpenAlex and ADS bibcodes, RRID, ARK,
-SWHID, and selected life-science accessions (UniProt, RefSeq, SRA, GEO,
-BioProject, and genome assemblies). Functions are vectorized, predictable,
-and suitable as low-level building blocks for other R packages and data
-workflows. Use 'scholid_types()' for the authoritative type list. For
-online lookup, conversion, metadata retrieval, and linked identifier
-discovery, see 'scholidonline'.
+Construct core collections using the information measure 'Length of
+Encoded Attribute Values' (LEAV) using qualitative and/or quantitative
+trait data as described by Balakrishnan and Suresh (2001a)
+<https://indianjournals.com/article/ijpgr-14-1-006> and (2001b)
+<https://indianjournals.com/article/ijpgr-14-3-005>.
 
 %prep
 %setup -q -c -n %{packname}

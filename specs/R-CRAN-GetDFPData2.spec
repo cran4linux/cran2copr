@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GetDFPData2
-%global packver   0.6.3
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reading Annual and Quarterly Financial Reports from B3
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
@@ -31,6 +31,9 @@ BuildRequires:    R-CRAN-RCurl
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-janitor 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
@@ -45,6 +48,9 @@ Requires:         R-CRAN-RCurl
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-writexl 
 Requires:         R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-janitor 
 
 %description
 Reads annual and quarterly financial reports from companies traded at B3,

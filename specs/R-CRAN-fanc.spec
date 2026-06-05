@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  batchmix
-%global packver   2.2.2
+%global packname  fanc
+%global packver   2.3.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Supervised Bayesian Mixture Models Incorporating Batch Correction
+Summary:          Penalized Likelihood Factor Analysis via Nonconvex Penalty
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-salso 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-salso 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ellipse 
+Requires:         R-tcltk 
 
 %description
-Semi-supervised and unsupervised Bayesian mixture models that
-simultaneously infer the cluster/class structure and a batch correction.
-Densities available are the multivariate normal and the multivariate t.
-The model sampler is implemented in C++. This package is aimed at analysis
-of low-dimensional data generated across several batches. See Coleman et
-al. (2022) <doi:10.1101/2022.01.14.476352> for details of the model.
+Computes the penalized maximum likelihood estimates of factor loadings and
+unique variances for various tuning parameters. The pathwise coordinate
+descent along with EM algorithm is used.  This package also includes a new
+graphical tool which outputs path diagram, goodness-of-fit indices and
+model selection criteria for each regularization parameter (Yamamoto, M.,
+Hirose, K. and Nagata, H., 2017 <doi:10.1007/s41237-016-0007-3>). The user
+can change the regularization parameter by manipulating scrollbars, which
+is helpful to find a suitable value of regularization parameter. As a
+penalty, we can choose either the minimax concave penalty (Hirose, K. and
+Yamamoto, M., 2015 <doi:10.1007/s11222-014-9458-0>; Hirose, K. and
+Yamamoto, M., 2014 <doi:10.1016/j.csda.2014.05.011>) or the product-based
+elastic net penalty (Hirose, K. and Terada, Y., 2023
+<doi:10.1007/s11336-022-09868-4>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MVNGmod
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrix-Variate Non-Gaussian Linear Regression Models
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-matlib
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-Bessel 
 Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-DistributionUtils 
@@ -31,6 +33,8 @@ Requires:         R-CRAN-matlib
 Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-purrr 
 
 %description
 An implementation of the expectation conditional maximization (ECM)

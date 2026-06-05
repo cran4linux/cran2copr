@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastreg
-%global packver   0.8.17
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.17
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Conversion and Querying of Danish Registers with 'Parquet'
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-osdc
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-checkmate 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-osdc
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-uuid 
 
 %description

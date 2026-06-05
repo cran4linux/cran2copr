@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ihsMW
-%global packver   0.1.5
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access 'Malawi Integrated Household Survey' Data
+Summary:          Clean and Harmonise 'Malawi Integrated Household Survey' Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,29 +19,18 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-readr >= 2.1.0
-BuildRequires:    R-CRAN-arrow >= 12.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-stringdist >= 0.9.10
-BuildRequires:    R-CRAN-vctrs >= 0.6.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.3
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-readr >= 2.1.0
-Requires:         R-CRAN-arrow >= 12.0.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-stringdist >= 0.9.10
-Requires:         R-CRAN-vctrs >= 0.6.0
-Requires:         R-CRAN-rappdirs >= 0.3.3
 
 %description
-Provides programmatic access to the 'Malawi Integrated Household Survey'
-('IHS') via the 'World Bank Microdata Library' API
-<https://microdata.worldbank.org/api-documentation/>. Users can search
-variables, download data for 'IHS' rounds 2 through 5, and work with
-complex survey designs, with no manual file management required.
+An offline suite of tools to clean, aggregate, and harmonise data from the
+'Malawi Integrated Household Survey' ('IHS'). Provides crop-specific unit
+conversions, stratified winsorization, and automatic cross-round
+harmonisation for complex survey designs.
 
 %prep
 %setup -q -c -n %{packname}

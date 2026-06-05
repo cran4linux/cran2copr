@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdaPDE
-%global packver   1.1-21
+%global packver   1.1-24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.21
+Version:          1.1.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Physics-Informed Spatial and Functional Data Analysis
 
@@ -19,19 +19,19 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-plot3D 
 Requires:         R-methods 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-plot3D 
 
 %description
 An implementation of regression models with partial differential

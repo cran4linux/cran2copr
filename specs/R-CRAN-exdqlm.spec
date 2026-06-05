@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exdqlm
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Dynamic Quantile Linear Models
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-tictoc
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-crch 
 BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Rcpp 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-tictoc
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-crch 
 Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Rcpp 

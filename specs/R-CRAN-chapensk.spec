@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chapensk
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Gas Properties from the Lennard-Jones Potential
 
@@ -23,8 +23,8 @@ Requires:         R-methods
 Requires:         R-CRAN-Bessel 
 
 %description
-Estimation of gas transport properties (viscosity, diffusion, thermal
-conductivity) using Chapman-Enskok theory (Chapman and Larmor 1918,
+Calculation of gas transport properties (viscosity, diffusion, thermal
+conductivity) using Chapman-Enskok theory (Chapman 1918,
 <doi:10.1098/rsta.1918.0005>) and of the second virial coefficient (Vargas
 et al. 2001, <doi:10.1016/s0378-4371(00)00362-9>) using the Lennard-Jones
 (12-6) potential. Up to the third order correction is taken into account

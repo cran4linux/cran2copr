@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  courieR
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Migrate Installed R Packages Between R Versions
 
@@ -21,28 +21,18 @@ BuildRequires:    R-CRAN-processx >= 3.8.0
 BuildRequires:    R-CRAN-callr >= 3.7.0
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-jsonlite >= 1.8.0
-BuildRequires:    R-CRAN-shiny >= 1.8.0
 BuildRequires:    R-CRAN-fs >= 1.6.0
-BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-desc >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-pak >= 0.7.0
-BuildRequires:    R-CRAN-bslib >= 0.7.0
-BuildRequires:    R-CRAN-DT >= 0.31
-BuildRequires:    R-CRAN-bsicons >= 0.1.2
 Requires:         R-CRAN-processx >= 3.8.0
 Requires:         R-CRAN-callr >= 3.7.0
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-jsonlite >= 1.8.0
-Requires:         R-CRAN-shiny >= 1.8.0
 Requires:         R-CRAN-fs >= 1.6.0
-Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-desc >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-pak >= 0.7.0
-Requires:         R-CRAN-bslib >= 0.7.0
-Requires:         R-CRAN-DT >= 0.31
-Requires:         R-CRAN-bsicons >= 0.1.2
 
 %description
 Detects all R installations on the current machine and migrates installed

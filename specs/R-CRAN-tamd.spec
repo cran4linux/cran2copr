@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sessioninfo
-%global packver   1.2.4
+%global packname  tamd
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Session Information
+Summary:          Transcendental Algorithm for Mixtures of Distributions
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.1.0
-BuildRequires:    R-tools 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.1.0
-Requires:         R-tools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Query and print information about the current R session.  It is similar to
-'utils::sessionInfo()', but includes more information about packages, and
-where they were installed from.
+Implements the Transcendental Algorithm for Mixtures of Distributions
+(TAMD), a penalized likelihood framework for fitting finite Gaussian
+mixture models. TAMD augments the Expectation-Maximization (EM) algorithm
+with analytic barrier terms built from the Hellinger affinity that diverge
+on the singular locus, actively preventing component coalescence and
+weight degeneracy. Provides the core TAMD fitting function, closed-form
+Hellinger affinity and gradient computations, the Transcendental Affinity
+Criterion (TAC) for geometry-aware model selection, the regularity index
+rho (a scalar diagnostic for mixture fit quality), and reproduction
+scripts for all simulation studies. Methods are described in Fokoue (2024)
+<doi:10.48550/arXiv.2602.03889>. See also Titterington, Smith and Makov
+(1985, ISBN:0-471-90510-4) and Watanabe (2009, ISBN:978-0-521-86408-7).
 
 %prep
 %setup -q -c -n %{packname}

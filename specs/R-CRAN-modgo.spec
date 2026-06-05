@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modgo
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mock Data Generation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3
+BuildRequires:    R-CRAN-survey >= 4.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-psych >= 2.2.9
@@ -27,10 +28,11 @@ BuildRequires:    R-CRAN-patchwork >= 1.1.2
 BuildRequires:    R-CRAN-gp >= 1.0
 BuildRequires:    R-CRAN-wesanderson >= 0.3.6.9000
 BuildRequires:    R-CRAN-ggcorrplot >= 0.1.4.1
+BuildRequires:    R-CRAN-wCorr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-MASS >= 7.3
+Requires:         R-CRAN-survey >= 4.5
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-psych >= 2.2.9
@@ -40,19 +42,13 @@ Requires:         R-CRAN-patchwork >= 1.1.2
 Requires:         R-CRAN-gp >= 1.0
 Requires:         R-CRAN-wesanderson >= 0.3.6.9000
 Requires:         R-CRAN-ggcorrplot >= 0.1.4.1
+Requires:         R-CRAN-wCorr 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-survival 
 
 %description
-Generation of synthetic data from a real dataset using the combination of
-rank normal inverse transformation with the calculation of correlation
-matrix <doi:10.1055/a-2048-7692>. Completely artificial data may be
-generated through the use of Generalized Lambda Distribution and
-Generalized Poisson Distribution <doi:10.1201/9781420038040>.
-Quantitative, binary, ordinal categorical, and survival data may be
-simulated. Functionalities are offered to generate synthetic data sets
-according to user's needs.
+Generation of mock data from a real dataset using rank normal inverse
+transformation.
 
 %prep
 %setup -q -c -n %{packname}

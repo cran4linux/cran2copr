@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fhircrackr
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling HL7 FHIR® Resources in R
 
@@ -38,8 +38,8 @@ Requires:         R-CRAN-rlang
 
 %description
 Useful tools for conveniently downloading FHIR resources in xml format and
-converting them to R data.frames. The package uses FHIR-search to download
-bundles from a FHIR server, provides functions to save and read xml-files
+converting them to R data.frames. Uses FHIR-search to download bundles
+from a FHIR server, provides functions to save and read xml-files
 containing such bundles and allows flattening the bundles to data.frames
 using XPath expressions. FHIR® is the registered trademark of HL7 and is
 used with the permission of HL7. Use of the FHIR trademark does not

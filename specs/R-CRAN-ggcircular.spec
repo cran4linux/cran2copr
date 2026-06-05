@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scholid
-%global packver   0.2.0
+%global packname  ggcircular
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scholarly and Academic Identifier Utilities
+Summary:          A 'ggplot2' Extension for Circular and Directional Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-Detects, normalizes, classifies, and extracts scholarly identifier
-strings. Provides lightweight, dependency-free helpers for twenty
-identifier types, including DOIs, ORCID iDs, ISBNs, ISSNs, arXiv and
-PubMed identifiers, ROR and ISNI, OpenAlex and ADS bibcodes, RRID, ARK,
-SWHID, and selected life-science accessions (UniProt, RefSeq, SRA, GEO,
-BioProject, and genome assemblies). Functions are vectorized, predictable,
-and suitable as low-level building blocks for other R packages and data
-workflows. Use 'scholid_types()' for the authoritative type list. For
-online lookup, conversion, metadata retrieval, and linked identifier
-discovery, see 'scholidonline'.
+Provides a 'ggplot2' grammar for circular, axial and directional data,
+including rose diagrams, circular densities, mean directions, confidence
+arcs, theoretical circular distributions and movement data visualizations.
 
 %prep
 %setup -q -c -n %{packname}

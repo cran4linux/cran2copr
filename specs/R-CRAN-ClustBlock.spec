@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClustBlock
-%global packver   5.0.0
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Datasets
 
@@ -39,8 +39,11 @@ JAR experiments are available. Clustering of observations (products in
 sensory analysis) in multi-block context (notably with ClusMB strategy) is
 also included (Llobell & Giacalone (2025)
 <doi:10.1111/joss.70024>).Performing clustering based on CATA and liking
-at the same time is possible thanks to cluscata_liking function (Llobell &
-Giacalone (2025) <doi:10.1016/j.foodqual.2021.104358>).
+at the same time is possible thanks to cluscata_liking function (Vigneau,
+Cariou, Giacalone, Berget & Llobell (2022)
+<doi:10.1016/j.foodqual.2021.104358>). Clustering of variables
+(quantitative, qualitative or mixed) can be done thanks to the
+MixCluStatis() function.
 
 %prep
 %setup -q -c -n %{packname}

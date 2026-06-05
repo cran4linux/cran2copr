@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  muiMaterial
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Material UI' for 'shiny' Apps and 'Quarto'
 
@@ -14,23 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-shiny.react >= 0.4.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-shiny.react >= 0.4.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-shiny 
 
 %description
-A set of user interface components for building 'shiny' applications and
-'quarto' documents, including inputs, layouts, navigation, surfaces, and
-various utilities. All components 'Material UI' from the company 'MUI'
-<https://mui.com/> are available and all inputs have usage examples in R.
+Wraps the 'Material UI' React components <https://mui.com/> for use in R,
+'shiny' applications and 'quarto' documents, including inputs, layouts,
+navigation, and surfaces. All inputs come with R usage examples.
 
 %prep
 %setup -q -c -n %{packname}

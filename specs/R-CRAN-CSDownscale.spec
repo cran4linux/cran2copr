@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CSDownscale
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Downscaling of Climate Predictions
 
@@ -49,8 +49,12 @@ other climate-sensitive applications. The package was developed within the
 framework of the European Union Horizon Europe projects Impetus4Change
 (101081555) and ASPECT (101081460), the Wellcome Trust supported HARMONIZE
 project (224694/Z/21/Z), and the Spanish national project BOREAS
-(PID2022-140673OA-I00). Implements the methods described in Duzenli et al.
-(2024) <doi:10.5194/egusphere-egu24-19420>.
+(PID2022-140673OA-I00). Implements the methods described in 'Ramon et al.
+(2021) <doi:10.1088/1748-9326/abe491>', 'Duzenli et al. (2024)
+<doi:10.5194/egusphere-egu24-19420>', 'Moreno-Montes et al. (2026)
+<doi:10.1016/j.cliser.2026.100639>', 'Duzenli et al. (2026)
+<doi:10.1038/s41598-026-45067-2>', 'Duzenli et al. (2026)
+<doi:10.1088/1748-9326/ae5c22>'.
 
 %prep
 %setup -q -c -n %{packname}

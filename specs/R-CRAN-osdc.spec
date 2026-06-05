@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  osdc
-%global packver   0.9.19
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.19
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Source Diabetes Classifier for Danish Registers
 
@@ -17,33 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dbplyr >= 2.5.1
+BuildRequires:    R-CRAN-lubridate >= 1.9.5
+BuildRequires:    R-CRAN-purrr >= 1.2.1
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-dplyr >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.7
+BuildRequires:    R-CRAN-duckplyr >= 1.1.3
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-codeCollection 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-duckplyr 
 BuildRequires:    R-CRAN-fabricatr 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-dbplyr >= 2.5.1
+Requires:         R-CRAN-lubridate >= 1.9.5
+Requires:         R-CRAN-purrr >= 1.2.1
+Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-dplyr >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.7
+Requires:         R-CRAN-duckplyr >= 1.1.3
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-codeCollection 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-duckplyr 
 Requires:         R-CRAN-fabricatr 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description

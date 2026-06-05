@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shortIRT
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures Based on Item Response Theory Models for the Development of Short Test Forms
 
@@ -22,20 +22,24 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Implement different Item Response Theory (IRT) based procedures for the
-development of static short test forms (STFs) from a test. Two main
-procedures are considered (Epifania, Anselmi & Robusto, 2022
-<doi:10.1007/978-3-031-27781-8_7>). The procedures differ in how the most
-informative items are selected for the inclusion in the STF, either by
-considering their item information functions without any reference to any
-specific latent trait level (benchmark procedure) or by considering their
-information with respect to specific latent trait levels, denoted as theta
-targets (theta target procedure). Three methods are implemented for the
-definition of the theta targets: (i) as the midpoints of equal intervals
-on the latent trait, (ii) as the centroids of the clusters obtained by
-clustering the latent trait, and (iii) as user-defined values.
-Importantly, the number of theta targets defines the number of items
-included in the STF. For further details on the procedure, please refer to
-Epifania, Anselmi & Robusto (2022) <doi:10.1007/978-3-031-27781-8_7>.
+development of tests from item bank. The procedures are flexible enough to
+be adopted for the development of short forms of full-length tests.
+Different procedures are considered (Epifania, Anselmi & Robusto, 2022
+<doi:10.1007/978-3-031-27781-8_7> and Epifania & Finos, 2025
+<doi:10.1007/978-3-031-95995-0_32>). The main difference between the
+presented procedures refers to the degree of control that they allow for
+targeting specific latent trait levels. The simplest procedure, denoted as
+benchmark procedure, does not allow for any control on the latent trait
+levels of interest, while the other procedures allow for specifying either
+discrete latent trait levels for which the information needs to be
+maximized (theta-target procedure, <doi:10.1007/978-3-031-27781-8_7>) or a
+target information function that needs to be recreated with the selected
+items (item selection algorithm -ISA- denoted as Frank in
+<doi:10.1007/978-3-031-95995-0_32>). Another difference concerns the
+definition of the number of items to be selected. In the benchmark and
+theta-target procedures, the number of items must be defined a priori,
+while in ISA the number of items is determined automatically by the
+algorithm.
 
 %prep
 %setup -q -c -n %{packname}

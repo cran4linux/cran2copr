@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  picreg
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection using the Pivotal Information Criterion
 
@@ -23,6 +23,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-stats 
@@ -31,14 +32,15 @@ Requires:         R-grDevices
 Requires:         R-parallel 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-Matrix 
 
 %description
 Sparse regression and classification via the Pivotal Information Criterion
 (PIC), an alternative to the Bayesian Information Criterion (BIC),
-cross-validation, and Lasso-based tuning. The regularisation parameter is
+cross-validation, and Lasso-based tuning. The regularization parameter is
 selected from a pivotal null-distribution statistic, eliminating the need
 for cross-validation and yielding sharper support recovery. Provides Fast
-Iterative Shrinkage-Thresholding Algorithm (FISTA) optimisation for the
+Iterative Shrinkage-Thresholding Algorithm (FISTA) optimization for the
 L1, Smoothly Clipped Absolute Deviation (SCAD), and Minimax Concave
 Penalty (MCP) penalties across six response distributions: Gaussian,
 binomial, Poisson, exponential, Gumbel, and Cox. Under standard sparsity
