@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckspatial
-%global packver   1.1.1
+%global packname  realestatebr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'DuckDB' Database with Spatial Extension
+Summary:          Import Brazilian Real Estate Data into R
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,52 +17,49 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.0.0
-BuildRequires:    R-CRAN-duckdb >= 1.5.1
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geoarrow 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-nanoarrow 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rbcb 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-wk 
-Requires:         R-CRAN-dbplyr >= 2.0.0
-Requires:         R-CRAN-duckdb >= 1.5.1
-Requires:         R-CRAN-arrow 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyxl 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geoarrow 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-nanoarrow 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rbcb 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-wk 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyxl 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-zoo 
 
 %description
-Fast & memory-efficient functions to analyze and manipulate large spatial
-data data sets. It leverages the fast analytical capabilities of 'DuckDB'
-and its spatial extension (see
-<https://duckdb.org/docs/stable/core_extensions/spatial/overview>) while
-maintaining compatibility with R’s spatial data ecosystem to work with
-spatial vector data.
+Provides access to Brazilian real estate market data from multiple
+official sources: the Central Bank of Brazil (BCB), the Brazilian
+Association of Real Estate Developers (ABRAINC), the Brazilian Association
+of Real Estate Credit and Savings Entities (ABECIP), the Getulio Vargas
+Foundation (FGV), and the Bank for International Settlements (BIS).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smriti
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Routing Engine for Longitudinal Missing Data
 
@@ -17,17 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-missForest 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-missForest 
-Requires:         R-CRAN-MASS 
 
 %description
-An automated routing engine for longitudinal missing data. It utilizes a
-Lagrange-constrained Random Forest based on sample size, missingness rate,
-and skew to preserve structural variance.
+Provides an automated routing engine for longitudinal missing data. It
+utilizes a Lagrange-constrained Random Forest based on sample size,
+missingness rate, and skew to preserve structural variance.
 
 %prep
 %setup -q -c -n %{packname}

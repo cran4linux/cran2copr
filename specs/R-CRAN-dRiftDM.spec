@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dRiftDM
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating (Time-Dependent) Drift Diffusion Models
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-dfoptim 
 BuildRequires:    R-CRAN-Rcpp 
@@ -32,8 +32,8 @@ BuildRequires:    R-CRAN-coda
 Requires:         R-CRAN-withr 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-dfoptim 
 Requires:         R-CRAN-Rcpp 

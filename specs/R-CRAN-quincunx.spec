@@ -1,49 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  atrrr
+%global packname  quincunx
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'AT' Protocol Behind 'Bluesky'
+Summary:          REST API Client for the 'PGS' Catalog
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyjson 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyjson 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
 Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-progress 
+Requires:         R-methods 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-readr 
 
 %description
-Wraps the 'AT' Protocol (Authenticated Transfer Protocol) behind 'Bluesky'
-<https://bsky.social>. Functions can be used for, among others, retrieving
-posts and followers from the network or posting content.
+Programmatic access to the 'PGS' Catalog. This package provides easy
+access to 'PGS' Catalog data by accessing the REST API
+<https://www.pgscatalog.org/rest/>.
 
 %prep
 %setup -q -c -n %{packname}

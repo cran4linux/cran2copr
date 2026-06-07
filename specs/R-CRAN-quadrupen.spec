@@ -1,45 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quadrupen
-%global packver   0.2-13
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparsity by Worst-Case Quadratic Penalties
+Summary:          Sparse and Group Sparse Linear Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-reshape2 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
 Requires:         R-grid 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-parallel 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Fits classical sparse regression models with efficient active set
-algorithms by solving quadratic problems as described by Grandvalet,
-Chiquet and Ambroise (2017) <doi:10.48550/arXiv.1210.2077>. Also provides
-a few methods for model selection purpose (cross-validation, stability
-selection).
+Fits the solution paths of classical sparse regression models with
+efficient active set algorithms by solving small sub-problems. Include
+LASSO, SCAD, MCP, (Sparse) Group-LASSO, Cooperative-LASSO, (Group) LAVA,
+(Generalized) Fused-Lasso and (Generalized) Elastic-Net. Also provides
+methods for model selection purpose (information criteria,
+cross-validation, stability selection).
 
 %prep
 %setup -q -c -n %{packname}

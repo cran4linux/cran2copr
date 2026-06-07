@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  goodpractice
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advice on R Package Building
 
@@ -14,41 +14,47 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lintr >= 3.0.0
 BuildRequires:    R-CRAN-cyclocomp >= 1.1.0
-BuildRequires:    R-CRAN-xmlparsedata >= 1.0.1
-BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-covr 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-praise 
 BuildRequires:    R-CRAN-rcmdcheck 
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-spelling 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-treesitter 
+BuildRequires:    R-CRAN-treesitter.r 
+BuildRequires:    R-CRAN-urlchecker 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-whoami 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-lintr >= 3.0.0
 Requires:         R-CRAN-cyclocomp >= 1.1.0
-Requires:         R-CRAN-xmlparsedata >= 1.0.1
-Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-covr 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-praise 
 Requires:         R-CRAN-rcmdcheck 
+Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-spelling 
 Requires:         R-tools 
+Requires:         R-CRAN-treesitter 
+Requires:         R-CRAN-treesitter.r 
+Requires:         R-CRAN-urlchecker 
 Requires:         R-utils 
 Requires:         R-CRAN-whoami 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xml2 
 
 %description
 Give advice about good practices when building R packages. Advice includes

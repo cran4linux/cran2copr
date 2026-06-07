@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ezTrack
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploring Animal Movement Data
+Summary:          Tools for Exploring Animal Movement Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,42 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-adehabitatHR 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-adehabitatHR 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-adehabitatHR 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-adehabitatHR 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-htmltools 
-Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
 
 %description
-Streamlines common steps for working with animal tracking data, from raw
-telemetry points to summaries, interactive maps, and home range estimates.
-Designed to be beginner-friendly, it enables rapid exploration of spatial
-and movement data with minimal wrangling, providing a unified workflow for
-importing, summarizing, and visualizing, and analyzing animal movement
-datasets.
+Provides tools for exploring animal tracking data, from raw telemetry
+points to summaries, interactive maps, and home range estimates. It is
+designed to be beginner-friendly and requires minimal data wrangling.
 
 %prep
 %setup -q -c -n %{packname}

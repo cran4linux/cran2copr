@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WMAP
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Meta-Analysis with Pseudo-Populations
 
@@ -20,21 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-pkgcond 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-zeallot 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
 Requires:         R-CRAN-pkgcond 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-zeallot 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-forcats 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-grDevices 
 
 %description
 Implementation of integrative weighting approaches for multiple

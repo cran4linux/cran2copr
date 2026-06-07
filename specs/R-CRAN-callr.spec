@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  callr
-%global packver   3.7.6
+%global packver   3.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.6
+Version:          3.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Call R from R
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-processx >= 3.6.1
+BuildRequires:    R-CRAN-otel >= 0.2.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-processx >= 3.6.1
+Requires:         R-CRAN-otel >= 0.2.0
 Requires:         R-CRAN-R6 
 Requires:         R-utils 
 

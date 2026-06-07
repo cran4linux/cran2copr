@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayespmtools
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Sample Size and Precision Considerations for Risk Prediction Models
 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-quantreg
 %description
 Performs Bayesian sample size, precision, and value-of-information
 analysis for external validation of existing multi-variable prediction
-models using the approach proposed by Sadatsafavi and colleagues (2025)
+models using the approach proposed by Sadatsafavi and colleagues (2026)
 <doi:10.1002/sim.70389>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cvms
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validation for Model Selection
 
@@ -27,11 +27,13 @@ BuildRequires:    R-CRAN-lme4 >= 1.1.23
 BuildRequires:    R-CRAN-tidyr >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.7
+BuildRequires:    R-CRAN-reformulas >= 0.4.3.1
 BuildRequires:    R-CRAN-rearrr >= 0.3.4
 BuildRequires:    R-CRAN-parameters >= 0.15.0
 BuildRequires:    R-CRAN-recipes >= 0.1.13
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
@@ -47,11 +49,13 @@ Requires:         R-CRAN-lme4 >= 1.1.23
 Requires:         R-CRAN-tidyr >= 1.1.2
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.7
+Requires:         R-CRAN-reformulas >= 0.4.3.1
 Requires:         R-CRAN-rearrr >= 0.3.4
 Requires:         R-CRAN-parameters >= 0.15.0
 Requires:         R-CRAN-recipes >= 0.1.13
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 

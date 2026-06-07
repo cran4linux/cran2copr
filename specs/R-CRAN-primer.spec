@@ -1,49 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  atrrr
-%global packver   0.2.0
+%global packname  primer
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'AT' Protocol Behind 'Bluesky'
+Summary:          Functions and Data for the Book, a Primer of Ecology with R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Wraps the 'AT' Protocol (Authenticated Transfer Protocol) behind 'Bluesky'
-<https://bsky.social>. Functions can be used for, among others, retrieving
-posts and followers from the network or posting content.
+Provides data and functions for "A Primer of Ecology with R" by M. Henry
+H. Stevens (2009) <doi:10.1007/978-0-387-89882-7>.
 
 %prep
 %setup -q -c -n %{packname}

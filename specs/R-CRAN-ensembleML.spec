@@ -1,49 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  atrrr
-%global packver   0.2.0
+%global packname  ensembleML
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'AT' Protocol Behind 'Bluesky'
+Summary:          Unified Interface for Ensemble Machine Learning Methods
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-randomForest >= 4.7.1
+BuildRequires:    R-CRAN-adabag >= 4.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-xgboost >= 1.7.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-randomForest >= 4.7.1
+Requires:         R-CRAN-adabag >= 4.2
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-xgboost >= 1.7.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
 
 %description
-Wraps the 'AT' Protocol (Authenticated Transfer Protocol) behind 'Bluesky'
-<https://bsky.social>. Functions can be used for, among others, retrieving
-posts and followers from the network or posting content.
+Provides a clean, unified interface for training, predicting, and
+evaluating ensemble machine learning models including Random Forest,
+Gradient Boosting ('XGBoost'), 'AdaBoost', and 'Bagging'. All algorithms
+share a consistent API: em_fit(), em_predict(), em_evaluate(), and
+em_tune(). Includes built-in cross-validation, feature importance,
+calibration diagnostics, partial dependence plots, and model comparison
+utilities. Methods: Breiman (2001) <doi:10.1023/A:1010933404324>; Chen and
+Guestrin (2016) <doi:10.1145/2939672.2939785>; Freund and Schapire (1997)
+<doi:10.1006/jcss.1997.1504>; Breiman (1996) <doi:10.1007/BF00058655>.
 
 %prep
 %setup -q -c -n %{packname}

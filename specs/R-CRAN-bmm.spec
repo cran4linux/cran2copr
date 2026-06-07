@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bmm
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy and Accessible Bayesian Measurement Models Using 'brms'
 
@@ -49,8 +49,8 @@ complex domain-specific models into 'brms' syntax, a powerful and flexible
 framework for fitting Bayesian regression models using 'Stan'. The package
 is designed so that users can easily apply state-of-the-art models in
 various research fields, and so that researchers can use it as a new model
-development framework. References: Frischkorn and Popov (2023)
-<doi:10.31234/osf.io/umt57>.
+development framework. References: Frischkorn and Popov (2025)
+<doi:10.3758/s13428-025-02643-0>.
 
 %prep
 %setup -q -c -n %{packname}

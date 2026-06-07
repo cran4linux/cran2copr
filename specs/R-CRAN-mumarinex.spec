@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mumarinex
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation of the Multivariate Marine Recovery Index
 
@@ -19,17 +19,19 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-vegan 
+Requires:         R-utils 
 
 %description
 Computation of the multivariate marine recovery index, including functions
 for data visualization and ecological diagnostics of marine ecosystems.
 The computational details are described in the original publication.
-Reference: Chauvel, N., Grall, J., Thiébaut, E., Houbin, C., Pezy, J.P.
-(in press). "A general-purpose Multivariate Marine Recovery Index for
+Reference: Chauvel, N., Grall, J., Thiébaut, E., Houbin, C., Pezy, J.-P.,
+2026. A general-purpose multivariate marine recovery index (MUMARINEX) for
 quantifying the influence of human activities on benthic habitat
-ecological status". Ecological Indicators.
+ecological status. Ecological Indicators 188, 115002.
 
 %prep
 %setup -q -c -n %{packname}

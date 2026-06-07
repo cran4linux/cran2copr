@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treeclim
-%global packver   2.0.7.1
+%global packver   2.0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7.1
+Version:          2.0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Numerical Calibration of Proxy-Climate Relationships
 
@@ -14,13 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.000.2
-BuildRequires:    R-CRAN-Rcpp >= 0.10.6
-BuildRequires:    R-base 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -28,10 +24,8 @@ BuildRequires:    R-CRAN-lmtest
 BuildRequires:    R-CRAN-lmodel2 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-Rcpp >= 0.10.6
-Requires:         R-base 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-ggplot2 
