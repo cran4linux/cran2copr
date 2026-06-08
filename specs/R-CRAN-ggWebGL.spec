@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggWebGL
-%global packver   0.4.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Browser-Native 'WebGL' Rendering for R Graphics
 
@@ -20,11 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
 Provides browser-native 'WebGL' rendering for R graphics through

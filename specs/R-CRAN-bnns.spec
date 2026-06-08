@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bnns
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Neural Network with 'Stan'
 
@@ -14,20 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-BH 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-loo 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-RcppEigen 
 Requires:         R-CRAN-rstan 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rstantools
 
 %description

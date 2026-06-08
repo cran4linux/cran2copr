@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rtmpinv
-%global packver   1.1.0
+%global packname  PsiUEngineRL
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Matrix Problems via Pseudoinverse Estimation
+Summary:          Homotopy Type Theory Engine for Reinforcement Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rclsp >= 1.1.0
-Requires:         R-CRAN-rclsp >= 1.1.0
 
 %description
-The Tabular Matrix Problems via Pseudoinverse Estimation (TMPinv) is a
-two-stage estimation method that reformulates structured table-based
-systems - such as allocation problems, transaction matrices, and
-input-output tables - as structured least-squares problems. Based on the
-Convex Least Squares Programming (CLSP) framework, TMPinv solves systems
-with row and column constraints, block structure, and optionally reduced
-dimensionality by (1) constructing a canonical constraint form and
-applying a pseudoinverse-based projection, followed by (2) a
-convex-programming refinement stage to improve fit, coherence, and
-regularization (e.g., via Lasso, Ridge, or Elastic Net).
+Core architecture for interpreting continuous data streams as homotopy
+types. It evaluates identity paths against the Gnomonic Ratio ('Lombardi',
+2026) <doi:10.5281/zenodo.20385840> and processes them via a dynamic
+'Tableau Refutation Tree'. The engine categorizes data into necessity
+(BOX), possibility (DIAMOND), or noise based on deviation thresholds from
+the invariant value. Includes adaptive auto-tuning and native
+high-contrast Cartesian graphics for structural entropy isolation.
 
 %prep
 %setup -q -c -n %{packname}

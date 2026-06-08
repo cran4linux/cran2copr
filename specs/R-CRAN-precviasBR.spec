@@ -1,48 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  choroplethr
-%global packver   5.0.1
+%global packname  precviasBR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Color-Coded Choropleth Maps in R
+Summary:          Spatial Data of Road Precariousness in Brazil
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-CRAN-tigris >= 1.0
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidycensus 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-CRAN-tigris >= 1.0
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidycensus 
+Requires:         R-CRAN-rlang 
 
 %description
-Easily create color-coded (choropleth) maps in R. No knowledge of
-cartography or shapefiles needed; go directly from your geographically
-identified data to a highly customizable map with a single line of code!
-Supported geographies: U.S. states, counties, census tracts, and zip
-codes, world countries and sub-country regions (e.g., provinces,
-prefectures, etc.).
+Fornece acesso eficiente à malha espacial de precariedade viária
+brasileira. O pacote realiza o download em cache e a leitura otimizada
+(via Apache Arrow) de arquivos Parquet particionados, contendo o
+cruzamento de variáveis de infraestrutura do Entorno do Censo Demográfico
+2022 (IBGE) com a malha viária aberta do Overture Maps. [English] Provides
+efficient access to the spatial network of road precariousness in Brazil.
+The package performs cached downloads and optimized reading (via Apache
+Arrow) of partitioned Parquet files. These files contain the intersection
+of infrastructure variables from the 2022 Demographic Census (IBGE) with
+the open street network from Overture Maps. Methodology and datasets are
+detailed in Passos (2026) <doi:10.5281/zenodo.19711448>.
 
 %prep
 %setup -q -c -n %{packname}

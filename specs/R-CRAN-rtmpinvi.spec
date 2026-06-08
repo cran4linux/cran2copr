@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtmpinvi
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Tabular Matrix Problems via Pseudoinverse Estimation
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rtmpinv >= 1.0.0
-Requires:         R-CRAN-rtmpinv >= 1.0.0
+BuildRequires:    R-CRAN-rtmpinv >= 1.1.0
+Requires:         R-CRAN-rtmpinv >= 1.1.0
 
 %description
 Provides an interactive wrapper for the 'tmpinv()' function from the

@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rtmpinv
-%global packver   1.1.0
+%global packname  marginme
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Matrix Problems via Pseudoinverse Estimation
+Summary:          Estimation of Relative Risks, Risk Differences, and Marginal Effects from Mixed Models Using Marginal Standardization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rclsp >= 1.1.0
-Requires:         R-CRAN-rclsp >= 1.1.0
+BuildRequires:    R-CRAN-glmmrBase >= 1.4.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-glmmrBase >= 1.4.0
+Requires:         R-methods 
 
 %description
-The Tabular Matrix Problems via Pseudoinverse Estimation (TMPinv) is a
-two-stage estimation method that reformulates structured table-based
-systems - such as allocation problems, transaction matrices, and
-input-output tables - as structured least-squares problems. Based on the
-Convex Least Squares Programming (CLSP) framework, TMPinv solves systems
-with row and column constraints, block structure, and optionally reduced
-dimensionality by (1) constructing a canonical constraint form and
-applying a pseudoinverse-based projection, followed by (2) a
-convex-programming refinement stage to improve fit, coherence, and
-regularization (e.g., via Lasso, Ridge, or Elastic Net).
+Estimation of relative risks, risk differences, and partial effects from
+mixed model. Marginalisation over random effect terms is accomplished
+using Markov Chain Monte Carlo.
 
 %prep
 %setup -q -c -n %{packname}

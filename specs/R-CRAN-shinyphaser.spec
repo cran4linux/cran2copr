@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PRIMME
-%global packver   3.2-6
+%global packname  shinyphaser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Eigenvalues and Singular Values and Vectors from Large Matrices
+Summary:          An Interface to the 'Phaser.js' Game Framework
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.4
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp >= 0.11.4
-Requires:         R-CRAN-Matrix 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
 
 %description
-R interface to 'PRIMME' <https://www.cs.wm.edu/~andreas/software/>, a C
-library for computing a few eigenvalues and their corresponding
-eigenvectors of a real symmetric or complex Hermitian matrix, or
-generalized Hermitian eigenproblem.  It can also compute singular values
-and vectors of a square or rectangular matrix. 'PRIMME' finds largest,
-smallest, or interior singular/eigenvalues and can use preconditioning to
-accelerate convergence. General description of the methods are provided in
-the papers Stathopoulos (2010, <doi:10.1145/1731022.1731031>) and Wu
-(2017, <doi:10.1137/16M1082214>). See 'citation("PRIMME")' for details.
+An API to build and control 2D games using the 'Phaser' 'JavaScript'
+engine. It enables integration with 'shiny' applications, allowing to
+create interactive games and simulations.
 
 %prep
 %setup -q -c -n %{packname}

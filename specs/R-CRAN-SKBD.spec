@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MOSAlloc
-%global packver   1.2.6
+%global packname  SKBD
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constraint Multiobjective Sample Allocation
+Summary:          Shared Keyboard Designs for Phase I Dose-Finding Trials
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ECOSolveR 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-ECOSolveR 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides a framework for multipurpose optimal resource allocation in
-survey sampling, extending the classical optimal allocation principles
-introduced by Tschuprow (1923) and Neyman (1934) to multidomain and
-multivariate allocation problems. The primary method mosalloc() allows for
-the consideration of precision and cost constraints at the subpopulation
-level while minimizing either a vector of sampling errors or survey costs
-across a broad range of optimal sample allocation problems. The approach
-supports both single- and multistage designs. For single-stage stratified
-random sampling, the mosallocSTRS() function offers a user- friendly
-interface. Sensitivity analysis is supported through the problem's dual
-variables, which are naturally obtained via the internal use of the
-Embedded Conic Solver from the 'ECOSolveR' package. See Willems (2025,
-<doi:10.25353/ubtr-9200-484c-5c89>) for a detailed description of the
-theory behind 'MOSAlloc'.
+Implements the shared keyboard design (SKBD) for model-assisted phase I
+dose-finding, including decision-boundary construction,
+operating-characteristic simulation, and extensions for dose insertion and
+time-to-event settings. The package also provides an interactive Shiny
+interface for trial-planning workflows. For more details, see Zhao, Shi,
+and Xu (2026) <doi:10.48550/arXiv.2605.25043>.
 
 %prep
 %setup -q -c -n %{packname}

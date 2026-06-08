@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MOSAlloc
-%global packver   1.2.6
+%global packname  glmmrOptim
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constraint Multiobjective Sample Allocation
+Summary:          Approximate Optimal Experimental Designs Using Generalised Linear Mixed Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ECOSolveR 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-glmmrBase >= 1.0.0
+BuildRequires:    R-CRAN-rminqa >= 0.2.2
+BuildRequires:    R-CRAN-SparseChol >= 0.2.1
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-ECOSolveR 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmmrBase >= 1.0.0
+Requires:         R-methods 
+Requires:         R-CRAN-digest 
 
 %description
-Provides a framework for multipurpose optimal resource allocation in
-survey sampling, extending the classical optimal allocation principles
-introduced by Tschuprow (1923) and Neyman (1934) to multidomain and
-multivariate allocation problems. The primary method mosalloc() allows for
-the consideration of precision and cost constraints at the subpopulation
-level while minimizing either a vector of sampling errors or survey costs
-across a broad range of optimal sample allocation problems. The approach
-supports both single- and multistage designs. For single-stage stratified
-random sampling, the mosallocSTRS() function offers a user- friendly
-interface. Sensitivity analysis is supported through the problem's dual
-variables, which are naturally obtained via the internal use of the
-Embedded Conic Solver from the 'ECOSolveR' package. See Willems (2025,
-<doi:10.25353/ubtr-9200-484c-5c89>) for a detailed description of the
-theory behind 'MOSAlloc'.
+Optimal design analysis algorithms for any study design that can be
+represented or modelled as a generalised linear mixed model including
+cluster randomised trials, cohort studies, spatial and temporal
+epidemiological studies, and split-plot designs. See
+<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
+detailed manual on model specification. A detailed discussion of the
+methods in this package can be found in Watson, Hemming, and Girling
+(2023) <doi:10.1177/09622802231202379>.
 
 %prep
 %setup -q -c -n %{packname}

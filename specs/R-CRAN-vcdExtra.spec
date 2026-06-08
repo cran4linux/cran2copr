@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vcdExtra
-%global packver   0.9.3
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'vcd' Extensions and Additions
 
@@ -34,6 +34,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-webshot2 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-gnm >= 1.0.3
 Requires:         R-CRAN-vcd 
 Requires:         R-CRAN-MASS 
@@ -51,6 +53,8 @@ Requires:         R-methods
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-webshot2 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides additional data sets, methods and documentation to complement the

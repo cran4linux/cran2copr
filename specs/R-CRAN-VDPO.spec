@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VDPO
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with and Analyzing Functional Data of Varying Lengths
 
@@ -20,13 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-SOP 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-splines 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-pROC 
 Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-SOP 
+Requires:         R-CRAN-mgcv 
 Requires:         R-splines 
 Requires:         R-stats 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-pROC 
 
 %description
 Comprehensive set of tools for analyzing and manipulating functional data
@@ -35,7 +41,9 @@ functional data analysis: Variable Domain Data, where the observation
 domain differs across samples, and Partially Observed Data, where
 observations are incomplete over the domain of interest. 'VDPO' enhances
 the flexibility and applicability of functional data analysis in 'R'. See
-Amaro et al. (2024) <doi:10.48550/arXiv.2401.05839>.
+Amaro et al. (2024) <doi:10.48550/arXiv.2401.05839>, Hernandez-Amaro et
+al. (2025) <doi:10.48550/arXiv.2510.26917>, and Hernandez-Amaro et al.
+(2026) <doi:10.48550/arXiv.2605.03633>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmixr2extra
-%global packver   5.0.0
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models in Population PK/PD, Extra Support Functions
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-nlmixr2est >= 5.0.0
-BuildRequires:    R-CRAN-rxode2 >= 5.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-nlmixr2est >= 6.0.0
+BuildRequires:    R-CRAN-rxode2 >= 5.1.0
 BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-crayon 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lotri 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-Rcpp 
@@ -35,8 +36,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-symengine 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-nlmixr2est >= 5.0.0
-Requires:         R-CRAN-rxode2 >= 5.0.0
+Requires:         R-CRAN-nlmixr2est >= 6.0.0
+Requires:         R-CRAN-rxode2 >= 5.1.0
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-crayon 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lotri 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-Rcpp 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  akin
-%global packver   0.3.3
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Utilities for Data Processing
 
@@ -23,18 +23,18 @@ BuildRequires:    R-CRAN-callr
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-listenv 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppAlgos 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppAlgos 
 Requires:         R-CRAN-data.table >= 1.18.2.0
 Requires:         R-CRAN-RVerbalExpressions >= 0.1.0
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-listenv 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-RcppAlgos 
 Requires:         R-utils 
 Requires:         R-methods 
+Requires:         R-CRAN-RcppAlgos 
 
 %description
 Covers several areas of data processing: batch-splitting, reading and
@@ -43,8 +43,8 @@ data tiles, stratified proportional (random or probabilistic) data
 sampling, data normalization and thresholding, substring location and
 commonalities inside strings, and location and tabulation of amino acids,
 modifications or associated monoisotopic masses inside modified peptides.
-The extractor utility implements code from 'Matrix.utils', Varrichio C
-(2020), <https://cran.r-project.org/package=Matrix.utils>.
+The extractor implements code from 'Matrix.utils', Varrichio C (2020),
+<https://cran.r-project.org/package=Matrix.utils>.
 
 %prep
 %setup -q -c -n %{packname}
