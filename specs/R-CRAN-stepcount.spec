@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stepcount
-%global packver   0.3.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Step Counts from 'Accelerometry' Data
 
@@ -17,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate >= 1.42.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-reticulate >= 1.42.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rlang 
 
 %description
 Interfaces the 'stepcount' Python module

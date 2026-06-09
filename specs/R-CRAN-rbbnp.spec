@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbbnp
-%global packver   0.3.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Bias Bound Approach to Non-Parametric Inference
 
@@ -17,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-tidyr 
 
 %description
 A novel bias-bound approach for non-parametric inference is introduced,

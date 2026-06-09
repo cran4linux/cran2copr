@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  incubate
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Time-to-Event Analysis with Variable Incubation Phases
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-future.apply >= 1.6
 BuildRequires:    R-CRAN-glue >= 1.4
 BuildRequires:    R-CRAN-future >= 1.21
@@ -40,7 +40,7 @@ Requires:         R-CRAN-tibble
 
 %description
 Fit parametric models for time-to-event data that show an initial
-'incubation period', i.e., a variable delay phase where no events occur.
+'incubation period', i.e. a variable delay phase where no events occur.
 The delayed Weibull distribution serves as the foundational data model.
 For parameter estimation, different flavours of maximum likelihood
 estimation ('MLE') and the method of maximum product of spacings

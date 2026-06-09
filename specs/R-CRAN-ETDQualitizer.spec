@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ETDQualitizer
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Eye Tracking Data Quality Determination for Screen-Based Eye Trackers
 
@@ -28,7 +28,7 @@ for screen-based eye trackers. The package supports gaze input in screen
 pixels or degrees and reports angular measures in degrees where
 appropriate. If you use this package, please cite Niehorster, D.C.,
 Nyström, M., Hessels, R.S., Benjamins, J.S., Andersson, R., and Hooge,
-I.T.C. (2026). The fundamentals of eye tracking part 7: Determining data
+I.T.C. (2026). The fundamentals of eye tracking, Part 7: Determining data
 quality. Behavior Research Methods. <doi:10.3758/s13428-026-03039-4>.
 
 %prep

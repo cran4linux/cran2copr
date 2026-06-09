@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rregm
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reparameterized Regression Models
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-invgamma 
+BuildRequires:    R-CRAN-skewMLRM 
 Requires:         R-stats 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-invgamma 
+Requires:         R-CRAN-skewMLRM 
 
 %description
 Provides estimation and data generation tools for several new regression
@@ -37,7 +39,10 @@ distributions. These models can be parameterized based on the mean,
 median, mode, geometric mean and harmonic mean, as specified by the user.
 For details, see Bourguignon and Gallardo (2025a)
 <doi:10.1016/j.chemolab.2025.105382> and Bourguignon and Gallardo (2025b)
-<doi:10.1111/stan.70007>.
+<doi:10.1111/stan.70007>. Additional tools are provided for higher-order
+likelihood inference through Skovgaard-adjusted likelihood ratio
+statistics and for predictive shrinkage estimation in reparameterized beta
+regression models.
 
 %prep
 %setup -q -c -n %{packname}

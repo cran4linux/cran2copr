@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cforecast
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Forecasting and Scenario Analysis Using VAR Models
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-BVAR 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-FKF 
+BuildRequires:    R-CRAN-KFAS 
 BuildRequires:    R-CRAN-miscTools 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vars 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-wex
 Requires:         R-CRAN-BVAR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-FKF 
+Requires:         R-CRAN-KFAS 
 Requires:         R-CRAN-miscTools 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vars 
@@ -37,16 +39,17 @@ Requires:         R-methods
 Requires:         R-CRAN-wex 
 
 %description
-Provides tools for conducting scenario analysis in reduced-form vector
-autoregressive (VAR) models. Implements a Kalman filtering framework to
-generate forecasts under path restrictions on selected variables. The
-package enables decomposition of conditional forecasts into
-variable-specific contributions, and extraction of observation weights. It
-also computes measures of overall and marginal variable importance to
-enhance the economic interpretation of forecast revisions. The framework
-is structurally agnostic and suited for policy analysis, stress testing,
-and macro-financial applications. The methodology is described in more
-detail in Caspi and Ginker (2026) <doi:10.13140/RG.2.2.25225.51040>.
+Provides tools for interpretable conditional forecasting and scenario
+analysis in reduced-form vector autoregressive (VAR) models. Implements a
+Kalman smoothing framework to generate forecasts under path restrictions
+on selected variables. The package enables decomposition of conditional
+forecasts into variable-specific contributions, and extraction of
+observation weights. It also computes measures of overall and marginal
+variable importance to enhance the economic interpretation of forecast
+revisions. The framework is structurally agnostic and suited for policy
+analysis, stress testing, and macro-financial applications. The
+methodology is described in more detail in Caspi and Ginker (2026)
+<doi:10.13140/RG.2.2.25225.51040>.
 
 %prep
 %setup -q -c -n %{packname}

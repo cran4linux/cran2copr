@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  miclust
-%global packver   1.2.8
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Imputation in Cluster Analysis
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-doBy
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-flexclust 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -28,7 +28,6 @@ Requires:         R-CRAN-doBy
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-flexclust 
 Requires:         R-graphics 
-Requires:         R-CRAN-irr 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-stats 
 Requires:         R-utils 

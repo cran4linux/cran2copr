@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mizer
-%global packver   2.5.4
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.4
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Multi-Species Size Spectrum Modelling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-deSolve 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-pak 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-deSolve 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-pak 
 
 %description
 A set of classes and methods to set up and run multi-species, trait based

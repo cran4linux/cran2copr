@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SHARK4R
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing and Validating Marine Environmental Data from 'SHARK' and Related Databases
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
@@ -29,12 +30,12 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-worrms 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
@@ -47,7 +48,6 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 

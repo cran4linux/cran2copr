@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ErrorTracer
+%global packname  rrstools
 %global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Error Propagation and Forecast Uncertainty Decomposition
+Summary:          Analyzing RoboCupRescue Simulation Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-brms >= 2.20.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-brms >= 2.20.0
-Requires:         R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-graphics 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Provides a full pipeline from regularized or standard regression models
-(elastic net, linear models, generalized linear models, random forests) to
-informed Bayesian priors, structured forecast uncertainty decomposition
-(parameter / environmental / residual, plus a temporal component when the
-model carries an autocorrelation term), and forecast shelf life analysis
-(the quantification of when a forecast becomes uninformative). Designed
-for ecological and genomic forecasting with climate or environmental
-covariates. Methods build on Bürkner (2017) <doi:10.18637/jss.v080.i01>
-for Bayesian regression via 'Stan', Friedman, Hastie, and Tibshirani
-(2010) <doi:10.18637/jss.v033.i01> for elastic net regularization, Wright
-and Ziegler (2017) <doi:10.18637/jss.v077.i01> for random forests, and
-Vehtari, Gelman, and Gabry (2017) <doi:10.1007/s11222-016-9696-4> for
-leave-one-out cross-validation.
+Tools for analyzing data from RoboCupRescue Simulation (RRS)
+<https://rescuesim.robocup.org>, a disaster rescue simulation platform.
+Supports reading virtual city map and disaster scenario files into
+analyzable data structures and provides functions for their visualization.
 
 %prep
 %setup -q -c -n %{packname}

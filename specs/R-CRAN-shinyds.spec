@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyds
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Shiny' Bindings for Designsystemet Components
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-htmltools >= 0.5.0
 %description
 Provides 'R' wrappers for the Designsystemet component library
 <https://designsystemet.no>, enabling use of Norwegian government design
-system components in Shiny applications. Includes web components and
-CSS-based HTML components with full Shiny input binding support.
+system components in 'Shiny' applications. Includes web components and
+CSS-based HTML components with full 'Shiny' input binding support.
 
 %prep
 %setup -q -c -n %{packname}

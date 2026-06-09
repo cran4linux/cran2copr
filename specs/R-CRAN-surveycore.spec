@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveycore
-%global packver   0.8.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Survey Analysis Infrastructure
 
@@ -39,15 +39,19 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-Provides 'S7'-based infrastructure for survey analysis. Supports Taylor
-series, replicate weight, and two-phase designs following the methods in
-'Lumley' (2004) <doi:10.18637/jss.v009.i08>. Includes design-based
-estimators such as means, frequencies, and regression models, with
-weighted 'polychoric' and 'polyserial' correlation following 'Mannan'
-(2025) <doi:10.2139/ssrn.6580480>. A metadata system automatically
-preserves 'haven'-style variable labels, value labels, and
-question-preface attributes through all operations. Uses a 'tidyselect'
-interface for design specification.
+A modern, 'S7'-based foundation for survey analysis spanning both
+probability and non-probability samples. Probability sample designs
+include Taylor series linearization, replicate weights (BRR, Fay,
+jackknife, bootstrap), and two-phase estimation, following 'Lumley' (2004)
+<doi:10.18637/jss.v009.i08>. Non-probability sample designs support
+bootstrap and jackknife variance estimation for opt-in panels and
+convenience samples. Provides a unified estimator interface for means,
+frequencies, totals, quantiles, ratios, correlations, regression, and
+t-tests, with weighted 'polychoric' and 'polyserial' correlation following
+'Mannan' (2025) <doi:10.2139/ssrn.6580480>. A metadata system preserves
+'haven'-style variable labels, value labels, and question-preface
+attributes through all operations. Uses a 'tidyselect' interface
+throughout.
 
 %prep
 %setup -q -c -n %{packname}

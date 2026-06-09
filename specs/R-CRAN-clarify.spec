@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clarify
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Inference for Regression Models
 
@@ -17,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-pbapply >= 1.7.4
 BuildRequires:    R-CRAN-insight >= 1.4.2
 BuildRequires:    R-CRAN-rlang >= 1.1.6
 BuildRequires:    R-CRAN-marginaleffects >= 0.30.0
-BuildRequires:    R-CRAN-chk >= 0.10.0
+BuildRequires:    R-CRAN-arg >= 0.1.1
+Requires:         R-CRAN-cli >= 3.6.5
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-pbapply >= 1.7.4
 Requires:         R-CRAN-insight >= 1.4.2
 Requires:         R-CRAN-rlang >= 1.1.6
 Requires:         R-CRAN-marginaleffects >= 0.30.0
-Requires:         R-CRAN-chk >= 0.10.0
+Requires:         R-CRAN-arg >= 0.1.1
 
 %description
 Performs simulation-based inference as an alternative to the delta method
