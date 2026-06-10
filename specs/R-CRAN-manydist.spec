@@ -1,76 +1,99 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manydist
-%global packver   0.4.9
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unbiased Distances for Mixed-Type Data
+Summary:          Distance-Based Learning for Mixed-Type Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-entropy 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-fastDummies 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-philentropy 
+BuildRequires:    R-CRAN-aricode 
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-fpc 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-distances 
-Requires:         R-CRAN-entropy 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-fastDummies 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-philentropy 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-entropy 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-fpc 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-kdml 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-philentropy 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tune 
+Requires:         R-CRAN-aricode 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-fpc 
-Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-rsample 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-clusterGeneration 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-distances 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-entropy 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-fpc 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-kdml 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-philentropy 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsample 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tune 
 
 %description
-A comprehensive framework for calculating unbiased distances in datasets
-containing mixed-type variables (numerical and categorical). The package
-implements a general formulation that ensures multivariate additivity and
-commensurability, meaning that variables contribute equally to the overall
-distance regardless of their type, scale, or distribution. Supports
-multiple distance measures including Gower's distance, Euclidean distance,
-Manhattan distance, and various categorical variable distances such as
-simple matching, Eskin, occurrence frequency, and association-based
-distances. Provides tools for variable scaling (standard deviation, range,
-robust range, and principal component scaling), and handles both
-independent and association-based category dissimilarities. Implements
-methods to correct for biases that typically arise from different variable
-types, distributions, and number of categories. Particularly useful for
-cluster analysis, data visualization, and other distance-based methods
-when working with mixed data. Methods based on van de Velden et al. (2024)
-<doi:10.48550/arXiv.2411.00429> "Unbiased mixed variables distance".
+Provides tools for constructing, computing, and using distance measures
+for numerical, categorical, and mixed-type data. The package implements a
+flexible framework in which continuous and categorical components can be
+combined under additive, commensurable, and association-aware
+specifications. Supported methods include classical distances such as
+Gower, Euclidean, Manhattan, and Mahalanobis-type distances; categorical
+dissimilarities such as simple matching, occurrence-frequency, and
+association-based measures; and mixed-type presets designed to reduce
+biases due to variable type, scale, distribution, redundancy, and number
+of categories. The package also provides scaling options, supervised and
+unsupervised distance constructions, leave-one-variable-out tools for
+distance-based variable importance, and integration with distance-based
+learning workflows such as nearest-neighbour prediction, partitioning
+around medoids, and spectral clustering. Methods are motivated by van de
+Velden, Iodice D'Enza, Markos, and Cavicchia (2026)
+<doi:10.1080/10618600.2026.2680181> and related work on categorical and
+mixed-type dissimilarities.
 
 %prep
 %setup -q -c -n %{packname}

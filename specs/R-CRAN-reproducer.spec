@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reproducer
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproduce Statistical Analyses and Meta-Analyses
 
@@ -19,9 +19,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.45
 BuildRequires:    R-stats >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-openxlsx >= 2.4.0
 BuildRequires:    R-CRAN-tibble >= 2.1.1
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-metafor >= 1.9.2
 BuildRequires:    R-CRAN-xtable >= 1.7.4
 BuildRequires:    R-CRAN-jsonlite >= 1.6
@@ -37,9 +37,9 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
 BuildRequires:    R-CRAN-GetoptLong >= 0.1.7
 Requires:         R-CRAN-MASS >= 7.3.45
 Requires:         R-stats >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-openxlsx >= 2.4.0
 Requires:         R-CRAN-tibble >= 2.1.1
-Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-metafor >= 1.9.2
 Requires:         R-CRAN-xtable >= 1.7.4
 Requires:         R-CRAN-jsonlite >= 1.6

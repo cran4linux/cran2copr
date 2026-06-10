@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tikatuwq
-%global packver   0.8.2
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water Quality Assessment and Environmental Compliance in Brazil
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
@@ -45,22 +46,25 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-purrr 
+Requires:         R-tools 
 
 %description
 Tools to import, clean, validate, and analyze freshwater quality data in
 Brazil. Implements water quality indices including the Water Quality Index
-(WQI/IQA), the Trophic State Index (TSI/IET) after Carlson (1977)
+('WQI'/'IQA') using the weighted geometric mean following 'CETESB'
+methodology, the Trophic State Index ('TSI'/'IET') after Carlson (1977)
 <doi:10.4319/lo.1977.22.2.0361> and Lamparelli (2004)
-<https://www.teses.usp.br/teses/disponiveis/41/41134/tde-20032006-075813/publico/TeseLamparelli2004.pdf>,
-and the National Sanitation Foundation Water Quality Index (NSF WQI)
-<doi:10.1007/s11157-023-09650-7>. The package also checks compliance with
-Brazilian standard CONAMA Resolution 357/2005
+<https://teses.usp.br/teses/disponiveis/41/41134/tde-20032006-075813/publico/TeseLamparelli2004.pdf>,
+and the National Sanitation Foundation Water Quality Index ('NSF WQI',
+Brown (1970)). The package also checks compliance with Brazilian standard
+'CONAMA' Resolution 357/2005
 <https://conama.mma.gov.br/?id=450&option=com_sisconama&task=arquivo.download>
-and generates reproducible reports for routine monitoring workflows. The
-example dataset (`wq_demo`) is now a real subset from monitoring data
-(BURANHEM river, 2020-2024, 4 points, 20 rows, 14 columns including extra
-`rio`, `lat`, `lon`). All core examples and vignettes use this realistic
-sample, improving reproducibility and documentation value for users.
+including the legal frequency rule (Art. 15, 80%% conformity over six or
+more samples per year), and provides seasonal analysis with regional
+flow-season calendars, pollutant load computation, exceedance probability
+estimation, 'IET' visualization, and multivariate 'PCA' tools for routine
+monitoring workflows. The example dataset ('wq_demo') is a real subset
+from 'INEMA' monitoring data from a river in Bahia, Brazil (2020-2024).
 
 %prep
 %setup -q -c -n %{packname}

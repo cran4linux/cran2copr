@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deckroadmap
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Roadmap Footers for 'Reveal.js' Slides in 'Quarto' and 'R Markdown'
 
@@ -23,8 +23,9 @@ Requires:         R-CRAN-htmltools
 %description
 Adds section-aware roadmap footers to 'Reveal.js' slide decks created with
 'Quarto' or 'R Markdown'. The footer highlights completed, current, and
-upcoming sections as slides advance. Supports multiple visual styles with
-configurable colors, size, and positioning options.
+upcoming sections as slides advance. Supports multiple visual styles,
+inherited section tags, roadmap-free slides, and configurable colors,
+size, and positioning options.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  decompr
-%global packver   6.4.0
+%global packver   6.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.4.0
+Version:          6.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Value Chain Decomposition
 
@@ -19,20 +20,24 @@ BuildRequires:    R-CRAN-matrixStats
 Requires:         R-CRAN-matrixStats 
 
 %description
-Three global value chain (GVC) decompositions are implemented. The
-Leontief decomposition derives the value added origin of exports by
-country and industry as in Hummels, Ishii and Yi (2001). The Koopman, Wang
-and Wei (2014) decomposition splits country-level exports into 9 value
-added components, and the Wang, Wei and Zhu (2013) decomposition splits
-bilateral exports into 16 value added components. Various GVC indicators
-based on these decompositions are computed in the complimentary 'gvc'
-package. --- References: --- Hummels, D., Ishii, J., & Yi, K. M. (2001).
-The nature and growth of vertical specialization in world trade. Journal
-of international Economics, 54(1), 75-96. Koopman, R., Wang, Z., & Wei, S.
-J. (2014). Tracing value-added and double counting in gross exports.
-American Economic Review, 104(2), 459-94. Wang, Z., Wei, S. J., & Zhu, K.
-(2013). Quantifying international production sharing at the bilateral and
-sector levels (No. w19677). National Bureau of Economic Research.
+Four global value chain (GVC) decompositions are implemented. The Leontief
+decomposition derives the value added origin of exports by country and
+industry as in Hummels, Ishii and Yi (2001). The Koopman, Wang and Wei
+(2014) decomposition splits country-level exports into 9 value added
+components, and the Wang, Wei and Zhu (2013) decomposition splits
+bilateral exports into 16 value added components. The Borin and Mancini
+(2019) decomposition splits country-, sector- or bilateral-level exports
+into up to 13 value added and GVC components. Various GVC indicators based
+on these decompositions are computed in the complimentary 'gvc' package.
+--- References: --- Hummels, D., Ishii, J., & Yi, K. M. (2001). The nature
+and growth of vertical specialization in world trade. Journal of
+international Economics, 54(1), 75-96. Koopman, R., Wang, Z., & Wei, S. J.
+(2014). Tracing value-added and double counting in gross exports. American
+Economic Review, 104(2), 459-94. Wang, Z., Wei, S. J., & Zhu, K. (2013).
+Quantifying international production sharing at the bilateral and sector
+levels (No. w19677). National Bureau of Economic Research. Borin, A., &
+Mancini, M. (2019). Measuring What Matters in Global Value Chains and
+Value-Added Trade. World Bank Policy Research Working Paper 8804.
 
 %prep
 %setup -q -c -n %{packname}

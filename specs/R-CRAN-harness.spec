@@ -1,43 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aboveR
-%global packver   1.0.0
+%global packname  harness
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'LiDAR' Terrain Analysis and Change Detection from Above
+Summary:          Curated Agentic Harnesses for R Professional Roles
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lidR 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-lidR 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-yaml 
 
 %description
-Terrain change detection, cut and fill volume estimation, terrain
-profiling, flood inundation analysis, slope and aspect computation,
-hillshade generation, contour extraction, reclamation monitoring, erosion
-analysis, and engineering export (LandXML, STL) from 'LiDAR' (Light
-Detection and Ranging) point clouds and digital elevation models ('DEMs').
-Applications include surface mine reclamation monitoring, sediment pond
-capacity tracking, highwall safety classification, and erosion channel
-detection. Built on 'lidR' for point cloud I/O and 'terra' for raster
-operations. Includes access utilities for 'KyFromAbove' cloud-native
-elevation data on Amazon Web Services ('AWS')
-<https://kyfromabove.ky.gov/>. Methods for terrain change detection and
-volume estimation follow Li and others (2005)
-<doi:10.1016/j.geomorph.2004.10.007>.
+A bootstrapper that launches a command-line coding agent of the user's
+choice in a terminal tab pre-configured for a professional R role. Each
+role is described by a curated harness: a subset of community skills, a
+system prompt, a folder layout, and quality gates. The package does not
+run an agent loop and does not call a language model; it discovers the
+chosen coder binary, generates its configuration, links the curated
+skills, and opens the terminal. Code written by the agent is run manually
+by the user, by design, so that every generated script passes through a
+human audit gate before execution.
 
 %prep
 %setup -q -c -n %{packname}

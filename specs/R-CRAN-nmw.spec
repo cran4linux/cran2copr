@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nmw
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Understanding Nonlinear Mixed Effects Modeling for Population Pharmacokinetics
 
@@ -31,14 +31,17 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-This shows how NONMEM(R) software works. NONMEM's classical estimation
-methods like 'First Order(FO) approximation', 'First Order Conditional
-Estimation(FOCE)', and 'Laplacian approximation' are explained.
-Additionally, provides functions for post-run processing of NONMEM output
-files, generating comprehensive PDF diagnostic reports including objective
-function value analysis, parameter estimates, prediction diagnostics,
-residual diagnostics, empirical Bayes estimate (EBE) analysis, input data
-summary, and individual pharmacokinetic parameter distributions.
+This shows how 'NONMEM' (Beal SL, Sheiner LB, Boeckmann AJ, Bauer RJ.
+NONMEM 7.5 Users Guides.  Icon plc, 2020) software works. 'NONMEM'
+classical estimation methods such as 'First Order (FO) approximation',
+'First Order Conditional Estimation (FOCE)', and 'Laplacian approximation'
+are explained.  Functions are also provided for post-run processing of
+NONMEM output files, generating PDF diagnostic reports including objective
+function value analysis, parameter estimates, prediction and residual
+diagnostics, empirical Bayes estimate (EBE) analysis, input data summary,
+and individual pharmacokinetic parameter distributions.  Helper utilities
+for building NONMEM-ready datasets from SDTM-style source tables are also
+included.
 
 %prep
 %setup -q -c -n %{packname}

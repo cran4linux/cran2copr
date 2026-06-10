@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cotram
-%global packver   0.6-0
+%global packver   0.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Count Transformation Models
 
@@ -40,9 +40,9 @@ outcome and regression coefficients are simultaneously estimated by
 maximising the exact discrete log-likelihood using the computational
 framework provided in package 'mlt', technical details are given in
 Siegfried & Hothorn (2020) <DOI:10.1111/2041-210X.13383>. The package also
-contains an experimental implementation of multivariate count
-transformation models with an application to multi-species distribution
-models <DOI:10.48550/arXiv.2201.13095>.
+features joint count transformation models with covariate-dependent
+correlations applied to a species community of three aquatic birds
+<DOI:10.48550/arXiv.2201.13095>.
 
 %prep
 %setup -q -c -n %{packname}

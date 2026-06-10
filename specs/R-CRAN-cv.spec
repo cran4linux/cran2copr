@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cv
-%global packver   2.0.4
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validating Regression Models
 
@@ -53,14 +53,14 @@ Requires:         R-utils
 %description
 Cross-validation methods of regression models that exploit features of
 various modeling functions to improve speed. Some of the methods
-implemented in the package are novel, as described in the package
-vignettes; for general introductions to cross-validation, see, for
-example, Gareth James, Daniela Witten, Trevor Hastie, and Robert
-Tibshirani (2021, ISBN 978-1-0716-1417-4, Secs. 5.1, 5.3), "An
-Introduction to Statistical Learning with Applications in R, Second
-Edition", and Trevor Hastie, Robert Tibshirani, and Jerome Friedman (2009,
-ISBN 978-0-387-84857-0, Sec. 7.10), "The Elements of Statistical Learning,
-Second Edition".
+implemented in the package are novel, as described in Fox and Monette
+(2026) <doi:10.18637/jss.v116.i08>, and the package vignettes. For general
+introductions to cross-validation, see, for example, Gareth James, Daniela
+Witten, Trevor Hastie, and Robert Tibshirani (2021, ISBN
+978-1-0716-1417-4, Secs. 5.1, 5.3), "An Introduction to Statistical
+Learning with Applications in R, Second Edition", and Trevor Hastie,
+Robert Tibshirani, and Jerome Friedman (2009, ISBN 978-0-387-84857-0, Sec.
+7.10), "The Elements of Statistical Learning, Second Edition".
 
 %prep
 %setup -q -c -n %{packname}

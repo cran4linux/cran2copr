@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CKNNRLD
-%global packver   0.1.4
+%global packname  consolidatePacks
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering-Based K-Nearest Neighbor Regression for Longitudinal Data
+Summary:          Eliminate '@import' by Incorporating Dependencies Directly into the Package
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Directional 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rfast 
-Requires:         R-CRAN-Directional 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-CRAN-vprint 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-devtools 
+Requires:         R-CRAN-vprint 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-devtools 
 
 %description
-Implements the 'CKNNRLD' algorithm (Clustering-Based K-Nearest Neighbor
-Regression for Longitudinal Data) for improving K-Nearest Neighbor ('KNN')
-regression on longitudinal data through cluster-based partitioning and
-localized prediction. Offers enhanced computational efficiency and
-accuracy for high-volume longitudinal datasets. The acronym 'KNN' stands
-for K-Nearest Neighbor. References: Loeloe MS, Tabatabaei SM, Sefidkar R,
-Mehrparvar AH, Jambarsang S (2025). "Boosting K-nearest neighbor
-regression performance for longitudinal data through a novel learning
-approach." BMC Bioinformatics, 26, 232. <doi:10.1186/s12859-025-06205-1>.
+The purpose of this package is to remove the '@import' dependence of an
+external package by consolidating the functions into your package. This
+may be necessary when the '@import' package is decommissioned by CRAN, and
+you do not want your dependent package to also be decommissioned. The
+functions in this package recursively retrieve dependencies in the
+external package. It also performs the other needed bookkeeping, such as
+retrieving .Rd files in the man subdirectory.
 
 %prep
 %setup -q -c -n %{packname}

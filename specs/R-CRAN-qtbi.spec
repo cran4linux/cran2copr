@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CrownScorchTLS
-%global packver   0.1.1
+%global packname  qtbi
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Crown Scorch from Terrestrial LiDAR Scans
+Summary:          Quantum Toxic Burden Index
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-lidR 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-lidR 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 
 %description
-Estimates tree crown scorch from terrestrial lidar scans collected with a
-RIEGL vz400i. The methods follow those described in Cannon et al. (2025,
-Fire Ecology 21:71, <doi:10.1186/s42408-025-00420-0>).
+Compute the Quantum Toxic Burden Index from multi-exposure panels using a
+fixed quantum-inspired entanglement encoder; method reference (2026)
+<doi:10.5281/zenodo.20476574>. Provides percentile encoding, optional
+potency-weighted readout, and synergy diagnostics for environmental
+mixture burden scores.
 
 %prep
 %setup -q -c -n %{packname}

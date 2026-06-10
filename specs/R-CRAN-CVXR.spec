@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CVXR
-%global packver   1.8.2
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disciplined Convex Optimization
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-cli >= 3.6
 BuildRequires:    R-CRAN-scs >= 3.2
 BuildRequires:    R-CRAN-Matrix >= 1.7
-BuildRequires:    R-CRAN-highs >= 1.12
+BuildRequires:    R-CRAN-highs >= 1.14
 BuildRequires:    R-CRAN-Rcpp >= 1.1
 BuildRequires:    R-CRAN-osqp >= 1.0
 BuildRequires:    R-CRAN-gmp >= 0.7
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-RcppEigen
 Requires:         R-CRAN-cli >= 3.6
 Requires:         R-CRAN-scs >= 3.2
 Requires:         R-CRAN-Matrix >= 1.7
-Requires:         R-CRAN-highs >= 1.12
+Requires:         R-CRAN-highs >= 1.14
 Requires:         R-CRAN-Rcpp >= 1.1
 Requires:         R-CRAN-osqp >= 1.0
 Requires:         R-CRAN-gmp >= 0.7

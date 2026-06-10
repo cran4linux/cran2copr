@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  climatehealth
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Modelling Climate-Health Impacts
 
@@ -26,11 +26,9 @@ BuildRequires:    R-CRAN-Epi
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-gnm 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lubridate 
@@ -40,6 +38,7 @@ BuildRequires:    R-CRAN-mixmeta
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -69,11 +68,9 @@ Requires:         R-CRAN-Epi
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-exactextractr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-gnm 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-gplots 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lubridate 
@@ -83,6 +80,7 @@ Requires:         R-CRAN-mixmeta
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pkgbuild 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-RColorBrewer 
@@ -122,11 +120,11 @@ meta-analysis for sub-national estimates. The package is based on methods
 developed in the Standards for Official Statistics on Climate-Health
 Interactions (SOSCHI) project
 <https://climate-health.officialstatistics.org>. For methodologies, see
-Watkins et al. (2025) <doi:10.5281/zenodo.14865904>, Brown et al. (2024)
-<doi:10.5281/zenodo.14052183>, Pearce et al. (2024)
-<doi:10.5281/zenodo.14050224>, Byukusenge et al. (2025)
-<doi:10.5281/zenodo.15585042>, Dzakpa et al. (2025)
-<doi:10.5281/zenodo.14881886>, and Dzakpa et al. (2025)
+Watkins et al. (2026) <doi:10.5281/zenodo.14865904>, Jose et al. (2026)
+<doi:10.5281/zenodo.14052183>, Pearce et al. (2026)
+<doi:10.5281/zenodo.14050224>, Byukusenge et al. (2026)
+<doi:10.5281/zenodo.15585042>, Dzakpa et al. (2026)
+<doi:10.5281/zenodo.14881886>, and Dzakpa et al. (2026)
 <doi:10.5281/zenodo.14871506>.
 
 %prep

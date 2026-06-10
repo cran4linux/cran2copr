@@ -1,45 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crownsegmentr
-%global packver   1.0.1
+%global packname  tinydng
+%global packver   0.1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree Crown Segmentation in Airborne LiDAR Point Clouds
+Summary:          'TinyDNG' C++ Header Files
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-lidR >= 4.0.0
-BuildRequires:    R-CRAN-BH >= 1.75.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-lidR >= 4.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dbscan 
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides a function that performs the adaptive mean shift algorithm for
-individual tree crown delineation in 3D point clouds as proposed by Ferraz
-et al. (2016) <doi:10.1016/j.rse.2016.05.028>, as well as supporting
-functions.
+Provides C++ header files for 'TinyDNG', a small header-only library for
+reading and writing 'DNG' and 'TIFF' files.
 
 %prep
 %setup -q -c -n %{packname}

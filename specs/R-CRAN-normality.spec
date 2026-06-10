@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CKNNRLD
-%global packver   0.1.4
+%global packname  normality
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering-Based K-Nearest Neighbor Regression for Longitudinal Data
+Summary:          Tests for Departure from Normality
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Directional 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rfast 
-Requires:         R-CRAN-Directional 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rfast 
 
 %description
-Implements the 'CKNNRLD' algorithm (Clustering-Based K-Nearest Neighbor
-Regression for Longitudinal Data) for improving K-Nearest Neighbor ('KNN')
-regression on longitudinal data through cluster-based partitioning and
-localized prediction. Offers enhanced computational efficiency and
-accuracy for high-volume longitudinal datasets. The acronym 'KNN' stands
-for K-Nearest Neighbor. References: Loeloe MS, Tabatabaei SM, Sefidkar R,
-Mehrparvar AH, Jambarsang S (2025). "Boosting K-nearest neighbor
-regression performance for longitudinal data through a novel learning
-approach." BMC Bioinformatics, 26, 232. <doi:10.1186/s12859-025-06205-1>.
+A toolkit for assessing data normality using a comprehensive collection of
+statistical methods. It includes descriptive measures and formal
+hypothesis tests, such as skewness and kurtosis tests, the
+Anderson–Darling test, the Shapiro–Wilk test, and the D'Agostino–Pearson
+K2 omnibus test.
 
 %prep
 %setup -q -c -n %{packname}

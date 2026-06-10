@@ -1,45 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vostokR
-%global packver   0.2.1
+%global packname  quak
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solar Potential Calculation for Point Clouds using 'VOSTOK'
+Summary:          Query 'Azure Data Lake Storage Gen2' with 'DuckDB'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-lidR >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.11
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-lidR >= 4.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.11
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-terra 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Calculate solar potential for LiDAR point clouds using the 'VOSTOK' (Voxel
-Octree Solar Toolkit) algorithm. This R program provides an interface to
-the original 'VOSTOK' C++ implementation by Bechtold and Hofle (2020),
-enabling efficient ray casting and solar position algorithms to compute
-solar irradiance for each point while accounting for shadowing effects.
-Integrates seamlessly with the 'lidR' package for LiDAR data processing
-workflows. The original 'VOSTOK' toolkit is available at
-<doi:10.11588/data/QNA02B>.
+Provides convenience utilities for using 'DuckDB' directly over datasets
+stored in 'Azure Data Lake Storage Gen2' (ADLS Gen2, 'abfss://'). Opens
+connections configured for Azure-backed 'Delta Lake' and 'Parquet' data,
+registers Azure credentials as 'DuckDB' secrets, and supports optional
+repository mirrors for restricted networks. Integrates well with 'DBI' for
+SQL workflows and with 'dplyr' and 'dbplyr' for lazy table queries.
 
 %prep
 %setup -q -c -n %{packname}

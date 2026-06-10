@@ -1,51 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsmSearch
-%global packver   1.2.2
+%global packname  cox.rvph
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DSM and LiDAR Downloader
+Summary:          Remedy the Violation of the Proportional Hazards Assumption of Cox Regression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-lidR 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-nominatimlite 
-BuildRequires:    R-CRAN-imager 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-aws.s3 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-lidR 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-nominatimlite 
-Requires:         R-CRAN-imager 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-aws.s3 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-A collection of functions to search and download Digital Surface Model
-(DSM) and Light Detection and Ranging (LiDAR) data via APIs, including
-'OpenTopography' <https://portal.opentopography.org/apidocs/> and
-'TNMAccess' <https://apps.nationalmap.gov/tnmaccess/#/>, and canopy tree
-height data.
+Remedying proportional hazards assumption violations of a Cox proportional
+hazards model using stepwise changepoint and time-varying coefficient
+methods based on Cox (1972) <doi:10.1111/j.2517-6161.1972.tb00899.x> and
+Grambsch and Therneau (1994) <doi:10.1093/biomet/81.3.515>.
 
 %prep
 %setup -q -c -n %{packname}

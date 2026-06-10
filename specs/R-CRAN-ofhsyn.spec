@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CKNNRLD
-%global packver   0.1.4
+%global packname  ofhsyn
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering-Based K-Nearest Neighbor Regression for Longitudinal Data
+Summary:          Synthetic Our Future Health Data Generator
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Directional 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rfast 
-Requires:         R-CRAN-Directional 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Implements the 'CKNNRLD' algorithm (Clustering-Based K-Nearest Neighbor
-Regression for Longitudinal Data) for improving K-Nearest Neighbor ('KNN')
-regression on longitudinal data through cluster-based partitioning and
-localized prediction. Offers enhanced computational efficiency and
-accuracy for high-volume longitudinal datasets. The acronym 'KNN' stands
-for K-Nearest Neighbor. References: Loeloe MS, Tabatabaei SM, Sefidkar R,
-Mehrparvar AH, Jambarsang S (2025). "Boosting K-nearest neighbor
-regression performance for longitudinal data through a novel learning
-approach." BMC Bioinformatics, 26, 232. <doi:10.1186/s12859-025-06205-1>.
+Generates synthetic Our Future Health cohort datasets for method
+development, including participant, questionnaire, clinic measurements,
+outpatient, inpatient, emergency, mortality, primary care medication, and
+geography outputs. Supports reproducible generation with configurable
+cohort size and user-defined International Classification of Diseases,
+Tenth Revision (ICD-10), Office of Population Censuses and Surveys
+Classification of Interventions and Procedures, version 4 (OPCS-4), and
+British National Formulary (BNF) code pools.
 
 %prep
 %setup -q -c -n %{packname}

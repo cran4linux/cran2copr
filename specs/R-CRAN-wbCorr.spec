@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CKNNRLD
-%global packver   0.1.4
+%global packname  wbCorr
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering-Based K-Nearest Neighbor Regression for Longitudinal Data
+Summary:          Bivariate Within- and Between-Cluster Correlations
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Directional 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rfast 
-Requires:         R-CRAN-Directional 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-methods 
+Requires:         R-CRAN-writexl 
 
 %description
-Implements the 'CKNNRLD' algorithm (Clustering-Based K-Nearest Neighbor
-Regression for Longitudinal Data) for improving K-Nearest Neighbor ('KNN')
-regression on longitudinal data through cluster-based partitioning and
-localized prediction. Offers enhanced computational efficiency and
-accuracy for high-volume longitudinal datasets. The acronym 'KNN' stands
-for K-Nearest Neighbor. References: Loeloe MS, Tabatabaei SM, Sefidkar R,
-Mehrparvar AH, Jambarsang S (2025). "Boosting K-nearest neighbor
-regression performance for longitudinal data through a novel learning
-approach." BMC Bioinformatics, 26, 232. <doi:10.1186/s12859-025-06205-1>.
+Separates supplied variables into within- and between-cluster components
+and calculates bivariate correlations for each level separately. The
+centered-score decomposition corresponds to commonly used between- and
+within-cluster correlations discussed by Tu et al. (2025)
+<doi:10.1002/sim.10326>. The package is also motivated by the distinction
+between within- and between-person variation described by Curran and Bauer
+(2011) <doi:10.1146/annurev.psych.093008.100356> and by Hamaker (2024)
+<doi:10.1080/00273171.2022.2155930>. The package is intended for
+longitudinal or otherwise clustered data where researchers need
+transparent correlation matrices before fitting more complex multilevel
+models.
 
 %prep
 %setup -q -c -n %{packname}

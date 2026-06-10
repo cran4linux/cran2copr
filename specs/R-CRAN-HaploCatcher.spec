@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HaploCatcher
-%global packver   1.0.4
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Predictive Haplotyping Package
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-base 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -26,9 +25,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-randomForest 
-Requires:         R-base 
+BuildRequires:    R-stats 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
@@ -37,11 +35,11 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-graphics 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-randomForest 
+Requires:         R-stats 
 
 %description
-Used for predicting a genotype’s allelic state at a specific
+Used for predicting a genotype's allelic state at a specific
 locus/QTL/gene. This is accomplished by using both a genotype matrix and a
 separate file which has categorizations about loci/QTL/genes of interest
 for the individuals in the genotypic matrix. A training population can be

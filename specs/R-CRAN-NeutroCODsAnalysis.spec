@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rlas
-%global packver   1.9.3
+%global packname  NeutroCODsAnalysis
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write 'las' and 'laz' Binary File Formats Used for Remote Sensing Data
+Summary:          Neutrosophic Analysis Crossover Designs
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Read and write 'las' and 'laz' binary file formats. The LAS file format is
-a public file format for the interchange of 3-dimensional point cloud data
-between data users. The LAS specifications are approved by the American
-Society for Photogrammetry and Remote Sensing
-<https://community.asprs.org/leadership-restricted/leadership-content/public-documents/standards>.
-The LAZ file format is an open and lossless compression scheme for binary
-LAS format versions 1.0 to 1.4 <https://laszip.org/>.
+Provides methods for Neutrosophic Analysis of Variance (NANOVA) for
+crossover designs and multi-session designs with direct and residual
+effects using interval-valued observations. The package computes
+neutrosophic sums of squares, mean squares, interval-valued F-statistics,
+significance tests, and multiple comparisons using Least Significant
+Difference (LSD) procedures. For crisp data, users may enter identical
+lower and upper response values to obtain classical Analysis of Variance
+(ANOVA) results. The basic idea of neutrosophic statistics is obtained
+from Smarandache (2014) <https://fs.unm.edu/NeutrosophicStatistics.pdf>,
+while the analysis procedures implemented in this package are newly
+developed.
 
 %prep
 %setup -q -c -n %{packname}

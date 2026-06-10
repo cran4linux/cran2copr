@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semTests
-%global packver   0.7.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Goodness-of-Fit Testing for Structural Equation Models
+Summary:          Robust Test Statistics for Structural Equation Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,28 +18,22 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lavaan >= 0.6.16
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-lavaan >= 0.6.16
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 
 %description
-Supports eigenvalue block-averaging p-values (Foldnes, Grønneberg, 2018)
-<doi:10.1080/10705511.2017.1373021>, penalized eigenvalue block-averaging
+Supports penalized eigenvalue block-averaging and penalized regression
 p-values (Foldnes, Moss, Grønneberg, 2024)
-<doi:10.1080/10705511.2024.2372028>, penalized regression p-values
-(Foldnes, Moss, Grønneberg, 2024) <doi:10.1080/10705511.2024.2372028>, as
-well as traditional p-values such as Satorra-Bentler. All p-values can be
-calculated using unbiased or biased gamma estimates (Du, Bentler, 2022)
-<doi:10.1080/10705511.2022.2063870> and two choices of chi square
-statistics.
+<doi:10.1080/10705511.2024.2372028>, including their extension to nested
+model comparison (Foldnes, Grønneberg, Moss, 2026)
+<doi:10.3758/s13428-026-02968-4>, as well as traditional p-values such as
+Satorra-Bentler. All p-values can be calculated using unbiased or biased
+gamma estimates (Du, Bentler, 2022) <doi:10.1080/10705511.2022.2063870>
+and two choices of chi square statistics. The tests apply to any
+minimum-discrepancy estimator -- ML, GLS, ULS, and categorical WLSMV/DWLS
+-- with experimental support for full-information maximum-likelihood
+(FIML) fits under missing data.
 
 %prep
 %setup -q -c -n %{packname}

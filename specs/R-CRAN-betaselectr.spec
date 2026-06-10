@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaselectr
-%global packver   0.1.4
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Betas-Select in Structural Equation Models and Linear Models
 
@@ -40,7 +40,9 @@ equation models and regression models, standardizing only selected
 variables. Supports models with moderation, with product terms formed
 after standardization. It also offers confidence intervals that account
 for standardization, including bootstrap confidence intervals as proposed
-by Cheung et al. (2022) <doi:10.1037/hea0001188>.
+by Cheung et al. (2022) <doi:10.1037/hea0001188>. An introduction to the
+package can be found in Sun et al. (2026)
+<doi:10.1080/00273171.2026.2672692>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  conogive
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  stbimageheaders
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          2%{?dist}%{?buildtag}
-Summary:          Congeneric Normal-Ogive Model
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          'stb' Image C/C++ Header Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-assertthat 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-assertthat 
 
 %description
-The congeneric normal-ogive model is a popular model for psychometric data
-(McDonald, R. P. (1997) <doi:10.1007/978-1-4757-2691-6_15>). This model
-estimates the model, calculates theoretical and concrete reliability
-coefficients, and predicts the latent variable of the model. This is the
-companion package to Moss (2020) <doi:10.31234/osf.io/nvg5d>.
+Provides image-related C/C++ header files from the 'stb' single-file
+libraries for image loading, writing, and resizing.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -47,6 +43,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

@@ -1,46 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WMAP
-%global packver   1.3.1
+%global packname  mimar
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighted Meta-Analysis with Pseudo-Populations
+Summary:          Compact Multiple Imputation, Assessment, and Reporting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pkgcond 
+BuildRequires:    R-CRAN-BART 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-functionals 
+BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-zeallot 
-BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-missMDA 
+BuildRequires:    R-CRAN-naivebayes 
 BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-pkgcond 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-BART 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-functionals 
+Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-zeallot 
-Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-missMDA 
+Requires:         R-CRAN-naivebayes 
 Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-forcats 
-Requires:         R-utils 
+Requires:         R-CRAN-rpart 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-xgboost 
 
 %description
-Implementation of integrative weighting approaches for multiple
-observational studies and causal inferences. The package features three
-weighting approaches, each representing a special case of the unified
-weighting framework, introduced by Guha and Li (2024)
-<doi:10.1093/biomtc/ujae070>, which includes an extension of inverse
-probability weights for data integration settings.
+Provides compact tools for missing-data analysis, including artificial
+amputation, chained single and multiple imputation, statistical and
+machine-learning-based imputation methods, diagnostic evaluation, and
+post-imputation pooling.
 
 %prep
 %setup -q -c -n %{packname}

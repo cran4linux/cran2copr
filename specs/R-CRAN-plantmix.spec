@@ -1,57 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcaiman
-%global packver   2.0.1
+%global packname  plantmix
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          CAnopy IMage ANalysis
+Summary:          Genetic Study of Plant Mixtures
 
-License:          GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-filenamer 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-TMB >= 1.9.17
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-spatial 
-BuildRequires:    R-CRAN-lidR 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-filenamer 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.9.17
+Requires:         R-CRAN-Rcpp >= 1.0.13
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lme4 
+Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-pracma 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-spatial 
-Requires:         R-CRAN-lidR 
-Requires:         R-tcltk 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
 
 %description
-Tools for preprocessing and processing canopy photographs with support for
-raw data reading. Provides methods to address variability in sky
-brightness and to mitigate errors from image acquisition in non-diffuse
-light. Works with all types of fish-eye lenses, and some methods also
-apply to conventional lenses.
+Fit linear mixed models dedicated to the genetic study of plant mixtures,
+such as those based on general and specific mixing abilities (GMA-SMA) as
+well as direct and social breeding values (DBV-SBV), also known as direct
+and indirect genetic effects (DGE-IGE). More details in Forst et al (2019,
+<doi:10.1016/j.fcr.2019.107571>) for GMA-SMA models, and Salomon et al
+(2026, <doi:10.64898/2026.03.27.714849>) for DBV-SBV models. The package
+also provides functions to optimize experimental designs, simulate data
+sets and compute interaction indices.
 
 %prep
 %setup -q -c -n %{packname}
