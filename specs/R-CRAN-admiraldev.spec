@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiraldev
-%global packver   1.4.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions and Development Tools for the Admiral Package Family
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-roxygen2 >= 7.0.0
+BuildRequires:    R-CRAN-roxygen2 >= 8.0.0
 BuildRequires:    R-CRAN-cli >= 3.6.2
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-glue >= 1.6.0
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-rlang >= 0.4.4
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-lifecycle >= 0.1.0
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-roxygen2 >= 7.0.0
+Requires:         R-CRAN-roxygen2 >= 8.0.0
 Requires:         R-CRAN-cli >= 3.6.2
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-glue >= 1.6.0

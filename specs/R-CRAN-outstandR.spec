@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  outstandR
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Based Standardisation for Indirect Treatment Comparison with Limited Subject-Level Data
 
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-cli 
@@ -51,14 +53,17 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-withr 
 
 %description
 For the problem of indirect treatment comparison with limited
 subject-level data, this package provides tools for model-based
 standardisation with several different computation approaches. See
-Remiro‐Azócar A, Heath A, Baio G (2022) "Parametric G‐computation for
+Remiro‐Azócar A, Heath A, Baio G (2022) ``Parametric G‐computation for
 compatible indirect treatment comparisons with limited individual patient
-data", Res. Synth. Methods, 1–31. ISSN 1759-2879, <doi:10.1002/jrsm.1565>.
+data'', Res. Synth. Methods, 1–31. ISSN 1759-2879,
+<doi:10.1002/jrsm.1565>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zip
-%global packver   3.0.0
+%global packname  CircularRegression
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform 'zip' Compression
+Summary:          Circular Regression Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-circular 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Cross-Platform 'zip' Compression Library. A replacement for the 'zip'
-function, that does not require any additional external tools on any
-platform.
+Implements regression models for circular response data, including
+homogeneous angular regression, consensus angular regression, a two-step
+workflow, selected special-case model wrappers, and a random-intercept
+extension for clustered circular outcomes. The main methodology follows
+Rivest et al. (2016) "A General Angular Regression Model for the Analysis
+of Data on Animal Movement in Ecology" <doi:10.1111/rssc.12124>.
 
 %prep
 %setup -q -c -n %{packname}

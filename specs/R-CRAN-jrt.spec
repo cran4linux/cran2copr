@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jrt
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Item Response Theory Modeling and Scoring for Judgment Data
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-psych >= 2.1.9
 BuildRequires:    R-CRAN-mirt >= 1.34
 BuildRequires:    R-CRAN-tidyr >= 1.1.4
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-irr >= 0.84.1
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-psych >= 2.1.9
 Requires:         R-CRAN-mirt >= 1.34
 Requires:         R-CRAN-tidyr >= 1.1.4
 Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-irr >= 0.84.1
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-stats 

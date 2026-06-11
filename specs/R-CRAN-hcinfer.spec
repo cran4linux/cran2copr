@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  joinpointR
-%global packver   1.0.0
+%global packname  hcinfer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Tools for Joinpoint Regression Models
+Summary:          Heteroskedasticity-Consistent Inference for Linear Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-cols4all 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-segmented 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-cols4all 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides tools to fit joinpoint regression models with a log-linear
-specification by levels of a categorical variable. The package acts as a
-wrapper around the 'segmented' package, facilitating model fitting,
-selection, and interpretation. It includes functions to estimate the
-Annual Percent Change (APC) and the Average Annual Percent Change (AAPC),
-along with their 95%% confidence intervals, and to generate formatted
-summary tables and plots of results.
+Computes heteroskedasticity-consistent covariance matrix estimators for
+ordinary least squares regression models. The published HC0 through HC5m
+estimators implemented in the package follow White (1980)
+<doi:10.2307/1912934>, Hinkley (1977)
+<doi:10.1080/00401706.1977.10489550>, Horn et al. (1975)
+<doi:10.1080/01621459.1975.10479877>, MacKinnon and White (1985)
+<doi:10.1016/0304-4076(85)90158-7>, Cribari-Neto (2004)
+<doi:10.1016/S0167-9473(02)00366-3>, Cribari-Neto and da Silva (2011)
+<doi:10.1007/s10182-010-0141-2>, Cribari-Neto et al. (2007)
+<doi:10.1080/03610920601126589>, and Li et al. (2016)
+<doi:10.1080/00949655.2016.1198906>. The package also includes HCbeta, a
+new estimator proposed by the package authors. It provides normal Wald
+tests, confidence intervals, diagnostics, and S3 output for applied
+inference.
 
 %prep
 %setup -q -c -n %{packname}

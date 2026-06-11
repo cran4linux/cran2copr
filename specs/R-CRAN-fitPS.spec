@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitPS
-%global packver   1.0.1
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Zeta Distributions to Forensic Data
 
@@ -14,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-knitr 
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-pbapply
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-iterators 
 Requires:         R-CRAN-knitr 

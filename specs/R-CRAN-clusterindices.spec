@@ -1,27 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zip
-%global packver   3.0.0
+%global packname  clusterindices
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform 'zip' Compression
+Summary:          Cluster Validity Indices
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lowmemtkmeans 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-factoextra 
+Requires:         R-graphics 
+Requires:         R-CRAN-lowmemtkmeans 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
+Requires:         R-stats 
 
 %description
-Cross-Platform 'zip' Compression Library. A replacement for the 'zip'
-function, that does not require any additional external tools on any
-platform.
+Numerous indices to choose the optimal number of clusters when performing
+k-means. Relevant papers include: Tsagris M. and Kontemeniotis N. (2025).
+Lobachevskii Journal of Mathematics <doi:10.1134/S1995080225613700>.
+Garcia-Escudero Luis A., Gordaliza Alfonso, Matran Carlos, Mayo-Iscar
+Agustin. (2008) <doi:10.1214/07-AOS515>.
 
 %prep
 %setup -q -c -n %{packname}

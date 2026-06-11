@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zip
-%global packver   3.0.0
+%global packname  fluffy
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform 'zip' Compression
+Summary:          Schema-Based Validation of 'R' Objects with User-Defined Rules
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,12 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-cli 
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-S7 
+Requires:         R-utils 
 
 %description
-Cross-Platform 'zip' Compression Library. A replacement for the 'zip'
-function, that does not require any additional external tools on any
-platform.
+A schema-based validation framework for 'R' objects using user-defined
+rules. Provides three 'S7' classes 'Registry', 'Schema', and 'Validator'
+to manage rules, define list-based schemas, and validate data in a
+flexible and extensible manner.
 
 %prep
 %setup -q -c -n %{packname}

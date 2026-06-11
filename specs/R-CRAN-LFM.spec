@@ -1,27 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zip
-%global packver   3.0.0
+%global packname  LFM
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform 'zip' Compression
+Summary:          Laplace Factor Model Analysis and Evaluation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-relliptical 
+BuildRequires:    R-CRAN-elasticnet 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-relliptical 
+Requires:         R-CRAN-elasticnet 
 
 %description
-Cross-Platform 'zip' Compression Library. A replacement for the 'zip'
-function, that does not require any additional external tools on any
-platform.
+Enables the generation of Laplace factor models across diverse Laplace
+distributions and facilitates the application of Sparse Online Principal
+Component (SOPC), Incremental Principal Component (IPC), Perturbation
+Principal Component (PPC), Stochastic Approximation Principal Component
+(SAPC), Sparse Principal Component (SPC) and other PC methods and Farm
+Test methods to these models. Evaluates the efficacy of these methods
+within the context of Laplace factor models by scrutinizing parameter
+estimation accuracy, mean square error, and the degree of sparsity.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zip
-%global packver   3.0.0
+%global packname  exeval
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform 'zip' Compression
+Summary:          External Evaluation of Population Pharmacokinetic-Pharmacodynamic (popPKPD) Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mrgsolve >= 1.0.8
+BuildRequires:    R-CRAN-mapbayr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-mrgsolve >= 1.0.8
+Requires:         R-CRAN-mapbayr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
-Cross-Platform 'zip' Compression Library. A replacement for the 'zip'
-function, that does not require any additional external tools on any
-platform.
+Provides tools to automate external pharmacokinetic model evaluation
+workflows, including Bayesian forecasting, predictive performance metrics,
+diagnostic plotting, and automated reporting.
 
 %prep
 %setup -q -c -n %{packname}

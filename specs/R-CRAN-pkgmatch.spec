@@ -1,61 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  test.assessr
-%global packver   2.1.2
+%global packname  pkgmatch
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Package Test Reliability and Quality
+Summary:          Find R Packages Matching Either Descriptions or Other R Packages
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-covr >= 3.6.0
-BuildRequires:    R-CRAN-testthat >= 3.0.0
-BuildRequires:    R-CRAN-stringr >= 1.5.0
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-curl >= 6.0.0
+BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pkgload 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-RUnit 
-BuildRequires:    R-CRAN-tinytest 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-piggyback 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-covr >= 3.6.0
-Requires:         R-CRAN-testthat >= 3.0.0
-Requires:         R-CRAN-stringr >= 1.5.0
-Requires:         R-CRAN-callr 
+BuildRequires:    R-CRAN-tokenizers 
+BuildRequires:    R-CRAN-treesitter 
+BuildRequires:    R-CRAN-treesitter.r 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-curl >= 6.0.0
+Requires:         R-CRAN-brio 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pkgload 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-RUnit 
-Requires:         R-CRAN-tinytest 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-piggyback 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-tokenizers 
+Requires:         R-CRAN-treesitter 
+Requires:         R-CRAN-treesitter.r 
+Requires:         R-CRAN-vctrs 
 
 %description
-A reliable and validated tool that calculates unit test coverage for R
-packages with standard testing frameworks and non-standard testing
-frameworks.
+Find R packages from CRAN, 'rOpenSci', or Bioconductor corpora. Packages
+can be matched to general text descriptions, to names of installed
+packages, or to local paths to entire source repositories. The package is
+used to list the most similar packages for each new submission to the
+'rOpenSci' software peer-review program ('rOpenSci' authors, 2026;
+<doi:10.5281/zenodo.18885936>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmwmx2
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Functional and Stochastic Parameters of Linear Models with Correlated Residuals and Missing Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-wv
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-longmemo 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-data.table 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-wv
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-longmemo 
 
 %description
 Implements the Generalized Method of Wavelet Moments with Exogenous Inputs

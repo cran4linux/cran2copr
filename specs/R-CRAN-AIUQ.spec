@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AIUQ
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ab Initio Uncertainty Quantification
 
@@ -37,7 +37,9 @@ Fourier basis method for inverse estimation in scattering analysis of
 microscopy videos. It does not require specifying a certain range of
 Fourier bases and it substantially reduces computational cost via the
 generalized Schur algorithm. See the reference: Mengyang Gu, Yue He, Xubo
-Liu and Yimin Luo (2023), <doi:10.48550/arXiv.2309.02468>.
+Liu and Yimin Luo (2023), <doi:10.48550/arXiv.2309.02468>, and Tong Lin,
+Jinseok Lee, Matt Helgeson, Megan T Valentine, Yimin Luo, Mengyang Gu
+(2026), <doi:10.48550/arXiv.2605.29424>.
 
 %prep
 %setup -q -c -n %{packname}

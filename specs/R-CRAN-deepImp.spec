@@ -1,27 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zip
-%global packver   3.0.0
+%global packname  deepImp
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Platform 'zip' Compression
+Summary:          Imputation with Deep Learning Methods
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-luz 
+BuildRequires:    R-CRAN-VIM 
+BuildRequires:    R-CRAN-robCompositions 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-luz 
+Requires:         R-CRAN-VIM 
+Requires:         R-CRAN-robCompositions 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Cross-Platform 'zip' Compression Library. A replacement for the 'zip'
-function, that does not require any additional external tools on any
-platform.
+Imputation of mixed-type and compositional data with neural networks. The
+architecture (number and size of hidden layers, dropout, activation,
+optimiser) is user-configurable. See Templ (2021)
+<doi:10.1007/978-3-030-71175-7>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scaledescr
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive, Reliability, and Inferential Tables for Psychometric Scales and Demographic Data
 
@@ -48,10 +48,9 @@ commonly used statistical and psychometric functions into compact,
 single-row tables and simple graphs, with utilities to export results to
 CSV, Word, and Excel formats. The package does not implement new
 statistical methods or estimation procedures; instead, it organises and
-presents results obtained from existing functions such as
-psych::describe(), psych::alpha(), stats::t.test(), and
-gtsummary::tbl_summary() to streamline reporting workflows in clinical and
-psychological research.
+presents results obtained from existing packages such as 'psych', 'stats',
+'gtsummary', and 'lavaan' to streamline reporting workflows in clinical
+and psychological research.
 
 %prep
 %setup -q -c -n %{packname}

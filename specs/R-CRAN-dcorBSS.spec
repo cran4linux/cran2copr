@@ -1,40 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rtdists
-%global packver   0.11-6
+%global packname  dcorBSS
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Response Time Distributions
+Summary:          Distance-Correlation Based Methods for Blind Source Separation and Dependence Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-evd 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-dccpp 
+BuildRequires:    R-CRAN-dHSIC 
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-evd 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-dccpp 
+Requires:         R-CRAN-dHSIC 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-nloptr 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Provides response time distributions (density/PDF, distribution
-function/CDF, quantile function, and random generation): (a) Ratcliff
-diffusion model (Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) based on C code by Andreas and Jochen
-Voss and (b) linear ballistic accumulator (LBA; Brown & Heathcote, 2008,
-<doi:10.1016/j.cogpsych.2007.12.002>) with different distributions
-underlying the drift rate.
+Independent component analysis based on distance correlation, including a
+robust variant using the bowl transformation. The package provides
+user-facing implementations of distance covariance and distance
+correlation, including memory-efficient blockwise computations for large
+data sets. It includes a sequential ICA estimator based on minimizing
+distance correlation, as well as tools for analyzing serial dependence via
+distance autocorrelation, dependograms, and permutation-based tests. In
+addition, it provides functions for testing serial dependence based on
+distance correlation and the Hilbert–Schmidt independence criterion. The
+methodology is related to Matteson and Tsay (2017)
+<doi:10.1080/01621459.2016.1150851> and to the robust framework of Leyder
+et al. (2026) <doi:10.1007/s11634-026-00674-9>.
 
 %prep
 %setup -q -c -n %{packname}
