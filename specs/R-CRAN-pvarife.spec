@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ActFrag
-%global packver   0.1.2
+%global packname  pvarife
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Activity Fragmentation Metrics Extracted from Minute Level Activity Data
+Summary:          Panel VAR Models with Interactive Fixed Effects
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-accelerometry 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ineq 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-accelerometry 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ineq 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Recent studies haven shown that, on top of total daily active/sedentary
-volumes, the time accumulation strategies provide more sensitive
-information. This package provides functions to extract commonly used
-fragmentation metrics to quantify such time accumulation strategies based
-on minute level actigraphy-measured activity counts data.
+Implements the estimator of Tugan (2021) <doi:10.1093/ectj/utaa021> for
+panel vector autoregression (VAR) models with interactive fixed effects.
+Provides joint estimation of VAR coefficients, latent common factors, and
+factor loadings via an iterative algorithm that alternates between
+principal component estimation of the factors and least squares estimation
+of the VAR coefficients, following the approach of Bai (2009). Supports
+impulse response functions under recursive (Cholesky) identification,
+parametric confidence bands from the joint asymptotic distribution of the
+estimator (Theorem 2.3), and a classical residual bootstrap for robustness
+checks.
 
 %prep
 %setup -q -c -n %{packname}

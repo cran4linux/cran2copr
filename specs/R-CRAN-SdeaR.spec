@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SdeaR
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Data Envelopment Analysis
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-optiSolve 
 BuildRequires:    R-CRAN-deaR 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-optiSolve 
 Requires:         R-CRAN-deaR 
+Requires:         R-CRAN-foreach 
 
 %description
 Set of functions for Stochastic Data Envelopment Analysis. Chance

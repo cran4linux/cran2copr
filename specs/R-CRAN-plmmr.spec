@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plmmr
-%global packver   4.2.3
+%global packver   4.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.3
+Version:          4.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Linear Mixed Models for Correlated Data
 
@@ -46,9 +46,9 @@ heterogeneity. It then fits a linear model via penalized maximum
 likelihood. Originally designed for the multivariate analysis of single
 nucleotide polymorphisms (SNPs) measured in a genome-wide association
 study (GWAS), 'plmmr' eliminates the need for subpopulation-specific
-analyses and post-analysis p-value adjustments.  Functions for the
+analyses and post-analysis p-value adjustments. Functions for the
 appropriate processing of 'PLINK' files are also supplied. For examples,
-see the package homepage. <https://pbreheny.github.io/plmmr/>.
+see the package homepage <https://pbreheny.github.io/plmmr/>.
 
 %prep
 %setup -q -c -n %{packname}

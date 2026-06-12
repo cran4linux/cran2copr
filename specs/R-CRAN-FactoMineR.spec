@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FactoMineR
-%global packver   2.14
+%global packver   2.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14
+Version:          2.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Exploratory Data Analysis and Data Mining
 
@@ -33,6 +33,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-irlba 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-DT 
@@ -50,6 +51,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-irlba 
 
 %description
 Exploratory data analysis methods to summarize, visualize and describe

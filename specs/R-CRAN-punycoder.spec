@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  missSOM
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  punycoder
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Organizing Maps with Built-in Missing Data Imputation
+Summary:          Unicode and Punycode Domain Name Processing
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-kpodclustr 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-kpodclustr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-The Self-Organizing Maps with Built-in Missing Data Imputation. Missing
-values are imputed and regularly updated during the online Kohonen
-algorithm. Our method can be used for data visualisation, clustering or
-imputation of missing data. It is an extension of the online algorithm of
-the 'kohonen' package. The method is described in the article
-"Self-Organizing Maps for Exploration of Partially Observed Data and
-Imputation of Missing Values" by S. Rejeb, C. Duveau, T. Rebafka (2022)
-<arXiv:2202.07963>.
+High-performance Unicode and Punycode encoding/decoding for
+internationalized domain names. Provides RFC 3492 compliant conversion
+functions with a focus on URL processing and data analysis workflows.
+Addresses limitations in existing R packages for handling international
+domain names in web scraping and URL parsing applications.
 
 %prep
 %setup -q -c -n %{packname}

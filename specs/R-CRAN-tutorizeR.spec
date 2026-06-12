@@ -1,47 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sonicscrewdriver
-%global packver   0.0.7
+%global packname  tutorizeR
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bioacoustic Analysis and Publication Tools
+Summary:          Convert R Markdown or Quarto Content into Interactive Tutorials
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-seewave 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-suncalc 
-BuildRequires:    R-CRAN-tuneR 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hms 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-seewave 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-suncalc 
-Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-yaml 
 
 %description
-Provides tools for manipulating sound files for bioacoustic analysis, and
-preparing analyses these for publication. The package validates that
-values are physically possible wherever feasible.
+Helps teachers convert existing '.Rmd' and '.qmd' teaching material into
+interactive tutorials for 'learnr' or 'quarto-live'. Conversion preserves
+narrative text, setup chunks, and major chunk options, supports teacher
+tags, and provides explicit validation and conversion reports. Output
+conventions follow 'learnr' as described by Aden-Buie et al. (2025)
+<doi:10.32614/CRAN.package.learnr>, 'quarto-live' as described by Stagg
+(2024) <https://tidyverse.org/blog/2024/10/quarto-live-0-1-1/>, and R
+Markdown as described by Xie, Allaire and Grolemund (2018,
+ISBN:9781138359338).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tnl.Test
-%global packver   0.1.0
+%global packname  ShinyBlock
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Tests for the Two-Sample Problem
+Summary:          Multi-Protocol Blockchain Simulator and Enterprise Ledger Framework
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-partitions 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-partitions 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-reactable 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Performing the hypothesis tests for the two sample problem based on order
-statistics and power comparisons. Calculate the test statistic, density,
-distribution function, quantile function, random number generation and
-others.
+An interactive framework for simulating blockchain protocols using a
+hybrid 'R-Shiny' and 'Python' architecture. The package provides tools to
+visualize peer-to-peer network maps, manage supply chain logistics
+on-chain, and execute cross-border settlements via smart contract logic.
+It leverages the 'reticulate' package to perform standardized
+cryptographic operations, including 'SHA-256' hashing, 'Merkle' Tree
+construction, and 'ECDSA' (Elliptic Curve Digital Signature Algorithm) key
+generation. This tool is designed for pedagogical demonstration and rapid
+prototyping of distributed ledger requirements.
 
 %prep
 %setup -q -c -n %{packname}

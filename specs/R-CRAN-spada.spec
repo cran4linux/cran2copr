@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spada
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'shiny' Package for Data Analysis
 
@@ -21,15 +21,14 @@ BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
 BuildRequires:    R-CRAN-haven >= 2.5.5
 BuildRequires:    R-CRAN-mirai >= 2.5.3
 BuildRequires:    R-CRAN-collapse >= 2.1.6
+BuildRequires:    R-CRAN-writexl >= 1.5.4
 BuildRequires:    R-CRAN-gt >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.18.2.1
 BuildRequires:    R-CRAN-shiny >= 1.12.1
 BuildRequires:    R-CRAN-rlang >= 1.1.7
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-DescTools >= 0.99.60
 BuildRequires:    R-CRAN-shinyWidgets >= 0.9.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.9
-BuildRequires:    R-CRAN-sass >= 0.4.10
 BuildRequires:    R-CRAN-waiter >= 0.2.5.1
 BuildRequires:    R-CRAN-bslib >= 0.10.0
 BuildRequires:    R-CRAN-qs2 >= 0.1.7
@@ -38,15 +37,14 @@ Requires:         R-CRAN-ggplot2 >= 4.0.1
 Requires:         R-CRAN-haven >= 2.5.5
 Requires:         R-CRAN-mirai >= 2.5.3
 Requires:         R-CRAN-collapse >= 2.1.6
+Requires:         R-CRAN-writexl >= 1.5.4
 Requires:         R-CRAN-gt >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.18.2.1
 Requires:         R-CRAN-shiny >= 1.12.1
 Requires:         R-CRAN-rlang >= 1.1.7
-Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-DescTools >= 0.99.60
 Requires:         R-CRAN-shinyWidgets >= 0.9.0
 Requires:         R-CRAN-htmltools >= 0.5.9
-Requires:         R-CRAN-sass >= 0.4.10
 Requires:         R-CRAN-waiter >= 0.2.5.1
 Requires:         R-CRAN-bslib >= 0.10.0
 Requires:         R-CRAN-qs2 >= 0.1.7

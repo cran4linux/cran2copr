@@ -1,50 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ActiSleep
-%global packver   0.2.2
+%global packname  impower133
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sleep Duration Estimate Algorithm
+Summary:          Reproduce IMpower133 Clinical Trial Results
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-accelerometry 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-forestplot 
+BuildRequires:    R-CRAN-IPDfromKM 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-grid 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-accelerometry 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-methods 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-forestplot 
+Requires:         R-CRAN-IPDfromKM 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-tibble 
+Requires:         R-grid 
 
 %description
-Provides sleep duration estimates using a Pruned Dynamic Programming (PDP)
-algorithm that efficiently identifies change-points. PDP applied to
-physical activity data can identify transitions from wakefulness to sleep
-and vice versa. Baek, Jonggyu, Banker, Margaret, Jansen, Erica C., She,
-Xichen, Peterson, Karen E., Pitchford, E. Andrew, Song, Peter X. K. (2021)
-An Efficient Segmentation Algorithm to Estimate Sleep Duration from
-Actigraphy Data <doi:10.1007/s12561-021-09309-3>.
+Provides functions to simulate baseline characteristics, reconstruct
+overall survival data from published Kaplan-Meier curves, and generate
+publication-ready tables and forest plots reproducing the IMpower133
+clinical trial results (Horn et al., 2018, <doi:10.1056/NEJMoa1809064>).
+The IPD reconstruction method is based on Liu et al.(2021,
+<doi:10.1186/s12874-021-01308-8>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BMisc
-%global packver   1.4.8
+%global packver   1.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Panel Data, Quantiles, and Printing Results
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-tidyr 
 
 %description
@@ -42,7 +40,10 @@ invert distribution functions.  Finally, there are several other
 miscellaneous functions for obtaining weighted means, weighted
 distribution functions, and weighted quantiles; to generate summary
 statistics and their differences for two groups; and to add or drop
-covariates from formulas.
+covariates from formulas.  Additional utilities support staggered
+treatment adoption settings, including functions for identifying treatment
+groups, recovering pre-treatment outcomes and covariate averages, and
+computing lagged outcomes and first differences in panel data.
 
 %prep
 %setup -q -c -n %{packname}

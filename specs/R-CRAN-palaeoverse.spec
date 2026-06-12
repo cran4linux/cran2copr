@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  palaeoverse
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prepare and Explore Data for Palaeobiological Analyses
 
@@ -18,31 +18,31 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-h3jsr >= 1.3.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-h3jsr >= 1.3.0
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-geosphere 
+Requires:         R-graphics 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-CRAN-stringdist 
+Requires:         R-utils 
 
 %description
 Provides functionality to support data preparation and exploration for
@@ -51,7 +51,7 @@ accessibility. The wider aim of 'palaeoverse' is to bring the
 palaeobiological community together to establish agreed standards. The
 package currently includes functionality for data cleaning, binning (time
 and space), exploration, summarisation and visualisation. Reference
-datasets (i.e. Geological Time Scales <https://stratigraphy.org/chart>)
+datasets (i.e. Geological Time Scales <https://stratigraphy.org/chart/>)
 and auxiliary functions are also provided. Details can be found in: Jones
 et al., (2023) <doi: 10.1111/2041-210X.14099>.
 

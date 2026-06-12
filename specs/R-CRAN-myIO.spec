@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RWmisc
-%global packver   0.1.2
+%global __requires_exclude ^libmpi
+%global packname  myIO
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Spatial Functions
+Summary:          Interactive Data Visualizations Using 'd3.js'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-units 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
 
 %description
-Contains convenience functions for working with spatial data across
-multiple UTM zones, raster-vector operations common in the analysis of
-conflict data, and converting degrees, minutes, and seconds latitude and
-longitude coordinates to decimal degrees.
+Create interactive 'd3.js' visualizations from R with built-in statistical
+transforms. Computes confidence intervals, regression fits, LOESS
+smoothing, moving averages, error bars, and uncertainty visualizations
+(quantile dot plots and fan charts) in R and renders them as composable
+chart layers via 'htmlwidgets'. Supports 36 chart types including
+boxplots, violin plots, Q-Q diagnostic plots, calendar heatmaps, survival
+curves, and group comparisons with pairwise significance testing. Also
+provides a machine-readable chart specification schema with validators so
+that large language model agents can author and verify charts. Works in
+'RStudio', 'Shiny', and 'R Markdown'.
 
 %prep
 %setup -q -c -n %{packname}

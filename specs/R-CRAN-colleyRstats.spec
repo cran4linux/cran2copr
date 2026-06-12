@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colleyRstats
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Streamline Statistical Analysis and Reporting
 
@@ -23,50 +23,28 @@ BuildRequires:    R-CRAN-dplyr >= 1.2.1
 BuildRequires:    R-CRAN-effectsize >= 1.0.2
 BuildRequires:    R-CRAN-ggstatsplot >= 1.0.0
 BuildRequires:    R-CRAN-ggpmisc >= 0.7.0
-BuildRequires:    R-CRAN-report >= 0.6.3
-BuildRequires:    R-CRAN-ARTool >= 0.11.2
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-conflicted 
-BuildRequires:    R-CRAN-FSA 
 BuildRequires:    R-CRAN-ggsignif 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-CRAN-see 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 >= 4.0.3
 Requires:         R-CRAN-statsExpressions >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.2.1
 Requires:         R-CRAN-effectsize >= 1.0.2
 Requires:         R-CRAN-ggstatsplot >= 1.0.0
 Requires:         R-CRAN-ggpmisc >= 0.7.0
-Requires:         R-CRAN-report >= 0.6.3
-Requires:         R-CRAN-ARTool >= 0.11.2
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-conflicted 
-Requires:         R-CRAN-FSA 
 Requires:         R-CRAN-ggsignif 
-Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstatix 
 Requires:         R-CRAN-see 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-xtable 
 
 %description
 Built upon popular R packages such as 'ggstatsplot' and 'ARTool', this
