@@ -1,47 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyILD
-%global packver   0.4.0
+%global packname  cookie
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Intensive Longitudinal Data Analysis
+Summary:          HTTP Cookies Parser Middleware
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mgcv 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-CRAN-secretbase 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-secretbase 
+Requires:         R-utils 
 
 %description
-A reproducible, tidyverse-style framework for intensive longitudinal data
-analysis in R, with built-in methodological safeguards, provenance
-tracking, and reporting tools. Encodes time structure, enforces
-within-between decomposition, provides spacing-aware lags, and integrates
-diagnostics and visualization. Use ild_prepare(), ild_center(), ild_lag(),
-and related functions for a unified pipeline from raw EMA/diary data to
-interpretable models.
+A cookie is a piece of data sent from a web server to a web client which
+helps in overcoming the statelessness constraint of the HTTP protocol.
+This package provides the tools to work with them in the form of a cookie
+parser middleware function, meant to be attached to a bigger R web
+application, and utilities to write, sign and unsign a cookie. For more
+details see the Mozilla Developer Network (MDN) web documentation in
+<https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies>.
 
 %prep
 %setup -q -c -n %{packname}

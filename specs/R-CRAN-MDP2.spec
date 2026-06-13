@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rolog
-%global packver   0.9.26
+%global packname  MDP2
+%global packver   2.2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.26
+Version:          2.2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query 'SWI'-'Prolog' from R
+Summary:          Markov Decision Processes (MDPs)
 
-License:          FreeBSD
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rswipl 
-Requires:         R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.5
+Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-This R package connects to SWI-Prolog, <https://www.swi-prolog.org/>, so
-that R can send deterministic and non-deterministic queries to prolog
-(consult, query/submit, once, findall).
+Create and optimize (semi) MDPs with discrete time steps and state space.
+Both hierarchical and ordinary-traditional MDPs can be modeled.
 
 %prep
 %setup -q -c -n %{packname}

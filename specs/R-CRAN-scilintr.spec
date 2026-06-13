@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nysOpenData
+%global packname  scilintr
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convenient Access to NYS Open Data API Endpoints
+Summary:          Scientific Code Lint for R Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-lintr >= 3.0.0
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xmlparsedata 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-lintr >= 3.0.0
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xmlparsedata 
+Requires:         R-CRAN-yaml 
 
 %description
-Provides helper functions to access datasets from the NYS Open Data
-platform <https://data.ny.gov/>. Functions return results as tidy tibbles
-and support optional filtering, sorting, and row limits via the Socrata
-API.
+Static analysis for R scientific data analysis code. Flags patterns that
+often correspond to hidden scientific commitments -- silent error
+swallowing, smuggled defaults, label leakage in selection-stage code,
+magic-eps floors in 'BIC' formulas, and shadow-overwrite of sourced
+helpers. Designed for agentic coding workflows; high recall over
+precision; structured 'ANALYSIS_OK' waivers as the audit trail.
 
 %prep
 %setup -q -c -n %{packname}

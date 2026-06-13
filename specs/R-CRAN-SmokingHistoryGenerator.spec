@@ -1,52 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mtarm
-%global packver   0.1.9
+%global packname  SmokingHistoryGenerator
+%global packver   6.5.3-1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          6.5.3.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation of Multivariate Threshold Autoregressive Models
+Summary:          R Package for the Smoking History Generator
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-GIGrvg 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-Rcpp >= 1.0.2
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-Formula 
-Requires:         R-grDevices 
-Requires:         R-CRAN-GIGrvg 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-yaml 
 
 %description
-Estimation, inference and forecasting using the Bayesian approach for
-multivariate threshold autoregressive (TAR) models in which the
-distribution used to describe the noise process belongs to the class of
-Gaussian variance mixtures.
+Efficient R interface to the Cancer Intervention and Surveillance Modeling
+Network (CISNET) Smoking History Generator microsimulation engine, which
+synthesizes individual smoking histories (initiation, cessation,
+intensity) and ages at death from calibrated initiation, cessation,
+cigarettes-per-day, and mortality tables. The wrapper exposes fixed-cohort
+and population data-frame simulation, multi-threaded segmentation,
+reproducible pseudo-random streams (L'Ecuyer RngStream MRG32k3a or
+Matsumoto--Nishimura Mersenne Twister), legacy CLI-style configuration
+files, and portable YAML configuration save/load with optional split
+smoking and mortality parameter bundles. Methods follow Jeon et al. (2012)
+<doi:10.1111/j.1539-6924.2011.01775.x>. Random number generators:
+Matsumoto and Nishimura (1998) <doi:10.1145/272991.272995>; L'Ecuyer
+(1999) <doi:10.1287/opre.47.1.159>; L'Ecuyer et al. (2002)
+<doi:10.1287/opre.50.6.1073.358>.
 
 %prep
 %setup -q -c -n %{packname}

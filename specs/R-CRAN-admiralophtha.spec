@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiralophtha
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ADaM in R Asset Library - Ophthalmology
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-admiral >= 1.5.0
+BuildRequires:    R-CRAN-admiraldev >= 1.5.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-admiral >= 1.4.0
-BuildRequires:    R-CRAN-admiraldev >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
@@ -30,9 +30,9 @@ BuildRequires:    R-CRAN-rlang >= 0.4.4
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-lifecycle >= 0.1.0
 Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-admiral >= 1.5.0
+Requires:         R-CRAN-admiraldev >= 1.5.0
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-admiral >= 1.4.0
-Requires:         R-CRAN-admiraldev >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-tidyselect >= 1.1.0

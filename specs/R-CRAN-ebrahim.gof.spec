@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebrahim.gof
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ebrahim-Farrington Goodness-of-Fit Test for Logistic Regression
 
@@ -29,8 +29,10 @@ data-dependent grouping. The test is based on Farrington (1996)
 theoretical framework but simplified for practical implementation with
 binary data. Includes functions for both the original Farrington test (for
 grouped data) and the new Ebrahim-Farrington test (for binary data with
-automatic grouping). For more details see Hosmer (1980)
-<doi:10.1080/03610928008827941> and Farrington (1996)
+automatic grouping), the Directed Ebrahim-Farrington (DEF) test that
+targets calibration-shape departures, and an ensemble that combines the
+DEF bases via the Cauchy combination test. For more details see Hosmer
+(1980) <doi:10.1080/03610928008827941> and Farrington (1996)
 <doi:10.1111/j.2517-6161.1996.tb02086.x>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataSDA
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets and Basic Statistics for Symbolic Data Analysis
 
@@ -31,9 +31,13 @@ Requires:         R-CRAN-HistDAWass
 Requires:         R-methods 
 
 %description
-Collects a diverse range of symbolic data and offers a comprehensive set
-of functions that facilitate the conversion of traditional data into the
-symbolic data format.
+Provides benchmark datasets and foundational tools for Symbolic Data
+Analysis (SDA). The package includes functions for constructing symbolic
+data objects from classical data, converting among different
+interval-valued data formats, managing interval-valued, histogram-valued,
+modal-valued, and multi-valued data, and performing basic descriptive
+statistics. It is designed to support teaching, methodological research,
+and the development of SDA techniques.
 
 %prep
 %setup -q -c -n %{packname}

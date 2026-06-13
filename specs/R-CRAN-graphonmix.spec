@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  graphonmix
-%global packver   0.0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generates Mixture Graphs from Dense and Sparse Graphons
+Summary:          Generates Dense and Sparse Graphs using Graphon Extensions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,12 +27,14 @@ Requires:         R-CRAN-imager
 Requires:         R-stats 
 
 %description
-Generates (U,W) mixture graphs where U is a line graph graphon and W is a
-dense graphon. Graphons are graph limits and graphon U can be written as
-sequence of positive numbers adding to 1. Graphs are sampled from U and W
-and joined randomly to obtain the mixture graph. Given a mixture graph, U
-can be inferred. Kandanaarachchi and Ong (2025)
-<doi:10.48550/arXiv.2505.13864>.
+Generates dense or sparse graphs using graphon mixtures and graphettes.
+Graphon mixtures uses two graphons U and W to generate graphs. Sparse
+graphs are generated in this case using the inverse line graph (root)
+operation. Graphettes have 3 components, the graphon W, a real-valued
+sequence and a graph edit function. Both techniques can generate dense or
+sparse graphs. Kandanaarachchi and Ong (2026)
+<doi:10.48550/arXiv.2505.13864>, Wijesinghe et al (2026)
+<doi:10.48550/arXiv.2602.23566>.
 
 %prep
 %setup -q -c -n %{packname}

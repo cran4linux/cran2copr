@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mtarm
-%global packver   0.1.9
+%global packname  schemate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation of Multivariate Threshold Autoregressive Models
+Summary:          Schema Inference, Editing, and Validation with 'checkmate'
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-GIGrvg 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-future 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-Formula 
-Requires:         R-grDevices 
-Requires:         R-CRAN-GIGrvg 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-future 
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-S7 
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-S7 
 
 %description
-Estimation, inference and forecasting using the Bayesian approach for
-multivariate threshold autoregressive (TAR) models in which the
-distribution used to describe the noise process belongs to the class of
-Gaussian variance mixtures.
+Provides a compact schema domain-specific language for inferring, editing,
+and validating R data structures with 'checkmate' checks. Schemas can be
+serialized to and restored from JSON for storage and review. A generated
+standalone bundle supports vendoring the schema tools into other R
+packages.
 
 %prep
 %setup -q -c -n %{packname}

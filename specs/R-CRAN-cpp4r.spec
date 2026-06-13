@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpp4r
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Header-Only 'C++' and 'R' Interface
 
@@ -14,25 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-glue 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
 Provides a header only, 'C++' interface to 'R' with enhancements over
 'cpp11'. Enforces copy-on-write semantics consistent with 'R' behavior.
 Offers native support for ALTREP objects, 'UTF-8' string handling, modern
-'C++11' features and idioms, and reduced memory requirements. Allows for
+'C++' features and idioms, and reduced memory requirements. Allows for
 vendoring, making it useful for restricted environments. Compared to
 'cpp11', it adds support for converting 'C++' maps to 'R' lists, 'Roxygen'
 documentation directly in 'C++' code, proper handling of matrix

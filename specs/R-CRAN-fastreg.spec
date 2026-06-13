@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastreg
-%global packver   0.13.0
+%global packver   0.13.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.13.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Conversion and Querying of Danish Registers with 'Parquet'
 

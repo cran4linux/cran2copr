@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  h3sdm
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modeling with H3 Grids
 
@@ -33,6 +33,13 @@ BuildRequires:    R-CRAN-yardstick
 BuildRequires:    R-CRAN-ecospat 
 BuildRequires:    R-CRAN-DALEX 
 BuildRequires:    R-CRAN-stacks 
+BuildRequires:    R-CRAN-h3jsr 
+BuildRequires:    R-CRAN-landscapemetrics 
+BuildRequires:    R-CRAN-rbiodatacr 
+BuildRequires:    R-CRAN-spocc 
+BuildRequires:    R-CRAN-vip 
+BuildRequires:    R-CRAN-exactextractr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
@@ -49,6 +56,13 @@ Requires:         R-CRAN-yardstick
 Requires:         R-CRAN-ecospat 
 Requires:         R-CRAN-DALEX 
 Requires:         R-CRAN-stacks 
+Requires:         R-CRAN-h3jsr 
+Requires:         R-CRAN-landscapemetrics 
+Requires:         R-CRAN-rbiodatacr 
+Requires:         R-CRAN-spocc 
+Requires:         R-CRAN-vip 
+Requires:         R-CRAN-exactextractr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Provides tools for species distribution modeling using H3 hexagonal grids

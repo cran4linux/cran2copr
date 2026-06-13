@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rayimage
-%global packver   0.15.1
+%global packver   0.26.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1
+Version:          0.26.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Image Processing for Simulated Cameras
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-jpeg 
@@ -23,8 +23,11 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-tiff 
 BuildRequires:    R-CRAN-systemfonts 
+BuildRequires:    R-CRAN-ragg 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-tinydng 
+BuildRequires:    R-CRAN-stbimageheaders 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-jpeg 
@@ -32,14 +35,18 @@ Requires:         R-grDevices
 Requires:         R-grid 
 Requires:         R-CRAN-tiff 
 Requires:         R-CRAN-systemfonts 
+Requires:         R-CRAN-ragg 
 
 %description
 Uses convolution-based techniques to generate simulated camera bokeh,
 depth of field, and other camera effects, using an image and an optional
 depth map. Accepts both filename inputs and in-memory array
-representations of images and matrices. Includes functions to perform 2D
-convolutions, reorient and resize images/matrices, add image and text
-overlays, generate camera vignette effects, and add titles to images.
+representations of images and matrices, including common raster formats
+such as 'JPEG', 'PNG', 'TIFF', 'TGA', 'BMP', 'PSD', 'GIF', 'HDR', 'PIC',
+'PNM', 'DNG', and 'EXR'. Includes functions to perform 2D convolutions,
+color correction, colorspace conversion, image/matrix reorientation and
+resizing, image and text overlays, exposure adjustment, camera vignette
+effects, and image titles.
 
 %prep
 %setup -q -c -n %{packname}

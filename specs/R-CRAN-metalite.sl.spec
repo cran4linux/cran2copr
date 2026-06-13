@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metalite.sl
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subject-Level Analysis Using 'metalite'
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-brew 
 BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-metalite 
 Requires:         R-CRAN-metalite.ae 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-brew 
 Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Analyzes subject-level data in clinical trials using the 'metalite' data

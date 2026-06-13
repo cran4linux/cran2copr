@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paisaje
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Environmental Data Tools for Landscape Ecology
 
@@ -22,36 +22,39 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-h3jsr 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-landscapemetrics 
 BuildRequires:    R-CRAN-spocc 
 BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-blackmarbler 
+BuildRequires:    R-CRAN-geodata 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-h3jsr 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-landscapemetrics 
 Requires:         R-CRAN-spocc 
 Requires:         R-CRAN-exactextractr 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-blackmarbler 
+Requires:         R-CRAN-geodata 
 
 %description
 Provides functions for landscape analysis and data retrieval. The package
 allows users to download environmental variables from global datasets
-(e.g., WorldClim, ESA WorldCover, Nighttime Lights), and to compute
-spatial and landscape metrics using a hexagonal grid system based on the
-H3 spatial index. It is useful for ecological modeling, biodiversity
-studies, and spatial data processing in landscape ecology. Fick and
-Hijmans (2017) <doi:10.1002/joc.5086>. Zanaga et al. (2022)
+(e.g., WorldClim, CHELSA, ESA WorldCover, Nighttime Lights), and to
+compute spatial and landscape metrics using a hexagonal grid system based
+on the H3 spatial index. It is useful for ecological modeling,
+biodiversity studies, and spatial data processing in landscape ecology.
+Fick and Hijmans (2017) <doi:10.1002/joc.5086>. Zanaga et al. (2022)
 <doi:10.5281/zenodo.7254221>. Uber Technologies Inc. (2022) "H3: Hexagonal
-hierarchical spatial index".
+hierarchical spatial index". Román et al. (2018)
+<doi:10.1016/j.rse.2018.03.017>. Karger et al. (2017)
+<doi:10.1038/sdata.2017.122>. Brun et al. (2022)
+<doi:10.5194/essd-14-5573-2022>.
 
 %prep
 %setup -q -c -n %{packname}

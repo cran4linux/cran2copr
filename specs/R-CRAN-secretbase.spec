@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secretbase
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cryptographic Hash Functions and Data Encoding
 
@@ -23,8 +23,8 @@ and serialization. Hashes strings and raw vectors directly.  Stream hashes
 files which can be larger than memory, as well as in-memory objects
 through R's serialization mechanism. Implements the SHA-256, SHA-3 and
 'Keccak' cryptographic hash functions, SHAKE256 extendable-output function
-(XOF), 'SipHash' pseudo-random function, base64 and base58 encoding,
-'CBOR' and 'JSON' serialization.
+(XOF), 'SipHash' pseudo-random function, base64 (including the URL-safe
+variant) and base58 encoding, 'CBOR' and 'JSON' serialization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyusmacro
+%global packname  coresynth
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downloading and Cleaning U.S. Macroeconomic Data
+Summary:          Fast and Unified Synthetic Control Methods
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,36 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Utilities to retrieve and tidy U.S. macroeconomic data series from public
-government data providers. Functions streamline access to series from the
-Federal Reserve Bank of St. Louis Federal Reserve Economic Data (FRED),
-the Bureau of Labor Statistics flat files, and the Bureau of Economic
-Analysis National Income and Product Accounts tables, then return
-consistent, tidy data frames ready for modeling and graphics. The package
-includes helpers for date alignment, log-linear projections, and common
-macro diagnostics, along with convenience plot builders for quick
-publication-quality charts.
+A unified 'Formula' interface to the Synthetic Control Method (SCM) and
+related panel-data causal inference estimators: Synthetic
+Difference-in-Differences (SDID), Generalized Synthetic Control (GSC),
+Matrix Completion (MC), Time-Aware Synthetic Control (TASC), and Synthetic
+Interventions (SI), together with an experimental-design variant.
+Computational bottlenecks (quadratic programming, singular value
+decomposition, and Kalman filtering) are implemented in 'C++' via
+'RcppArmadillo'. Methods are described in Abadie, Diamond and Hainmueller
+(2010) <doi:10.1198/jasa.2009.ap08746>, Arkhangelsky, Athey, Hirshberg,
+Imbens and Wager (2021) <doi:10.1257/aer.20190159>, Xu (2017)
+<doi:10.1017/pan.2016.2>, Athey, Bayati, Doudchenko, Imbens and Khosravi
+(2021) <doi:10.1080/01621459.2021.1891924>, and Agarwal, Shah and Shen
+(2025) <doi:10.1287/opre.2025.1590>.
 
 %prep
 %setup -q -c -n %{packname}

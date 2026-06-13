@@ -1,52 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mtarm
-%global packver   0.1.9
+%global packname  nlfh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation of Multivariate Threshold Autoregressive Models
+Summary:          Nonlinear Fay-Herriot Models for Small Area Estimation
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-GIGrvg 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-future 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-Formula 
-Requires:         R-grDevices 
-Requires:         R-CRAN-GIGrvg 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-future 
+BuildRequires:    R-CRAN-dbarts 
+Requires:         R-CRAN-dbarts 
 
 %description
-Estimation, inference and forecasting using the Bayesian approach for
-multivariate threshold autoregressive (TAR) models in which the
-distribution used to describe the noise process belongs to the class of
-Gaussian variance mixtures.
+Fits nonlinear Bayesian extensions of the Fay-Herriot model for small area
+estimation using area-level direct estimates and corresponding sampling
+variances. The package provides model fitting, prediction, uncertainty
+summaries, and diagnostic tools for nonlinear small area estimation
+workflows.
 
 %prep
 %setup -q -c -n %{packname}

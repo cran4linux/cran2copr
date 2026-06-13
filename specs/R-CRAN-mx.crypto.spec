@@ -1,32 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rswipl
-%global packver   10.1.8
+%global packname  mx.crypto
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Embed 'SWI'-'Prolog'
+Summary:          Matrix End-to-End Encryption Primitives
 
-License:          FreeBSD
+License:          MIT + file LICENSE | Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    expat-devel
-BuildRequires:    libarchive-devel
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Interface to 'SWI'-'Prolog', <https://www.swi-prolog.org/>. This package
-is normally not loaded directly, please refer to package 'rolog' instead.
-The purpose of this package is to provide the 'Prolog' runtime on systems
-that do not have a software installation of 'SWI'-'Prolog'.
+'Olm' and 'Megolm' encryption ratchet primitives for the 'Matrix'
+messaging protocol <https://matrix.org/>, wrapping the 'vodozemac' Rust
+crate. Provides device-key generation, one-time-key management, 1:1 'Olm'
+sessions, and 'Megolm' group sessions. Pairs with the 'mx.api' package,
+which handles 'Matrix' HTTP transport.
 
 %prep
 %setup -q -c -n %{packname}

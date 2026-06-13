@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TemporalHazard
-%global packver   1.1.0
+%global packname  pulso
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporal Parametric Hazard Modeling
+Summary:          Load Microdata from Colombia's 'GEIH' ('DANE')
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-tibble >= 3.2.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-fs >= 1.6.0
+BuildRequires:    R-CRAN-readxl >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-digest >= 0.6.0
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-tibble >= 3.2.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-fs >= 1.6.0
+Requires:         R-CRAN-readxl >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.0
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-digest >= 0.6.0
 
 %description
-Provides native R implementations of the multiphase parametric hazard
-model of Blackstone, Naftel, and Turner (1986)
-<doi:10.1080/01621459.1986.10478314> with a focus on behavioral parity,
-transparent numerics, and reproducible validation against reference
-outputs from the original 'C'/'SAS' HAZARD program, originally developed
-at the University of Alabama at Birmingham (UAB). The 'SAS'/'C' code and
-this R package are currently developed and maintained at The Cleveland
-Clinic Foundation, and the R code was wholly developed at The Cleveland
-Clinic Foundation. The generalized temporal decomposition family extends
-to longitudinal mixed-effects settings (Rajeswaran et al. 2018
-<doi:10.1177/0962280215623583>). The package is intentionally implemented
-in pure R first; performance-critical paths may later be accelerated with
-'Rcpp' without changing the public interface.
+Programmatic access to microdata from Colombia's Gran Encuesta Integrada
+de Hogares ('GEIH'), published by 'DANE'. Provides a tidy interface to
+download, parse, and harmonize labor market surveys from 2007 to present.
+R companion to the 'pulso-co' 'Python' package.
 
 %prep
 %setup -q -c -n %{packname}

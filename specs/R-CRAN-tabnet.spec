@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tabnet
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit 'TabNet' Models for Classification and Regression
 
@@ -23,9 +23,9 @@ BuildRequires:    R-CRAN-coro
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-progress 
@@ -46,9 +46,9 @@ Requires:         R-CRAN-coro
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-progress 

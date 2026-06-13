@@ -1,52 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mtarm
-%global packver   0.1.9
+%global packname  speechmatics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation of Multivariate Threshold Autoregressive Models
+Summary:          Client for the 'Speechmatics' Speech-to-Text API
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-GIGrvg 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-future 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-Formula 
-Requires:         R-grDevices 
-Requires:         R-CRAN-GIGrvg 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-future 
+BuildRequires:    R-CRAN-httr2 >= 1.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-httr2 >= 1.2.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
 
 %description
-Estimation, inference and forecasting using the Bayesian approach for
-multivariate threshold autoregressive (TAR) models in which the
-distribution used to describe the noise process belongs to the class of
-Gaussian variance mixtures.
+Transcribe audio files using the 'Speechmatics' speech-to-text API
+<https://www.speechmatics.com/>. Supports custom vocabulary, speaker
+diarization, punctuation control, and audio filtering.
 
 %prep
 %setup -q -c -n %{packname}

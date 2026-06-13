@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  heritability
-%global packver   1.5
+%global packname  gtfsrealtime
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Marker-Based Estimation of Heritability Using Individual Plant or Plot Data
+Summary:          Read GTFS-Realtime Files into Data Frames
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 3.1.20
-Requires:         R-CRAN-MASS >= 3.1.20
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-sf 
 
 %description
-Implements marker-based estimation of heritability when observations on
-genetically identical replicates are available. These can be either
-observations on individual plants or plot-level data in a field trial.
-Heritability can then be estimated using a mixed model for the individual
-plant or plot data. For comparison, also mixed-model based estimation
-using genotypic means and estimation of repeatability with ANOVA are
-implemented. For illustration the package contains several datasets for
-the model species Arabidopsis thaliana.
+GTFS-realtime is a format transit agencies use to provide current vehicle
+positions, predicted arrival times, and service alerts. This package
+provides efficient functions to read this format into data frames. It can
+be used to retrieve current data or to process archived data.
 
 %prep
 %setup -q -c -n %{packname}
