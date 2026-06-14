@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groupedHyperframe
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grouped Hyper Data Frame
 
@@ -25,7 +25,10 @@ Requires:         R-CRAN-spatstat.geom
 %description
 To aggregate a hyper data frame, defined in the package 'spatstat.geom',
 according to a grouping structure.  To facilitate downstream analysis
-based on a "grouped" hyper data frame.
+based on a "grouped" hyper data frame.  The author has retired from
+academic research. Accordingly, this package should not be considered a
+validated tool for use in peer-reviewed publications or as the basis for
+grant applications.
 
 %prep
 %setup -q -c -n %{packname}

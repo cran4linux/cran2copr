@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataseries
-%global packver   1.0.0
+%global packname  tidyILD
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Switzerland's Data Series in One Place
+Summary:          Tidy Intensive Longitudinal Data Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mgcv 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mgcv 
 
 %description
-Download and import open Swiss economic time series from 'dataseries.org'
-<https://dataseries.org>, a comprehensive and up-to-date collection of
-public data from Switzerland. Series are retrieved through the public
-'dataseries.org' API and imported as a 'data.frame' or 'ts' object.
+A reproducible, tidyverse-style framework for intensive longitudinal data
+analysis in R, with built-in methodological safeguards, provenance
+tracking, and reporting tools. Encodes time structure, enforces
+within-between decomposition, provides spacing-aware lags, and integrates
+diagnostics and visualization. Use ild_prepare(), ild_center(), ild_lag(),
+and related functions for a unified pipeline from raw EMA/diary data to
+interpretable models.
 
 %prep
 %setup -q -c -n %{packname}

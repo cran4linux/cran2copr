@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diversityArch
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computes Diversity Indices with Archaeological Data
+Summary:          Computes Diversity Indices for Archaeological Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,9 +24,9 @@ Requires:         R-methods
 Companion package of Arnaud Barat, Andreu Sansó, Maite Arilla-Osuna, Ruth
 Blasco, Iñaki Pérez-Fernández, Gabriel Cifuentes-Alcobenda, Rubén
 Llorente, Daniel Vivar-Ríos, Ella Assaf, Ran Barkai, Avi Gopher, & Jordi
-Rosell-Ardèvol (2025), "Quantifying Diversity through Entropy
-Decomposition. Insights into Hominin Occupation and Carcass Processing at
-Qesem cave".
+Rosell-Ardèvol (2026) <doi:10.1007/s10816-026-09802-3>. It computes
+Diversity Indices, decomposes several of them and computes bootstrap
+confidence intervals.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RGraphSpace
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight Interface Between 'igraph' and 'ggplot2' Graphics
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.5
 Requires:         R-core >= 4.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-igraph 
@@ -26,9 +26,10 @@ BuildRequires:    R-CRAN-tidygraph
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggrastr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 4.0
 Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-igraph 
@@ -36,19 +37,18 @@ Requires:         R-CRAN-tidygraph
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggrastr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-lifecycle 
 
 %description
 An interface to integrate 'igraph' and 'ggplot2' graphics within a
-normalized coordinate system. 'RGraphSpace' implements geometric objects
-based on 'ggplot2' prototypes, optimized for the representation of large
-networks. The package provides three specialized 'geoms' to translate
-graph data into geometric layers, supporting customization of aesthetics
+normalized coordinate system. 'RGraphSpace' extends 'ggplot2' with
+graph-aware geometries optimized for large networks. The 'GraphSpace'
+class integrates directly with 'ggplot2' through specialized 'geoms' and
+lazy resolution of node attributes, supporting customization of aesthetics
 and visual styles. These 'geoms' use a dual-anchor normalization approach
-to align layers, required for analyses where network elements must be
-referenced to a spatial map. 'RGraphSpace' aims to facilitate side-by-side
-visualization of multiple graphs spatially aligned with reference maps and
-images.
+to align layers, particularly useful for analyses in which network
+elements must be spatially aligned with reference maps and images.
 
 %prep
 %setup -q -c -n %{packname}

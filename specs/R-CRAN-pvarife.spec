@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pvarife
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Panel VAR Models with Interactive Fixed Effects
 
@@ -32,11 +32,11 @@ panel vector autoregression (VAR) models with interactive fixed effects.
 Provides joint estimation of VAR coefficients, latent common factors, and
 factor loadings via an iterative algorithm that alternates between
 principal component estimation of the factors and least squares estimation
-of the VAR coefficients, following the approach of Bai (2009). Supports
-impulse response functions under recursive (Cholesky) identification,
-parametric confidence bands from the joint asymptotic distribution of the
-estimator (Theorem 2.3), and a classical residual bootstrap for robustness
-checks.
+of the VAR coefficients, following the approach of Bai (2009)
+<doi:10.3982/ECTA6135>. Supports impulse response functions under
+recursive (Cholesky) identification, parametric confidence bands from the
+joint asymptotic distribution of the estimator (Theorem 2.3), and a
+classical residual bootstrap for robustness checks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TrackTrap
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Cumulative Growing Degree-Days for Pest Monitoring
 
@@ -17,29 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-daymetr 
 BuildRequires:    R-CRAN-degday 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-daymetr 
 Requires:         R-CRAN-degday 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
 
 %description
-Raw data from pest monitoring/traps can be correlated with environmental
-factors such as temperature, growing degree day etc. to get useful
-insights about the pest phenology. This package pulls temperature data
-from the California Irrigation Management Information System ('CIMIS',
-<https://cimis.water.ca.gov>) or the 'Daymet' application programming
-interface ('API', <https://daymet.ornl.gov>) for a user-specified time
+Pest monitoring is crucial, especially during the early season, to
+understand the distribution and the proliferation of the target pest. Raw
+count data from pest monitoring/traps can be coupled with environmental
+variables such as temperature, growing degree-day ('GDD') etc. to get
+useful insights about the pest phenology. This package pulls temperature
+data from the California Irrigation Management Information System
+('CIMIS', <https://cimis.water.ca.gov>), the 'Daymet' application
+programming interface ('API', <https://daymet.ornl.gov>), or 'Open Meteo'
+('API', <https://open-meteo.com/>) sequentially for a user-specified time
 period and calculates cumulative growing degree-days. Users provide pest
-development thresholds (lower and upper temperatures) and the geographic
-coordinates of the trap location to track emergence and phenology.
+development thresholds (lower and upper temperatures), pest of concern,
+and the geographic coordinates of the trap location to track emergence and
+phenology.
 
 %prep
 %setup -q -c -n %{packname}
