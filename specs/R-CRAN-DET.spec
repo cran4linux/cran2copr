@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DET
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Representation of DET Curve with Confidence Intervals
 
@@ -28,10 +28,9 @@ Requires:         R-methods
 
 %description
 Builds both ROC (Receiver Operating Characteristic) and DET (Detection
-Error Tradeoff) curves from a set of predictors, which are the results of
-a binary classification system. The curves give a general vision of the
-performance of the classifier, and are useful for comparing performance of
-different systems.
+Error Tradeoff) curves from a set of predictors that are the results of a
+binary classification system. The curves give a general view of classifier
+performance and are useful for comparing different systems.
 
 %prep
 %setup -q -c -n %{packname}

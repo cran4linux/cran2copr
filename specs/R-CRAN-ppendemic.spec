@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ppendemic
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Glimpse at the Diversity of Peru's Endemic Plants
 
@@ -41,13 +41,12 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 
 %description
-Introducing a novel and updated database showcasing Peru's endemic plants.
-This meticulously compiled and revised botanical collection encompasses a
-remarkable assemblage of over 7,898 distinct species. The data for this
-resource was sourced from the work of Govaerts, R., Nic Lughadha, E.,
-Black, N. et al., titled 'The World Checklist of Vascular Plants: A
-continuously updated resource for exploring global plant diversity',
-published in Sci Data 8, 215 (2021) <doi:10.1038/s41597-021-00997-6>.
+Provides an updated database of accepted endemic plant taxa from Peru. The
+current collection contains over 8,000 taxonomic records at species and
+infraspecific ranks. Data are derived from Govaerts, R., Nic Lughadha, E.,
+Black, N. et al., 'The World Checklist of Vascular Plants: A continuously
+updated resource for exploring global plant diversity', published in Sci
+Data 8, 215 (2021) <doi:10.1038/s41597-021-00997-6>.
 
 %prep
 %setup -q -c -n %{packname}

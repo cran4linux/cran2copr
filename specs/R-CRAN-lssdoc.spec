@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pipeflow
-%global packver   0.3.0
+%global packname  lssdoc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Interactive Data Analysis Pipelines
+Summary:          Render Multilingual Questionnaires from 'LimeSurvey' '.lss' Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-Rcpp >= 1.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
 
 %description
-A lightweight and intuitive framework for building interactive data
-analysis pipelines. You add R functions one by one, and 'pipeflow' wires
-them into a pipeline that stays consistent as you go. Modify, remove, or
-insert steps at any stage, manage all parameters in one place, fast
-execution (C++-powered DAG) for interactive use and Shiny backends.
+Render 'LimeSurvey' '.lss' survey exports as multilingual questionnaire
+documents in Word ('.docx') or PDF, displaying up to four languages side
+by side with localized chrome in English, French, German, Spanish and
+Italian. Includes a rule-based automated audit that flags missing
+translations, forward filter references, duplicate codes, array-scale
+inconsistencies and orphan structural references. Designed for anyone
+working with a 'LimeSurvey' survey: researchers, methodologists, ethics
+committees, translators and reviewers. Processing is fully local: the
+source file is the only input and no questionnaire content is uploaded to
+a third-party service.
 
 %prep
 %setup -q -c -n %{packname}

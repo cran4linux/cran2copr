@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robCompositions
-%global packver   2.4.2
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -25,9 +25,6 @@ BuildRequires:    R-CRAN-rrcov
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-ggfortify 
-BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-tidyr 
@@ -49,9 +46,6 @@ Requires:         R-CRAN-rrcov
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-ggfortify 
-Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-tidyr 

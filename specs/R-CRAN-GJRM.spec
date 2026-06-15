@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GJRM
-%global packver   0.2-6.8
+%global packver   0.2-6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6.8
+Version:          0.2.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Joint Regression Modelling
 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-mnormt
 BuildRequires:    R-CRAN-gamlss.dist 
 BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-CRAN-scam 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-numDeriv 
@@ -41,6 +40,7 @@ BuildRequires:    R-CRAN-evd
 BuildRequires:    R-CRAN-ismev 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-distrEx 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-VGAM 
@@ -57,7 +57,6 @@ Requires:         R-CRAN-mnormt
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-Rmpfr 
 Requires:         R-CRAN-scam 
-Requires:         R-CRAN-survival 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-numDeriv 
@@ -65,6 +64,7 @@ Requires:         R-CRAN-evd
 Requires:         R-CRAN-ismev 
 Requires:         R-methods 
 Requires:         R-CRAN-distrEx 
+Requires:         R-CRAN-pracma 
 
 %description
 Routines for fitting various joint (and univariate) regression models,

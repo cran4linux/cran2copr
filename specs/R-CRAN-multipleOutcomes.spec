@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multipleOutcomes
-%global packver   0.16.2
+%global packver   0.18.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.2
+Version:          0.18.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Covariance and Treatment-Effect Tests for Multiple Outcomes
 
@@ -42,7 +42,8 @@ Requires:         R-CRAN-tidyselect
 %description
 Fits generalized linear models, Cox proportional-hazards models, log-rank
 tests, generalized estimating equations, mixed models with repeated
-measures, Kaplan-Meier curves, and quantile differences jointly across
+measures, Kaplan-Meier curves, quantile differences, and hierarchical
+net-benefit (win-difference) and log win-ratio statistics jointly across
 multiple endpoints, and returns the full asymptotic covariance matrix
 linking them. Implements PATED (Prognostic Assisted Treatment Effect
 Detection), a randomized-trial method that exploits balanced prognostic

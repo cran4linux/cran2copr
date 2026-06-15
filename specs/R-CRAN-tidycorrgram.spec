@@ -1,44 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pipeflow
-%global packver   0.3.0
+%global packname  tidycorrgram
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Interactive Data Analysis Pipelines
+Summary:          Tidy Correlation Matrices and 'ggplot2' Correlograms
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-Rcpp >= 1.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-A lightweight and intuitive framework for building interactive data
-analysis pipelines. You add R functions one by one, and 'pipeflow' wires
-them into a pipeline that stays consistent as you go. Modify, remove, or
-insert steps at any stage, manage all parameters in one place, fast
-execution (C++-powered DAG) for interactive use and Shiny backends.
+Computes correlation matrices as tidy data frames and creates
+publication-ready correlograms with 'ggplot2'. The package is designed for
+teaching and exploratory analysis workflows where users want one
+consistent interface for selecting numeric variables, calculating pairwise
+correlations, optionally estimating p-values, reordering variables, and
+drawing tile, point, or mixed correlograms.
 
 %prep
 %setup -q -c -n %{packname}

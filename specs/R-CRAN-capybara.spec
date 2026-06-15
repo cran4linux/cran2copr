@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  capybara
-%global packver   1.8.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Memory Efficient Fitting of Linear Models with High-Dimensional Fixed Effects
 
@@ -14,23 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kendallknight 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cpp11 
-BuildRequires:    R-CRAN-cpp11armadillo 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-armadillo4r 
+BuildRequires:    R-CRAN-cpp4r 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kendallknight 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description
@@ -40,7 +38,8 @@ obtain the estimated fixed-effects coefficients is based on Stammann
 (2018) <doi:10.48550/arXiv.1707.01815>, Gaure (2013)
 <doi:10.1016/j.csda.2013.03.024>, Berge (2018)
 <https://ideas.repec.org/p/luc/wpaper/18-13.html>, and Correia et al.
-(2020) <doi: 10.1177/1536867X20909691>.
+(2020) <doi: 10.1177/1536867X20909691>. This implementation is described
+in Vargas Sepulveda (2025) <doi:10.1371/journal.pone.0331178>.
 
 %prep
 %setup -q -c -n %{packname}

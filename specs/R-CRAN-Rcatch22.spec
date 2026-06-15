@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rcatch22
-%global packver   0.2.3
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of 22 Canonical Time-Series Characteristics
+Summary:          Calculation of 22 CAnonical Time-Series CHaracteristics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,15 +18,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 Requires:         R-CRAN-Rcpp >= 0.12.15
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 
 %description
 Calculate 22 summary statistics coded in C on time-series vectors to
 enable pattern detection, classification, and regression applications in
-the feature space as proposed by <doi:10.1007/s10618-019-00647-x>.
+the feature space as proposed by Lubba et al. (2019)
+<doi:10.1007/s10618-019-00647-x>.
 
 %prep
 %setup -q -c -n %{packname}

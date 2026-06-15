@@ -1,44 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pipeflow
-%global packver   0.3.0
+%global packname  lisp
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Interactive Data Analysis Pipelines
+Summary:          List-Processing à La 'SRFI-1'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-Rcpp >= 1.1.1
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.1.1
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lgr 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A lightweight and intuitive framework for building interactive data
-analysis pipelines. You add R functions one by one, and 'pipeflow' wires
-them into a pipeline that stays consistent as you go. Modify, remove, or
-insert steps at any stage, manage all parameters in one place, fast
-execution (C++-powered DAG) for interactive use and Shiny backends.
+Provides list-processing utilities inspired by the 'SRFI-1' list library
+for Scheme (<https://srfi.schemers.org/srfi-1/srfi-1.html>), including
+car/cdr family accessors, zip, pairwise, for.each, pair.fold.right and
+friends.  Higher-order helpers that are orthogonal to list processing are
+deferred to the 'functional' package; this package is freely a mixture of
+implementation and API.
 
 %prep
 %setup -q -c -n %{packname}
