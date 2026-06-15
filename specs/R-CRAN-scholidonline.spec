@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scholidonline
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resolution, Conversion, Linking and Metadata for Scholarly Identifiers
 
@@ -17,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scholid 
+BuildRequires:    R-CRAN-scholid >= 0.2.0
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-scholid 
+Requires:         R-CRAN-scholid >= 0.2.0
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-rlang 
 
 %description
 Enables querying of scholarly identifier services to verify identifier
 existence, convert identifiers across systems, retrieve bibliographic
-metadata, and discover linked identifiers. Supports common identifier
-types including DOI, PMID, PMCID, arXiv, and ORCID.
+metadata, and discover linked identifiers. Supports identifier types
+including DOI, PMID, PMCID, arXiv, ORCID, OpenAlex, ROR, UniProt, and
+selected NCBI accessions (GEO, BioProject, RefSeq, SRA, and genome
+assembly).
 
 %prep
 %setup -q -c -n %{packname}

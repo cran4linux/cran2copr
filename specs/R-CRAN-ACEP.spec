@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ACEP
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Análisis Computacional de Eventos de Protesta
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 

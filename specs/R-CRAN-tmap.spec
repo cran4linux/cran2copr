@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmap
-%global packver   4.3
+%global packver   4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3
+Version:          4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thematic Maps
 
@@ -20,11 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tmaptools >= 3.1
 BuildRequires:    R-CRAN-leaflet >= 2.0.2
 BuildRequires:    R-CRAN-sf >= 0.9.3
-BuildRequires:    R-CRAN-cols4all >= 0.8
 BuildRequires:    R-CRAN-units >= 0.6.1
 BuildRequires:    R-CRAN-classInt >= 0.4.3
 BuildRequires:    R-CRAN-stars >= 0.4.2
 BuildRequires:    R-CRAN-leafem >= 0.2.4
+BuildRequires:    R-CRAN-cols4all >= 0.10
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-grid 
@@ -43,11 +43,11 @@ BuildRequires:    R-CRAN-servr
 Requires:         R-CRAN-tmaptools >= 3.1
 Requires:         R-CRAN-leaflet >= 2.0.2
 Requires:         R-CRAN-sf >= 0.9.3
-Requires:         R-CRAN-cols4all >= 0.8
 Requires:         R-CRAN-units >= 0.6.1
 Requires:         R-CRAN-classInt >= 0.4.3
 Requires:         R-CRAN-stars >= 0.4.2
 Requires:         R-CRAN-leafem >= 0.2.4
+Requires:         R-CRAN-cols4all >= 0.10
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-grid 

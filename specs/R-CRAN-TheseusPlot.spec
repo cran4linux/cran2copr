@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TheseusPlot
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Decomposition of Differences in Rate Metrics
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-waterfalls >= 1.1.4
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
@@ -27,7 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-waterfalls 
+Requires:         R-CRAN-waterfalls >= 1.1.4
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
@@ -38,7 +39,6 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-waterfalls 
 
 %description
 Provides tools for decomposing differences in rate metrics between two
