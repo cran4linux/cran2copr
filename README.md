@@ -3,7 +3,7 @@
 [![Daily sync](https://github.com/cran4linux/cran2copr/actions/workflows/sync.yml/badge.svg)](https://github.com/cran4linux/cran2copr/actions/workflows/sync.yml)
 [![Docker images](https://github.com/cran4linux/cran2copr/actions/workflows/docker.yml/badge.svg)](https://github.com/cran4linux/cran2copr/actions/workflows/docker.yml)
 
-Bringing R packages to Fedora (in fact, to any distro) is an Herculean task, especially considering the rate at which [CRAN](https://cran.r-project.org) grows nowadays. This is an attempt to maintain RPM repos for most of CRAN (~15k packages as of Feb. 2020) in an automated way using [Fedora Copr](https://copr.fedorainfracloud.org/), while ensuring compatibility with the packages already in the official repos.
+Bringing R packages to Fedora (in fact, to any distro) is an Herculean task, especially considering the rate at which [CRAN](https://cran.r-project.org) grows nowadays. This is an attempt to maintain RPM repos for most of CRAN (23k+ packages as of June 2026) in an automated way using [Fedora Copr](https://copr.fedorainfracloud.org/), while ensuring compatibility with the packages already in the official repos.
 
 ## Support
 
