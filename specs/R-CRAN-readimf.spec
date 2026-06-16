@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ganttify
-%global packver   0.2.7
+%global packname  readimf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Gantt Charts with Work Breakdown Structure
+Summary:          Access International Monetary Fund Data via the 'SDMX' 3.0 API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly >= 4.9.0
-BuildRequires:    R-CRAN-htmlwidgets >= 1.5.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-plotly >= 4.9.0
-Requires:         R-CRAN-htmlwidgets >= 1.5.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Create Primavera-style interactive Gantt charts with Work Breakdown
-Structure (WBS) hierarchy and activities. Features include color-coded WBS
-items, indented labels, scrollable views for large projects, dynamic date
-formatting, and the ability to dim past activities. Built on top of
-'plotly' for interactive visualizations.
+Download macroeconomic and financial statistics from the International
+Monetary Fund data portal (<https://data.imf.org>), served through an
+'SDMX' 3.0 REST API. Provides a tidy interface to the Fund's flagship
+databases, beginning with the World Economic Outlook, and reads the
+compact 'SDMX-CSV' representation of each query for fast, dependency-light
+parsing.
 
 %prep
 %setup -q -c -n %{packname}

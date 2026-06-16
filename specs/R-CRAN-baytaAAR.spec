@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nycOpenData
-%global packver   0.2.1
+%global packname  baytaAAR
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convenient Access to NYC Open Data API Endpoints
+Summary:          Bayesian Transition Analysis with Markov Chain Monte Carlo
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-scoringRules 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scoringRules 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-checkmate 
+Requires:         R-stats 
 
 %description
-Provides a unified set of helper functions to access datasets from the NYC
-Open Data platform <https://opendata.cityofnewyork.us/>. Functions return
-results as tidy tibbles and support optional filtering, sorting, and row
-limits via the Socrata API. The package includes endpoints for 311 service
-requests, DOB job applications, juvenile justice metrics, school safety,
-environmental data, event permitting, and additional citywide datasets.
+Provides Bayesian age estimation for bioarchaeological skeletal data using
+ordinal probit regression models implemented in 'JAGS' and 'NIMBLE'. The
+package is designed to handle multiple ordinal traits of adult individuals
+and incorporates a Gompertz prior on age to reflect population-level
+mortality. It accounts for estimation uncertainties and supports full
+customization of model parameters and Markov Chain Monte Carlo settings.
+For more details see Müller-Scheeßel et al. (2026)
+<doi:10.1002/ajpa.70289>.
 
 %prep
 %setup -q -c -n %{packname}

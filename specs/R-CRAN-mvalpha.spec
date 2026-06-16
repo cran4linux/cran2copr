@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvalpha
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Krippendorff's Alpha for Multi-Valued Data
 
@@ -16,22 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
-BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-stringr 
 
 %description
 Calculate Krippendorff's alpha for multi-valued data using the methods
 introduced by Krippendorff and Craggs (2016)
 <doi:10.1080/19312458.2016.1228863>. Nominal, ordinal, interval, and ratio
-data types are supported, with options to create bootstrapped estimates of
-alpha and/or parallelize calculations.
+data types are supported, with option to create bootstrapped estimates of
+alpha.
 
 %prep
 %setup -q -c -n %{packname}

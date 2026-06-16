@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  loggit
-%global packver   2.1.1
+%global __requires_exclude ^libmpi
+%global packname  ringbp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern Logging for the R Ecosystem
+Summary:          Simulate and Evaluate Targeted Interventions in Infectious Disease Outbreaks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-sn 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-sn 
 
 %description
-An effortless 'ndjson' (newline-delimited 'JSON') logger, with two primary
-log-writing interfaces. It provides a set of wrappings for base R's
-message(), warning(), and stop() functions that maintain identical
-functionality, but also log the handler message to an 'ndjson' log file.
-'loggit' also exports its internal 'loggit()' function for powerful and
-configurable custom logging. No change in existing code is necessary to
-use this package, and should only require additions to fully leverage the
-power of the logging system. 'loggit' also provides a log reader for
-reading an 'ndjson' log file into a data frame, log rotation, and live
-echo of the 'ndjson' log messages to terminal 'stdout' for log capture by
-external systems (like containers). 'loggit' is ideal for Shiny apps, data
-pipelines, modeling work flows, and more. Please see the vignettes for
-detailed example use cases.
+Branching process simulation model of infectious disease transmission with
+flexible parameterisation of epidemiology and targeted interventions,
+including isolation, contact tracing and quarantine, to reduce
+transmission, together with functions to evaluate outbreak control.
+Introduced in Hellewell et al. (2020) <doi:10.1016/S2214-109X(20)30074-7>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

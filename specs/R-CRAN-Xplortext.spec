@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Xplortext
-%global packver   1.6
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis of Textual Data
 
@@ -14,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel >= 4.6
+Requires:         R-core >= 4.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
-BuildRequires:    R-CRAN-FactoMineR >= 2.11
-BuildRequires:    R-CRAN-tm >= 0.7.16
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
+BuildRequires:    R-CRAN-FactoMineR >= 2.15
+BuildRequires:    R-CRAN-tm >= 0.7.18
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-dendextend 
@@ -41,9 +41,9 @@ BuildRequires:    R-CRAN-slam
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-ggplot2 >= 3.5.1
-Requires:         R-CRAN-FactoMineR >= 2.11
-Requires:         R-CRAN-tm >= 0.7.16
+Requires:         R-CRAN-ggplot2 >= 4.0.3
+Requires:         R-CRAN-FactoMineR >= 2.15
+Requires:         R-CRAN-tm >= 0.7.18
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dendextend 

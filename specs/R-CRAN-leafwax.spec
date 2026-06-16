@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROCsurf
-%global packver   0.1.1
+%global packname  leafwax
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          ROC Surface Analysis Under the Three-Class Problems
+Summary:          Bayesian Inversion of Leaf Wax Hydrogen Isotopes to Precipitation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Receiver Operating Characteristic (ROC) analysis is performed assuming
-samples are from the proposed distributions. In addition, the volume under
-the ROC surface and true positive fractions values are evaluated by ROC
-surface analysis.
+Bayesian inversion of leaf wax hydrogen isotopes to reconstruct
+precipitation isotopes using hierarchical spatial models. Provides
+fourteen Bayesian models that vary in their use of spatial Gaussian
+processes and ancillary covariates (precipitation amount, plant functional
+type, C4 fraction). Models are pre-computed using 'Stan' and stored as
+posterior distributions, so prediction does not require 'Stan' to be
+installed. A 100-draw fixture ships with the package; full 1000-draw
+posteriors are downloaded from a versioned 'Zenodo' deposit on first use;
+see Bradley (2026) <doi:10.5281/zenodo.20085465>.
 
 %prep
 %setup -q -c -n %{packname}

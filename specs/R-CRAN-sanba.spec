@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sanba
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Shared Atoms Nested Models via MCMC or Variational Bayes
 
@@ -34,13 +34,13 @@ An efficient tool for fitting nested mixture models based on a shared set
 of atoms via Markov Chain Monte Carlo and variational inference
 algorithms. Specifically, the package implements the common atoms model
 (Denti et al., 2023), its finite version (similar to D'Angelo et al.,
-2023), and a hybrid finite-infinite model (D'Angelo and Denti, 2024). All
+2023), and a hybrid finite-infinite model (D'Angelo and Denti, 2026). All
 models implement univariate nested mixtures with Gaussian kernels equipped
 with a normal-inverse gamma prior distribution on the parameters.
 Additional functions are provided to help analyze the results of the
 fitting procedure. References: Denti, Camerlenghi, Guindani, Mira (2023)
 <doi:10.1080/01621459.2021.1933499>, D’Angelo, Canale, Yu, Guindani (2023)
-<doi:10.1111/biom.13626>, D’Angelo, Denti (2024) <doi:10.1214/24-BA1458>.
+<doi:10.1111/biom.13626>, D’Angelo, Denti (2026) <doi:10.1214/24-BA1458>.
 
 %prep
 %setup -q -c -n %{packname}

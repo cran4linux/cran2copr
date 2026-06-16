@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ananke
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Chronology in Archaeology
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aion >= 1.4.0
+BuildRequires:    R-CRAN-aion >= 1.7.0
 BuildRequires:    R-CRAN-arkhe >= 1.10.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-aion >= 1.4.0
+Requires:         R-CRAN-aion >= 1.7.0
 Requires:         R-CRAN-arkhe >= 1.10.0
 Requires:         R-graphics 
 Requires:         R-grDevices 

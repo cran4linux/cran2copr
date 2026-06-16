@@ -1,49 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgload
-%global packver   1.5.3
+%global packname  cdCAT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Package Installation and Attach
+Summary:          Computerized Adaptive Testing with Cognitive Diagnostic Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-Simulates the process of installing a package and then attaching it. This
-is a key part of the 'devtools' package as it allows you to rapidly
-iterate while developing a package.
+A session-based engine for cognitive diagnostic computerized adaptive
+testing (CD-CAT), the application of adaptive testing to cognitive
+diagnosis models. Three models are supported: the deterministic inputs,
+noisy "and" gate (DINA), the deterministic inputs, noisy "or" gate (DINO),
+and the generalized DINA (GDINA) model. Item selection criteria include
+Kullback-Leibler (KL) information, posterior-weighted Kullback-Leibler
+(PWKL), modified posterior-weighted Kullback-Leibler (MPWKL), and Shannon
+entropy (SHE). Latent attribute profiles are estimated by maximum
+likelihood estimation (MLE), maximum a posteriori (MAP), or expected a
+posteriori (EAP). Content balancing, item exposure control, and shadow
+testing are configurable through constraint functions. The implemented
+methods follow Cheng (2009) <doi:10.1007/s11336-009-9123-2> and de la
+Torre (2011) <doi:10.1007/s11336-011-9207-7>. Designed for real-time,
+item-by-item adaptive applications.
 
 %prep
 %setup -q -c -n %{packname}
