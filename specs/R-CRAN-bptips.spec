@@ -1,39 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popdemo
-%global packver   1.3-4
+%global packname  bptips
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Modelling Using Projection Matrices
+Summary:          Server Earnings Calculations
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-stats 
 
 %description
-Tools for modelling populations and demography using matrix projection
-models, with deterministic and stochastic model implementations. Includes
-population projection, indices of short- and long-term population size and
-growth, perturbation analysis, convergence to stability or stationarity,
-and diagnostic and manipulation tools.
+A collection of functions that allow servers (specifically BPKP) to
+summarize and verify shift earnings, identify composition of tips and
+hourly wage, and track performance through several metrics.
 
 %prep
 %setup -q -c -n %{packname}

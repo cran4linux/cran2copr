@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slideimp
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Numeric Matrices K-NN and PCA Imputation
 
@@ -17,40 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-bigmemory 
-BuildRequires:    R-CRAN-carrier 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mlpack 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEnsmallen 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-bigmemory 
-Requires:         R-CRAN-carrier 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Fast k-nearest neighbors (K-NN) and principal component analysis (PCA)
-imputation algorithms for missing values in high-dimensional numeric
-matrices, i.e., epigenetic data. For extremely high-dimensional data with
-ordered features, a sliding window approach for K-NN or PCA imputation is
-provided.  Additional features include group-wise imputation (e.g., by
-chromosome), hyperparameter tuning with repeated cross-validation,
-multi-core parallelization, and optional subset imputation. The K-NN
+imputation algorithms for missing values in epigenetic data or other
+high-dimensional numeric matrices. For PCA, a locally optimal block
+preconditioned conjugate gradient (LOBPCG) eigensolver with warm starts of
+both the eigenblock and search direction is also supported. Two
+complementary imputation strategies are available. Group-wise imputation
+(e.g., by chromosome) is recommended for Illumina DNA methylation
+microarrays (e.g., 450K, EPIC) and other matrices with groupable columns.
+A sliding window approach for K-NN or PCA imputation is recommended only
+for whole-genome methylation data such as whole-genome bisulfite
+sequencing (WGBS) or Enzymatic Methyl-seq (EM-seq). The package also
+supports hyperparameter tuning via repeated cross-validation. The K-NN
 algorithm is described in: Hastie, T., Tibshirani, R., Sherlock, G.,
 Eisen, M., Brown, P. and Botstein, D.  (1999) "Imputing Missing Data for
-Gene Expression Arrays". The PCA imputation is an optimized version of the
-imputePCA() function from the 'missMDA' package described in: Josse, J.
-and Husson, F.  (2016) <doi:10.18637/jss.v070.i01> "missMDA: A Package for
-Handling Missing Values in Multivariate Data Analysis".
+Gene Expression Arrays". The PCA imputation is an optimized
+reimplementation of the imputePCA() function from the 'missMDA' package
+described in: Josse, J. and Husson, F. (2016) <doi:10.18637/jss.v070.i01>
+"missMDA: A Package for Handling Missing Values in Multivariate Data
+Analysis".
 
 %prep
 %setup -q -c -n %{packname}

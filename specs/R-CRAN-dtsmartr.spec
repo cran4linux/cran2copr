@@ -1,36 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  animl
-%global packver   3.3.0
+%global packname  dtsmartr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of ML Tools for Species Detection and Classification in Camera Trap Images and Videos
+Summary:          Interactive Virtualized Data Explorer Grid Widget
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-reticulate 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-datamods 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-datamods 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-shiny 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Functions required to classify subjects within camera trap field data. The
-package can handle both images and videos. The authors recommend a
-two-step approach using Microsoft's 'MegaDector' model and then a second
-model trained on the classes of interest.
+Provides an interactive, virtualized data explorer widget for 'R'. Built
+on 'React' (via 'reactR') and 'htmlwidgets', it offers column-type
+detection, multi-value checkbox filtering, sorting, column visibility
+toggling, virtual scrolling for large datasets, and a full-viewport modal.
+Includes 'dtsmartr_launch()' with an interactive, zero-code file upload
+wizard using 'datamods'. Widgets can be embedded in 'R Markdown' /
+'Quarto' documents, 'Shiny' applications, or exported as standalone HTML
+files via 'save_dtsmartr()'.
 
 %prep
 %setup -q -c -n %{packname}

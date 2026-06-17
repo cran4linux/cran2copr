@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popdemo
-%global packver   1.3-4
+%global packname  rswipl
+%global packver   10.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          10.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Modelling Using Projection Matrices
+Summary:          Embed 'SWI'-'Prolog'
 
-License:          GPL (>= 2)
+License:          FreeBSD
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-stats 
+BuildRequires:    cmake
+BuildRequires:    expat-devel
+BuildRequires:    libarchive-devel
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Tools for modelling populations and demography using matrix projection
-models, with deterministic and stochastic model implementations. Includes
-population projection, indices of short- and long-term population size and
-growth, perturbation analysis, convergence to stability or stationarity,
-and diagnostic and manipulation tools.
+Interface to 'SWI'-'Prolog', <https://www.swi-prolog.org/>. This package
+is normally not loaded directly, please refer to package 'rolog' instead.
+The purpose of this package is to provide the 'Prolog' runtime on systems
+that do not have a software installation of 'SWI'-'Prolog'.
 
 %prep
 %setup -q -c -n %{packname}

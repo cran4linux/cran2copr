@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popdemo
-%global packver   1.3-4
+%global packname  circularEV
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Modelling Using Projection Matrices
+Summary:          Extreme Value Analysis for Circular Data
 
-License:          GPL (>= 2)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-NPCirc 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-MCMCpack 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-NPCirc 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
 Requires:         R-stats 
 
 %description
-Tools for modelling populations and demography using matrix projection
-models, with deterministic and stochastic model implementations. Includes
-population projection, indices of short- and long-term population size and
-growth, perturbation analysis, convergence to stability or stationarity,
-and diagnostic and manipulation tools.
+General functions for performing extreme value analysis on a circular
+domain as part of the statistical methodology in the paper by Konzen, E.,
+Neves, C., and Jonathan, P. (2021). Modeling nonstationary extremes of
+storm severity: Comparing parametric and semiparametric inference.
+Environmetrics, 32(4), e2667 <doi:10.1002/env.2667>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geometa
-%global packver   0.9.3
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Reading and Writing ISO/OGC Geographic Metadata
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-XML 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-digest 
 
 %description
 Provides facilities to read, write and validate geographic metadata

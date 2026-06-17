@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VizModules
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible, Interactive 'shiny' Modules for Almost Any Plot
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.5
 Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotthis >= 0.11.0
+BuildRequires:    R-CRAN-plotthis >= 0.12.1
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dittoViz 
 BuildRequires:    R-CRAN-plotly 
@@ -36,7 +36,8 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-htmlwidgets 
-Requires:         R-CRAN-plotthis >= 0.11.0
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-plotthis >= 0.12.1
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dittoViz 
 Requires:         R-CRAN-plotly 
@@ -55,6 +56,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-methods 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-zip 
 
 %description
 Offers a core selection of interactivity-first 'shiny' modules for many
@@ -64,7 +66,9 @@ and convenient construction of 'shiny' apps with very few lines of code
 and decouple plotting from the underlying data. These modules allow for
 full plot aesthetic customization by the end user through UI inputs.
 Utility functions for simple UI organization, automated UI tooltips, and
-additional plot enhancements are also provided.
+additional plot enhancements are also provided. Includes a multi-panel
+figure builder app for arranging multiple modules together in a free-form
+layout.
 
 %prep
 %setup -q -c -n %{packname}

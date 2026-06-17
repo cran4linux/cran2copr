@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastcpd
-%global packver   0.16.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Change Point Detection via Sequential Gradient Descent
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,7 +23,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-glmnet 
@@ -36,12 +35,8 @@ Implements fast change point detection algorithm based on the paper
 "Sequential Gradient Descent and Quasi-Newton's Method for Change-Point
 Analysis" by Xianyang Zhang, Trisha Dawn
 <https://proceedings.mlr.press/v206/zhang23b.html>. The algorithm is based
-on dynamic programming with pruning and sequential gradient descent. It is
-able to detect change points a magnitude faster than the vanilla Pruned
-Exact Linear Time(PELT). The package includes examples of linear
-regression, logistic regression, Poisson regression, penalized linear
-regression data, and whole lot more examples with custom cost function in
-case the user wants to use their own cost function.
+on dynamic programming with pruning and sequential gradient descent. See
+Li and Zhang (2026) <doi:10.18637/jss.v116.i06> for details.
 
 %prep
 %setup -q -c -n %{packname}

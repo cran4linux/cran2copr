@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popdemo
-%global packver   1.3-4
+%global packname  ggmemo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Modelling Using Projection Matrices
+Summary:          Add Arrows, Labels, and Change Annotations to 'ggplot2' Charts
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpp 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpp 
+Requires:         R-CRAN-rlang 
 
 %description
-Tools for modelling populations and demography using matrix projection
-models, with deterministic and stochastic model implementations. Includes
-population projection, indices of short- and long-term population size and
-growth, perturbation analysis, convergence to stability or stationarity,
-and diagnostic and manipulation tools.
+Add callout arrows, highlight data points, and show percent change between
+rows on 'ggplot2' charts in one line of code. annotate_callout() points at
+a data row with an arrow and label. annotate_change() draws a color-coded
+arrow between two rows and labels the delta as percent change, absolute
+difference, or percentage points. Designed for business charts, quarterly
+reports, and dashboards. Built on top of the 'ggpp' package.
 
 %prep
 %setup -q -c -n %{packname}

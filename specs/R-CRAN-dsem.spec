@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsem
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Structural Equation Models
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.9.18
 Requires:         R-CRAN-RTMB >= 1.7
@@ -37,6 +38,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-grid 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-checkmate 
 
 %description
 Applies dynamic structural equation models to time-series data with

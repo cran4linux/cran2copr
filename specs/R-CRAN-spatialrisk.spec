@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialrisk
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Concentration and Radius-Based Risk Calculations
 
@@ -40,9 +40,9 @@ Requires:         R-CRAN-units
 %description
 Provides methods for spatial concentration and radius-based risk
 calculations. The package focuses on efficient determination of the sum of
-observations within a given radius, identifying local concentration
-hotspots, and aggregating point data to polygon geometries. These methods
-are useful for applications such as insurance, urban analytics,
+observations within a given radius, identifying areas of high local
+concentration, and aggregating point data to polygon geometries. These
+methods are useful for applications such as insurance, urban analytics,
 environmental exposure analysis, and other spatial point pattern
 workflows. The underlying maximum covering problem is described by Church
 (1974) <doi:10.1007/BF01942293>.

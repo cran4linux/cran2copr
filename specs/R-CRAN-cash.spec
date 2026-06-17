@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cash
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Choice and Competitive Reactions: End-to-End Simulation
 
@@ -68,8 +68,9 @@ equilibrium computation. Doing so, it partly draws from established
 packages concerned with discrete choice analysis. While its structure
 generally aims towards end-to-end simulation as well as simulation of
 competitive dynamics based on real data, all its key elements mentioned
-above may be of use independently of each other. A paper accompanying the
-package will be available and linked here shortly.
+above may be of use independently of each other. For implementation and
+application details, see Dressler et al. (2026)
+<doi:10.48550/arXiv.2606.15593>.
 
 %prep
 %setup -q -c -n %{packname}

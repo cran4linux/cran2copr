@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stylo
-%global packver   0.7.7
+%global packver   0.7.71
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.7.71
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stylometric Multivariate Analyses
 
@@ -23,12 +23,16 @@ BuildRequires:    R-CRAN-e1071
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-tsne 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-tcltk2 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-pamr 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-tsne 
+Requires:         R-tcltk 
+Requires:         R-CRAN-tcltk2 
 
 %description
 Supervised and unsupervised multivariate methods, supplemented by GUI and

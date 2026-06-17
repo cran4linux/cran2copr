@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popdemo
-%global packver   1.3-4
+%global packname  easyLSEA
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Modelling Using Projection Matrices
+Summary:          Lipid Set Enrichment Analysis with Dual KS and 'fgsea' Engines
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-withr 
 
 %description
-Tools for modelling populations and demography using matrix projection
-models, with deterministic and stochastic model implementations. Includes
-population projection, indices of short- and long-term population size and
-growth, perturbation analysis, convergence to stability or stationarity,
-and diagnostic and manipulation tools.
+Provides biology-aware lipid set enrichment analysis (LSEA) for lipidomics
+data using dual engines: the Kolmogorov-Smirnov test and the fast gene set
+enrichment algorithm from the 'fgsea' package. Annotates lipids into
+biological groups at three levels (lipid class, LIPID MAPS category,
+functional category) and tests for coordinated directional shifts between
+conditions. Includes fatty acid chain analysis with trend plots weighted
+by lipid abundance (Spearman rank correlation, configurable smoothing),
+wide-format chain position output (sn-1, sn-2, sn-3, sn-4), annotation
+confidence filtering, and export utilities for reproducible reporting in
+CSV, 'Excel', and PDF formats. Vignettes are available in English and
+Spanish. Methods are based on Subramanian et al. (2005)
+<doi:10.1073/pnas.0506580102> and Korotkevich et al. (2021)
+<doi:10.1101/060012>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popdemo
-%global packver   1.3-4
+%global packname  GLBFP
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Demographic Modelling Using Projection Matrices
+Summary:          General Linear Blend Frequency Polygon Density Estimation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 
 %description
-Tools for modelling populations and demography using matrix projection
-models, with deterministic and stochastic model implementations. Includes
-population projection, indices of short- and long-term population size and
-growth, perturbation analysis, convergence to stability or stationarity,
-and diagnostic and manipulation tools.
+Implements nonparametric density estimation with Averaged Shifted
+Histogram (ASH), Linear Blend Frequency Polygon (LBFP), and General Linear
+Blend Frequency Polygon (GLBFP) estimators. The package provides pointwise
+and grid-based estimation workflows, sparse-prefix grid-count computation,
+plotting helpers, and plug-in bandwidth selection. Methodological
+background follows Scott (1992) <doi:10.1002/9780470316849>, Terrell and
+Scott (1985) <doi:10.1080/01621459.1985.10477163>, and Carbon and Duchesne
+(2024) <doi:10.1007/s10463-023-00883-5>.
 
 %prep
 %setup -q -c -n %{packname}

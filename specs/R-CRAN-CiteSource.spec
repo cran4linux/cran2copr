@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDMConnector
-%global packver   2.6.0
+%global packname  CiteSource
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to an OMOP Common Data Model
+Summary:          Data-Driven Search Strategy Development and Evidence Synthesis Reporting
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,52 +17,52 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.5.0
-BuildRequires:    R-CRAN-omopgenerics >= 1.2.0
-BuildRequires:    R-CRAN-DBI >= 0.3.0
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RecordLinkage 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-dbplyr >= 2.5.0
-Requires:         R-CRAN-omopgenerics >= 1.2.0
-Requires:         R-CRAN-DBI >= 0.3.0
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-UpSetR 
+BuildRequires:    R-CRAN-utf8 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RecordLinkage 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-UpSetR 
+Requires:         R-CRAN-utf8 
 
 %description
-Provides tools for working with observational health data in the
-Observational Medical Outcomes Partnership (OMOP) Common Data Model format
-with a pipe friendly syntax. Common data model database table references
-are stored in a single compound object along with metadata.
+Deduplicates bibliographic citations from multiple sources while
+preserving customizable metadata, supporting data-driven search strategy
+development and evidence synthesis reporting. Search results can be
+analyzed using plots and tables, and imported or exported in 'RIS' and
+'CSV' formats. An interactive 'shiny' application is included for
+exploratory use.
 
 %prep
 %setup -q -c -n %{packname}

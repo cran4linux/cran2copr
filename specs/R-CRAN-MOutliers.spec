@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MOutliers
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Outlier Detection Methods
 
@@ -35,9 +35,11 @@ Requires:         R-CRAN-rlang
 Provides methods for detecting multivariate outliers in numeric datasets.
 The package implements classical Mahalanobis distance, robust Minimum
 Covariance Determinant (MCD), and Principal Component Analysis (PCA)-based
-approaches. Visualization functions are included to aid interpretation of
-detected outliers. Mahalanobis distance calculations are accelerated using
-'C++' through 'Rcpp'.
+approaches for outlier detection. The methodology is informed by Aggarwal
+(2017) <doi:10.1007/978-3-319-47578-3> and Grentzelos, Caroni and
+Barranco-Chamorro (2020) <doi:10.1002/cmm4.1129>. Visualization functions
+are included to aid interpretation of detected outliers. Mahalanobis
+distance calculations are accelerated using 'C++' through 'Rcpp'.
 
 %prep
 %setup -q -c -n %{packname}

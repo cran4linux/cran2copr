@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RaceID
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identification of Cell Types, Inference of Lineage Trees, and Prediction of Noise Dynamics from Single-Cell RNA-Seq Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-FNN
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-harmony 
 BuildRequires:    R-CRAN-ica 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-irlba 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-FNN
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-harmony 
 Requires:         R-CRAN-ica 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-irlba 
