@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biometryassist
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Assist Design and Analysis of Agronomic Experiments
 
@@ -19,30 +19,28 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-agricolae 
-BuildRequires:    R-CRAN-askpass 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-agricolae 
-Requires:         R-CRAN-askpass 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-xml2 
 
 %description
 Provides functions to aid in the design and analysis of agronomic and
@@ -51,7 +49,7 @@ functions, especially for users who are learning these concepts. While not
 required for most functionality, this package enhances the `asreml`
 package which provides a computationally efficient algorithm for fitting
 mixed models using Residual Maximum Likelihood. It is a commercial package
-that can be purchased as 'asreml-R' from 'VSNi' <https://vsni.co.uk/>, who
+that can be purchased as 'ASReml-R' from 'VSNi' <https://vsni.co.uk/>, who
 will supply a zip file for local installation/updating (see
 <https://asreml.kb.vsni.co.uk/>).
 

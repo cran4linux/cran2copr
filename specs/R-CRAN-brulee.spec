@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brulee
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Level Modeling Functions with 'torch'
 
@@ -21,25 +21,33 @@ BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-coro >= 1.0.1
 BuildRequires:    R-CRAN-torch >= 0.13.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-safetensors 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-coro >= 1.0.1
 Requires:         R-CRAN-torch >= 0.13.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-safetensors 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description

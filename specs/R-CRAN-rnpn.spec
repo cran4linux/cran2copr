@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnpn
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the National 'Phenology' Network 'API'
+Summary:          Interface to the USA National 'Phenology' Network 'API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,9 +37,9 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-xml2 
 
 %description
-Programmatic interface to the Web Service methods provided by the National
-'Phenology' Network (<https://usanpn.org/>), which includes data on
-various life history events that occur at specific times.
+Programmatic interface to the Web Service methods provided by the USA
+National 'Phenology' Network (<https://usanpn.org/>), which includes data
+on various life history events that occur at specific times.
 
 %prep
 %setup -q -c -n %{packname}

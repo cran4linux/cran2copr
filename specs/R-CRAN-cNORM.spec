@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cNORM
-%global packver   3.5.4
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.4
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Norming
 
@@ -19,27 +19,34 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-leaps >= 3.1
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-leaps >= 3.1
+Requires:         R-grDevices 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A comprehensive toolkit for generating continuous test norms in
-psychometrics and biometrics, and analyzing model fit. The package offers
-both distribution-free modeling using Taylor polynomials and parametric
-modeling using the beta-binomial and the 'Sinh-Arcsinh' distribution.
-Originally developed for achievement tests, it is applicable to a wide
-range of mental, physical, or other test scores dependent on continuous or
-discrete explanatory variables. The package provides several advantages:
-It minimizes deviations from representativeness in subsamples,
-interpolates between discrete levels of explanatory variables, and
-significantly reduces the required sample size compared to conventional
-norming per age group. cNORM enables graphical and analytical evaluation
-of model fit, accommodates a wide range of scales including those with
-negative and descending values, and even supports conventional norming. It
-generates norm tables including confidence intervals. It also includes
-methods for addressing representativeness issues through Iterative
-Proportional Fitting. Based on Lenhard et al. (2016)
-<doi:10.1177/1073191116656437>, Lenhard et al. (2019)
+Generates continuous test norms in psychometrics and biometrics, and
+analyzing model fit. The package offers both distribution-free modeling
+using Taylor polynomials and parametric modeling using the beta-binomial
+and the 'Sinh-Arcsinh' distribution. Originally developed for achievement
+tests, it is applicable to a wide range of mental, physical, or other test
+scores dependent on continuous or discrete explanatory variables. The
+package provides several advantages: It minimizes deviations from
+representativeness in subsamples, interpolates between discrete levels of
+explanatory variables, and significantly reduces the required sample size
+compared to conventional norming per age group. cNORM enables graphical
+and analytical evaluation of model fit, accommodates a wide range of
+scales including those with negative and descending values, and as well
+supports conventional norming. It generates norm tables including
+confidence intervals. Methods for addressing representativeness issues are
+available through Iterative Proportional Fitting.  Based on Lenhard et al.
+(2016) <doi:10.1177/1073191116656437>, Lenhard et al. (2019)
 <doi:10.1371/journal.pone.0222279>, Lenhard and Lenhard (2021)
 <doi:10.1177/0013164420928457> and Gary et al. (2023)
 <doi:10.1007/s00181-023-02456-0>.

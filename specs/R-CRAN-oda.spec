@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  oda
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Pure-R Core Engine for Optimal Data Analysis (ODA / MultiODA)
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-XML 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+Pure-R implementation of univariate binary-class ODA (UniODA), univariate
+multiclass ODA (MultiODA), and binary Classification Tree Analysis (CTA).
+Supports ordered and categorical attributes, priors-on inverse-frequency
+weighting, MAXSENS / SAMPLEREP / first-identified tie-breaking, true
+leave-one-out cross-validation, and Monte Carlo Fisher-randomization
+p-values. Covered UniODA, MultiODA, and binary CTA fixtures are tested for
+parity against MegaODA.exe and CTA.exe outputs.
 
 %prep
 %setup -q -c -n %{packname}

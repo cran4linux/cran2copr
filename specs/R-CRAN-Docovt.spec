@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Docovt
-%global packver   0.3
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributed Online Covariance Matrix Tests
 
@@ -17,8 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Distributed Online Covariance Matrix Tests 'Docovt' is a powerful tool

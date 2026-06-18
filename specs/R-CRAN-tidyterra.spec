@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyterra
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
 
@@ -55,9 +55,9 @@ Requires:         R-utils
 Requires:         R-CRAN-vctrs 
 
 %description
-Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
-the 'terra' package. It includes also new 'geom_' functions that provide a
-convenient way of visualizing 'terra' objects with 'ggplot2'.
+Provides methods from 'tidyverse' packages for 'SpatRaster' and
+'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms' and
+scales for plotting those objects.
 
 %prep
 %setup -q -c -n %{packname}

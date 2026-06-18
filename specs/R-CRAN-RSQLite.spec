@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSQLite
-%global packver   3.53.1
+%global packver   3.53.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.53.1
+Version:          3.53.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          SQLite Interface for R
 
@@ -37,7 +37,10 @@ Embeds the SQLite database engine in R and provides an interface compliant
 with the DBI package. The source for the SQLite engine and for various
 extensions is included. System libraries will never be consulted because
 this package relies on static linking for the plugins it includes; this
-also ensures a consistent experience across all installations.
+also ensures a consistent experience across all installations. Optionally,
+when libcurl is available at build time, an experimental HTTP/HTTPS
+virtual file system (VFS) can be enabled to allow read-only access to
+remote immutable SQLite database files via URIs.
 
 %prep
 %setup -q -c -n %{packname}

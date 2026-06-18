@@ -1,53 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PEIMAN2
-%global packver   1.1.0
+%global packname  SelfControlledCohort
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Post-Translational Modification Enrichment, Integration, and Matching Analysis
+Summary:          Self-Controlled Cohort Population-Level Estimation
 
-License:          GPL (>= 3)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
+BuildRequires:    R-CRAN-SqlRender >= 1.4.3
+BuildRequires:    R-CRAN-ParallelLogger 
+BuildRequires:    R-CRAN-rateratio.test 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-EmpiricalCalibration 
+BuildRequires:    R-CRAN-ResultModelManager 
+BuildRequires:    R-CRAN-Andromeda 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DatabaseConnector >= 5.0.0
+Requires:         R-CRAN-SqlRender >= 1.4.3
+Requires:         R-CRAN-ParallelLogger 
+Requires:         R-CRAN-rateratio.test 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-EmpiricalCalibration 
+Requires:         R-CRAN-ResultModelManager 
+Requires:         R-CRAN-Andromeda 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-graphics 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-cli 
 Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Functions and mined database from 'UniProt' focusing on post-translational
-modifications to do single enrichment analysis (SEA) and protein set
-enrichment analysis (PSEA). Payman Nickchi, Uladzislau Vadadokhau, Mehdi
-Mirzaie, Marc Baumann, Amir Ata Saei, Mohieddin Jafari (2025)
-<doi:10.1002/pmic.202400238>.
+Estimates incidence rate ratios by comparing time exposed with time
+unexposed among an exposed cohort using self-controlled cohort methodology
+as described in Ryan et al. (2013) <doi:10.1002/pds.3457>. Functions used
+for empirical calibration of effect estimates, confidence intervals, and
+p-values are included to control for residual bias.
 
 %prep
 %setup -q -c -n %{packname}

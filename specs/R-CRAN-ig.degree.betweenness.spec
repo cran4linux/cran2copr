@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ig.degree.betweenness
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          "Smith-Pittman Community Detection Algorithm for 'igraph' Objects (2024)"
+Summary:          "Node+Edge Betweenness Community Detection Algorithm for 'igraph' Objects"
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,33 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-BBmisc 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-igraphdata 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-BBmisc 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-BBmisc 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-igraphdata 
-Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-BBmisc 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlist 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Implements the "Smith-Pittman" community detection algorithm for network
-analysis using 'igraph' objects. This algorithm combines node degree and
-betweenness centrality measures to identify communities within networks,
-with a gradient evident in social partitioning. The package provides
-functions for community detection, visualization, and analysis of the
-resulting community structure. Methods are based on results from Smith,
-Pittman and Xu (2024) <doi:10.48550/arXiv.2411.01394>.
+Implements the "Node + Edge Betweenness" community detection algorithm for
+network analysis using 'igraph' objects. This algorithm combines node
+degree and betweenness centrality measures to identify communities within
+networks, with a gradient evident in social partitioning. The package
+provides functions for implementation of the algorithm, visualization, and
+analysis of the resulting community structure along with the original
+dataset used in the publication. Methods are based on results from Smith,
+Pittman and Xu (2026) <doi:10.1002/cjs.70060>.
 
 %prep
 %setup -q -c -n %{packname}

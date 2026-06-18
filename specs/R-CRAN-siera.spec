@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  siera
-%global packver   0.5.5
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Analysis Results Programmes Using ARS Metadata
 
@@ -40,8 +40,10 @@ Analysis Results Standard (ARS), a foundational standard by CDISC
 model for metadata describing all components to calculate Analysis
 Results.
 <https://www.cdisc.org/standards/foundational/analysis-results-standard>
-Using 'siera' package, ARS metadata is ingested (JSON or Excel format),
-producing programmes to generate Analysis Results Datasets (ARDs).
+Using 'siera', ARS metadata is ingested (JSON or Excel format), producing
+R programmes to generate Analysis Results Datasets (ARDs). Supports
+arbitrary-depth table structures, multi-value conditions, data-driven
+groupings, and CDISC-compliant ARD column stamping.
 
 %prep
 %setup -q -c -n %{packname}

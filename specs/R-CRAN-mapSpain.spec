@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapSpain
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          Administrative Boundaries and Static Map Tiles for Spain
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-leaflet >= 2.0.0
 BuildRequires:    R-CRAN-countrycode >= 1.2.0
 BuildRequires:    R-CRAN-httr2 >= 1.2.0
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-leaflet >= 2.0.0
 Requires:         R-CRAN-countrycode >= 1.2.0
 Requires:         R-CRAN-httr2 >= 1.2.0
@@ -47,12 +45,13 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Administrative Boundaries of Spain at several levels (Autonomous
-Communities, Provinces, Municipalities) based on the 'GISCO' 'Eurostat'
-database <https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE'
-from 'Instituto Geografico Nacional' <https://www.ign.es/>.  It also
-provides a 'leaflet' plugin and the ability of downloading and processing
-static tiles.
+Administrative boundaries of Spain at several levels (Autonomous
+Communities and Cities, provinces, municipalities and 'NUTS'), based on
+'GISCO' from 'Eurostat' <https://ec.europa.eu/eurostat/web/gisco> and
+'CartoBase ANE' from 'Instituto Geográfico Nacional'
+<https://www.ign.es/>. Includes tools to download and process static map
+tiles and a 'leaflet' plugin for Spanish public administration tile
+providers.
 
 %prep
 %setup -q -c -n %{packname}

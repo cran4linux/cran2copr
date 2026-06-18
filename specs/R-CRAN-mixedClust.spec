@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  mixedClust
+%global packver   1.0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          1.0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Co-Clustering of Mixed Type Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.11
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.12.11
+Requires:         R-CRAN-fda 
+Requires:         R-methods 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+Implementation of the co-clustering method for mixed type data proposed in
+M. Selosse, J. Jacques, C. Biernacki (2018)
+<https://hal.science/hal-01893457>. It consists in clustering
+simultaneously the rows (observations) and the columns (features) of a
+heterogeneous data set.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  giscoR
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from GISCO API - Eurostat
+Summary:          Download 'Eurostat' 'GISCO' Spatial Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-countrycode >= 1.2.0
 BuildRequires:    R-CRAN-httr2 >= 1.2.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-countrycode >= 1.2.0
 Requires:         R-CRAN-httr2 >= 1.2.0
 Requires:         R-CRAN-sf >= 1.0.0
@@ -41,11 +39,13 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Tools to download data from the GISCO (Geographic Information System of
-the Commission) Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. Global and European map data
-available.  This package is in no way officially related to or endorsed by
-Eurostat.
+Tools to download global and European spatial data from the 'Eurostat'
+'GISCO' (Geographic Information System of the Commission) data
+distribution <https://ec.europa.eu/eurostat/web/gisco>. The package
+provides helpers for country boundaries, 'NUTS' regions, administrative
+units, statistical units, transport networks, basic service locations and
+other 'GISCO' datasets. This package is not officially related to or
+endorsed by 'Eurostat'.
 
 %prep
 %setup -q -c -n %{packname}

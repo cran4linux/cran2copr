@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  pkgsite
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Convert the Reference Pages into 'Quarto' Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-tools 
+Requires:         R-CRAN-yaml 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+Makes it easier to create a 'Quarto' website for an 'R' package. Converts
+'R' documentation ('Rd') files into 'Quarto' Markdown documents
+individually. Supports configuration via the '_quarto.yml' file and groups
+functions using 'roxygen2' family tags.
 
 %prep
 %setup -q -c -n %{packname}

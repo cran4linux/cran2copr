@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeuratExplorer
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          An 'Shiny' App for Exploring scRNA-seq Data Processed in 'Seurat'
 
@@ -26,7 +26,6 @@ BuildRequires:    R-tools
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinydashboardPlus 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-colourpicker 
@@ -42,6 +41,7 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-Seurat >= 5.4.0
 Requires:         R-CRAN-SeuratObject >= 5.3.0
 Requires:         R-CRAN-ggplot2 >= 4.0.1
@@ -51,7 +51,6 @@ Requires:         R-tools
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinydashboardPlus 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-colourpicker 
@@ -67,6 +66,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-rlang 
 
 %description
 A simple, one-command package which runs an interactive dashboard capable

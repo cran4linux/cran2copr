@@ -1,66 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  deliberr
-%global packver   0.1.3
+%global packname  civic.icarm
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Deliberation Analysis
+Summary:          Interpretable Civic-Accountable and Responsible Machine Learning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rstatix 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rstatix 
-Requires:         R-grid 
-Requires:         R-CRAN-psych 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-digest 
 
 %description
-An implementation of deliberative reasoning index (DRI) and related tools
-for analysis of deliberation survey data. Calculation of DRI, plot of
-intersubjective correlations (IC), generation of large-language model
-(LLM) survey data, and permutation tests are supported. Example datasets
-and a graphical user interface (GUI) are also available to support
-analysis. For more information, see Niemeyer and Veri (2022)
-<doi:10.1093/oso/9780192848925.003.0007>. For an alternative version of
-this dataset, see Niemeyer et al. (2024) <doi:10.1017/S0003055423000023>.
+A general-purpose framework for Interpretable Civic-Accountable and
+Responsible Machine Learning (ICARM). Works with any clean tabular data
+and automatically detects whether a task is binary classification,
+multi-class classification, or regression from the target variable type.
+Provides a single unified entry point civic_fit() alongside tidy
+interfaces for global and local model explanations, group-level fairness
+auditing, probability calibration, multi-model comparison, threshold
+analysis, and reproducible audit trails. Designed to support the
+DataCitizen-Pro research agenda at Ludwigsburg University of Education:
+developing data literacy, statistical reasoning, and democratic judgment
+formation in civic and political teacher education. References: Biecek
+(2018) <doi:10.18637/jss.v085.i04>, Kuhn (2008)
+<doi:10.18637/jss.v028.i05>, Awe (2025)
+<https://github.com/Olawaleawe/civic.icarm>.
 
 %prep
 %setup -q -c -n %{packname}

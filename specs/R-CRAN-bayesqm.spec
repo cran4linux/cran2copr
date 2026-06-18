@@ -1,33 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  bayesqm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Bayesian Q Methodology: Probabilistic Factor Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rstantools >= 2.3.0
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-tools 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-rstantools >= 2.3.0
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-XML 
+Requires:         R-tools 
+Requires:         R-parallel 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+A Bayesian factor-analytic framework for Q methodology. Fits a low-rank
+factor model to Q-sort data with a Student-t likelihood and a hierarchical
+normal prior on loadings, samples the posterior with Stan, resolves
+rotational ambiguity via the MatchAlign post-processing of Poworoznek et
+al. (2025) <doi:10.1214/25-BA1544>, and returns posterior summaries
+including credible intervals for loadings and factor scores, probabilistic
+dominant-factor membership, distinguishing and consensus statements, and
+PSIS-LOO-based factor enumeration following Vehtari et al. (2017)
+<doi:10.1007/s11222-016-9696-4> with the Sivula et al. (2025)
+<doi:10.1214/25-BA1569> parsimony rule.
 
 %prep
 %setup -q -c -n %{packname}

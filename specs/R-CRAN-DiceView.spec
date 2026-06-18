@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DiceView
-%global packver   3.2
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Visualization of Computer Experiments Design and Surrogate
 

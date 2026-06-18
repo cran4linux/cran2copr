@@ -1,33 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  ggplotplus
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Universal Design-Oriented Enhancements for 'ggplot2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
+BuildRequires:    R-CRAN-ggrepel >= 0.9.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-polyclip 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 >= 4.0.1
+Requires:         R-CRAN-ggrepel >= 0.9.0
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-S7 
+Requires:         R-grid 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-polyclip 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+A collection of enhancements to 'ggplot2', with a focus on creating
+Universally Designed, accessible graphs easily and quickly.
 
 %prep
 %setup -q -c -n %{packname}

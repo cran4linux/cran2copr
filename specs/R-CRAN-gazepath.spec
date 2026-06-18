@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  gazepath
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Parse Eye-Tracking Data into Fixations
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shiny 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+Eye-tracking data must be transformed into fixations and saccades before
+it can be analyzed. This package provides a non-parametric speed-based
+approach to do this on a trial basis. The method is especially useful when
+there are large differences in data quality, as the thresholds are
+adjusted accordingly. The same pre-processing procedure can be applied to
+all participants, while accounting for individual differences in data
+quality. The method is described in van Renswoude et al. (2018)
+<doi:10.3758/s13428-017-0909-3>.
 
 %prep
 %setup -q -c -n %{packname}

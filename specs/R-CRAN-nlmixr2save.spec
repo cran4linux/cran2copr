@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  nlmixr2save
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Save 'nlmixr2' Fits in a Format Readable Outside 'nlmixr2'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-rxode2 > 5.0.1
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-rxode2 > 5.0.1
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-zip 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+Provides tools to save 'nlmixr2' fitted models in a portable format
+readable outside of 'nlmixr2' and independent of the package version.
+'nlmixr2' fits and compares nonlinear mixed-effects models in differential
+equations with flexible dosing information commonly seen in
+pharmacokinetics and pharmacodynamics (Almquist, Leander, and Jirstrand
+2015 <doi:10.1007/s10928-015-9409-1>). Differential equation solving uses
+compiled C code from the 'rxode2' package (Wang, Hallow, and James 2015
+<doi:10.1002/psp4.12052>).
 
 %prep
 %setup -q -c -n %{packname}

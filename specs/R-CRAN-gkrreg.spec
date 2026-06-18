@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PCPS
-%global packver   1.0.9
+%global packname  gkrreg
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principal Coordinates of Phylogenetic Structure
+Summary:          Gaussian Kernel Robust Regression (GKRReg)
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SYNCSA >= 1.3.4
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-CRAN-SYNCSA >= 1.3.4
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-RcppArmadillo 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sm 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-parallel 
-Requires:         R-CRAN-nlme 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sm 
 
 %description
-Set of functions for analysis of Principal Coordinates of Phylogenetic
-Structure (PCPS).
+Implements the Gaussian Kernel Robust Regression (GKRReg / GKRR) method
+proposed by De Carvalho, Lima Neto and Ferreira (2017)
+<doi:10.1016/j.neucom.2016.12.035>. The method re-weights observations
+iteratively using the Gaussian kernel so that poorly-fitted observations
+(outliers, leverage points) receive small weights, yielding resistance to
+Y-space outliers, X-space outliers and leverage points. Convergence is
+guaranteed by Propositions 4.1 and 4.2 of the original paper. Three
+estimators for the kernel width hyper-parameter are provided (S1: Caputo,
+S2: pairwise median, S3: residual variance). Inference is provided via an
+analytic sandwich variance estimator (default) or via bootstrap
+(percentile, normal and BCa intervals with p-values) through gkrr_boot().
+Six real datasets from the robust regression literature are included to
+facilitate reproducible comparisons.
 
 %prep
 %setup -q -c -n %{packname}

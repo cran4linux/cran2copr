@@ -1,33 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  HealthMarkers
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Clinical and Metabolic Biomarker Calculation Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-Rdpack 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+Computes specialist biomarker indices and risk scores for metabolic,
+cardiovascular, renal, hepatic, inflammatory, frailty, and psychiatric
+health assessment. Includes fasting and OGTT insulin
+sensitivity/resistance indices, ASCVD/QRISK3/KFRE risk equations, liver
+and kidney markers, frailty and comorbidity indices, biofluid marker
+panels, and utilities for column mapping, normalization, imputation, and
+combined marker dispatch.
 
 %prep
 %setup -q -c -n %{packname}

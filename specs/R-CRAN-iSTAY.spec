@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iSTAY
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information-Based Stability and Synchrony Measures
 
@@ -31,15 +31,15 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggpubr 
 
 %description
-Provides functions to to compute a continuum of information-based measures
+Provides functions to compute a continuum of information-based measures
 for quantifying the temporal stability of populations, communities, and
 ecosystems, as well as their associated synchrony, based on species (or
-species assemblage) biomass or other key variables. When biodiversity data
-are available, the package also enables the assessment of the
-corresponding diversity–stability relationships. All measures are
-applicable in both temporal and spatial contexts. The theoretical and
-methodological background is detailed in Chao et al. (2025)
-<doi:10.1101/2025.08.20.671203>.
+species assemblage) biomass, or other key variables. When biodiversity
+data are available, the package also enables the assessment of the
+corresponding diversity–stability and diversity–synchrony relationships.
+All measures are applicable in both temporal and spatial contexts. The
+theoretical and methodological background is detailed in Chao et al.
+(2025) <doi:10.1101/2025.08.20.671203>.
 
 %prep
 %setup -q -c -n %{packname}

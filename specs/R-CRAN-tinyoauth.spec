@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  tinyoauth
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Minimal OAuth 2.0 Client
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+A dependency-light OAuth 2.0 <https://www.rfc-editor.org/rfc/rfc6749>
+client supporting the client-credentials and authorization-code grants
+with token refresh. Built on 'curl' and 'jsonlite', with base R's socket
+server for the redirect listener, avoiding heavier HTTP stacks. Includes a
+helper for the 'OpenAI' <https://openai.com/> 'Codex' device login, a
+similar but non-standard variant of the OAuth 2.0 device authorization
+grant.
 
 %prep
 %setup -q -c -n %{packname}

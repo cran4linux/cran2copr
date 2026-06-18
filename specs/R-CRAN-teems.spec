@@ -1,33 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aRxiv
-%global packver   0.20
+%global packname  teems
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the arXiv API
+Summary:          Trade and Environment Equilibrium Modeling System
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-XML 
 
 %description
-An interface to the API for 'arXiv', a repository of electronic preprints
-for computer science, mathematics, physics, quantitative biology,
-quantitative finance, and statistics.
+Equilibrium models are frequently employed to examine the potential
+impacts of economic, energy, and trade policies as well as form the
+foundation of most integrated assessment models. The 'teems' package
+handles all aspects of running equilibrium models while facilitating
+transparent and reproducible workflows.
 
 %prep
 %setup -q -c -n %{packname}
