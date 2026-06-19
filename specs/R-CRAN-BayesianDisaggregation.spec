@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianDisaggregation
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Methods for Economic Data Disaggregation
+Summary:          Evidence-Based Bayesian Disaggregation of Aggregate Indices
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,33 +21,31 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
-Implements a novel Bayesian disaggregation framework that combines
-Principal Component Analysis (PCA) and Singular Value Decomposition (SVD)
-dimension reduction of prior weight matrices with deterministic Bayesian
-updating rules. The method provides Markov Chain Monte Carlo (MCMC) free
-posterior estimation with built-in diagnostic metrics. While based on
-established PCA (Jolliffe, 2002) <doi:10.1007/b98835> and Bayesian
-principles (Gelman et al., 2013) <doi:10.1201/b16018>, the specific
-integration for economic disaggregation represents an original
-methodological contribution.
+Disaggregates an observed aggregate price index into sectoral components
+with a Bayesian state-space model in which the aggregate enters as a
+genuine observation density rather than as a renormalization identity. A
+random-walk-with-drift transition in log space (with partial pooling on
+the drift and the innovation scale) and an estimable cross-sectional
+concentration produce posterior draws of the sectoral indices with
+credible intervals, suitable as multiple-imputation input for downstream
+dynamic models. The Hamiltonian Monte Carlo engine follows Stan (Carpenter
+et al., 2017) <doi:10.18637/jss.v076.i01>; model comparison uses Pareto
+Smoothed Importance Sampling Leave-One-Out cross-validation (Vehtari,
+Gelman and Gabry, 2017) <doi:10.1007/s11222-016-9696-4>. A closed-form
+linear-Gaussian Kalman/RTS smoother provides an exact, MCMC-free Bayesian
+alternative for the same aggregate evidence.
 
 %prep
 %setup -q -c -n %{packname}

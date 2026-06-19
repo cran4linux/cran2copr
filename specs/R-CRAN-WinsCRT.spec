@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecotraj
-%global packver   1.2.2
+%global packname  WinsCRT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Trajectory Analysis
+Summary:          Win Statistics Inference for Cluster-Randomized Trials
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Analysis of temporal changes (i.e. dynamics) of ecological entities,
-defined as trajectories on a chosen multivariate space, by providing a set
-of trajectory metrics and visual representations [De Caceres et al. (2019)
-<doi:10.1002/ecm.1350>; and Sturbois et al. (2021)
-<doi:10.1016/j.ecolmodel.2020.109400>; Djeghri et al. (2026a)
-<doi:10.1002/ecm.70058>; Djeghri et al. (2026b)
-<doi:10.24072/pcjournal.736>]. Includes functions to estimate metrics for
-individual trajectories (length, directionality, angles, ...) as well as
-metrics to relate pairs of trajectories (dissimilarity and convergence).
-Functions are also provided to estimate the ecological quality of
-ecosystem with respect to reference conditions [Sturbois et al. (2023)
-<doi:10.1002/ecs2.4726>].
+Provides estimation and inference for win statistics in cluster-randomized
+trials with prioritized (hierarchical) composite outcomes. Supported
+summaries include the win ratio, win odds, net benefit, and desirability
+of outcome ranking (DOOR), with variance estimation and testing procedures
+that account for within-cluster correlation. Methods are described in the
+accompanying manuscript (2026) <doi:10.48550/arXiv.2604.18341>.
 
 %prep
 %setup -q -c -n %{packname}

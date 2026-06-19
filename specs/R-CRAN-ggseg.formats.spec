@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggseg.formats
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brain Atlas Data Structures for the 'ggseg' Ecosystem
+Summary:          Brain Atlas Data Structures for the 'ggsegverse' Ecosystem
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,26 +18,20 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-sfheaders 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-sfheaders 
 
 %description
-Provides the 'ggseg_atlas' S3 class used across the 'ggseg' ecosystem for
-2D and 3D brain visualisation. Ships three bundled atlases
-('Desikan-Killiany', 'FreeSurfer' 'aseg', 'TRACULA') and functions for
-querying, subsetting, renaming, and enriching atlas objects. Also includes
-readers for 'FreeSurfer' statistics files.
+Provides the 'ggseg_atlas' S3 class used across the 'ggsegverse' ecosystem
+for 2D and 3D brain visualisation. Ships four bundled atlases
+('Desikan-Killiany', 'FreeSurfer' 'aseg', 'TRACULA', 'SUIT') and functions
+for querying, subsetting, renaming, and enriching atlas objects. Also
+includes readers for 'FreeSurfer' statistics files.
 
 %prep
 %setup -q -c -n %{packname}

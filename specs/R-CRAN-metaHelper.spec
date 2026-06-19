@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaHelper
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transforms Statistical Measures Commonly Used for Meta-Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
@@ -34,8 +34,8 @@ following references: Altman D G, Bland J M. (2011)
 Rothstein, H.R. (2009) <doi:10.1002/9780470743386.ch4> Chinn S. (2000)
 <doi:10.1002/1097-0258(20001130)19:22%%3C3127::aid-sim784%%3E3.0.co;2-m>
 Cochrane Handbook (2011)
-<https://handbook-5-1.cochrane.org/front_page.htm> Cooper, H., Hedges, L.
-V., & Valentine, J. C. (2009)
+<https://www.cochrane.org/authors/handbooks-and-manuals/handbook/archive/v5.1.0>
+Cooper, H., Hedges, L. V., & Valentine, J. C. (2009)
 <https://psycnet.apa.org/record/2009-05060-000> Cohen, J. (1977)
 <https://psycnet.apa.org/record/1987-98267-000> Ellis, P.D. (2009)
 <https://www.psychometrica.de/effect_size.html> Goulet-Pelletier, J.-C., &

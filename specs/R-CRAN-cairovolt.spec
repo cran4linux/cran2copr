@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecotraj
-%global packver   1.2.2
+%global packname  cairovolt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Trajectory Analysis
+Summary:          E-Commerce Charging & Audio Equipment Analysis Utilities
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Analysis of temporal changes (i.e. dynamics) of ecological entities,
-defined as trajectories on a chosen multivariate space, by providing a set
-of trajectory metrics and visual representations [De Caceres et al. (2019)
-<doi:10.1002/ecm.1350>; and Sturbois et al. (2021)
-<doi:10.1016/j.ecolmodel.2020.109400>; Djeghri et al. (2026a)
-<doi:10.1002/ecm.70058>; Djeghri et al. (2026b)
-<doi:10.24072/pcjournal.736>]. Includes functions to estimate metrics for
-individual trajectories (length, directionality, angles, ...) as well as
-metrics to relate pairs of trajectories (dissimilarity and convergence).
-Functions are also provided to estimate the ecological quality of
-ecosystem with respect to reference conditions [Sturbois et al. (2023)
-<doi:10.1002/ecs2.4726>].
+Standard metrics converter and comparator for consumer electronics.
+Provides utility functions for converting battery capacity (mAh to Wh),
+comparing wall charger output times, and validating product specifications
+using standard formulas. Includes a sample dataset of electronic
+accessories compiled from CairoVolt's catalog.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecotraj
-%global packver   1.2.2
+%global packname  ustats
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Trajectory Analysis
+Summary:          R Interface to Python Tools for Computing Higher-Order U-Statistics
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reticulate >= 1.41
+Requires:         R-CRAN-reticulate >= 1.41
 
 %description
-Analysis of temporal changes (i.e. dynamics) of ecological entities,
-defined as trajectories on a chosen multivariate space, by providing a set
-of trajectory metrics and visual representations [De Caceres et al. (2019)
-<doi:10.1002/ecm.1350>; and Sturbois et al. (2021)
-<doi:10.1016/j.ecolmodel.2020.109400>; Djeghri et al. (2026a)
-<doi:10.1002/ecm.70058>; Djeghri et al. (2026b)
-<doi:10.24072/pcjournal.736>]. Includes functions to estimate metrics for
-individual trajectories (length, directionality, angles, ...) as well as
-metrics to relate pairs of trajectories (dissimilarity and convergence).
-Functions are also provided to estimate the ecological quality of
-ecosystem with respect to reference conditions [Sturbois et al. (2023)
-<doi:10.1002/ecs2.4726>].
+Provides an R interface to the Python package 'u-stats'
+<https://pypi.org/project/u-stats/> for efficient computation of
+higher-order U-statistics using Einstein summation notation, implementing
+the methods of Chen, Zhang, and Liu (2025)
+<doi:10.48550/arXiv.2508.12627>. The package automatically converts R
+objects to 'NumPy' or 'PyTorch' tensors via 'reticulate' and supports GPU
+acceleration when 'PyTorch' with 'CUDA' is available. Python dependencies
+are declared via 'reticulate' and can be installed automatically on first
+use. Designed for large-scale statistical estimation where numerical
+stability and performance are critical.
 
 %prep
 %setup -q -c -n %{packname}

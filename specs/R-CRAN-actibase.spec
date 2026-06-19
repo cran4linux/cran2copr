@@ -1,54 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dqcheckr
-%global packver   0.2.2
+%global packname  actibase
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Data Quality Checks for Recurring Dataset Deliveries
+Summary:          Baseline Functions for Actigraphy and Activity Processing and Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-quarto 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-quarto 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-hms 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-vctrs 
 
 %description
-Automates quality verification of recurring external dataset deliveries.
-For each new file arrival, it runs single-snapshot quality checks,
-compares the file to the previous delivery, writes a self-contained 'HTML'
-report, and records summary statistics in a local 'SQLite' database for
-long-term trend tracking. Supports 'CSV' and fixed-width formats. Custom
-organisation-specific checks can be supplied as plain R files.
+Provides baseline functions for actigraphy and activity data. This package
+is intended to be extended by downstream overlays such as 'actiread',
+'actimetrics', and 'stepcount'.
 
 %prep
 %setup -q -c -n %{packname}

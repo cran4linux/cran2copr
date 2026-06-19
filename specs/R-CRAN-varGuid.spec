@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  varGuid
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variance-Guided Regression for Heteroscedastic Linear Models
+Summary:          Variance-Guided Regression Improving Upon OLS and ANOVA
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,11 +25,15 @@ Requires:         R-CRAN-lmtest
 Requires:         R-CRAN-sandwich 
 
 %description
-Fits variance-guided linear regression models for heteroscedastic data
-using an iteratively reweighted least squares estimator or an iteratively
-reweighted lasso estimator. This CRAN release focuses on the global linear
-mean-variance model in Section 2 of the accompanying preprint
-<doi:10.36227/techrxiv.177004877.75352102/v1>. The grouping-based
+Fits variance-guided linear regression models that provide an alternative
+to ordinary least squares (OLS) for general linear-model design matrices,
+including ANOVA-style encodings. The methods use an iteratively reweighted
+least squares estimator or an iteratively reweighted lasso estimator and
+implement the global linear mean-variance model from the associated 2026
+Statistics in Medicine article <doi:10.1002/sim.70632>. Under the
+assumptions in that paper, the estimator matches the homoscedastic
+baseline in population predictive quasi-risk when variance is constant and
+improves on it when the variance depends on covariates. The grouping-based
 nonlinear prediction extension from Section 3 is available in the
 development version on GitHub.
 

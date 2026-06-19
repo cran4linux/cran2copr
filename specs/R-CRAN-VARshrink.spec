@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VARshrink
-%global packver   0.3.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shrinkage Estimation Methods for Vector Autoregressive Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-corpcor >= 1.6.9
 BuildRequires:    R-CRAN-vars >= 1.6.1
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-strucchange
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MCMCpack 
 Requires:         R-CRAN-corpcor >= 1.6.9
 Requires:         R-CRAN-vars >= 1.6.1
 Requires:         R-CRAN-ars >= 0.6
@@ -31,6 +32,7 @@ Requires:         R-CRAN-strucchange
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MCMCpack 
 
 %description
 Vector autoregressive (VAR) model is a fundamental and effective approach

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eurodata
-%global packver   1.7.0
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Easy Eurostat Data Import and Search
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-xtable
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-magrittr 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-xtable
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-curl 
 
 %description
 Interface to Eurostat’s API (SDMX 2.1) with fast data.table-based import

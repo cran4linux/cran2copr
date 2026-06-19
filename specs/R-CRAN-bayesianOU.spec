@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesianOU
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Nonlinear Ornstein-Uhlenbeck Models with Stochastic Volatility
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-parallel 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-parallel 
 
 %description
 Fits Bayesian nonlinear Ornstein-Uhlenbeck models with cubic drift,

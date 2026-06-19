@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecotraj
-%global packver   1.2.2
+%global packname  gendertext
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Trajectory Analysis
+Summary:          Detect Gendered Words in Text and Suggest Neutral Alternatives
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Analysis of temporal changes (i.e. dynamics) of ecological entities,
-defined as trajectories on a chosen multivariate space, by providing a set
-of trajectory metrics and visual representations [De Caceres et al. (2019)
-<doi:10.1002/ecm.1350>; and Sturbois et al. (2021)
-<doi:10.1016/j.ecolmodel.2020.109400>; Djeghri et al. (2026a)
-<doi:10.1002/ecm.70058>; Djeghri et al. (2026b)
-<doi:10.24072/pcjournal.736>]. Includes functions to estimate metrics for
-individual trajectories (length, directionality, angles, ...) as well as
-metrics to relate pairs of trajectories (dissimilarity and convergence).
-Functions are also provided to estimate the ecological quality of
-ecosystem with respect to reference conditions [Sturbois et al. (2023)
-<doi:10.1002/ecs2.4726>].
+Identifies gendered words and phrases in text using a built in dictionary
+of more than two hundred gendered terms paired with gender neutral
+alternatives. Reports the share of gendered language in a text, lists
+every gendered term found together with its suggested neutral replacement,
+and can rewrite a text in gender neutral form. Plain text files are read
+with base R, while other document formats such as PDF and Word are
+supported through the optional 'readtext' package. The dictionary is
+informed by published guidance on gender inclusive language, including the
+United Nations guidelines
+<https://www.un.org/en/gender-inclusive-language/> and the European
+Parliament guidance on gender neutral language.
 
 %prep
 %setup -q -c -n %{packname}

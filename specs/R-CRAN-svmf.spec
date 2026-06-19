@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ojsr
-%global packver   0.1.5
+%global packname  svmf
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Crawler and Data Scraper for Open Journal System ('OJS')
+Summary:          The Scaled von Mises-Fisher Distribution
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RCurl 
-Requires:         R-CRAN-tidyr >= 1.0
-Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RCurl 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Crawler for 'OJS' pages and scraper for meta-data from articles. You can
-crawl 'OJS' archives, issues, articles, galleys, and search results. You
-can scrape articles metadata from their head tag in html, or from Open
-Archives Initiative ('OAI') records. Most of these functions rely on 'OJS'
-routing conventions
-(<https://docs.pkp.sfu.ca/dev/documentation/en/architecture-routes>).
+Functions to perform maximum likelihood estimation of and random value
+simulation from the scaled von Mises-Fisher distribution. The distribution
+is elliptical symmetric and can be applied to spherical and
+hyper-spherical data. The reference paper is Scealy J.L. and Wood A.T.A.
+(2019), <doi:10.1080/01621459.2019.1585249>.
 
 %prep
 %setup -q -c -n %{packname}

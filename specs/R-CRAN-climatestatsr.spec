@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPArotation
-%global packver   2026.6-1
+%global packname  climatestatsr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.6.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient Projection Factor Rotation
+Summary:          Statistical Tools for Climate Change Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-utils 
 
 %description
-Gradient projection algorithms for orthogonal and oblique rotation of
-factor loadings matrices in factor analysis. Implements a comprehensive
-set of rotation criteria including quartimax, quartimin, oblimin, geomin,
-simplimax, the Crawford-Ferguson family, and target rotation, among
-others. Supports multiple random starts. For details see Bernaards and
-Jennrich (2005) <doi:10.1177/0013164404272507>.
+A comprehensive collection of statistical functions for climate change
+research. Provides tools for temporal trend detection based on the
+Mann-Kendall (MK) test (Mann 1945 <doi:10.2307/1907187>; Kendall 1975,
+ISBN:0852641990) and Sen's slope (Sen 1968 <doi:10.2307/2285891>), spatial
+autocorrelation using Moran's I (Moran 1950 <doi:10.2307/2332142>),
+extreme value analysis using the Generalised Extreme Value (GEV)
+distribution and Peaks-Over-Threshold (POT) method (Coles 2001
+<doi:10.1007/978-1-4471-3675-0>), standardised drought indices including
+the Standardised Precipitation Index (SPI; McKee et al. 1993) and the
+Standardised Precipitation Evapotranspiration Index (SPEI; Vicente-Serrano
+et al. 2010 <doi:10.1175/2009JCLI2909.1>), and formal
+detection-attribution methods via optimal fingerprint regression and
+Empirical Orthogonal Function (EOF) analysis (Allen and Tett 1999
+<doi:10.1007/s003820050291>), and apparent temperature via the heat index
+(Steadman 1979 <doi:10.1175/1520-0450(1979)018%%3C0861:TAOSPI%%3E2.0.CO;2>).
+Suitable for both station-level time series and gridded climate fields.
 
 %prep
 %setup -q -c -n %{packname}

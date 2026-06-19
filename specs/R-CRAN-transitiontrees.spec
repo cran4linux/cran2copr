@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecotraj
-%global packver   1.2.2
+%global packname  transitiontrees
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Trajectory Analysis
+Summary:          Transition Trajectories and Dynamics of Variable-Length Pathways or Sequences
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Analysis of temporal changes (i.e. dynamics) of ecological entities,
-defined as trajectories on a chosen multivariate space, by providing a set
-of trajectory metrics and visual representations [De Caceres et al. (2019)
-<doi:10.1002/ecm.1350>; and Sturbois et al. (2021)
-<doi:10.1016/j.ecolmodel.2020.109400>; Djeghri et al. (2026a)
-<doi:10.1002/ecm.70058>; Djeghri et al. (2026b)
-<doi:10.24072/pcjournal.736>]. Includes functions to estimate metrics for
-individual trajectories (length, directionality, angles, ...) as well as
-metrics to relate pairs of trajectories (dissimilarity and convergence).
-Functions are also provided to estimate the ecological quality of
-ecosystem with respect to reference conditions [Sturbois et al. (2023)
-<doi:10.1002/ecs2.4726>].
+Analyzes transition trajectories in event, sequence, and ordered data,
+focusing on how states follow one another, how far processes unfold, and
+where pathways branch or converge. Trajectories are modeled using
+variable-order prediction suffix trees (Ron, Singer, & Tishby, 1996)
+<doi:10.1023/A:1026490906255>, implemented in both frequency-based and
+prediction-based forms. The framework includes multiple pruning,
+validation, and smoothing techniques to ensure model robustness.
+Visualization options include transition trees, radial sunburst diagrams,
+transition heatmaps, and forward trajectory trees.
 
 %prep
 %setup -q -c -n %{packname}

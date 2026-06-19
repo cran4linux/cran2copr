@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPArotation
-%global packver   2026.6-1
+%global packname  medfit
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.6.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient Projection Factor Rotation
+Summary:          Infrastructure for Mediation Model Fitting and Extraction
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-S7 >= 0.1.0
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-S7 >= 0.1.0
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-utils 
+Requires:         R-methods 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-MASS 
 
 %description
-Gradient projection algorithms for orthogonal and oblique rotation of
-factor loadings matrices in factor analysis. Implements a comprehensive
-set of rotation criteria including quartimax, quartimin, oblimin, geomin,
-simplimax, the Crawford-Ferguson family, and target rotation, among
-others. Supports multiple random starts. For details see Bernaards and
-Jennrich (2005) <doi:10.1177/0013164404272507>.
+Provides S7-based infrastructure for fitting mediation models, extracting
+path coefficients, and performing bootstrap inference. Designed as a
+foundation package for the mediation analysis ecosystem, supporting
+'probmed', 'RMediation', and 'medrobust' packages. Implements unified
+interfaces for model fitting across different engines (currently
+generalized linear models, with future support for mixed models and
+Bayesian methods), standardized extraction of mediation paths from various
+model types, and robust bootstrap inference methods. Mediation inference
+methods are described in MacKinnon, Lockwood and Williams (2004)
+<doi:10.1207/s15327906mbr3901_4> and Tofighi and MacKinnon (2011)
+<doi:10.3758/s13428-011-0076-x>.
 
 %prep
 %setup -q -c -n %{packname}

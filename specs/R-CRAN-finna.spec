@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  finna
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'Finna' API
 
@@ -14,10 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-xml2 
@@ -28,7 +30,10 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-xml2 
@@ -39,6 +44,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
+Requires:         R-utils 
 
 %description
 Provides functions to access and retrieve metadata from the 'Finna' API

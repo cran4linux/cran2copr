@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurrogateRank
-%global packver   2.2
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rank-Based Test to Evaluate a Surrogate Marker
 
@@ -21,18 +21,35 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ComplexUpset 
+BuildRequires:    R-CRAN-ggVennDiagram 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ComplexUpset 
+Requires:         R-CRAN-ggVennDiagram 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-MASS 
 
 %description
 Uses a novel rank-based nonparametric approach to evaluate a surrogate
 marker in a small sample size setting. Details are described in Parast et
-al (2024) <doi:10.1093/biomtc/ujad035> and Hughes A et al (2025)
-<doi:10.1002/sim.70241>. A tutorial for this package can be found at
-<https://www.laylaparast.com/surrogaterank> and a Shiny App implementing
-the package can be found at
+al (2024) <doi:10.1093/biomtc/ujad035>, in Hughes A et al (2025)
+<doi:10.1002/sim.70241>, and in Hughes A et al (2026)
+<doi:10.48550/arXiv.2605.03819>. A tutorial for this package can be found
+at <https://www.laylaparast.com/surrogaterank> and a Shiny App
+implementing the package can be found at
 <https://parastlab.shinyapps.io/SurrogateRankApp/>.
 
 %prep

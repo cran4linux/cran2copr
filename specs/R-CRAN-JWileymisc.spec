@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JWileymisc
-%global packver   1.4.4
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Utilities and Functions
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.3
-BuildRequires:    R-CRAN-data.table >= 1.14.8
-BuildRequires:    R-CRAN-VGAM >= 1.1.9
-BuildRequires:    R-CRAN-lavaan >= 0.6.16
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-data.table >= 1.18.0
+BuildRequires:    R-CRAN-VGAM >= 1.1.14
+BuildRequires:    R-CRAN-lavaan >= 0.6.21
 BuildRequires:    R-CRAN-extraoperators >= 0.1.1
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -41,10 +41,10 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.4.3
-Requires:         R-CRAN-data.table >= 1.14.8
-Requires:         R-CRAN-VGAM >= 1.1.9
-Requires:         R-CRAN-lavaan >= 0.6.16
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-data.table >= 1.18.0
+Requires:         R-CRAN-VGAM >= 1.1.14
+Requires:         R-CRAN-lavaan >= 0.6.21
 Requires:         R-CRAN-extraoperators >= 0.1.1
 Requires:         R-stats 
 Requires:         R-utils 
