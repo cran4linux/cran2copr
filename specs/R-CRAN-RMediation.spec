@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMediation
-%global packver   1.3.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation Analysis Confidence Intervals
 
@@ -18,27 +18,19 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3
-BuildRequires:    R-base >= 4.1.0
-BuildRequires:    R-stats >= 4.1.0
 BuildRequires:    R-graphics >= 4.1.0
 BuildRequires:    R-grDevices >= 4.1.0
-BuildRequires:    R-CRAN-OpenMx >= 2.13
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-e1071 >= 1.6.7
 BuildRequires:    R-CRAN-lavaan >= 0.5.20
-BuildRequires:    R-CRAN-modelr >= 0.1.8
-BuildRequires:    R-CRAN-generics >= 0.0.2
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-S7 
 Requires:         R-CRAN-MASS >= 7.3
-Requires:         R-base >= 4.1.0
-Requires:         R-stats >= 4.1.0
 Requires:         R-graphics >= 4.1.0
 Requires:         R-grDevices >= 4.1.0
-Requires:         R-CRAN-OpenMx >= 2.13
 Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-e1071 >= 1.6.7
 Requires:         R-CRAN-lavaan >= 0.5.20
-Requires:         R-CRAN-modelr >= 0.1.8
-Requires:         R-CRAN-generics >= 0.0.2
+Requires:         R-methods 
+Requires:         R-CRAN-S7 
 
 %description
 Computes confidence intervals for nonlinear functions of model parameters

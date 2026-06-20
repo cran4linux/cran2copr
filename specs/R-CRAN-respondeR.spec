@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GRIDCOPULA
-%global packver   1.1.1
+%global packname  respondeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bivariate Copula Functions Based on Regular Grid
+Summary:          Imputing Responder Proportions from Continuous Outcomes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-evmix 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-evmix 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Estimates grid type bivariate copula functions, calculates some
-association measures and provides several copula graphics.
+Express meta-analyses of continuous trial outcomes in terms of responder
+risks, following the interpretability tutorial of Thorlund, Walter,
+Johnston, Furukawa and Guyatt (2011) <doi:10.1002/jrsm.46>. Given the mean
+change, standard deviation and sample size per arm across studies,
+respondeR estimates the proportion of patients who cross a minimal
+important difference (MID) threshold under a parametric model for the
+change scores, and contrasts the arms as a risk difference, risk ratio,
+odds ratio or number needed to treat. It provides median, unweighted-mean,
+weighted-mean and per-study (fixed- or random-effects) pooling, the
+standardized-mean-difference to odds-ratio bridge of Anzures-Cabrera,
+Sarpatwari and Higgins (2011) <doi:10.1002/sim.4298>, a threshold-free
+common-language effect size, and a point-and-click 'Shiny' application.
+The estimation methods were evaluated in a simulation study by
+Sofi-Mahmudi (2024) <https://hdl.handle.net/11375/30210>.
 
 %prep
 %setup -q -c -n %{packname}

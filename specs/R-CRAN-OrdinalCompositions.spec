@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ztable
-%global packver   0.2.5
+%global packname  OrdinalCompositions
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Zebra-Striped Tables in LaTeX and HTML Formats
+Summary:          Wasserstein-Based Regression for Ordinal Compositional Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-lpSolveAPI 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-extraDistr 
+Requires:         R-CRAN-lpSolveAPI 
+Requires:         R-stats 
+Requires:         R-CRAN-extraDistr 
 
 %description
-Makes zebra-striped tables (tables with alternating row colors) in LaTeX
-and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm,
-coxph, nls, fitdistr, mytable and cbind.mytable objects.
+Tools analyzing regression models for ordinal compositional data using
+Wasserstein-based distances. The package includes linear programming
+solvers under simplex constraints, tensor product constructions and
+performance metrics.
 
 %prep
 %setup -q -c -n %{packname}

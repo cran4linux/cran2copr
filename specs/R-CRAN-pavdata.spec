@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ztable
-%global packver   0.2.5
+%global packname  pavdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Zebra-Striped Tables in LaTeX and HTML Formats
+Summary:          Transportation Infrastructure Data Toolbox
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-uuid 
+Requires:         R-graphics 
 
 %description
-Makes zebra-striped tables (tables with alternating row colors) in LaTeX
-and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm,
-coxph, nls, fitdistr, mytable and cbind.mytable objects.
+An open-source toolbox for storing, validating, managing, and exploring
+transportation infrastructure data. Provides a relational data model for
+binders, aggregates, mixtures, and test results, with a human-readable
+file format (.pavdata) aligned with FAIR principles.
 
 %prep
 %setup -q -c -n %{packname}

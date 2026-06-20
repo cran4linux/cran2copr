@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  craftgrn
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrative Chromatin Accessibility and RNA Framework for Gene Regulatory Networks
 
@@ -62,10 +62,10 @@ scores with matched RNA expression data. It implements context-specific
 enhancer-gene linking, transcription factor focused network analysis,
 differential network analysis, and regulatory topic modeling workflows for
 systematic exploration of gene regulation across conditions.
-Methodological background is available at
-<doi:10.1038/s41467-020-18035-1>,
-<https://www.jmlr.org/papers/v3/blei03a.html>, and
-<doi:10.48550/arXiv.1510.08628>.
+Methodological background is described in Bentsen and others (2020)
+<doi:10.1038/s41467-020-18035-1>, Blei, Ng and Jordan (2003)
+<https://www.jmlr.org/papers/v3/blei03a.html>, and Chen, Li, Zhu and Chen
+(2015) <doi:10.48550/arXiv.1510.08628>.
 
 %prep
 %setup -q -c -n %{packname}

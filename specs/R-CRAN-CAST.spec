@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CAST
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'caret' Applications for Spatial-Temporal Models
 
@@ -18,39 +18,33 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-twosamples 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-caret 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-zoo 
-Requires:         R-methods 
 Requires:         R-grDevices 
-Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-forcats 
+Requires:         R-stats 
 Requires:         R-CRAN-twosamples 
 Requires:         R-CRAN-terra 
-Requires:         R-CRAN-sp 
-Requires:         R-parallel 
+Requires:         R-utils 
+Requires:         R-CRAN-zoo 
 
 %description
 Supporting functionality to run 'caret' with spatial or spatial-temporal

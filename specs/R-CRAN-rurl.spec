@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ztable
-%global packver   0.2.5
+%global packname  rurl
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Zebra-Striped Tables in LaTeX and HTML Formats
+Summary:          Parse, Clean, and Normalize URLs
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-punycoder >= 1.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-punycoder >= 1.0.0
+Requires:         R-utils 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-stringi 
 
 %description
-Makes zebra-striped tables (tables with alternating row colors) in LaTeX
-and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm,
-coxph, nls, fitdistr, mytable and cbind.mytable objects.
+A lightweight toolkit for extracting structured information from URLs.
+Includes functions for parsing, normalizing protocols, extracting domains,
+and constructing clean URLs. The package includes a processed copy of the
+Public Suffix List from <https://publicsuffix.org> for domain extraction.
 
 %prep
 %setup -q -c -n %{packname}

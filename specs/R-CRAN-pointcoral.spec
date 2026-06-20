@@ -1,53 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  omock
-%global packver   0.7.0
+%global packname  pointcoral
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creation of Mock Observational Medical Outcomes Partnership Common Data Model
+Summary:          Local Point-Count Processing for Coral Photoquadrats
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-omopgenerics >= 1.4.0
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-clock 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-omopgenerics >= 1.4.0
-Requires:         R-CRAN-arrow 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-clock 
-Requires:         R-methods 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Creates mock data for testing and package development for the
-Observational Medical Outcomes Partnership common data model. The package
-offers functions crafted with pipeline-friendly implementation, enabling
-users to effortlessly include only the necessary tables for their testing
-needs.
+Imports Coral Point Count with Excel extensions (CPCe) point-count
+annotations and related exported tables, standardizes labels with a
+user-supplied crosswalk, creates ecological cover summaries, writes
+quality-control overlays, and exports machine-learning-ready point labels,
+image patches, sparse masks, and train/validation/test splits. The package
+is fully local and does not depend on third-party web platforms, user
+accounts, or other closed services. CPCe methods are described by Kohler
+and Gill (2006) "Coral Point Count with Excel extensions (CPCe): A Visual
+Basic program for the determination of coral and substrate coverage using
+random point count methodology" <doi:10.1016/j.cageo.2005.11.009>.
 
 %prep
 %setup -q -c -n %{packname}

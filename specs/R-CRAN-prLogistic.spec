@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RobustAFT
-%global packver   1.4-10
+%global packname  prLogistic
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.10
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Maximum Likelihood Fit and Robust Accelerated Failure Time Regression for Gaussian and Log-Weibull Case
+Summary:          Estimation of Prevalence Ratios via Logistic Regression Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-DEoptimR 
-BuildRequires:    R-CRAN-V8 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-DEoptimR 
-Requires:         R-CRAN-V8 
 
 %description
-R functions for the computation of the truncated maximum likelihood and
-the robust accelerated failure time regression for gaussian and
-log-Weibull case.
+Estimates adjusted prevalence ratios (PR) and their confidence intervals
+from logistic regression models, addressing the well-known limitation of
+odds ratios (OR) as approximations to PR in cross-sectional studies with
+common outcomes. Supports independent observations (glm()),
+clustered/multilevel data (glmer() from 'lme4'), longitudinal data via
+Generalised Estimating Equations (geeglm() from 'geepack'), and complex
+survey designs (svyglm() from 'survey'). Inference is available via the
+delta method (conditional and marginal standardisation) and via bootstrap
+(normal-approximation and percentile intervals). Continuous covariates are
+handled through user-specified or median-based reference values; flexible
+baseline specification allows any reference category to be chosen for
+factor predictors. Based on the methodology described in Amorim & Ospina
+(2021) <doi:10.1590/0001-3765202120190316>.
 
 %prep
 %setup -q -c -n %{packname}

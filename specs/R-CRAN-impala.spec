@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ztable
-%global packver   0.2.5
+%global packname  impala
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Zebra-Striped Tables in LaTeX and HTML Formats
+Summary:          Bayesian Model Calibration
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-einsum 
+Requires:         R-CRAN-cli 
+Requires:         R-methods 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-einsum 
 
 %description
-Makes zebra-striped tables (tables with alternating row colors) in LaTeX
-and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm,
-coxph, nls, fitdistr, mytable and cbind.mytable objects.
+Package provides tools for modular Bayesian model calibration. these tools
+allow for posterior exploration with sampling methods including tempering
+and adaptive Markov Chain Monte Carlo (MCMC). Allows for pooled
+calibration or hierarchal calibration of parameters. For more information
+see Francom et al., 2025 <DOI:10.1137/24M1644092>.
 
 %prep
 %setup -q -c -n %{packname}

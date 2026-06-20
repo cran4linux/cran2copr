@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neonUtilities
-%global packver   3.0.3
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Working with NEON Data
 
@@ -32,6 +32,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-duckdbfs 
 Requires:         R-CRAN-data.table >= 1.17.8
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -47,6 +48,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-duckdbfs 
 
 %description
 NEON data packages can be accessed through the NEON Data Portal

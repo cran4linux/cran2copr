@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  condathis
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run Any CLI Tool on a 'Conda' Environment
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sd2R
-%global packver   0.1.9
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stable Diffusion Image Generation
 
@@ -18,29 +18,26 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-ggmlR >= 0.5.0
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-png 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-ggmlR >= 0.5.0
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-png 
 
 %description
-Provides Stable Diffusion image generation in R using the 'ggmlR' tensor
-library. Supports text-to-image and image-to-image generation with
-multiple model versions (SD 1.x, SD 2.x, 'SDXL', Flux). Implements the
-full inference pipeline including CLIP text encoding, 'UNet' noise
-removal, and 'VAE' encoding/decoding. Unified sd_generate() entry point
-with automatic strategy selection (direct, tiled sampling, high-resolution
-fix) based on output resolution and available 'VRAM'. High-resolution
-generation (2K, 4K+) via tiled 'VAE' decoding, tiled diffusion sampling
-('MultiDiffusion'), and classic two-pass refinement (text-to-image, then
-upscale with image-to-image). Multi-GPU parallel generation via
-sd_generate_multi_gpu(). Multi-GPU model parallelism via 'device_layout'
-in sd_ctx(): distribute diffusion, text encoders, and 'VAE' across
-separate 'Vulkan' devices. Built-in profiling (sd_profile_start(),
-sd_profile_summary()) for per-stage timing of text encoding, sampling, and
-'VAE' decode. Interactive Shiny GUI via sd_app() with non-blocking
-asynchronous generation (C++ std::thread), live progress bar,
-auto-detection of model architecture, and ETA display. Supports CPU and
-'Vulkan' GPU. No 'Python' or external API dependencies required.
-Cross-platform: Linux, macOS, Windows.
+Provides Stable Diffusion image generation using the 'ggmlR' library, with
+no 'Python' or external API dependencies. Supports text-to-image and
+image-to-image generation for SD 1.x, SD 2.x, 'SDXL', Flux, and 'FLUX.2'.
+A single sd_generate() function handles the entire pipeline, including
+sampling and high-resolution output. Features multi-GPU support, a 'Shiny'
+GUI, and runs on CPU or 'Vulkan' GPU across Linux, macOS, and Windows.
 
 %prep
 %setup -q -c -n %{packname}

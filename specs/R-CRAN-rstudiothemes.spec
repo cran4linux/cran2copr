@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstudiothemes
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create 'RStudio' Themes from Visual Studio Code, Positron and 'TextMate' Themes
+Summary:          Create and Install Custom 'RStudio' Themes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -41,10 +41,10 @@ Requires:         R-utils
 Requires:         R-CRAN-xml2 
 
 %description
-Create and install 'RStudio' themes derived from Visual Studio Code,
-Positron and 'TextMate' themes. Provides functions to convert between
-'TextMate' and Visual Studio Code or Positron themes, as well as ports of
-several Visual Studio Code themes.
+Create, convert and install custom 'RStudio' editor themes from 'Visual
+Studio Code', 'Positron' and 'TextMate' theme files. Convert themes
+between 'TextMate', 'Visual Studio Code' and 'Positron' formats and
+install bundled ports of popular themes for use in 'RStudio'.
 
 %prep
 %setup -q -c -n %{packname}

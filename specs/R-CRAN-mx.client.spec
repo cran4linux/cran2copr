@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ztable
-%global packver   0.2.5
+%global packname  mx.client
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Zebra-Striped Tables in LaTeX and HTML Formats
+Summary:          Stateful Matrix Client Helpers
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-mx.api >= 0.3.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-mx.api >= 0.3.0
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Makes zebra-striped tables (tables with alternating row colors) in LaTeX
-and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm,
-coxph, nls, fitdistr, mytable and cbind.mytable objects.
+Stateful helpers for building 'Matrix' (<https://matrix.org>) chat clients
+in R. Builds on the low-level 'mx.api' Client-Server API bindings, adding
+local configuration persistence, room resolution, sync cursor handling,
+sync-event extraction, invite acceptance, a conservative Markdown-to-HTML
+converter for formatted messages, and 'Olm'/'Megolm' end-to-end encryption
+orchestration over the optional 'mx.crypto' package.
 
 %prep
 %setup -q -c -n %{packname}

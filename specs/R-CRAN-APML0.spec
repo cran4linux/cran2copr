@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ztable
-%global packver   0.2.5
+%global packname  APML0
+%global packver   0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Zebra-Striped Tables in LaTeX and HTML Formats
+Summary:          Augmented and Penalized Minimization Method L0
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Matrix >= 1.2.10
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Matrix >= 1.2.10
+Requires:         R-CRAN-Rcpp >= 0.12.12
 
 %description
-Makes zebra-striped tables (tables with alternating row colors) in LaTeX
-and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm,
-coxph, nls, fitdistr, mytable and cbind.mytable objects.
+Fit linear, logistic and Cox models regularized with L0, lasso (L1),
+elastic-net (L1 and L2), or net (L1 and Laplacian) penalty, and their
+adaptive forms, such as adaptive lasso / elastic-net and net adjusting for
+signs of linked coefficients. It solves the L0 penalty problem by
+simultaneously selecting regularization parameters and performing
+hard-thresholding or selecting the number of non-zeros. This augmented and
+penalized minimization method provides an approximation solution to the L0
+penalty problem, but runs as fast as L1 regularization. The package uses a
+one-step coordinate descent algorithm and runs extremely fast by taking
+into account the sparsity structure of coefficients. It can handle very
+high dimensional data and has superior selection performance.
 
 %prep
 %setup -q -c -n %{packname}

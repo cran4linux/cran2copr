@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scmSpillover
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Control Method with Spillover Effects
 
@@ -17,21 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-limSolve 
+BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-limSolve 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
 A general-purpose implementation of synthetic control methods that
 accounts for potential spillover effects between units. Based on the
-methodology of Cao and Dowd (2019) <doi:10.48550/arXiv.1902.07343>
-"Estimation and Inference for Synthetic Control Methods with Spillover
-Effects".
+methodology of Cao and Dowd (2019).
 
 %prep
 %setup -q -c -n %{packname}

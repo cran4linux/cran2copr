@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MLCOPULA
-%global packver   1.1.0
+%global packname  ncar
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classification Models with Copula Functions
+Summary:          Noncompartmental Analysis for Pharmacokinetic Report
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-kde1d 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-TSP 
-BuildRequires:    R-CRAN-GRIDCOPULA 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-kde1d 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-TSP 
-Requires:         R-CRAN-GRIDCOPULA 
+BuildRequires:    R-CRAN-NonCompart >= 0.8.0
+BuildRequires:    R-CRAN-R.oo 
+BuildRequires:    R-CRAN-R.methodsS3 
+Requires:         R-CRAN-NonCompart >= 0.8.0
+Requires:         R-CRAN-R.oo 
+Requires:         R-CRAN-R.methodsS3 
 
 %description
-Provides several classifiers based on probabilistic models. These
-classifiers allow to model the dependence structure of continuous features
-through bivariate copula functions and graphical models, see
-Salinas-Gutiérrez et al. (2014) <doi:10.1007/s00180-013-0457-y>.
+Conduct a noncompartmental analysis with industrial strength. Some
+features are 1) CDISC SDTM terms 2) Automatic or manual slope selection 3)
+Supporting both 'linear-up linear-down' and 'linear-up log-down' method 4)
+Interval(partial) AUCs with 'linear' or 'log' interpolation method 5)
+Produce pdf, rtf, text report files. * Reference: Gabrielsson J, Weiner D.
+Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and
+Applications. 5th ed. 2016. (ISBN:9198299107).
 
 %prep
 %setup -q -c -n %{packname}

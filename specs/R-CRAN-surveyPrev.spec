@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveyPrev
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mapping the Prevalence of Binary Indicators using Survey Data in Small Areas
 
@@ -14,49 +14,60 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rdhs 
 BuildRequires:    R-CRAN-SUMMER 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-expss 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-sjlabelled 
 BuildRequires:    R-CRAN-naniar 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-survey 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rdhs 
 Requires:         R-CRAN-SUMMER 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-expss 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-sjlabelled 
 Requires:         R-CRAN-naniar 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Provides a pipeline to perform small area estimation and prevalence
 mapping of binary indicators using health and demographic survey data,
-described in Fuglstad et al. (2022) <doi:10.48550/arXiv.2110.09576> and
-Wakefield et al. (2020) <doi:10.1111/insr.12400>.
+described in Dong et al. (2026) <doi:10.1093/jssam/smaf048>, Wakefield et
+al. (2025) <doi:10.48550/arXiv.2110.09576> and Wakefield et al. (2020)
+<doi:10.1111/insr.12400>.
 
 %prep
 %setup -q -c -n %{packname}
