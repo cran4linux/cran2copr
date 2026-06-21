@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eplusr
-%global packver   0.16.3
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.3
+Version:          0.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Using Whole Building Simulation Program 'EnergyPlus'
 
@@ -20,23 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-processx >= 3.2.0
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-callr >= 2.0.4
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-data.table >= 1.14.6
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-S7 >= 0.2.1
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-processx >= 3.2.0
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-callr >= 2.0.4
+Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-data.table >= 1.14.6
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-S7 >= 0.2.1
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-units 
 
 %description
 A rich toolkit of using the whole building simulation program

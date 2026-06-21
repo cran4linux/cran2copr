@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ragtop
-%global packver   1.3.1
+%global packname  CamelRatiosIndex
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pricing Equity Derivatives with Extensions of Black-Scholes
+Summary:          Multivariate-Weighted Indexing of CAMEL Ratios for Bank Performance
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-methods >= 3.2.2
-BuildRequires:    R-CRAN-futile.logger >= 1.4.1
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-tibble >= 3.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-robustfa 
+BuildRequires:    R-CRAN-rrcov 
 BuildRequires:    R-stats 
-Requires:         R-methods >= 3.2.2
-Requires:         R-CRAN-futile.logger >= 1.4.1
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-tibble >= 3.2.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-robustfa 
+Requires:         R-CRAN-rrcov 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Algorithms to price American and European equity options, convertible
-bonds and a variety of other financial derivatives. It uses an extension
-of the usual Black-Scholes model in which jump to default may occur at a
-probability specified by a power-law link between stock price and hazard
-rate as found in the paper by Takahashi, Kobayashi, and Nakagawa (2001)
-<doi:10.3905/jfi.2001.319302>.  We use ideas and techniques from Andersen
-and Buffum (2002) <doi:10.2139/ssrn.355308> and Linetsky (2006)
-<doi:10.1111/j.1467-9965.2006.00271.x>.
+Computes a composite year-on-year index for bank performance assessment
+using the CAMEL framework (Capital Adequacy, Asset Quality, Management
+Efficiency, Earnings, Liquidity). The multivariate weighting scheme
+employs factor analysis with robust covariance estimation to derive
+communality-based weights from the correlation matrix of CAMEL ratios.
+Provides functions for index computation, visualization, and comparison
+across banks and time periods.The methodology is described in Ayimah et
+al. (2023a) <doi:10.9734/bpi/mono/978-81-19315-32-1> and Ayimah et al.
+(2023b) <https://ajtem.com/index.php/ajtem/article/view/53>.
 
 %prep
 %setup -q -c -n %{packname}

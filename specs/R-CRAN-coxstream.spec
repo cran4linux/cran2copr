@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  QuantBondCurves
-%global packver   0.3.2
+%global packname  coxstream
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates Bond Values and Interest Rate Curves for Finance
+Summary:          Memory-Efficient Cox Proportional Hazards via Streaming Newton-Raphson
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-quantdates 
-BuildRequires:    R-CRAN-Rsolnp 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-quantdates 
-Requires:         R-CRAN-Rsolnp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
 
 %description
-Values different types of assets and calibrates discount curves for
-quantitative financial analysis. It covers fixed coupon assets, floating
-note assets, interest and cross currency swaps with different payment
-frequencies. Enables the calibration of spot, instantaneous forward and
-basis curves, making it a powerful tool for accurate and flexible bond
-valuation and curve generation. The valuation and calibration techniques
-presented here are consistent with industry standards and incorporates
-author's own calculations. Tuckman, B., Serrat, A. (2022, ISBN:
-978-1-119-83555-4).
+Fits the Cox proportional hazards model using a single descending-order
+pass per Newton-Raphson iteration. Peak RAM is O(p^2) regardless of the
+number of rows, making it suitable for datasets that do not fit in memory.
+Produces identical coefficients to survival::coxph() with Efron tie
+correction.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IssueTrackeR
-%global packver   1.4.0
+%global packname  scopusflow
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          List Things to Do
+Summary:          A Reproducible Workflow Layer for 'Scopus' Bibliographic Searches
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-gh 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-gh 
-Requires:         R-CRAN-yaml 
-Requires:         R-tools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-grDevices 
 
 %description
-Manage a 'GitHub' problem using R: wrangle issues, labels and milestones.
-It includes functions for storing, prioritizing (sorting), displaying,
-adding, deleting, and selecting (filtering) issues based on qualitative
-and quantitative information. Issues (labels and milestones) are written
-in lists and categorized into the S3 class to be easily manipulated as
-datasets in R.
+A coherent, quota-aware workflow layer over the Elsevier 'Scopus' Search
+'API' <https://dev.elsevier.com/sc_apis.html>. It builds reproducible
+search plans, retrieves records with rate-limit handling, retry with
+back-off and optional resumable caching, normalises results to a stable
+tidy schema, extracts and tracks changes in Digital Object Identifiers
+(DOIs), compares publication trends across topics and exports to formats
+compatible with downstream bibliometric tools. Network and 'API' errors
+are surfaced as typed conditions so that callers can respond to them
+programmatically. 'Scopus' is a trademark of Elsevier. This package is an
+independent client and is not affiliated with or endorsed by Elsevier.
 
 %prep
 %setup -q -c -n %{packname}

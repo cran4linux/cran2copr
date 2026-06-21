@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emplikCS
-%global packver   0.4
+%global packname  fda.vi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Likelihood with Current Status Data for Mean, Probability, Hazard
+Summary:          Functional Data Analysis using Variational Inference
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-monotone 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-monotone 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-scales 
 
 %description
-Compute the empirical likelihood ratio, -2LogLikRatio (Wilks) statistics,
-based on current status data for the hypotheses about the parameters of
-mean or probability or weighted cumulative hazard.
+Implements a variational Expectation-Maximization (VEM) algorithm for
+smoothing one or multiple functional observations via basis function
+selection. The algorithm estimates all model parameters simultaneously and
+automatically, while accounting for within-curve correlation. The approach
+provides a flexible and computationally efficient framework for smoothing
+correlated functional data. The algorithm is described in da Cruz, A. C.,
+de Souza, C. P., and Sousa, P. H. (2024). 'Fast Bayesian basis selection
+for functional data representation with correlated errors.'
+<doi:10.48550/arXiv.2405.20758>.
 
 %prep
 %setup -q -c -n %{packname}

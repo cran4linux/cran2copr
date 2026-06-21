@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  emplikCS
-%global packver   0.4
+%global packname  survSampleSize
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Likelihood with Current Status Data for Mean, Probability, Hazard
+Summary:          Sample Size Calculator for Survival Endpoint Clinical Trials
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-monotone 
+BuildRequires:    R-CRAN-lrstat 
+BuildRequires:    R-CRAN-powerSurvEpi 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-monotone 
+Requires:         R-CRAN-lrstat 
+Requires:         R-CRAN-powerSurvEpi 
+Requires:         R-CRAN-shiny 
 Requires:         R-stats 
 
 %description
-Compute the empirical likelihood ratio, -2LogLikRatio (Wilks) statistics,
-based on current status data for the hypotheses about the parameters of
-mean or probability or weighted cumulative hazard.
+An interactive 'shiny' application for sample size and power calculation
+under general conditions for clinical trials with survival endpoints.
+Implements the weighted log-rank method of Lu (2021)
+<doi:10.1002/pst.2069> via the 'lrstat' package, supporting
+non-proportional hazards, delayed treatment effects, unequal allocation
+and dropout, as well as the classic method of Freedman (1982)
+<doi:10.1002/sim.4780010204> via the 'powerSurvEpi' package. Results are
+presented interactively with survival curves and event-prediction
+timelines.
 
 %prep
 %setup -q -c -n %{packname}

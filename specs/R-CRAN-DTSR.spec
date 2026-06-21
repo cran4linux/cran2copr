@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidypmc
-%global packver   2.0
+%global packname  DTSR
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse Full Text XML Documents from PubMed Central
+Summary:          Distributed Trimmed Scores Regression for Handling Missing Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-tokenizers 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-tokenizers 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvdalab 
+BuildRequires:    R-CRAN-VIM 
+BuildRequires:    R-CRAN-cluster 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvdalab 
+Requires:         R-CRAN-VIM 
+Requires:         R-CRAN-cluster 
 
 %description
-Parse XML documents from the Open Access subset of Europe PubMed Central
-<https://europepmc.org> including section paragraphs, tables, captions and
-references.
+Provides functions for handling missing data using Distributed Trimmed
+Scores Regression and other imputation methods. It includes facilities for
+data imputation, evaluation metrics, and clustering analysis. It is
+designed to work in distributed computing environments to handle large
+datasets efficiently. The philosophy of the package is described in Guo G.
+(2024) <doi:10.1080/03610918.2022.2091779>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plantmix
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genetic Study of Plant Mixtures
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-TMB >= 1.9.17
+BuildRequires:    R-CRAN-TMB >= 1.9.21
 BuildRequires:    R-CRAN-Rcpp >= 1.0.13
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lme4 
@@ -28,7 +28,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB >= 1.9.17
+Requires:         R-CRAN-TMB >= 1.9.21
 Requires:         R-CRAN-Rcpp >= 1.0.13
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lme4 

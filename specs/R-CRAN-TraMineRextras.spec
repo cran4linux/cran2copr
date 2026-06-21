@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TraMineRextras
-%global packver   0.6.8
+%global packver   0.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          0.6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          TraMineR Extension
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-colorspace
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-parallelly 
 Requires:         R-CRAN-TraMineR >= 2.2.5
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-colorspace
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-parallelly 
 
 %description
 Collection of ancillary functions and utilities to be used in conjunction

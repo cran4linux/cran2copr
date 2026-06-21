@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLE
-%global packver   1.7
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Estimation of Various Univariate and Multivariate Distributions
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-gp
 BuildRequires:    R-CRAN-MN 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-CRAN-svmf 
 Requires:         R-CRAN-BGFD 
 Requires:         R-CRAN-bivpois 
 Requires:         R-CRAN-CCd 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-gp
 Requires:         R-CRAN-MN 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
+Requires:         R-CRAN-svmf 
 
 %description
 Several functions for maximum likelihood estimation of various univariate
