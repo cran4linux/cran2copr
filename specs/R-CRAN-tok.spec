@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  musicMCT
-%global packver   0.5.0
+%global packname  tok
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze the Structure of Musical Scales
+Summary:          Fast Text Tokenization
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-pracma 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    cargo
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-cli 
 
 %description
-Analysis of musical scales (& modes, grooves, etc.) in the vein of
-Sherrill 2025 <doi:10.1215/00222909-11595194>. The initials MCT in the
-package title refer to the article's title: "Modal Color Theory." Offers
-support for conventional musical pitch class set theory as developed by
-Forte (1973, ISBN: 9780300016109) and David Lewin (1987, ISBN:
-9780300034936), as well as for the continuous geometries of Callender,
-Quinn, & Tymoczko (2008) <doi:10.1126/science.1153021>. Identifies
-structural properties of scales and calculates derived values (sign
-vector, color number, brightness ratio, etc.). Creates plots such as
-"brightness graphs" which visualize these properties.
+Interfaces with the 'Hugging Face' tokenizers library to provide
+implementations of today's most used tokenizers such as the 'Byte-Pair
+Encoding' algorithm <https://huggingface.co/docs/tokenizers/index>. It's
+extremely fast for both training new vocabularies and tokenizing texts.
 
 %prep
 %setup -q -c -n %{packname}

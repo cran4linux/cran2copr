@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smooth
-%global packver   4.4.0
+%global packver   4.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.0
+Version:          4.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Using State Space Models
 
@@ -24,7 +24,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nloptr 
@@ -38,7 +37,6 @@ Requires:         R-stats
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nloptr 

@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  musicMCT
-%global packver   0.5.0
+%global packname  pdfsigner
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze the Structure of Musical Scales
+Summary:          Digitally Sign and Verify PDF Documents
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-pracma 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Analysis of musical scales (& modes, grooves, etc.) in the vein of
-Sherrill 2025 <doi:10.1215/00222909-11595194>. The initials MCT in the
-package title refer to the article's title: "Modal Color Theory." Offers
-support for conventional musical pitch class set theory as developed by
-Forte (1973, ISBN: 9780300016109) and David Lewin (1987, ISBN:
-9780300034936), as well as for the continuous geometries of Callender,
-Quinn, & Tymoczko (2008) <doi:10.1126/science.1153021>. Identifies
-structural properties of scales and calculates derived values (sign
-vector, color number, brightness ratio, etc.). Creates plots such as
-"brightness graphs" which visualize these properties.
+Digitally sign PDF documents with a 'PKCS#12' keystore and verify their
+signatures. Signing produces a detached 'PKCS#7' / 'CMS' signature
+('adbe.pkcs7.detached') over the document and is applied as an incremental
+update, so existing signatures remain valid. The cryptography and PDF
+manipulation are performed by a bundled, pure-'Rust' backend (the
+'pdf_signer' crate); no Java runtime, 'OpenSSL', or external command-line
+tools are required. Visible signature appearances with custom text are
+supported.
 
 %prep
 %setup -q -c -n %{packname}

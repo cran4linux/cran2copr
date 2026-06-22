@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dyadicMarkov
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pattern Identification for Dyadic Sequences Using Transition Matrices
+Summary:          Pattern Estimation and Identification for Dyadic Sequences Using Transition Matrices in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides methods for analyzing dyadic interaction sequences using
-transition matrices within the Actor-Partner Interdependence Model. The
-package supports the computation of empirical transition counts, maximum
-likelihood estimation of transition probabilities and identification of
-interaction patterns in univariate and bivariate dyadic interaction
-sequences.
+Provides methods for analyzing categorical dyadic sequences using
+transition matrices within the Longitudinal Actor-Partner Interdependence
+Model and Markov-chain framework. The package supports empirical
+transition counts, maximum likelihood estimation of transition
+probabilities, and identification of univariate and bivariate patterns of
+interaction in dyadic sequences.
 
 %prep
 %setup -q -c -n %{packname}

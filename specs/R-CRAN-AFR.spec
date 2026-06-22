@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AFR
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Regression Analysis of Kazakhstan Banking Sector Data
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-xts
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-goftest 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-arrow 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-zoo 
@@ -51,13 +52,16 @@ Requires:         R-CRAN-xts
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-goftest 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-arrow 
 
 %description
 Tool is created for regression, prediction and forecast analysis of
 macroeconomic and credit data. The package includes functions from
 existing R packages adapted for banking sector of Kazakhstan. The purpose
 of the package is to optimize statistical functions for easier
-interpretation for bank analysts and non-statisticians.
+interpretation for bank analysts and non-statisticians. The package also
+provides helper functions for loading an insurance scoring dataset, a past
+case competition dataset for insurance risk scoring and fair pricing.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PDEnaiveBayes
-%global packver   0.2.9
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plausible Naive Bayes Classifier Using PDE
 
@@ -43,12 +43,13 @@ Requires:         R-CRAN-memshare
 
 %description
 A nonparametric, multicore-capable plausible naive Bayes classifier based
-on the Pareto density estimation (PDE) featuring a plausible approach to a
-pitfall in the Bayesian theorem covering low evidence cases. Stier, Q.,
-Hoffmann, J., and Thrun, M.C.: "Classifying with the Fine Structure of
-Distributions: Leveraging Distributional Information for Robust and
-Plausible Naive Bayes" (2026), Machine Learning and Knowledge Extraction
-(MAKE), <DOI:10.3390/make8010013>.
+on the Pareto density estimation (PDE), supporting memory sharing within
+multicore computations and featuring a plausible approach to a pitfall in
+the Bayesian theorem covering low evidence cases Stier, Q., Hoffmann, J.,
+and Thrun, M.C.: "Classifying with the Fine Structure of Distributions:
+Leveraging Distributional Information for Robust and Plausible Naive
+Bayes" (2026), Machine Learning and Knowledge Extraction (MAKE),
+<DOI:10.3390/make8010013>.
 
 %prep
 %setup -q -c -n %{packname}

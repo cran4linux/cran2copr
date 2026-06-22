@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  abseil
-%global packver   2023.8.2.1
+%global packver   2026.5.26.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.8.2.1
+Version:          2026.5.26.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'C++' Header Files from 'Abseil'
+Summary:          'C++' Header Files and Compiled Library from 'Abseil'
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,11 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 
 %description
-Wraps the 'Abseil' 'C++' library for use by R packages. Original files are
-from <https://github.com/abseil/abseil-cpp>. Patches are located at
+Wraps the 'Abseil' 'C++' library for use by R packages. Provides both
+header files and a compiled static library ('libabsl.a') so that
+downstream packages can link non-header-only 'Abseil' components without
+recompiling the library themselves. Original files are from
+<https://github.com/abseil/abseil-cpp>. Patches are located at
 <https://github.com/doccstat/abseil-r/tree/main/local/patches>.
 
 %prep

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manynet
-%global packver   2.0.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Many Ways to Make, Modify, Mark, and Measure Myriad Networks
+Summary:          Many Ways to Make, Manipulate, and Modify Myriad Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,13 +31,12 @@ Requires:         R-CRAN-pillar
 Requires:         R-CRAN-tidygraph 
 
 %description
-Many tools for making, modifying, marking, measuring, and motifs and
-memberships of many different types of networks. All functions operate
-with matrices, edge lists, and 'igraph', 'network', and 'tidygraph'
-objects, on directed, multiplex, multimodal, signed, and other networks.
-The package includes functions for importing and exporting, creating and
-generating networks, modifying networks and node and tie attributes, and
-describing networks with sensible defaults.
+Many tools for making, manipulating, and modifying many different types of
+networks. All functions operate with matrices, edge lists, and 'igraph',
+'network', and 'tidygraph' objects, on directed, multiplex, multimodal,
+signed, and other networks. The package includes functions for importing
+and exporting, creating and generating networks, modifying networks and
+node and tie attributes, and describing networks with sensible defaults.
 
 %prep
 %setup -q -c -n %{packname}

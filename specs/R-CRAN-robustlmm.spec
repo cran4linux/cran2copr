@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robustlmm
-%global packver   3.4-3
+%global packver   3.4-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.3
+Version:          3.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Linear Mixed Effects Models
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-fastGHQuad 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-nlme
 Requires:         R-methods 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-fastGHQuad 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ggchangepoint
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combines Changepoint Analysis with 'ggplot2'
 
@@ -16,19 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-changepoint 
 BuildRequires:    R-CRAN-changepoint.np 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ecp 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-changepoint 
 Requires:         R-CRAN-changepoint.np 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ecp 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
@@ -37,7 +42,14 @@ Requires:         R-utils
 R provides fantastic tools for changepoint analysis, but plots generated
 by the tools do not have the 'ggplot2' style. This tool, however, combines
 'changepoint', 'changepoint.np' and 'ecp' together, and uses 'ggplot2' to
-visualize changepoints.
+visualize changepoints. Version 0.2.0 adds a unified 'ggcpt' S3 result
+class, 'broom'-style tidy/glance/augment methods, 'autoplot()', new geoms
+('geom_changepoint()', 'geom_cpt_segment()', 'geom_cpt_ci()',
+'stat_changepoint()'), a unified 'cpt_detect()' dispatcher, first-wave
+wrappers for WBS/WBS2, NOT, MOSUM, FPOP, a method comparison module,
+accuracy metrics, data simulation, canonical test signals, and hardening
+of the existing functions (no-change bug fix, 'size' to 'linewidth'
+migration, 'match.arg()' validation).
 
 %prep
 %setup -q -c -n %{packname}
