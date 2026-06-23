@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FinanceGraphs
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Graphs for Analysis of Financial Data and Time Series
 
@@ -17,17 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-timeDate >= 4000
 BuildRequires:    R-grDevices >= 4.5.0
 BuildRequires:    R-stats >= 4.5.0
 BuildRequires:    R-utils >= 4.5.0
 BuildRequires:    R-graphics >= 4.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-usethis >= 3.2.0
 BuildRequires:    R-CRAN-cpm >= 2.0
 BuildRequires:    R-CRAN-data.table >= 1.9.8
 BuildRequires:    R-CRAN-lubridate >= 1.7.0
 BuildRequires:    R-CRAN-knitr >= 1.45
-BuildRequires:    R-CRAN-hexbin >= 1.28.0
 BuildRequires:    R-CRAN-purrr >= 1.2.0
 BuildRequires:    R-CRAN-stringr >= 1.2.0
 BuildRequires:    R-CRAN-scales >= 1.1.0
@@ -40,18 +39,19 @@ BuildRequires:    R-CRAN-ggrepel >= 0.9.0
 BuildRequires:    R-CRAN-ggiraph >= 0.9.0
 BuildRequires:    R-CRAN-tidyr >= 0.6.3
 BuildRequires:    R-CRAN-xts >= 0.10.0
+BuildRequires:    R-CRAN-qlcal >= 0.1.0
 BuildRequires:    R-CRAN-ggtext >= 0.1.0
-Requires:         R-CRAN-timeDate >= 4000
+BuildRequires:    R-CRAN-RegimeChange >= 0.1.0
 Requires:         R-grDevices >= 4.5.0
 Requires:         R-stats >= 4.5.0
 Requires:         R-utils >= 4.5.0
 Requires:         R-graphics >= 4.0.0
 Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-usethis >= 3.2.0
 Requires:         R-CRAN-cpm >= 2.0
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-lubridate >= 1.7.0
 Requires:         R-CRAN-knitr >= 1.45
-Requires:         R-CRAN-hexbin >= 1.28.0
 Requires:         R-CRAN-purrr >= 1.2.0
 Requires:         R-CRAN-stringr >= 1.2.0
 Requires:         R-CRAN-scales >= 1.1.0
@@ -64,7 +64,9 @@ Requires:         R-CRAN-ggrepel >= 0.9.0
 Requires:         R-CRAN-ggiraph >= 0.9.0
 Requires:         R-CRAN-tidyr >= 0.6.3
 Requires:         R-CRAN-xts >= 0.10.0
+Requires:         R-CRAN-qlcal >= 0.1.0
 Requires:         R-CRAN-ggtext >= 0.1.0
+Requires:         R-CRAN-RegimeChange >= 0.1.0
 
 %description
 Flexible wrappers around R graphics modules 'dygraphs'

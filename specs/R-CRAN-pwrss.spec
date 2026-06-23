@@ -1,26 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pwrss
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Power and Sample Size Calculation Tools
+Summary:          Statistical Power, Sample Size, and Detectable Effect Calculations
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-The 'pwrss' R package provides flexible and comprehensive functions for
-statistical power and minimum required sample size calculations across a
+Flexible and comprehensive functions for statistical power, minimum
+required sample size, and minimum detectable effect calculations across a
 wide range of commonly used hypothesis tests in psychological, biomedical,
 and social sciences.
 

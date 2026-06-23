@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nixtlar
-%global packver   0.6.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Software Development Kit for 'Nixtla''s 'TimeGPT'
 
@@ -14,12 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lubridate 
@@ -27,9 +25,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lubridate 
@@ -37,6 +34,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
 A Software Development Kit for working with 'Nixtla''s 'TimeGPT', a
@@ -44,7 +42,7 @@ foundation model for time series forecasting. 'API' is an acronym for
 'application programming interface'; this package allows users to interact
 with 'TimeGPT' via the 'API'. You can set and validate 'API' keys and
 generate forecasts via 'API' calls. It is compatible with 'tsibble' and
-base R. For more details visit <https://docs.nixtla.io/>.
+base R. For more details visit <https://www.nixtla.io/docs>.
 
 %prep
 %setup -q -c -n %{packname}

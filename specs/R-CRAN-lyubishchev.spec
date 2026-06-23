@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ami
-%global packver   0.2.1
+%global packname  lyubishchev
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Checks for Various Computing Environments
+Summary:          Quantitative Taxonomy Methods of A.A. Lyubishchev (1943)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,22 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstudioapi >= 0.17.0
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi >= 0.17.0
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
 
 %description
-A collection of lightweight functions that can be used to determine the
-computing environment in which your code is running. This includes
-operating systems, continuous integration (CI) environments, containers,
-and more.
+Implements the multivariate classification methods of Alexander
+Alexandrovich Lyubishchev (1890-1972), as described in his 1943 manuscript
+'Programma obshchey sistematiki' Lyubishchev (1943)
+<https://www.zin.ru/animalia/coleoptera/rus/lyubis05.htm> and published in
+Lubischew (1962) <https://www.jstor.org/stable/2527894>. Provides
+divergence_coefficient() for measuring separation between groups on
+continuous features, scatter_ellipse() for fitting covariance ellipses per
+class, transgression() for detecting ellipse overlap, and classify() for
+Bayesian posterior classification. These methods predate and are more
+general than the binary-character similarity coefficients of Sokal and
+Sneath (1963) that appear in other R packages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  standardlastprofile
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          BDEW Standard Load Profiles for Electricity and Gas
 
@@ -21,25 +21,19 @@ BuildRequires:    R-CRAN-lifecycle
 Requires:         R-CRAN-lifecycle 
 
 %description
-Provides representative standard load profiles (SLPs) for electricity and
-gas published by the German Association of Energy and Water Industries
-(BDEW Bundesverband der Energie- und Wasserwirtschaft e.V.) in a tidy
-format. The electricity profiles cover the 1999 profiles — households
-(H0), commercial (G0–G6), and agriculture (L0–L2) — and the updated 2025
+Provides standard load profiles (SLPs) for electricity and gas published
+by the German Association of Energy and Water Industries (BDEW
+Bundesverband der Energie- und Wasserwirtschaft e.V.) in a tidy format.
+The electricity profiles cover the 1999 profiles — households (H0),
+commercial (G0–G6), and agriculture (L0–L2) — and the updated 2025
 profiles (H25, G25, L25, P25, S25), which additionally represent
 households with photovoltaic systems and battery storage. An interface
 generates an electricity load profile over a user-defined date range. A
-second interface generates daily gas load profiles using the
-BDEW/VKU/GEODE synthetic 'SigLinDe' procedure from daily temperatures and
-a customer value ('Kundenwert'). The 1999 data and methodology are
-described in VDEW (1999), "Repräsentative VDEW-Lastprofile",
-<https://www.bdew.de/media/documents/1999_Repraesentative-VDEW-Lastprofile.pdf>.
-The electricity generation algorithm is described in VDEW (2000),
-"Anwendung der Repräsentativen VDEW-Lastprofile step-by-step",
-<https://www.bdew.de/media/documents/2000131_Anwendung-repraesentativen_Lastprofile-Step-by-step.pdf>.
-The 2025 profiles are described in BDEW (2025), "Standardlastprofile
-Strom", <https://www.bdew.de/energie/standardlastprofile-strom/>. The gas
-procedure is described in BDEW (2025), "Standardlastprofile Gas",
+second interface generates daily standard load profiles for gas using the
+synthetic 'SigLinDe' method. More information on the data and methodology
+for electricity is described in "Standardlastprofile Strom",
+<https://www.bdew.de/energie/standardlastprofile-strom/>, and for gas in
+"Standardlastprofile Gas",
 <https://www.bdew.de/energie/standardlastprofile-gas/>.
 
 %prep

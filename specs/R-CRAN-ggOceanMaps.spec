@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggOceanMaps
-%global packver   2.3.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Data on Oceanographic Maps using 'ggplot2'
 
@@ -24,6 +24,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-smoothr 
 BuildRequires:    R-CRAN-units 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
@@ -31,6 +34,9 @@ Requires:         R-methods
 Requires:         R-utils 
 Requires:         R-CRAN-smoothr 
 Requires:         R-CRAN-units 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-tools 
 
 %description
 Allows plotting data on bathymetric maps using 'ggplot2'. Plotting

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FoReco
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecast Reconciliation
 
@@ -24,6 +24,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-distributional 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-osqp 
@@ -31,6 +32,7 @@ Requires:         R-stats
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-distributional 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-generics 
 
 %description
 Classical (bottom-up and top-down), optimal combination and heuristic

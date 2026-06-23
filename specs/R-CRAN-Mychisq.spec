@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Mychisq
-%global packver   0.1.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chi-Squared Test for Goodness of Fit and Independence Test
 
@@ -22,7 +23,10 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-The chi-squared test for goodness of fit and independence test.
+The chi-squared test for goodness of fit and an independence test. In
+addition, the chi-squared test for the population variance, the function
+for computing a confidence interval for the population variance, and the
+function for calculating the population standard deviation are provided.
 
 %prep
 %setup -q -c -n %{packname}

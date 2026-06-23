@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClimaRep
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimating Climate Representativeness
+Summary:          Estimating Climate Analogue Areas
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,9 +31,9 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-tidyterra 
 
 %description
-Offers tools to estimate the climate representativeness of reference
-polygons and quantifies its transformation under future climate change
-scenarios. Approaches described in Mingarro and Lobo (2018)
+Offers tools to identify the climate analogues of reference polygons and
+quantifies their transformation under future climate change scenarios.
+Approaches described in Mingarro and Lobo (2018)
 <doi:10.32800/abc.2018.41.0333> and Mingarro and Lobo (2022)
 <doi:10.1017/S037689292100014X>.
 
