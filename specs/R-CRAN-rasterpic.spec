@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rasterpic
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Digital Images into 'SpatRaster' Objects
+Summary:          Convert Digital Images to Spatially Referenced 'SpatRaster' Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,17 +19,24 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.8.21
 BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-png 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-terra >= 1.8.21
 Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-png 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Create 'SpatRaster' objects, as defined by the 'terra' package, from
-digital images using a spatial object as a geographic reference. Supported
-inputs include objects from the 'sf', 'terra' and 'stars' packages. The
-main function is an S3 generic, so other packages can provide methods for
-additional spatial classes.
+Convert digital images to spatially referenced 'SpatRaster' objects, as
+defined by the 'terra' package, using coordinates from supported spatial
+input classes. Supported inputs include numeric coordinate vectors and
+objects from the 'sf', 'terra' and 'stars' packages. The main function is
+an S3 generic, allowing other packages to extend support to additional
+spatial classes.
 
 %prep
 %setup -q -c -n %{packname}

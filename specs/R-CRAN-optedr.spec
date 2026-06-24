@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optedr
-%global packver   2.2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Optimal and D-Augmented Designs
+Summary:          Calculating Optimal and D-Augmented Designs for Single- and Multi-Factor Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,8 +22,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
@@ -31,18 +29,19 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-shiny 
 Requires:         R-utils 
 
 %description
-Calculates D-, Ds-, A-, I- and L-optimal designs for non-linear models,
-via an implementation of the cocktail algorithm (Yu, 2011,
-<doi:10.1007/s11222-010-9183-2>). Compares designs via their efficiency,
-and augments any design with a controlled efficiency. An efficient
-rounding function has been provided to transform approximate designs to
-exact designs.
+Calculates D-, Ds-, A-, I- and L-optimal designs, weighted combinations of
+these via a Compound criterion, and KL-optimal designs for model
+discrimination, for non-linear single- and multi-factor models, via an
+implementation of the cocktail algorithm (Yu, 2011,
+<doi:10.1007/s11222-010-9183-2>). Multi-factor models use design variables
+x1, x2, … with a named-list design space; single-factor models remain
+backward compatible. Compares designs via their efficiency, augments any
+design with a controlled efficiency loss, and provides efficient rounding
+functions to convert approximate designs to exact ones.
 
 %prep
 %setup -q -c -n %{packname}

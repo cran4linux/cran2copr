@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pecanr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Eta-Squared for Crossed, Nested, and Mixed Linear Mixed Models
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-lme4 
+Requires:         R-stats 
 
 %description
 Computes partial eta-squared effect sizes for fixed effects in linear
@@ -26,14 +28,18 @@ mixed models fitted with the 'lme4' package. Supports crossed, nested, and
 mixed (crossed-and-nested) random effects structures with any number of
 grouping factors. Mixed designs handle cases where grouping factors are
 simultaneously crossed with some variables and nested within others (e.g.,
-photos nested within models, but both crossed with participants). Random
-slope variances are translated to the outcome scale using a variance
-decomposition approach, correctly accounting for predictor scaling and
-interaction terms. Both general and operative effect sizes are provided.
-Methods are based on Correll, Mellinger, McClelland, and Judd (2020)
-<doi:10.1016/j.tics.2019.12.009>, Correll, Mellinger, and Pedersen (2022)
-<doi:10.3758/s13428-021-01687-2>, and Rights and Sterba (2019)
-<doi:10.1037/met0000184>.
+photos nested within models, but both crossed with participants). Factor
+predictors are supported directly, and a single factor-level (omnibus)
+effect size can be obtained for a multi-level factor or multi-df
+interaction. Random slope variances are translated to the outcome scale
+using a variance decomposition approach, correctly accounting for
+predictor scaling and interaction terms. Both general and operative effect
+sizes are provided, with optional parametric bootstrap confidence
+intervals. For correlated predictors, per-predictor effect sizes use
+unique (semipartial) variance by default. Methods are based on Correll,
+Mellinger, McClelland, and Judd (2020) <doi:10.1016/j.tics.2019.12.009>,
+Correll, Mellinger, and Pedersen (2022) <doi:10.3758/s13428-021-01687-2>,
+and Rights and Sterba (2019) <doi:10.1037/met0000184>.
 
 %prep
 %setup -q -c -n %{packname}

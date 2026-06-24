@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prospectr
-%global packver   0.2.10
+%global packname  msprog
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Processing and Sample Selection of Spectroscopic Data
+Summary:          Reproducible Assessment of Disability Course in Multiple Sclerosis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-mathjaxr >= 1.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-mathjaxr >= 1.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions to preprocess spectroscopic data and conduct (representative)
-sample selection/calibration sampling.
+Analyse disability course in multiple sclerosis (MS) from longitudinal
+data. The package provides a flexible framework for identifying disability
+events under user-specified criteria, allowing adaptation to different
+study designs and endpoints. Tools are included to facilitate transparent
+and reproducible reporting of the settings used in the analysis. For an
+introduction to the package and illustrative applications, see Montobbio
+et al. (2024) <doi:10.1177/13524585241243157>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggRandomForests
-%global packver   3.1.2
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visually Exploring Random Forests
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForestSRC >= 3.4.0
+BuildRequires:    R-CRAN-varPro >= 3.1.0
 BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-varPro 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tidyr 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-randomForestSRC >= 3.4.0
+Requires:         R-CRAN-varPro >= 3.1.0
 Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-varPro 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tidyr 

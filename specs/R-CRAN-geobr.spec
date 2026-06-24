@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geobr
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Official Spatial Data Sets of Brazil
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.0.0
+BuildRequires:    R-CRAN-arrow >= 20.0.0
 BuildRequires:    R-CRAN-duckspatial >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 0.9.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
@@ -30,12 +31,12 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nanoarrow 
-BuildRequires:    R-CRAN-piggyback 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-curl >= 5.0.0
+Requires:         R-CRAN-arrow >= 20.0.0
 Requires:         R-CRAN-duckspatial >= 1.1.0
 Requires:         R-CRAN-sf >= 0.9.3
 Requires:         R-CRAN-dplyr >= 0.8.3
@@ -48,7 +49,6 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-httr2 
 Requires:         R-methods 
 Requires:         R-CRAN-nanoarrow 
-Requires:         R-CRAN-piggyback 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-CRAN-stringr 

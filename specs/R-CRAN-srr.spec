@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prospectr
-%global packver   0.2.10
+%global packname  srr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Processing and Sample Selection of Spectroscopic Data
+Summary:          'rOpenSci' Software Review 'Roclets'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-mathjaxr >= 1.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-mathjaxr >= 1.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-gert 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-rprojroot 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-gert 
+Requires:         R-CRAN-here 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-rprojroot 
 
 %description
-Functions to preprocess spectroscopic data and conduct (representative)
-sample selection/calibration sampling.
+Companion package to 'rOpenSci' statistical software review project
+('rOpenSci' authors, 2021; <doi:10.5281/zenodo.5556756>), to facilitate
+documenting software compliance with statistical standards using
+'Roxygen2' 'roclets'.
 
 %prep
 %setup -q -c -n %{packname}

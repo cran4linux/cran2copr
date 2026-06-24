@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ernm
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exponential-Family Random Network Models
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-Rcpp 
@@ -28,7 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-trust 
-Requires:         R-CRAN-BH 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-methods 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-Rcpp 

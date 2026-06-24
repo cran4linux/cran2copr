@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggDNAvis
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2'-Based Tools for Visualising DNA Sequences and Modifications
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-ragg 
 BuildRequires:    R-CRAN-rlang 
@@ -35,7 +34,6 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-grid 
-Requires:         R-CRAN-magick 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-ragg 
 Requires:         R-CRAN-rlang 

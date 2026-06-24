@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prospectr
-%global packver   0.2.10
+%global packname  LatSquare
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Processing and Sample Selection of Spectroscopic Data
+Summary:          Analysis of Latin Square and Semi-Latin Square Designs
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-mathjaxr >= 1.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-mathjaxr >= 1.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Functions to preprocess spectroscopic data and conduct (representative)
-sample selection/calibration sampling.
+Provides functions for the analysis of Latin Square and Semi-Latin Square
+(Latin Rectangle) experimental designs, including analysis of variance
+(ANOVA), least significant difference (LSD) tests, and calculation of
+summary statistics. The implemented methods follow Munzert (1992, ISBN:
+3-489-53410-7).
 
 %prep
 %setup -q -c -n %{packname}

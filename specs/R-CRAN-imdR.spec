@@ -1,36 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prospectr
-%global packver   0.2.10
+%global packname  imdR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Processing and Sample Selection of Spectroscopic Data
+Summary:          Download, Process and Visualize IMD Gridded Meteorological Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-mathjaxr >= 1.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-mathjaxr >= 1.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyterra 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tidyterra 
+Requires:         R-CRAN-zoo 
 
 %description
-Functions to preprocess spectroscopic data and conduct (representative)
-sample selection/calibration sampling.
+Interface to India Meteorological Department (IMD) gridded daily rainfall
+(0.25 degree, 1901-present) and temperature (1.0 degree, 1951-present)
+binary data. Provides functions to download, read, extract by point or
+boundary, compute climate indices, perform trend analysis, and produce
+publication-quality maps with Survey of India approved boundaries.
 
 %prep
 %setup -q -c -n %{packname}

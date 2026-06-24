@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nonabsdid
-%global packver   0.3.2
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Heterogeneity-Robust Event Studies for Non-Absorbing Treatments
 
@@ -33,19 +33,20 @@ Requires:         R-CRAN-tibble
 %description
 Runs several heterogeneity-robust difference-in-differences (DID)
 event-study estimators for non-absorbing (i.e., treatment can switch on
-and off) binary treatments through their own packages, harmonizes their
-output onto a common time axis and tidy data structure, and overlays them
-in a single 'ggplot2' panel for visual comparison. Supported estimators
-include those provided by 'DIDmultiplegtDYN', 'PanelMatch', and 'fect',
-with an optional naive two-way fixed-effects reference series via
-'fixest'. The underlying methods are respectively described in Clement de
-Chaisemartin and Xavier D'Haultfoeuille. "Difference-in-Differences
-Estimators of Intertemporal Treatment Effects." The Review of Economics
-and Statistics (2026) <doi:10.1162/rest_a_01414>, Kosuke Imai, In Song
-Kim, and Erik H. Wang. "Matching methods for causal inference with
-time‐series cross‐sectional data." American Journal of Political Science
-67.3 (2023) <doi:10.1111/ajps.12685>, Licheng Liu, Ye Wang, and Yiqing Xu.
-"A practical guide to counterfactual estimators for causal inference with
+and off over time, allowing treatment reversal) binary treatments through
+their respective packages, harmonizes their output onto a common time axis
+and tidy data structure, and overlays them in a single 'ggplot2' panel for
+visual comparison. Supported estimators include those provided by
+'DIDmultiplegtDYN', 'PanelMatch', and 'fect', with an optional naive
+two-way fixed-effects reference series via 'fixest'. The underlying
+methods are respectively described in Clement de Chaisemartin and Xavier
+D'Haultfoeuille. "Difference-in-Differences Estimators of Intertemporal
+Treatment Effects." The Review of Economics and Statistics (2026)
+<doi:10.1162/rest_a_01414>, Kosuke Imai, In Song Kim, and Erik H. Wang.
+"Matching methods for causal inference with time‐series cross‐sectional
+data." American Journal of Political Science 67.3 (2023)
+<doi:10.1111/ajps.12685>, Licheng Liu, Ye Wang, and Yiqing Xu. "A
+practical guide to counterfactual estimators for causal inference with
 time‐series cross‐sectional data." American Journal of Political Science
 68.1 (2024) <doi:10.1111/ajps.12723>, and Laurent R. Bergé, Kyle Butts,
 and Grant McDermott. "Fast and user-friendly econometrics estimations: The

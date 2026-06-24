@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDTSA
-%global packver   1.0.6
+%global packver   1.0.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Time Series Analysis Tools
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-geigen
 BuildRequires:    R-CRAN-jointDiag 
 BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-rTensor 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-stats 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-geigen
 Requires:         R-CRAN-jointDiag 
 Requires:         R-CRAN-vars 
 Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-rTensor 
 
 %description
 An implementation for high-dimensional time series analysis methods,
@@ -53,9 +55,10 @@ unit root test proposed by Chang, Cheng and Yao (2022)
 Zhou (2017) <doi:10.1093/biomet/asw066> and Chang et al. (2026+),
 CP-decomposition for matrix time series proposed by Chang et al. (2023)
 <doi:10.1093/jrsssb/qkac011> and Chang et al. (2026+)
-<doi:10.48550/arXiv.2410.05634>, and statistical inference for spectral
-density matrix proposed by Chang et al. (2025)
-<doi:10.1080/01621459.2025.2468013>.
+<doi:10.48550/arXiv.2410.05634>, CP-decomposition for tensor time series
+proposed by Chang et al. (2026+) <doi:10.48550/arXiv.2606.08560>, and
+statistical inference for spectral density matrix proposed by Chang et al.
+(2025) <doi:10.1080/01621459.2025.2468013>.
 
 %prep
 %setup -q -c -n %{packname}

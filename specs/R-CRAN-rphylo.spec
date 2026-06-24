@@ -1,52 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FoRecoML
-%global packver   1.1.0
+%global packname  rphylo
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forecast Reconciliation with Machine Learning
+Summary:          Phylogenetic Analysis with Dependent Discrete Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-FoReco 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-lightgbm 
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-mlr3 
-BuildRequires:    R-CRAN-mlr3tuning 
-BuildRequires:    R-CRAN-mlr3learners 
-BuildRequires:    R-CRAN-paradox 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-FoReco 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-expm 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-lightgbm 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-mlr3 
-Requires:         R-CRAN-mlr3tuning 
-Requires:         R-CRAN-mlr3learners 
-Requires:         R-CRAN-paradox 
 
 %description
-Nonlinear forecast reconciliation with machine learning in cross-sectional
-(Spiliotis et al. 2021 <doi:10.1016/j.asoc.2021.107756>), temporal, and
-cross-temporal (Rombouts et al. 2024
-<doi:10.1016/j.ijforecast.2024.05.008>) frameworks.
+Implementation of dependent discrete models (with reversible jump MCMC)
+derived from 'BayesTraits' V5.0.3
+<https://github.com/AndrewPMeade/BayesTraits-Release/tree/Release>.
+Original software copyright Andrew Meade and contributors, distributed
+under GPL-3. Modifications for this package by Vivian G. Li
+<liguo.vivian@gmail.com>. The following articles should be referenced when
+using this package: Pagel, M., A. Meade and D. Barker (2004) "Bayesian
+estimation of ancestral character states on phylogenies"
+<doi:10.1080/10635150490522232>; Pagel, M. (1994) "Detecting correlated
+evolution on phylogenies: a general method for the comparative analysis of
+discrete characters" <doi:10.1098/rspb.1994.0006>; Pagel, M. and A. Meade
+(2006) "Bayesian analysis of correlated evolution of discrete characters
+by reversible-jump Markov chain Monte Carlo" <doi:10.1086/503444>.
 
 %prep
 %setup -q -c -n %{packname}

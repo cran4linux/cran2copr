@@ -1,46 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scR
-%global packver   0.4.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Vapnik-Chervonenkis Dimension and Sample Complexity
+Summary:          Empirical Sample Complexity Bounds
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-plotly 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-caret 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-parallel 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-progressr 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
-We provide a suite of tools for estimating the sample complexity of a
-chosen model through theoretical bounds and simulation. The package
-incorporates methods for estimating the Vapnik-Chervonenkis dimension
-(VCD) of a chosen algorithm, which can be used to estimate its sample
-complexity. Alternatively, we provide simulation methods to estimate
-sample complexity directly. For more details, see Carter, P & Choi, D
-(2024). "Learning from Noise: Applying Sample Complexity for Political
-Science Research" <doi:10.31219/osf.io/evrcj>.
+Provides tools for estimating empirical sample complexity bounds for
+supervised learning tasks. The package supports simulation-based estimates
+of generalization curves, parametric extrapolation of empirical sample
+complexity bounds, theoretical bounds based on Vapnik-Chervonenkis
+dimension, and optional monotone Gaussian process extrapolation for users
+who install the external 'cmdstanr' workflow. For more details, see Carter
+and Choi (2024) <doi:10.31219/osf.io/evrcj>.
 
 %prep
 %setup -q -c -n %{packname}

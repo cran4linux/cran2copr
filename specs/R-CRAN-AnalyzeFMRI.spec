@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AnalyzeFMRI
-%global packver   1.1-25
+%global packver   1.1-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.25
+Version:          1.1.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Analysis of fMRI Datasets Stored in the ANALYZE or 'NIFTI' Format
 

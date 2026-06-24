@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prospectr
-%global packver   0.2.10
+%global packname  BsplineQuantReg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous Functions for Processing and Sample Selection of Spectroscopic Data
+Summary:          'Constrained Quantile Regression with Cubic B-Splines'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-mathjaxr >= 1.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-mathjaxr >= 1.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-CVXR 
+Requires:         R-CRAN-CVXR 
 
 %description
-Functions to preprocess spectroscopic data and conduct (representative)
-sample selection/calibration sampling.
+Quantile regression with cubic B-splines under monotonicity and convexity
+constraints using the Karlin-Studden SOCP formulation. The method is
+described in Abbes (2026) <doi:10.5281/zenodo.17427913>. This R
+implementation is intended for demonstration and prototyping; all B-spline
+and polynomial functions have been rewritten for consistency. A faster
+version written in 'Python' is available at
+<https://github.com/alexandreabbes/Constrained-Quantile-Regression-with-cubic-splines>.
 
 %prep
 %setup -q -c -n %{packname}
