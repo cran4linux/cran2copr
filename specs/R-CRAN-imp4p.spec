@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  imp4p
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation for Proteomics
 
@@ -20,14 +21,14 @@ BuildRequires:    R-CRAN-Iso
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-norm 
-BuildRequires:    R-CRAN-missForest 
+BuildRequires:    R-CRAN-missRanger 
 BuildRequires:    R-CRAN-missMDA 
 Requires:         R-CRAN-Rcpp >= 0.12.8
 Requires:         R-CRAN-Iso 
 Requires:         R-stats 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-norm 
-Requires:         R-CRAN-missForest 
+Requires:         R-CRAN-missRanger 
 Requires:         R-CRAN-missMDA 
 
 %description

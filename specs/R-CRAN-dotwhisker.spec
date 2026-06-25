@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dotwhisker
-%global packver   0.8.4
+%global packver   0.8.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dot-and-Whisker Plots of Regression Results
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-performance
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-marginaleffects 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-performance
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-marginaleffects 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MatchingPursuit
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing Time Series Data Using the Matching Pursuit Algorithm
 
@@ -27,6 +27,8 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-EGM 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-edf 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-RSQLite 
@@ -37,14 +39,18 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-utils 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-EGM 
+Requires:         R-CRAN-xml2 
 
 %description
 Provides tools for analysing and decomposing time series data using the
 Matching Pursuit (MP) algorithm, a greedy signal decomposition technique
 that represents complex signals as a linear combination of simpler
-functions (called atoms) selected from a redundant dictionary. For more
-details see Mallat and Zhang (1993) <doi:10.1109/78.258082>, Pati et al.
-(1993) <doi:10.1109/ACSSC.1993.342465>, Elad (2010)
+functions (called atoms) selected from a redundant dictionary. Support for
+the Orthogonal Matching Pursuit (OMP) variant of the classical MP
+algorithm is also provided. For more details see Mallat and Zhang (1993)
+<doi:10.1109/78.258082>, Pati et al. (1993)
+<doi:10.1109/ACSSC.1993.342465>, Elad (2010)
 <doi:10.1007/978-1-4419-7011-4> and Różański (2024) <doi:10.1145/3674832>.
 
 %prep

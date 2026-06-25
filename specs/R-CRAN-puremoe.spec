@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  puremoe
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pubmed Unified REtrieval for Multi-Output Exploration
+Summary:          Integrated Retrieval and Analysis of 'PubMed', 'NIH', and 'NLM' Literature Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,6 +25,10 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-textpress 
+BuildRequires:    R-parallel 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-rentrez 
 Requires:         R-CRAN-textshape 
 Requires:         R-CRAN-xml2 
@@ -33,11 +37,21 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-textpress 
+Requires:         R-parallel 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Access a variety of 'PubMed' data through a single, user-friendly
-interface, including abstracts, bibliometrics from 'iCite', pubtations
-from 'PubTator3', and full-text records from 'PMC'.
+Retrieve and analyze biomedical literature from 'PubMed' and the wider
+'NIH'/'NLM' data stack through a single, PMID-centered interface. A PubMed
+search resolves to a set of PMIDs, which can be used to retrieve article
+metadata and abstracts, author affiliations, 'iCite' citation data and
+links, 'PubTator3' entity and relation annotations, and open-access full
+text from 'PMC'. A local analysis layer operates on the retrieved tables,
+supporting corpus expansion through citation links, citation network
+construction, sentence-level entity co-occurrence, inspection of relation
+evidence, and 'MeSH' descriptor keyness.
 
 %prep
 %setup -q -c -n %{packname}

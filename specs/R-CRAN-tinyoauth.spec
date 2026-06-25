@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyoauth
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimal OAuth 2.0 Client
 
@@ -18,18 +18,17 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
 
 %description
 A dependency-light OAuth 2.0 <https://www.rfc-editor.org/rfc/rfc6749>
 client supporting the client-credentials and authorization-code grants
 with token refresh. Built on 'curl' and 'jsonlite', with base R's socket
-server for the redirect listener, avoiding heavier HTTP stacks. Includes a
-helper for the 'OpenAI' <https://openai.com/> 'Codex' device login, a
-similar but non-standard variant of the OAuth 2.0 device authorization
-grant.
+server for the redirect listener, avoiding heavier HTTP stacks.
 
 %prep
 %setup -q -c -n %{packname}

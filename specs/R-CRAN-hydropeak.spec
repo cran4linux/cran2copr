@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hydropeak
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect and Characterize Sub-Daily Flow Fluctuations
 
@@ -36,7 +36,8 @@ caused by hydropeaking, rainfall, or snow and glacier melt. This is a
 companion to the package 'hydroroute', which is used to detect and follow
 hydropower plant-specific hydropeaking waves at the sub-catchment scale
 and to describe how hydropeaking flow parameters change along the
-longitudinal flow path as proposed and validated in Greimel et al. (2022).
+longitudinal flow path as proposed and validated in Greimel et al. (2022)
+<doi:10.1002/rra.3978>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groupedHyperframe.random
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulated Point-Pattern via Vectorized Parameterization
 
@@ -25,7 +25,9 @@ Requires:         R-CRAN-spatstat.random
 %description
 An intuitive interface to simulate superimposed (marked) point patterns
 with vectorized parameterization of random point pattern and distribution
-of marks.
+of marks.  The author has retired from academic research. Accordingly,
+this package should not be considered a validated tool for use in
+peer-reviewed publications or as the basis for grant applications.
 
 %prep
 %setup -q -c -n %{packname}

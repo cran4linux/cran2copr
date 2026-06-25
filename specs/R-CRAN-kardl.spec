@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kardl
-%global packver   1.3.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Symmetric and Asymmetric ARDL Estimations
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-nlWaldTest 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-ggplot2 
@@ -27,6 +28,7 @@ BuildRequires:    R-utils
 Requires:         R-stats 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-nlWaldTest 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-ggplot2 

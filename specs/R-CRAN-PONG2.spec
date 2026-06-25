@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eummd
-%global packver   0.2.0
+%global packname  PONG2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Univariate Maximum Mean Discrepancy
+Summary:          KIR Genotype Imputation and Model Training from SNP Array Data
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-parallel 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-tools 
 
 %description
-Computes maximum mean discrepancy two-sample test for univariate data
-using the Laplacian kernel, as described in Bodenham and Kawahara (2023)
-<doi:10.1007/s11222-023-10271-x>. The p-value is computed using
-permutations. Also includes implementation for computing the robust median
-difference statistic 'Q_n' from Croux and Rousseeuw (1992)
-<doi:10.1007/978-3-662-26811-7_58> based on Johnson and Mizoguchi (1978)
-<doi:10.1137/0207013>.
+A scalable and accurate tool for Killer-cell Immunoglobulin-like Receptor
+(KIR) genotype imputation directly from SNP array data using supervised
+machine learning models trained across five continental ancestry groups.
+Uses attribute bagging and an ensemble classifier method with haplotype
+inference for SNPs and KIR types. Models are built from global populations
+in the 1000 Genomes Project and validated across diverse biobank cohorts.
+Methods are based on Zheng et al. (2014) <doi:10.1016/j.ajhg.2013.12.015>
+and Sadeeq et al. (2026) <https://github.com/NormanLabUCD/PONG2>.
 
 %prep
 %setup -q -c -n %{packname}

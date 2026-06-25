@@ -1,64 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Goodreader
-%global packver   0.1.2
+%global packname  inatpick
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scrape and Analyze 'Goodreads' Book Data
+Summary:          Download Photos and Metadata from 'iNaturalist'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cld2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-topicmodels 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-wordcloud2 
-Requires:         R-CRAN-cld2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-topicmodels 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-wordcloud2 
 
 %description
-A comprehensive toolkit for scraping and analyzing book data from
-<https://www.goodreads.com/>. This package provides functions to search
-for books, scrape book details and reviews, perform sentiment analysis on
-reviews, and conduct topic modeling. It's designed for researchers, data
-analysts, and book enthusiasts who want to gain insights from 'Goodreads'
-data.
+A lightweight interface to the 'iNaturalist' API
+(<https://www.inaturalist.org/pages/api+reference>) for downloading
+observation photos and exporting metadata to CSV. Supports filtering by
+taxon, place, user, and annotation. Note that downloaded photos retain
+their original licenses as set by 'iNaturalist' observers; users are
+responsible for respecting these licenses.
 
 %prep
 %setup -q -c -n %{packname}

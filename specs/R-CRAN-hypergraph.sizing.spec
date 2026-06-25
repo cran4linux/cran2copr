@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MatTransMix
-%global packver   0.1.18
+%global packname  hypergraph.sizing
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.18
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering with Matrix Gaussian and Matrix Transformation Mixture Models
+Summary:          Hypergraph-Based Sizing Function for Generalised Linear Step-Up Method
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Provides matrix Gaussian mixture models, matrix transformation mixture
-models and their model-based clustering results. The parsimonious models
-of the mean matrices and variance covariance matrices are implemented with
-a total of 196 variations. For more information, please check: Xuwen Zhu,
-Shuchismita Sarkar, and Volodymyr Melnykov (2021), "MatTransMix: an R
-package for matrix model-based clustering and parsimonious mixture
-modeling", <doi:10.1007/s00357-021-09401-9>.
+Calculates a sizing function based on the number of independent sets in
+the rejected hypergraph (Organ, Kenney & Gu, 2026,
+<doi:10.48550/arXiv.2606.20514>). The sizing function is designed to be
+used with the 'GLSUP' package.
 
 %prep
 %setup -q -c -n %{packname}
