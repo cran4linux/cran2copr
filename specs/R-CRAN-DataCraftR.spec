@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.6
+%global packname  DataCraftR
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.6
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Create Datasets Interactively Using 'shiny'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-bsicons 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-RcppColors 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
+Requires:         R-CRAN-bsicons 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-RcppColors 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Set of 'shiny'-based 'RStudio' add-ins for interactively creating datasets
+through graphical interfaces. Users can adjust graphical elements to
+define data generation parameters, and the resulting datasets can be saved
+to temporary RDS files for further analysis or visualization. Methods are
+described in: Chang et al. (2024)
+<https://CRAN.R-project.org/package=shiny>; Bostock et al. (2011)
+<doi:10.1109/TVCG.2011.185>.
 
 %prep
 %setup -q -c -n %{packname}

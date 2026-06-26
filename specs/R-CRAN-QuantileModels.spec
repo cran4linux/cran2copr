@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesDP
-%global packver   1.3.8
+%global packname  QuantileModels
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the Bayesian Discount Prior Approach for Clinical Trials
+Summary:          Estimation of Different Quantile Related Models
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-ufRisk 
+BuildRequires:    R-CRAN-GenSA 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-ufRisk 
+Requires:         R-CRAN-GenSA 
 
 %description
-Functions for data augmentation using the Bayesian discount prior method
-for single arm and two-arm clinical trials, as described in Haddad et al.
-(2017) <doi:10.1080/10543406.2017.1300907>. The discount power prior
-methodology was developed in collaboration with the The Medical Device
-Innovation Consortium (MDIC) Computer Modeling & Simulation Working Group.
+Estimation of different quantile models, at the moment only Conditional
+autoregressive value at risk (CAViaR) proposed by Engle & Manganelli
+(2004) <doi:10.1198/073500104000000370> with also the specification
+proposed in Huang et al. (2009) <doi:10.1016/j.eneco.2008.12.006> and it's
+multivariate extension, Multi-variate multi-quantile CAViaR (MVMQ-CAViaR)
+proposed by White et al. (2015) <doi:10.1016/j.jeconom.2015.02.004> are
+available, however, in further updates, other models and extensions will
+be included.
 
 %prep
 %setup -q -c -n %{packname}

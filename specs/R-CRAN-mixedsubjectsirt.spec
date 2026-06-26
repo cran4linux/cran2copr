@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.6
+%global packname  mixedsubjectsirt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Item Response Theory Calibration with a Mixed Subjects Design
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-rmutil 
+Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-rmutil 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Integrates large language model generated item responses into psychometric
+calibration studies through a mixed-subjects design for unidimensional
+two-parameter and one-parameter logistic item response theory models.
+Human pilot responses are augmented with model-generated responses using a
+prediction-powered inference estimator (Angelopoulos, Bates, Fannjiang,
+Jordan and Zrnic (2023) <doi:10.1126/science.adi6000>; Angelopoulos, Duchi
+and Zrnic (2023) <doi:10.48550/arXiv.2311.01453>) adapted to marginal
+maximum-likelihood estimation, following the mixed-subjects design of
+Broska, Howes and van Loon (2025) <doi:10.1177/00491241251326865>. The
+estimator is anchored to the human responses and is asymptotically
+unbiased for the human item parameters at any tuning weight; the weight on
+the synthetic responses is chosen to minimize propagated ability-score
+risk, down-weighting uninformative or biased generated responses.
+Louis-corrected sandwich standard errors, ability scoring, cross-fitted
+tuning, and scale linking are also provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mums2
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microbial Ecology by Tandem Mass Spectrometry
 
@@ -24,6 +24,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-RaMS 
 BuildRequires:    R-CRAN-sitmo 
 BuildRequires:    R-CRAN-RcppThread 
 BuildRequires:    R-CRAN-testthat 
@@ -36,6 +37,7 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-parallel 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-RaMS 
 
 %description
 Tools that researchers can use to analyze untargeted metabolomics data

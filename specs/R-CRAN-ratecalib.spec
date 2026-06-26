@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpsvote
-%global packver   0.2.0
+%global packname  ratecalib
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Using the CPS’s Voting and Registration Supplement
+Summary:          Calibration Weighting to Multiple Subgroup Pass-Rate Targets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-osqp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-osqp 
+Requires:         R-stats 
 
 %description
-Provides automated methods for downloading, recoding, and merging selected
-years of the Current Population Survey's Voting and Registration
-Supplement
-<https://www.nber.org/research/data/current-population-survey-cps-supplements-voting-and-registration>,
-a large N national survey about registration, voting, and non-voting in
-United States federal elections. Provides documentation for appropriate
-use of sample weights to generate statistical estimates, drawing from Hur
-& Achen (2013) <doi:10.1093/poq/nft042> and McDonald (2018)
-<https://www.electproject.org/election-data/voter-turnout-data>.
+Calibration weighting for binary-outcome pass rates against multiple
+overlapping subgroup targets. Adjusts initial positive weights so that the
+overall pass rate and subgroup pass rates approach (soft mode) or exactly
+match (exact mode) given targets, while preserving the initial weight
+structure and population margins. Provides a one-step interface, pre-solve
+data checks, target-table construction, effective sample size and
+design-effect diagnostics, and example data. The solver works on a bounded
+convex quadratic program over demographic-cell-by-outcome aggregates for
+efficiency on large samples. Methods follow the calibration approach of
+Deville and Saerndal (1992) <doi:10.1080/01621459.1992.10475217>.
 
 %prep
 %setup -q -c -n %{packname}

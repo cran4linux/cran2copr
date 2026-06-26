@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  purgeR
-%global packver   1.8.2
+%global packver   1.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inbreeding-Purging Estimation in Pedigreed Populations
 
@@ -16,12 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-shiny >= 1.7.3
 BuildRequires:    R-CRAN-foreach >= 1.5.1
 BuildRequires:    R-CRAN-progress >= 1.2.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-doSNOW >= 1.0.19
 BuildRequires:    R-CRAN-RcppProgress >= 0.4.2
 BuildRequires:    R-parallel 
+Requires:         R-CRAN-shiny >= 1.7.3
 Requires:         R-CRAN-foreach >= 1.5.1
 Requires:         R-CRAN-progress >= 1.2.2
 Requires:         R-CRAN-Rcpp >= 1.0.5
@@ -36,7 +38,7 @@ inbreeding coefficients, and measures of the opportunity of purging
 related to the individual reduction of inbreeding load. In addition,
 functions to calculate the effective population size and other parameters
 relevant to population genetics are included. See López-Cortegano E.
-(2021) <doi:10.1093/bioinformatics/btab599>.
+(2022) <doi:10.1093/bioinformatics/btab599>.
 
 %prep
 %setup -q -c -n %{packname}

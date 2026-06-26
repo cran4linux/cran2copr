@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpsvote
-%global packver   0.2.0
+%global packname  chatterbox
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Using the CPS’s Voting and Registration Supplement
+Summary:          Text-to-Speech Using the 'Chatterbox' Engine
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-torch >= 0.17.0
+BuildRequires:    R-CRAN-safetensors >= 0.1.1
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-hfhub 
+Requires:         R-CRAN-torch >= 0.17.0
+Requires:         R-CRAN-safetensors >= 0.1.1
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-hfhub 
 
 %description
-Provides automated methods for downloading, recoding, and merging selected
-years of the Current Population Survey's Voting and Registration
-Supplement
-<https://www.nber.org/research/data/current-population-survey-cps-supplements-voting-and-registration>,
-a large N national survey about registration, voting, and non-voting in
-United States federal elections. Provides documentation for appropriate
-use of sample weights to generate statistical estimates, drawing from Hur
-& Achen (2013) <doi:10.1093/poq/nft042> and McDonald (2018)
-<https://www.electproject.org/election-data/voter-turnout-data>.
+A native R 'torch' port of the 'Chatterbox' text-to-speech engine
+<https://github.com/resemble-ai/chatterbox>. Provides speech synthesis
+with voice cloning; model weights are downloaded from 'HuggingFace'
+<https://huggingface.co/> via the 'hfhub' package.
 
 %prep
 %setup -q -c -n %{packname}

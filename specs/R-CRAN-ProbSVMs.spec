@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.6
+%global packname  ProbSVMs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Probabilistic Support Vector Machines
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 15.2.6.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
+BuildRequires:    R-CRAN-lpSolveAPI 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
+Requires:         R-CRAN-lpSolveAPI 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-reshape2 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Implements kernel-based classification Support Vector Machines with
+reliable estimated probabilities of class membership. Theoretical support
+for the functions in this package can be found in Duarte Silva (2025)
+<doi:10.1016/j.cor.2025.107203>.
 
 %prep
 %setup -q -c -n %{packname}

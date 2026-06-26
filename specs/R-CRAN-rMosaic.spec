@@ -1,45 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpsvote
-%global packver   0.2.0
+%global packname  rMosaic
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Using the CPS’s Voting and Registration Supplement
+Summary:          R Bindings to the 'Mosaic' Visualization Framework
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-yaml >= 2.3.0
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-htmlwidgets >= 1.5.4
+BuildRequires:    R-CRAN-duckdb >= 1.4.0
+BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-yaml >= 2.3.0
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-htmlwidgets >= 1.5.4
+Requires:         R-CRAN-duckdb >= 1.4.0
+Requires:         R-CRAN-DBI >= 1.1.0
+Requires:         R-stats 
 
 %description
-Provides automated methods for downloading, recoding, and merging selected
-years of the Current Population Survey's Voting and Registration
-Supplement
-<https://www.nber.org/research/data/current-population-survey-cps-supplements-voting-and-registration>,
-a large N national survey about registration, voting, and non-voting in
-United States federal elections. Provides documentation for appropriate
-use of sample weights to generate statistical estimates, drawing from Hur
-& Achen (2013) <doi:10.1093/poq/nft042> and McDonald (2018)
-<https://www.electproject.org/election-data/voter-turnout-data>.
+Provides R bindings for 'Mosaic', a declarative grammar for linked,
+data-driven visualizations backed by 'DuckDB'. The package supplies
+'htmlwidgets' and 'shiny' helpers for rendering 'Mosaic' specifications
+from R, including optional browser-side 'DuckDB-WASM' execution and
+selection export helpers for exploratory workflows.
 
 %prep
 %setup -q -c -n %{packname}

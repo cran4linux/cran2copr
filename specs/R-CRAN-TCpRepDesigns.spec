@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.6
+%global packname  TCpRepDesigns
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Partially Replicated Test-Control Designs for Early Generation Varietal Trials
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Provides functions for generating partially replicated (p-rep)
+test-control designs for early generation varietal trials conducted across
+multiple environments. The package implements three construction methods
+for obtaining efficient p-rep test-control designs with one or more
+control treatments. The package extends the partially replicated design
+framework of Vinaykumar et al. (2026) <doi:10.1007/s12355-025-01684-1> to
+accommodate test-control comparisons in breeding trials. Functions are
+also provided for generating randomized and non-randomized layouts and for
+evaluating designs using average variance measures for test-versus-test
+and test-versus-control comparisons, together with canonical efficiency
+factors. The proposed designs are useful for large-scale varietal
+evaluation trials where a large number of test lines are assessed under
+limited experimental resources.
 
 %prep
 %setup -q -c -n %{packname}

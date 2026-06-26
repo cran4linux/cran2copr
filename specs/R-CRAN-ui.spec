@@ -1,47 +1,65 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ui
-%global packver   0.1.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.1
+Release:          1%{?dist}%{?buildtag}
 Summary:          Uncertainty Intervals and Sensitivity Analysis for Missing Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-Matrix 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-Matrix 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-maxLik 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Implements functions to derive uncertainty intervals for (i) regression
-(linear and probit) parameters when outcome is missing not at random
-(non-ignorable missingness) introduced in Genbaeck, M., Stanghellini, E.,
-de Luna, X. (2015) <doi:10.1007/s00362-014-0610-x> and Genbaeck, M., Ng,
-N., Stanghellini, E., de Luna, X. (2018) <doi:10.1007/s10433-017-0448-x>;
-and (ii) double robust and outcome regression estimators of average causal
-effects (on the treated) with possibly unobserved confounding introduced
-in Genbaeck, M., de Luna, X. (2018) <doi:10.1111/biom.13001>.
+(linear and probit) parameters under missing not at random (non-ignorable
+missingness) as introduced in Genbäck, M., Stanghellini, E., and de Luna,
+X. (2015) <doi:10.1007/s00362-014-0610-x> and Genbäck, M., Ng, N.,
+Stanghellini, E., and de Luna, X. (2018) <doi:10.1007/s10433-017-0448-x>.
+Also includes methods for doubly robust and outcome regression estimators
+of average causal effects under unobserved confounding as in Genbäck, M.
+and de Luna, X. (2018) <doi:10.1111/biom.13001>, and for partial
+correlation analysis following Gorbach, T. and de Luna, X. (2018)
+<doi:10.1016/j.spl.2018.05.027>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -49,9 +67,10 @@ in Genbaeck, M., de Luna, X. (2018) <doi:10.1111/biom.13001>.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

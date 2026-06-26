@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impectR
-%global packver   2.5.6
+%global packname  ggbond
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.6
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the 'Impect' API
+Summary:          Interactive Layout Editor for 'R' Plots
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridGraphics 
+BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tiff 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-gridGraphics 
+Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-CRAN-tiff 
+Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
 
 %description
-Pull data from the 'Impect' Customer API
-<https://glossary.impect.com/api-design>. The package can retrieve data
-such as events or match sums.
+Provides a 'shiny'-based layout editor for arranging 'R' plot objects on a
+fixed-size canvas. It supports 'ggplot2' plots, 'graphics' functions and
+recorded plots, 'pheatmap' objects, 'ComplexHeatmap' objects, 'grid'
+grobs, 'gtable' objects, and local raster images, with live preview and
+PDF or PNG export.
 
 %prep
 %setup -q -c -n %{packname}

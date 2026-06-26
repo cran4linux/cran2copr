@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PacketLLM
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive 'OpenAI' Model Integration in 'RStudio'
+Summary:          AI Assistant Gadget for 'RStudio'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-readtext 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-stats 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-promises 
 Requires:         R-CRAN-readtext 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-stats 
@@ -39,17 +41,16 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Offers an interactive 'RStudio' gadget interface for communicating with
-'OpenAI' large language models (e.g., 'gpt-5', 'gpt-5-mini', 'gpt-5-nano')
-(<https://platform.openai.com/docs/api-reference>). Enables users to
-conduct multiple chat conversations simultaneously in separate tabs.
-Supports uploading local files (R, PDF, DOCX) to provide context for the
-models. Allows per-conversation configuration of system messages (where
-supported by the model). API interactions via the 'httr' package are
-performed asynchronously using 'promises' and 'future' to avoid blocking
-the R console. Useful for tasks like code generation, text summarization,
-and document analysis directly within the 'RStudio' environment. Requires
-an 'OpenAI' API key set as an environment variable.
+Provides an interactive 'RStudio' gadget for working with an AI assistant
+during package and script development. The gadget can use selected editor
+text, the active source file, package metadata, and uploaded files as
+context for code explanation, code generation, documentation, and review
+workflows. It offers model presets, assistant behavior settings,
+responsive code-focused output, and explicit copy, insert, and replace
+actions for the active source editor. API interactions via the 'httr'
+package are performed asynchronously using 'promises' and 'future' to
+avoid blocking the R console. The backend is configured via the
+OPENAI_API_KEY environment variable.
 
 %prep
 %setup -q -c -n %{packname}

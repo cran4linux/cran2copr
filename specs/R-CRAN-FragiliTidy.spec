@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpsvote
-%global packver   0.2.0
+%global packname  FragiliTidy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Using the CPS’s Voting and Registration Supplement
+Summary:          Tidyverse-Compatible Fragility Index Calculations
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-stats 
 
 %description
-Provides automated methods for downloading, recoding, and merging selected
-years of the Current Population Survey's Voting and Registration
-Supplement
-<https://www.nber.org/research/data/current-population-survey-cps-supplements-voting-and-registration>,
-a large N national survey about registration, voting, and non-voting in
-United States federal elections. Provides documentation for appropriate
-use of sample weights to generate statistical estimates, drawing from Hur
-& Achen (2013) <doi:10.1093/poq/nft042> and McDonald (2018)
-<https://www.electproject.org/election-data/voter-turnout-data>.
+Provides optimized, Tidyverse-compatible functions for calculating the
+Fragility Index and Reverse Fragility Index for 2x2 contingency tables
+from clinical trials. Uses customized hypergeometric and algebraic
+calculations along with binary search algorithms to achieve substantial
+speedups over standard implementations, with seamless integration into
+'dplyr' pipelines.
 
 %prep
 %setup -q -c -n %{packname}

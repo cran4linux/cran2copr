@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opdisDownsampling
-%global packver   1.0.1
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Distribution Preserving Down-Sampling of Bio-Medical Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-parallel 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
@@ -27,6 +27,8 @@ BuildRequires:    R-CRAN-twosamples
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-pbmcapply 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-parallel 
 Requires:         R-graphics 
 Requires:         R-methods 
@@ -37,10 +39,11 @@ Requires:         R-CRAN-twosamples
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-pbmcapply 
 Requires:         R-CRAN-foreach 
+Requires:         R-utils 
 
 %description
 An optimized method for distribution-preserving class-proportional
-down-sampling of bio-medical data.
+down-sampling of bio-medical data <doi:10.1371/journal.pone.0255838>.
 
 %prep
 %setup -q -c -n %{packname}
