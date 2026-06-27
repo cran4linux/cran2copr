@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggchangepoint
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combines Changepoint Analysis with 'ggplot2'
 
@@ -42,14 +42,13 @@ Requires:         R-utils
 R provides fantastic tools for changepoint analysis, but plots generated
 by the tools do not have the 'ggplot2' style. This tool, however, combines
 'changepoint', 'changepoint.np' and 'ecp' together, and uses 'ggplot2' to
-visualize changepoints. Version 0.2.0 adds a unified 'ggcpt' S3 result
-class, 'broom'-style tidy/glance/augment methods, 'autoplot()', new geoms
+visualize changepoints. It provides a unified 'ggcpt' S3 result class,
+'broom'-style tidy/glance/augment methods, 'autoplot()', composable geoms
 ('geom_changepoint()', 'geom_cpt_segment()', 'geom_cpt_ci()',
-'stat_changepoint()'), a unified 'cpt_detect()' dispatcher, first-wave
-wrappers for WBS/WBS2, NOT, MOSUM, FPOP, a method comparison module,
-accuracy metrics, data simulation, canonical test signals, and hardening
-of the existing functions (no-change bug fix, 'size' to 'linewidth'
-migration, 'match.arg()' validation).
+'stat_changepoint()'), a unified 'cpt_detect()' dispatcher with method
+introspection via 'cpt_methods()', wrappers for several optional engines
+(WBS, WBS2, NOT, MOSUM, FPOP, Isolate-Detect, TGUH), a method comparison
+module, accuracy metrics, data simulation, and canonical test signals.
 
 %prep
 %setup -q -c -n %{packname}

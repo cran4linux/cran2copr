@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hce
-%global packver   0.9.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis of Hierarchical Composite Endpoints
 
@@ -23,23 +23,27 @@ Requires:         R-base
 Requires:         R-stats 
 
 %description
-Simulate and analyze hierarchical composite endpoints. Includes
-implementation for the kidney hierarchical composite endpoint as defined
-in Heerspink HL et al (2023) “Development and validation of a new
-hierarchical composite end point for clinical trials of kidney disease
-progression” (Journal of the American Society of Nephrology 34 (2):
-2025–2038, <doi:10.1681/ASN.0000000000000243>). Win odds, also called
-Wilcoxon-Mann-Whitney or success odds, is the main analysis method. Other
-win statistics (win probability, win ratio, net benefit) are also
-implemented in the univariate case, provided there is no censoring. The
-win probability analysis is based on the Brunner-Munzel test and uses the
-DeLong-DeLong-Clarke-Pearson variance estimator, as described by Brunner
-and Konietschke (2025) in “An unbiased rank-based estimator of the
-Mann–Whitney variance including the case of ties” (Statistical Papers 66
-(1): 20, <doi:10.1007/s00362-024-01635-0>). Includes implementation of a
-new Wilson-type, compatible confidence interval for the win odds, as
-proposed by Schüürhuis, Konietschke, Brunner (2025) in “A new approach to
-the nonparametric Behrens–Fisher problem with compatible confidence
+Simulate and analyze hierarchical composite endpoints with univariate
+distributions by Gasparyan, Koch, Brunner in (2025) in “The Univariate
+Distribution of Hierarchical Composite Endpoints and the Condorcet
+Non-transitivity Paradox.” (Biometrical Journal 68 (3),
+<doi:10.1002/bimj.70140>). Includes implementation for the kidney
+hierarchical composite endpoint as defined in Heerspink HL et al (2023)
+“Development and validation of a new hierarchical composite end point for
+clinical trials of kidney disease progression” (Journal of the American
+Society of Nephrology 34 (2): 2025–2038,
+<doi:10.1681/ASN.0000000000000243>). Win odds, also called
+Wilcoxon-Mann-Whitney or success odds, is the main analysis method, but
+other win statistics (win probability, win ratio, net benefit) are also
+implemented in the univariate case. The win probability analysis is based
+on the Brunner-Munzel test and uses the DeLong-DeLong-Clarke-Pearson
+variance estimator, as described by Brunner and Konietschke (2025) in “An
+unbiased rank-based estimator of the Mann–Whitney variance including the
+case of ties” (Statistical Papers 66 (1): 20,
+<doi:10.1007/s00362-024-01635-0>). Includes implementation of a new
+Wilson-type, compatible confidence interval for the win odds, as proposed
+by Schüürhuis, Konietschke, Brunner (2025) in “A new approach to the
+nonparametric Behrens–Fisher problem with compatible confidence
 intervals.” (Biometrical Journal 67 (6), <doi:10.1002/bimj.70096>).
 Stratification and covariate adjustment are performed based on the
 methodology presented by Koch GG et al. in “Issues for covariance analysis

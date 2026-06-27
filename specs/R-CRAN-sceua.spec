@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  raymolecule
-%global packver   0.9.0
+%global packname  sceua
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse and Render Molecular Structures in 3D
+Summary:          Shuffled Complex Evolution Algorithm for Optimization
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rayrender >= 0.41.3
-BuildRequires:    R-CRAN-rayvertex >= 0.15.0
-BuildRequires:    R-CRAN-PeriodicTable 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-rayrender >= 0.41.3
-Requires:         R-CRAN-rayvertex >= 0.15.0
-Requires:         R-CRAN-PeriodicTable 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-checkmate 
 
 %description
-Downloads and parses 'SDF' (Structural Description Format) and 'PDB'
-(Protein Database) files for 3D rendering.
+Provides an 'R' interface to a 'Rust' implementation of the Shuffled
+Complex Evolution - University of Arizona (SCE-UA) global optimization
+algorithm (Duan et al., 1992). SCE-UA combines simplex search, competitive
+evolution, and complex shuffling to solve nonlinear, non-convex,
+continuous parameter estimation problems. The method is commonly used for
+calibrating hydrological and environmental models and follows the
+algorithm proposed by Duan et al. (1992) <doi:10.1029/91WR02985>.
 
 %prep
 %setup -q -c -n %{packname}

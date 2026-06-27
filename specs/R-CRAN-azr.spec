@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  azr
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Credential Chain for Seamless 'OAuth 2.0' Authentication to 'Azure Services'
 
@@ -18,12 +18,14 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.2.2
+BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-httr2 >= 1.2.2
+Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-utils 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-cli 

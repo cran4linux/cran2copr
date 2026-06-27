@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corteza
-%global packver   0.6.9
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.9
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          AI Agent Runtime
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-llm.api >= 0.1.4
+BuildRequires:    R-CRAN-llm.api >= 0.1.8
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-codetools 
 BuildRequires:    R-CRAN-curl 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-printify 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-saber 
-Requires:         R-CRAN-llm.api >= 0.1.4
+Requires:         R-CRAN-llm.api >= 0.1.8
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-codetools 
 Requires:         R-CRAN-curl 

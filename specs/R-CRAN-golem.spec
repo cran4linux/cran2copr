@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  golem
-%global packver   0.5.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Robust Shiny Applications
 
@@ -20,16 +20,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-attempt >= 0.3.0
+BuildRequires:    R-CRAN-codetools 
 BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-attempt >= 0.3.0
+Requires:         R-CRAN-codetools 
 Requires:         R-CRAN-config 
-Requires:         R-CRAN-here 
 Requires:         R-CRAN-htmltools 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  convergenceDFM
-%global packver   0.1.4
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convergence and Dynamic Factor Models
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-BayesianDisaggregation >= 0.2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-CRAN-urca 
@@ -28,8 +30,10 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-BayesianDisaggregation >= 0.2.1
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-vars 
 Requires:         R-CRAN-urca 
@@ -42,21 +46,26 @@ Requires:         R-CRAN-zoo
 
 %description
 Tests convergence in macro-financial panels combining Dynamic Factor
-Models (DFM) and mean-reverting Ornstein-Uhlenbeck (OU) processes.
-Provides: (i) static/approximate DFMs for large panels with VAR/VECM
-stability checks, Portmanteau tests and rolling out-of-sample R^2,
-following Stock and Watson (2002) <doi:10.1198/073500102317351921> and the
+Models (DFM) and mean-reverting, discrete-time Ornstein-Uhlenbeck/AR(1)
+factor processes. Provides: (i) static factor extraction with VAR
+stability checks, Portmanteau tests and rolling out-of-sample R^2, in the
+spirit of Stock and Watson (2002) <doi:10.1198/073500102317351921> and the
 Generalized Dynamic Factor Model of Forni, Hallin, Lippi and Reichlin
-(2000) <doi:10.1162/003465300559037>; (ii) cointegration analysis à la
-Johansen (1988) <doi:10.1016/0165-1889(88)90041-3>; (iii) OU-based
-convergence and half-life summaries grounded in Uhlenbeck and Ornstein
-(1930) <doi:10.1103/PhysRev.36.823> and Vasicek (1977)
-<doi:10.1016/0304-405X(77)90016-2>; (iv) robust inference via 'sandwich'
-HC/HAC estimators (Zeileis (2004) <doi:10.18637/jss.v011.i10>) and
-regression diagnostics ('lmtest'); and (v) optional PLS-based factor
-preselection (Mevik and Wehrens (2007) <doi:10.18637/jss.v018.i02>).
-Functions emphasize reproducibility and clear, publication-ready
-summaries.
+(2000) <doi:10.1162/003465300559037>; (ii) cointegration analysis a la
+Johansen (1988) <doi:10.1016/0165-1889(88)90041-3>; (iii) Bayesian
+factor-OU/AR(1) estimation with convergence and half-life summaries
+grounded in Uhlenbeck and Ornstein (1930) <doi:10.1103/PhysRev.36.823> and
+Vasicek (1977) <doi:10.1016/0304-405X(77)90016-2>, with full Markov chain
+Monte Carlo convergence diagnostics; (iv) heteroskedasticity-consistent
+(HC) and, when the suggested 'sandwich' (Zeileis (2004)
+<doi:10.18637/jss.v011.i10>) and 'lmtest' packages are available,
+heteroskedasticity- and autocorrelation- consistent (HAC) robust
+inference, with a self-contained HC fallback; (v) coupling significance
+tests based on time-shift / block-bootstrap nulls that preserve marginal
+dynamics while breaking cross-series dependence; and (vi) optional
+PLS-based factor preselection (Mevik and Wehrens (2007)
+<doi:10.18637/jss.v018.i02>). Functions emphasize reproducibility
+(explicit seeds throughout) and clear, publication-ready summaries.
 
 %prep
 %setup -q -c -n %{packname}

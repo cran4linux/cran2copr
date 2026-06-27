@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  raymolecule
-%global packver   0.9.0
+%global packname  mpaR
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse and Render Molecular Structures in 3D
+Summary:          Main Path Analysis for Citation and Directed Networks
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rayrender >= 0.41.3
-BuildRequires:    R-CRAN-rayvertex >= 0.15.0
-BuildRequires:    R-CRAN-PeriodicTable 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-rayrender >= 0.41.3
-Requires:         R-CRAN-rayvertex >= 0.15.0
-Requires:         R-CRAN-PeriodicTable 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-igraph >= 1.3.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-methods 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-igraph >= 1.3.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-methods 
+Requires:         R-tools 
+Requires:         R-CRAN-xml2 
 
 %description
-Downloads and parses 'SDF' (Structural Description Format) and 'PDB'
-(Protein Database) files for 3D rendering.
+Implements Main Path Analysis (MPA) as introduced by Hummon and Doreian
+(1989) <doi:10.1016/0378-8733(89)90017-8>. Given a directed acyclic graph
+(DAG) representing a citation or precedence network, the package computes
+traversal weights (SPC, SPLC, SPNP) for each edge and extracts the global,
+local, and key-route main paths. Also provides tools for DAG validation,
+node role classification (source/terminal/user), per-component path
+extraction for disconnected networks, and scale-free network testing.
+Accepts 'igraph' objects or edge-list data frames as input. Includes
+readers for 'Pajek' (.net) and 'Gephi' export (.gexf, .graphml) files.
 
 %prep
 %setup -q -c -n %{packname}

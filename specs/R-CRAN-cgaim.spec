@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cgaim
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Groupwise Additive Index Models
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-scam
 BuildRequires:    R-CRAN-scar 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-osqp 
-BuildRequires:    R-CRAN-limSolve 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
@@ -35,13 +34,13 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-coneproj 
 BuildRequires:    R-CRAN-TruncatedNormal 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-nnls 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-scam 
 Requires:         R-CRAN-scar 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-osqp 
-Requires:         R-CRAN-limSolve 
 Requires:         R-CRAN-Matrix 
 Requires:         R-grDevices 
 Requires:         R-methods 
@@ -53,6 +52,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-coneproj 
 Requires:         R-CRAN-TruncatedNormal 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-nnls 
 
 %description
 Fits constrained groupwise additive index models and provides functions

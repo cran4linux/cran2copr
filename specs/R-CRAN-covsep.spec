@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  raymolecule
-%global packver   0.9.0
+%global packname  covsep
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse and Render Molecular Structures in 3D
+Summary:          Tests for Determining if the Covariance Structure of 2-Dimensional Data is Separable
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rayrender >= 0.41.3
-BuildRequires:    R-CRAN-rayvertex >= 0.15.0
-BuildRequires:    R-CRAN-PeriodicTable 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-rayrender >= 0.41.3
-Requires:         R-CRAN-rayvertex >= 0.15.0
-Requires:         R-CRAN-PeriodicTable 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.4
+Requires:         R-CRAN-mvtnorm >= 1.0.4
 
 %description
-Downloads and parses 'SDF' (Structural Description Format) and 'PDB'
-(Protein Database) files for 3D rendering.
+Functions for testing if the covariance structure of 2-dimensional data
+(e.g. samples of surfaces X_i = X_i(s,t)) is separable, i.e. if
+covariance(X) = C_1 x C_2. A complete descriptions of the implemented
+tests can be found in the paper Aston et al. (2017)
+<doi:10.1214/16-AOS1495> <doi:10.48550/arXiv.1505.02023>.
 
 %prep
 %setup -q -c -n %{packname}

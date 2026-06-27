@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  raymolecule
-%global packver   0.9.0
+%global packname  ClusterRandSSAdj
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse and Render Molecular Structures in 3D
+Summary:          Small Sample Adjustment of Cluster Randomized Trial
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rayrender >= 0.41.3
-BuildRequires:    R-CRAN-rayvertex >= 0.15.0
-BuildRequires:    R-CRAN-PeriodicTable 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-rayrender >= 0.41.3
-Requires:         R-CRAN-rayvertex >= 0.15.0
-Requires:         R-CRAN-PeriodicTable 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-sandwich 
 
 %description
-Downloads and parses 'SDF' (Structural Description Format) and 'PDB'
-(Protein Database) files for 3D rendering.
+A set of functions to apply 'HC3' (FIRORES) and 'HC2' (ROOT) sandwich
+estimators to make small-sample adjustments to standard errors of
+Generalized Linear Model statistics used to analyze cluster randomized
+trial data.  The functions in the 'ClusterRandSSAdj' package make
+small-sample adjustments to Generalized Linear Model parameter estimates,
+least squares means and pair-wise comparison of least squares means, Type
+III tests, and estimates from linear combinations of Generalized Linear
+Model parameters. For more details see Ford (2017)
+<doi:10.1002/bimj.201600182> and Westgate (2022)
+<doi:10.1177/17407745211063479>.
 
 %prep
 %setup -q -c -n %{packname}

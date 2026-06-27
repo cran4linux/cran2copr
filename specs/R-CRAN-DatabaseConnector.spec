@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DatabaseConnector
-%global packver   7.1.0
+%global packver   7.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1.0
+Version:          7.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connecting to Various Database Platforms
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.2.0
+BuildRequires:    R-CRAN-dbplyr >= 2.6.0
 BuildRequires:    R-CRAN-SqlRender >= 1.19.2
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-rJava 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-urltools
 BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-dbplyr >= 2.2.0
+Requires:         R-CRAN-dbplyr >= 2.6.0
 Requires:         R-CRAN-SqlRender >= 1.19.2
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-rJava 

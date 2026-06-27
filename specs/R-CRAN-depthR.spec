@@ -1,34 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  raymolecule
-%global packver   0.9.0
+%global packname  depthR
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse and Render Molecular Structures in 3D
+Summary:          Multivariate Depth Functions for General Dimension
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rayrender >= 0.41.3
-BuildRequires:    R-CRAN-rayvertex >= 0.15.0
-BuildRequires:    R-CRAN-PeriodicTable 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-rayrender >= 0.41.3
-Requires:         R-CRAN-rayvertex >= 0.15.0
-Requires:         R-CRAN-PeriodicTable 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-RcppParallel >= 5.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Downloads and parses 'SDF' (Structural Description Format) and 'PDB'
-(Protein Database) files for 3D rendering.
+Efficient computation of multivariate statistical depth functions in
+arbitrary dimension d. Implements Mahalanobis depth, Tukey (halfspace)
+depth, Liu simplicial depth (via adaptive Monte Carlo), projection depth,
+and spatial depth. Provides depth-based medians, central regions, outlier
+detection, and depth-depth plots. 'C++' backends via 'Rcpp' and
+'RcppEigen' ensure performance at large n and d. References: Liu (1990)
+<doi:10.1214/aos/1176347507>, Zuo and Serfling (2000)
+<doi:10.1214/aos/1016218226>, Vardi and Zhang (2000)
+<doi:10.1073/pnas.97.4.1423>.
 
 %prep
 %setup -q -c -n %{packname}
