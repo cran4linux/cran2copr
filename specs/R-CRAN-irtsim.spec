@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  irtsim
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo Simulation-Based Sample-Size Planning for Item Response Theory
 
@@ -35,12 +35,13 @@ Implements the 10-decision framework from Schroeders and Gnambs (2025)
 <doi:10.1177/25152459251314798> as a three-step workflow: specify the
 data-generating model with irt_design(), add study conditions with
 irt_study(), and run simulations with irt_simulate(). Supports
-one-parameter logistic (1PL), two-parameter logistic (2PL), and graded
-response models with missing-completely-at-random (MCAR),
-missing-at-random (MAR), booklet, and linking missingness mechanisms.
-Results include mean squared error (MSE), bias, root mean squared error
-(RMSE), standard error (SE), and coverage criteria with summary and plot
-methods.
+one-parameter logistic (1PL), two-parameter logistic (2PL),
+three-parameter logistic (3PL), graded response (GRM), partial credit
+(PCM), and generalized partial credit (GPCM) models with
+missing-completely-at-random (MCAR), missing-at-random (MAR), booklet, and
+linking missingness mechanisms. Results include mean squared error (MSE),
+bias, root mean squared error (RMSE), standard error (SE), and coverage
+criteria with summary and plot methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MBNMAdose
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose-Response MBNMA Models
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-rjags >= 4.8
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-igraph >= 2.0.1.1
 BuildRequires:    R-CRAN-checkmate >= 1.8.5
+BuildRequires:    R-CRAN-overlapping >= 1.5
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-reshape2 >= 1.4.3
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
@@ -30,11 +31,13 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-rjags >= 4.8
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-igraph >= 2.0.1.1
 Requires:         R-CRAN-checkmate >= 1.8.5
+Requires:         R-CRAN-overlapping >= 1.5
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-reshape2 >= 1.4.3
 Requires:         R-CRAN-dplyr >= 0.7.4
@@ -44,6 +47,7 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-methods 
 Requires:         R-CRAN-scales 
 
 %description

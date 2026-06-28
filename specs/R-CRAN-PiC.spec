@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PiC
-%global packver   1.2.7
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pointcloud Interactive Computation
+Summary:          Interactive Processing and Segmentation of Forest TLS Point-Cloud Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,35 +22,38 @@ BuildRequires:    R-CRAN-conicfit
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-conicfit 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-RANN 
 Requires:         R-stats 
 Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-terra 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Provides advanced algorithms for analyzing pointcloud data from
-terrestrial laser scanner in forestry applications. Key features include
-fast voxelization of large datasets; segmentation of point clouds into
-forest floor, understorey, canopy, and wood components. The package
-enables efficient processing of large-scale forest pointcloud data,
-offering insights into forest structure, connectivity, and fire risk
-assessment. Algorithms to analyze pointcloud data (.xyz input file). For
-more details, see Ferrara & Arrizza (2025)
-<https://hdl.handle.net/20.500.14243/533471>. For single tree segmentation
-details, see Ferrara et al. (2018) <doi:10.1016/j.agrformet.2018.04.008>.
+Tools for the processing, segmentation, and analysis of terrestrial laser
+scanning (TLS and MLS) forest point-cloud data. The package provides fast
+voxel-based processing, classification of point clouds into forest floor,
+understory, canopy, and woody components, and algorithms for single-tree
+analysis and structural characterization. Methods are designed to handle
+large and dense point-cloud datasets efficiently, supporting applications
+in forest structure assessment, connectivity analysis, and fire-risk
+evaluation. Input data are provided as '.xyz', '.txt', '.las', or '.laz'
+point-cloud files. For methodological details, see Ferrara and Arrizza
+(2025) <https://hdl.handle.net/20.500.14243/533471> and Ferrara et al.
+(2018) <doi:10.1016/j.agrformet.2018.04.008>.
 
 %prep
 %setup -q -c -n %{packname}

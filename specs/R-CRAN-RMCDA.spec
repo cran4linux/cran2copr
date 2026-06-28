@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMCDA
-%global packver   0.3
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Criteria Decision Analysis
+Summary:          Multi-Criteria Decision Analysis in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,10 +37,7 @@ Requires:         R-CRAN-matrixStats
 Requires:         R-CRAN-pracma 
 
 %description
-Supporting decision making involving multiple criteria. Annice Najafi,
-Shokoufeh Mirzaei (2025) RMCDA: The Comprehensive R Library for applying
-multi-criteria decision analysis methods, Volume 24, e100762
-<doi:10.1016/j.simpa.2025.100762>.
+Provides different methods of multi-criteria decision analysis.
 
 %prep
 %setup -q -c -n %{packname}

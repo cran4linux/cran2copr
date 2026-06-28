@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Phi2rho
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Owen's T Function and Bivariate Normal Integral
 
@@ -23,11 +23,13 @@ Requires:         R-stats
 Requires:         R-CRAN-Rmpfr 
 
 %description
-Computes the Owen's T function or the bivariate normal integral using one
-of the following: modified Euler's arctangent series, tetrachoric series,
-or Vasicek's series.  For the methods, see Komelj, J. (2023)
-<doi:10.4236/ajcm.2023.134026> (or reprint <arXiv:2312.00011> with better
-typography) and Vasicek, O. A. (1998) <doi:10.21314/JCF.1998.015>.
+Computes 'Owen's T' function or the bivariate normal integral using one of
+the following methods: the modified Euler's arctangent series, tetrachoric
+series, or Vasicek's series. For the methodology, see Komelj, J. (2023)
+<doi:10.4236/ajcm.2023.134026>, or the revised postprint version with
+corrected contents and improved typography at
+<doi:10.48550/arXiv.2312.00011>. Also see the alternative approach by
+Vasicek, O. A. (1998) <doi:10.21314/JCF.1998.015>.
 
 %prep
 %setup -q -c -n %{packname}

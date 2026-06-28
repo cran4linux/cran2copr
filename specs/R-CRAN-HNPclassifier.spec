@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HNPclassifier
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Neyman-Pearson Classification for Ordered Classes
 
@@ -19,10 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-randomForest 
 
@@ -38,9 +40,7 @@ controls under-classification errors under user specified control levels
 with high probability. It supports the creation of H-NP classifiers using
 scoring functions based on built-in classification methods (including
 logistic regression, support vector machines, and random forests), as well
-as user-trained scoring functions. For theoretical details, please refer
-to Lijia Wang, Y. X. Rachel Wang, Jingyi Jessica Li & Xin Tong (2024)
-<doi:10.1080/01621459.2023.2270657>.
+as user-trained scoring functions.
 
 %prep
 %setup -q -c -n %{packname}
