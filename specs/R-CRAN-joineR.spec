@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  joineR
-%global packver   1.2.8
+%global packver   1.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Modelling of Repeated Measurements and Time-to-Event Data
 
@@ -17,21 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-generics 
 Requires:         R-graphics 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-statmod 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
 Requires:         R-utils 
 
 %description
@@ -43,7 +45,7 @@ events time) to a single continuous repeated measure. The time-to-event
 data is modelled using a (cause-specific) Cox proportional hazards
 regression model with time-varying covariates. The longitudinal outcome is
 modelled using a linear mixed effects model. The association is captured
-by a latent Gaussian process. The model is estimated using am Expectation
+by a latent Gaussian process. The model is estimated using an Expectation
 Maximization algorithm. Some plotting functions and the variogram are also
 included. This project is funded by the Medical Research Council (Grant
 numbers G0400615 and MR/M013227/1).

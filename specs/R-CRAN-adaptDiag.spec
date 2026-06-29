@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  adaptDiag
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Adaptive Designs for Diagnostic Trials
 
@@ -17,16 +18,16 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbmcapply 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
-Requires:         R-CRAN-pbmcapply 
 Requires:         R-stats 
 
 %description

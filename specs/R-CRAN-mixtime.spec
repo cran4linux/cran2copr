@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixtime
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed Temporal Vectors and Operations
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-vecvec >= 1.2.0
 BuildRequires:    R-CRAN-cpp11 >= 0.5.2
 BuildRequires:    R-CRAN-tzdb >= 0.5.0
-BuildRequires:    R-CRAN-vecvec > 0.2.1
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-vecvec > 0.2.1
+Requires:         R-CRAN-vecvec >= 1.2.0
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-rlang 

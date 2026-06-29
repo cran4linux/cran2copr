@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SFPL
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Fused Plackett-Luce
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-gtools
 
 %description
 Implements the methodological developments found in Hermes, van
-Heerwaarden, and Behrouzi (2024) <doi:10.48550/arXiv.2308.04325>, and
+Heerwaarden, and Behrouzi (2025) <doi:10.48550/arXiv.2407.10846>, and
 allows for the statistical modeling of multi-group rank data in
 combination with object variables. The package also allows for the
 simulation of synthetic multi-group rank data.
