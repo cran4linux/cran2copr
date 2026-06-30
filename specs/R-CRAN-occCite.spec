@@ -1,60 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  accelEE
-%global packver   0.3.1
+%global packname  occCite
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict Energy Expenditure from Accelerometer Data
+Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PAutilities >= 1.3.0
-BuildRequires:    R-CRAN-Sojourn >= 1.1.0
-BuildRequires:    R-CRAN-TwoRegression >= 1.0.0
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-rgbif >= 3.1
+BuildRequires:    R-CRAN-BIEN 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RefManageR 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-bib2df 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tree 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-PAutilities >= 1.3.0
-Requires:         R-CRAN-Sojourn >= 1.1.0
-Requires:         R-CRAN-TwoRegression >= 1.0.0
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-rgbif >= 3.1
+Requires:         R-CRAN-BIEN 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RefManageR 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-bib2df 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-randomForest 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tree 
-Requires:         R-utils 
+Requires:         R-CRAN-viridis 
 
 %description
-Simplifies the application of various energy expenditure models. The
-package is intended as a hub that brings together methods from a variety
-of other, themed packages such as 'Sojourn' and 'TwoRegression'. Several
-methods are supported locally as well, including the linear methods of
-Hildebrand et al. (2014) <doi:10.1249/MSS.0000000000000289> and the
-non-linear adaptation by Ellingson et al. (2017)
-<doi:10.1088/1361-6579/aa6d00>. The package can combine output from
-different methods and produce standardized output in a range of units.
+Facilitates the gathering of biodiversity occurrence data from disparate
+sources. Metadata is managed throughout the process to facilitate
+reporting and enhanced ability to repeat analyses.
 
 %prep
 %setup -q -c -n %{packname}

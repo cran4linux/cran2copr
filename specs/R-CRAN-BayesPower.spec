@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesPower
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size and Power Calculation for Bayesian Testing with Bayes Factor
 
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-shinyWidgets
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
@@ -47,6 +49,8 @@ Requires:         R-CRAN-shinyWidgets
 Requires:         R-grDevices 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-httpuv 
+Requires:         R-utils 
 
 %description
 The goal of 'BayesPower' is to provide tools for Bayesian sample size

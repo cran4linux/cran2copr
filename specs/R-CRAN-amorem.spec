@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  worldbank
-%global packver   0.9.1
+%global packname  amorem
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'World Bank' APIs
+Summary:          Augmented Modelling of Relational Events
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-splines 
 Requires:         R-stats 
-Requires:         R-tools 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-withr 
 
 %description
-Download and search data from the 'World Bank' APIs, including the
-'Indicators' API, the 'Poverty and Inequality Platform (PIP)' API, the
-'Finances One' API, and the 'Projects' API. See
-<https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview>
-for further details.
+Utilities for simulating and prototyping relational event models,
+including helpers to generate dynamic event sequences and covariate
+processes for sender and receiver sets. The endogenous-effect and
+case-control estimation machinery follows Juozaitiene and Wit (2024)
+<doi:10.1093/jrsssa/qnae132>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BIOMASS
-%global packver   2.2.7
+%global packver   2.2.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.7
+Version:          2.2.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Aboveground Biomass and Its Uncertainty in Tropical Forests
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-rappdirs
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggnewscale 
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-jsonlite 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-rappdirs
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggnewscale 
 
 %description
 Contains functions for estimating above-ground biomass/carbon and its

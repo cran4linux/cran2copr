@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clustMixType
-%global packver   0.5-1
+%global packver   0.5-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          k-Prototypes Clustering for Mixed Variable-Type Data
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-combinat
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-mclust 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-mclust 
 
 %description
 Functions to perform k-prototypes partitioning clustering for mixed

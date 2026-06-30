@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BKT
-%global packver   0.1.0
+%global packname  gp3tools
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Knowledge Tracing Model
+Summary:          Import, Inspect, Analyse, and Report Gazepoint GP3 Exports
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-RCurl 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
-Fitting, cross-validating, and predicting with Bayesian Knowledge Tracing
-(BKT) models. It is designed for analyzing educational datasets to trace
-student knowledge over time. The package includes functions for fitting
-BKT models, evaluating their performance using various metrics, and making
-predictions on new data. It provides the similar functionality as the
-Python package pyBKT authored by Zachary A. Pardos (zp@berkeley.edu) at
-<https://github.com/CAHLR/pyBKT>.
+Imports, inspects, cleans, summarises, models, and reports Gazepoint GP3
+and Gazepoint Analysis CSV exports. Supports offline workflows for
+all-gaze, fixation, pupil, area-of-interest, transition, time-course,
+quality-audit, and manuscript-reporting analyses.
 
 %prep
 %setup -q -c -n %{packname}

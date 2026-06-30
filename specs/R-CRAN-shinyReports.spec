@@ -1,37 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ASMap
-%global packver   1.0-8
+%global packname  shinyReports
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linkage Map Construction using the MSTmap Algorithm
+Summary:          R Markdown HTML Tab Rendering for Shiny
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-qtl 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-gtools 
-Requires:         R-CRAN-qtl 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-gtools 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
 
 %description
-Functions for Accurate and Speedy linkage map construction, manipulation
-and diagnosis of Doubled Haploid, Backcross and Recombinant Inbred 'R/qtl'
-objects. This includes extremely fast linkage map clustering and optimal
-marker ordering using 'MSTmap' (see Wu et al.,2008).
+Render R Markdown reports to HTML and display them instantly in a new
+browser tab from within a 'shiny' application. Replaces file downloads
+with a seamless in-browser approach.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  worldbank
-%global packver   0.9.1
+%global packname  blockRAR
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'World Bank' APIs
+Summary:          Block Design for Response-Adaptive Randomization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.1.0
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-httr2 >= 1.1.0
-Requires:         R-stats 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ldbounds 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-arm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ldbounds 
+Requires:         R-methods 
+Requires:         R-CRAN-arm 
 
 %description
-Download and search data from the 'World Bank' APIs, including the
-'Indicators' API, the 'Poverty and Inequality Platform (PIP)' API, the
-'Finances One' API, and the 'Projects' API. See
-<https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview>
-for further details.
+Computes power for response-adaptive randomization with a block design
+that captures both the time and treatment effect. T. Chandereng, R.
+Chappell (2019) <doi:10.48550/arXiv.1904.07758>.
 
 %prep
 %setup -q -c -n %{packname}

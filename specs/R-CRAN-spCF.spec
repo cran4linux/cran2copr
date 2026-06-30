@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spCF
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coarse-to-Fine Spatial Modeling
 
@@ -34,8 +34,10 @@ Requires:         R-CRAN-Rcpp
 %description
 Provides functions for coarse-to-fine spatial modeling (CFSM), enabling
 fast spatial prediction, regression, and uncertainty quantification. This
-method is suitable for moderate to large samples. For further details, see
-Murakami et al. (2026) <doi:10.1111/gean.70034>.
+method is suitable for moderate to large samples. For methodological
+details, see Murakami et al. (2026) <doi:10.1111/gean.70034> and related
+works on its generalized-linear <doi:10.48550/arXiv.2605.01157> and
+downscaling extensions.
 
 %prep
 %setup -q -c -n %{packname}

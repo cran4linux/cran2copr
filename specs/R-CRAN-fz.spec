@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  worldbank
-%global packver   0.9.1
+%global packname  fz
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'World Bank' APIs
+Summary:          R Wrapper for the 'funz-fz' Parametric Simulation Framework
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.1.0
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-httr2 >= 1.1.0
-Requires:         R-stats 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-reticulate >= 1.28
+Requires:         R-CRAN-reticulate >= 1.28
 
 %description
-Download and search data from the 'World Bank' APIs, including the
-'Indicators' API, the 'Poverty and Inequality Platform (PIP)' API, the
-'Finances One' API, and the 'Projects' API. See
-<https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview>
-for further details.
+Provides R bindings to the 'funz-fz' Python package using 'reticulate'.
+The 'fz' framework wraps arbitrary simulation codes to run parameter
+sweeps, design-of-experiments studies, and iterative algorithm-driven
+analyses by substituting variable placeholders in text input files and
+collecting outputs into data frames. Calculators can run locally (shell),
+over SSH, or on 'SLURM' clusters. See <https://github.com/Funz/fz> for the
+underlying framework.
 
 %prep
 %setup -q -c -n %{packname}

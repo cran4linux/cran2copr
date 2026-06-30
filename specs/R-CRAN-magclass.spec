@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  magclass
-%global packver   7.4.3
+%global packver   7.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.4.3
+Version:          7.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Class and Tools for Handling Spatial-Temporal Data
 

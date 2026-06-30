@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tradepolicy
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Replication of 'An Advanced Guide To Trade Policy Analysis'
 
@@ -17,32 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fixest >= 0.10.4
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-capybara 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-Formula 
-Requires:         R-CRAN-fixest >= 0.10.4
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-msm 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-tinyplot 
+Requires:         R-CRAN-capybara 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-tinyplot 
 
 %description
-Datasets from Yotov, et al. (2016, ISBN:978-92-870-4367-2) "An Advanced
-Guide to Trade Policy Analysis" and functions to report regression
+Datasets from Yotov, et al. (2016) <isbn:978-92-870-4367-2> (An Advanced
+Guide to Trade Policy Analysis) and functions to report regression
 summaries with clustered robust standard errors.
 
 %prep

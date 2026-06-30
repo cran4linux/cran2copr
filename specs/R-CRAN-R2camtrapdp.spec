@@ -1,47 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mLLMCelltype
-%global packver   2.0.5
+%global packname  R2camtrapdp
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cell Type Annotation Using Large Language Models
+Summary:          Convert Camera Trap Dataset to 'Camtrap DP'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-jsonlite >= 1.7.0
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-digest >= 0.6.25
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-taxadb 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-jsonlite >= 1.7.0
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-digest >= 0.6.25
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-taxadb 
 Requires:         R-stats 
-Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Automated cell type annotation for single-cell RNA sequencing data using
-consensus predictions from multiple large language models. Integrates with
-Seurat objects and provides uncertainty quantification for annotations.
-Supports various LLM providers including OpenAI, Anthropic, and Google.
-For details see Yang et al. (2025) <doi:10.1101/2025.04.10.647852>.
+Builds Camera Trap Data Packages ('Camtrap DP') from arbitrary
+spreadsheets in a schema-driven way: table structure, types, constraints
+and relations are read from the 'Frictionless' table schemas of the
+requested 'Camtrap DP' version, so any version and custom columns are
+handled automatically. Provides validation against the schemas and an
+optional bridge to the 'frictionless' 'Python' framework. The 'Camtrap DP'
+standard is described in Bubnicki et al. (2023) <doi:10.1002/rse2.374>.
 
 %prep
 %setup -q -c -n %{packname}

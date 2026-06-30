@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  worldbank
-%global packver   0.9.1
+%global packname  wompwomp
+%global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'World Bank' APIs
+Summary:          Optimizing Alluvial Plots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-TSP 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-httr2 >= 1.1.0
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-TSP 
+Requires:         R-CRAN-R6 
 Requires:         R-stats 
-Requires:         R-tools 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
+Requires:         R-utils 
 
 %description
-Download and search data from the 'World Bank' APIs, including the
-'Indicators' API, the 'Poverty and Inequality Platform (PIP)' API, the
-'Finances One' API, and the 'Projects' API. See
-<https://datahelpdesk.worldbank.org/knowledgebase/articles/889386-developer-information-overview>
-for further details.
+Sort k-partite graphs with node order, layer order, and node grouping
+optimized with a heuristic to (nearly) minimize edge crossings. Useful for
+improving visualizations with alluvial plots by "untangling" the graphs.
 
 %prep
 %setup -q -c -n %{packname}

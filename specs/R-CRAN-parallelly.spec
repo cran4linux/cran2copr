@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parallelly
-%global packver   1.47.0
+%global packver   1.48.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.47.0
+Version:          1.48.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhancing the 'parallel' Package
 
@@ -30,10 +30,11 @@ availableCores() gives the number of CPU cores available to your R process
 as given by the operating system, 'cgroups' and Linux containers, R
 options, and environment variables, including those set by job schedulers
 on high-performance compute clusters. If none is set, it will fall back to
-parallel::detectCores(). Another example is makeClusterPSOCK(), which is
-backward compatible with parallel::makePSOCKcluster() while doing a better
-job in setting up remote cluster workers without the need for configuring
-the firewall to do port-forwarding to your local computer.
+parallel::detectCores(). Another example is 'parallel::makeCluster(type =
+"RPSOCK")', which is backward compatible with 'parallel::makeCluster()'
+while doing a better job in setting up remote cluster workers without the
+need for configuring the firewall to do port-forwarding to your local
+computer.
 
 %prep
 %setup -q -c -n %{packname}

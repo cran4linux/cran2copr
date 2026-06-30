@@ -1,47 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ineAtlas
-%global packver   0.1.4
+%global packname  PsychoMatic
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to Spanish Household Income Distribution Atlas Data
+Summary:          Automated Psychometric Workflows and Reporting Tools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-GPArotation 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-GPArotation 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-psych 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-zip 
 
 %description
-Provides access to granular socioeconomic indicators from the Spanish
-Statistical Office (INE) Household Income Distribution Atlas. The package
-downloads and processes data from a companion 'GitHub' repository
-(<https://github.com/pablogguz/ineAtlas.data/>) which contains processed
-versions of the official INE Atlas data. Functions are provided to fetch
-data at multiple geographic levels (municipalities, districts, and census
-tracts), including income indicators, demographic characteristics, and
-inequality metrics. The data repository is updated every year when new
-releases are published by INE.
+Automates common psychometric workflows for applied researchers, including
+item descriptives, inter-item correlations, exploratory and confirmatory
+factor analysis, reliability, multi-group measurement invariance, and
+alignment optimization. Decision heuristics are informed by procedures
+such as parallel analysis (Horn, 1965, <doi:10.1007/BF02289447>),
+multivariate normality diagnostics (Mardia, 1970,
+<doi:10.1093/biomet/57.3.519>), measurement-invariance fit-change rules
+(Chen, 2007, <doi:10.1080/10705510701301834>), and alignment optimization
+(Asparouhov and Muthen, 2014, <doi:10.1080/10705511.2014.919210>), among
+others. Results can be returned as structured R objects and exported as
+bilingual reports for transparent analytical documentation.
 
 %prep
 %setup -q -c -n %{packname}

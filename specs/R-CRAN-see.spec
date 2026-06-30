@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  see
-%global packver   0.14.0
+%global packver   0.14.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.14.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Visualisation Toolbox for 'easystats' and 'ggplot2'
 
@@ -18,28 +18,28 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
-BuildRequires:    R-CRAN-insight >= 1.5.0
+BuildRequires:    R-CRAN-insight >= 1.5.1
 BuildRequires:    R-CRAN-patchwork >= 1.3.2
 BuildRequires:    R-CRAN-datawizard >= 1.3.1
 BuildRequires:    R-CRAN-effectsize >= 1.0.2
 BuildRequires:    R-CRAN-correlation >= 0.8.8
-BuildRequires:    R-CRAN-parameters >= 0.28.3
-BuildRequires:    R-CRAN-bayestestR >= 0.17.0
-BuildRequires:    R-CRAN-performance >= 0.16.0
-BuildRequires:    R-CRAN-modelbased >= 0.14.0
+BuildRequires:    R-CRAN-parameters >= 0.29.1
+BuildRequires:    R-CRAN-bayestestR >= 0.18.1
+BuildRequires:    R-CRAN-performance >= 0.17.0
+BuildRequires:    R-CRAN-modelbased >= 0.15.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 4.0.3
-Requires:         R-CRAN-insight >= 1.5.0
+Requires:         R-CRAN-insight >= 1.5.1
 Requires:         R-CRAN-patchwork >= 1.3.2
 Requires:         R-CRAN-datawizard >= 1.3.1
 Requires:         R-CRAN-effectsize >= 1.0.2
 Requires:         R-CRAN-correlation >= 0.8.8
-Requires:         R-CRAN-parameters >= 0.28.3
-Requires:         R-CRAN-bayestestR >= 0.17.0
-Requires:         R-CRAN-performance >= 0.16.0
-Requires:         R-CRAN-modelbased >= 0.14.0
+Requires:         R-CRAN-parameters >= 0.29.1
+Requires:         R-CRAN-bayestestR >= 0.18.1
+Requires:         R-CRAN-performance >= 0.17.0
+Requires:         R-CRAN-modelbased >= 0.15.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
