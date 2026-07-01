@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AIDA
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Interval DAta
 
@@ -17,27 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-CerioliOutlierDetection 
 BuildRequires:    R-CRAN-cellWise 
-BuildRequires:    R-CRAN-geigen 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-kde1d 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-CerioliOutlierDetection 
 Requires:         R-CRAN-cellWise 
-Requires:         R-CRAN-geigen 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-fmsb 
+Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-kde1d 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-assertthat 
 Requires:         R-methods 
 
 %description
@@ -51,7 +45,13 @@ based on the Mallows distance (Oliveira et al. (2025)
 covariance matrix is implemented via the Interval Minimum Covariance
 Determinant (IMCD) estimator, enabling outlier detection based on the
 robust squared Interval-Mahalanobis distance, as proposed by Loureiro et
-al. (2026) <doi:10.48550/arXiv.2604.26769>.
+al. (2026b) <doi:10.48550/arXiv.2604.26769>. Explainable outlier detection
+is supported through Shapley value based decomposition of the squared
+robust Interval-Mahalanobis distance, allowing assessment of variable
+contributions to outlyingness (Loureiro et al. (2026a)
+<doi:10.48550/arXiv.2606.26307>). Shapley interaction indices are also
+implemented, along with visualization tools to support interpretation of
+the results.
 
 %prep
 %setup -q -c -n %{packname}

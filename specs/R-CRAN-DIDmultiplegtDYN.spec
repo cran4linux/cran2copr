@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIDmultiplegtDYN
-%global packver   2.3.4
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation in Staggered First Switch Designs, where Groups Experience their First Treatment Change at Different Points in Time
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-fixest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-matlib 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-car 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-fixest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-matlib 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-stats 
 Requires:         R-CRAN-car 

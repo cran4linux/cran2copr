@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rSRD
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sum of Ranking Differences Statistical Test
 
@@ -14,28 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-gplots 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.13
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-gplots 
+Requires:         R-stats 
 
 %description
 We provide an implementation for Sum of Ranking Differences (SRD), a novel

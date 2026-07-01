@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dvir
-%global packver   3.4.1
+%global packver   3.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          3.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disaster Victim Identification
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools 
-BuildRequires:    R-CRAN-forrel 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pedtools >= 2.11.0
+BuildRequires:    R-CRAN-forrel >= 1.9.0
+BuildRequires:    R-CRAN-pedprobr >= 1.1.0
+BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-pedFamilias 
-BuildRequires:    R-CRAN-pedprobr 
 BuildRequires:    R-CRAN-ribd 
 BuildRequires:    R-CRAN-verbalisr 
-Requires:         R-CRAN-pedtools 
-Requires:         R-CRAN-forrel 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pedtools >= 2.11.0
+Requires:         R-CRAN-forrel >= 1.9.0
+Requires:         R-CRAN-pedprobr >= 1.1.0
+Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-pedFamilias 
-Requires:         R-CRAN-pedprobr 
 Requires:         R-CRAN-ribd 
 Requires:         R-CRAN-verbalisr 
 

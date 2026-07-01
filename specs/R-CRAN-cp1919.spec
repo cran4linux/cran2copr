@@ -1,42 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mvalpha
-%global packver   0.6.0
+%global packname  cp1919
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Krippendorff's Alpha for Multi-Valued Data
+Summary:          Radio Observations of the Pulse Profiles and Dispersion Measures of Twelve Pulsars
 
-License:          AGPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 
 %description
-Calculate Krippendorff's alpha for multi-valued data using the methods
-introduced by Krippendorff and Craggs (2016)
-<doi:10.1080/19312458.2016.1228863>. Nominal, ordinal, interval, and ratio
-data types are supported, with option to create bootstrapped estimates of
-alpha.
+Successive pulses from CP 1919, the first pulsar discovered. The pulses
+occur every 1.337 seconds. They are caused by rapidly spinning neutron
+star.
 
 %prep
 %setup -q -c -n %{packname}

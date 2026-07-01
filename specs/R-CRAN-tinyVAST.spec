@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyVAST
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Spatio-Temporal Models using Structural Equations
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-dsem >= 3.0.0
 BuildRequires:    R-CRAN-TMB >= 1.9.17
-BuildRequires:    R-CRAN-dsem >= 1.6.0
 BuildRequires:    R-CRAN-Matrix >= 1.3.0
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-fmesher 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-sem 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sfnetworks 
 BuildRequires:    R-CRAN-units 
@@ -40,8 +39,8 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-GpGp 
 BuildRequires:    R-CRAN-GPvecchia 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-dsem >= 3.0.0
 Requires:         R-CRAN-TMB >= 1.9.17
-Requires:         R-CRAN-dsem >= 1.6.0
 Requires:         R-CRAN-Matrix >= 1.3.0
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-fmesher 
@@ -49,7 +48,6 @@ Requires:         R-CRAN-igraph
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-sem 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sfnetworks 
 Requires:         R-CRAN-units 

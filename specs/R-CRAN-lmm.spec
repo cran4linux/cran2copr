@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lmm
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Mixed Models
 
@@ -18,11 +18,10 @@ BuildRequires:    R-devel >= 2.0.0
 Requires:         R-core >= 2.0.0
 
 %description
-It implements Expectation/Conditional Maximization Either (ECME) and
-rapidly converging algorithms as well as Bayesian inference for linear
-mixed models, which is described in Schafer, J.L. (1998) "Some improved
-procedures for linear mixed models". Dept. of Statistics, The Pennsylvania
-State University.
+Implements Expectation/Conditional Maximization Either (ECME), rapidly
+converging algorithms, and Bayesian inference for linear mixed models
+following Schafer (1998), "Some Improved Procedures for Linear Mixed
+Models", Department of Statistics, The Pennsylvania State University.
 
 %prep
 %setup -q -c -n %{packname}

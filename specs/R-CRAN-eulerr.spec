@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eulerr
-%global packver   8.0.0
+%global packver   8.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.0
+Version:          8.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Area-Proportional Euler and Venn Diagrams with Ellipses
+Summary:          Area-Proportional Euler and Venn Diagrams
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,20 +19,22 @@ Requires:         R-core >= 4.2
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Generate area-proportional Euler diagrams using numerical optimization. An
+Generate area-proportional Euler diagrams using numerical optimization. A
 Euler diagram is a generalization of a Venn diagram, relaxing the
 criterion that all interactions need to be represented. Diagrams may be
-fit with ellipses and circles via a wide range of inputs and can be
-visualized in numerous ways.
+fit with circles, ellipses, squares, and rectangles via a wide range of
+inputs and can be visualized in numerous ways.
 
 %prep
 %setup -q -c -n %{packname}

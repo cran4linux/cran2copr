@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  finna
-%global packver   0.1.2
+%global packname  fixedCV
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'Finna' API
+Summary:          Fixed-b Critical Values for Robust Inference with Time Series Data
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-purrr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
-Provides functions to access and retrieve metadata from the 'Finna' API
-<https://api.finna.fi/>, which aggregates content from Finnish archives,
-libraries, and museums.
+Provides functions for computing fixed-b critical values and conducting
+robust inference procedures for time series data with unknown correlation
+structures. Implements long-run variance estimators using various kernel
+functions and lugsail transformations for improved finite-sample
+properties as described by Kurtz-Garcia and Flegal (2026)
+<doi:10.48550/arXiv.2606.17369>.
 
 %prep
 %setup -q -c -n %{packname}

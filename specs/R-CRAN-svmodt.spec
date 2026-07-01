@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blit
-%global packver   0.2.0
+%global packname  svmodt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bioinformatics Library for Integrated Tools
+Summary:          Linear SVM-Based Recursive Decision Trees
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.4.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.4.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-processx 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-FSelectorRcpp 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-FSelectorRcpp 
+Requires:         R-CRAN-ggplot2 
 
 %description
-An all-encompassing R toolkit designed to streamline the process of
-calling various bioinformatics software and then performing data analysis
-and visualization in R. With 'blit', users can easily integrate a wide
-array of bioinformatics command line tools into their workflows,
-leveraging the power of R for sophisticated data manipulation and
-graphical representation.
+Implements Support Vector Machine Oblique Decision Trees (SVMODT).
+Recursively builds classification trees using linear Support Vector
+Machines (SVM) hyperplanes at each node instead of axis-parallel splits,
+creating oblique decision boundaries. Features include multiple feature
+selection methods, dynamic feature subset strategies, class weight support
+for imbalanced datasets, pruning and feature penalization.
 
 %prep
 %setup -q -c -n %{packname}
