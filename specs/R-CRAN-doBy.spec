@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doBy
-%global packver   4.7.1
+%global packver   4.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.1
+Version:          4.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Groupwise Statistics, LSmeans, Linear Estimates, Utilities
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-modelr 
-BuildRequires:    R-CRAN-microbenchmark 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-modelr 
-Requires:         R-CRAN-microbenchmark 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 

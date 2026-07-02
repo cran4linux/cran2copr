@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MCseqReplic
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monte Carlo Simulations of Time Changes in Sequences
 
@@ -19,24 +19,36 @@ Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-TraMineR >= 2.2.2
 BuildRequires:    R-CRAN-WeightedCluster >= 1.6
-BuildRequires:    R-CRAN-aricode 
+BuildRequires:    R-CRAN-aricode >= 1.1.0
+BuildRequires:    R-CRAN-TraMineRextras >= 0.6.8
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-wCorr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-TraMineR >= 2.2.2
 Requires:         R-CRAN-WeightedCluster >= 1.6
-Requires:         R-CRAN-aricode 
+Requires:         R-CRAN-aricode >= 1.1.0
+Requires:         R-CRAN-TraMineRextras >= 0.6.8
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-iterators 
 Requires:         R-stats 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-wCorr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 
 %description
 Generates replicated sets of sequences with Monte Carlo simulated timing

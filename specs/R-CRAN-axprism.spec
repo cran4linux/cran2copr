@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  asympDiag
-%global packver   0.3.3
+%global packname  axprism
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Tools for Asymptotic Theory
+Summary:          Client for the 'AxPrism' Institutional XBRL and Shariah Compliance API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Leveraging Monte Carlo simulations, this package provides tools for
-diagnosing regression models. It implements a parametric bootstrap
-framework to compute statistics, generates diagnostic envelopes to assess
-goodness-of-fit, and evaluates type I error control for Wald tests. By
-simulating data under the assumption that the model is true, it helps to
-identify model mis-specifications and enhances the reliability of the
-model inferences.
+Provides an R client for the 'AxPrism' Application Programming Interface
+(API) (<https://axprism.com>), which serves institutional financial data
+in the eXtensible Business Reporting Language (XBRL) format together with
+Shariah compliance screening. Supported compliance rulesets include those
+of the Accounting and Auditing Organization for Islamic Financial
+Institutions (AAOIFI), the Morgan Stanley Capital International (MSCI)
+Islamic methodology, the Dow Jones Islamic Market (DJIM), the Financial
+Times Stock Exchange (FTSE) and the Saudi Capital Market Authority (CMA).
+Convenience functions wrap company fundamentals, compliance verdicts and
+portfolio screening, company profiles, equity screeners, regulatory
+disclosures and filing text search, and the Tadawul (Saudi Exchange),
+Bursa Malaysia and Indonesia Stock Exchange (IDX) markets, as well as
+webhooks and bulk data export. Requests use 'X-API-Key' header
+authentication, automatic retries with exponential backoff, and a generic
+request helper that covers all endpoints.
 
 %prep
 %setup -q -c -n %{packname}

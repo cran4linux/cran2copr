@@ -1,48 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HDiR
-%global packver   1.1.3
+%global packname  saeHB.Spatial.Beta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Directional Highest Density Regions
+Summary:          Small Area Estimation Hierarchical Bayes for Spatial Beta Model
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NPCirc 
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Directional 
-BuildRequires:    R-CRAN-movMF 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-NPCirc 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Directional 
-Requires:         R-CRAN-movMF 
-Requires:         R-graphics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
 Requires:         R-stats 
 Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
 
 %description
-We provide an R tool for computation and nonparametric plug-in estimation
-of Highest Density Regions (HDRs) and general level sets in the
-directional setting. Concretely, circular and spherical HDRs can be
-reconstructed from a data sample following Saavedra-Nieves and Crujeiras
-(2021) <doi:10.1007/s11634-021-00457-4>. This library also contains two
-real datasets in the circular and spherical settings. The first one
-concerns a problem from animal orientation studies and the second one is
-related to earthquakes occurrences.
+Provides several functions and datasets for area-level Small Area
+Estimation using the Hierarchical Bayesian (HB) method. Model-based
+estimators are designed for variables of interest that follow a Beta
+distribution. The package supports spatial structures under the
+Simultaneous Autoregressive (SAR) and Leroux Conditional Autoregressive
+(CAR) models, accommodating survey design effect (DEFF) adjustments. The
+'rjags' package is employed to obtain parameter estimates via Gibbs
+Sampling. For references, see Rao and Molina (2015)
+<doi:10.1002/9781118735855>, Kubacki and Jedrzejczak (2016)
+<doi:10.59170/stattrans-2016-022>, Leroux et al. (2000)
+<doi:10.1007/978-1-4612-1284-3_4>, and Chung and Datta (2020)
+<https://www.census.gov/content/dam/Census/library/working-papers/2020/adrm/RRS2020-07.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

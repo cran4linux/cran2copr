@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PRISMA2020
-%global packver   1.1.1
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Interactive 'PRISMA' Flow Diagrams
 
@@ -17,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cpp11 
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-DiagrammeRsvg 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
@@ -34,10 +38,14 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-cpp11 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-DiagrammeRsvg 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  movegroup
-%global packver   2024.03.05
+%global packver   2026.07.01
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.03.05
+Version:          2026.07.01
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing and Quantifying Space Use Data for Groups of Animals
 
@@ -64,13 +64,13 @@ Requires:         R-methods
 
 %description
 Offers an easy and automated way to scale up individual-level space use
-analysis to that of groups. Contains a function from the 'move' package to
-calculate a dynamic Brownian bridge movement model from movement data for
-individual animals, as well as functions to visualize and quantify space
-use for individuals aggregated in groups. Originally written with passive
-acoustic telemetry in mind, this package also provides functionality to
-account for unbalanced acoustic receiver array designs, and satellite tag
-data.
+analysis to that of groups. Contains functions from the 'move' package to
+calculate either a dynamic Brownian bridge movement model or dynamic
+Bivariate Gaussian bridges from movement data for individual animals, as
+well as functions to visualize and quantify space use for individuals
+aggregated in groups. Originally written with passive acoustic telemetry
+in mind, this package also provides functionality to account for
+unbalanced acoustic receiver array designs, and satellite tag data.
 
 %prep
 %setup -q -c -n %{packname}

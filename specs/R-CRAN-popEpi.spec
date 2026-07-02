@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  popEpi
-%global packver   0.4.14
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.14
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Epidemiological Analysis using Population Data
 
@@ -14,15 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Epi >= 2.0
 BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-directadjusting >= 0.6.0
+BuildRequires:    R-methods 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-Epi >= 2.0
 Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-CRAN-directadjusting >= 0.6.0
+Requires:         R-methods 
 Requires:         R-splines 
 Requires:         R-CRAN-survival 
 

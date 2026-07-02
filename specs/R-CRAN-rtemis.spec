@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtemis
-%global packver   1.0.0
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning and Visualization
 
@@ -17,26 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-rtemis.core >= 0.3.1
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-S7 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rtemis.core >= 0.3.1
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-future 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-cli 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-S7 
+Requires:         R-utils 
 
 %description
 Machine learning and visualization package with an 'S7' backend featuring

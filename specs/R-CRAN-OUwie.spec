@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OUwie
-%global packver   2.10
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Evolutionary Rates in an OU Framework
 
@@ -32,6 +33,13 @@ BuildRequires:    R-CRAN-interp
 BuildRequires:    R-grDevices 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-phylolm 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-corHMM 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-nloptr 
@@ -48,12 +56,19 @@ Requires:         R-CRAN-interp
 Requires:         R-grDevices 
 Requires:         R-parallel 
 Requires:         R-CRAN-phylolm 
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-corHMM 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 
 %description
 Estimates rates for continuous character evolution under Brownian motion
-and a new set of Ornstein-Uhlenbeck based Hansen models that allow both
-the strength of the pull and stochastic motion to vary across selective
-regimes. Beaulieu et al (2012).
+and Ornstein-Uhlenbeck based Hansen models that allow both the strength of
+the pull and stochastic motion to vary across selective regimes. Beaulieu
+et al. (2012).
 
 %prep
 %setup -q -c -n %{packname}

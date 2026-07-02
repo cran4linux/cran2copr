@@ -1,31 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastkqr
-%global packver   1.0.1
+%global packname  rtransparency
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast Algorithm for Kernel Quantile Regression
+Summary:          Identifies Indicators of Transparency
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-utf8 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-utf8 
+Requires:         R-CRAN-xml2 
 
 %description
-Implements fast algorithms for kernel quantile regression and related
-models, including non-crossing kernel quantile regression and regularized
-linear quantile regression. The methods are described in Tang, Gu and Wang
-(2026) <doi:10.1080/10618600.2025.2541004>.
+Use this package to identify indicators of transparency within the
+published literature. It can identify and extract text related to
+indicators of transparency from specifically formatted TXT files and from
+PMC XML files (i.e. XML files downloaded from the PubMed Central). It
+builds on the original 'rtransparent' tool of Serghiou et al. (2021)
+<doi:10.1371/journal.pbio.3001107>.
 
 %prep
 %setup -q -c -n %{packname}

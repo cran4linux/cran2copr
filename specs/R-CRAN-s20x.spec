@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  s20x
-%global packver   3.2.2
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for University of Auckland Course STATS 201/208 Data Analysis
 
@@ -19,10 +19,28 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 A set of functions used in teaching STATS 201/208 Data Analysis at the

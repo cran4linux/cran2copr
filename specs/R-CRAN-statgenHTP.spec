@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statgenHTP
-%global packver   1.0.9.2
+%global packver   1.0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9.2
+Version:          1.0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Throughput Phenotyping (HTP) Data Analysis
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-LMMsolver >= 1.0.13
 BuildRequires:    R-CRAN-SpATS >= 1.0.13
 BuildRequires:    R-CRAN-animation 
 BuildRequires:    R-CRAN-ggforce 
@@ -26,13 +27,13 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-LMMsolver 
 BuildRequires:    R-CRAN-locfit 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-spam 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-LMMsolver >= 1.0.13
 Requires:         R-CRAN-SpATS >= 1.0.13
 Requires:         R-CRAN-animation 
 Requires:         R-CRAN-ggforce 
@@ -41,7 +42,6 @@ Requires:         R-grid
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-LMMsolver 
 Requires:         R-CRAN-locfit 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 

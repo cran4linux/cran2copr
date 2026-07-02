@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enrichit
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'C++' Implementations of Functional Enrichment Analysis
 
@@ -18,20 +18,32 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-yulab.utils > 0.2.1
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-yulab.utils > 0.2.1
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description
 Fast implementations of functional enrichment analysis methods using 'C++'
-via 'Rcpp'. Currently provides Over-Representation Analysis (ORA) and Gene
-Set Enrichment Analysis (GSEA). The multilevel GSEA algorithm is derived
-from the 'fgsea' package. Methods are described in Subramanian et al.
-(2005) <doi:10.1073/pnas.0506580102> and Korotkevich et al. (2021)
-<doi:10.1101/060012>.
+via 'Rcpp'. Currently provides Over-Representation Analysis (ORA), Gene
+Set Enrichment Analysis (GSEA), Weighted Enrichment Analysis for ORA and
+GSEA, Network-based Set Enrichment Analysis (NSEA), multi-layer
+network-based enrichment, and multi-omics integration workflows.
+Additional features include early fusion at the feature level, late fusion
+at the pathway level, multi-omics contribution tracing, topology-aware
+explanation helpers, Bayesian term selection, and extremely fast Random
+Walk with Restart (RWR) using 'RcppEigen'. The enrichment methods build on
+GSEA by Subramanian et al. (2005) <doi:10.1073/pnas.0506580102>, the
+multilevel strategy derived from 'fgsea' by Korotkevich et al. (2021)
+<doi:10.1101/060012>, and network-based enrichment ideas described by
+Glaab et al. (2012) <doi:10.1093/bioinformatics/bts389>.
 
 %prep
 %setup -q -c -n %{packname}

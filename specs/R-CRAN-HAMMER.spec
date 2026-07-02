@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HAMMER
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Factor-Analytic Representation Modeling and Metrics
 
@@ -23,11 +23,12 @@ Requires:         R-stats
 Requires:         R-CRAN-RSpectra 
 
 %description
-The goal of 'HAMMER' is to provide factor analytic representation
-learningand associated determinacy metrics for very-high-dimensional data.
-It projects high-dimensional data onto low-dimensional generative latent
+The goal of 'HAMMER' is to provide factor analytic representation learning
+and associated determinacy metrics for very-high-dimensional data. It
+projects high-dimensional data onto low-dimensional generative latent
 sources and assesses the uncertainty in the projection. The projection is
-distribution-free, scale-equivariant, and efficient.
+distribution-free, scale-equivariant, and efficient. For details, see
+Peeters (2026) <doi:10.48550/arXiv.2606.28854>.
 
 %prep
 %setup -q -c -n %{packname}

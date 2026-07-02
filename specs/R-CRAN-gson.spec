@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gson
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Base Class and Methods for 'gson' Format
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-yulab.utils >= 0.0.7
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-yulab.utils >= 0.0.7
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
@@ -31,9 +33,11 @@ Requires:         R-CRAN-tidyr
 Requires:         R-utils 
 
 %description
-Proposes a new file format ('gson') for storing gene set and related
-information, and provides read, write and other utilities to process this
-file format.
+Provides a lightweight container and exchange format for gene set
+collections. It stores gene set membership, names, gene identifiers,
+species, versions, and source metadata, with utilities for reading,
+writing, validating, and converting gene set data for enrichment analysis
+and related workflows.
 
 %prep
 %setup -q -c -n %{packname}

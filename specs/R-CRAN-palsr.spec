@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastkqr
-%global packver   1.0.1
+%global packname  palsr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast Algorithm for Kernel Quantile Regression
+Summary:          Projected Actor Locations for Spatial Interaction Modeling
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-parallel 
 
 %description
-Implements fast algorithms for kernel quantile regression and related
-models, including non-crossing kernel quantile regression and regularized
-linear quantile regression. The methods are described in Tang, Gu and Wang
-(2026) <doi:10.1080/10618600.2025.2541004>.
+Implements the Projected Actor Locations (PALS) method for spatial
+modeling of dyadic interactions between geographically mobile actors, as
+described in Kim, Liu and Desmarais (2023) <doi:10.1017/psrm.2022.6>. PALS
+applies exponential-smoothing weights to the spatiotemporal histories of a
+focal actor and its interaction partners ("alters") to project the
+location of future interactions. The package provides projection,
+maximum-similarity parameter estimation by minimizing great-circle
+(Haversine) prediction error, nonparametric bootstrap with
+multiple-imputation (Rubin's Rules) pooling, dyadic distance covariate
+construction, visualization, and a simulated example dataset of
+subnational conflict.
 
 %prep
 %setup -q -c -n %{packname}

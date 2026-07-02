@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rlabkey
-%global packver   3.4.6
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.6
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Exchange Between R and 'LabKey' Server
 
@@ -19,9 +19,11 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-bit64 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-bit64 
 
 %description
 The 'LabKey' client library for R makes it easy for R users to load live
