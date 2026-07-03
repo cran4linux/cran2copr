@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  llamaR
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for Large Language Models via 'llama.cpp'
 
@@ -18,20 +18,22 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-ggmlR 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggmlR 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Provides 'R' bindings to 'llama.cpp' for running Large Language Models
-('LLMs') locally with optional 'Vulkan' GPU acceleration via 'ggmlR'.
-Supports model loading, text generation, 'tokenization', token-to-piece
-conversion, 'embeddings' (single and batch), encoder-decoder inference,
-low-level batch management, chat templates, 'LoRA' adapters, explicit
-backend/device selection, multi-GPU split, and 'NUMA' optimization.
-Includes a high-level 'ragnar'-compatible embedding provider
-('embed_llamar'). Built on top of 'ggmlR' for efficient tensor operations.
+Provides R bindings to 'llama.cpp' for running large language models
+locally, with optional GPU acceleration via 'ggmlR'. Supports text
+generation, embeddings, chat-based workflows, tool calling, and multimodal
+(vision) inference. Includes 'OpenAI'- and 'Anthropic'-compatible HTTP
+servers for serving local models, along with device selection and
+multi-GPU support.
 
 %prep
 %setup -q -c -n %{packname}

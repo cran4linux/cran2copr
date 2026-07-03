@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wideRhino
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Methods via Generalised Singular Decomposition
 
@@ -17,12 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geigen 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-geigen 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ggplot2 
@@ -31,10 +29,8 @@ Requires:         R-CRAN-dplyr
 %description
 Construct a Canonical Variate Analysis Biplot via the Generalised Singular
 Value Decomposition, for cases when the number of samples is less than the
-number of variables. For more information on biplots, see Gower JC, Lubbe
-SG, Le Roux NJ (2011) <doi:10.1002/9780470973196> and for more information
-on the generalised singular value decomposition, see Edelman A, Wang Y
-(2020) <doi:10.1137/18M1234412>.
+number of variables. For more information on these biplots, see Ganey, R.,
+& Gardner-Lubbe, S. (2026) <doi:10.1007/s10260-025-00831-y>.
 
 %prep
 %setup -q -c -n %{packname}

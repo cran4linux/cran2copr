@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quantregForest
-%global packver   1.3-7.1
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression Forests
 
@@ -16,12 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-stats 
 Requires:         R-parallel 
 

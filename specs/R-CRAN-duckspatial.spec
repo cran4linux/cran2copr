@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckspatial
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'DuckDB' Database with Spatial Extension
 
@@ -57,9 +57,9 @@ Requires:         R-CRAN-withr
 Requires:         R-CRAN-wk 
 
 %description
-Fast & memory-efficient functions to analyze and manipulate large spatial
-data data sets. It leverages the fast analytical capabilities of 'DuckDB'
-and its spatial extension (see
+Fast and memory-efficient functions to analyze and manipulate large
+spatial datasets. It leverages the fast analytical capabilities of
+‘DuckDB’ and its spatial extension (see
 <https://duckdb.org/docs/stable/core_extensions/spatial/overview>) while
 maintaining compatibility with R’s spatial data ecosystem to work with
 spatial vector data.

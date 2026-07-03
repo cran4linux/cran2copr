@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uaparserjs
-%global packver   0.3.8
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse 'User-Agent' Strings
 
@@ -23,12 +23,9 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-V8 
 
 %description
-Despite there being a section in RFC 7231
-<https://datatracker.ietf.org/doc/html/rfc7231#section-5.5.3> defining a
-suggested structure for 'User-Agent' headers this data is notoriously
-difficult to parse consistently. Tools are provided that will take in user
-agent strings and return structured R objects. This is a 'V8'-backed
-package based on the 'ua-parser' project <https://github.com/ua-parser>.
+Parses HTTP user agent strings and returns user agent, device and OS
+information.  This is a 'V8'-backed package based on the 'ua-parser'
+project <https://github.com/ua-parser>.
 
 %prep
 %setup -q -c -n %{packname}

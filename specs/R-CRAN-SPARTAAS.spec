@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPARTAAS
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Pattern Recognition and daTing using Archaeological Artefacts assemblageS
 
@@ -42,6 +42,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-lmtest 
@@ -50,6 +51,8 @@ BuildRequires:    R-CRAN-shinycssloaders
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-CRAN-FactoMineR 
 Requires:         R-grDevices 
 Requires:         R-CRAN-dplyr 
@@ -75,6 +78,7 @@ Requires:         R-grid
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-lmtest 
@@ -83,6 +87,8 @@ Requires:         R-CRAN-shinycssloaders
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-ggplotify 
+Requires:         R-CRAN-gridExtra 
 
 %description
 Statistical pattern recognition and dating using archaeological artefacts

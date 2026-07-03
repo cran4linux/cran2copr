@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GenOrd
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Discrete Random Variables with Given Correlation Matrix and Marginal Distributions via a Gaussian or Student's t Copula
+Summary:          Simulation of Discrete Random Variables with Marginal Distributions and Correlation Matrix and via a Gaussian or Student's t Copula
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

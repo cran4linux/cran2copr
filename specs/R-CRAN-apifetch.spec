@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MAIHDA
-%global packver   0.2.0
+%global packname  apifetch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Analysis of Individual Heterogeneity and Discriminatory Accuracy
+Summary:          Token-Authenticated REST API Retrieval Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.27
-BuildRequires:    R-CRAN-tidyr >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-lme4 >= 1.1.27
-Requires:         R-CRAN-tidyr >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-reformulas 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
 Requires:         R-stats 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Tools for Multilevel Analysis of Individual Heterogeneity and
-Discriminatory Accuracy (MAIHDA) for intersectional inequality research.
-Methods are described in Merlo (2018)
-<doi:10.1016/j.socscimed.2017.12.026> and Evans et al. (2018)
-<doi:10.1016/j.socscimed.2017.11.011>. The package creates intersectional
-strata, fits multilevel MAIHDA models, estimates variance partition
-coefficients, proportional change in variance, stratum effects, and
-discriminatory-accuracy summaries, and provides diagnostic and
-presentation plots.
+A small, dependency-light toolkit for talking to token-authenticated REST
+APIs. It manages authentication tokens in process environment variables
+(never written to disk), builds requests with configurable authentication
+and pagination strategies, and retrieves paginated data either one page at
+a time or in chunks combined into a single tibble. The design is
+API-agnostic: a single 'apifetch_api' profile describes an endpoint
+together with how it authenticates and paginates, so the same verbs work
+across different services.
 
 %prep
 %setup -q -c -n %{packname}

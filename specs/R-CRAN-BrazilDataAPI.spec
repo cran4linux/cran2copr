@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BrazilDataAPI
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Brazilian Data via APIs and Curated Datasets
 
@@ -31,20 +31,18 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-tibble 
 
 %description
-Provides functions to access data from the 'BrasilAPI', 'REST Countries
-API', 'Nager.Date API', and 'World Bank API', related to Brazil's postal
-codes, banks, holidays, company registrations, international country
-indicators, public holidays information, and economic development data.
-Additionally, the package includes curated datasets related to Brazil,
-covering topics such as demographic data (males and females by state and
-year), river levels, environmental emission factors, film festivals, and
-yellow fever outbreak records. The package supports research and analysis
-focused on Brazil by integrating open APIs with high-quality datasets from
-multiple domains. For more information on the APIs, see: 'BrasilAPI'
+Provides functions to access data from the 'BrasilAPI', 'Nager.Date API',
+and 'World Bank API', related to Brazil's postal codes, banks, holidays,
+company registrations, and economic development data. Additionally, the
+package includes curated datasets related to Brazil, covering topics such
+as demographic data (males and females by state and year), river levels,
+environmental emission factors, film festivals, and yellow fever outbreak
+records. The package supports research and analysis focused on Brazil by
+integrating open APIs with high-quality datasets from multiple domains.
+For more information on the APIs, see: 'BrasilAPI'
 <https://brasilapi.com.br/>, 'Nager.Date' <https://date.nager.at/Api>,
 'World Bank API'
-<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
-'REST Countries API' <https://restcountries.com/>.
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>.
 
 %prep
 %setup -q -c -n %{packname}

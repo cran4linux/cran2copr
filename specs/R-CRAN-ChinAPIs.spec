@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ChinAPIs
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Chinese Data via Public APIs and Curated Datasets
 
@@ -32,19 +32,17 @@ Requires:         R-CRAN-tibble
 
 %description
 Provides functions to access data from public RESTful APIs including
-'Nager.Date', 'World Bank API', and 'REST Countries API', retrieving
-real-time or historical data related to China, such as holidays, economic
-indicators, and international demographic and geopolitical indicators.
-Additionally, the package includes one of the largest curated collections
-of open datasets focused on China and Hong Kong, covering topics such as
-air quality, demographics, input-output tables, epidemiology, political
+'Nager.Date' and 'World Bank API', retrieving real-time or historical data
+related to China, such as holidays and economic indicators. Additionally,
+the package includes one of the largest curated collections of open
+datasets focused on China and Hong Kong, covering topics such as air
+quality, demographics, input-output tables, epidemiology, political
 structure, names, and social indicators. The package supports reproducible
 research and teaching by integrating reliable international APIs and
 structured datasets from public, academic, and government sources. For
 more information on the APIs, see: 'Nager.Date'
 <https://date.nager.at/Api>, 'World Bank API'
-<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
-'REST Countries API' <https://restcountries.com/>.
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>.
 
 %prep
 %setup -q -c -n %{packname}

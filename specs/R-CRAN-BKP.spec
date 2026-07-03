@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BKP
-%global packver   0.2.3
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Beta Kernel Process Modeling
 
@@ -16,27 +16,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-dirmult 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-tgp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dirmult 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-tgp 
 
 %description
 Implements the Beta Kernel Process (BKP) for nonparametric modeling of
-spatially varying binomial probabilities, together with its extension, the
-Dirichlet Kernel Process (DKP), for categorical or multinomial data. The
-package provides functions for model fitting, predictive inference with
-uncertainty quantification, posterior simulation, and visualization in
-one-and two-dimensional input spaces. Multiple kernel functions (Gaussian,
-Matern 5/2, and Matern 3/2) are supported, with hyperparameters optimized
-through multi-start gradient-based search. For more details, see Zhao,
+covariate-dependent binomial probabilities, and the Dirichlet Kernel
+Process (DKP) for categorical or multinomial response data. Scalable
+global-local approximations are provided through TwinBKP and TwinDKP,
+using twinning-selected global subsets and local nearest-neighbour
+updates. Functions are included for model fitting, predictive inference
+with uncertainty quantification, posterior simulation, and visualization
+in one- and two-dimensional input spaces. Gaussian, Matern 5/2, Matern
+3/2, and Wendland kernels are supported, with hyperparameters selected by
+multi-start derivative-free optimization. For more details, see Zhao,
 Qing, and Xu (2025) <doi:10.48550/arXiv.2508.10447>.
 
 %prep

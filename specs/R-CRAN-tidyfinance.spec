@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyfinance
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Finance Helper Functions
 
@@ -58,7 +58,7 @@ a variety of topics covered in Scheuch, Voigt, and Weiss (2023)
 <doi:10.1201/b23237>.  The package is designed to provide shortcuts for
 issues extensively discussed in the book, facilitating easier application
 of its concepts. For more information and resources related to the book,
-visit <https://www.tidy-finance.org/r/index.html>.
+visit <https://www.tidy-finance.org/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brulee
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Level Modeling Functions with 'torch'
 
@@ -33,6 +33,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-coro >= 1.0.1
 Requires:         R-CRAN-torch >= 0.13.0
@@ -49,6 +50,7 @@ Requires:         R-stats
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Provides high-level modeling functions to define and train models using

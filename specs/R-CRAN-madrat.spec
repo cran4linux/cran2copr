@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  madrat
-%global packver   3.15.6
+%global packver   3.37.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.15.6
+Version:          3.37.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          May All Data be Reproducible and Transparent (MADRaT) *
 
@@ -17,8 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magclass >= 5.7.0
+BuildRequires:    R-CRAN-magclass >= 7.2.0
 BuildRequires:    R-CRAN-igraph >= 2.1.1
+BuildRequires:    R-CRAN-filelock >= 1.0.3
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-Matrix 
@@ -30,8 +31,9 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-magclass >= 5.7.0
+Requires:         R-CRAN-magclass >= 7.2.0
 Requires:         R-CRAN-igraph >= 2.1.1
+Requires:         R-CRAN-filelock >= 1.0.3
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-Matrix 

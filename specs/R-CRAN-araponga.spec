@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epoxy
-%global packver   1.0.0
+%global packname  araponga
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          String Interpolation for Documents, Reports and Apps
+Summary:          Estimate 3D Orientations from 2D Landmarks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glue >= 1.5.0
-BuildRequires:    R-CRAN-knitr >= 1.37
-BuildRequires:    R-CRAN-scales >= 1.1.0
-BuildRequires:    R-CRAN-and 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-glue >= 1.5.0
-Requires:         R-CRAN-knitr >= 1.37
-Requires:         R-CRAN-scales >= 1.1.0
-Requires:         R-CRAN-and 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-dplyr 
+Requires:         R-graphics 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-tools 
-Requires:         R-CRAN-whisker 
 
 %description
-Extra strength 'glue' for data-driven templates. String interpolation for
-'Shiny' apps or 'R Markdown' and 'knitr'-powered 'Quarto' documents, built
-on the 'glue' and 'whisker' packages.
+Estimates possible 3D orientations of an object from the 2D image
+coordinates of two landmarks and an approximate camera-object elevation
+angle. Because a projected 2D angle can be compatible with multiple 3D
+pitch, yaw, and view-elevation angles, the package returns compatible sets
+of orientations rather than a single unconstrained estimate.
 
 %prep
 %setup -q -c -n %{packname}

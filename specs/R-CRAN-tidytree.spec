@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytree
-%global packver   0.4.7
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy Tool for Phylogenetic Tree Data Manipulation
 
@@ -43,10 +43,11 @@ Requires:         R-CRAN-pillar
 Requires:         R-CRAN-cli 
 
 %description
-Phylogenetic tree generally contains multiple components including node,
-edge, branch and associated data. 'tidytree' provides an approach to
-convert tree object to tidy data frame as well as provides tidy interfaces
-to manipulate tree data.
+Phylogenetic trees contain components such as nodes, edges, branches, and
+associated data. As the core data manipulation tool in the 'ggtree'
+ecosystem, 'tidytree' provides tools for converting tree objects to tidy
+data frames and tidy interfaces for manipulating, analyzing, and
+visualizing tree data.
 
 %prep
 %setup -q -c -n %{packname}

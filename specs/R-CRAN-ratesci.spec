@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ratesci
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confidence Intervals and Tests for Comparisons of Binomial Proportions or Poisson Rates
 
@@ -24,24 +24,25 @@ differences or ratios. Including the rate (or risk) difference ('RD') or
 rate ratio (or relative risk, 'RR') for binomial proportions or Poisson
 rates, and odds ratio ('OR', binomial only). Also confidence intervals for
 RD, RR or OR for paired binomial data, and estimation of a proportion from
-clustered binomial data. Includes skewness-corrected asymptotic score
+clustered binomial data.  Includes skewness-corrected asymptotic score
 ('SCAS') methods, which have been developed in Laud (2017)
 <doi:10.1002/pst.1813> from Miettinen and Nurminen (1985)
 <doi:10.1002/sim.4780040211> and Gart and Nam (1988)
-<doi:10.2307/2531848>, and in Laud (2025, under review) for paired
-proportions. The same score produces hypothesis tests that are improved
-versions of the non-inferiority test for binomial RD and RR by Farrington
-and Manning (1990) <doi:10.1002/sim.4780091208>, or a generalisation of
-the McNemar test for paired data. The package also includes MOVER methods
-(Method Of Variance Estimates Recovery) for all contrasts, derived from
-the Newcombe method but with options to use equal-tailed intervals in
-place of the Wilson score method, and generalised for Bayesian
-applications incorporating prior information. So-called 'exact' methods
-for strictly conservative coverage are approximated using continuity
-adjustments, and the amount of adjustment can be selected to avoid
-over-conservative coverage.  Also includes methods for stratified
-calculations (e.g. meta-analysis), either with fixed effect assumption
-(matching the CMH test) or incorporating stratum heterogeneity.
+<doi:10.2307/2531848>, and in Laud (2026, under review) for paired
+proportions. In each case, the same score produces hypothesis tests that
+are improved versions of the non-inferiority test for binomial RD and RR
+by Farrington and Manning (1990) <doi:10.1002/sim.4780091208>, or a
+generalisation of the McNemar test for paired data. The package also
+includes MOVER methods (Method Of Variance Estimates Recovery) for all
+contrasts, derived from the Newcombe method but with options to use
+equal-tailed intervals in place of the Wilson score method, and
+generalised for Bayesian applications incorporating prior information.
+So-called 'exact' methods for strictly conservative coverage are
+approximated using continuity adjustments, and the amount of adjustment
+can be selected to avoid over-conservative coverage.  Also includes
+methods for stratified calculations (e.g. meta-analysis), either with
+fixed effect assumption (matching the CMH test) or incorporating stratum
+heterogeneity.
 
 %prep
 %setup -q -c -n %{packname}

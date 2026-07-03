@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kindling
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Higher-Level Interface of 'torch' Package to Auto-Train Neural Networks
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-NeuralNetTools 
-BuildRequires:    R-CRAN-vip 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-dials 
@@ -48,7 +47,6 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-CRAN-NeuralNetTools 
-Requires:         R-CRAN-vip 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tune 
 Requires:         R-CRAN-dials 
@@ -58,15 +56,13 @@ Requires:         R-CRAN-coro
 
 %description
 Provides a higher-level interface to the 'torch' package for defining,
-training, and fine-tuning neural networks, including its depth, powered by
-code generation. This package supports few to several architectures,
-including feedforward (multi-layer perceptron) and recurrent neural
-networks (Recurrent Neural Networks (RNN), Long Short-Term Memory (LSTM),
-Gated Recurrent Unit (GRU)), while also reduces boilerplate 'torch' code
-while enabling seamless integration with 'torch'. The model methods to
-train neural networks from this package also bridges to titanic ML
-frameworks in R, namely 'tidymodels' ecosystem, which enables the
-'parsnip' model specifications, workflows, recipes, and tuning tools.
+training, and fine-tuning neural networks through code generation. The
+package supports several architectures, including feedforward (multi-layer
+perceptron) and recurrent neural networks (RNN, LSTM, GRU), while reducing
+boilerplate 'torch' code. Model training methods also bridge to machine
+learning frameworks in R, particularly the 'tidymodels' ecosystem,
+including 'parsnip' model specifications, workflows, recipes, and tuning
+tools.
 
 %prep
 %setup -q -c -n %{packname}

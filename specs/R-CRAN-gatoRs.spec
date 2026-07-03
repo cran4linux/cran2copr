@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gatoRs
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CoordinateCleaner >= 3.0.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ridigbio 
 BuildRequires:    R-CRAN-rgbif 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-terra 
@@ -28,9 +27,11 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-parsedate 
 BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-duckdb 
 Requires:         R-CRAN-CoordinateCleaner >= 3.0.1
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ridigbio 
 Requires:         R-CRAN-rgbif 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-terra 
@@ -39,6 +40,9 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-duckdb 
 
 %description
 Streamlines downloading and cleaning biodiversity data from Integrated

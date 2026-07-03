@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   3.2.1
+%global packver   3.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Validated Ensemble Models with Lasso and Relaxed Elastic Net Regression
 
@@ -52,8 +52,10 @@ deterministic expansion helpers for shared factor spaces, prediction with
 bootstrap uncertainty, and a random-search optimizer that respects mixture
 constraints and combines multiple responses via desirability functions.
 Also includes a permutation-based whole-model test for Gaussian SVEM fits
-(Karl (2024) <doi:10.1016/j.chemolab.2024.105122>). Package code was
-drafted with assistance from generative AI tools.
+(Karl (2024) <doi:10.1016/j.chemolab.2024.105122>). The package and its
+workflows are described in Karl (2026)
+<doi:10.1016/j.chemolab.2026.105660>. Package code was drafted with
+assistance from generative AI tools.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  metaboData
-%global packver   0.6.3
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Example Metabolomics Data Sets
 
@@ -43,7 +44,7 @@ number of mass spectrometry based metabolomic analytical techniques. The
 example data sets are stored remotely using GitHub releases
 <https://github.com/aberHRML/metaboData/releases> which can be accessed
 from R using the package. The package also includes the 'abr1' FIE-MS data
-set from the 'FIEmspro' package <https://users.aber.ac.uk/jhd/>
+set from the 'FIEmspro' package <https://github.com/aberHRML/FIEmspro>
 <doi:10.1038/nprot.2007.511>.
 
 %prep

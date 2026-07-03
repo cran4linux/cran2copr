@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sdam
-%global packver   1.1.4
+%global packname  mathml
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Social Dynamics and Complexity in the Ancient Mediterranean
+Summary:          Translate R Expressions to 'MathML' and 'LaTeX'/'MathJax'
 
-License:          CC BY 4.0
+License:          FreeBSD
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-grImport2 
-BuildRequires:    R-CRAN-multiplex 
-Requires:         R-CRAN-grImport2 
-Requires:         R-CRAN-multiplex 
+BuildRequires:    R-CRAN-rolog >= 0.9.14
+BuildRequires:    R-CRAN-xfun >= 0.49
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-rolog >= 0.9.14
+Requires:         R-CRAN-xfun >= 0.49
+Requires:         R-CRAN-knitr 
 
 %description
-Provides digital tools for performing analyses within Social Dynamics and
-complexity in the Ancient Mediterranean (SDAM), which is a research group
-based at the Department of History and Classical Studies at Aarhus
-University.
+Translate R expressions to 'MathML' or 'MathJax'/'LaTeX' so that they can
+be rendered in R markdown documents and shiny apps.
 
 %prep
 %setup -q -c -n %{packname}

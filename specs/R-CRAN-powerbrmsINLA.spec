@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  powerbrmsINLA
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Power Analysis Using 'brms' and 'INLA'
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-viridisLite >= 0.4.0
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-tibble >= 3.2.0
@@ -38,6 +39,7 @@ Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-viridisLite >= 0.4.0
 Requires:         R-CRAN-pbapply 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description

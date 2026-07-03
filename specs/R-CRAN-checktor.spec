@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  circlesplot
-%global packver   1.1.0
+%global packname  checktor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Proportions with Circles in a Plot
+Summary:          Extra CRAN Submission Checks
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotrix 
-Requires:         R-CRAN-plotrix 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xmlparsedata 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xmlparsedata 
 
 %description
-Method for visualizing proportions between objects of different sizes. The
-proportions are drawn as circles with different diameters, which makes
-them ideal for visualizing proportions between planets.
+Provides automated checks for common Comprehensive R Archive Network
+(CRAN) submission issues that are not caught by standard 'R CMD check'.
+Consolidates ad-hoc requirements that CRAN reviewers enforce but standard
+checks do not surface, helping 'R' package maintainers identify and fix
+issues before submission to reduce rejection rates. Covers code-pattern
+issues, DESCRIPTION-field formatting, documentation problems, and general
+package structure concerns.
 
 %prep
 %setup -q -c -n %{packname}

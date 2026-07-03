@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  circumplex
+%global packname  SCEM
 %global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and Visualization of Circular Data
+Summary:          Splitting-Coalescence-Estimation Method
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-boot >= 1.3.18
-BuildRequires:    R-CRAN-htmlTable >= 1.13.3
-BuildRequires:    R-CRAN-ggforce >= 0.3.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.11
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-boot >= 1.3.18
-Requires:         R-CRAN-htmlTable >= 1.13.3
-Requires:         R-CRAN-ggforce >= 0.3.0
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-stats 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-Circumplex models, which organize constructs in a circle around two
-underlying dimensions, are popular for studying interpersonal functioning,
-mood/affect, and vocational preferences/environments. This package
-provides tools for analyzing and visualizing circular data, including
-scoring functions for relevant instruments and a generalization of the
-bootstrapped structural summary method from Zimmermann & Wright (2017)
-<doi:10.1177/1073191115621795> and functions for creating
-publication-ready tables and figures from the results.
+We introduce improved methods for statistically assessing birth
+seasonality and intra-annual variation. The first method we propose is a
+new idea that uses a nonparametric clustering procedure to group
+individuals with similar time series data and estimate birth seasonality
+based on the clusters. One can use the function SCEM() to implement this
+method. The second method estimates input parameters for use with a
+previously-developed parametric approach (Tornero et al., 2013). The
+relevant code for this approach is makeFits_OLS(), while
+makeFits_initial() is the code to implement the same method but with given
+initial conditions for two parameters. The latter can be used to show the
+disadvantage of the existing approach. One can use the function makeFits()
+to generate parametric birth seasonality estimates using either
+initialization. Detailed description can be found here: Chazin Hannah,
+Soudeep Deb, Joshua Falk, and Arun Srinivasan (2019)
+<doi:10.1111/arcm.12432> "New Statistical Approaches to Intra-Individual
+Isotopic Analysis and Modeling Birth Seasonality in Studies of Herd
+Animals".
 
 %prep
 %setup -q -c -n %{packname}

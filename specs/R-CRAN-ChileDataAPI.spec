@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ChileDataAPI
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Chilean Data via APIs and Curated Datasets
 
@@ -32,17 +32,15 @@ Requires:         R-CRAN-scales
 
 %description
 Provides functions to access data from public RESTful APIs including
-'FINDIC API', 'REST Countries API', 'World Bank API', and 'Nager.Date',
-retrieving real-time or historical data related to Chile such as financial
-indicators, holidays, international demographic and geopolitical
-indicators, and more. Additionally, the package includes curated datasets
-related to Chile, covering topics such as human rights violations during
-the Pinochet regime, electoral data, census samples, health surveys,
-seismic events, territorial codes, and environmental measurements. The
-package supports research and analysis focused on Chile by integrating
-open APIs with high-quality datasets from multiple domains. For more
-information on the APIs, see: 'FINDIC' <https://findic.cl/>, 'REST
-Countries' <https://restcountries.com/>, 'World Bank API'
+'FINDIC API', 'World Bank API', and 'Nager.Date', retrieving real-time or
+historical data related to Chile such as financial indicators, holidays,
+and more. Additionally, the package includes curated datasets related to
+Chile, covering topics such as human rights violations during the Pinochet
+regime, electoral data, census samples, health surveys, seismic events,
+territorial codes, and environmental measurements. The package supports
+research and analysis focused on Chile by integrating open APIs with
+high-quality datasets from multiple domains. For more information on the
+APIs, see: 'FINDIC' <https://findic.cl/>, 'World Bank API'
 <https://datahelpdesk.worldbank.org/knowledgebase/articles/889392>, and
 'Nager.Date' <https://date.nager.at/Api>.
 

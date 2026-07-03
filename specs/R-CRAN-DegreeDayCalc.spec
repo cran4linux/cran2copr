@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DegreeDayCalc
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Degree-Day Phenology Calculator ('shiny' Application)
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readxl 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readxl 
 
 %description
 Provides a 'shiny' application to compute daily and cumulative degree-days

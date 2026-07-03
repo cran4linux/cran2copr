@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfun
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for 'ggplot2'
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-yulab.utils >= 0.1.6
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
@@ -29,14 +30,16 @@ Requires:         R-CRAN-yulab.utils >= 0.1.6
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
 Requires:         R-grid 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-utils 
 
 %description
-Useful functions and utilities for 'ggplot' object (e.g., geometric
-layers, themes, and utilities to edit the object).
+Provides a collection of 'ggplot2' extensions and utilities for creating
+geometric layers, applying themes, working with legends, and modifying
+plot objects.
 
 %prep
 %setup -q -c -n %{packname}

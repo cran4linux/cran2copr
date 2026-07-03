@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openxlsx2
-%global packver   1.28
+%global packname  mixedsubjects
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Write and Edit 'xlsx' Files
+Summary:          Causal Inference in Experiments with Mixed-Subjects Designs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
-Requires:         R-CRAN-stringi 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Simplifies the creation of 'xlsx' files by providing a high level
-interface to writing, styling and editing worksheets.
+Implements seven estimators for average treatment effect (ATE) estimation
+in mixed-subjects designs (MSDs), where human subjects data is augmented
+with predictions from large language models (LLMs). Includes
+Difference-in-Means, GREG, PPI++, Doubly-Tuned, Difference-in-Predictions
+(DiP), DiP++, and D-T DiP estimators. Provides point estimates, variance
+estimation via delta-method or bootstrap, and optimal design selection for
+budget allocation between human observations and LLM predictions.
 
 %prep
 %setup -q -c -n %{packname}

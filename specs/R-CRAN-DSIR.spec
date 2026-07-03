@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DSIR
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Science Infrastructure for Global Health
 
@@ -34,10 +34,12 @@ Requires:         R-CRAN-rlang
 Supports global health data analysis, including a publication-ready
 'ggplot2' theme, a 'flextable' defaults helper, a thin pie chart wrapper,
 built-in regional country-code datasets with a WHO region lookup helper, a
-geometric mean function for indicator aggregation, and convenience clients
-for the World Health Organization Global Health Observatory (GHO) OData
-API <https://ghoapi.azureedge.net/api/> and the United Nations Sustainable
-Development Goals (SDG) API <https://unstats.un.org/SDGAPI/swagger/>.
+geometric mean function for indicator aggregation, an average annual rate
+of reduction function for indicator progress tracking, and convenience
+clients for the World Health Organization Global Health Observatory (GHO)
+OData API <https://ghoapi.azureedge.net/api/> and the United Nations
+Sustainable Development Goals (SDG) API
+<https://unstats.un.org/SDGAPI/swagger/>.
 
 %prep
 %setup -q -c -n %{packname}

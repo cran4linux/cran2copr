@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pdi
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phenotypic Index Measures for Oak Decline Severity
 
@@ -45,7 +46,7 @@ have been developed to quantitatively describe and differentiate oak
 decline syndromes in Quercus robur. This package provides a toolkit to
 generate these decline indexes from phenotypic descriptors using the
 machine learning algorithm random forest. The methodology for generating
-these indexes is outlined in Finch et al. (2121)
+these indexes is outlined in Finch et al. (2021)
 <doi:10.1016/j.foreco.2021.118948>.
 
 %prep
@@ -56,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

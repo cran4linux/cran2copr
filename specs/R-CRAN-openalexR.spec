@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openalexR
-%global packver   3.0.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Getting Bibliographic Records from 'OpenAlex' Database Using 'DSL' API
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-tibble
 
 %description
 A set of tools to extract bibliographic content from 'OpenAlex' database
-using API <https://docs.openalex.org>.
+using API <https://developers.openalex.org/>.
 
 %prep
 %setup -q -c -n %{packname}

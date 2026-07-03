@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  basifoR
-%global packver   0.7.7
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval and Processing of the Spanish National Forest Inventory
 
@@ -24,7 +24,9 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-measurements 
 BuildRequires:    R-CRAN-RODBC 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-foreign 
@@ -33,7 +35,9 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-measurements 
 Requires:         R-CRAN-RODBC 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
@@ -42,6 +46,9 @@ Inventory for reproducible, design-aware forest inventory workflows.
 Computes tree- and stand-level metrics, applies sampling-based expansion
 factors, estimates volume, and supports extensible processing for external
 inventory designs with custom sampling schemes and volume equations.
+Spatial extensions can attach plot geometries, preserve geometry sidecars
+through metric workflows, and return georeferenced sf outputs for mapping
+and remote-sensing integration.
 
 %prep
 %setup -q -c -n %{packname}

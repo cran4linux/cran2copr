@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.modules.clinical
-%global packver   0.12.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'teal' Modules for Standard Clinical Outputs
 
@@ -23,15 +23,15 @@ BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-scales >= 1.4.0
 BuildRequires:    R-CRAN-vistime >= 1.2.3
+BuildRequires:    R-CRAN-teal >= 1.2.0
 BuildRequires:    R-CRAN-shinyjs >= 1.10.0
-BuildRequires:    R-CRAN-teal >= 1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.5
 BuildRequires:    R-CRAN-tern >= 0.9.9
 BuildRequires:    R-CRAN-ggrepel >= 0.9.6
 BuildRequires:    R-CRAN-bslib >= 0.8.0
 BuildRequires:    R-CRAN-teal.data >= 0.8.0
+BuildRequires:    R-CRAN-teal.transform >= 0.7.2
 BuildRequires:    R-CRAN-broom >= 0.7.10
-BuildRequires:    R-CRAN-teal.transform >= 0.7.0
 BuildRequires:    R-CRAN-cowplot >= 0.7.0
 BuildRequires:    R-CRAN-teal.code >= 0.7.0
 BuildRequires:    R-CRAN-rtables >= 0.6.13
@@ -55,15 +55,15 @@ Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-scales >= 1.4.0
 Requires:         R-CRAN-vistime >= 1.2.3
+Requires:         R-CRAN-teal >= 1.2.0
 Requires:         R-CRAN-shinyjs >= 1.10.0
-Requires:         R-CRAN-teal >= 1.1
 Requires:         R-CRAN-dplyr >= 1.0.5
 Requires:         R-CRAN-tern >= 0.9.9
 Requires:         R-CRAN-ggrepel >= 0.9.6
 Requires:         R-CRAN-bslib >= 0.8.0
 Requires:         R-CRAN-teal.data >= 0.8.0
+Requires:         R-CRAN-teal.transform >= 0.7.2
 Requires:         R-CRAN-broom >= 0.7.10
-Requires:         R-CRAN-teal.transform >= 0.7.0
 Requires:         R-CRAN-cowplot >= 0.7.0
 Requires:         R-CRAN-teal.code >= 0.7.0
 Requires:         R-CRAN-rtables >= 0.6.13

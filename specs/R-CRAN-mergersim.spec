@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openxlsx2
-%global packver   1.28
+%global packname  mergersim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Write and Edit 'xlsx' Files
+Summary:          Merger Simulation and Calibration
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
-Requires:         R-CRAN-stringi 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-BB 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-BB 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
 
 %description
-Simplifies the creation of 'xlsx' files by providing a high level
-interface to writing, styling and editing worksheets.
+Analyze mergers between firms. Models of competition include
+differentiated Bertrand price-setting, Nash bargaining, and second score
+auctions, as implemented in Panhans and Taragin (2023)
+<doi:10.1016/j.ijindorg.2023.102986>. Calibrates demand systems including
+standard logit, nested logit, and generalized nested logit as implemented
+in Panhans and Wiemer (2026) <doi:10.1093/joclec/nhaf037>.
 
 %prep
 %setup -q -c -n %{packname}

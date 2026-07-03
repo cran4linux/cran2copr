@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MAIHDA
-%global packver   0.2.0
+%global packname  testflow
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Analysis of Individual Heterogeneity and Discriminatory Accuracy
+Summary:          A Workflow for Statistical Testing, Interpretation, and 'ggplot2'-Based Visualization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-lme4 >= 1.1.27
-BuildRequires:    R-CRAN-tidyr >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-reformulas 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-lme4 >= 1.1.27
-Requires:         R-CRAN-tidyr >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-reformulas 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Tools for Multilevel Analysis of Individual Heterogeneity and
-Discriminatory Accuracy (MAIHDA) for intersectional inequality research.
-Methods are described in Merlo (2018)
-<doi:10.1016/j.socscimed.2017.12.026> and Evans et al. (2018)
-<doi:10.1016/j.socscimed.2017.11.011>. The package creates intersectional
-strata, fits multilevel MAIHDA models, estimates variance partition
-coefficients, proportional change in variance, stratum effects, and
-discriminatory-accuracy summaries, and provides diagnostic and
-presentation plots.
+Provides a unified workflow for choosing, running, interpreting, and
+visualizing common statistical tests. The package combines assumption
+checks, test selection, effect sizes, formatted results, plain-language
+interpretation, and 'ggplot2'-based statistical visualizations.
+Implemented methods follow standard references including Casella and
+Berger (2002, ISBN:9780534243128), Hollander et al. (2013,
+ISBN:9781118553299), Agresti (2013, ISBN:9780470463635), and Cohen (1988,
+ISBN:9780805802832).
 
 %prep
 %setup -q -c -n %{packname}

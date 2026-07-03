@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  resmush
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimize and Compress Image Files with 'reSmush.it'
 
@@ -29,9 +29,10 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Optimize and compress local image files, directories and online images
-with the 'reSmush.it' API <https://resmush.it/>. Supports 'png',
-'jpg/jpeg', 'gif', 'bmp' and 'tiff' files.
+Optimize and compress local and online image files with the 'reSmush.it'
+'API' <https://resmush.it/api/>. Process individual files or entire
+directories. The 'API' is free for personal use, accepts files smaller
+than 5 'MB' and supports 'PNG', 'JPEG', 'GIF', 'BMP' and 'TIFF' files.
 
 %prep
 %setup -q -c -n %{packname}

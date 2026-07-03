@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dcortools
-%global packver   0.1.7
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Providing Fast and Flexible Functions for Distance Correlation Analysis
 
@@ -23,6 +23,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.11.0
@@ -32,6 +35,9 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-stats 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-survey 
 
 %description
 Provides methods for distance covariance and distance correlation

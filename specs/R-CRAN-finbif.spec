@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  finbif
-%global packver   0.9.14
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.14
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for the 'Finnish Biodiversity Information Facility' API
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.1.2
 BuildRequires:    R-CRAN-secretbase 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lutz 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 >= 1.1.2
 Requires:         R-CRAN-secretbase 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lutz 
 Requires:         R-utils 

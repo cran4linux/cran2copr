@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LifeTableFertility
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Application for Life Table and Fertility Analysis
 
@@ -20,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-readxl 
 Requires:         R-CRAN-shiny 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-readxl 
 
 %description
 Provides a 'shiny' application to construct age-specific life tables and

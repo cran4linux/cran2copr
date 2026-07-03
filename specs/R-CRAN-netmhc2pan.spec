@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmhc2pan
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'NetMHCIIpan'
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-seqinr 
+BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-testit 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-seqinr 
+Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-testit 
 Requires:         R-CRAN-tibble 
