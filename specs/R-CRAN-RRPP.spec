@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RRPP
-%global packver   2.1.2
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Model Evaluation with Randomized Residuals in a Permutation Procedure
 
@@ -21,10 +21,12 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lme4 
 Requires:         R-parallel 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-lme4 
 
 %description
 Linear model calculations are made for many random versions of data. Using

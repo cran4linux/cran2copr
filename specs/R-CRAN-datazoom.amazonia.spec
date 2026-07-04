@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datazoom.amazonia
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify Access to Data from the Amazon Region
 
@@ -14,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
@@ -30,14 +32,15 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
@@ -47,12 +50,19 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions to download and treat data regarding the Brazilian Amazon region
-from a variety of official sources.
+Provides tools for downloading and processing data on the Brazilian Amazon
+region from a variety of official sources. Covers environmental,
+agricultural, economic, and social indicators, including deforestation and
+land use, greenhouse gas emissions, climate, agricultural and livestock
+production, mining, energy, and foreign trade, from providers such as the
+Brazilian Institute of Geography and Statistics (IBGE), the National
+Institute for Space Research (INPE), and MapBiomas. Data are cleaned and
+standardized for analysis at the municipality, state, and regional levels.
 
 %prep
 %setup -q -c -n %{packname}

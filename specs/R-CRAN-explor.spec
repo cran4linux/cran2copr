@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  explor
-%global packver   0.3.10
+%global packver   0.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Interfaces for Results Exploration
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scatterD3 >= 1.0.0
+BuildRequires:    R-CRAN-scatterD3 >= 1.0.2
 BuildRequires:    R-CRAN-shiny >= 1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-highr 
 BuildRequires:    R-CRAN-formatR 
 BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-scatterD3 >= 1.0.0
+Requires:         R-CRAN-scatterD3 >= 1.0.2
 Requires:         R-CRAN-shiny >= 1.0
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-tidyr >= 1.0

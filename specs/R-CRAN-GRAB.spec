@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GRAB
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genome-Wide Robust Analysis for Biobank Data (GRAB)
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-dplyr 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides a comprehensive suite of genome-wide association study (GWAS)

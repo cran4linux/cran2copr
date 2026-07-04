@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GenericML
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generic Machine Learning Inference
 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-splitstackshape
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-weights 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mlr3 
 Requires:         R-CRAN-mlr3learners 
@@ -34,19 +36,20 @@ Requires:         R-CRAN-splitstackshape
 Requires:         R-stats 
 Requires:         R-parallel 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-weights 
 
 %description
 Generic Machine Learning Inference on heterogeneous treatment effects in
 randomized experiments as proposed in Chernozhukov, Demirer, Duflo and
-Fernández-Val (2020) <arXiv:1712.04802>. This package's workhorse is the
-'mlr3' framework of Lang et al. (2019) <doi:10.21105/joss.01903>, which
-enables the specification of a wide variety of machine learners. The main
-functionality, GenericML(), runs Algorithm 1 in Chernozhukov, Demirer,
-Duflo and Fernández-Val (2020) <arXiv:1712.04802> for a suite of
-user-specified machine learners. All steps in the algorithm are
-customizable via setup functions. Methods for printing and plotting are
-available for objects returned by GenericML(). Parallel computing is
-supported.
+Fernández-Val (2020) <doi:10.48550/arXiv.1712.04802>. This package's
+workhorse is the 'mlr3' framework of Lang et al. (2019)
+<doi:10.21105/joss.01903>, which enables the specification of a wide
+variety of machine learners. The main functionality, GenericML(), runs
+Algorithm 1 in Chernozhukov, Demirer, Duflo and Fernández-Val (2020)
+<doi:10.48550/arXiv.1712.04802> for a suite of user-specified machine
+learners. All steps in the algorithm are customizable via setup functions.
+Methods for printing and plotting are available for objects returned by
+GenericML(). Parallel computing is supported.
 
 %prep
 %setup -q -c -n %{packname}

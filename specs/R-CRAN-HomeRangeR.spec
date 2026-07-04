@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tinyplot
-%global packver   0.7.0
+%global packname  HomeRangeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Extension of the Base R Graphics System
+Summary:          Predict Vertebrate Home-Range Sizes Using Allometric Models
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Lightweight extension of the base R graphics system, with support for
-automatic legends, facets, themes, and various other enhancements.
+Provides empirically strong allometric predictions of the home-range size
+of most vertebrate species. Based on inputs of mean body size, taxonomic
+class, and optional classifications of environment and trophic level or
+foraging mode, 'HomeRangeR' predicts home-range size using the most
+appropriate model for the species selected from a collection of
+empirically derived vertebrate home-range allometries.
 
 %prep
 %setup -q -c -n %{packname}

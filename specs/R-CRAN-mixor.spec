@@ -1,36 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tinyplot
-%global packver   0.7.0
+%global packname  mixor
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Lightweight Extension of the Base R Graphics System
+Summary:          Mixed-Effects Ordinal Regression Analysis
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Lightweight extension of the base R graphics system, with support for
-automatic legends, facets, themes, and various other enhancements.
+Provides the function 'mixor' for fitting a mixed-effects ordinal and
+binary response models and associated methods for printing, summarizing,
+extracting estimated coefficients and variance-covariance matrix, and
+estimating contrasts for the fitted models.
 
 %prep
 %setup -q -c -n %{packname}

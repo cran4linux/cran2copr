@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hmmr
-%global packver   1.0-1
+%global packname  FinePop2
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixture and Hidden Markov Models with R: Datasets and Example Code
+Summary:          Fine-Scale Population Analysis (Rewrite for Gene-Trait-Environment Interaction Analysis)
 
-License:          GPL (>= 2)
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-depmixS4 
-BuildRequires:    R-stats4 
-BuildRequires:    R-CRAN-boot 
-Requires:         R-CRAN-depmixS4 
-Requires:         R-stats4 
-Requires:         R-CRAN-boot 
 
 %description
-Datasets and code examples that accompany our book Visser & Speekenbrink
-(2021), "Mixture and Hidden Markov Models with R",
-<https://depmix.github.io/hmmr/>.
+Statistical tool set for population genetics. The package provides
+following functions: 1) estimators of genetic differentiation (FST), 2)
+regression analysis of environmental effects on genetic differentiation
+using generalized least squares (GLS) method, 3) interfaces to read and
+manipulate 'GENEPOP' format data files). For more information, see Kitada,
+Nakamichi and Kishino (2020) <doi:10.1101/2020.01.30.927186>.
 
 %prep
 %setup -q -c -n %{packname}

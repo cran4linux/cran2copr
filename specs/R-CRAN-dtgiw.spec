@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dtgiw
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Transmuted Generalized Inverse Weibull Distribution
 
@@ -23,9 +24,10 @@ Requires:         R-graphics
 
 %description
 The Discrete Transmuted Generalized Inverse Weibull (DTGIW) distribution
-is a new distribution for count data analysis. The DTGIW is discrete
+is a new distribution for count data analysis. The DTGIW is a discrete
 distribution based on Atchanut and Sirinapa (2021). <DOI:
-10.14456/sjst-psu.2021.149>.
+10.14456/sjst-psu.2021.149>. In addition, a function for maximum
+likelihood estimation of the DTGIW distribution is provided.
 
 %prep
 %setup -q -c -n %{packname}

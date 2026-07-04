@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semanticfa
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semantic Factor Analysis of Language Model Embeddings
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate >= 1.41.0
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
@@ -28,6 +29,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-reticulate >= 1.41.0
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-GPArotation 
 Requires:         R-grDevices 
 Requires:         R-graphics 

@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  optedr
-%global packver   3.0.1
+%global packname  panelbuild
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculating Optimal and D-Augmented Designs for Single- and Multi-Factor Models
+Summary:          Panel Data Auditing, Validation, and Preparation Tools
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-shiny 
-Requires:         R-utils 
 
 %description
-Calculates D-, Ds-, A-, I- and L-optimal designs, weighted combinations of
-these via a Compound criterion, and KL-optimal designs for model
-discrimination, for non-linear single- and multi-factor models, via an
-implementation of the cocktail algorithm (Yu, 2011,
-<doi:10.1007/s11222-010-9183-2>). Multi-factor models use design variables
-x1, x2, … with a named-list design space; single-factor models remain
-backward compatible. Compares designs via their efficiency, augments any
-design with a controlled efficiency loss, and provides efficient rounding
-functions to convert approximate designs to exact ones.
+Provides tools for auditing, validating, and preparing panel datasets
+before statistical analysis. Functions identify duplicate unit-time
+observations, missing unit-time cells, panel gaps, and balance issues. The
+package also provides audit summaries, row-level diagnostic flags,
+panel-completion utilities, and a concise audit report.
 
 %prep
 %setup -q -c -n %{packname}

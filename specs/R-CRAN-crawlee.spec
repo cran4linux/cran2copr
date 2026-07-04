@@ -1,29 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nirs4alldatasets
-%global packver   0.2.0
+%global packname  crawlee
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Acquire Curated NIRS Reference Datasets ('nirs4all-datasets')
+Summary:          Tidy Interface for Reproducible Web Crawling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-xml2 
 
 %description
-R binding over the 'nirs4all-datasets' C 'ABI' ('n4ds_*'): resolve a
-dataset id from the distributable catalog index into a version-pinned
-download contract, fetch the canonical 'Parquet' ('Dataverse' / 'Zenodo' /
-'figshare') with SHA-256 verification into a local cache, and re-verify a
-cached directory offline. JSON crosses the stable C 'ABI'; analysis of the
-data is left to the host.
+A tidy, pipe-friendly toolkit for reproducible web crawling and structured
+data collection, inspired by the architecture of the 'Crawlee' library.
+Provides a unified crawler with a deduplicating, resumable request queue,
+content-type aware handlers, structured storage backends and rich console
+logging via 'cli'. Supports crawling HTML pages, sitemaps, RSS and Atom
+feeds and PDF documents, with optional headless-browser rendering and
+helpers for retrieval-augmented generation.
 
 %prep
 %setup -q -c -n %{packname}

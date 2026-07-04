@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  saqgetr
-%global packver   0.2.21
+%global packver   0.2.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.21
+Version:          0.2.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import Air Quality Monitoring Data in a Fast and Easy Way
 
@@ -39,8 +40,8 @@ from web servers with ease and speed. Air quality data are sourced from
 open and publicly accessible repositories and can be found in these
 locations:
 <https://www.eea.europa.eu/data-and-maps/data/airbase-the-european-air-quality-database-8>
-and <https://discomap.eea.europa.eu/map/fme/AirQualityExport.htm>. The web
-server space has been provided by Ricardo Energy & Environment.
+and <https://discomap.eea.europa.eu/map/fme/AirQualityExportAirbase.htm>.
+The web server space has been provided by Ricardo Energy & Environment.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

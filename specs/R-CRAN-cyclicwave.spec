@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  actuaRE
-%global packver   1.0.1
+%global packname  cyclicwave
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling Single-Level and Hierarchically Structured Risk Factors using Credibility and Random Effects Models
+Summary:          Cyclic Wave Analysis for Time-Series Clustering
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,34 +18,33 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-cplm 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-gsignal 
+BuildRequires:    R-CRAN-waveslim 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reformulas 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-cplm 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-data.table 
+Requires:         R-utils 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-gsignal 
+Requires:         R-CRAN-waveslim 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reformulas 
 
 %description
-Fits random effects models for multi-level/high-cardinality factors using
-credibility theory (Buhlmann-Straub for single-level, Jewell for
-hierarchical structures), GLM extensions following Ohlsson (2008)
-<doi:10.1080/03461230701878612>, or Tweedie generalized linear mixed
-models. Provides functions for model fitting, visualization, and
-prediction. See Campo, B.D.C. and Antonio, K. (2023)
-<doi:10.1080/03461238.2022.2161413>.
+A modular toolkit for feature extraction and density-based clustering of
+time-series data. It provides classical statistical, discrete wavelet,
+Hilbert-based phase, and circular statistical features. The Hilbert-based
+phase representation can support the analysis of periodic patterns, phase
+relationships, and circular behavior in time-series data. The package
+supports DBSCAN and OPTICS clustering, cluster evaluation, visualization,
+data preparation, and comparison of multiple feature extraction and
+clustering combinations. Methods are described in Karakaya and Purutcuoglu
+(2026) <doi:10.15672/hujms.1821412> and Karakaya et al. (2026)
+<doi:10.1007/978-3-032-17020-0_27>.
 
 %prep
 %setup -q -c -n %{packname}

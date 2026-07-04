@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortSurvival
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Survival from Common Data Model Cohorts
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-omopgenerics >= 1.1.0
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clock 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-omopgenerics >= 1.1.0
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clock 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 

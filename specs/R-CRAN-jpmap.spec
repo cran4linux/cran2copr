@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depmixS4
-%global packver   1.5-3
+%global packname  jpmap
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dependent Mixture Models - Hidden Markov Models of GLMs and Other Distributions in S4
+Summary:          Japan Maps with Insets for Okinawa and Ogasawara
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nlme 
-Requires:         R-stats 
-Requires:         R-stats4 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 
 %description
-Fits latent (hidden) Markov models on mixed categorical and continuous
-(time series) data, otherwise known as dependent mixture models, see
-Visser & Speekenbrink (2010, <DOI:10.18637/jss.v036.i07>).
+Provides tools for drawing maps of Japan with prefecture and municipal
+boundaries. The plotting workflow mirrors the 'usmap' package and includes
+a transform that moves Okinawa and Ogasawara into visible inset locations.
+Boundary helpers build local 'GeoPackage' files from Japan's official MLIT
+N03 administrative area data
+<https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-2024.html>.
 
 %prep
 %setup -q -c -n %{packname}
