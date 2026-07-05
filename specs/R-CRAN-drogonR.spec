@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drogonR
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Performance HTTP Server for R via 'Drogon'
 
@@ -27,7 +27,8 @@ Requires:         R-CRAN-processx
 Provides an 'R' interface to the 'Drogon' high-performance 'C++' 'HTTP'
 server framework (<https://github.com/drogonframework/drogon>). Offers a
 'plumber'-style application programming interface for building 'REST'
-services from 'R' with substantially higher throughput.
+services from 'R' with substantially higher throughput, including
+streaming responses and full-duplex 'WebSocket' endpoints.
 
 %prep
 %setup -q -c -n %{packname}

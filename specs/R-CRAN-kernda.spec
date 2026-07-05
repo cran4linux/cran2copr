@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fiber
-%global packver   0.2.0
+%global packname  kernda
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          S7 Data Structures for Diffusion MRI Tractography
+Summary:          Kernel Discriminant Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-S7 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-kernreg 
+Requires:         R-CRAN-Compositional 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-kernreg 
 
 %description
-Provides three S7 classes — streamline, bundle, and bundle_set — for
-representing diffusion MRI tractography data in R, together with a concise
-set of methods for computing shape descriptors (arc-length, curvature,
-torsion, sinuosity), the Hausdorff distance between streamlines,
-arc-length reparametrization of streamlines and bundles onto uniform
-grids, combination of streamlines or bundles into a single bundle,
-combination of bundles from multiple subjects or sessions into a
-bundle_set, and coercion to and from the dwiFiber S4 class of the 'dti'
-package. See Dell'Acqua, F., Descoteaux, M. and Leemans, A. (2024)
-"Handbook of Diffusion MR Tractography" <doi:10.1016/C2018-0-02520-7> for
-more about the mathematical and computational underpinnings of diffusion
-MRI tractography.
+Functions to perform discriminant analysis using kernel density
+estimation. For the case of binary classification the package relies on
+the Nadaraya-Watson estimator. References: Wand M.P. and Jones M.C.
+(1995). "Kernel smoothing". CRC Press. <ISBN: 0412552701>.
 
 %prep
 %setup -q -c -n %{packname}

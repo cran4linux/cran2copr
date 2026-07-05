@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fiber
-%global packver   0.2.0
+%global packname  tripaccess
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          S7 Data Structures for Diffusion MRI Tractography
+Summary:          American Travel Behavior and Access Datasets
 
-License:          MIT + file LICENSE
+License:          CC0 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-S7 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 
 %description
-Provides three S7 classes — streamline, bundle, and bundle_set — for
-representing diffusion MRI tractography data in R, together with a concise
-set of methods for computing shape descriptors (arc-length, curvature,
-torsion, sinuosity), the Hausdorff distance between streamlines,
-arc-length reparametrization of streamlines and bundles onto uniform
-grids, combination of streamlines or bundles into a single bundle,
-combination of bundles from multiple subjects or sessions into a
-bundle_set, and coercion to and from the dwiFiber S4 class of the 'dti'
-package. See Dell'Acqua, F., Descoteaux, M. and Leemans, A. (2024)
-"Handbook of Diffusion MR Tractography" <doi:10.1016/C2018-0-02520-7> for
-more about the mathematical and computational underpinnings of diffusion
-MRI tractography.
+Subsets of data from the National Household Travel Survey 2017. It
+includes personal trips, mobility, demographic, and household information.
+It is suitable for data visualization, data wrangling, joining datasets,
+exploratory data analysis, group comparisons, simple linear regression,
+categorical data analysis, and data ethics discussion in data science and
+statistics classes.
 
 %prep
 %setup -q -c -n %{packname}

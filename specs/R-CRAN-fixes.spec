@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fixes
-%global packver   0.11.2
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Staggered DiD Tools: Event Studies and ATT Aggregation
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-scales 
+Requires:         R-parallel 
 
 %description
 Provides tools for difference-in-differences (DiD) estimation and

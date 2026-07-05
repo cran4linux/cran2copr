@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fiber
-%global packver   0.2.0
+%global packname  BJM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          S7 Data Structures for Diffusion MRI Tractography
+Summary:          Backward Joint Model for the Dynamic Prediction of Both Time-to-Event and Longitudinal Outcomes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-S7 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
 
 %description
-Provides three S7 classes — streamline, bundle, and bundle_set — for
-representing diffusion MRI tractography data in R, together with a concise
-set of methods for computing shape descriptors (arc-length, curvature,
-torsion, sinuosity), the Hausdorff distance between streamlines,
-arc-length reparametrization of streamlines and bundles onto uniform
-grids, combination of streamlines or bundles into a single bundle,
-combination of bundles from multiple subjects or sessions into a
-bundle_set, and coercion to and from the dwiFiber S4 class of the 'dti'
-package. See Dell'Acqua, F., Descoteaux, M. and Leemans, A. (2024)
-"Handbook of Diffusion MR Tractography" <doi:10.1016/C2018-0-02520-7> for
-more about the mathematical and computational underpinnings of diffusion
-MRI tractography.
+Provides tools to fit joint models of multivariate longitudinal data and
+time-to-event data for dynamic prediction. It allows the joint prediction
+of both future time-to-event outcomes and future longitudinal outcomes
+conditional on survival. The models accommodate irregularly measured
+longitudinal data and competing risks outcomes. The use of the backward
+joint model enables fast and efficient computation, especially for
+applications with large sample sizes and many longitudinal variables.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fiber
-%global packver   0.2.0
+%global packname  outliersHD
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          S7 Data Structures for Diffusion MRI Tractography
+Summary:          Detection of Outliers in High Dimensional Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-S7 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-CRAN-Rnanoflann 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
+Requires:         R-CRAN-Rnanoflann 
+Requires:         R-stats 
 
 %description
-Provides three S7 classes — streamline, bundle, and bundle_set — for
-representing diffusion MRI tractography data in R, together with a concise
-set of methods for computing shape descriptors (arc-length, curvature,
-torsion, sinuosity), the Hausdorff distance between streamlines,
-arc-length reparametrization of streamlines and bundles onto uniform
-grids, combination of streamlines or bundles into a single bundle,
-combination of bundles from multiple subjects or sessions into a
-bundle_set, and coercion to and from the dwiFiber S4 class of the 'dti'
-package. See Dell'Acqua, F., Descoteaux, M. and Leemans, A. (2024)
-"Handbook of Diffusion MR Tractography" <doi:10.1016/C2018-0-02520-7> for
-more about the mathematical and computational underpinnings of diffusion
-MRI tractography.
+Algorithms to detect high-dimensional outliers. The minimum diagonal
+product of Ro, Zou, Wang and Yin (2015) <doi:10.1093/biomet/asv021>, the
+algorithm of Wilkinson (2018) <doi:10.1109/TVCG.2017.2744685>, and the
+distances of distances of Lee and Jeon (2025)
+<doi:10.48550/arXiv.2511.02199>.
 
 %prep
 %setup -q -c -n %{packname}

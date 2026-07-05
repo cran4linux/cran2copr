@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rasterbc
-%global packver   1.0.3
+%global packname  tinytrail
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Forest Ecology Layers for British Columbia in 2001-2018
+Summary:          Lightweight Auto-Updating Project Tracker and Data Dictionary
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-sf 
-Requires:         R-methods 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-yaml 
 
 %description
-R-based access to a large set of data variables relevant to forest ecology
-in British Columbia (BC), Canada. Layers are in raster format at 100m
-resolution in the BC Albers projection, hosted at the Federated Research
-Data Repository (FRDR) with <doi:10.20383/101.0283>. The collection
-includes: elevation; biogeoclimatic zone; wildfire; cutblocks; forest
-attributes from Hansen et al. (2013) <doi:10.1139/cjfr-2013-0401> and
-Beaudoin et al. (2017) <doi:10.1139/cjfr-2017-0184>; and rasterized Forest
-Insect and Disease Survey (FIDS) maps for a number of insect pest species,
-all covering the period 2001-2018. Users supply a polygon or point
-location in the province of BC, and 'rasterbc' will download the
-overlapping raster tiles hosted at FRDR, merging them as needed and
-returning the result in R as a 'SpatRaster' object. Metadata associated
-with these layers, and code for downloading them from their original
-sources can be found in the 'github' repository
-<https://github.com/deankoch/rasterbc_src>.
+Once initialized, the package leaves a 'tiny trail' of human- and
+AI-readable text that makes it effortless to keep track of small to
+medium-sized projects. The package is lightweight (hence 'tiny') and
+maintains a YAML trail file recording which scripts produced which output
+files. Call tinytrail() once at the top of each script to record metadata,
+wrap any save call with tinytrail_write() to log the output path, and
+optionally use tinytrail_dict() to capture a data dictionary for each
+input data frame.
 
 %prep
 %setup -q -c -n %{packname}

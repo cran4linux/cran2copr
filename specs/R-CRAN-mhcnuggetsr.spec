@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mhcnuggetsr
-%global packver   1.1
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Call MHCnuggets
 
@@ -16,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-stringr 
@@ -38,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

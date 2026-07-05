@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  futureverse
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Install 'Futureverse' in One Go
 
@@ -22,22 +22,28 @@ BuildRequires:    R-CRAN-futurize
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-progressify 
 BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-futurize 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-progressify 
 Requires:         R-CRAN-progressr 
 
 %description
 The 'Futureverse' is a set of packages for parallel and distributed
-processing with the 'future' package at its core, cf. Bengtsson (2021)
-<doi:10.32614/RJ-2021-048>. This package is designed to make it easy to
-install common 'Futureverse' packages in a single step. This package is
-intended for end-users, interactive use, and R scripts. Packages must not
-list it as a dependency - instead, explicitly declare each 'Futureverse'
-package as a dependency as needed.
+processing with the 'future' package at its core (Bengtsson, 2021,
+<doi:10.32614/RJ-2021-048>). Another notable component is the 'futurize'
+package (Bengtsson, 2026, <doi:10.48550/arXiv.2601.17578>) for turning
+common sequential calls into parallel ones via a single function
+futurize(). Similarly, the progressify() of the 'progressify' package
+makes common calls to report of progress. This package is designed to make
+it easy to install common 'Futureverse' packages in a single step. This
+package is intended for end-users, interactive use, and R scripts.
+Packages must not list it as a dependency - instead, explicitly declare
+each 'Futureverse' package as a dependency as needed.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  chouca
-%global packver   0.1.991
+%global packname  attestix
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.991
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Stochastic Cellular Automaton Engine
+Summary:          Offline Verifier for Attestix Ed25519 Credentials and UCAN Delegations
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-digest 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sodium 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-sodium 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-stringi 
 
 %description
-An engine for stochastic cellular automata. It provides a high-level
-interface to declare a model, which can then be simulated by various
-backends (Genin et al. (2023) <doi:10.1101/2023.11.08.566206>).
+An offline verifier for verifiable credentials and delegation chains
+issued by the Attestix Python core. Verifies Ed25519 (RFC 8032) signatures
+over W3C Verifiable Credentials, decodes Ed25519 'did:key' identifiers,
+and verifies UCAN delegation chains (EdDSA 'JWT's) including capability
+attenuation, with no Python runtime required. Reproduces the Attestix
+JCS-style JSON canonical form (a practical subset of RFC 8785 that
+additionally applies 'NFC' Unicode normalization) byte-for-byte so that
+signatures produced by the reference implementation verify here. Useful
+for compliance, research and biostatistics users who work in R and need to
+check AI-agent compliance credentials. See <https://attestix.io> for the
+project and <https://attestix.io/spec/bundle/v1> for the bundle wire
+format.
 
 %prep
 %setup -q -c -n %{packname}

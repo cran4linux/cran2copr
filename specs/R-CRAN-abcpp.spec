@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fiber
-%global packver   0.2.0
+%global packname  abcpp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          S7 Data Structures for Diffusion MRI Tractography
+Summary:          Shared C++ Backend for Approximate Bayesian Computation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-S7 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides three S7 classes — streamline, bundle, and bundle_set — for
-representing diffusion MRI tractography data in R, together with a concise
-set of methods for computing shape descriptors (arc-length, curvature,
-torsion, sinuosity), the Hausdorff distance between streamlines,
-arc-length reparametrization of streamlines and bundles onto uniform
-grids, combination of streamlines or bundles into a single bundle,
-combination of bundles from multiple subjects or sessions into a
-bundle_set, and coercion to and from the dwiFiber S4 class of the 'dti'
-package. See Dell'Acqua, F., Descoteaux, M. and Leemans, A. (2024)
-"Handbook of Diffusion MR Tractography" <doi:10.1016/C2018-0-02520-7> for
-more about the mathematical and computational underpinnings of diffusion
-MRI tractography.
+Provides a compact C++ backend for Approximate Bayesian Computation (ABC)
+with a thin R frontend. The current implementation is primarily a C++
+reimplementation of offline ABC workflows provided by the R 'abc' package
+<doi:10.32614/CRAN.package.abc>, with the public R interface intentionally
+kept small and centered on abc() and summary() methods. The computational
+work is performed by shared C++ code. In addition to reproducing common
+'abc' workflows, the package adds optional dimensionality reduction of
+summary statistics through Principal Component Analysis (PCA) and Partial
+Least Squares (PLS), following related ideas described by Bazin et al.
+(2010) <doi:10.1534/genetics.109.112391> and Wegmann et al. (2009)
+<doi:10.1534/genetics.109.102509>.
 
 %prep
 %setup -q -c -n %{packname}

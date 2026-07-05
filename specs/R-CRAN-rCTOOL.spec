@@ -1,53 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pureseqtmr
-%global packver   1.4.2
+%global packname  rCTOOL
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict Transmembrane Protein Topology
+Summary:          Soil Organic Carbon Turnover Modelling with 'C-TOOL'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Peptides 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Peptides 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
-Proteins reside in either the cell plasma or in the cell membrane. A
-membrane protein goes through the membrane at least once. Given the amino
-acid sequence of a membrane protein, the tool 'PureseqTM'
-(<https://github.com/PureseqTM/pureseqTM_package>, as described in
-"Efficient And Accurate Prediction Of Transmembrane Topology From Amino
-acid sequence only.", Wang, Qing, et al (2019), <doi:10.1101/627307>), can
-predict the topology of a membrane protein. This package allows one to use
-'PureseqTM' from R.
+Provides an 'R' interface to the 'C-TOOL' soil carbon turnover model for
+simulating soil organic carbon dynamics in agricultural systems. The
+package supports the definition of carbon inputs, management schedules,
+soil parameters, and temperature forcing, and includes tools for scenario
+analysis and calibration of selected model parameters against observed
+soil organic carbon stocks. The 'C-TOOL' model and related modelling
+framework are described by Petersen et al. (2002)
+<doi:10.1016/S0304-3800(02)00034-0>, Petersen et al. (2005)
+<doi:10.1016/j.soilbio.2004.08.006>, Petersen et al. (2013)
+<doi:10.1016/j.jclepro.2013.03.007>, and Taghizadeh-Toosi et al. (2014)
+<doi:10.1016/j.ecolmodel.2014.08.016>. Further applications and
+developments are described by Taghizadeh-Toosi et al. (2016)
+<doi:10.1016/j.agsy.2016.03.004>, Keel et al. (2017)
+<doi:10.1111/ejss.12454>, Taghizadeh-Toosi et al. (2020)
+<doi:10.1007/s11104-020-04500-9>, and Taghizadeh-Toosi and Christensen
+(2021) <doi:10.1038/s41598-021-97744-z>.
 
 %prep
 %setup -q -c -n %{packname}

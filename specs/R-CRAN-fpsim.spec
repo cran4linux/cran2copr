@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fpsim
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Measures of Foreign Policy Similarity/Agreement
 
@@ -22,10 +22,11 @@ BuildArch:        noarch
 Provides functions for calculating various measures of foreign policy
 similarity or association commonly used in the study of international
 relations. These include Signorino and Ritter's S statistic (weighted and
-unweighted), Cohen's weighted kappa, Scott's pi, and Kendall's tau-b. The
-package facilitates the generation of dyadic similarity scores for
-empirical analyses and can also serve as an educational resource for
-understanding how such measures are derived.
+unweighted), Benati and Capurri's chance-corrected S statistic (A),
+Cohen's weighted kappa, Scott's pi, and Kendall's tau-b. The package
+facilitates the generation of dyadic similarity scores for empirical
+analyses and can also serve as an educational resource for understanding
+how such measures are calculated.
 
 %prep
 %setup -q -c -n %{packname}
