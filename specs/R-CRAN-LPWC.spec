@@ -1,50 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tourr
-%global packver   1.2.8
+%global packname  LPWC
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tour Methods for Multivariate Data Visualisation
+Summary:          Lag Penalized Weighted Correlation for Time Series Clustering
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ash 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-geozoo 
-BuildRequires:    R-CRAN-cassowaryr 
-BuildRequires:    R-CRAN-minerva 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ash 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-geozoo 
-Requires:         R-CRAN-cassowaryr 
-Requires:         R-CRAN-minerva 
+BuildRequires:    R-CRAN-nleqslv 
+Requires:         R-CRAN-nleqslv 
 
 %description
-Implements geodesic interpolation and basis generation functions that
-allow you to create new tour methods from R.
+Computes a time series distance measure for clustering based on weighted
+correlation and introduction of lags. The lags capture delayed responses
+in a time series dataset. The timepoints must be specified. T. Chandereng,
+A. Gitter (2020) <doi:10.1186/s12859-019-3324-1>.
 
 %prep
 %setup -q -c -n %{packname}

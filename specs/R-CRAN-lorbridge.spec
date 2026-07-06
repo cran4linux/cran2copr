@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lorbridge
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bridging Log-Odds Ratios and Correspondence Analysis via Closeness-of-Concordance Measures
 
@@ -31,7 +31,7 @@ doubly-ordered (DONSCA) nonsymmetric correspondence analysis. Log-odds
 ratios (LORs) from logistic regression are re-expressed as cosine theta
 estimates and closeness-of-concordance measures (CCMs) -- including Yule's
 Q, Yule's Y, and r_meta -- on the familiar [-1, +1] scale introduced by
-Kim and Grochowalski (2019) <doi:10.3758/s13428-018-1161-1>. Bootstrap
+Kim and Grochowalski (2019) <doi:10.1007/s00357-018-9277-7>. Bootstrap
 confidence intervals for cosine theta are provided throughout. The package
 is intended to help clinical and medical researchers interpret association
 strength from logistic regression in an intuitive, correlation-like

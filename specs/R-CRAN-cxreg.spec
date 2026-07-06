@@ -1,38 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rcpp
+%global packname  cxreg
 %global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless R and C++ Integration
+Summary:          Complex-Valued Lasso and Complex-Valued Graphical Lasso
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-gdata 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-The 'Rcpp' package provides R functions as well as C++ classes which offer
-a seamless integration of R and C++. Many R data types and objects can be
-mapped back and forth to C++ equivalents which facilitates both writing of
-new code as well as easier integration of third-party libraries.
-Documentation about 'Rcpp' is provided by several vignettes included in
-this package, via the 'Rcpp Gallery' site at <https://gallery.rcpp.org>,
-the paper by Eddelbuettel and Francois (2011,
-<doi:10.18637/jss.v040.i08>), the book by Eddelbuettel (2013,
-<doi:10.1007/978-1-4614-6868-4>) and the paper by Eddelbuettel and
-Balamuta (2018, <doi:10.1080/00031305.2017.1375990>); see
-'citation("Rcpp")' for details.
+Implements 'glmnet'-style complex-valued lasso (CLASSO) and complex-valued
+graphical lasso (CGLASSO) via a pathwise coordinate descent algorithm for
+complex-valued parameters, using an isomorphism between complex numbers
+and 2x2 orthogonal matrices. Also provides a full inference pipeline for
+high-dimensional sparse spectral precision matrices, including data-driven
+bandwidth selection, one-step debiasing, asymptotic variance estimation,
+entry-wise confidence regions, and FDR-controlled hypothesis testing.
+Supporting tools for cross-validation, simulation, coefficient extraction,
+and plotting are included. See Deb, Kuceyeski, and Basu (2024)
+<doi:10.48550/arXiv.2401.11128> and Deb, Kim, and Basu (2026)
+<doi:10.48550/arXiv.2606.07986>.
 
 %prep
 %setup -q -c -n %{packname}

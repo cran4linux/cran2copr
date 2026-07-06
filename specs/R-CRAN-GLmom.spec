@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GLmom
-%global packver   1.3.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized L-Moments Estimation for Extreme Value Distributions
 
@@ -40,18 +40,18 @@ Requires:         R-graphics
 Provides generalized L-moments estimation methods for the generalized
 extreme value ('GEV') distribution. Implements both stationary 'GEV' and
 non-stationary 'GEV11' models where location and scale parameters vary
-with time. Includes various penalty functions ('Martins'-'Stedinger',
-Park, Cannon, 'Coles'-Dixon) for shape parameter regularization. Also
-provides model averaging estimation ('ma.gev') that combines MLE and
-L-moment methods with multiple weighting schemes for robust high quantile
+with time. Includes various penalty functions (Martins-Stedinger, Park,
+Cannon, Coles-Dixon) for shape parameter regularization. Also provides
+model averaging estimation ('ma.gev') that combines MLE and L-moment
+methods with multiple weighting schemes for robust high quantile
 estimation. The 'GLME' methodology is described in Shin et al. (2025a)
 <doi:10.48550/arXiv.2512.20385>. The non-stationary L-moment method is
 based on Shin et al. (2025b) <doi:10.1007/s42952-025-00325-3>. The model
 averaging method is described in Shin et al. (2026)
-<doi:10.1007/s00477-025-03167-x>. See also 'Hosking' (1990)
-<doi:10.1111/j.2517-6161.1990.tb01775.x> for L-moments theory and
-'Martins' and 'Stedinger' (2000) <doi:10.1029/1999WR900330> for penalized
-likelihood methods.
+<doi:10.1007/s00477-025-03167-x>. See also Hosking (1990)
+<doi:10.1111/j.2517-6161.1990.tb01775.x> for L-moments theory and Martins
+and Stedinger (2000) <doi:10.1029/1999WR900330> for penalized likelihood
+methods.
 
 %prep
 %setup -q -c -n %{packname}

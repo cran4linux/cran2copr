@@ -1,50 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tourr
-%global packver   1.2.8
+%global packname  RobustLPA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tour Methods for Multivariate Data Visualisation
+Summary:          Robust Latent Profile Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ash 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-geozoo 
-BuildRequires:    R-CRAN-cassowaryr 
-BuildRequires:    R-CRAN-minerva 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ash 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-geozoo 
-Requires:         R-CRAN-cassowaryr 
-Requires:         R-CRAN-minerva 
 
 %description
-Implements geodesic interpolation and basis generation functions that
-allow you to create new tour methods from R.
+Provides a comprehensive toolset for estimating Latent Profile Analysis
+(LPA) models that are robust to multivariate outliers and missing data. By
+integrating a high-performance 'C++' engine via 'RcppArmadillo' with a
+Full Information Maximum Likelihood (FIML) approach and Huber weighting,
+it reliably extracts latent profiles even in complex datasets. It supports
+multiple geometric variance-covariance models, along with functions for
+bootstrapped likelihood ratio tests and plotting. For methodological
+details on the Bootstrapped Likelihood Ratio Test, see Nylund et al.
+(2007) <doi:10.1080/10705510701575396>. For robust clustering methods, see
+Garcia-Escudero et al. (2010) <doi:10.1007/s11634-010-0064-5>.
 
 %prep
 %setup -q -c -n %{packname}

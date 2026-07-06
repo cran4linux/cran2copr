@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treemapify
-%global packver   2.6.0
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Treemaps in 'ggplot2'
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.5
 BuildRequires:    R-grid >= 3.1
 BuildRequires:    R-CRAN-ggfittext >= 0.5.0
-BuildRequires:    R-CRAN-svglite 
 Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-CRAN-ggplot2 >= 3.5
 Requires:         R-grid >= 3.1
 Requires:         R-CRAN-ggfittext >= 0.5.0
-Requires:         R-CRAN-svglite 
 
 %description
 Provides 'ggplot2' geoms for drawing treemaps.

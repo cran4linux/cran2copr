@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geoperu
-%global packver   0.0.0.2
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Spatial Datasets of Peru
 
@@ -17,26 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-methods 
 Requires:         R-CRAN-sf 
 
 %description
-Provides convenient access to the official spatial datasets of Peru as
-'sf' objects in R. This package includes a wide range of geospatial data
-covering various aspects of Peruvian geography, such as: administrative
-divisions (Source: INEI <https://ide.inei.gob.pe/>), protected natural
-areas (Source: GEO ANP - SERNANP
-<https://geo.sernanp.gob.pe/visorsernanp/>). All datasets are harmonized
-in terms of attributes, projection, and topology, ensuring consistency and
-ease of use for spatial analysis and visualization.
+Provides access to official spatial datasets of Peru as 'sf' objects in
+'R'. Includes administrative boundaries from the National Institute of
+Statistics and Informatics (INEI) <https://ide.inei.gob.pe/> and protected
+natural areas from the National Service of Natural Areas Protected by the
+State (SERNANP)
+<https://www.gob.pe/institucion/sernanp/pages/21261-acceder-a-informacion-espacial-de-las-area-naturales-protegidas-visor-de-informacion-geografica>.
+Harmonizes attributes, coordinate reference systems, and topology to
+support consistent spatial analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}

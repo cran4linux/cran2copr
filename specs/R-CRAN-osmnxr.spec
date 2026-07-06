@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tourr
-%global packver   1.2.8
+%global packname  osmnxr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tour Methods for Multivariate Data Visualisation
+Summary:          Download, Model and Analyze 'OpenStreetMap' Street Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ash 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-geozoo 
-BuildRequires:    R-CRAN-cassowaryr 
-BuildRequires:    R-CRAN-minerva 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ash 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-geozoo 
-Requires:         R-CRAN-cassowaryr 
-Requires:         R-CRAN-minerva 
 
 %description
-Implements geodesic interpolation and basis generation functions that
-allow you to create new tour methods from R.
+A 'tidyverse'-friendly toolkit, inspired by the 'OSMnx' 'Python' library,
+to download, model, simplify, analyze and visualize street networks and
+other geospatial features from 'OpenStreetMap'. Build routable graphs from
+a place name, address, point or bounding box; simplify topology; compute
+shortest paths, isochrones and urban metrics (intersection density,
+circuity, street-orientation entropy, centrality); and export to 'sf',
+'sfnetworks' and 'MapLibre'. Heavy graph computation is performed by a
+bundled 'Rust' core.
 
 %prep
 %setup -q -c -n %{packname}

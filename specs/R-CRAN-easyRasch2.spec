@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyRasch2
-%global packver   0.8.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Psychometric Analysis with Rasch Measurement Theory
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-psychotools >= 0.7.3
-BuildRequires:    R-CRAN-eRm 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-mirt 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-psychotools >= 0.7.3
-Requires:         R-CRAN-eRm 
+Requires:         R-graphics 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-mirt 
 Requires:         R-stats 
@@ -44,9 +44,11 @@ targeting, reliability, category functioning, and descriptive
 item-response plots. A distinguishing feature is the use of
 simulation-based critical values to replace rule-of-thumb cutoffs for
 conditional infit mean-square, Yen's Q3 local-dependence statistic, the
-largest residual-PCA eigenvalue, and ordinal CFA fit indices. Outputs are
-knitr::kable() tables and 'ggplot2' figures suitable for direct inclusion
-in 'Quarto' and 'R Markdown' reports.
+largest residual-PCA eigenvalue, ordinal CFA fit indices, and
+partial-gamma DIF and local-dependence coefficients, optionally augmented
+with multiplicity-corrected bootstrap p-values. Outputs are knitr::kable()
+tables and 'ggplot2' figures suitable for direct inclusion in 'Quarto' and
+'R Markdown' reports.
 
 %prep
 %setup -q -c -n %{packname}

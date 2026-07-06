@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tourr
-%global packver   1.2.8
+%global packname  QuantBondCurves
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tour Methods for Multivariate Data Visualisation
+Summary:          Calculates Bond Values and Interest Rate Curves for Finance
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ash 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-geozoo 
-BuildRequires:    R-CRAN-cassowaryr 
-BuildRequires:    R-CRAN-minerva 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ash 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-geozoo 
-Requires:         R-CRAN-cassowaryr 
-Requires:         R-CRAN-minerva 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-quantdates 
+BuildRequires:    R-CRAN-Rsolnp 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-quantdates 
+Requires:         R-CRAN-Rsolnp 
 
 %description
-Implements geodesic interpolation and basis generation functions that
-allow you to create new tour methods from R.
+Values different types of assets and calibrates discount curves for
+quantitative financial analysis. It covers fixed coupon assets, floating
+note assets, interest and cross currency swaps with different payment
+frequencies. Enables the calibration of spot, instantaneous forward and
+basis curves, making it a powerful tool for accurate and flexible bond
+valuation and curve generation. The valuation and calibration techniques
+presented here are consistent with industry standards and incorporates
+author's own calculations. Tuckman, B., Serrat, A. (2022, ISBN:
+978-1-119-83555-4).
 
 %prep
 %setup -q -c -n %{packname}

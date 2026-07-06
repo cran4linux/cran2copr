@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QRAGadget
-%global packver   0.3.0
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Shiny' Gadget for Interactive 'QRA' Visualizations
 
@@ -14,27 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-terra 
 
 %description
 Upload raster data and easily create interactive quantitative risk

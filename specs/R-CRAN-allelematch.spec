@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  allelematch
-%global packver   2.5.5
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.5
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identifying Unique Multilocus Genotypes where Genotyping Error and Missing Data may be Present
 
@@ -14,25 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dynamicTreeCut 
 Requires:         R-CRAN-dynamicTreeCut 
 
 %description
-Tools for the identification of unique of multilocus genotypes when both
-genotyping error and missing data may be present; targeted for use with
+Tools for the identification of unique multilocus genotypes when both
+genotyping error and missing data may be present. Includes a data
+pre-screening utility to analyze pairwise locus overlap and protect
+against underlying mathematical sorting constraints. Targeted for use with
 large datasets and databases containing multiple samples of each
 individual (a common situation in conservation genetics, particularly in
 non-invasive wildlife sampling applications). Functions explicitly
 incorporate missing data and can tolerate allele mismatches created by
 genotyping error. If you use this package, please cite the original
 publication in Molecular Ecology Resources (Galpern et al., 2012), the
-details for which can be generated using citation('allelematch'). For a
-complete vignette, please access via the Data S1 Supplementary
-documentation and tutorials (PDF) located at
-<doi:10.1111/j.1755-0998.2012.03137.x>.
+details for which can be generated using citation('allelematch'). The
+complete user manual and analytical tutorials are included locally as an R
+vignette and can be accessed within an active R session using
+vignette('allelematch').
 
 %prep
 %setup -q -c -n %{packname}

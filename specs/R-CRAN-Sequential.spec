@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Sequential
-%global packver   4.6.0
+%global packver   4.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.0
+Version:          4.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exact Sequential Analysis for Poisson and Binomial Data
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-pmultinom 
 BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-DescTools 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-pmultinom 
 Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-DescTools 
 
 %description
 Functions to calculate exact critical values, statistical power, expected
