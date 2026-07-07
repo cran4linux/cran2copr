@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caroline
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Database, Data Structure, Visualization, and Utility Functions for R
 
@@ -25,12 +25,14 @@ The caroline R library contains dozens of functions useful for: database
 migration (dbWriteTable2), database style joins & aggregation (nerge,
 groupBy, & bestBy), data structure conversion (nv, tab2df), legend table
 making (sstable & leghead), automatic legend positioning for scatter and
-box plots (), plot annotation (labsegs & mvlabs), data visualization
-(pies, sparge, confound.grid & raPlot), character string manipulation (m &
-pad), file I/O (write.delim), batch scripting, data exploration, and more.
-The package's greatest contributions lie in the database style merge,
+box plots (legend.position), plot annotation (labsegs & mvlabs), data
+visualization (pies & raPlot), character string manipulation (m & pad),
+file I/O (write.delim), batch scripting, data exploration, and more. The
+package's greatest contributions stem from its database style merge,
 aggregation and interface functions as well as in it's extensive use and
-propagation of row, column and vector names in most functions.
+propagation of row, column and vector names in most functions. The latest
+additions are plotting functions (confound.grid & sparge) that intake a
+dataframe & formulas to visually resolve variable confounding.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bidser
-%global packver   0.2.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with 'BIDS' (Brain Imaging Data Structure) Projects
 
@@ -14,45 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-neuroim2 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rio 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-neuroim2 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rio 
 
 %description
 Tools for working with 'BIDS' (Brain Imaging Data Structure) formatted

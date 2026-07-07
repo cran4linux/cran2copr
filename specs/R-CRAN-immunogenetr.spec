@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  immunogenetr
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Toolkit for Clinical HLA Informatics
 
@@ -41,14 +41,14 @@ Requires:         R-CRAN-purrr >= 1.0.2
 %description
 A comprehensive toolkit for clinical Human Leukocyte Antigen (HLA)
 informatics, built on 'tidyverse' <https://tidyverse.tidyverse.org/>
-principles and making use of genotype list string (GL string, Mack et al.
+principles and making use of Genotype List String (GL String, Mack et al.
 (2023) <doi:10.1111/tan.15126>) for storing and computing HLA genotype
 data.  Specific functionalities include: coercion of HLA data in tabular
-format to and from GL string; calculation of matching and mismatching in
+format to and from GL String; calculation of matching and mismatching in
 all directions, with multiple output formats; automatic formatting of HLA
-data for searching within a GL string; truncation of molecular HLA data to
+data for searching within a GL String; truncation of molecular HLA data to
 a specific number of fields; and reading HLA genotypes in HML files and
-extracting the GL string. This library is intended for research use. Any
+extracting the GL String. This library is intended for research use. Any
 application making use of this package in a clinical setting will need to
 be independently validated according to local regulations.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  logitr
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logit Models w/Preference & WTP Space Utility Parameterizations
 
@@ -16,19 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-nloptr 
 Requires:         R-parallel 
 Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 

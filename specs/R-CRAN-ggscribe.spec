@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggscribe
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Quality 'ggplot2' Annotation
 
@@ -18,17 +18,19 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-blends 
 BuildRequires:    R-CRAN-farver 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-blends 
 Requires:         R-CRAN-farver 
-Requires:         R-CRAN-glue 
 Requires:         R-grid 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-vctrs 
 
 %description
 Annotation helper functions for publication-quality 'ggplot2'

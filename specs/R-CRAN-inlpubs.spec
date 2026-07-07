@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inlpubs
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          USGS INL Project Office Publications
 
@@ -18,15 +18,28 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tm 
+Requires:         R-utils 
 
 %description
-Contains bibliographic information for the U.S. Geological Survey (USGS)
-Idaho National Laboratory (INL) Project Office.
+Provides bibliographic information and term-frequency text analysis tools
+for publications of the U.S. Geological Survey (USGS) Idaho National
+Laboratory (INL) Project Office. Includes datasets of publications,
+authors, and term frequencies, along with functions to search terms, build
+word clouds, and extract text and cover images from publication documents.
 
 %prep
 %setup -q -c -n %{packname}

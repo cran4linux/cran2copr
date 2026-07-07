@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weird
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Data Sets for "That's Weird: Anomaly Detection Using R" by Rob J Hyndman
 
@@ -17,12 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
-BuildRequires:    R-CRAN-crayon >= 1.3.4
-BuildRequires:    R-CRAN-cli >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.4
-BuildRequires:    R-CRAN-rstudioapi >= 0.7
-BuildRequires:    R-CRAN-purrr >= 0.2.4
 BuildRequires:    R-CRAN-aplpack 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dbscan 
@@ -31,18 +28,13 @@ BuildRequires:    R-CRAN-evd
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-mlpack 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-stray 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-CRAN-ggplot2 >= 3.1.1
-Requires:         R-CRAN-crayon >= 1.3.4
-Requires:         R-CRAN-cli >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.7.4
-Requires:         R-CRAN-rstudioapi >= 0.7
-Requires:         R-CRAN-purrr >= 0.2.4
 Requires:         R-CRAN-aplpack 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dbscan 
@@ -51,9 +43,7 @@ Requires:         R-CRAN-evd
 Requires:         R-grDevices 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-mlpack 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-stray 
 Requires:         R-CRAN-vctrs 

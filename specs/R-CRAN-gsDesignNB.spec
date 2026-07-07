@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gsDesignNB
-%global packver   0.2.6
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size and Simulation for Negative Binomial Outcomes
 
@@ -14,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gsDesign >= 3.10.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-gsDesign 
 BuildRequires:    R-CRAN-simtrial 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-gsDesign >= 3.10.0
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-gsDesign 
 Requires:         R-CRAN-simtrial 
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
@@ -34,12 +34,13 @@ overdispersed count endpoints analyzed using negative binomial (or
 Poisson) rate models. Implements sample size and power calculations for
 fixed designs with variable accrual, dropout, maximum follow-up, and event
 gaps, including methods of Zhu and Lakkis (2014) <doi:10.1002/sim.5947>
-and Friede and Schmidli (2010) <doi:10.3414/ME09-02-0060>. Supports group
-sequential designs by adding calendar-time analysis schedules compatible
-with the 'gsDesign' package and by estimating blinded information at
-interim looks. Includes simulation utilities for recurrent events
-(including seasonal rates), interim data truncation, and Wald-based
-inference for treatment rate ratios.
+and Friede and Schmidli (2010) <doi:10.3414/ME09-02-0060> as well as
+extensions for score-test sizing and gaps between events. Supports group
+sequential monitoring by building on the 'gsDesign' package. Includes
+recurrent-event simulation utilities (including seasonal rates), interim
+data truncation, Wald and score-test inference for rate ratios, and
+information estimation and sample size re-estimation with or without
+treatment-group labels.
 
 %prep
 %setup -q -c -n %{packname}

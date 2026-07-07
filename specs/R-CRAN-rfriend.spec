@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfriend
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides Batch Functions and Visualisation for Basic Statistical Procedures
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bestNormalize 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-DHARMa 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-emmeans 
@@ -26,11 +27,10 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-pander 
@@ -45,6 +45,7 @@ BuildRequires:    R-CRAN-writexl
 BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-bestNormalize 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-DHARMa 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-emmeans 
@@ -52,11 +53,10 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-magick 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-pander 
@@ -84,23 +84,23 @@ transformations, f_boxcox() in part based on 'MASS/boxcox' and
 'rcompanion', and f_bestNormalize() which wraps and extends functionality
 from the 'bestNormalize' package. Furthermore, 'rfriend' can automatically
 (or on request) generate visualizations such as boxplots, f_boxplot(),
-QQ-plots, f_qqnorm(), histograms f_hist(), and density plots f_density().
-Additionally, the package includes several statistical test functions:
-f_aov(), f_chisq_test(), f_corplot(), f_kruskal_test(), f_lmer(), f_glm(),
-f_t_test(), f_wilcox_test(), for sequential testing and visualisation of
-the similar named 'stats' functions. These functions, except for
-f_chisq_test(), support testing multiple response variables and
-predictors, while also handling assumption checks, data transformations,
-and post hoc tests. Post hoc results are automatically summarized in a
-table using the compact letter display (cld) format for easy
-interpretation. The package also provides a function to do model
-comparison, f_model_comparison(), and several utility functions to
-simplify common R tasks. For example, f_clear() clears the workspace and
-restarts R with a single command; f_setwd() sets the working directory to
-match the directory of the current script; f_theme() quickly changes
-'RStudio' themes; and f_factors() converts multiple columns of a data
-frame to factors, and much more. If you encounter any issues or have
-feature requests, please feel free to contact me via email.
+QQ-plots, f_qqnorm(), and histograms f_hist(). Additionally, the package
+includes several statistical test functions: f_aov(), f_chisq_test(),
+f_corplot(), f_kruskal_test(), f_lmer(), f_glm(), f_t_test(),
+f_wilcox_test(), for sequential testing and visualisation of the similar
+named 'stats' functions. These functions, except for f_chisq_test(),
+support testing multiple response variables and predictors, while also
+handling assumption checks, data transformations, and post hoc tests. Post
+hoc results are automatically summarized in a table using the compact
+letter display (cld) format for easy interpretation. The package also
+provides a function to do model comparison, f_model_comparison(), and
+several utility functions to simplify common R tasks. For example,
+f_clear() clears the workspace and restarts R with a single command;
+f_setwd() sets the working directory to match the directory of the current
+script; f_theme() quickly changes 'RStudio' themes; and f_factors()
+converts multiple columns of a data frame to factors, and much more. If
+you encounter any issues or have feature requests, please feel free to
+contact me via email.
 
 %prep
 %setup -q -c -n %{packname}

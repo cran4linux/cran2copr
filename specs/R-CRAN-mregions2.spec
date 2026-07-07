@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mregions2
-%global packver   1.1.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from Marine Regions: Gazetteer & Data Products
+Summary:          Access Data from Marineregions.org: Gazetteer & Data Products
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -51,9 +51,9 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-digest 
 
 %description
-Explore and retrieve marine spatial data from the Marine Regions Gazetteer
-<https://marineregions.org/gazetteer.php?p=webservices> and the Marine
-Regions Data Products <https://marineregions.org/webservices.php>.
+Explore and retrieve marine geospatial data from the Marine Regions
+Gazetteer <https://marineregions.org/gazetteer.php?p=webservices> and the
+Marine Regions Data Products <https://marineregions.org/webservices.php>.
 
 %prep
 %setup -q -c -n %{packname}

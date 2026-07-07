@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imf.data
-%global packver   0.1.7
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to IMF (International Monetary Fund) Data JSON API
+Summary:          An Interface to IMF (International Monetary Fund) Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-tibble 
 
 %description
-A straightforward interface for accessing the IMF (International Monetary
-Fund) data JSON API, available at <https://data.imf.org/>. This package
-offers direct access to the primary API endpoints: Dataflow,
-DataStructure, and CompactData. And, it provides an intuitive interface
-for exploring available dimensions and attributes, as well as querying
-individual time-series datasets. Additionally, the package implements a
-rate limit on API calls to reduce the chances of exceeding service limits
-(limited to 10 calls every 5 seconds) and encountering response errors.
+Provides low-level access to the International Monetary Fund Statistical
+Data and Metadata eXchange ('SDMX') 3.0 API, available at
+<https://data.imf.org/>, and a concise workflow for discovering datasets,
+inspecting dimensions, and downloading observations as tidy data frames.
 
 %prep
 %setup -q -c -n %{packname}
