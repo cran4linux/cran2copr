@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SDALGCP2
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Spatially Discrete Approximation to Log-Gaussian Cox Processes for Aggregated Disease Count Data
+Summary:          Discrete Log-Gaussian Cox Processes for Aggregated Disease Counts
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -42,12 +42,13 @@ model for spatially aggregated disease count data, estimated by Monte
 Carlo Maximum Likelihood as in Christensen (2004)
 <doi:10.1198/106186004X2525> and Johnson, Diggle and Giorgi (2019)
 <doi:10.1002/sim.8339>. Performance-critical steps (aggregated correlation
-assembly, 'MALA' sampling, the Monte Carlo likelihood, and the
-Kronecker-structured space-time likelihood) are implemented in C++ via
-'RcppArmadillo'. Provides a one-line, 'glm'-like interface and statistical
-extensions including a nugget term, general 'Matern' smoothness, raster
-and misaligned covariates, restricted spatial regression,
-importance-sampling diagnostics and re-anchored 'MCML'.
+assembly, Metropolis-adjusted Langevin algorithm (MALA) sampling, the
+Monte Carlo likelihood, and the Kronecker-structured space-time
+likelihood) are implemented in C++ via 'RcppArmadillo'. Provides a
+one-line, 'glm'-like interface and statistical extensions including a
+nugget term, general 'Matern' smoothness, raster and misaligned
+covariates, restricted spatial regression, importance-sampling diagnostics
+and re-anchored Monte Carlo maximum likelihood (MCML).
 
 %prep
 %setup -q -c -n %{packname}

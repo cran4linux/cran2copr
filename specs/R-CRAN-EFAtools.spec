@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EFAtools
-%global packver   0.7.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Flexible Implementations of Exploratory Factor Analysis Tools
 
@@ -14,51 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-CRAN-roptim 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-stringr 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-graphics 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-clue 
 

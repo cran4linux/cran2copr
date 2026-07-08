@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scholar
-%global packver   0.2.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyse Citation Data from Google Scholar
 
@@ -39,9 +39,11 @@ Requires:         R-CRAN-ggraph
 Requires:         R-CRAN-ggplot2 
 
 %description
-Provides functions to extract citation data from Google Scholar.
-Convenience functions are also provided for comparing multiple scholars
-and predicting future h-index values.
+Provides tools to retrieve, analyse, and format publication and citation
+data from Google Scholar profiles. It supports profile lookup, publication
+records, citation histories, scholar comparison, coauthor networks,
+journal ranking queries, CV-ready publication lists, and citation metric
+summaries.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastLISA
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Local Indicators of Spatial Association (LISA)
 
@@ -25,12 +25,12 @@ statistics, including univariate and bivariate local Moran's I, Empirical
 Bayes local Moran's I, univariate and multivariate local Geary's C, and
 Getis-Ord G and G* statistics. The methods follow Anselin (1995), Getis
 and Ord (1992), and Anselin (2019). Leverages a high-performance, plain-C
-backend with optional OpenMP multi-core support for fast permutation-based
-pseudo-p-value calculation. Accepts any 'spdep' listw spatial weight
-matrix, including custom and non-contiguity weights. Uses sample
-standardisation (n-1) and 'rgeoda'-style permutation p-values. Output
-cluster codes match 'rgeoda' conventions, including the Isolated category
-for observations without neighbours.
+backend with optional 'OpenMP' multi-core support for fast
+permutation-based pseudo-p-value calculation. Accepts any 'spdep' listw
+spatial weight matrix, including custom and non-contiguity weights. Uses
+sample standardisation (n-1) and 'rgeoda'-style permutation p-values.
+Output cluster codes match 'rgeoda' conventions, including the Isolated
+category for observations without neighbours.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nowcastr
-%global packver   0.2.1
+%global packname  arcgisrouting
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nowcasting with Chain-Ladder Method
+Summary:          Access the ArcGIS Routing and Network Analysis Services
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-arcgisutils 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-S7 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-yyjsonr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-RcppSimdJson 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-hms 
+Requires:         R-CRAN-arcgisutils 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-yyjsonr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-RcppSimdJson 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-hms 
 
 %description
-Nowcasting using the Chain-Ladder method. Supports both non-cumulative
-delay-based estimation and model-based completeness fitting (e.g., using
-logistic or Gompertz curves) to predict final counts from partially
-reported data.
+Bindings to the ArcGIS Routing REST API
+(<https://developers.arcgis.com/rest/routing/>) for solving network
+analysis problems. Plan routes and generate driving directions, measure
+travel time and distance with origin-destination cost matrices, build
+service areas, find the closest facilities, route fleets of vehicles, and
+snap GPS tracks to roads. Both synchronous requests and asynchronous
+geoprocessing jobs are supported, returning simple features ('sf') objects
+ready for analysis and mapping.
 
 %prep
 %setup -q -c -n %{packname}

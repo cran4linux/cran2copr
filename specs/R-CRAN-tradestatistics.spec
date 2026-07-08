@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tradestatistics
-%global packver   6.0.0
+%global packver   7.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          7.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Trade Statistics API Wrapper and Utility Program
 
@@ -22,13 +22,11 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-crul 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-memoise 
-Requires:         R-utils 
 
 %description
 Access 'Open Trade Statistics' API from R to download international trade

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aifeducation
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Artificial Intelligence for Education
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-reticulate >= 1.42.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-iotarelr >= 0.1.5
+BuildRequires:    R-CRAN-iotarelr >= 0.1.9
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
@@ -29,7 +29,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-reticulate >= 1.42.0
 Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-iotarelr >= 0.1.5
+Requires:         R-CRAN-iotarelr >= 0.1.9
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-methods 

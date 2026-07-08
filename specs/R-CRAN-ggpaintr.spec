@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MMAD
-%global packver   3.0.0
+%global packname  ggpaintr
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minorization-Maximization via Assembly-Decomposition Technology
+Summary:          Build Formula-Driven 'shiny' Apps for 'ggplot2'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-cli >= 2.2.0
+BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-shinyWidgets >= 0.6.4
+BuildRequires:    R-CRAN-assertthat >= 0.2.0
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-cli >= 2.2.0
+Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-shinyWidgets >= 0.6.4
+Requires:         R-CRAN-assertthat >= 0.2.0
+Requires:         R-CRAN-htmltools 
 
 %description
-A formula-driven framework for maximizing target functions via the
-minorization-maximization (MM) algorithm. The package represents the
-target as a symbolic expression tree, infers its curvature via
-disciplined-convex-programming rules, and constructs a separable surrogate
-at each iterate using only Jensen's inequality and the supporting
-hyperplane. The driver maximizes the surrogate via block-coordinate Newton
-with line search, falling back to a multivariate step on any non-separable
-residue. A formula interface accepts standard R expressions (including
-`sum()` reductions and `X %%*%% theta` design-matrix products) so
-statistical models such as Poisson regression can be written in one line.
+Turns a single 'ggplot2'-style formula string into a small 'shiny'
+application. Placeholder tokens in the formula become input widgets
+automatically; the package completes the expression with the current input
+values, renders the plot, shows the generated code, and supports uploaded
+datasets in different formats.
 
 %prep
 %setup -q -c -n %{packname}

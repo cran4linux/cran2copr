@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  missMDA
-%global packver   1.21
+%global packver   1.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.21
+Version:          1.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Missing Values with Multivariate Data Analysis
 
@@ -17,7 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4
 Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR >= 2.13
+BuildRequires:    R-CRAN-FactoMineR >= 2.16
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -27,8 +28,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-FactoMineR >= 2.13
+Requires:         R-CRAN-FactoMineR >= 2.16
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -38,7 +39,6 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
 
 %description
 Imputation of incomplete continuous or categorical datasets; Missing

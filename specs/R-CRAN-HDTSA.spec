@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDTSA
-%global packver   1.0.6-1
+%global packver   1.0.6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6.1
+Version:          1.0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Time Series Analysis Tools
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-clime
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-geigen 
+BuildRequires:    R-CRAN-QZ 
 BuildRequires:    R-CRAN-jointDiag 
 BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-CRAN-forecast 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-clime
 Requires:         R-CRAN-sandwich 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-geigen 
+Requires:         R-CRAN-QZ 
 Requires:         R-CRAN-jointDiag 
 Requires:         R-CRAN-vars 
 Requires:         R-CRAN-forecast 

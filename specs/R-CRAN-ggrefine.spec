@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggrefine
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Quality 'ggplot2' Themes
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-blends 
 BuildRequires:    R-CRAN-flexoki 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-jumble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-blends 
 Requires:         R-CRAN-flexoki 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-jumble 
 Requires:         R-CRAN-rlang 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-viridis
 %description
 Complete themes for publication-quality 'ggplot2' visualisation. Also
 provides functions to modify these based on the positional axis scales and
-focus of a particular plot.
+orientation of a particular plot.
 
 %prep
 %setup -q -c -n %{packname}

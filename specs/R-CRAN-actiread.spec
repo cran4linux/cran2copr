@@ -1,48 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nowcastr
-%global packver   0.2.1
+%global packname  actiread
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nowcasting with Chain-Ladder Method
+Summary:          Baseline Package for Reading Actigraphy and Activity Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-S7 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-read.gt3x >= 0.2.0
+BuildRequires:    R-CRAN-actibase 
+BuildRequires:    R-CRAN-GGIRread 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-S7 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-read.gt3x >= 0.2.0
+Requires:         R-CRAN-actibase 
+Requires:         R-CRAN-GGIRread 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-methods 
 
 %description
-Nowcasting using the Chain-Ladder method. Supports both non-cumulative
-delay-based estimation and model-based completeness fitting (e.g., using
-logistic or Gompertz curves) to predict final counts from partially
-reported data.
+Provides baseline functions for reading actigraphy and activity data,
+relying on baseline functions from 'actibase'.  Reads data from 'Axivity'
+'CWA' <https://axivity.com/> , ActiGraph 'GT3X'
+<https://ametris.com/actigraph-wgt3x-bt>, 'SensorLog'
+<https://sensorlog.berndthomas.net/>, and 'SensorLogger'
+<https://www.tszheichoi.com/sensorlogger> zipped CSV files.
 
 %prep
 %setup -q -c -n %{packname}

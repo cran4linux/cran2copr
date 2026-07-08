@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MMAD
-%global packver   3.0.0
+%global packname  datey
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minorization-Maximization via Assembly-Decomposition Technology
+Summary:          Exact Date and Duration Arithmetic on an Annual Grid
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-A formula-driven framework for maximizing target functions via the
-minorization-maximization (MM) algorithm. The package represents the
-target as a symbolic expression tree, infers its curvature via
-disciplined-convex-programming rules, and constructs a separable surrogate
-at each iterate using only Jensen's inequality and the supporting
-hyperplane. The driver maximizes the surrogate via block-coordinate Newton
-with line search, falling back to a multivariate step on any non-separable
-residue. A formula interface accepts standard R expressions (including
-`sum()` reductions and `X %%*%% theta` design-matrix products) so
-statistical models such as Poisson regression can be written in one line.
+Standardised mapping of dates onto a discrete annual grid, together with
+exact date and duration arithmetic.  This matters when the primary unit is
+years but the input data uses dates.  Examples are actuarial mortality
+experience analysis and valuation of life assurance and annuities, for
+which mortality rates are defined per year but experience and valuation
+data are typically defined using dates.
 
 %prep
 %setup -q -c -n %{packname}

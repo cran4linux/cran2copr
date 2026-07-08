@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MMAD
-%global packver   3.0.0
+%global packname  BORT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minorization-Maximization via Assembly-Decomposition Technology
+Summary:          Beyond Pareto: Bi-Objective and Multi-Objective Regression Trees’
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 
 %description
-A formula-driven framework for maximizing target functions via the
-minorization-maximization (MM) algorithm. The package represents the
-target as a symbolic expression tree, infers its curvature via
-disciplined-convex-programming rules, and constructs a separable surrogate
-at each iterate using only Jensen's inequality and the supporting
-hyperplane. The driver maximizes the surrogate via block-coordinate Newton
-with line search, falling back to a multivariate step on any non-separable
-residue. A formula interface accepts standard R expressions (including
-`sum()` reductions and `X %%*%% theta` design-matrix products) so
-statistical models such as Poisson regression can be written in one line.
+Implements the Bi-objective Regression Tree (BORT) for efficiently
+learning vector-valued functions. Unlike traditional methods that rely on
+constructing multiple models or static scalarisation, BORT integrates the
+exploration of the Pareto front directly into a single tree's growth
+process. It provides high-efficiency, single-model approaches that can
+Pareto-dominate entire Pareto-consistent families of trees, supported by a
+C backend for fast computation. For more details see Paz (2026)
+<doi:10.1007/978-3-032-28393-1_2> and Paz (2025)
+<doi:10.1007/978-3-031-78401-9_2>.
 
 %prep
 %setup -q -c -n %{packname}

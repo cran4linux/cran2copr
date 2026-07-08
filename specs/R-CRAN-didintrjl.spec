@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MMAD
-%global packver   3.0.0
+%global packname  didintrjl
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minorization-Maximization via Assembly-Decomposition Technology
+Summary:          Intersection Difference-in-Differences
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-JuliaConnectoR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-A formula-driven framework for maximizing target functions via the
-minorization-maximization (MM) algorithm. The package represents the
-target as a symbolic expression tree, infers its curvature via
-disciplined-convex-programming rules, and constructs a separable surrogate
-at each iterate using only Jensen's inequality and the supporting
-hyperplane. The driver maximizes the surrogate via block-coordinate Newton
-with line search, falling back to a multivariate step on any non-separable
-residue. A formula interface accepts standard R expressions (including
-`sum()` reductions and `X %%*%% theta` design-matrix products) so
-statistical models such as Poisson regression can be written in one line.
+A wrapper for the Julia package 'DiDInt.jl'
+<https://ebjamieson97.github.io/DiDInt.jl/stable/> which implements
+intersection difference-in-differences (DID-INT), a method developed by
+Karim & Webb (2025) <doi:10.48550/arXiv.2412.14447>. Allows for unbiased
+estimation of the average effect of treatment on the treated (ATT) in
+cases when the common causal covariates assumption is violated. Also
+computes p-values for the ATT via the randomization inference procedure
+described in MacKinnon and Webb (2020)
+<doi:10.1016/j.jeconom.2020.04.024>.
 
 %prep
 %setup -q -c -n %{packname}
