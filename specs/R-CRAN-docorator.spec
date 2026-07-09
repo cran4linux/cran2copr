@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  docorator
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Docorate (Decorate + Output) Displays
 
@@ -32,6 +32,9 @@ BuildRequires:    R-CRAN-png
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-polish 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-gt >= 1.2.0
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rlang 
@@ -47,6 +50,9 @@ Requires:         R-CRAN-png
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-polish 
+Requires:         R-CRAN-xml2 
 
 %description
 A framework for creating production outputs. Users can frame a table,

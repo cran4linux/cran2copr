@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtsmartr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Virtualized Data Explorer Grid Widget
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-datamods 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
@@ -25,6 +27,8 @@ BuildRequires:    R-CRAN-reactR
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-datamods 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 

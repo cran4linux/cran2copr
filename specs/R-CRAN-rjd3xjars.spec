@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjd3xjars
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'JDemetra+ 3.x' Time Series Analysis Software
+Summary:          Interface to 'JDemetra+ 3.x' Time Series Analysis Software
 
 License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.7.1
 BuildRequires:    R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3toolkit >= 3.7.1
+BuildRequires:    R-CRAN-rjd3jars >= 0.0.5
 Requires:         R-CRAN-rJava >= 1.0.6
+Requires:         R-CRAN-rjd3jars >= 0.0.5
 
 %description
 R Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>) time series
-analysis software. It provides functions allowing to decompose a time
+analysis software.  It provides functions allowing to decompose a time
 series, including high-frequency data with multiple periodicities.
 
 %prep

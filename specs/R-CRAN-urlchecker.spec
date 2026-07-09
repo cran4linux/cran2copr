@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  urlchecker
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run CRAN URL Checks from Older R Versions
 
@@ -13,16 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-gitcreds 
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-gitcreds 
 Requires:         R-tools 
+Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 
 %description

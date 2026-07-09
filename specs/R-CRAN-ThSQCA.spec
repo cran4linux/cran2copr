@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ThSQCA
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Threshold-Sweep QCA
 
@@ -22,10 +22,10 @@ Requires:         R-CRAN-QCA
 
 %description
 Provides threshold sweep methods for Qualitative Comparative Analysis
-('QCA'). Implements Condition Threshold Sweep-Single (CTS-S), Condition
+(QCA). Implements Condition Threshold Sweep-Single (CTS-S), Condition
 Threshold Sweep-Multiple (CTS-M), Outcome Threshold Sweep (OTS), and Dual
 Threshold Sweep (DTS) for systematic exploration of threshold calibration
-effects on crisp-set 'QCA' results. These methods extend traditional
+effects on crisp-set QCA results. These methods extend traditional
 robustness approaches by treating threshold variation as an exploratory
 tool for discovering causal structures. Also provides Fiss (2011)
 <doi:10.5465/amj.2011.60263120> core/peripheral condition classification

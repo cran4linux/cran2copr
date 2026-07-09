@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Racmacs
-%global packver   1.2.9
+%global packver   1.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Antigenic Cartography Macros
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ks 
@@ -28,18 +29,17 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rmarchingcubes 
 BuildRequires:    R-CRAN-shape 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-RcppEnsmallen 
 BuildRequires:    R-CRAN-rapidjsonr 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ks 
@@ -51,13 +51,11 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rmarchingcubes 
 Requires:         R-CRAN-shape 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-rlang 
 
 %description
 A toolkit for making antigenic maps from immunological assay data, in

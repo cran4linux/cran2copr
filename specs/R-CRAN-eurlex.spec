@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ragtop
-%global packver   2.0.0
+%global packname  eurlex
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pricing Equity Derivatives with Extensions of Black-Scholes
+Summary:          Retrieve Data on European Union Law
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods >= 3.2.2
-BuildRequires:    R-CRAN-futile.logger >= 1.4.1
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods >= 3.2.2
-Requires:         R-CRAN-futile.logger >= 1.4.1
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-antiword 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-antiword 
 
 %description
-Algorithms to price American and European equity options, convertible
-bonds and a variety of other financial derivatives. It uses an extension
-of the usual Black-Scholes model in which jump to default may occur at a
-probability specified by a power-law link between stock price and hazard
-rate as found in the paper by Takahashi, Kobayashi, and Nakagawa (2001)
-<doi:10.3905/jfi.2001.319302>.  We use ideas and techniques from Andersen
-and Buffum (2002) <doi:10.2139/ssrn.355308> and Linetsky (2006)
-<doi:10.1111/j.1467-9965.2006.00271.x>.
+Access to data on European Union laws and court decisions made easy with
+pre-defined 'SPARQL' queries and 'GET' requests. See Ovadek (2021)
+<doi:10.1080/2474736X.2020.1870150> .
 
 %prep
 %setup -q -c -n %{packname}

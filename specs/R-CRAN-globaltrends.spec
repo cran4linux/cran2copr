@@ -1,61 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  globaltrends
-%global packver   0.0.14
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.14
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Measure Global Trends Through Google Search Volumes
+Summary:          Download and Measure Global Trends Through 'Google' Search Volumes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast >= 8.12
 BuildRequires:    R-stats >= 3.5.0
-BuildRequires:    R-utils >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-RSQLite >= 2.2.0
-BuildRequires:    R-CRAN-zoo >= 1.8.8
-BuildRequires:    R-CRAN-lubridate >= 1.7.9
 BuildRequires:    R-CRAN-gtrendsR >= 1.5.1
-BuildRequires:    R-CRAN-dbplyr >= 1.4.4
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.2
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-forcats >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-forecast >= 8.12
+BuildRequires:    R-CRAN-reticulate >= 1.38
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-utils 
 Requires:         R-stats >= 3.5.0
-Requires:         R-utils >= 3.5.0
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-RSQLite >= 2.2.0
-Requires:         R-CRAN-zoo >= 1.8.8
-Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-gtrendsR >= 1.5.1
-Requires:         R-CRAN-dbplyr >= 1.4.4
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.2
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-forcats >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-purrr >= 0.3.4
+Requires:         R-CRAN-reticulate >= 1.38
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-utils 
 
 %description
-Google offers public access to global search volumes from its search
-engine through the Google Trends portal. The package downloads these
-search volumes provided by Google Trends and uses them to measure and
+'Google' offers public access to global search volumes from its search
+engine through the 'Google Trends' portal. The package downloads these
+search volumes provided by 'Google Trends' and uses them to measure and
 analyze the distribution of search scores across countries or within
 countries. The package allows researchers and analysts to use these search
 scores to investigate global trends based on patterns within these scores.
@@ -63,8 +39,7 @@ This offers insights such as degree of internationalization of firms and
 organizations or dissemination of political, social, or technological
 trends across the globe or within single countries.  An outline of the
 package's methodological foundations and potential applications is
-available as a working paper:
-<https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3969013>.
+available as a working paper: <doi:10.2139/ssrn.3969013>.
 
 %prep
 %setup -q -c -n %{packname}

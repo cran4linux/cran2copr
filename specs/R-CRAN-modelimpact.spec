@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  modelimpact
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Assess the Business Impact of Churn Prediction Models
 
@@ -24,8 +25,13 @@ Requires:         R-CRAN-magrittr
 Requires:         R-utils 
 
 %description
-Calculate the financial impact of using a churn model in terms of cost,
-revenue, profit and return on investment.
+Calculate and visualise the financial impact of using a classification
+model, such as a churn model, to target customers. Provides cost, revenue,
+profit and return-on-investment curves as a function of the share of
+customers targeted, cumulative gains and lift, marginal profit per bin,
+and confusion-matrix based payoff across probability thresholds. Also
+includes 'ggplot2' 'autoplot()' methods and an interactive 'shiny'
+application for exploring the results.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rphylopic
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Silhouettes of Organisms from PhyloPic
 
@@ -26,6 +26,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httpcache 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lifecycle 
@@ -41,6 +42,7 @@ Requires:         R-grid
 Requires:         R-graphics 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httpcache 
 Requires:         R-CRAN-curl 
 Requires:         R-methods 
 Requires:         R-CRAN-lifecycle 

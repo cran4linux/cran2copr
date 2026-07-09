@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grouper
-%global packver   0.5.0
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Assignment of Students to Groups
+Summary:          Optimal Group Assignment and Workload Allocation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,7 +32,9 @@ Requires:         R-CRAN-yaml
 
 %description
 Integer programming models to assign students to groups by maximising
-diversity within groups, or by maximising preference scores for topics.
+diversity or topic preferences, and to allocate multi-role teaching
+workloads while balancing role demand, preferences, fairness, and cohort
+protection.
 
 %prep
 %setup -q -c -n %{packname}

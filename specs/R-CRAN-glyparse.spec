@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glyparse
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parsing Glycan Structure Text Representations
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstackdeque 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-glyrepr >= 0.12.0
 Requires:         R-CRAN-checkmate 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstackdeque 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-vctrs 
 
 %description
 Provides functions to parse glycan structure text representations into

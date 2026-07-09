@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wid
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data from the World Inequality Database
 
@@ -27,12 +27,13 @@ Requires:         R-CRAN-httr >= 1.2.1
 Requires:         R-CRAN-base64enc >= 0.1
 
 %description
-Tools to download data from the online World Inequality Database directly
-into R. The World Inequality Database is an extensive source on the
-historical evolution of the distribution of income and wealth both within
-and between countries. It relies on the combined effort of an
-international network of over a hundred researchers covering more than
-seventy countries from all continents.
+Download data from the online World Inequality Database directly into R.
+Data are retrieved from WID.world's online data service. The World
+Inequality Database is an extensive source on the historical evolution of
+the distribution of income and wealth both within and between countries.
+It relies on the combined effort of an international network of over a
+hundred researchers covering more than seventy countries from all
+continents.
 
 %prep
 %setup -q -c -n %{packname}

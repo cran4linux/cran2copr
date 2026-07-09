@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gbm
-%global packver   2.2.3
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Boosted Regression Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-survival 
@@ -30,7 +30,8 @@ methods for least squares, absolute loss, t-distribution loss, quantile
 regression, logistic, multinomial logistic, Poisson, Cox proportional
 hazards partial likelihood, AdaBoost exponential loss, Huberized hinge
 loss, and Learning to Rank measures (LambdaMart). Originally developed by
-Greg Ridgeway. Newer version available at github.com/gbm-developers/gbm3.
+Greg Ridgeway. Newer version available at
+<https://github.com/gbm-developers/gbm3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mascarade
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Cluster Masks for Single-Cell Dimensional Reduction Plots
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat.geom >= 3.7.3
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-ggplot2 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-vctrs
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-systemfonts 
+Requires:         R-CRAN-spatstat.geom >= 3.7.3
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 
