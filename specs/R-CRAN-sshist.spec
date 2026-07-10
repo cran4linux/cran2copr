@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sshist
-%global packver   0.1.3
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Histogram Binning Using Shimazaki-Shinomoto Method
+Summary:          Optimal Density Estimation via Shimazaki-Shinomoto Method
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,13 +27,14 @@ Requires:         R-stats
 
 %description
 Implements the Shimazaki-Shinomoto method for optimizing the bin width of
-a histogram. This method minimizes the mean integrated squared error
-(MISE) and features a 'C++' backend for high performance and
-shift-averaging to remove edge-position bias. Ideally suits for
-time-dependent rate estimation and identifying intrinsic data structures.
-Supports both 1D and 2D data distributions. For more details see Shimazaki
-and Shinomoto (2007) "A Method for Selecting the Bin Size of a Time
-Histogram" <doi:10.1162/neco.2007.19.6.1503>.
+histograms and the bandwidth of kernel density estimators. The framework
+minimizes the expected Mean Integrated Squared Error (MISE) and supports
+both 1D and 2D distributions, fixed and locally adaptive estimators,
+bootstrap confidence intervals, and 'OpenMP'-accelerated 'C++' 'backends'.
+Ideally suited for time-dependent rate estimation and identifying
+intrinsic data structures. For more details see Shimazaki and Shinomoto
+(2007) <doi:10.1162/neco.2007.19.6.1503> and Shimazaki and Shinomoto
+(2010) <doi:10.1007/s10827-009-0180-4>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,57 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DSAIRM
-%global packver   1.0.0
+%global packname  KlerRSS
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamical Systems Approach to Immune Response Modeling
+Summary:          Intelligent Ranked Set Sampling with 'Excel' Integration and SRS Comparison
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.2
-BuildRequires:    R-CRAN-adaptivetau 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-shiny >= 1.2
-Requires:         R-CRAN-adaptivetau 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-XML 
 
 %description
-Simulation models (apps) of various within-host immune response scenarios.
-The purpose of the package is to help individuals learn about within-host
-infection and immune response modeling from a dynamical systems
-perspective. All apps include explanations of the underlying models and
-instructions on what to do with the models.
+Provides tools for Ranked Set Sampling (RSS) analysis, data import,
+statistical estimation, and comparison with Simple Random Sampling (SRS).
+The package offers a complete workflow from 'Excel' and CSV data import
+and cleaning to RSS implementation, efficiency evaluation, visualization,
+and automated reporting. Intelligent ranking procedures based on
+correlation analysis, regression models, and machine learning methods are
+included to address imperfect ranking commonly encountered in practical
+RSS applications. Monte Carlo simulation tools are provided for evaluating
+estimator performance under different sampling scenarios. Ranked Set
+Sampling was originally introduced by McIntyre (1952)
+<doi:10.2307/3001960> as an efficient alternative to simple random
+sampling when ranking information is available at low cost. The package
+supports researchers, statisticians, and practitioners working in
+agricultural, environmental, biological, and other applied sciences.
 
 %prep
 %setup -q -c -n %{packname}

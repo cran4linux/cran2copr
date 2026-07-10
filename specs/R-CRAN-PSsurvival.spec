@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PSsurvival
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Propensity Score Methods for Survival Analysis
 
@@ -22,11 +22,13 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-survival 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-generics 
 
 %description
 Implements propensity score weighting methods for estimating

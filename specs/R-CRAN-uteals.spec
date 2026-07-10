@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uteals
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shared Utilities to Extend the 'teal' Modules
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.11.0
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cowplot 
@@ -24,22 +26,25 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-formatters 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-gridify 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-junco 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rtables 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-teal 
 BuildRequires:    R-CRAN-teal.code 
+BuildRequires:    R-CRAN-teal.modules.clinical 
+BuildRequires:    R-CRAN-teal.reporter 
 BuildRequires:    R-CRAN-tern 
 BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-gridify 
-BuildRequires:    R-CRAN-teal.modules.clinical 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-shiny >= 1.11.0
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cowplot 
@@ -47,22 +52,23 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-formatters 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggplotify 
+Requires:         R-CRAN-gridify 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-junco 
 Requires:         R-methods 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rtables 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-teal 
 Requires:         R-CRAN-teal.code 
+Requires:         R-CRAN-teal.modules.clinical 
+Requires:         R-CRAN-teal.reporter 
 Requires:         R-CRAN-tern 
 Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-gridify 
-Requires:         R-CRAN-teal.modules.clinical 
+Requires:         R-CRAN-zip 
 
 %description
 Provides decorators, transformators, and utility functions to extend the

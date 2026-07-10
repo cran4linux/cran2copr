@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KMD
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Measure of Multi-Sample Dissimilarity
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-RANN 
@@ -45,7 +45,7 @@ are equal against H1: not all the distributions are equal. Both
 permutation test and asymptotic test are available. These tests are
 consistent against all alternatives where at least two samples have
 different distributions. For more details on KMD and the associated tests,
-see Huang, Z. and B. Sen (2022) <arXiv:2210.00634>.
+see Huang, Z. and B. Sen (2024) <doi:10.1080/01621459.2023.2298036>.
 
 %prep
 %setup -q -c -n %{packname}

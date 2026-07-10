@@ -1,44 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.5.4
+%global packname  finna
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Access the 'Finna' API
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-ragg 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-ragg 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
+Requires:         R-utils 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+Provides functions to access and retrieve metadata from the 'Finna' API
+<https://api.finna.fi/>, which aggregates content from Finnish archives,
+libraries, and museums.
 
 %prep
 %setup -q -c -n %{packname}

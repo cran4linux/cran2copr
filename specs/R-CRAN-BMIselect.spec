@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BMIselect
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian MI-LASSO for Variable Selection on Multiply-Imputed Datasets
 
@@ -16,10 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-GIGrvg 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-foreach 
@@ -30,9 +27,8 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-posterior 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-GIGrvg 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-foreach 
@@ -55,7 +51,7 @@ covariates under missing-at-random or missing-completely-at-random
 assumptions. See Zou, J., Wang, S. and Chen, Q. (2025), Bayesian MI-LASSO
 for Variable Selection on Multiply-Imputed Data. ArXiv, 2211.00114.
 <doi:10.48550/arXiv.2211.00114> for more details. We also provide the
-frequentist`s MI-LASSO function.
+frequentist MI-LASSO function.
 
 %prep
 %setup -q -c -n %{packname}

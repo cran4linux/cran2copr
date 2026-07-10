@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rparadox
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Paradox Database Files into R
+Summary:          Read Paradox Database Files
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,7 +28,7 @@ Requires:         R-CRAN-stringi
 %description
 Provides a simple and efficient way to read data from Paradox database
 files (.db) directly into R as modern 'tibble' data frames. It uses the
-underlying 'pxlib' C library, to handle the low-level file format details
+underlying 'pxlib' C library to handle the low-level file format details
 and provides a clean, user-friendly R interface.
 
 %prep

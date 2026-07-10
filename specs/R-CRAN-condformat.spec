@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  condformat
-%global packver   0.10.1
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Formatting in Data Frames
 
@@ -14,36 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx >= 4.1.5
-BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-htmlTable >= 1.9
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-tibble >= 1.3.4
-BuildRequires:    R-CRAN-knitr >= 1.20
-BuildRequires:    R-CRAN-rmarkdown >= 1.10
-BuildRequires:    R-CRAN-scales >= 1.0.0
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.7
-BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-gtable >= 0.2.0
+BuildRequires:    R-CRAN-tibble >= 3.3.0
+BuildRequires:    R-CRAN-htmlTable >= 2.4.3
+BuildRequires:    R-CRAN-knitr >= 1.50
+BuildRequires:    R-CRAN-scales >= 1.4.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-htmltools >= 0.5.8.1
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-openxlsx >= 4.1.5
-Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-htmlTable >= 1.9
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-tibble >= 1.3.4
-Requires:         R-CRAN-knitr >= 1.20
-Requires:         R-CRAN-rmarkdown >= 1.10
-Requires:         R-CRAN-scales >= 1.0.0
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.7.7
-Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-gtable >= 0.2.0
+Requires:         R-CRAN-tibble >= 3.3.0
+Requires:         R-CRAN-htmlTable >= 2.4.3
+Requires:         R-CRAN-knitr >= 1.50
+Requires:         R-CRAN-scales >= 1.4.0
+Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-htmltools >= 0.5.8.1
 Requires:         R-grDevices 
 
 %description

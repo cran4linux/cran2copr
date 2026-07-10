@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  icarm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Contextual-Accountable and Responsible Machine Learning
 
@@ -51,13 +51,15 @@ icarm_fit() supporting both interpretable learners (Classification and
 Regression Trees (CART), logistic regression, linear regression,
 Generalized Additive Models (GAM)) and extended learners (random forest,
 'XGBoost', Support Vector Machines (SVM)) with consistent interfaces for
-global and local model explanation, group-level fairness auditing across
-protected attributes, probability calibration, threshold analysis,
-multi-model comparison, reproducible JavaScript Object Notation (JSON)
-audit trails, and accountability scorecards. The contextual accountability
-framing emphasises that algorithmic fairness and interpretability
-requirements depend on the deployment domain and must be evaluated
-accordingly. Extends the 'civic.icarm' framework (Awe 2025)
+global and local model explanation including approximate SHapley Additive
+exPlanations (SHAP) values and Partial Dependence Profiles (PDPs),
+learning curve diagnostics, group-level fairness auditing across protected
+attributes, probability calibration, threshold analysis, multi-model
+comparison, reproducible JavaScript Object Notation (JSON) audit trails,
+and accountability scorecards. The contextual accountability framing
+emphasises that algorithmic fairness and interpretability requirements
+depend on the deployment domain and must be evaluated accordingly. Extends
+the 'civic.icarm' framework (Awe 2025)
 <https://cran.r-project.org/package=civic.icarm> to general-purpose
 applications beyond civic and political education.
 

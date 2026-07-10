@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exdqlm
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Dynamic Quantile Linear Models
 
@@ -53,10 +53,12 @@ Bayesian quantile-regression routines for dynamic state-space models and
 static regression under the extended asymmetric Laplace (exAL) error
 distribution. The dynamic state-space models are extended dynamic quantile
 linear models (exDQLMs). The package combines dynamic exDQLM inference via
-LDVB, MCMC, and legacy ISVB with static exAL regression via LDVB and MCMC,
-reduced AL/DQLM paths through fixed skewness, component builders for
-trend/seasonality/regression blocks, static shrinkage priors including
-ridge, regularized horseshoe, and 'rhs_ns', evidence lower bound
+Laplace-delta variational Bayes (LDVB), Markov chain Monte Carlo (MCMC),
+and legacy importance-sampling variational Bayes (ISVB) with static exAL
+regression via LDVB and MCMC, reduced asymmetric Laplace/dynamic quantile
+linear model (AL/DQLM) paths through fixed skewness, component builders
+for trend/seasonality/regression blocks, static shrinkage priors including
+ridge, regularized horseshoe, and 'rhs_ns', evidence lower bound (ELBO)
 diagnostics, optional C++ accelerators, and posterior predictive synthesis
 across separately fitted quantiles through 'quantileSynthesis()'. Dynamic
 exDQLM methods are described in Barata et al. (2020)

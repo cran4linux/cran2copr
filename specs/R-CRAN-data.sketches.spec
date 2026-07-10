@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.5.4
+%global packname  data.sketches
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Probabilistic Streaming Data Sketches
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-ragg 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-ragg 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+Provides an interface to the 'Apache DataSketches'
+(<https://datasketches.apache.org/>) library of streaming algorithms for
+approximate analytics on data too large to hold or process exactly.
+Sketches are compact, mergeable summaries built in a single pass over a
+stream that answer queries such as approximate distinct counts, quantiles
+and ranks, frequent items and point-frequency estimates, weighted
+sampling, and set membership with mathematically proven error bounds.
+Implements Karnin-Lang-Liberty (KLL), Relative Error Quantiles (REQ),
+t-Digest, HyperLogLog (HLL), Compressed Probabilistic Counting (CPC),
+Theta, Frequent Items, Count-Min, Array of Doubles, Variance Optimal
+(VarOpt), Exact and Bounded Probabilistic Proportional-to-Size (EBPPS),
+and Bloom filter sketches, with native serialization for interoperability
+with other 'Apache DataSketches' implementations.
 
 %prep
 %setup -q -c -n %{packname}

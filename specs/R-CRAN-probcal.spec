@@ -1,44 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.5.4
+%global packname  probcal
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Calibration of Binary and Multiclass Probabilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-ragg 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-ragg 
+Requires:         R-stats 
+Requires:         R-CRAN-withr 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+Provides S3 calibrators, metrics, and diagnostics for binary and
+multiclass probability calibration. Binary methods include Platt scaling,
+temperature scaling, beta calibration, histogram binning, and isotonic
+regression. Multiclass methods include temperature scaling, vector
+scaling, Dirichlet calibration, and a one-vs-rest wrapper for the binary
+calibrators. A calibration-inference layer adds debiased calibration
+errors, bootstrap confidence intervals, and a kernel calibration
+hypothesis test for binary and multiclass predictions, including the
+strong (canonical) multiclass case. Methods follow Platt (1999,
+ISBN:9780262194488), Zadrozny and Elkan (2002)
+<doi:10.1145/775047.775151>, Guo et al. (2017)
+<https://proceedings.mlr.press/v70/guo17a.html>, Kull et al. (2017)
+<doi:10.1214/17-EJS1338SI>, Kull et al. (2019)
+<doi:10.48550/arXiv.1910.12656>, Widmann et al. (2019)
+<doi:10.48550/arXiv.1910.11385>, and Kumar et al. (2019)
+<doi:10.48550/arXiv.1909.10155>.
 
 %prep
 %setup -q -c -n %{packname}

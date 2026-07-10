@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mongolstats
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mongolian 'NSO' 'PXWeb' Data and Boundaries (Tidy Client)
 
@@ -24,12 +24,10 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-cachem 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
@@ -37,12 +35,10 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-cachem 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
 A 'tidyverse'-friendly client for the National Statistics Office of

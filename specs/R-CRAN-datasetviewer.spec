@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.5.4
+%global packname  datasetviewer
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          'SAS Studio'-Style Interactive Dataset Viewer
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-nanoparquet 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-ragg 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-nanoparquet 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
-Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-ragg 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+An interactive dataset viewer that renders a fast, scrollable grid with a
+column-selection panel, per-column property metadata, and a
+names-versus-labels header toggle, modelled on the 'SAS Studio' table
+viewer. Runs from one codebase in interactive 'Shiny' apps and in static
+HTML documents, with a free-text row filter, header sort, and CSV export,
+and handles large datasets without row sampling by querying them in the
+browser with 'DuckDB-WASM'.
 
 %prep
 %setup -q -c -n %{packname}
