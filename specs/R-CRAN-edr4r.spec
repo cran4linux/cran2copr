@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  edr4r
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'OGC API - Environmental Data Retrieval' Standard
+Summary:          Client for OGC API - Environmental Data Retrieval (EDR)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
@@ -33,15 +33,16 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-vctrs 
 
 %description
-A tidy 'R' client for services implementing the 'OGC API - Environmental
-Data Retrieval' ('EDR') standard. It is general purpose, but most of its
+A tidy R client for services implementing the OGC API - Environmental Data
+Retrieval ('EDR') standard with JSON discovery and 'GeoJSON' or
+'CoverageJSON' query responses. General purpose, but most of its
 real-world use is against in-situ monitoring networks (stream gauges,
 weather stations, snow and reservoir telemetry) that expose their stations
-and time series as 'EDR' collections. Known working endpoints include the
-'USGS waterdata OGC API' and the 'Western Water Datahub'. Provides
-discovery, query, and parsing helpers for the locations, items, position,
-area, cube, radius, trajectory, and corridor query types. Returns
-'CoverageJSON' as tidy 'tibble' rows and 'GeoJSON' as 'sf' objects.
+and time series as EDR collections. Known working endpoints include the
+USGS waterdata OGC API and the Western Water Datahub. Provides discovery,
+query, and parsing helpers for the locations, items, position, area, cube,
+radius, trajectory, and corridor query types. Returns 'CoverageJSON' as
+tidy 'tibble' rows and 'GeoJSON' as 'sf' objects.
 
 %prep
 %setup -q -c -n %{packname}

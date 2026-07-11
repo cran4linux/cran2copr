@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reproj
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coordinate System Transformations for Generic Map Data
 
@@ -17,25 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.5
 Requires:         R-core >= 3.2.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PROJ >= 0.4.5
+BuildRequires:    R-CRAN-PROJ >= 0.7.0
 BuildRequires:    R-CRAN-crsmeta >= 0.3.0
-BuildRequires:    R-CRAN-proj4 
-Requires:         R-CRAN-PROJ >= 0.4.5
+BuildRequires:    R-CRAN-wk 
+Requires:         R-CRAN-PROJ >= 0.7.0
 Requires:         R-CRAN-crsmeta >= 0.3.0
-Requires:         R-CRAN-proj4 
+Requires:         R-CRAN-wk 
 
 %description
 Transform coordinates from a specified source to a specified target map
-projection. This uses the 'PROJ' library directly, by wrapping the 'PROJ'
-package which leverages 'libproj', otherwise the 'proj4' package. The
-'reproj()' function is generic, methods may be added to remove the need
-for an explicit source definition. If 'proj4' is in use 'reproj()' handles
-the requirement for conversion of angular units where necessary. This is
-for use primarily to transform generic data formats and direct leverage of
-the underlying 'PROJ' library. (There are transformations that aren't
-possible with 'PROJ' and that are provided by the 'GDAL' library, a
-limitation which users of this package should be aware of.) The 'PROJ'
-library is available at <https://proj.org/>.
+projection. This uses the 'PROJ' library directly, via the 'PROJ' package.
+The 'reproj()' function is generic, methods may be added to remove the
+need for an explicit source definition. This is for use primarily to
+transform generic data formats and direct leverage of the underlying
+'PROJ' library. (There are transformations that aren't possible with
+'PROJ' and that are provided by the 'GDAL' library, a limitation which
+users of this package should be aware of.) The 'PROJ' library is available
+at <https://proj.org/>.
 
 %prep
 %setup -q -c -n %{packname}

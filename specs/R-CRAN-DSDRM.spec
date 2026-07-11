@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgolay
-%global packver   1.0.4
+%global packname  DSDRM
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Savitzky-Golay Filtering
+Summary:          Distributed Sampling for Dynamic Regression Models
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-signal 
-Requires:         R-CRAN-signal 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-CRAN-Matrix 
 
 %description
-Smoothing signals and computing their derivatives is a common requirement
-in signal processing workflows. Savitzky-Golay filters are a established
-method able to do both (Savitzky and Golay, 1964
-<doi:10.1021/ac60214a047>). This package implements one dimensional
-Savitzky-Golay filters that can be applied to vectors and matrices (either
-row-wise or column-wise). Vectorization and memory allocations have been
-profiled to reduce computational fingerprint. Short filter lengths are
-implemented in the direct space, while longer filters are implemented in
-frequency space, using a Fast Fourier Transform (FFT).
+A toolbox for distributed dynamic regression modeling, parallel
+estimation, multiple distributed sampling algorithms (Metropolis-Hastings,
+block bootstrap, adaptive, hypergeometric), sparse matrix optimization,
+model visualization, prediction and performance evaluation.  The
+philosophy of the package is described in Guo (2025)
+<doi:10.1038/s41598-025-93333-6>.
 
 %prep
 %setup -q -c -n %{packname}

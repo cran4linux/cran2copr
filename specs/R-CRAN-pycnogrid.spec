@@ -1,44 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LFM
-%global packver   0.3.4
+%global packname  pycnogrid
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Laplace Factor Model Analysis and Evaluation
+Summary:          Flexible Pycnophylactic Interpolation to Discrete Global and Local Grid Systems
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-elasticnet 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-elasticnet 
+BuildRequires:    R-CRAN-a5R 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-h3o 
+BuildRequires:    R-CRAN-hexify 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-s2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sfdep 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-a5R 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-h3o 
+Requires:         R-CRAN-hexify 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-s2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sfdep 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tibble 
 
 %description
-Enables the generation of Laplace factor models across diverse Laplace
-distributions and facilitates the application of Sparse Online Principal
-Component (SOPC), Incremental Principal Component (IPC), Perturbation
-Principal Component (PPC), Stochastic Approximation Principal Component
-(SAPC), Sparse Principal Component (SPC) and other PC methods and Farm
-Test methods to these models. Evaluates the efficacy of these methods
-within the context of Laplace factor models by scrutinizing parameter
-estimation accuracy, mean square error, and the degree of sparsity.
+Provides tools for pycnophylactic interpolation of polygon totals to
+discrete global and local grid systems. The method follows Tobler (1979)
+<doi:10.1080/01621459.1979.10481647>, preserving source-zone totals while
+smoothing values across neighboring target cells.
 
 %prep
 %setup -q -c -n %{packname}

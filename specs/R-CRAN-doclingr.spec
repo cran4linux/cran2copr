@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  plsmmLasso
-%global packver   1.1.0
+%global packname  doclingr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Selection and Inference for Partial Semiparametric Linear Mixed-Effects Model
+Summary:          Document Intelligence via 'Docling'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,37 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-hdi 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-reticulate >= 1.34.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scalreg 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-hdi 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-reticulate >= 1.34.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scalreg 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Implements a partial linear semiparametric mixed-effects model (PLSMM)
-featuring a random intercept and applies a lasso penalty to both the fixed
-effects and the coefficients associated with the nonlinear function. The
-model also accommodates interactions between the nonlinear function and a
-grouping variable, allowing for the capture of group-specific
-nonlinearities. Nonlinear functions are modeled using a set of bases
-functions. Estimation is conducted using a penalized
-Expectation-Maximization algorithm, and the package offers flexibility in
-choosing between various information criteria for model selection.
-Post-selection inference is carried out using a debiasing method, while
-inference on the nonlinear functions employs a bootstrap approach.
+An interface to 'Docling', a document-understanding library that converts
+'PDF', 'DOCX', 'PPTX', 'HTML' and image documents into structured,
+AI-ready data. The package wraps the 'Docling' 'Python' package through
+'reticulate' to extract layout-aware text, tables and metadata, export to
+'Markdown' or 'JSON', and split documents into context-rich chunks
+suitable for retrieval-augmented generation (RAG) and embedding pipelines.
 
 %prep
 %setup -q -c -n %{packname}

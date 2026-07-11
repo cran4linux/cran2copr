@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arcgislayers
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harness ArcGIS Data Services
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yyjsonr 
 Requires:         R-CRAN-httr2 >= 1.0.5
 Requires:         R-CRAN-arcgisutils >= 0.4.0
 Requires:         R-CRAN-arcpbf >= 0.1.5
@@ -39,6 +40,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
 Requires:         R-utils 
+Requires:         R-CRAN-yyjsonr 
 
 %description
 Enables users of 'ArcGIS Enterprise', 'ArcGIS Online', or 'ArcGIS

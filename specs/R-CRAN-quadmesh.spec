@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quadmesh
-%global packver   0.5.5
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quadrangle Mesh
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-palr 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-reproj >= 0.4.0
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-gridBase 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-palr 
+Requires:         R-CRAN-terra 
 
 %description
 Create surface forms from matrix or 'raster' data for flexible plotting

@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  freebird
-%global packver   1.0
+%global packname  derrick
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation and Inference for High Dimensional Mediation and Surrogate Analysis
+Summary:          Export 'gtsummary' Tables with 'reporter'
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-CRAN-Rmosek 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-scalreg 
-Requires:         R-CRAN-Rmosek 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-reporter >= 1.4.7
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-reporter >= 1.4.7
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
 
 %description
-Estimates and provides inference for quantities that assess high
-dimensional mediation and potential surrogate markers including the direct
-effect of treatment, indirect effect of treatment, and the proportion of
-treatment effect explained by a surrogate/mediator; details are described
-in Zhou et al (2022) <doi:10.1002/sim.9352> and Zhou et al (2020)
-<doi:10.1093/biomet/asaa016>. This package relies on the optimization
-software 'MOSEK', <https://www.mosek.com>.
+Convert 'gtsummary' tables and plain data frames into clinical-style Rich
+Text Format, plain text, Word, PDF, and HTML outputs using 'reporter',
+with managed widths, pagination, indentation, spanning headers, and
+optional intermediate data exports.
 
 %prep
 %setup -q -c -n %{packname}

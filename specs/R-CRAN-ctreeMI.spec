@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  impala
-%global packver   0.1.2
+%global packname  ctreeMI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Model Calibration
+Summary:          Conditional Inference Trees with Stacked Multiple Imputation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-mice >= 3.0.0
+BuildRequires:    R-CRAN-partykit >= 1.2.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-einsum 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-mice >= 3.0.0
+Requires:         R-CRAN-partykit >= 1.2.0
 Requires:         R-methods 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-einsum 
 
 %description
-Package provides tools for modular Bayesian model calibration. these tools
-allow for posterior exploration with sampling methods including tempering
-and adaptive Markov Chain Monte Carlo (MCMC). Allows for pooled
-calibration or hierarchal calibration of parameters. For more information
-see Francom et al., 2025 <DOI:10.1137/24M1644092>.
+Implements the stacked-imputation workflow for conditional inference trees
+('ctree') described in Sherlock et al. (2026)
+<doi:10.1080/00273171.2026.2661244>. When data contain missing values,
+multiply imputed datasets (e.g., from 'mice') are stacked vertically and a
+single 'ctree' is fit on the combined data. To correct for the
+artificially inflated sample size introduced by stacking, the pruning
+significance threshold is divided by the number of imputations M (the
+Stack/M correction), producing a conservative but interpretable single
+tree that incorporates imputation uncertainty without requiring pooling of
+structurally different trees. Also exports stack_imputations() and
+rescale_alpha() as standalone utilities. The underlying 'ctree' algorithm
+is provided by 'partykit' (Hothorn & Zeileis, 2015; Hothorn, Hornik &
+Zeileis, 2006 <doi:10.1198/106186006X133933>).
 
 %prep
 %setup -q -c -n %{packname}

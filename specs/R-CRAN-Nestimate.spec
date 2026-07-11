@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Nestimate
-%global packver   0.6.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Estimation, Bootstrap, and Higher-Order Analysis
 
@@ -18,14 +18,12 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glasso 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-brglm2 
 BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glasso 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-scales 

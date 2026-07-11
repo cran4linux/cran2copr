@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMR
-%global packver   0.8.6
+%global packver   0.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.6
+Version:          0.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for Large Language Model APIs in R
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-mime
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-httr2 >= 1.0.0
@@ -51,6 +52,7 @@ Requires:         R-CRAN-mime
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Provides a unified interface to large language models across multiple

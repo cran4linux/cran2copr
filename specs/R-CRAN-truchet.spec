@@ -1,34 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgolay
-%global packver   1.0.4
+%global packname  truchet
+%global packver   0.0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Savitzky-Golay Filtering
+Summary:          Tiles and Random Mosaics Truchet Style Using the 'sf' Framework
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-signal 
-Requires:         R-CRAN-signal 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bezier 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-bezier 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lwgeom 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyr 
 
 %description
-Smoothing signals and computing their derivatives is a common requirement
-in signal processing workflows. Savitzky-Golay filters are a established
-method able to do both (Savitzky and Golay, 1964
-<doi:10.1021/ac60214a047>). This package implements one dimensional
-Savitzky-Golay filters that can be applied to vectors and matrices (either
-row-wise or column-wise). Vectorization and memory allocations have been
-profiled to reduce computational fingerprint. Short filter lengths are
-implemented in the direct space, while longer filters are implemented in
-frequency space, using a Fast Fourier Transform (FFT).
+Functions to create Truchet tiles, so called after Sébastien Truchet who
+was the first to describe the patterns obtained by rotating tiles with
+respect to each other. This form of tiling is described by Smith and
+Boucher (1987) <https://muse.jhu.edu/article/600574>.
 
 %prep
 %setup -q -c -n %{packname}

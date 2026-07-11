@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgolay
-%global packver   1.0.4
+%global packname  ggpower
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Savitzky-Golay Filtering
+Summary:          Publication-Ready Power Analysis and Visualization
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-signal 
-Requires:         R-CRAN-signal 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bs4Dash 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-bs4Dash 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-golem 
+Requires:         R-CRAN-shiny 
 
 %description
-Smoothing signals and computing their derivatives is a common requirement
-in signal processing workflows. Savitzky-Golay filters are a established
-method able to do both (Savitzky and Golay, 1964
-<doi:10.1021/ac60214a047>). This package implements one dimensional
-Savitzky-Golay filters that can be applied to vectors and matrices (either
-row-wise or column-wise). Vectorization and memory allocations have been
-profiled to reduce computational fingerprint. Short filter lengths are
-implemented in the direct space, while longer filters are implemented in
-frequency space, using a Fast Fourier Transform (FFT).
+Provides statistical power analysis and sample size calculations for
+t-tests, ANOVA, regression, chi-square, proportion, correlation,
+nonparametric, biomarker, and clinical trial designs. Includes a
+scriptable API via power_compute(), publication-ready 'ggplot2'
+visualizations, and an optional 'Shiny' application.
 
 %prep
 %setup -q -c -n %{packname}

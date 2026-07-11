@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgolay
-%global packver   1.0.4
+%global packname  safuzzy
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Savitzky-Golay Filtering
+Summary:          Stability Analysis with Fuzzy Logic
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-signal 
-Requires:         R-CRAN-signal 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Smoothing signals and computing their derivatives is a common requirement
-in signal processing workflows. Savitzky-Golay filters are a established
-method able to do both (Savitzky and Golay, 1964
-<doi:10.1021/ac60214a047>). This package implements one dimensional
-Savitzky-Golay filters that can be applied to vectors and matrices (either
-row-wise or column-wise). Vectorization and memory allocations have been
-profiled to reduce computational fingerprint. Short filter lengths are
-implemented in the direct space, while longer filters are implemented in
-frequency space, using a Fast Fourier Transform (FFT).
+It integrates 'fuzzy logic' into the analysis of genotype adaptability and
+stability. By classifying genotypes based on degrees of belonging, the
+package provides a detailed assessment of their behavior in different
+environmental groups.
 
 %prep
 %setup -q -c -n %{packname}

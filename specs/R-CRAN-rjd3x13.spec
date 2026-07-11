@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjd3x13
-%global packver   3.7.1
+%global packver   3.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.1
+Version:          3.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seasonal Adjustment with 'X-13' in 'JDemetra+' 3.x
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.7.1
+BuildRequires:    R-CRAN-rjd3toolkit >= 3.8.0
 BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-RProtoBuf >= 0.4.20
-Requires:         R-CRAN-rjd3toolkit >= 3.7.1
+BuildRequires:    R-CRAN-RProtoBuf >= 0.4.25
+BuildRequires:    R-CRAN-rjd3jars >= 0.0.5
+Requires:         R-CRAN-rjd3toolkit >= 3.8.0
 Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-RProtoBuf >= 0.4.20
+Requires:         R-CRAN-RProtoBuf >= 0.4.25
+Requires:         R-CRAN-rjd3jars >= 0.0.5
 
 %description
 R Interface to 'JDemetra+' 3.x (<https://github.com/jdemetra>) time series

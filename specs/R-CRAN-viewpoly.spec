@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viewpoly
-%global packver   0.4.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny App to Visualize Genetic Maps and QTL Analysis in Polyploid Species
 
@@ -14,16 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-config >= 0.3.1
 BuildRequires:    R-CRAN-golem >= 0.3.1
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-JBrowseR 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -34,17 +32,18 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-hidecan 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-bs4Dash 
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-config >= 0.3.1
 Requires:         R-CRAN-golem >= 0.3.1
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-JBrowseR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -55,10 +54,13 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-vroom 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-markdown 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-hidecan 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-bs4Dash 
 
 %description
 Provides a graphical user interface to integrate, visualize and explore

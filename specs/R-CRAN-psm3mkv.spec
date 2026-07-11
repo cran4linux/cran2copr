@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psm3mkv
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluate Partitioned Survival and State Transition Models
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-admiralonco 
 Requires:         R-CRAN-admiral 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-flexsurv 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-admiralonco 
 
 %description
 Fits and evaluates three-state partitioned survival analyses (PartSAs) and

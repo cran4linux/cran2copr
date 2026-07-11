@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hdi
-%global packver   0.1-10
+%global packname  psAve
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Dimensional Inference
+Summary:          Model-Averaged Propensity Scores Selected by Prognostic-Score Balance
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scalreg 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-cobalt >= 4.6.0
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-linprog 
-Requires:         R-CRAN-scalreg 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-cobalt >= 4.6.0
 Requires:         R-stats 
-Requires:         R-parallel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-linprog 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Implementation of multiple approaches to perform inference in
-high-dimensional models.
+Constructs a model-averaged propensity score as a convex combination of
+candidate propensity score models, with mixing weights selected on a
+simplex grid to optimize covariate or prognostic-score balance,
+implementing the method of Kabata, Stuart and Shintani (2024)
+<doi:10.1186/s12874-024-02350-y>. Prognostic scores follow Hansen (2008)
+<doi:10.1093/biomet/asn004>: outcome models are fit on untreated units
+only. The resulting score is designed to be supplied directly to the
+matchit() function of 'MatchIt' as a distance measure or to the weightit()
+function of 'WeightIt' as a propensity score, with balance assessment via
+'cobalt'.
 
 %prep
 %setup -q -c -n %{packname}

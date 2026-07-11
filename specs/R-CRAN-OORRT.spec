@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tmcn
-%global packver   0.2-13
+%global packname  OORRT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Text Mining Toolkit for Chinese
+Summary:          Estimator for Optimised Optional Randomised Response Technique
 
-License:          LGPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A Text mining toolkit for Chinese, which includes facilities for Chinese
-string processing, Chinese NLP supporting, encoding detecting and
-converting. Moreover, it provides some functions to support 'tm' package
-in Chinese.
+Provides functions for estimation under the Randomised Response Technique
+for sensitive survey data, including Warner's estimator, Optional
+Randomised Response Technique estimator proposed by Chaudhuri and
+Mukerjee,and the Optimized Optional Randomised Response Technique
+estimator proposed by Pushadapu et al. The package also includes Monte
+Carlo simulation tools for evaluating estimator performance. The
+implemented methods are based on Warner (1965)
+<doi:10.1080/01621459.1965.10480775>, Chaudhuri and Mukerjee (1985),and
+Pushadapu et al. (2025) <doi: 10.1111/insr.12581>.
 
 %prep
 %setup -q -c -n %{packname}

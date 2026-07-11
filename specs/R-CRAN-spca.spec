@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgolay
-%global packver   1.0.4
+%global packname  spca
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Savitzky-Golay Filtering
+Summary:          Least Squares Sparse Principal Components Analysis
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-signal 
-Requires:         R-CRAN-signal 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+BuildRequires:    R-CRAN-RMTstat >= 0.3.1
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.14
+Requires:         R-CRAN-RMTstat >= 0.3.1
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
 
 %description
-Smoothing signals and computing their derivatives is a common requirement
-in signal processing workflows. Savitzky-Golay filters are a established
-method able to do both (Savitzky and Golay, 1964
-<doi:10.1021/ac60214a047>). This package implements one dimensional
-Savitzky-Golay filters that can be applied to vectors and matrices (either
-row-wise or column-wise). Vectorization and memory allocations have been
-profiled to reduce computational fingerprint. Short filter lengths are
-implemented in the direct space, while longer filters are implemented in
-frequency space, using a Fast Fourier Transform (FFT).
+Implements least-squares sparse principal component analysis (LS-SPCA).
+The approach follows Merola (2015) <doi:10.1111/anzs.12128> and Merola and
+Chen (2019) <doi:10.1016/j.jmva.2019.04.001>.
 
 %prep
 %setup -q -c -n %{packname}

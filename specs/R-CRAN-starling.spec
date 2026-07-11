@@ -1,62 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  starling
-%global packver   0.6.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Link Infectious Disease Cases to Vaccination and Hospitalization Records
+Summary:          Record Linkage for Public Health Surveillance
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-reclin2 
-BuildRequires:    R-CRAN-datawizard 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-reclin2 
-Requires:         R-CRAN-datawizard 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Facilitates probabilistic record linkage between infectious disease
-surveillance datasets (notifiable disease registers, outbreak line-lists),
-vaccination registries, and hospitalization records using methods based on
-Fellegi and Sunter (1969) <doi:10.1080/01621459.1969.10501049> and Sayers
-et al. (2016) <doi:10.1093/ije/dyv322>. The package provides core
-functions for data preparation, linkage, and analysis: clean_the_nest()
-standardizes variable names and formats across heterogeneous datasets;
-murmuration() performs machine learning-based record linkage using
-blocking variables and similarity metrics; molting() deidentifies datasets
-for secure sharing; homing() re-identifies previously deidentified
-datasets; plumage() identifies and categorizes comorbidities; and
-preening() creates analysis-ready variables including age categories and
-temporal groupings. Designed for epidemiological research linking acute
-and post-acute disease outcomes to vaccination status and healthcare
-utilization. Supports multiple linkage scenarios including
-case-to-vaccination, case-to-hospitalization, and event-based vaccination
-status determination (e.g., outbreak attendees, flight passengers,
-exposure site visitors).
+Record linkage for public health surveillance datasets using either the
+Fellegi-Sunter probabilistic framework (via reclin2) or deterministic
+exact-key matching. Provides pre-linkage data quality auditing
+(preflight()), Medicare number checksum validation (check_medicare()),
+blocking variable construction (flock()), and the murmuration() linkage
+engine. murmuration() expresses linkage as a single cohort-to-event
+concept (linking a linelist of people to a dated stream of vaccination,
+hospitalisation, or case events within a before/during/after time window),
+with the historical four-code taxonomy (case-to-hospitalisation,
+vaccination-to-case, vaccination-to-hospitalisation, vaccination-to-event)
+retained as deprecated aliases. Also provides linkage weight distribution
+visualisation (murmuration_plot()) and threshold sensitivity analysis
+(perch()) with annotated AIHW, WA Data Linkage Unit, and PHRN reference
+benchmarks. perch() can be called standalone or triggered automatically
+mid-linkage via murmuration(perch_before_linking = TRUE). Includes
+synthetic datasets (cases_notifiable, vax_air) and three vignettes
+demonstrating the complete linkage workflow. Part of the aviary public
+health surveillance ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

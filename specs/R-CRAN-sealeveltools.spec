@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  inet
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  sealeveltools
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Performing Inference on Networks with Regularization
+Summary:          Sea Level Adjustment and Coastal Terrain Modeling
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hdi 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-hdi 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-grDevices 
+Requires:         R-CRAN-terra 
 
 %description
-Performs inference with the lasso in Gaussian Graphical Models. The
-package consists of wrappers for functions from the 'hdi' package.
+Simulates sea-level rise and fall from raster-based elevation models
+through functions for relative vertical datum transformation of Digital
+Terrain Models (DTMs) and integration with bathymetric data to produce
+continuous terrestrial–marine Digital Elevation Models (DEMs). Supports
+coastal exposure modeling, paleogeographic reconstruction, submerged
+landscape analysis, and climate change impact assessment. Optional
+gap-filling and threshold-based terrain filtering facilitate
+reconstruction of incomplete elevation surfaces and scenario-based
+landscape simulation. Applications span coastal engineering,
+geomorphology, archaeology, environmental modeling, and geospatial
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ciuupi
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confidence Intervals Utilizing Uncertain Prior Information
 
@@ -19,13 +19,11 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-functional 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-functional 
 Requires:         R-CRAN-pracma 
 Requires:         R-stats 
 Requires:         R-graphics 

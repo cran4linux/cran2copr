@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CKNNRLD
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering-Based K-Nearest Neighbor Regression for Longitudinal Data
 
@@ -19,10 +19,14 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Directional 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-Directional 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
 Implements the 'CKNNRLD' algorithm (Clustering-Based K-Nearest Neighbor

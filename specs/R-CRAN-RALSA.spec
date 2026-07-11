@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RALSA
-%global packver   1.6.6
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Analyzer for Large-Scale Assessments
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-quantreg 
 Requires:         R-CRAN-archive 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-haven 
@@ -55,6 +56,7 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-quantreg 
 
 %description
 Download, prepare and analyze data from large-scale assessments and
@@ -68,9 +70,9 @@ respondents and/or countries, generate variable dictionaries, modify data,
 produce descriptive statistics (percentages, means, percentiles,
 benchmarks) and multivariate statistics (correlations, linear regression,
 binary logistic regression). The number of supported studies and analysis
-types will increase in future. For a general presentation of the package,
-see 'Mirazchiyski', 2021a (<doi:10.1186/s40536-021-00114-4>). For detailed
-technical aspects of the package, see 'Mirazchiyski', 2021b
+types increases with every next release. For a general presentation of the
+package, see 'Mirazchiyski', 2021a (<doi:10.1186/s40536-021-00114-4>). For
+detailed technical aspects of the package, see 'Mirazchiyski', 2021b
 (<doi:10.3390/psych3020018>).
 
 %prep
