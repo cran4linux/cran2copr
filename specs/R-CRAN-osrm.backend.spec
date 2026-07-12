@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  osrm.backend
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings for 'Open Source Routing Machine'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr2 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-viridisLite
 %description
 Install and control 'Open Source Routing Machine' ('OSRM') backend
 executables to prepare routing data and run/stop a local 'OSRM' server.
-For computations with the running server use the 'osrm' R package
+For computations with the running server use the 'osrm' package for 'R'
 (<https://cran.r-project.org/package=osrm>).
 
 %prep

@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treeSS
-%global packver   0.2.5
+%global packname  ggchord2
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree-Spatial Scan Statistic for Cluster Detection
+Summary:          Chord Diagrams with 'ggplot2'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-geomtextpath 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-geomtextpath 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements the tree-spatial scan statistic for detecting clusters that
-combine both spatial and hierarchical structures, as proposed by Cancado
-et al. (2025) <doi:10.1007/s10651-025-00670-w>. The method extends
-Kulldorff (1997) <doi:10.1080/03610929708831995> circular spatial scan
-statistic and the tree-based scan statistic of Kulldorff et al. (2003)
-<doi:10.1111/1541-0420.00039> by searching for anomalies in both
-geographic regions and branches of hierarchical trees simultaneously. The
-package also provides standalone implementations of Kulldorff's circular
-spatial scan statistic and the tree-based scan statistic. Statistical
-significance is assessed via Monte Carlo simulation under a Poisson or
-binomial model, with optional 'OpenMP' parallelization.
+A 'ggplot2' extension that provides functions for drawing chord diagrams
+for visualising flows between categories. The package extends 'ggplot2' by
+adding geoms and stats for drawing chord sectors, arcs, and labels.
 
 %prep
 %setup -q -c -n %{packname}

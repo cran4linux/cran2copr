@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treeSS
-%global packver   0.2.5
+%global packname  chessResults
+%global packver   2026.07.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          2026.07.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree-Spatial Scan Statistic for Cluster Detection
+Summary:          Scraper for Chess-Results.com
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.3.1
+BuildRequires:    R-CRAN-janitor >= 2.2.1
+BuildRequires:    R-CRAN-readr >= 2.2.0
+BuildRequires:    R-CRAN-stringr >= 1.6.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.2
+BuildRequires:    R-CRAN-dplyr >= 1.2.1
+BuildRequires:    R-CRAN-rvest >= 1.0.5
+BuildRequires:    R-CRAN-polite >= 0.1.4
+Requires:         R-CRAN-tibble >= 3.3.1
+Requires:         R-CRAN-janitor >= 2.2.1
+Requires:         R-CRAN-readr >= 2.2.0
+Requires:         R-CRAN-stringr >= 1.6.0
+Requires:         R-CRAN-tidyr >= 1.3.2
+Requires:         R-CRAN-dplyr >= 1.2.1
+Requires:         R-CRAN-rvest >= 1.0.5
+Requires:         R-CRAN-polite >= 0.1.4
 
 %description
-Implements the tree-spatial scan statistic for detecting clusters that
-combine both spatial and hierarchical structures, as proposed by Cancado
-et al. (2025) <doi:10.1007/s10651-025-00670-w>. The method extends
-Kulldorff (1997) <doi:10.1080/03610929708831995> circular spatial scan
-statistic and the tree-based scan statistic of Kulldorff et al. (2003)
-<doi:10.1111/1541-0420.00039> by searching for anomalies in both
-geographic regions and branches of hierarchical trees simultaneously. The
-package also provides standalone implementations of Kulldorff's circular
-spatial scan statistic and the tree-based scan statistic. Statistical
-significance is assessed via Monte Carlo simulation under a Poisson or
-binomial model, with optional 'OpenMP' parallelization.
+Scrape data from <https://chess-results.com> and get a clean 'tibble'.
+Currently supports tournament information, starting rank, playing
+schedule, pairings/results for rounds, and closing rank. All requests to
+the <https://chess-results.com> server are made using 'polite'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mRpostman
-%global packver   1.1.4
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An IMAP Client for R
 
@@ -39,10 +39,9 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-xml2 
 
 %description
-An easy-to-use IMAP client that provides tools for message searching,
-selective fetching of message attributes, mailbox management, attachment
-extraction, and several other IMAP features, paving the way for e-mail
-data analysis in R.
+A session-based IMAP client that implements the full functionality of the
+IMAP4rev1 protocol (RFC 3501), allowing virtually all e-mail operations to
+be performed from within R, paving the way for e-mail data analysis.
 
 %prep
 %setup -q -c -n %{packname}

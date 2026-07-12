@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statpsych
-%global packver   1.9.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Psychologists
 
@@ -19,30 +19,30 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mnonr 
+BuildRequires:    R-CRAN-semTools 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-mnonr 
+Requires:         R-CRAN-semTools 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-mathjaxr 
 
 %description
 Implements confidence interval and sample size methods that are especially
-useful in psychological research. The methods can be applied in 1-group,
-2-group, paired-samples, and multiple-group designs and to a variety of
-parameters including means, medians, proportions, slopes, standardized
-mean differences, standardized linear contrasts of means, plus several
-measures of correlation and association. Confidence interval and sample
-size functions are given for single parameters as well as differences,
-ratios, and linear contrasts of parameters. The sample size functions can
-be used to approximate the sample size needed to estimate a parameter or
-function of parameters with desired confidence interval precision or to
-perform a variety of hypothesis tests (directional two-sided, equivalence,
-superiority, noninferiority) with desired power. For details see:
-Statistical Methods for Psychologists, Volumes 1 – 4,
-<https://dgbonett.sites.ucsc.edu/>.
+useful in psychological research but are also useful in educational,
+social science, business, and biological research. This package includes
+more than 100 confidence interval functions and more than 80 sample size
+functions for 1-group, 2-group, paired-samples, and multiple-group designs
+and for a variety of parameters including means, medians, proportions,
+slopes, standardized mean differences, standardized linear contrasts of
+means, and several measures of correlation and association. The sample
+size functions can be used to approximate the sample size needed to
+estimate a parameter or function of parameters with desired confidence
+interval precision or to perform a variety of hypothesis tests
+(directional two-sided, equivalence, superiority, noninferiority) with
+desired power. For details about these methods see: Statistical Methods
+for Psychologists, Volumes 1 – 4, <https://dgbonett.sites.ucsc.edu/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ham
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Healthcare Analysis Methods
 
@@ -35,13 +35,15 @@ items (e.g., survey questions). See Github URL for examples in the README
 file. For more details on the statistical methods, see Allen & Yen (1979,
 ISBN:0-8185-0283-5), Angrist & Pischke (2009, ISBN:9780691120355), Cohen
 (1988, ISBN:0-8058-0283-5), Gebski (2012) <doi:10.1017/S0950268812000179>,
-Gelman & Goodrich (2019) <doi:10.1080/00031305.2018.1549100>, Harrell
-(2016, ISBN:978-3-319-19424-0), Kline (1999, ISBN:9780415211581), Kruschke
-(2014, ISBN:9780124058880), Linden (2015)
-<doi:10.1177/1536867X1501500208>, Merlo (2006)
+Gelman & Goodrich (2019) <doi:10.1080/00031305.2018.1549100>, Gelman &
+Hill (2007, ISBN:978-0-521-68689-1), Harrell (2015,
+ISBN:978-3-319-19424-0), Imbens & Rubin (2015, ISBN:978-0-521-88588-1),
+Kline (1999, ISBN:9780415211581), Kruschke (2014, ISBN:9780124058880),
+Linden (2015) <doi:10.1177/1536867X1501500208>, Merlo (2006)
 <doi:10.1136/jech.2004.029454>, Muthen & Satorra (1995)
-<doi:10.2307/271070>, Rabe-Hesketh & Skrondal (2008,
-ISBN:978-1-59718-040-5), Ryan (2011, ISBN:978-0-470-59074-4), and Vickers
+<doi:10.2307/271070>, Pitman (1993, ISBN:978-0-387-97974-8), Rabe-Hesketh
+& Skrondal (2008, ISBN:978-1-59718-040-5), Rosenbaum (2010,
+ISBN:978-1-4419-1212-1), Ryan (2011, ISBN:978-0-470-59074-4), and Vickers
 & Elkin (2006) <doi:10.1177/0272989X06295361>.
 
 %prep

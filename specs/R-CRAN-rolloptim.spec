@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  opencltools
-%global packver   0.8.2
+%global packname  rolloptim
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'OpenCL' Tools for R Package Developers
+Summary:          Rolling Optimizations
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.1.1
-BuildRequires:    R-CRAN-Rdpack >= 0.11.0
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.1.1
-Requires:         R-CRAN-Rdpack >= 0.11.0
-Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Runtime 'OpenCL' support for R package developers: probe hardware and
-drivers, load and concatenate kernel sources, and manage
-dependency-annotated '.cl' libraries, so packages like 'nmathopencl' and
-other ported libraries can offer GPU acceleration without each
-re-implementing the same plumbing. Vignettes illustrate integration with
-suggested packages 'nmathopencl' and 'glmbayes'; production kernels for
-those applications ship in those packages rather than here.
+Analytical computation of rolling optimization for time-series data. The
+'rolloptim' package solves constrained quadratic and linear programs in
+closed form by applying Lagrangian multipliers and the Karush-Kuhn-Tucker
+conditions (Kuhn and Tucker, 1951, <doi:10.1525/9780520411586-036>) to
+perform mean-variance portfolio optimization (Markowitz, 1952,
+<doi:10.1111/j.1540-6261.1952.tb01525.x>) over rolling windows. For each
+window, the analytical solution computes the optimal weights that minimize
+variance, maximize expected return, minimize residual sum of squares, or
+maximize quadratic utility, subject to a total-weight equality constraint
+and box bounds on each weight. Use cases include mean-variance portfolio
+optimization, expected-return maximization, and constrained regression.
+The package supports rolling optimizations with constraints via the total,
+lower, and upper arguments. The implementation accepts rolling moments
+computed via the 'roll' package and uses 'RcppArmadillo' for linear
+algebra, with parallelism across windows provided by 'RcppParallel'.
 
 %prep
 %setup -q -c -n %{packname}

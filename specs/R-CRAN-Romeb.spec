@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Romeb
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Median-Based Bayesian Growth Curve Modeling
 
@@ -14,22 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rjags 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Implements robust median-based Bayesian growth curve models that handle
-Missing Completely at Random (MCAR), Missing At Random (MAR), and Missing
-Not At Random (MNAR) missing-data mechanisms, and allow auxiliary
-variables. Models are fitted via 'rjags' (interface to 'JAGS') and
-summarized with 'coda'.
+Implements robust median-based Bayesian linear growth curve models for
+complete data and for data with Missing Completely at Random (MCAR),
+Missing At Random (MAR), or Missing Not At Random (MNAR) mechanisms.
+Models are fitted using 'rjags' through 'JAGS' and posterior summaries are
+computed with 'coda'. The main function allows users to specify outcome
+variables, auxiliary variables for MNAR missingness models, prior
+hyperparameters, and initial values directly through function arguments.
 
 %prep
 %setup -q -c -n %{packname}

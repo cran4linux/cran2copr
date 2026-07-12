@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treeSS
-%global packver   0.2.5
+%global packname  sdim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree-Spatial Scan Statistic for Cluster Detection
+Summary:          An R Package for Supervised Dimension Reduction
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements the tree-spatial scan statistic for detecting clusters that
-combine both spatial and hierarchical structures, as proposed by Cancado
-et al. (2025) <doi:10.1007/s10651-025-00670-w>. The method extends
-Kulldorff (1997) <doi:10.1080/03610929708831995> circular spatial scan
-statistic and the tree-based scan statistic of Kulldorff et al. (2003)
-<doi:10.1111/1541-0420.00039> by searching for anomalies in both
-geographic regions and branches of hierarchical trees simultaneously. The
-package also provides standalone implementations of Kulldorff's circular
-spatial scan statistic and the tree-based scan statistic. Statistical
-significance is assessed via Monte Carlo simulation under a Poisson or
-binomial model, with optional 'OpenMP' parallelization.
+Implements five factor extraction methods for asset pricing and
+macroeconomic forecasting: principal component analysis (PCA), partial
+least squares (PLS), scaled PCA (sPCA) of Huang, Jiang, Li, Tong, and Zhou
+(2022) <doi:10.1287/mnsc.2021.4020>, the reduced-rank approach (RRA) of
+He, Huang, Li, and Zhou (2023) <doi:10.1287/mnsc.2022.4563>, and
+Instrumented PCA (IPCA) of Kelly, Pruitt, and Su (2019)
+<doi:10.1016/j.jfineco.2019.05.001>.
 
 %prep
 %setup -q -c -n %{packname}

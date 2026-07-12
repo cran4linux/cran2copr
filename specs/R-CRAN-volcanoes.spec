@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treeSS
-%global packver   0.2.5
+%global packname  volcanoes
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree-Spatial Scan Statistic for Cluster Detection
+Summary:          Holocene Volcanoes, Eruptions, and Eruption Events
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Implements the tree-spatial scan statistic for detecting clusters that
-combine both spatial and hierarchical structures, as proposed by Cancado
-et al. (2025) <doi:10.1007/s10651-025-00670-w>. The method extends
-Kulldorff (1997) <doi:10.1080/03610929708831995> circular spatial scan
-statistic and the tree-based scan statistic of Kulldorff et al. (2003)
-<doi:10.1111/1541-0420.00039> by searching for anomalies in both
-geographic regions and branches of hierarchical trees simultaneously. The
-package also provides standalone implementations of Kulldorff's circular
-spatial scan statistic and the tree-based scan statistic. Statistical
-significance is assessed via Monte Carlo simulation under a Poisson or
-binomial model, with optional 'OpenMP' parallelization.
+Tidy snapshots of the Smithsonian Institution Global Volcanism Program's
+Volcanoes of the World database. Provides three data frames covering
+Holocene volcanoes, their eruptions, and the events recorded during those
+eruptions. The schema follows the layout popularized by the
+'rfordatascience/tidytuesday' 2020-05-12 release, refreshed against the
+current Global Volcanism Program database.
 
 %prep
 %setup -q -c -n %{packname}

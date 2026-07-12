@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treeSS
-%global packver   0.2.5
+%global packname  BayesSurveillance
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree-Spatial Scan Statistic for Cluster Detection
+Summary:          Bayesian Surveillance Methods for Healthcare Performance Monitoring
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-stats 
 
 %description
-Implements the tree-spatial scan statistic for detecting clusters that
-combine both spatial and hierarchical structures, as proposed by Cancado
-et al. (2025) <doi:10.1007/s10651-025-00670-w>. The method extends
-Kulldorff (1997) <doi:10.1080/03610929708831995> circular spatial scan
-statistic and the tree-based scan statistic of Kulldorff et al. (2003)
-<doi:10.1111/1541-0420.00039> by searching for anomalies in both
-geographic regions and branches of hierarchical trees simultaneously. The
-package also provides standalone implementations of Kulldorff's circular
-spatial scan statistic and the tree-based scan statistic. Statistical
-significance is assessed via Monte Carlo simulation under a Poisson or
-binomial model, with optional 'OpenMP' parallelization.
+Provides Bayesian surveillance methods for prospective monitoring of
+healthcare performance, patient safety, and clinical quality indicators.
+The package implements beta-binomial monitoring for binary outcomes,
+gamma-Poisson monitoring for count outcomes, posterior predictive alert
+probabilities, Bayesian early-warning signal detection, risk-adjusted
+surveillance, simulation tools, decision-support methods, and graphical
+summaries. These methods support continuous performance monitoring and
+timely detection of adverse trends in healthcare systems. The methodology
+is motivated by established risk-adjusted monitoring, sequential
+surveillance, and healthcare quality-improvement frameworks
+<doi:10.1093/biostatistics/1.4.441>, <doi:10.1002/sim.1546>,
+<doi:10.1136/bmjqs.2008.031831>, and <doi:10.1136/bmjqs-2016-005526>.
 
 %prep
 %setup -q -c -n %{packname}
