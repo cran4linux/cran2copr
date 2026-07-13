@@ -1,37 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moocore
-%global packver   0.3.2
+%global packname  rtf
+%global packver   0.4-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core Mathematical Functions for Multi-Objective Optimization
+Summary:          Rich Text Format ('RTF') Output
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-devel >= 2.10.1
+Requires:         R-core >= 2.10.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R.oo 
+BuildRequires:    R-CRAN-R.methodsS3 
+Requires:         R-CRAN-R.oo 
+Requires:         R-CRAN-R.methodsS3 
 
 %description
-Fast implementations of mathematical operations and performance metrics
-for multi-objective optimization, including filtering and ranking of
-dominated vectors according to Pareto optimality, hypervolume metric, C.M.
-Fonseca, L. Paquete, M. López-Ibáñez (2006)
-<doi:10.1109/CEC.2006.1688440>, epsilon indicator, inverted generational
-distance, computation of the empirical attainment function, V.G. da
-Fonseca, C.M. Fonseca, A.O. Hall (2001) <doi:10.1007/3-540-44719-9_15>,
-and Vorob'ev threshold, expectation and deviation, M. Binois, D.
-Ginsbourger, O. Roustant (2015) <doi:10.1016/j.ejor.2014.07.032>, among
-others.
+A set of R functions to output Rich Text Format ('RTF') files with high
+resolution tables and graphics that may be edited with a standard word
+processor such as Microsoft Word.
 
 %prep
 %setup -q -c -n %{packname}

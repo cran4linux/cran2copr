@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reproducer
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproduce Statistical Analyses and Meta-Analyses
 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readr >= 1.3.1
 BuildRequires:    R-CRAN-lme4 >= 1.1.10
 BuildRequires:    R-CRAN-nortest >= 1.0.4
-BuildRequires:    R-CRAN-gridExtra >= 0.9
+BuildRequires:    R-CRAN-gridExtra >= 0.9.1
 BuildRequires:    R-CRAN-reshape >= 0.8.8
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.0.1
@@ -48,7 +48,7 @@ Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readr >= 1.3.1
 Requires:         R-CRAN-lme4 >= 1.1.10
 Requires:         R-CRAN-nortest >= 1.0.4
-Requires:         R-CRAN-gridExtra >= 0.9
+Requires:         R-CRAN-gridExtra >= 0.9.1
 Requires:         R-CRAN-reshape >= 0.8.8
 Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr >= 0.8.0.1

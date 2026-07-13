@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wooldridge
-%global packver   1.4-4
+%global packver   1.4-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          115 Data Sets from "Introductory Econometrics: A Modern Approach, 7e" by Jeffrey M. Wooldridge
+Summary:          115 Data Sets from "Introductory Econometrics: A Modern Approach, 8e" by Jeffrey M. Wooldridge
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}

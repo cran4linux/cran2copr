@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tissot
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tissot Indicatrix for Map Projection Distortion
 
@@ -18,22 +18,24 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-gdalraster 
+BuildRequires:    R-CRAN-PROJ 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-gdalraster 
+Requires:         R-CRAN-PROJ 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
 Compute and visualize the 'Tissot Indicatrix' for map projections. The
 indicatrix characterizes projection distortion by computing scale factors,
 angular deformation, areal distortion, and convergence at arbitrary
 points. Based on the calculations shared by Bill Huber on
-<https://gis.stackexchange.com/a/5075/482>. Uses 'GDAL' for coordinate
-transformation. Developed using the method published in Snyder, JP (1987)
-<doi:10.3133/pp1395>.
+<https://gis.stackexchange.com/a/5075/482>. Uses 'PROJ' for coordinate
+transformation and distortion factor computation. Developed using the
+method published in Snyder, JP (1987) <doi:10.3133/pp1395>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ManifoldOptim
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Interface to the 'ROPTLIB' Library for Riemannian Manifold Optimization
 
@@ -21,14 +22,13 @@ Requires:         R-CRAN-Rcpp >= 0.12.0
 
 %description
 An R interface to version 0.3 of the 'ROPTLIB' optimization library (see
-<https://www.math.fsu.edu/~whuang2/> for more information). Optimize real-
-valued functions over manifolds such as Stiefel, Grassmann, and Symmetric
-Positive Definite matrices. For details see Martin et. al. (2020)
-<doi:10.18637/jss.v093.i01>. Note that the optional ldr package used in
-some of this package's examples can be obtained from either JSS
-<https://www.jstatsoft.org/index.php/jss/article/view/v061i03/2886> or
-from the CRAN archives
-<https://cran.r-project.org/src/contrib/Archive/ldr/ldr_1.3.3.tar.gz>.
+<https://www.math.fsu.edu/~whuang2/> for more information). Optimize
+real-valued functions over manifolds such as Stiefel, Grassmann, and
+symmetric positive definite matrices. For details see Martin et al. (2020)
+<doi:10.18637/jss.v093.i01>. Note that the optional 'ldr' package used in
+some of this package's examples can be obtained from either the article
+<doi:10.18637/jss.v061.i03> or from the 'ldr' package
+<https://cran.r-project.org/package=ldr>.
 
 %prep
 %setup -q -c -n %{packname}

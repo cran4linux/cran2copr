@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.26.1
+%global packver   1.26.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.26.1
+Version:          1.26.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials Data from Public Registers
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nodbi >= 0.13.1
+BuildRequires:    R-CRAN-nodbi >= 0.14.0
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringdist 
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-zip
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-htmlwidgets 
-Requires:         R-CRAN-nodbi >= 0.13.1
+Requires:         R-CRAN-nodbi >= 0.14.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringdist 
@@ -54,7 +54,7 @@ results-related information on clinical trials from four public registers,
 the 'European Union Clinical Trials Register' ('EUCTR',
 <https://www.clinicaltrialsregister.eu/>), 'ClinicalTrials.gov'
 (<https://clinicaltrials.gov/> and also translating queries the retired
-classic interface), the 'ISRCTN' (<http://www.isrctn.com/>) and the
+classic interface), the 'ISRCTN' (<https://www.isrctn.com/>) and the
 'European Union Clinical Trials Information System' ('CTIS',
 <https://euclinicaltrials.eu/>). Trial information is downloaded,
 converted and stored in a database ('PostgreSQL', 'SQLite', 'DuckDB' or

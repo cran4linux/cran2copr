@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moocore
-%global packver   0.3.2
+%global packname  tarchives
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core Mathematical Functions for Multi-Objective Optimization
+Summary:          Make Your 'targets' Pipelines into a Package
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-targets 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-targets 
+Requires:         R-CRAN-withr 
 
 %description
-Fast implementations of mathematical operations and performance metrics
-for multi-objective optimization, including filtering and ranking of
-dominated vectors according to Pareto optimality, hypervolume metric, C.M.
-Fonseca, L. Paquete, M. López-Ibáñez (2006)
-<doi:10.1109/CEC.2006.1688440>, epsilon indicator, inverted generational
-distance, computation of the empirical attainment function, V.G. da
-Fonseca, C.M. Fonseca, A.O. Hall (2001) <doi:10.1007/3-540-44719-9_15>,
-and Vorob'ev threshold, expectation and deviation, M. Binois, D.
-Ginsbourger, O. Roustant (2015) <doi:10.1016/j.ejor.2014.07.032>, among
-others.
+Runs 'targets' pipelines bundled inside a package and caches the results
+in the R user cache directory, so that users of the package do not need to
+rerun the pipeline themselves. Package authors can update the cached
+results at any time by releasing a new package version.
 
 %prep
 %setup -q -c -n %{packname}

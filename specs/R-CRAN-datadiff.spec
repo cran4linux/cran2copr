@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datadiff
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Validation Based on 'YAML' Rules
 
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-pointblank >= 0.12.3
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-yaml >= 2.2.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-pointblank >= 0.12.3
-Requires:         R-stats 
 Requires:         R-utils 
 
 %description

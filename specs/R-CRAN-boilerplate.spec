@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boilerplate
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Managing and Compiling Manuscript Templates
 
@@ -34,8 +34,9 @@ Requires:         R-utils
 Managing and generating standardised text for methods and results sections
 of scientific reports. It handles template variable substitution and
 supports hierarchical organisation of text through dot-separated paths.
-The package supports both RDS and JSON database formats, enabling version
-control and cross-language compatibility.
+Databases are stored as JSON by default for version control and
+cross-language compatibility; trusted legacy RDS databases remain readable
+through import and migration utilities.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blockr.core
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Web-Framework for Data Manipulation and Visualization
 
@@ -25,7 +25,6 @@ BuildRequires:    R-datasets
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-vctrs 
@@ -37,6 +36,7 @@ BuildRequires:    R-CRAN-shinyFiles
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-bslib 
@@ -45,7 +45,6 @@ Requires:         R-datasets
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-vctrs 
@@ -57,6 +56,7 @@ Requires:         R-CRAN-shinyFiles
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-yaml 
 
 %description
 A framework for data manipulation and visualization using a web-based
