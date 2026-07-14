@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lazysf
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Delayed Read for 'GDAL' Vector Data Sources
 
@@ -14,29 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gdalraster >= 2.0.0
 BuildRequires:    R-CRAN-dbplyr >= 2.0.0
-BuildRequires:    R-CRAN-sf >= 0.7.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-wk 
+Requires:         R-CRAN-gdalraster >= 2.0.0
 Requires:         R-CRAN-dbplyr >= 2.0.0
-Requires:         R-CRAN-sf >= 0.7.0
 Requires:         R-methods 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-wk 
 
 %description
 Lazy read for drawings. A 'dplyr' back end for data sources supported by
 'GDAL' vector drivers, that allows working with local or remote sources as
-if they are in-memory data frames. Basic features works with any drawing
-format ('GDAL vector data source') supported by the 'sf' package.
+if they are in-memory data frames. Basic features work with any drawing
+format ('GDAL vector data source') supported by the 'gdalraster' package.
 
 %prep
 %setup -q -c -n %{packname}

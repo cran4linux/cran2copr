@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnmamod
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Meta-Analysis with Missing Participants
 
@@ -60,24 +60,24 @@ network meta-analysis with aggregate binary or continuous missing
 participant outcome data. The package covers core Bayesian one-stage
 models implemented in a systematic review with multiple interventions,
 including fixed-effect and random-effects network meta-analysis,
-meta-regression, evaluation of the consistency assumption via the
+meta-regression, and evaluation of the consistency assumption via the
 node-splitting approach and the unrelated mean effects model (original and
-revised model proposed by Spineli, (2022)
-<doi:10.1177/0272989X211068005>), and sensitivity analysis (see Spineli et
-al., (2021) <doi:10.1186/s12916-021-02195-y>). Missing participant outcome
-data are addressed in all models of the package (see Spineli, (2019)
+revised model proposed by Spineli, (2021)
+<doi:10.1177/0272989X211068005>). Missing participant outcome data are
+addressed in all models of the package (see Spineli, (2019)
 <doi:10.1186/s12874-019-0731-y>, Spineli et al., (2019)
 <doi:10.1002/sim.8207>, Spineli, (2019)
 <doi:10.1016/j.jclinepi.2018.09.002>, and Spineli et al., (2021)
-<doi:10.1002/jrsm.1478>). The robustness to primary analysis results can
-also be investigated using a novel intuitive index (see Spineli et al.,
-(2021) <doi:10.1177/0962280220983544>). Methods to evaluate the
-transitivity assumption using trial dissimilarities and hierarchical
-clustering are provided (see Spineli, (2024)
-<doi:10.1186/s12874-024-02436-7>, and Spineli et al., (2025)
-<doi:10.1002/sim.70068>). A novel index to facilitate interpretation of
-local inconsistency is also available (see Spineli, (2024)
-<doi:10.1186/s13643-024-02680-4>) The package also offers a rich,
+<doi:10.1177/0962280220983544>). The robustness to primary analysis
+results can also be investigated using a novel intuitive index (see
+Spineli et al., (2021) <doi:10.1002/jrsm.1478> and Spineli et al., (2021)
+<doi:10.1186/s12916-021-02195-y>). Methods to evaluate the transitivity
+assumption using trial dissimilarities and hierarchical clustering are
+provided (see Spineli, (2024) <doi:10.1186/s12874-024-02436-7>, and
+Spineli et al., (2025) <doi:10.1002/sim.70068>). A novel index to
+facilitate interpretation of local inconsistency is also available (see
+Spineli, (2024) <doi:10.1186/s13643-024-02680-4> and Spineli, (2025)
+<doi:10.1186/s13643-025-02984-z>). The package also offers a rich,
 user-friendly visualisation toolkit that aids in appraising and
 interpreting the results thoroughly and preparing the manuscript for
 journal submission. The visualisation tools comprise the network plot,

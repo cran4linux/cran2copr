@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  choicer
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Choice Models for Economic Applications
 
@@ -17,24 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table 
+Requires:         R-graphics 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Fast estimation of discrete-choice models for applied economics.
-Likelihoods, analytical gradients and Hessians are implemented in C++ with
-'OpenMP' parallelism, scaling efficiently to specifications with many
-alternative-specific constants. Post-estimation routines return predicted
-shares, own- and cross-price elasticities, and diversion ratios. Supports
-multinomial logit ('MNL'), mixed logit ('MXL'), and nested logit ('NL').
+Frequentist likelihoods, analytical gradients, and Hessians are
+implemented in C++ with 'OpenMP' parallelism, scaling efficiently to
+specifications with many alternative-specific constants. Compiled Gibbs
+samplers provide Bayesian multinomial probit and hierarchical models.
+Post-estimation routines cover predicted shares, own- and cross-price
+elasticities, diversion ratios, willingness to pay, and welfare
+counterfactuals. Supports multinomial logit ('MNL'), mixed logit ('MXL'),
+nested logit ('NL'), Bayesian multinomial probit ('MNP'), and hierarchical
+Bayesian multinomial logit and probit ('HMNL', 'HMNP').
 
 %prep
 %setup -q -c -n %{packname}

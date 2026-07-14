@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trendseries
-%global packver   1.2.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Trends from Time Series
 
@@ -19,34 +19,30 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dlm 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hpfilter 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-mFilter 
 BuildRequires:    R-CRAN-RcppRoll 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tsbox 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dlm 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hpfilter 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-mFilter 
 Requires:         R-CRAN-RcppRoll 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tsbox 
 
 %description
-Extract trends from monthly and quarterly economic time series. Provides
-two main functions: augment_trends() for pipe-friendly 'tibble' workflows
-and extract_trends() for direct time series analysis. Includes established
-econometric filters such as Hodrick-Prescott (HP), Baxter-King,
-Christiano-Fitzgerald, and Hamilton, alongside moving averages and
-smoothing methods. Smart defaults are tuned for common economic
-frequencies following Ravn and Uhlig (2002)
-<doi:10.1162/003465302317411604>.
+Provides a unified interface to extract trends, cycles, and seasonal
+components from monthly and quarterly time series using established
+econometric filters and smoothing methods, with frequency-aware defaults
+for common economic frequencies.
 
 %prep
 %setup -q -c -n %{packname}

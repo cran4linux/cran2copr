@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bnlearn
-%global packver   5.1
+%global packver   5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1
+Version:          5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Structure Learning, Parameter Learning and Inference
 
@@ -21,19 +21,20 @@ Requires:         R-methods
 
 %description
 Bayesian network structure learning, parameter learning and inference.
-This package implements constraint-based (PC, GS, IAMB, Inter-IAMB,
-Fast-IAMB, MMPC, Hiton-PC, HPC), pairwise (ARACNE and Chow-Liu),
-score-based (Hill-Climbing and Tabu Search) and hybrid (MMHC, RSMAX2,
-H2PC) structure learning algorithms for discrete, Gaussian and conditional
-Gaussian networks, along with many score functions and conditional
-independence tests. The Naive Bayes and the Tree-Augmented Naive Bayes
-(TAN) classifiers are also implemented. Some utility functions (model
-comparison and manipulation, random data generation, arc orientation
-testing, simple and advanced plots) are included, as well as support for
-parameter estimation (maximum likelihood and Bayesian) and inference,
-conditional probability queries, cross-validation, bootstrap and model
-averaging. Development snapshots with the latest bugfixes are available
-from <https://www.bnlearn.com/>.
+This package implements constraint-based (PC, GS, IAMB, Inter-IAMB, MMPC,
+Hiton-PC, HPC), pairwise (ARACNE and Chow-Liu), score-based
+(Hill-Climbing, Tabu Search, DirectLiNGAM) and hybrid (MMHC, RSMAX2, H2PC)
+structure learning algorithms for discrete, Gaussian, conditional Gaussian
+and zero-inflated networks, along with many score functions and
+conditional independence tests. The Naive Bayes and the Tree-Augmented
+Naive Bayes (TAN) classifiers are also implemented. Some utility functions
+(model comparison and manipulation, random data generation, arc
+orientation testing, simple and advanced plots) are included, as well as
+support for parameter estimation (maximum likelihood and Bayesian) and
+inference, conditional probability queries, interventions,
+counterfactuals, cross-validation, bootstrap and model averaging.
+Development snapshots with the latest bugfixes are available from
+<https://www.bnlearn.com/>.
 
 %prep
 %setup -q -c -n %{packname}

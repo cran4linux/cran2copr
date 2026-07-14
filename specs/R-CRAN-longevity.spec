@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  longevity
-%global packver   1.3
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for the Analysis of Excess Lifetimes
 
@@ -28,11 +28,12 @@ Requires:         R-CRAN-Rsolnp
 
 %description
 A collection of parametric and nonparametric methods for the analysis of
-survival data. Parametric families implemented include Gompertz-Makeham,
-exponential and generalized Pareto models and extended models. The package
-includes an implementation of the nonparametric maximum likelihood
-estimator for arbitrary truncation and censoring pattern based on Turnbull
-(1976) <doi:10.1111/j.2517-6161.1976.tb01597.x>, along with graphical
+survival data, described in <doi:10.32614/RJ-2025-034>. Parametric
+families implemented include Gompertz-Makeham, exponential and generalized
+Pareto models and extended models. The package includes an implementation
+of the nonparametric maximum likelihood estimator for arbitrary truncation
+and censoring pattern based on Turnbull (1976)
+<doi:10.1111/j.2517-6161.1976.tb01597.x>, along with graphical
 goodness-of-fit diagnostics. Parametric models for positive random
 variables and peaks over threshold models based on extreme value theory
 are described in Rootzén and Zholud (2017)

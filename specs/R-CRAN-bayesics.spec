@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesics
-%global packver   2.1.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analyses for One- and Two-Sample Inference and Regression Methods
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-DFBA 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-DFBA 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-stringr 
 
 %description
 Perform fundamental analyses using Bayesian parametric and non-parametric
@@ -61,27 +63,27 @@ inferential quantities (point and interval estimates, probability of
 direction, region of practical equivalence, and Bayes factors) and model
 visualizations are provided. Bayes factors are computed either by the
 Savage Dickey ratio given in Dickey (1971) <doi:10.1214/aoms/1177693507>
-or by Chib's method as given in xxx. Interpretations are from Kass and
-Raftery (1995) <doi:10.1080/01621459.1995.10476572>.  ROPE bounds are
-based on discussions in Kruschke (2018) <doi:10.1177/2515245918771304>.
-Methods for determining the number of posterior samples required are
-described in Doss et al. (2014) <doi:10.1214/14-EJS957>. Bayesian model
-averaging is done in part by Feldkircher and Zeugner (2015)
-<doi:10.18637/jss.v068.i04>. Methods for contingency table analysis is
-described in Gunel et al. (1974) <doi:10.1093/biomet/61.3.545>.
-Variational Bayes (VB) methods are described in Salimans and Knowles
-(2013) <doi:10.1214/13-BA858>. Mediation analysis uses the framework
-described in Imai et al. (2010) <doi:10.1037/a0020761>. The
-loss-likelihood bootstrap used in the non-parametric regression modeling
-is described in Lyddon et al. (2019) <doi:10.1093/biomet/asz006>.
-Non-parametric survival methods are described in Qing et al. (2023)
-<doi:10.1002/pst.2256>. Methods used for the Bayesian Wilcoxon signed-rank
-analysis is given in Chechile (2018) <doi:10.1080/03610926.2017.1388402>
-and for the Bayesian Wilcoxon rank sum analysis in Chechile (2020)
-<doi:10.1080/03610926.2018.1549247>.  Correlation analysis methods are
-carried out by Barch and Chechile (2023) <doi:10.32614/CRAN.package.DFBA>,
-and described in Lindley and Phillips (1976)
-<doi:10.1080/00031305.1976.10479154> and Chechile and Barch (2021)
+or by Chib's method as given in <doi:10.1080/01621459.1995.10476635>.
+Interpretations are from Kass and Raftery (1995)
+<doi:10.1080/01621459.1995.10476572>.  ROPE bounds are based on
+discussions in Kruschke (2018) <doi:10.1177/2515245918771304>. Methods for
+determining the number of posterior samples required are described in Doss
+et al. (2014) <doi:10.1214/14-EJS957>. Bayesian model averaging is done in
+part by Feldkircher and Zeugner (2015) <doi:10.18637/jss.v068.i04>.
+Methods for contingency table analysis is described in Gunel et al. (1974)
+<doi:10.1093/biomet/61.3.545>. Variational Bayes (VB) methods are
+described in Salimans and Knowles (2013) <doi:10.1214/13-BA858>. Mediation
+analysis uses the framework described in Imai et al. (2010)
+<doi:10.1037/a0020761>. The loss-likelihood bootstrap used in the
+non-parametric regression modeling is described in Lyddon et al. (2019)
+<doi:10.1093/biomet/asz006>. Non-parametric survival methods are described
+in Qing et al. (2023) <doi:10.1002/pst.2256>. Methods used for the
+Bayesian Wilcoxon signed-rank analysis is given in Chechile (2018)
+<doi:10.1080/03610926.2017.1388402> and for the Bayesian Wilcoxon rank sum
+analysis in Chechile (2020) <doi:10.1080/03610926.2018.1549247>.
+Correlation analysis methods are carried out by Barch and Chechile (2023)
+<doi:10.32614/CRAN.package.DFBA>, and described in Lindley and Phillips
+(1976) <doi:10.1080/00031305.1976.10479154> and Chechile and Barch (2021)
 <doi:10.1016/j.jmp.2021.102638>.  See also Chechile (2020, ISBN:
 9780262044585).
 

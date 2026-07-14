@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bs4Dashkit
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Branding, Theme Application and Navigation Utilities for 'bs4Dash' Dashboards
 
@@ -18,21 +18,22 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bs4Dash 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-bs4Dash 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny 
 
 %description
 Provides branding, theme application, and navigation utilities for
 applications built with 'bs4Dash' and 'shiny'. Supports configurable
 sidebar brand display modes, hover-expand behavior, and theme
-customization using CSS variables. Includes standardized navigation
-components such as refresh and help controls, along with helpers for
-common navigation bar and footer layouts.
+customization using CSS variables. Includes complete navbar item helpers,
+navbar structure validation, reusable brand configuration, prototype
+top-navigation support, and helpers for common navigation bar and footer
+layouts.
 
 %prep
 %setup -q -c -n %{packname}

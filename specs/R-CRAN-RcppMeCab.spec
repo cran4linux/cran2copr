@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppMeCab
-%global packver   0.0.1.6
+%global packver   0.0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.6
+Version:          0.0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'rcpp' Wrapper for 'mecab' Library
 
@@ -25,8 +25,9 @@ Requires:         R-CRAN-RcppParallel
 
 %description
 R package based on 'Rcpp' for 'MeCab': Yet Another Part-of-Speech and
-Morphological Analyzer. The purpose of this package is providing a
-seamless developing and analyzing environment for CJK texts. This package
+Morphological Analyzer. It provides install-time engine profiles and
+dictionaries for Japanese, Korean, and Mandarin Chinese text. Runtime
+dictionary selection does not change the installed engine. This package
 utilizes parallel programming for providing highly efficient text
 preprocessing 'posParallel()' function. For installation, please refer to
 README.md file.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ellmer
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chat with Large Language Models
 
@@ -19,9 +19,9 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-promises >= 1.5.0
 BuildRequires:    R-CRAN-later >= 1.4.0
-BuildRequires:    R-CRAN-httr2 >= 1.2.1
+BuildRequires:    R-CRAN-rlang >= 1.3.0
+BuildRequires:    R-CRAN-httr2 >= 1.2.3
 BuildRequires:    R-CRAN-coro >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
@@ -32,9 +32,9 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-promises >= 1.5.0
 Requires:         R-CRAN-later >= 1.4.0
-Requires:         R-CRAN-httr2 >= 1.2.1
+Requires:         R-CRAN-rlang >= 1.3.0
+Requires:         R-CRAN-httr2 >= 1.2.3
 Requires:         R-CRAN-coro >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 

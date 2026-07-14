@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OLSengine
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transparent and Assisted Linear Modeling Engine
 
@@ -14,20 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-A transparent, modular, and base-R implemented statistical engine for
-linear regression (OLS), analysis of variance (ANOVA), and logistic
-regression (Logit). Designed under the principle of "assisted simplicity",
-it features an integrated methodological "customs" (Aduana) that
-automatically audits mathematical assumptions (e.g., multicollinearity,
-heteroskedasticity, normality, and perfect separation) and outputs
-publication-ready, APA-formatted tables. It deliberately avoids hidden
-heuristics and external dependencies, ensuring computational transparency
-and reproducibility for applied research.
+Unified estimation, diagnostics, and reporting for ordinary least squares
+(OLS) regression, ANOVA/t-tests, logistic regression, panel data
+(fixed/random effects with Hausman test), instrumental variables (2SLS
+with weak instrument diagnostics), and difference-in-differences. Designed
+for applied researchers in social sciences with integrated "Methodological
+Customs" that audit assumptions and provide literature references. All
+methods implemented in pure base R without external dependencies beyond
+stats and graphics packages.
 
 %prep
 %setup -q -c -n %{packname}

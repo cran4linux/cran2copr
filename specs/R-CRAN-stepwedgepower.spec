@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stepwedgepower
-%global packver   0.1.0
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Stepped-Wedge Clinical Trial Analysis and Power Simulation
+Summary:          Stepped-Wedge Clinical Trial Analysis and Power Simulation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,11 +21,21 @@ BuildRequires:    R-CRAN-lme4
 Requires:         R-CRAN-lme4 
 
 %description
-Refactors an academic stepped-wedge clinical trial analysis script into
-reusable functions for physician-level data preparation, specialty-level
-rate modeling, and simulation-based power calculations with a random
-provider effects. The package was designed to support Eli Lilly Lp(a)
-grant support and more general stepped-wedge planning workflows.
+Provides reusable functions for aggregated cluster-period data,
+mixed-effects analysis, and simulation-based power and type I error
+evaluation in stepped-wedge cluster randomized trials. The design and
+mixed-effects analysis follow Hussey and Hughes (2007)
+<doi:10.1016/j.cct.2006.05.007>. Intraclass correlations for binary
+outcomes are converted to logistic-normal random-intercept standard
+deviations following Eldridge, Ukoumunne and Carlin (2009)
+<doi:10.1111/j.1751-5823.2009.00092.x>. Monte Carlo uncertainty in
+estimated power is summarized using the exact binomial interval of Clopper
+and Pearson (1934) <doi:10.1093/biomet/26.4.404>. The simulation engine
+supports sequence-specific baseline risks, cluster random effects, direct
+intraclass-correlation specification, Monte Carlo uncertainty intervals,
+and model-fitting diagnostics. Applied physician and specialty helpers are
+retained for backward compatibility and for an example health-services
+workflow.
 
 %prep
 %setup -q -c -n %{packname}

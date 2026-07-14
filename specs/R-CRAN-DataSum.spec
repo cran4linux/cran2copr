@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataSum
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comprehensive Data Summarization for Statistical Analysis
+Summary:          Modern Data Summaries and Diagnostic Reports for Statistical Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-nortest 
-Requires:         R-stats 
 
 %description
-Summarizes data frames by calculating various statistics including central
-tendency, dispersion, shape, and normality diagnostics. Handles numeric,
-character, and factor columns with NA-aware computations.
+Provides robust, NA-aware data summaries, variable diagnostics, normality
+decisions, missingness and outlier checks, and reproducible diagnostic
+report scaffolding for statistical analysis. DataSum is designed for
+researchers, professors, scientists, and analysts who need trustworthy
+first-pass insight into tabular data before modeling or publication.
 
 %prep
 %setup -q -c -n %{packname}

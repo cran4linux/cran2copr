@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heaping
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correction of Heaping on Individual Level
 
@@ -33,8 +33,10 @@ methods that only correct aggregated statistics, this package corrects
 individual values by replacing a calculated proportion of heaped
 observations with draws from fitted truncated distributions (log-normal,
 normal, or uniform). Supports 5-year and 10-year heaping patterns, single
-heap correction, and optional model-based adjustment to preserve covariate
-relationships.
+heap correction, survey weights, and optional covariate-conditional
+(model-based) correction via quantile regression forests or linear models
+to preserve relationships. A multiple-imputation wrapper repeats the
+correction to propagate the added uncertainty into downstream inference.
 
 %prep
 %setup -q -c -n %{packname}

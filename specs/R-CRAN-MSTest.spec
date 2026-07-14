@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSTest
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hypothesis Testing for Markov Switching Models
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-GenSA 
 BuildRequires:    R-CRAN-pso 
 BuildRequires:    R-CRAN-GA 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-GenSA 
 Requires:         R-CRAN-pso 
 Requires:         R-CRAN-GA 
@@ -44,10 +42,10 @@ Requires:         R-graphics
 Implementation of hypothesis testing procedures described in Hansen (1992)
 <doi:10.1002/jae.3950070506>, Carrasco, Hu, & Ploberger (2014)
 <doi:10.3982/ECTA8609>, Dufour & Luger (2017)
-<doi:10.1080/07474938.2017.1307548>, and Rodriguez Rondon & Dufour (2024)
-<https://grodriguezrondon.com/files/RodriguezRondon_Dufour_2025_MonteCarlo_LikelihoodRatioTest_MarkovSwitchingModels_20251014.pdf>
-that can be used to identify the number of regimes in Markov switching
-models.
+<doi:10.1080/07474938.2017.1307548>, and Rodriguez-Rondon & Dufour (2026a)
+<doi:10.34989/swp-2026-23> that can be used to identify the number of
+regimes in Markov switching models. For a detailed description of the
+package, see Rodriguez-Rondon & Dufour (2026b) <doi:10.34989/swp-2026-7>.
 
 %prep
 %setup -q -c -n %{packname}

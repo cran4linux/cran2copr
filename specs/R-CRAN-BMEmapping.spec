@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BMEmapping
-%global packver   1.2.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Interpolation using Bayesian Maximum Entropy (BME)
 
@@ -19,14 +19,16 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Provides an accessible and robust implementation of core BME methodologies
@@ -35,8 +37,9 @@ heterogeneous data sources including both hard data (precise measurements)
 and soft interval data (bounded or uncertain observations) while
 incorporating prior knowledge and supporting variogram-based spatial
 modeling. The BME methodology is described in Christakos (1990)
-<doi:10.1007/BF00890661> and Serre and Christakos (1999)
-<doi:10.1007/s004770050029>.
+<doi:10.1007/BF00890661>, Serre and Christakos (1999)
+<doi:10.1007/s004770050029> and Duah (2025, 2026)
+<doi:10.1016/j.spasta.2026.100974>.
 
 %prep
 %setup -q -c -n %{packname}
