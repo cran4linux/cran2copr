@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoMR
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Mendelian Randomization Workflows and Visualizations
+Summary:          Automated Mendelian Randomization Pipelines and Visualizations
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -47,7 +47,7 @@ Provides tools to summarize, analyze, and visualize results from Mendelian
 randomization studies using summarized genetic association data. The
 package includes functions for generating forest plots and scatter plots
 at the single-nucleotide polymorphism and Mendelian randomization method
-levels, and for fitting multiple estimators in a unified workflow,
+levels, and for fitting multiple estimators in a unified pipeline,
 including inverse-variance weighted estimation, Mendelian randomization
 Egger regression, the weighted median estimator, the robust adjusted
 profile score, Mendelian randomization pleiotropy residual sum and

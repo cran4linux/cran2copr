@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  admiral.test
-%global packver   0.7.0
+%global packname  IndependenceTests
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Data for the 'admiral' Package
+Summary:          Non-Parametric Tests of Independence Between Random Vectors
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.6.0
+Requires:         R-core >= 2.6.0
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Runuran 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Runuran 
+Requires:         R-parallel 
 
 %description
-A set of Study Data Tabulation Model (SDTM) datasets from the Clinical
-Data Interchange Standards Consortium (CDISC) pilot project used for
-testing and developing Analysis Data Model (ADaM) derivations inside the
-'admiral' package.
+Non-parametric tests of independence (mutual or serial) between some
+quantitative random vectors, as described in Bilodeau M. and Lafaye de
+Micheaux P. (2009) <doi:10.1016/j.jspi.2008.11.006>, in Beran R., Bilodeau
+M. and Lafaye de Micheaux P. (2007) <doi:10.1016/j.jmva.2007.01.009> and
+in Fan Y., Lafaye de Micheaux P., Penev S. and Salopek D. (2017)
+<doi:10.1016/j.jmva.2016.09.014>.
 
 %prep
 %setup -q -c -n %{packname}

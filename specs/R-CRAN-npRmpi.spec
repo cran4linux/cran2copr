@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npRmpi
-%global packver   0.70-4
+%global packver   0.70-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.70.4
+Version:          0.70.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Nonparametric Kernel Smoothing Methods for Mixed Data Types Using 'MPI'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-quadprog
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-crs >= 0.15.44
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-cubature 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-quadprog
 Requires:         R-CRAN-quantreg 
 Requires:         R-stats 
 Requires:         R-parallel 
+Requires:         R-tools 
 
 %description
 Nonparametric (and semiparametric) kernel methods that seamlessly handle a

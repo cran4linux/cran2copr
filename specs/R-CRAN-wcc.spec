@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wcc
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Windowed Cross Correlation
 
@@ -27,11 +27,11 @@ Requires:         R-CRAN-gtable
 Calculates Windowed Cross Correlation for pairs of time series. Provides
 support for surrogate analysis for nonparametric test of significance.
 Calculates aggregate statistics over a range of parameter values. Plots
-the results as Windowed Cross Correlation plots and heat maps. The method
-is described in "Boker, S. M., Rotondo, J. L., Xu, M., & King, K. (2002).
-Windowed cross-correlation and peak picking for the analysis of
+the results as Windowed Cross Correlation plots and heat maps. The
+software is described in Boker, S. M., Rotondo, J. L., Xu, M., & King, K.
+(2002). Windowed cross-correlation and peak picking for the analysis of
 variability in the association between behavioral time series.
-Psychological Methods, 7(3), 338."
+Psychological Methods, 7(3), 338.
 
 %prep
 %setup -q -c -n %{packname}

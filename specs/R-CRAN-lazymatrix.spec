@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgdiff
-%global packver   1.0.4
+%global packname  lazymatrix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identifies Package Differences
+Summary:          Perform Complex Matrix Operations Symbolically on Sparse Matrices
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-common 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-common 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
-Requires:         R-CRAN-cranlogs 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Identifies differences between versions of a package.  Specifically, the
-functions help determine if there are breaking changes from one package
-version to the next.  The package also includes a stability assessment, to
-help you determine the overall stability of a package, or even an entire
-repository.
+Provides a framework for lazy computation on large sparse matrices.
+Enables lazy evaluation of normalized data matrices, preserving sparsity
+throughout operations without materializing dense intermediate objects.
+Implements statistical algorithms including LSQR for sparse least squares
+as described in Paige and Saunders (1982) <doi:10.1145/355984.355989> and
+partial singular value decomposition via the augmented implicitly
+restarted Lanczos bidiagonalization algorithm of Baglama and Reichel
+(2005) <doi:10.1137/04060593X>.
 
 %prep
 %setup -q -c -n %{packname}

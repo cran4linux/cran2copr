@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sasLM
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SAS' Linear Model
 
@@ -19,8 +19,18 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-tools 
 
 %description
 This is a core implementation of 'SAS' procedures for linear models - GLM,

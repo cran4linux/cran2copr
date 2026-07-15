@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tf
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          S3 Classes and Methods for Tidy Functional Data
 
@@ -23,8 +23,6 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-zoo 
@@ -34,8 +32,6 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-zoo 

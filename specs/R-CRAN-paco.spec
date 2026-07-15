@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgdiff
-%global packver   1.0.4
+%global packname  paco
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identifies Package Differences
+Summary:          Procrustes Application to Cophylogenetic Analysis
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-common 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-common 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
-Requires:         R-CRAN-cranlogs 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-vegan >= 2.2.0
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-vegan >= 2.2.0
+Requires:         R-CRAN-plyr 
 
 %description
-Identifies differences between versions of a package.  Specifically, the
-functions help determine if there are breaking changes from one package
-version to the next.  The package also includes a stability assessment, to
-help you determine the overall stability of a package, or even an entire
-repository.
+Procrustes analyses to infer co-phylogenetic matching between pairs of
+phylogenetic trees.
 
 %prep
 %setup -q -c -n %{packname}

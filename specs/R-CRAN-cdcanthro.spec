@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cdcanthro
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sex- and Age-Standardized Metrics from the Centers for Disease Control and Prevention (CDC) Growth Charts
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.8
+BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table >= 1.12.8
+Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-tibble 
 Requires:         R-stats 
 

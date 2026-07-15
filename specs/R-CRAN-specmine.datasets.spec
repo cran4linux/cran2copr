@@ -1,26 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  log4r
-%global packver   0.4.4
+%global packname  specmine.datasets
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast and Lightweight Logging System for R, Based on 'log4j'
+Summary:          Data Sets for 'specmine'
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 
 %description
-The log4r package is meant to provide a fast, lightweight, object-oriented
-approach to logging in R based on the widely-emulated 'log4j' system and
-etymology.
+Provides the data sets used to exemplify 'specmine'. These data sets were
+formerly distributed with 'specmine', but they exceed current CRAN policy
+for package size.
 
 %prep
 %setup -q -c -n %{packname}

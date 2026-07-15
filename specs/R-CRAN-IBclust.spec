@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IBclust
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Bottleneck Methods for Clustering Mixed-Type Data
 
@@ -35,15 +35,17 @@ Requires:         R-CRAN-Rdpack
 Implements multiple variants of the Information Bottleneck ('IB') method
 for clustering datasets containing continuous, categorical
 (nominal/ordinal) and mixed-type variables. The package provides
-deterministic, agglomerative, generalized, and standard 'IB' clustering
-algorithms that preserve relevant information while forming interpretable
-clusters. The Deterministic Information Bottleneck is described in Costa
-et al. (2026) <doi:10.1016/j.patcog.2026.113580>. The standard 'IB' method
-originates from Tishby et al. (2000) <doi:10.48550/arXiv.physics/0004057>,
-the agglomerative variant from Slonim and Tishby (1999)
+deterministic, agglomerative, generalised, sequential, and standard IB
+clustering algorithms that preserve relevant information while forming
+interpretable clusters. The Deterministic Information Bottleneck is
+described in Costa et al. (2026) <doi:10.1016/j.patcog.2026.113580>. The
+standard IB method originates from Tishby et al. (2000)
+<doi:10.48550/arXiv.physics/0004057>, the agglomerative variant from
+Slonim and Tishby (1999)
 <https://papers.nips.cc/paper/1651-agglomerative-information-bottleneck>,
-and the generalized 'IB' from Strouse and Schwab (2017)
-<doi:10.1162/NECO_a_00961>.
+the generalised IB from Strouse and Schwab (2017)
+<doi:10.1162/NECO_a_00961>, and the sequential IB from Slonim et al.
+(2002) <doi:10.1145/564376.564401>.
 
 %prep
 %setup -q -c -n %{packname}

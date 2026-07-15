@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctsmTMB
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Stochastic Modelling using Template Model Builder
 
@@ -18,33 +18,31 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-RTMB >= 1.7
 BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-CRAN-geomtextpath 
-BuildRequires:    R-CRAN-ggfortify 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RcppXPtrUtils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-zigg 
 Requires:         R-CRAN-RTMB >= 1.7
 Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-geomtextpath 
-Requires:         R-CRAN-ggfortify 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-RcppXPtrUtils 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-TMB 
@@ -52,18 +50,18 @@ Requires:         R-utils
 
 %description
 Perform state and parameter inference, and forecasting, in stochastic
-state-space systems using the 'ctsmTMB' class. This class, built with the
-'R6' package, provides a user-friendly interface for defining and handling
-state-space models. Inference is based on maximum likelihood estimation,
-with derivatives efficiently computed through automatic differentiation
-enabled by the 'TMB'/'RTMB' packages (Kristensen et al., 2016)
+state-space systems using the 'ctsmTMB' R6 class. This class provides a
+user-friendly interface for working with stochastic state space models.
+Inference is based on maximum likelihood estimation, with derivatives
+efficiently computed through automatic differentiation enabled by the
+'TMB'/'RTMB' packages (Kristensen et al., 2016)
 <doi:10.18637/jss.v070.i05>. The available inference methods include
 Kalman filters, in addition to a Laplace approximation-based smoothing
 method. For further details of these methods refer to the documentation of
 the 'CTSMR' package <https://ctsm.info/ctsmr-reference.pdf> and Thygesen
 (2025) <doi:10.48550/arXiv.2503.21358>. Forecasting capabilities include
-moment predictions and stochastic path simulations, both implemented in
-'C++' using 'Rcpp' (Eddelbuettel et al., 2018)
+moment predictions and stochastic path simulations implemented in 'C++'
+using 'Rcpp' (Eddelbuettel et al., 2018)
 <doi:10.1080/00031305.2017.1375990> for computational efficiency.
 
 %prep

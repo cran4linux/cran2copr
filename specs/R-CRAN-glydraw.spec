@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  printify
-%global packver   1.0.3
+%global packname  glydraw
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Custom Formatted Console Messages with Timing Support
+Summary:          Draw Beautiful Symbol Nomenclature for Glycans
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,13 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-glyrepr >= 0.10.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-glyparse 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-glyrepr >= 0.10.0
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-glyparse 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-fs 
 
 %description
-A lightweight message system relying purely on base R. Comes with built-in
-and pre styled message types and provides an easy way to create custom
-messages. Supports individually styled and colored text as well as timing
-information. Designed to make console output more informative and visually
-organized.
+A 'ggplot2'-native plotting engine for drawing reproducible beautiful
+Symbol Nomenclature for Glycans (SNFG) glycan cartoons from glycan
+structure objects or text notations, with support for batch export,
+structural highlighting, and deep appearance customization. It follows the
+SNFG specification described at
+<https://www.ncbi.nlm.nih.gov/glycans/snfg.html>.
 
 %prep
 %setup -q -c -n %{packname}

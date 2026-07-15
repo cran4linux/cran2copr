@@ -1,53 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  archetyper
+%global packname  circularNet
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Archetype for Data Mining and Data Science Projects
+Summary:          Circular Graphical Model Estimation
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-testthat >= 3.0.0
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-log4r 
-BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-skimr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-bannerCommenter 
-BuildRequires:    R-CRAN-feather 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-ps 
-Requires:         R-CRAN-testthat >= 3.0.0
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-log4r 
-Requires:         R-CRAN-config 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-skimr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-bannerCommenter 
-Requires:         R-CRAN-feather 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-ps 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-stats 
 
 %description
-A project template to support the data science workflow.
+Provides methods for estimating circular graphical models using maximum
+likelihood estimation (MLE) and circular mean squared error (CMSE)
+approaches. The package includes tools for model fitting, network
+construction, network evaluation, and visualization. The CMSE-based
+methodology is related to Dar (2023)
+<https://open.metu.edu.tr/handle/11511/102577>. The package supports both
+simulated circular data and real-world applications, including
+gene-expression network analysis.
 
 %prep
 %setup -q -c -n %{packname}

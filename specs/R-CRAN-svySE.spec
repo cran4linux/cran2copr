@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  svySE
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sampling Error Estimation for Complex Surveys
 
@@ -25,11 +25,16 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-stats 
 
 %description
-Tools for estimating sampling errors of indicators from complex survey
-designs. The package supports weighted totals, proportions, standard
-errors, confidence intervals, coefficients of variation, design effects,
-unweighted counts, grouped estimates, domain estimates, configurable
-survey settings, and customizable Excel exports.
+Estimates sampling errors and produces indicator tables for complex survey
+data. Supports weighted totals, proportions, standard errors, confidence
+intervals, coefficients of variation, design effects, unweighted
+frequencies, grouped estimates, domain estimates, optional stratification
+and clustering variables, and customizable exports to '.xlsx' files.
+Survey estimation is based on design-based inference using Taylor series
+linearization implemented in the 'survey' package (Lumley, 2004,
+<doi:10.18637/jss.v009.i08>; Lumley, 2010, ISBN:9780470284308). The
+package provides a reproducible workflow for official statistics,
+household surveys, and applied survey research.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HNPclassifier
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Neyman-Pearson Classification for Ordered Classes
 
@@ -40,7 +40,9 @@ controls under-classification errors under user specified control levels
 with high probability. It supports the creation of H-NP classifiers using
 scoring functions based on built-in classification methods (including
 logistic regression, support vector machines, and random forests), as well
-as user-trained scoring functions.
+as user-trained scoring functions. The package exports `base_function()`
+to train these built-in base learners directly for use in the H-NP
+pipeline.
 
 %prep
 %setup -q -c -n %{packname}

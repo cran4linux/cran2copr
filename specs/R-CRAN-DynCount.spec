@@ -1,43 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgdiff
-%global packver   1.0.4
+%global packname  DynCount
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identifies Package Differences
+Summary:          Bayesian Dynamic Models for Poisson and Binomial Time Series
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-common 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-common 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
-Requires:         R-CRAN-cranlogs 
-Requires:         R-grDevices 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-utils 
 
 %description
-Identifies differences between versions of a package.  Specifically, the
-functions help determine if there are breaking changes from one package
-version to the next.  The package also includes a stability assessment, to
-help you determine the overall stability of a package, or even an entire
-repository.
+Fits Bayesian state-space models for non-Gaussian time series using a
+latent log-rate (Poisson) or latent logit (binomial) formulation. The
+latent trajectory follows a first-order random walk or a stationary AR(1)
+process, sampled by Metropolis-within-Gibbs using the implied Gaussian
+Markov random field (GMRF) full conditionals. Four innovation structures
+are supported for the latent increments: constant-variance Gaussian,
+Student-t, a finite scale mixture of normals, and stochastic volatility.
+Both families support time-constant zero inflation. The package provides
+simulation, fitting, forecasting, summary and plotting tools. It
+implements and extends the methodology of Zens and Bijak (2026)
+<doi:10.1214/26-AOAS2171>.
 
 %prep
 %setup -q -c -n %{packname}

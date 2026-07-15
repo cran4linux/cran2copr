@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fbrglm
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Safe Formula-Based Regularized Generalized Linear Models
 
@@ -20,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-tibble 
 
 %description
 A formula-based wrapper around 'glmnet' that brings the 'glm()'-compatible

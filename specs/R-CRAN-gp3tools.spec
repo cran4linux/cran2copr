@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gp3tools
-%global packver   1.0.2
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Inspect, Analyse, and Report Gazepoint GP3 Exports
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
@@ -32,13 +31,14 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
 
 %description
-Imports, inspects, cleans, summarises, models, and reports Gazepoint GP3
-and Gazepoint Analysis CSV exports. Supports offline workflows for
-all-gaze, fixation, pupil, area-of-interest, transition, time-course,
-quality-audit, and manuscript-reporting analyses.
+Tools for importing, inspecting, cleaning, summarising, modelling, and
+reporting Gazepoint GP3 and Gazepoint Analysis CSV exports. The package
+supports offline workflows for all-gaze, fixation, pupil,
+area-of-interest, transition, time-course, quality-audit, and
+manuscript-reporting analyses. The package methodology is described in the
+peer-reviewed software paper <doi:10.3390/jemr19040076>.
 
 %prep
 %setup -q -c -n %{packname}
