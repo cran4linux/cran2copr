@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pdfsigner
-%global packver   0.2.5
+%global packname  rpic
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Digitally Sign and Verify PDF Documents
+Summary:          The 'pic' Graphics Language Rendered to SVG, PNG and PDF
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,14 +18,13 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 
 %description
-Digitally sign PDF documents with a 'PKCS#12' keystore and verify their
-signatures. Signing produces a detached 'PKCS#7' / 'CMS' signature
-('adbe.pkcs7.detached') over the document and is applied as an incremental
-update, so existing signatures remain valid. The cryptography and PDF
-manipulation are performed by a bundled, pure-'Rust' backend (the
-'pdf_signer' crate); no Java runtime, 'OpenSSL', or external command-line
-tools are required. Visible signature appearances with custom text are
-supported.
+Renders diagrams written in the 'pic' picture-drawing language (Kernighan,
+1984) to SVG, PNG and PDF, using 'rpic'
+<https://github.com/milkway/rpic-lang>, a reimplementation of 'pic' in
+'Rust' with no system dependencies. Includes a native circuit-element
+library in the spirit of 'circuit_macros', TeX math labels typeset
+natively, structured compile diagnostics, and a 'knitr' language engine
+for inline diagrams in 'R Markdown' and 'Quarto' documents.
 
 %prep
 %setup -q -c -n %{packname}

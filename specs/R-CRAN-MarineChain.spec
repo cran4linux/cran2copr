@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.tests
-%global packver   1.0.0
+%global packname  MarineChain
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Suite for 'Future API' Backends
+Summary:          Blockchain-Enabled Maritime Transportation System Simulator
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.40.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-sessioninfo 
-Requires:         R-CRAN-future >= 1.40.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-plotly 
 
 %description
-Backends implementing the 'Future' API <doi:10.32614/RJ-2021-048>, as
-defined by the 'future' package, should use the tests provided by this
-package to validate that they meet the minimal requirements of the
-'Future' API.  The tests can be performed easily from within R or from
-outside of R from the command line making it straightforward to include
-them in package tests and in Continuous Integration (CI) pipelines.
+Simulates Blockchain-Enabled Maritime Transportation Systems (BMTS) by
+integrating asynchronous, great-circle vessel kinematics with
+decentralised edge-computing consensus layers. The package provides a
+fully self-contained cyber-range running completely offline, permitting
+the risk-free injection of spatial and telemetry threat vectors (e.g.,
+geofence breaches, coordinate modification, and node impersonation). It
+includes an interactive workspace engine built using 'shinydashboard' and
+'leaflet' map layers for monitoring vessel states and ledger updates.
+Implemented consensus structures are modeled on a lightweight
+Proof-of-Authentication framework optimized for resource-constrained
+distributed nodes.
 
 %prep
 %setup -q -c -n %{packname}

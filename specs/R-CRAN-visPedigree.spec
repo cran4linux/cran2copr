@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  visPedigree
-%global packver   1.8.1
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidying, Analysis, and Fast Visualization of Animal and Plant Pedigrees
 
@@ -40,11 +40,13 @@ contributions, partial inbreeding, genetic diversity indices, and additive
 algorithms — ancestry tracing, topological sorting, inbreeding
 coefficients, and matrix construction — are implemented in C++ ('Rcpp',
 'RcppArmadillo') and 'data.table', scaling to pedigrees with over one
-million individuals. Pedigree graphs are rendered via 'igraph' with
-support for compact full-sib family display; relationship matrices can be
-visualized as heatmaps. Supports complex mating systems, including selfing
-and pedigrees in which the same individual can appear as both sire and
-dam.
+million individuals. Matrix-free pedigree traversals apply additive
+relationship matrices or their inverses to vectors and matrices without
+materializing dense square matrices. Pedigree graphs are rendered via
+'igraph' with support for compact full-sib family display; relationship
+matrices can be visualized as heatmaps. Supports complex mating systems,
+including selfing and pedigrees in which the same individual can appear as
+both sire and dam.
 
 %prep
 %setup -q -c -n %{packname}

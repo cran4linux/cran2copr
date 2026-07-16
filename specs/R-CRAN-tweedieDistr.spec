@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.tests
-%global packver   1.0.0
+%global packname  tweedieDistr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Suite for 'Future API' Backends
+Summary:          Tweedie Distribution
 
-License:          Apache License (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.40.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-sessioninfo 
-Requires:         R-CRAN-future >= 1.40.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-sessioninfo 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-distributional 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Backends implementing the 'Future' API <doi:10.32614/RJ-2021-048>, as
-defined by the 'future' package, should use the tests provided by this
-package to validate that they meet the minimal requirements of the
-'Future' API.  The tests can be performed easily from within R or from
-outside of R from the command line making it straightforward to include
-them in package tests and in Continuous Integration (CI) pipelines.
+Provides density, distribution function, quantile function, and random
+generation for the Tweedie distribution under the compound Poisson-Gamma
+parameterisation with power parameter in (1, 2). The density is evaluated
+using the series expansion of Dunn and Smyth (2005)
+<doi:10.1007/s11222-005-4070-y>, implemented in C++ via 'Rcpp' and
+'RcppArmadillo' for performance. A constructor compatible with the
+distributional package is also provided for use in tidy modelling
+workflows.
 
 %prep
 %setup -q -c -n %{packname}

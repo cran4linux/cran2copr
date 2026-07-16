@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rdiversity
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measurement and Partitioning of Similarity-Sensitive Biodiversity
 
@@ -13,16 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-stringdist 
 Requires:         R-utils 
@@ -30,7 +29,8 @@ Requires:         R-utils
 %description
 Provides a framework for the measurement and partitioning of the
 (similarity-sensitive) biodiversity of a metacommunity and its constituent
-subcommunities. Richard Reeve, et al. (2016) <arXiv:1404.6520v3>.
+subcommunities. Richard Reeve, et al. (2016)
+<doi:10.48550/arXiv.1404.6520>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.tests
-%global packver   1.0.0
+%global packname  BBNI
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Suite for 'Future API' Backends
+Summary:          Bayesian Inference of Boolean Genetic Networks
 
-License:          Apache License (>= 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.40.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-sessioninfo 
-Requires:         R-CRAN-future >= 1.40.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-bitops 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-bitops 
+Requires:         R-stats 
 
 %description
-Backends implementing the 'Future' API <doi:10.32614/RJ-2021-048>, as
-defined by the 'future' package, should use the tests provided by this
-package to validate that they meet the minimal requirements of the
-'Future' API.  The tests can be performed easily from within R or from
-outside of R from the command line making it straightforward to include
-them in package tests and in Continuous Integration (CI) pipelines.
+Implements a fully Bayesian Markov chain Monte Carlo (MCMC) approach for
+inferring the topology and Boolean logic transition functions of gene
+regulatory networks from noisy, binary time-series expression data.
+Network structure and Boolean rules are sampled jointly from their
+posterior distribution, providing principled uncertainty quantification
+rather than a single point estimate. Method described in Han et al. (2014)
+<doi:10.1371/journal.pone.0115806>.
 
 %prep
 %setup -q -c -n %{packname}

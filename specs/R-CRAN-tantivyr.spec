@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zctaCrosswalk
-%global packver   2.0.0
+%global packname  tantivyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Crosswalk Between 2020 Census ZIP Code Tabulation Areas (ZCTAs), States and Counties
+Summary:          Fast Full-Text Search for R with 'Tantivy'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Contains the US Census Bureau's 2020 ZCTA to County Relationship File, as
-well as convenience functions to translate between States, Counties and
-ZIP Code Tabulation Areas (ZCTAs).
+Index data frames and document collections and run fast full-text search
+entirely on your machine. 'tantivyr' wraps the 'Tantivy' 'Rust' search
+engine (a 'Lucene'-inspired library) to provide 'BM25' ranking, structured
+filters, snippet highlighting and incremental updates over an on-disk or
+in-memory index. First-class support is provided for stemming and stop
+words in Portuguese and English, making it well suited to public
+documents, news clippings, extracted 'PDF' text, transcripts and legal
+acts.
 
 %prep
 %setup -q -c -n %{packname}

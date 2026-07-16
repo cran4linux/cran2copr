@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spFFBS
-%global packver   0.0-2
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Propagation for Multivariate Bayesian Dynamic Learning
 
@@ -18,14 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-spBPS 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-spBPS 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-abind 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BigDataPE
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Secure and Intuitive Access to 'BigDataPE' 'API' Datasets
 
@@ -17,21 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-httr2 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-CRAN-apifetch >= 0.1.0
+Requires:         R-CRAN-apifetch >= 0.1.0
 
 %description
 Designed to simplify the process of retrieving datasets from the 'Big Data
 PE' platform using secure token-based authentication. It provides
 functions for securely storing, retrieving, and managing tokens associated
-with specific datasets, as well as fetching and processing data using the
-'httr2' package.
+with specific datasets, as well as fetching and processing data. The
+data-retrieval engine is provided by the generic 'apifetch' package, which
+'BigDataPE' configures for the Big Data PE service.
 
 %prep
 %setup -q -c -n %{packname}

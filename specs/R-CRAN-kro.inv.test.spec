@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.tests
-%global packver   1.0.0
+%global packname  kro.inv.test
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Suite for 'Future API' Backends
+Summary:          Kronecker-Invariant Tests for High-Dimensional Separability Testing
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.40.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-sessioninfo 
-Requires:         R-CRAN-future >= 1.40.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-sessioninfo 
+BuildRequires:    R-CRAN-RMTstat 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-covKCD 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-RMTstat 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-covKCD 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 
 %description
-Backends implementing the 'Future' API <doi:10.32614/RJ-2021-048>, as
-defined by the 'future' package, should use the tests provided by this
-package to validate that they meet the minimal requirements of the
-'Future' API.  The tests can be performed easily from within R or from
-outside of R from the command line making it straightforward to include
-them in package tests and in Continuous Integration (CI) pipelines.
+Kronecker-invariant tests for high-dimensional separability testing of
+matrix-variate data, focusing on Gaussian populations as benchmark cases.
+Tests whether the population covariance matrix is represented as a
+Kronecker product of row and column covariance matrices. Implements the
+tests based on the eigenvalues of the sample core whose test statistics
+are invariant to the separable component of the population covariance
+matrix, referred to as Kronecker-invariance. Tests constructed using the
+largest eigenvalue and the separable expansion of the sample core and
+applying the extended likelihood ratio test for sphericity testing to the
+sample core. For details, see Sung and Hoff (2025)
+<doi:10.48550/arXiv.2506.17463>.
 
 %prep
 %setup -q -c -n %{packname}

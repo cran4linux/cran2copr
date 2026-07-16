@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ALDEx3
-%global packver   1.0.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Models for Sequence Count Data
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nlme 
@@ -27,9 +27,13 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-reformulas 
 Requires:         R-parallel 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nlme 
@@ -37,6 +41,7 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-TMB 
 
 %description
 Provides scalable generalized linear and mixed effects models tailored for

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlstats
-%global packver   0.1.1
+%global packname  roxyreqs
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilevel Descriptive Statistics and Data Preparation
+Summary:          'roxygen2'-Style Metadata for Test Cases and Function Documentation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-roxygen2 >= 7.0.0
+BuildRequires:    R-CRAN-testthat >= 3.2.0
+BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tinytable 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-roxygen2 >= 7.0.0
+Requires:         R-CRAN-testthat >= 3.2.0
+Requires:         R-CRAN-brio 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tinytable 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 
 %description
-Provides tools for multilevel descriptive statistics and data preparation.
-Computes within-group and between-group correlations (via variance
-decomposition or two-level structural equation modeling), intraclass
-correlation coefficients (ICCs), and descriptive statistics for nested
-data (e.g., repeated measurements per person), supporting both frequentist
-(via 'lme4' or 'lavaan') and Bayesian (via 'brms') estimation. Results are
-formatted according to APA standards and can be exported as tables using
-'gt' or 'tinytable'. Also includes functions for decomposing variables
-into within-group and between-group components for use in Random Effects
-Within-Between (REWB) models.
+Extends 'roxygen2' to support '@meta' tags for documenting 'testthat' test
+cases and function specifications. Includes a custom 'JUnit' reporter that
+exports test metadata as XML properties and validation functions to ensure
+all exported functions and tests contain required tags. Designed for
+traceability between requirements and tests in regulated industries such
+as pharma and finance.
 
 %prep
 %setup -q -c -n %{packname}

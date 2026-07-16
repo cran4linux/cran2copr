@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nmathopencl
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'OpenCL'-Ported R 'Mathlib' for GPU-Accelerated Packages
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.1.1
-BuildRequires:    R-CRAN-opencltools >= 0.8.1
+BuildRequires:    R-CRAN-opencltools >= 0.8.2
 BuildRequires:    R-CRAN-Rdpack >= 0.11.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.1.1
-Requires:         R-CRAN-opencltools >= 0.8.1
+Requires:         R-CRAN-opencltools >= 0.8.2
 Requires:         R-CRAN-Rdpack >= 0.11.0
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gerda
-%global packver   0.6.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          German Election Database (GERDA)
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-stats 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Provides tools to download datasets of German elections covering local,

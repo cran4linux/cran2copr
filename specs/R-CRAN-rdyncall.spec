@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semTests
-%global packver   0.9.0
+%global packname  rdyncall
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Test Statistics for Structural Equation Models
+Summary:          Improved Foreign Function Interface and Dynamic Bindings to C Libraries
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.16
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lavaan >= 0.6.16
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 
 %description
-Supports penalized eigenvalue block-averaging and penalized regression
-p-values (Foldnes, Moss, Grønneberg, 2024)
-<doi:10.1080/10705511.2024.2372028>, including their extension to nested
-model comparison (Foldnes, Grønneberg, Moss, 2026)
-<doi:10.3758/s13428-026-02968-4>, as well as traditional p-values such as
-Satorra-Bentler. All p-values can be calculated using unbiased or biased
-gamma estimates (Du, Bentler, 2022) <doi:10.1080/10705511.2022.2063870>
-and two choices of chi square statistics. The tests apply to any
-minimum-discrepancy estimator -- ML, GLS, ULS, and categorical WLSMV/DWLS
--- with experimental support for full-information maximum-likelihood
-(FIML) fits under missing data.
+Provides a cross-platform framework for dynamic binding of C libraries
+using a flexible Foreign Function Interface (FFI). The FFI supports almost
+all fundamental C types, multiple calling conventions, symbolic access to
+foreign C struct/union data types and wrapping of R functions as C
+callback function pointers. Dynamic bindings to shared C libraries are
+data-driven by cross-platform binding specifications using a compact plain
+text format; the package includes a 'DynPort' binding specification for
+'SDL3' generated from current headers with 'porter'. The package includes
+a variety of technology demos and OS-specific notes for installation of
+shared libraries. For the underlying methods and bundled 'DynCall'
+libraries, see Adler (2012) <doi:10.32614/RJ-2012-004> and Adler and
+Philipp (2008) <https://dyncall.org>.
 
 %prep
 %setup -q -c -n %{packname}

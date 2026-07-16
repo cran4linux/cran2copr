@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metafrontier
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Metafrontier Models for Efficiency and Productivity
 
@@ -34,18 +34,24 @@ Requires:         R-methods
 
 %description
 Implements metafrontier production function models for estimating
-technical efficiencies and technology gaps for firms operating under
-different technologies. Supports both stochastic frontier analysis (SFA)
-and data envelopment analysis (DEA) based metafrontiers. Includes the
-deterministic metafrontier of Battese, Rao, and O'Donnell (2004)
+technical efficiencies and technology gaps for groups of firms that face
+different restrictions of a common underlying metatechnology
+(group-specific technologies in the sense of Battese, Rao, and O'Donnell,
+2004). Supports both stochastic frontier analysis (SFA) and data
+envelopment analysis (DEA) based metafrontiers. Includes the deterministic
+metafrontier of Battese, Rao, and O'Donnell (2004)
 <doi:10.1023/B:PROD.0000012454.06094.29>, the stochastic metafrontier of
 Huang, Huang, and Liu (2014) <doi:10.1007/s11123-014-0402-2>, and the
 metafrontier Malmquist productivity index of O'Donnell, Rao, and Battese
-(2008) <doi:10.1007/s00181-007-0119-4>. Additional features include panel
-SFA with time-varying inefficiency, bootstrap confidence intervals for
-technology gap ratios, latent class metafrontier estimation via the EM
-algorithm, Murphy-Topel corrected standard errors, and 'ggplot2'
-visualisation methods.
+(2008) <doi:10.1007/s00181-007-0119-4>. The deterministic metafrontier can
+be identified by either the minimum sum of absolute deviations (LP) or the
+minimum sum of squared deviations (QP) criterion. Additional features
+include panel SFA with time-varying inefficiency, bootstrap confidence
+intervals for technology gap ratios, a DEA poolability permutation test,
+latent class metafrontier estimation via the EM algorithm, Murphy-Topel
+corrected standard errors, convergence diagnostics, import of pre-fitted
+models from external estimation engines ('sfaR', 'frontier',
+'Benchmarking'), and 'ggplot2' visualisation methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mccca
-%global packver   1.1.0.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Class Specific Heterogeneous Tendencies in Categorical Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -24,9 +24,12 @@ BuildRequires:    R-CRAN-wordcloud
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-clusterSim 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-Rcpp >= 1.0.11
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
@@ -34,14 +37,18 @@ Requires:         R-CRAN-wordcloud
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-clusterSim 
+Requires:         R-CRAN-MASS 
 Requires:         R-grDevices 
 
 %description
-Performing multiple-class cluster correspondence analysis(MCCCA). The main
-functions are create.MCCCAdata() to create a list to be applied to MCCCA,
-MCCCA() to apply MCCCA, and plot.mccca() for visualizing MCCCA result.
-Methods used in the package refers to Mariko Takagishi and Michel van de
-Velden (2022)<doi:10.1080/10618600.2022.2035737>.
+Provides functions for performing multiple-class cluster correspondence
+analysis(MCCCA). The main functions are create.MCCCAdata() to create a
+list to be applied to MCCCA, MCCCA() to apply MCCCA, and plot.mccca() for
+visualizing MCCCA result. Methods used in the package are described in
+Mariko Takagishi and Michel van de Velden
+(2022)<doi:10.1080/10618600.2022.2035737>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RmecabKo
-%global packver   0.1.6.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An 'Rcpp' Interface for Eunjeon Project
+Summary:          Korean Text Analysis with 'MeCab'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,19 +15,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    mecab-devel
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-RcppMeCab >= 0.0.1.7
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-RcppMeCab >= 0.0.1.7
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
 
 %description
-An 'Rcpp' interface for Eunjeon project <http://eunjeon.blogspot.com/>.
-The 'mecab-ko' and 'mecab-ko-dic' is based on a C++ library, and
-part-of-speech tagging with them is useful when the spacing of source
-Korean text is not correct. This package provides part-of-speech tagging
-and tokenization function for Korean text.
+A Korean text-analysis layer over the 'MeCab' morphological analyzer.
+Provides tokenizers that follow the 'tokenizers' contract for use with
+'tidytext', morpheme-aware n-grams, a curated Korean stopword table,
+access to the KNU sentiment lexicon, friendly user-dictionary management,
+predicate lemmatization, keyword extraction, keyword-in-context
+concordances, and light text normalization. The native 'MeCab' interface
+and dictionary compilation are provided by 'RcppMeCab'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  remstats
-%global packver   4.0.0
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computes Statistics for Relational Event History Data
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-remify >= 4.0.0
+BuildRequires:    R-CRAN-remify >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-remify >= 4.0.0
+Requires:         R-CRAN-remify >= 4.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.8.3
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -31,7 +31,7 @@ Requires:         R-grDevices
 
 %description
 Computes a variety of statistics for relational event models (Meijerink et
-al., 2023, <doi:10.3758/s13428-022-01821-8>). Relational event models
+al., 2022, <doi:10.3758/s13428-022-01821-8>). Relational event models
 enable researchers to investigate exogenous and endogenous factors, and
 interactions, influencing the evolution of a time-ordered sequence of
 events. These models are categorized into tie-oriented models (Butts, C.,

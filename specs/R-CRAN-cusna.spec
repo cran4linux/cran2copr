@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  QWDAP
-%global packver   1.1.20
+%global packname  cusna
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.20
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantum Walk-Based Data Analysis and Prediction
+Summary:          Native GPU-Accelerated Simulation and Estimation of Network Models
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-pls 
-BuildRequires:    R-CRAN-CORElearn 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-pls 
-Requires:         R-CRAN-CORElearn 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-The modeling and prediction of graph-associated time series(GATS) based on
-continuous time quantum walk. This software is mainly used for feature
-extraction, modeling, prediction and result evaluation of GATS, including
-continuous time quantum walk simulation, feature selection, regression
-analysis, time series prediction, and series fit calculation. A paper is
-attached to the package for reference.
+A self-contained native engine (a C interface over 'CUDA' kernels and C++
+host logic) for stochastic actor-oriented models (the model family of
+'RSiena'), exponential random graph models (cross-sectional, temporal, and
+separable temporal), and models for binary actor attributes, callable from
+R without a Python runtime. Modelled on the 'torch' package: the CRAN
+build is CPU-only from source; the GPU path is compiled from source when a
+'CUDA' toolkit is detected at configure time. The data preparation, host
+statistics ('RSiena' Appendix B conventions), and moment targets are
+validated bit-for-bit against the reference implementation and reproduce
+'RSiena' targets on public datasets to machine precision; the estimators
+match 'RSiena', 'ergm', 'btergm', and 'tergm' on public benchmark models.
 
 %prep
 %setup -q -c -n %{packname}
