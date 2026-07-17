@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QuantileGH
-%global packver   0.1.8
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Least Mahalanobis Distance Estimator for Tukey g-&-h Mixture
 
@@ -14,23 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.6
+Requires:         R-core >= 4.6
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mixtools 
-BuildRequires:    R-CRAN-tclust 
-BuildRequires:    R-CRAN-fmx 
-BuildRequires:    R-CRAN-TukeyGH77 
-Requires:         R-methods 
-Requires:         R-CRAN-mixtools 
-Requires:         R-CRAN-tclust 
-Requires:         R-CRAN-fmx 
-Requires:         R-CRAN-TukeyGH77 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli 
 
 %description
 Functions for simulation, estimation, and model selection of finite
-mixtures of Tukey g-and-h distributions.
+mixtures of Tukey g-and-h distributions.  The author has retired from
+academic research. Accordingly, this package should not be considered a
+validated tool for use in peer-reviewed publications or as the basis for
+grant applications. Backward compatibility with user-code published in
+<doi:10.1007/s11222-025-10596-9> is not maintained in versions >= 0.3.0
+(July 2026) of this package. The authors of those publications are the
+appropriate contacts for reproducibility inquiries.
 
 %prep
 %setup -q -c -n %{packname}

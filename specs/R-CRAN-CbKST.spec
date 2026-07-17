@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CbKST
-%global packver   0.1-0
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Competence-Based Knowledge Space Theory
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.5.0
 Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kstMatrix >= 2.3.3
+BuildRequires:    R-CRAN-kstMatrix >= 2.3.4
 BuildRequires:    R-CRAN-readODS 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-kstMatrix >= 2.3.3
+Requires:         R-CRAN-kstMatrix >= 2.3.4
 Requires:         R-CRAN-readODS 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-tools 
@@ -31,7 +31,7 @@ Competence-based knowledge space theory (CbKST) is an extension of
 knowledge space theory (KST) modeling the latent skills and competencies
 underlying the observable response behaviour as described by Heller &
 Stefanutti (2024) <doi:10.1142/9789811280481_0001>. The package focuses on
-the mappings between competence and performance ledvel (skill (multi) map,
+the mappings between competence and performance level (skill (multi) map,
 problem function etc.).
 
 %prep

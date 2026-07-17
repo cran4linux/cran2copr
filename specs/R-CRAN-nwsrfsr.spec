@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ratecalib
-%global packver   0.3.0
+%global packname  nwsrfsr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calibration Weighting to Multiple Subgroup Pass-Rate Targets
+Summary:          NWS Hydrology Models: SAC-SMA, SNOW17, UH, CONSUSE, CHANLOSS
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-osqp 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-osqp 
-Requires:         R-stats 
 
 %description
-Calibration weighting for binary-outcome pass rates against multiple
-overlapping subgroup targets. Adjusts initial positive weights so that the
-overall pass rate and subgroup pass rates approach (soft mode) or exactly
-match (exact mode) given targets, while preserving the initial weight
-structure and population margins. Provides a one-step interface, pre-solve
-data checks, target-table construction, effective sample size and
-design-effect diagnostics, and example data. The solver works on a bounded
-convex quadratic program over demographic-cell-by-outcome aggregates for
-efficiency on large samples. Methods follow the calibration approach of
-Deville and Saerndal (1992) <doi:10.1080/01621459.1992.10475217>.
+Interface to the National Weather Service operational hydrology models,
+Sacramento Soil Moisture Accounting (SAC-SMA), Snow Accumulation and
+Ablation (SNOW17). Also provides an interface to the unit hydrograph
+routing model (UH), consumptive use (CONSUSE) and channel loss/gain
+modules (CHANLOSS). The Fortran code used in this package is considered
+"legacy" and is not supported officially by NWS, but it should not have
+any significant differences from current operational models.
 
 %prep
 %setup -q -c -n %{packname}

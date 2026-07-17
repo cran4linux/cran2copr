@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  contdid
-%global packver   0.1.0
+%global packname  retentionflow
+%global packver   0.1.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.25
 Release:          1%{?dist}%{?buildtag}
-Summary:          Difference-in-Differences with a Continuous Treatment
+Summary:          Retention Flow Tables and Sankey Diagrams
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BMisc >= 1.4.8
-BuildRequires:    R-CRAN-ptetools 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-splines2 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-npiv 
-Requires:         R-CRAN-BMisc >= 1.4.8
-Requires:         R-CRAN-ptetools 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-splines2 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-npiv 
 
 %description
-Provides methods for difference-in-differences with a continuous treatment
-and staggered treatment adoption. Includes estimation of treatment effects
-and causal responses as a function of the dose, event studies indexed by
-length of exposure to the treatment, and aggregation into overall average
-effects. Uniform inference procedures are included, along with both
-parametric and nonparametric models for treatment effects. The methods are
-based on Callaway, Goodman-Bacon, and Sant'Anna (2025)
-<doi:10.48550/arXiv.2107.02637>.
+Creates transition tables, summaries, and interactive Sankey diagrams from
+longitudinal person-term-state data. Sankey diagrams visualize flows
+between states with link widths proportional to flow counts; see Kennedy
+and Sankey (1898) "The Thermal Efficiency of Steam Engines"
+<doi:10.1680/imotp.1898.19100> and Schmidt (2008) "The Sankey Diagram in
+Energy and Material Flow Management: Part I: History"
+<doi:10.1111/j.1530-9290.2008.00004.x>. The minimum input schema is one
+row per person per term with an identifier, term, and categorical state.
 
 %prep
 %setup -q -c -n %{packname}

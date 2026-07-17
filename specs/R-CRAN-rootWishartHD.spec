@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  HDoutliers
-%global packver   1.0.4
+%global __requires_exclude ^libmpi
+%global packname  rootWishartHD
+%global packver   0.95.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.95.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Leland Wilkinson's Algorithm for Detecting Multidimensional Outliers
+Summary:          Exact and Log-Scale Tail Probabilities for Roy's Largest Root
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-mclust 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-mclust 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
 
 %description
-An implementation of an algorithm for outlier detection that can handle a)
-data with a mixed categorical and continuous variables, b) many columns of
-data, c) many rows of data, d) outliers that mask other outliers, and e)
-both unidimensional and multidimensional datasets. Unlike ad hoc methods
-found in many machine learning papers, HDoutliers is based on a
-distributional model that uses probabilities to determine outliers.
+Provides distribution functions and log-scale tail probabilities for Roy's
+largest root in single and double Wishart (Jacobi ensemble) settings. This
+package is derived from the 'rootWishart' package by Maxime Turgeon and
+extends it with numerically robust log-CDF/log-survival evaluation,
+tail-aware adaptive precision, and high-dimensional validation utilities,
+based on Chiani (2014) <DOI:10.1016/j.jmva.2014.04.002> and Chiani (2016)
+<DOI:10.1016/j.jmva.2015.10.007>.
 
 %prep
 %setup -q -c -n %{packname}

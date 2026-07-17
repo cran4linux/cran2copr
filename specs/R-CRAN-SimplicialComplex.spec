@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimplicialComplex
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topological Data Analysis: Simplicial Complex
 
@@ -21,10 +21,14 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-RANN 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-RANN 
 
 %description
 Provides an implementation of simplicial complexes for Topological Data

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psychonetrics
-%global packver   0.15
+%global packver   0.16.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15
+Version:          0.16.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling and Confirmatory Network Analysis
 
@@ -17,54 +17,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-Matrix >= 1.6.5
+BuildRequires:    R-CRAN-IsingSampler >= 0.5
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-glasso 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-VCA 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-IsingSampler 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-pbv 
 BuildRequires:    R-CRAN-roptim 
 Requires:         R-CRAN-Matrix >= 1.6.5
+Requires:         R-CRAN-IsingSampler >= 0.5
 Requires:         R-methods 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-abind 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-glasso 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-VCA 
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-IsingSampler 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-GA 
-Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-MASS 
 
 %description
 Multi-group (dynamical) structural equation models in combination with

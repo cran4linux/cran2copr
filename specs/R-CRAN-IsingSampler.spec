@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IsingSampler
-%global packver   0.2.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sampling Methods and Distribution Functions for the Ising Model
 
@@ -30,8 +30,9 @@ Requires:         R-CRAN-dplyr
 %description
 Sample states from the Ising model and compute the probability of states.
 Sampling can be done for any number of nodes, but due to the
-intractibility of the Ising model the distribution can only be computed up
-to ~10 nodes.
+intractability of the Ising model the distribution can only be computed up
+to roughly 10 nodes. The Blume-Capel model, an Ising model with an
+additional on-site quadratic (crystal-field) term, is also supported.
 
 %prep
 %setup -q -c -n %{packname}

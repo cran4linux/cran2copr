@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pysparklyr
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides a 'PySpark' Back-End for the 'sparklyr' Package
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.9.4
+BuildRequires:    R-CRAN-dbplyr >= 2.6.0
+BuildRequires:    R-CRAN-sparklyr >= 1.9.5
 BuildRequires:    R-CRAN-reticulate >= 1.44.0
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
@@ -39,12 +39,12 @@ BuildRequires:    R-CRAN-vctrs
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-connectcreds 
-Requires:         R-CRAN-sparklyr >= 1.9.4
+Requires:         R-CRAN-dbplyr >= 2.6.0
+Requires:         R-CRAN-sparklyr >= 1.9.5
 Requires:         R-CRAN-reticulate >= 1.44.0
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GEMSS
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalization Error Minimization in SubSampling for Gaussian Processes
 
@@ -25,12 +25,11 @@ Requires:         R-CRAN-hetGP
 Requires:         R-CRAN-twinning 
 
 %description
-Implements the Generalization Error Minimization in SubSampling (GEMSS)
-algorithm for sequential subdata selection in large-scale Gaussian process
-modeling (Chang, Hua, and Wu, 2026) <doi:10.1080/00401706.2026.2670596>.
-The method selects data points by a criterion consisting of predictive and
-space-filling parts, enabling efficient surrogate modeling for massive
-datasets.
+Implements the GEMSS algorithm for sequential subdata selection in
+large-scale Gaussian process modeling (Chang, Hua, and Wu, 2026)
+<doi:10.1080/00401706.2026.2670596>. The method selects data points by a
+criterion consisting of predictive and space-filling parts, enabling
+efficient surrogate modeling for massive datasets.
 
 %prep
 %setup -q -c -n %{packname}

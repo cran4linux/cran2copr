@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  carts
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Assessment of Covariate Adjustment in Randomized Trials
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,7 +20,7 @@ BuildRequires:    R-CRAN-R6 >= 2.5.1
 BuildRequires:    R-CRAN-lava >= 1.8.0
 BuildRequires:    R-CRAN-data.table >= 1.14
 BuildRequires:    R-CRAN-Rcpp >= 1.0.11
-BuildRequires:    R-CRAN-targeted >= 0.6
+BuildRequires:    R-CRAN-targeted >= 0.8
 BuildRequires:    R-CRAN-logger >= 0.2.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progressr 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-R6 >= 2.5.1
 Requires:         R-CRAN-lava >= 1.8.0
 Requires:         R-CRAN-data.table >= 1.14
-Requires:         R-CRAN-targeted >= 0.6
+Requires:         R-CRAN-targeted >= 0.8
 Requires:         R-CRAN-logger >= 0.2.2
 Requires:         R-methods 
 Requires:         R-CRAN-progressr 
@@ -40,16 +40,7 @@ Requires:         R-CRAN-rlang
 %description
 Monte Carlo simulation framework for different randomized clinical trial
 designs with a special emphasis on estimators based on covariate
-adjustment. The package implements regression-based covariate adjustment
-(Rosenblum & van der Laan (2010) <doi:10.2202/1557-4679.1138>) and a
-one-step estimator (Van Lancker et al (2024)
-<doi:10.48550/arXiv.2404.11150>) for trials with continuous, binary and
-count outcomes. The estimation of the minimum sample-size required to
-reach a specified statistical power for a given estimator uses bisection
-to find an initial rough estimate, followed by stochastic approximation
-(Robbins-Monro (1951) <doi:10.1214/aoms/1177729586>) to improve the
-estimate, and finally, a grid search to refine the estimate in the
-neighborhood of the current best solution.
+adjustment.
 
 %prep
 %setup -q -c -n %{packname}

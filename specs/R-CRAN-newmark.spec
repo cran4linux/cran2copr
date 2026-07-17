@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  newmark
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Uncertainty Analysis in Dynamic Site and Slope Response
 
@@ -47,9 +47,11 @@ spectrum at multiple return periods as input (any source) and produces:
 (1) synthetic soil profile generation and fundamental period estimation
 from USCS classification via Ishihara's small-strain shear-modulus model
 and the inhomogeneous truncated shear-beam theory of Gazetas and Dakoulas;
-(2) nonlinear site amplification using the Seyhan & Stewart (2014) model
-<doi:10.1193/063013EQS181M>, with inter-period correlation via Baker &
-Jayaram (2008) <doi:10.1193/1.2857544>; (3) Monte Carlo ensemble of six
+(2) nonlinear site amplification using the NGA-East ergodic site-response
+models (Stewart et al. (2020) <doi:10.1177/8755293019878185> and Hashash
+et al. (2020) <doi:10.1177/8755293019878193>, with the 2017 PEER-report
+generation retained as an option), with inter-period correlation via Baker
+& Jayaram (2008) <doi:10.1193/1.2857544>; (3) Monte Carlo ensemble of six
 empirical Newmark sliding-block displacement models (Ambraseys & Menu
 (1988) <doi:10.1002/eqe.4290160704>, Jibson (2007)
 <doi:10.1016/j.enggeo.2007.01.013>, Saygili & Rathje (2008)

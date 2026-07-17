@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  toolero
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Research Workflows
 
@@ -21,40 +21,49 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-renv 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-quarto 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-renv 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yaml 
 
 %description
 Provides utility functions to help researchers implement best practices
 for their coding projects. Includes tools for reading and cleaning data
-files, initializing R projects with a standard folder structure, creating
-Quarto documents from a reproducible template, detecting the execution
-context across interactive, Quarto, and script-based workflows, and
-splitting data frames into group-level output files.
+files, initializing R projects with a standard folder structure and
+optional YAML configuration, creating 'Quarto' documents from reproducible
+templates with optional sample data and custom styling, detecting the
+execution context across interactive, 'Quarto', and script-based
+workflows, splitting data frames into group-level output files, applying
+analysis functions to each group with optional parallel execution, and
+rendering syntactic tree diagrams as standalone PNG images via 'Typst'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ptetools
+%global packname  ahull3D
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Panel Treatment Effects Tools
+Summary:          Fast 3D Alpha Hull with Label Propagation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-BMisc >= 1.4.7
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-DRDID 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-splines2 
-Requires:         R-CRAN-BMisc >= 1.4.7
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-DRDID 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-splines2 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-Rvcg >= 0.18
+BuildRequires:    R-CRAN-rgl >= 0.100.0
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppCGAL 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-Rvcg >= 0.18
+Requires:         R-CRAN-rgl >= 0.100.0
 
 %description
-Generic code for estimating treatment effects with panel data.  The idea
-is to break into separate steps organizing the data, looping over groups
-and time periods, computing group-time average treatment effects, and
-aggregating group-time average treatment effects.  Often, one is able to
-implement a new identification/estimation procedure by simply replacing
-the step on estimating group-time average treatment effects.  See several
-different examples of this approach in the package documentation.
+Fast 3D alpha shape (alpha hull) computation with label propagation from
+input points to hull vertices and faces. Uses 'CGAL' for robust geometric
+computations. Optimized for Light Detection and Ranging ('LiDAR')
+processing and tree segmentation workflows. The implementation follows the
+alpha shape algorithm described in Edelsbrunner et al. (1983)
+<doi:10.1007/BF02579193>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  messydates
-%global packver   0.5.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Flexible Class for Messy Dates
 
@@ -14,25 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-methods 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringi 
 
 %description
 Contains a set of tools for constructing and coercing into and from the
 "mdate" class. This date class implements ISO 8601-2:2019(E) and allows
-regular dates to be annotated to express unspecified date components,
-approximate or uncertain date components, date ranges, and sets of dates.
-This is useful for describing and analysing temporal information, whether
-historical or recent, where date precision may vary.
+regular dates and times to be annotated to express unspecified date or
+time components, approximate or uncertain components, ranges, and sets of
+dates. The package therefore retains, represents, and reasons about data
+and time imprecision, resolving to a single data/time only on demand. This
+is useful for describing and analysing temporal information, whether
+historical or recent, where date or time precision may vary.
 
 %prep
 %setup -q -c -n %{packname}

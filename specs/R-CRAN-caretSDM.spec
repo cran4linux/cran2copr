@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caretSDM
-%global packver   1.8.3
+%global packver   1.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.3
+Version:          1.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build Species Distribution Modeling using 'caret'
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-blockCV 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-checkCLI 
 BuildRequires:    R-CRAN-checkmate 
@@ -29,25 +28,16 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ECDFniche 
 BuildRequires:    R-CRAN-ecospat 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lwgeom 
-BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-pdp 
 BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-stats 
@@ -55,9 +45,7 @@ BuildRequires:    R-CRAN-stringdist
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-usdm 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-blockCV 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-checkCLI 
 Requires:         R-CRAN-checkmate 
@@ -69,25 +57,16 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ECDFniche 
 Requires:         R-CRAN-ecospat 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggspatial 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lwgeom 
-Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-maxnet 
 Requires:         R-methods 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-pdp 
 Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-raster 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stars 
 Requires:         R-stats 
@@ -95,7 +74,6 @@ Requires:         R-CRAN-stringdist
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-usdm 
 Requires:         R-utils 
 
 %description

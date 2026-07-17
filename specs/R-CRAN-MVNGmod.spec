@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MVNGmod
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrix-Variate Non-Gaussian Linear Regression Models
 
@@ -37,16 +37,18 @@ Requires:         R-CRAN-matrixcalc
 Requires:         R-CRAN-purrr 
 
 %description
-An implementation of the expectation conditional maximization (ECM)
-algorithm for matrix-variate variance gamma (MVVG) and normal-inverse
-Gaussian (MVNIG) linear models. These models are designed for settings of
-multivariate analysis with clustered non-uniform observations and
-correlated responses. The package includes fitting and prediction
-functions for both models, and an example dataset from a periodontal on
-Gullah-speaking African Americans, with responses in 'gaad_res', and
-covariates in 'gaad_cov'. For more details on the matrix-variate
-distributions used, see Gallaugher & McNicholas (2019)
-<doi:10.1016/j.spl.2018.08.012>.
+Fits matrix-variate variance-gamma (MVVG) and matrix-variate
+normal-inverse-Gaussian (MVNIG) linear regression models using
+expectation-conditional maximization (ECM) algorithms. The models
+accommodate clustered matrix-valued responses, with unequal numbers of
+observations across subjects, correlated responses, skewness, and
+within-subject dependence. Functions are provided for model fitting,
+prediction, and subject-level influence assessment using approximate
+generalized Cook's distances. The package also includes motivating
+periodontal data from Gullah-speaking African Americans with Type-II
+diabetes. For details on the underlying matrix-variate distributions (MVVG
+and MVNIG), see Gallaugher and McNicholas (2019,
+<doi:10.1016/j.spl.2018.08.012>).
 
 %prep
 %setup -q -c -n %{packname}

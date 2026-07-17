@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fmx
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finite Mixture Parametrization
 
@@ -14,21 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-TukeyGH77 >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-goftest 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-rstpm2 
 BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-param2moment 
-BuildRequires:    R-CRAN-TukeyGH77 
+Requires:         R-CRAN-TukeyGH77 >= 0.2.0
 Requires:         R-methods 
 Requires:         R-CRAN-goftest 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-rstpm2 
 Requires:         R-CRAN-sn 
-Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-param2moment 
-Requires:         R-CRAN-TukeyGH77 
 
 %description
 A parametrization framework for finite mixture distribution using S4

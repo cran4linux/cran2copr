@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeDS
-%global packver   0.3.3
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometrically Designed Spline Regression
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mboost 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-splines 
 BuildRequires:    R-stats 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mboost 
 Requires:         R-parallel 
-Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-splines 
 Requires:         R-stats 
@@ -65,7 +63,7 @@ method can be found in Kaishev et al. (2016)
 GeDS's implementation includes generalized additive models (GAM) and
 functional gradient boosting (FGB), enabling versatile multivariate
 predictor modeling, as discussed in the forthcoming work of Dimitrova et
-al. (2025).
+al. (2026).
 
 %prep
 %setup -q -c -n %{packname}
