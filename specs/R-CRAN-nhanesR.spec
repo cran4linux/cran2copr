@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cox.rvph
-%global packver   0.1.3
+%global packname  nhanesR
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Remedy the Violation of the Proportional Hazards Assumption of Cox Regression
+Summary:          Download, Parse, and Analyze NHANES Data with Mortality Linkage
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-haven >= 2.5.0
+BuildRequires:    R-CRAN-readr >= 2.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-tools 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-haven >= 2.5.0
+Requires:         R-CRAN-readr >= 2.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-tools 
 
 %description
-Remedying proportional hazards assumption violations of a Cox proportional
-hazards model using stepwise changepoint and time-varying coefficient
-methods based on Cox (1972) <doi:10.1111/j.2517-6161.1972.tb00899.x> and
-Grambsch and Therneau (1994) <doi:10.1093/biomet/81.3.515>.
+Provides tools for downloading and organizing National Health and
+Nutrition Examination Survey (NHANES) public-use data files and the
+National Center for Health Statistics (NCHS) Public-Use Linked Mortality
+Files (LMF). Supports structured local caching, codebook access,
+survey-aware merging, and preparation of survival analysis datasets using
+NHANES-National Death Index (NDI) linked mortality data (follow-up through
+December 31, 2019). NHANES methodology is described at
+<https://wwwn.cdc.gov/nchs/nhanes/Default.aspx>.
 
 %prep
 %setup -q -c -n %{packname}

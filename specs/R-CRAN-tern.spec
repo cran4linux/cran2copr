@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern
-%global packver   0.9.10
+%global packver   0.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Common TLGs Used in Clinical Trials
 
@@ -18,14 +18,13 @@ BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.60
-BuildRequires:    R-CRAN-survival >= 3.8.3
+BuildRequires:    R-CRAN-survival >= 3.8.9
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-car >= 3.1.3
 BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-checkmate >= 2.3.2
-BuildRequires:    R-CRAN-gridExtra >= 2.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-gridExtra >= 2.0.0
 BuildRequires:    R-CRAN-scales >= 1.2.0
 BuildRequires:    R-CRAN-emmeans >= 1.10.4
 BuildRequires:    R-CRAN-cowplot >= 1.1.3
@@ -45,14 +44,13 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS >= 7.3.60
-Requires:         R-CRAN-survival >= 3.8.3
+Requires:         R-CRAN-survival >= 3.8.9
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-car >= 3.1.3
 Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-checkmate >= 2.3.2
-Requires:         R-CRAN-gridExtra >= 2.0
-Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-gridExtra >= 2.0.0
 Requires:         R-CRAN-scales >= 1.2.0
 Requires:         R-CRAN-emmeans >= 1.10.4
 Requires:         R-CRAN-cowplot >= 1.1.3

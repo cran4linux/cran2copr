@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjd3production
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prepare for Production of Seasonal Adjustment with 'JDemetra+'
 
@@ -17,42 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3toolkit 
-BuildRequires:    R-CRAN-rjd3x13 
-BuildRequires:    R-CRAN-rjd3workspace 
-BuildRequires:    R-CRAN-rjd3providers 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-constructive 
+BuildRequires:    R-CRAN-date4ts 
 BuildRequires:    R-CRAN-dygraphs 
 BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-lintr 
+BuildRequires:    R-CRAN-rjd3jars 
+BuildRequires:    R-CRAN-rjd3providers 
+BuildRequires:    R-CRAN-rjd3toolkit 
+BuildRequires:    R-CRAN-rjd3workspace 
+BuildRequires:    R-CRAN-rjd3x13 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-TBox 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-constructive 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-TBox 
-BuildRequires:    R-CRAN-date4ts 
-BuildRequires:    R-CRAN-lintr 
-Requires:         R-CRAN-rjd3toolkit 
-Requires:         R-CRAN-rjd3x13 
-Requires:         R-CRAN-rjd3workspace 
-Requires:         R-CRAN-rjd3providers 
-Requires:         R-utils 
+Requires:         R-CRAN-constructive 
+Requires:         R-CRAN-date4ts 
 Requires:         R-CRAN-dygraphs 
 Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-lintr 
+Requires:         R-CRAN-rjd3jars 
+Requires:         R-CRAN-rjd3providers 
+Requires:         R-CRAN-rjd3toolkit 
+Requires:         R-CRAN-rjd3workspace 
+Requires:         R-CRAN-rjd3x13 
+Requires:         R-CRAN-shiny 
 Requires:         R-stats 
+Requires:         R-CRAN-TBox 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
+Requires:         R-CRAN-usethis 
+Requires:         R-utils 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-constructive 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-TBox 
-Requires:         R-CRAN-date4ts 
-Requires:         R-CRAN-lintr 
 
 %description
 A comprehensive tool for setting up seasonal data pipelines using

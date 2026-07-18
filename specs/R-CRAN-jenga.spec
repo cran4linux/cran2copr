@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jenga
-%global packver   1.3.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Extrapolation of Time Features using K-Nearest Neighbors
 
@@ -17,47 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
-BuildRequires:    R-CRAN-imputeTS >= 3.2
-BuildRequires:    R-CRAN-modeest >= 2.4.0
-BuildRequires:    R-CRAN-readr >= 2.1.2
-BuildRequires:    R-CRAN-Rfast >= 2.0.6
-BuildRequires:    R-CRAN-fastDummies >= 1.6.3
-BuildRequires:    R-CRAN-abind >= 1.4.5
-BuildRequires:    R-CRAN-lubridate >= 1.4.0
-BuildRequires:    R-CRAN-entropy >= 1.3.1
-BuildRequires:    R-CRAN-scales >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-tictoc >= 1.0
-BuildRequires:    R-CRAN-greybox >= 1.0.1
-BuildRequires:    R-CRAN-fANCOVA >= 0.6.1
-BuildRequires:    R-CRAN-philentropy >= 0.5.0
-BuildRequires:    R-CRAN-narray >= 0.4.1.1
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-moments >= 0.14
-Requires:         R-CRAN-ggplot2 >= 3.3.5
-Requires:         R-CRAN-imputeTS >= 3.2
-Requires:         R-CRAN-modeest >= 2.4.0
-Requires:         R-CRAN-readr >= 2.1.2
-Requires:         R-CRAN-Rfast >= 2.0.6
-Requires:         R-CRAN-fastDummies >= 1.6.3
-Requires:         R-CRAN-abind >= 1.4.5
-Requires:         R-CRAN-lubridate >= 1.4.0
-Requires:         R-CRAN-entropy >= 1.3.1
-Requires:         R-CRAN-scales >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-tictoc >= 1.0
-Requires:         R-CRAN-greybox >= 1.0.1
-Requires:         R-CRAN-fANCOVA >= 0.6.1
-Requires:         R-CRAN-philentropy >= 0.5.0
-Requires:         R-CRAN-narray >= 0.4.1.1
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-moments >= 0.14
 
 %description
 Fast extrapolation of univariate and multivariate time features using
-K-Nearest Neighbors. The compact set of hyper-parameters is tuned via grid
-or random search.
+K-Nearest Neighbors. Version 2.0 adds approximate nearest-neighbor search,
+optional GPU acceleration, probabilistic forecast distributions, conformal
+prediction intervals, and multi-scale sequence representations. The
+compact set of hyper-parameters is tuned via grid or random search.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eyetools
-%global packver   0.9.2
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyse Eye Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,6 +31,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-abind 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-viridis 
@@ -45,6 +47,8 @@ Requires:         R-utils
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-png 
 Requires:         R-grid 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-abind 
 
 %description
 Enables the automation of actions across the pipeline, including initial

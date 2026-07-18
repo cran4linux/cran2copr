@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chevron
-%global packver   0.2.12
+%global packver   0.2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          0.2.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standard TLGs for Clinical Trials Reporting
 
@@ -14,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-tibble >= 2.0.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.8
+BuildRequires:    R-CRAN-lubridate >= 1.9.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-glue >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-tern >= 0.9.9
-BuildRequires:    R-CRAN-rtables >= 0.6.13
-BuildRequires:    R-CRAN-formatters >= 0.5.11
+BuildRequires:    R-CRAN-tern >= 0.9.11
+BuildRequires:    R-CRAN-rtables >= 0.6.15
+BuildRequires:    R-CRAN-formatters >= 0.5.12
 BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-rlistings >= 0.2.12
+BuildRequires:    R-CRAN-rlistings >= 0.2.13
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-dunlin >= 0.1.10
 BuildRequires:    R-CRAN-nestcolor >= 0.1.1
@@ -41,18 +41,18 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-tibble >= 2.0.0
-Requires:         R-CRAN-lubridate >= 1.7.8
+Requires:         R-CRAN-lubridate >= 1.9.4
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.1
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-glue >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-tern >= 0.9.9
-Requires:         R-CRAN-rtables >= 0.6.13
-Requires:         R-CRAN-formatters >= 0.5.11
+Requires:         R-CRAN-tern >= 0.9.11
+Requires:         R-CRAN-rtables >= 0.6.15
+Requires:         R-CRAN-formatters >= 0.5.12
 Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-rlistings >= 0.2.12
+Requires:         R-CRAN-rlistings >= 0.2.13
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-dunlin >= 0.1.10
 Requires:         R-CRAN-nestcolor >= 0.1.1

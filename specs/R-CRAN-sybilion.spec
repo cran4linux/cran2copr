@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cox.rvph
-%global packver   0.1.3
+%global packname  sybilion
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Remedy the Violation of the Proportional Hazards Assumption of Cox Regression
+Summary:          Official R Client for the 'Sybilion' API
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-stringr 
 
 %description
-Remedying proportional hazards assumption violations of a Cox proportional
-hazards model using stepwise changepoint and time-varying coefficient
-methods based on Cox (1972) <doi:10.1111/j.2517-6161.1972.tb00899.x> and
-Grambsch and Therneau (1994) <doi:10.1093/biomet/81.3.515>.
+Wrapper and generated client for the 'Sybilion' Developers Portal API
+(forecasts, drivers, catalog, usage). Authenticate with an API key using
+'Authorization: Bearer'. See <https://sybilion.dev/docs/>.
 
 %prep
 %setup -q -c -n %{packname}

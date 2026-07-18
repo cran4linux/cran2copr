@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cox.rvph
-%global packver   0.1.3
+%global packname  AGCA4extremes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Remedy the Violation of the Proportional Hazards Assumption of Cox Regression
+Summary:          Anchored Geodesic Component Analysis for Extremes
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Remedying proportional hazards assumption violations of a Cox proportional
-hazards model using stepwise changepoint and time-varying coefficient
-methods based on Cox (1972) <doi:10.1111/j.2517-6161.1972.tb00899.x> and
-Grambsch and Therneau (1994) <doi:10.1093/biomet/81.3.515>.
+Implements anchored geodesic component analysis for multivariate extremes.
+The package provides Pareto and rank-Pareto marginal standardization,
+top-k angular extraction, anchored eigensolutions, reconstruction,
+diagnostics, nonparametric bootstrap tools, and plotting methods for
+benchmark-relative angular variation.
 
 %prep
 %setup -q -c -n %{packname}

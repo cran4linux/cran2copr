@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  minimaxApprox
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          Minimax Approximation of Functions by Polynomials and Rational Functions
 
 License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,9 +22,14 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+Implements minimax approximation of functions via the Remez (1962)
+algorithm for polynomials and the Cody-Fraser-Hart (1968)
+<doi:10.1007/BF02162506> algorithm for rational functions, as well as
+their barycentric formulations: the Pachón-Trefethen (2009)
+<doi:10.1007/s10543-009-0240-1> algorithm for polynomials and the
+Filip-Nakatsukasa-Trefethen-Beckermann (2018) <doi:10.1137/17M1132409>
+algorithm for rational functions, which provide improved numerical
+stability at higher degrees and on wider intervals.
 
 %prep
 %setup -q -c -n %{packname}

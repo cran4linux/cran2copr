@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  remstimate
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimization Frameworks for Tie-Oriented and Actor-Oriented Relational Event Models
 
@@ -16,26 +16,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-remify >= 4.0.0
-BuildRequires:    R-CRAN-remstats >= 4.0.0
+BuildRequires:    R-CRAN-remify >= 4.1.0
+BuildRequires:    R-CRAN-remstats >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-trust 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-remify >= 4.0.0
-Requires:         R-CRAN-remstats >= 4.0.0
+Requires:         R-CRAN-remify >= 4.1.0
+Requires:         R-CRAN-remstats >= 4.1.0
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-trust 
 Requires:         R-CRAN-mvnfast 
 
 %description
-A comprehensive set of tools designed for optimizing likelihood within a
-tie-oriented (Butts, C., 2008, <doi:10.1111/j.1467-9531.2008.00203.x>) or
-an actor-oriented modelling framework (Stadtfeld, C., & Block, P., 2017,
-<doi:10.15195/v4.a14>) in relational event networks. The package
-accommodates both frequentist and Bayesian approaches. Maximum Likelihood
-Optimization (MLE) is supported. Bayesian estimation is done via
-Hamiltonian Monte Carlo (HMC).
+Tools for fitting, diagnosing, and analyzing tie-oriented and
+actor-oriented relational event models, under both frequentist and
+Bayesian approaches. The package supports tie-oriented modeling (Butts,
+2008, <doi:10.1111/j.1467-9531.2008.00203.x>) and an actor-oriented
+modeling framework (Stadtfeld et al., 2017, <doi:10.15195/v4.a14>), with
+additional model diagnostics and goodness-of-fit tools. Interfaces to
+estimation backends provide a range of extensions: random-effects
+(frailty) relational event models capturing sender, receiver, and dyadic
+heterogeneity (Juozaitiene & Wit 2024, <doi:10.1007/s11336-024-09952-x>;
+Mulder & Hoff, 2024, <doi:10.1214/24-AOAS1885>), finite mixture and dyadic
+latent class models for unobserved dyadic heterogeneity (Lakdawala et al.,
+2026, <doi:10.1016/j.socnet.2026.06.006>), penalized estimation via the
+lasso, ridge, and elastic net (Tibshirani, R., 1996,
+<doi:10.1111/j.2517-6161.1996.tb02080.x>; Karimova et al., 2023,
+<doi:10.1016/j.socnet.2023.02.006>), and approximate Bayesian
+regularization (Karimova et al., 2025, <doi:10.1016/j.jmp.2025.102925>).
+Modeling of events with a duration is also supported (Lakdawala et al.,
+2026, <doi:10.48550/arXiv.2602.21000>) and moving window relational event
+models (Mulder & Leenders, 2019, <doi:10.1016/j.chaos.2018.11.027>;
+Meijerink et al., 2023, <doi:10.1371/journal.pone.0272309>).
 
 %prep
 %setup -q -c -n %{packname}

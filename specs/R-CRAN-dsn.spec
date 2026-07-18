@@ -1,30 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cox.rvph
-%global packver   0.1.3
+%global packname  dsn
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Remedy the Violation of the Proportional Hazards Assumption of Cox Regression
+Summary:          Data Source Name and Description Helpers for Use with 'GDAL'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 
 %description
-Remedying proportional hazards assumption violations of a Cox proportional
-hazards model using stepwise changepoint and time-varying coefficient
-methods based on Cox (1972) <doi:10.1111/j.2517-6161.1972.tb00899.x> and
-Grambsch and Therneau (1994) <doi:10.1093/biomet/81.3.515>.
+Simple helpers for 'GDAL' data source names ('DSN'), prefix and suffix and
+other handling. 'GDAL' is the Geospatial Data Abstraction Library
+<https://gdal.org/>, not used by this package directly.
 
 %prep
 %setup -q -c -n %{packname}

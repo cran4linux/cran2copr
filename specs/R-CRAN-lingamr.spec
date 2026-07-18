@@ -1,50 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kardl
-%global packver   2.0.4
+%global packname  lingamr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Symmetric and Asymmetric ARDL Estimations
+Summary:          'LiNGAM' Algorithms for Causal Discovery
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-nlWaldTest 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-generics 
+Requires:         R-grDevices 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-nlWaldTest 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-utils 
 
 %description
-Implements estimation procedures for Autoregressive Distributed Lag (ARDL)
-and Nonlinear ARDL (NARDL) models, which allow researchers to investigate
-both short- and long-run relationships in time series data under mixed
-orders of integration. The package supports simultaneous modeling of
-symmetric and asymmetric regressors, flexible treatment of short-run and
-long-run asymmetries, and automated equation handling. It includes several
-cointegration testing approaches such as the Pesaran-Shin-Smith F and t
-bounds tests, and narayan test. Methodological foundations are provided in
-Pesaran, Shin, and Smith (2001) <doi:10.1016/S0304-4076(01)00049-5> and
-Shin, Yu, and Greenwood-Nimmo (2014, ISBN:9780123855079).
+R implementation of 'LiNGAM' (Linear Non-Gaussian Acyclic Model)
+algorithms for causal discovery, following Shimizu et al. (2011)
+<https://www.jmlr.org/papers/v12/shimizu11a.html>. Based on the 'Python'
+implementation by Ikeuchi et al. (2023) <https://github.com/cdt15/lingam>.
+The 'VAR-LiNGAM' residual diagnostics are inspired by the 'VARLiNGAM' R
+code of Moneta et al.
+<https://sites.google.com/site/dorisentner/publications/VARLiNGAM>.
 
 %prep
 %setup -q -c -n %{packname}

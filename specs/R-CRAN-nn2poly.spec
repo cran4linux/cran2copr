@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nn2poly
-%global packver   0.1.3
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neural Network Weights Transformation into Polynomial Coefficients
 
@@ -18,13 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-pracma 
 
 %description
 Implements a method that builds the coefficients of a polynomial model

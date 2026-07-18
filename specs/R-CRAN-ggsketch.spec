@@ -1,37 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wcc
-%global packver   0.4.1
+%global packname  ggsketch
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Windowed Cross Correlation
+Summary:          Grammar-Native Hand-Drawn Geoms for 'ggplot2'
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-pheatmap 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-withr >= 2.5.0
+BuildRequires:    R-CRAN-scales >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-withr >= 2.5.0
+Requires:         R-CRAN-scales >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-gtable 
 
 %description
-Calculates Windowed Cross Correlation for pairs of time series. Provides
-support for surrogate analysis for nonparametric test of significance.
-Calculates aggregate statistics over a range of parameter values. Plots
-the results as Windowed Cross Correlation plots and heat maps. The
-software is described in Boker, S. M., Rotondo, J. L., Xu, M., & King, K.
-(2002). Windowed cross-correlation and peak picking for the analysis of
-variability in the association between behavioral time series.
-Psychological Methods, 7(3), 338.
+Provides 'ggplot2' geoms that render with a hand-drawn, sketchy aesthetic:
+roughened strokes, double-pass lines, and hachure, cross-hatch, zigzag,
+and dots fill patterns. Implemented as pure-R 'grid' grobs wrapped in
+'ggproto' geoms, composable with aes(), stats, scales, and faceting. Works
+on every R graphics device (PDF, PNG, SVG, screen) with no browser
+dependency. Algorithms are reimplemented from the published 'rough.js'
+algorithm description (Shihn, 2020,
+<https://shihn.ca/posts/2020/roughjs-algorithms/>) and Wood and others
+(2012, <doi:10.1109/TVCG.2012.262>); see the NOTICE file in the package
+sources for attribution.
 
 %prep
 %setup -q -c -n %{packname}

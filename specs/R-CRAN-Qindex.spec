@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qindex
-%global packver   0.1.7
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous and Dichotomized Index Predictors Based on Distribution Quantiles
 
@@ -14,27 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.6
+Requires:         R-core >= 4.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-methods 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli 
 
 %description
-Select optimal functional regression or dichotomized quantile predictors
-for survival/logistic/numeric outcome and perform optimistic bias
-correction for any optimally dichotomized numeric predictor(s), as in Yi,
-et. al. (2023) <doi:10.1016/j.labinv.2023.100158>.
+The author has retired from academic research. Accordingly, this package
+should not be considered a validated tool for use in peer-reviewed
+publications or as the basis for grant applications.  Backward
+compatibility with user-code published in <doi:10.1186/s12859-023-05408-8>
+and <doi:10.1016/j.labinv.2023.100158> is not maintained in versions >=
+0.4.0 (June 2026) of this package. The authors of those publications are
+the appropriate contacts for reproducibility inquiries.
 
 %prep
 %setup -q -c -n %{packname}

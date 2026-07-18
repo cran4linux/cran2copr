@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cox.rvph
-%global packver   0.1.3
+%global packname  stargazer2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Remedy the Violation of the Proportional Hazards Assumption of Cox Regression
+Summary:          Beautiful Regression Tables for Modern Econometrics Packages
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Remedying proportional hazards assumption violations of a Cox proportional
-hazards model using stepwise changepoint and time-varying coefficient
-methods based on Cox (1972) <doi:10.1111/j.2517-6161.1972.tb00899.x> and
-Grambsch and Therneau (1994) <doi:10.1093/biomet/81.3.515>.
+Produces publication-quality LaTeX, ASCII, and HTML regression tables.
+Designed as a drop-in replacement for the 'stargazer' package for 'lm' and
+'glm' models, with added native support for 'fixest', 'plm', and 'alpaca'
+objects including automatic fixed-effect and random-effect indicator rows
+and SE-type detection. Standard errors can be supplied as
+variance-covariance matrices, numeric vectors, or auto-extracted from
+supported model objects. Follows the interface of Hlavac (2022)
+<https://CRAN.R-project.org/package=stargazer>.
 
 %prep
 %setup -q -c -n %{packname}

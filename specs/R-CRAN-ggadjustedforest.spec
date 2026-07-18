@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjd3workspace
-%global packver   3.8.0
+%global packname  ggadjustedforest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrangling 'JDemetra+ 3.x' Workspaces
+Summary:          Publication Ready Forest Plots for Estimand of Interest
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjd3toolkit >= 3.8.0
-BuildRequires:    R-CRAN-rjd3providers >= 3.8.0
-BuildRequires:    R-CRAN-rjd3tramoseats >= 3.8.0
-BuildRequires:    R-CRAN-rjd3x13 >= 3.8.0
-BuildRequires:    R-CRAN-rJava >= 1.0.6
-BuildRequires:    R-CRAN-rjd3jars >= 0.0.4
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-rjd3toolkit >= 3.8.0
-Requires:         R-CRAN-rjd3providers >= 3.8.0
-Requires:         R-CRAN-rjd3tramoseats >= 3.8.0
-Requires:         R-CRAN-rjd3x13 >= 3.8.0
-Requires:         R-CRAN-rJava >= 1.0.6
-Requires:         R-CRAN-rjd3jars >= 0.0.4
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-survival >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-tibble >= 3.2.0
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-patchwork >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-broom >= 1.0.0
+Requires:         R-CRAN-survival >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-tibble >= 3.2.0
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-patchwork >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-broom >= 1.0.0
 
 %description
-R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>). It offers
-several functions to manipulate 'JDemetra+' workspaces, which can be read
-by the software and can store several seasonal adjusted series along with
-user-defined calendars or regression variables.
+Creates publication-quality forest plots and effect-size tables that
+display only the unadjusted and adjusted estimates for a user-specified
+exposure variable of interest, hiding confounder coefficients in
+accordance with causal inference principles. Supports logistic, linear,
+Poisson, and Cox proportional hazards models, with optional
+cumulative-adjustment visualisation. Built on 'ggplot2' and follows the
+tidyverse design philosophy.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ottr
-%global packver   1.5.3
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Autograding Extension for Otter-Grader
 
@@ -23,12 +23,14 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-testthat 
 Requires:         R-tools 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-zip 
 Requires:         R-methods 
+Requires:         R-CRAN-fs 
 
 %description
 An R autograding extension for Otter-Grader

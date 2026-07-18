@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdbuildR
-%global packver   2.0.0
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Build, Simulate, and Explore Stock-and-Flow Models
+Summary:          An Accessible Interface for Stock-and-Flow Modelling
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,28 +21,42 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-JuliaConnectoR 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-JuliaConnectoR 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-textutils 
+Requires:         R-tools 
+Requires:         R-utils 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xml2 
 

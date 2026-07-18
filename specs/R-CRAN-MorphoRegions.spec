@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MorphoRegions
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Regionalization Patterns in Serially Homologous Structures
 
@@ -17,22 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-cluster >= 2.1.4
 BuildRequires:    R-CRAN-pbapply >= 1.7.2
 BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.3
-BuildRequires:    R-CRAN-chk >= 0.9.0
+BuildRequires:    R-CRAN-arg >= 0.1.1
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-cluster >= 2.1.4
 Requires:         R-CRAN-pbapply >= 1.7.2
 Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-RColorBrewer >= 1.1.3
-Requires:         R-CRAN-chk >= 0.9.0
+Requires:         R-CRAN-arg >= 0.1.1
 Requires:         R-stats 
 Requires:         R-parallel 
 Requires:         R-utils 
@@ -47,8 +47,8 @@ linear regressions along the serial structure. Every region boundary
 position and increasing number of regions are iteratively fitted and the
 best model (number of regions and boundary positions) is selected with an
 information criterion. This package expands on the previous 'regions'
-package (Jones et al., Science 2018) with improved computation and more
-fitting and plotting options.
+package (Jones et al. (2018) <doi:10.1126/science.aar3126>) with improved
+computation and more fitting and plotting options.
 
 %prep
 %setup -q -c -n %{packname}

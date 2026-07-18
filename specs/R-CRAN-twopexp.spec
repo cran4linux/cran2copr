@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  twopexp
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Two Parameter Exponential Distribution
 
@@ -31,7 +31,9 @@ distribution. MLE and PMLE are based on Mengjie Zheng
 (2013)<https://scse.d.umn.edu/sites/scse.d.umn.edu/files/mengjie-thesis_masters-1.pdf>.
 QM is based on Entisar Elgmati and Nadia Gregni
 (2016)<doi:10.5539/ijsp.v5n5p12>. MEDRANK is based on Matthew Reid
-(2022)<doi:10.5281/ZENODO.3938000>.
+(2022)<doi:10.5281/ZENODO.3938000>. In addition, the functions for
+computing the Kolmogorov-Smirnov (D) statistic, the Cramér-von Mises
+statistic, and the Anderson–Darling statistic are provided.
 
 %prep
 %setup -q -c -n %{packname}

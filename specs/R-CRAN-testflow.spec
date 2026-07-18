@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  testflow
-%global packver   0.8.2
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Workflow for Statistical Testing, Interpretation, and 'ggplot2'-Based Visualization
 
@@ -27,6 +27,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-car 
 Requires:         R-stats 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
@@ -37,16 +39,22 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-car 
 
 %description
 Provides a unified workflow for choosing, running, interpreting, and
-visualizing common statistical tests. The package combines assumption
-checks, test selection, effect sizes, formatted results, plain-language
-interpretation, and 'ggplot2'-based statistical visualizations.
-Implemented methods follow standard references including Casella and
-Berger (2002, ISBN:9780534243128), Hollander et al. (2013,
-ISBN:9781118553299), Agresti (2013, ISBN:9780470463635), and Cohen (1988,
-ISBN:9780805802832).
+visualizing common statistical tests, from group comparisons and analysis
+of variance to regression, survival analysis, and diagnostic and agreement
+statistics. The package combines assumption checks, test selection, effect
+sizes, formatted results, plain-language interpretation, 'ggplot2'-based
+statistical visualizations, and a sample-size planning module covering
+continuous, binary, survival, ordinal, bioequivalence, and precision-based
+designs. Implemented methods follow standard references including Casella
+and Berger (2002, ISBN:9780534243128), Hollander et al. (2013,
+ISBN:9781118553299), Agresti (2013, ISBN:9780470463635), Cohen (1988,
+ISBN:9780805802832), Hosmer, Lemeshow and Sturdivant (2013,
+ISBN:9780470582473), and Julious (2010, ISBN:9781584887393).
 
 %prep
 %setup -q -c -n %{packname}

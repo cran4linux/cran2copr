@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shard
-%global packver   0.2.0
+%global packname  hood2net
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deterministic, Zero-Copy Parallel Execution for R
+Summary:          Create a Language Network from Neighborhoods of Words
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,26 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringdist 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringdist 
 
 %description
-Provides a parallel execution runtime for R that emphasizes deterministic
-memory behavior and efficient handling of large shared inputs. 'shard'
-enables zero-copy parallel reads via shared/memory-mapped segments,
-encourages explicit output buffers to avoid large result aggregation, and
-supervises worker processes to mitigate memory drift via controlled
-recycling. Diagnostics report peak memory usage, end-of-run memory return,
-and hidden copy/materialization events to support reproducible performance
-benchmarking.
+Input a list of words and/or their phonological transcriptions and this
+package creates a language network based on their neighborhood structure.
+First, the phonological/orthographic neighbors for each item in the list
+are identified based on various definitions of a neighbor (e.g.,
+edit-distance (substitution, deletion, or addition), substitution-only;
+distance size (1-edit or more); based on single characters or segments
+indicated by separators) and summarizes this information in an 'igraph'
+network object for subsequent analyses. For more details see Luce & Pisoni
+(1998) <doi:10.1097/00003446-199802000-00001> and Vitevitch (2008)
+<doi:10.1044/1092-4388(2008/030)>. Helper functions for extracting network
+metrics, neighbors, and other information from the language network are
+provided. This package is intended for psycholinguists interested in
+modeling language networks and word neighborhoods in various languages.
 
 %prep
 %setup -q -c -n %{packname}

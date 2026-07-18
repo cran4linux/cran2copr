@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semPlot
-%global packver   1.1.8
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Path Diagrams and Visual Analysis of Various SEM Packages' Output
 
@@ -17,30 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sem >= 3.1.0
 BuildRequires:    R-CRAN-qgraph >= 1.2.4
 BuildRequires:    R-CRAN-igraph >= 0.6.3
 BuildRequires:    R-CRAN-lavaan >= 0.5.11
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-lisrelToR 
-BuildRequires:    R-CRAN-rockchalk 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-OpenMx 
-Requires:         R-CRAN-sem >= 3.1.0
 Requires:         R-CRAN-qgraph >= 1.2.4
 Requires:         R-CRAN-igraph >= 0.6.3
 Requires:         R-CRAN-lavaan >= 0.5.11
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-lisrelToR 
-Requires:         R-CRAN-rockchalk 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-corpcor 
 Requires:         R-methods 
-Requires:         R-CRAN-OpenMx 
 
 %description
 Path diagrams and visual analysis of various SEM packages' output.
