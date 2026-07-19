@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dqcheckr
-%global packver   0.2.2
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Data Quality Checks for Recurring Dataset Deliveries
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-quarto 
@@ -25,11 +26,13 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-quarto 
@@ -37,10 +40,11 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Automates quality verification of recurring external dataset deliveries.

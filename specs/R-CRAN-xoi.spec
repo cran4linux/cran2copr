@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xoi
-%global packver   0.74
+%global packver   0.76
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.74
+Version:          0.76
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing Crossover Interference
 

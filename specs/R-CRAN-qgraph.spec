@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qgraph
-%global packver   1.9.8
+%global packver   1.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.8
+Version:          1.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Plotting Methods, Psychometric Data Visualization and Graphical Model Estimation
 
@@ -60,9 +60,8 @@ Requires:         R-CRAN-pbapply
 Requires:         R-CRAN-abind 
 
 %description
-Fork of qgraph - Weighted network visualization and analysis, as well as
-Gaussian graphical model computation. See Epskamp et al. (2012)
-<doi:10.18637/jss.v048.i04>.
+Weighted network visualization and analysis, as well as Gaussian graphical
+model computation. See Epskamp et al. (2012) <doi:10.18637/jss.v048.i04>.
 
 %prep
 %setup -q -c -n %{packname}

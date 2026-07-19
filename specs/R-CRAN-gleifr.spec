@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gleifr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for the 'GLEIF' API
 
@@ -19,14 +19,14 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rvest 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
 Download legal entity reference data from the 'Global Legal Entity

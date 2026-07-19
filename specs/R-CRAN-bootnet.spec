@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bootnet
-%global packver   1.8
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Methods for Various Network Estimation Routines
 
@@ -21,12 +21,12 @@ BuildRequires:    R-CRAN-mgm >= 1.2
 BuildRequires:    R-CRAN-NetworkToolbox >= 1.1.0
 BuildRequires:    R-CRAN-IsingFit >= 0.4
 BuildRequires:    R-CRAN-dplyr >= 0.3.0.2
+BuildRequires:    R-CRAN-mantar >= 0.3.0
 BuildRequires:    R-CRAN-IsingSampler >= 0.2.3
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-mantar 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-corpcor 
@@ -43,12 +43,12 @@ Requires:         R-CRAN-mgm >= 1.2
 Requires:         R-CRAN-NetworkToolbox >= 1.1.0
 Requires:         R-CRAN-IsingFit >= 0.4
 Requires:         R-CRAN-dplyr >= 0.3.0.2
+Requires:         R-CRAN-mantar >= 0.3.0
 Requires:         R-CRAN-IsingSampler >= 0.2.3
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-mantar 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-corpcor 

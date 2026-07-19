@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  speccurvieR
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy, Fast, and Pretty Specification Curve Analysis
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,7 +29,9 @@ BuildRequires:    R-CRAN-pbapply
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
@@ -39,6 +42,7 @@ Requires:         R-CRAN-pbapply
 Requires:         R-parallel 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-generics 
 
 %description
 Making specification curve analysis easy, fast, and pretty. It improves

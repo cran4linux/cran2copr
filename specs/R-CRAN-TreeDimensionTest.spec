@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeDimensionTest
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trajectory Presence and Heterogeneity in Multivariate Data
 
@@ -16,15 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-mlpack >= 4.8.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-mlpack 
 BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-nFactors 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-mlpack >= 4.8.0
 Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-mlpack 
 Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-nFactors 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmsp
-%global packver   0.4.6
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ground Motion Signal Processing
 
@@ -59,22 +59,22 @@ frequency-domain integration and differentiation, mapping a single input
 chosen analysis bandwidth. Also provides intrinsic-mode-function
 decomposition via empirical mode decomposition (EMD), ensemble EMD (EEMD),
 and variational mode decomposition (VMD) with optional band-rule
-filtering; elastic single-degree-of-freedom (SDOF) response spectra
-(pseudo-spectral acceleration, velocity, and displacement) by exact
-state-space integration; intensity measures including peak,
-root-mean-square (RMS), Arias intensity, significant-duration, cumulative
-absolute velocity, mean period, and the derived indices earthquake
-destructiveness potential (EPI) and power-of-input (PDI); and D50 and D100
-horizontal response spectra. Methods: Huang et al. (1998)
-<doi:10.1098/rspa.1998.0193>, Wu and Huang (2009)
-<doi:10.1142/S1793536909000047>, Dragomiretskiy and Zosso (2014)
+filtering; elastic single-degree-of-freedom (SDOF) domain-normalised
+acceleration, velocity, and displacement response spectra from their
+corresponding time-series domains by exact state-space integration;
+intensity measures including peak, root-mean-square (RMS), Arias
+intensity, significant-duration, cumulative absolute velocity, mean
+period, and the derived indices earthquake destructiveness potential (EPI)
+and power-of-input (PDI); and D50 and D100 horizontal response spectra.
+Methods: Huang et al. (1998) <doi:10.1098/rspa.1998.0193>, Wu and Huang
+(2009) <doi:10.1142/S1793536909000047>, Dragomiretskiy and Zosso (2014)
 <doi:10.1109/TSP.2013.2288675>, Boore (2010) <doi:10.1785/0120090179>. An
 optional indexing layer parses provider files in formats including 'PEER'
 'NGA-West2' 'AT2', 'CESMD' 'V2'/'V2c', 'NWZ' 'V2A', Geological Survey of
 Canada 'TR', 'IGP'/'UCR' 'AC' variants, and generic two-column ASCII text,
 normalises components, writes per-record CSV (comma-separated values) and
-JSON (JavaScript Object Notation) pairs, and assembles a master record
-table.
+JSON (JavaScript Object Notation) pairs, and computes per-record intensity
+tables.
 
 %prep
 %setup -q -c -n %{packname}

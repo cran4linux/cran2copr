@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  remverse
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Meta-Package for Relational Event History Analysis
+Summary:          Comprehensive Tools for Relational Event History Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-remify >= 4.0.0
-BuildRequires:    R-CRAN-remstats >= 4.0.0
-BuildRequires:    R-CRAN-remstimate >= 3.0.0
-Requires:         R-CRAN-remify >= 4.0.0
-Requires:         R-CRAN-remstats >= 4.0.0
-Requires:         R-CRAN-remstimate >= 3.0.0
+BuildRequires:    R-CRAN-remify >= 4.1.0
+BuildRequires:    R-CRAN-remstats >= 4.1.0
+BuildRequires:    R-CRAN-remstimate >= 3.1.0
+BuildRequires:    R-CRAN-remdata >= 0.2.1
+Requires:         R-CRAN-remify >= 4.1.0
+Requires:         R-CRAN-remstats >= 4.1.0
+Requires:         R-CRAN-remstimate >= 3.1.0
+Requires:         R-CRAN-remdata >= 0.2.1
 
 %description
-A unified workflow for relational event modeling by re-exporting core
-functions from 'remify', 'remstats', and 'remstimate'. Supports
-tie-oriented and actor-oriented modeling with frequentist and Bayesian
-estimation. Methods are described in Butts (2008)
-<doi:10.1111/j.1467-9531.2008.00203.x> and Stadtfeld and Block (2017)
-<doi:10.1177/0081175017709295>.
+A unified interface for relational event history analysis. The package
+re-exports key functions from 'remify', 'remstats', and 'remstimate' to
+support a streamlined workflow from data processing to model estimation
+and diagnosis.
 
 %prep
 %setup -q -c -n %{packname}
