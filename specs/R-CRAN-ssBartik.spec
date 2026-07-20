@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  ssBartik
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          End-to-End Pipeline for Shift-Share (Bartik) Instrumental Variables
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+Construction, diagnostics, estimation, exposure-robust inference and
+publication-ready visualisation for shift-share (Bartik) instrumental
+variable designs, in one consistent workflow. Organised around the two
+identification routes of the modern literature. The exogenous share
+approach refers to Goldsmith-Pinkham, Sorkin and Swift (2020)
+<doi:10.1257/aer.20181047> and the exogenous shift approach refers to
+Borusyak, Hull and Jaravel (2022) <doi:10.1093/restud/rdab030> and Adao,
+Kolesar and Morales (2019) <doi:10.1093/qje/qjz025>. Wraps 'ShiftShareSE'
+for exposure-robust inference when available.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  ppforest2
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          Projection Pursuit Oblique Decision Trees and Random Forests
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.11
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+Builds decision trees by splitting on linear combinations of randomly
+chosen variables. Projection pursuit is used to choose a projection of the
+variables that best separates the groups. Using linear combinations of
+variables to separate groups takes the correlation between variables into
+account, which allows the model to outperform a traditional decision tree
+when the separation between groups occurs in combinations of variables.
+Single trees can be assembled into random forests for improved accuracy.
+Implements projection pursuit classification trees (Lee, Cook, Park and
+Lee (2013) <doi:10.1214/13-EJS810>) and projection pursuit forests (da
+Silva, Cook and Lee (2021) <doi:10.1080/10618600.2020.1870480>), following
+the earlier 'PPforest' package.
 
 %prep
 %setup -q -c -n %{packname}

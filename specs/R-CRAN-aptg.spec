@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  aptg
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          Automatic Phylogenetic Tree Generator
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-rotl 
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-rotl 
+Requires:         R-CRAN-taxize 
+Requires:         R-stats 
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+Generates phylogenetic trees and distance matrices from a list of taxon
+names, or from a higher taxon expanded down to a chosen lower rank. Trees
+are obtained as induced subtrees of the Open Tree of Life synthetic tree
+using the 'rotl' package (Michonneau, Brown and Winter, 2016,
+<doi:10.1111/2041-210X.12593>). Expansion of a higher taxon to its
+descendants uses 'taxize' (Chamberlain and Szocs, 2013,
+<doi:10.12688/f1000research.2-191.v2>).
 
 %prep
 %setup -q -c -n %{packname}

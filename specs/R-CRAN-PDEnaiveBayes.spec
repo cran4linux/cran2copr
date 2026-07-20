@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PDEnaiveBayes
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plausible Naive Bayes Classifier Using PDE
 
@@ -42,14 +42,23 @@ Requires:         R-CRAN-DatabionicSwarm
 Requires:         R-CRAN-memshare 
 
 %description
-A nonparametric, multicore-capable plausible naive Bayes classifier based
-on the Pareto density estimation (PDE), supporting memory sharing within
-multicore computations and featuring a plausible approach to a pitfall in
-the Bayesian theorem covering low evidence cases Stier, Q., Hoffmann, J.,
-and Thrun, M.C.: "Classifying with the Fine Structure of Distributions:
-Leveraging Distributional Information for Robust and Plausible Naive
-Bayes" (2026), Machine Learning and Knowledge Extraction (MAKE),
-<DOI:10.3390/make8010013>.
+Provides a nonparametric, multicore-capable plausible naive Bayes
+classifier based on Pareto density estimation (PDE). It addresses
+low-evidence cases through a plausibility correction. To enhance the
+interpretability of the flexible naive Bayes classifier by revealing its
+posterior structure and feature-wise, class-specific evidence, posterior
+probabilities can be visualized as class-wise line plots for
+one-dimensional data or color-coded Voronoi diagrams for pairwise feature
+projections, and class-conditional PDE likelihoods as overlaid, mirrored
+density profiles resembling violin plots. Methodological details are
+provided by Stier, Q., Hoffmann, J. and Thrun, M. C. (2026) "Classifying
+with the Fine Structure of Distributions: Leveraging Distributional
+Information for Robust and Plausible Naive Bayes"
+<DOI:10.3390/make8010013>. For multicore computations, the implementation
+applies the general memory-sharing approach described by Thrun, M. C. and
+Märte, J. (2026) "memshare: Memory Sharing for Multicore Computation in R
+with an Application to Feature Selection by Mutual Information using PDE"
+<DOI:10.32614/RJ-2025-043>.
 
 %prep
 %setup -q -c -n %{packname}

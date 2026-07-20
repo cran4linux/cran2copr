@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  simOutrank
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          Outranking-Based Trace Clustering
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringdist 
+Requires:         R-graphics 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-stats 
+Requires:         R-CRAN-stringdist 
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+Implements outranking-based trace clustering for process mining. Pairwise
+similarity between traces is assessed on multiple, problem-specific
+criteria using ELECTRE-III-style partial concordance and discordance
+indices with indifference, similarity and veto thresholds. The aggregated
+credibility matrix is then clustered using normalized spectral clustering
+or hierarchical clustering. Also includes outlier trimming,
+must-link/cannot-link adjustments, validation indices and diagnostic
+plots.
 
 %prep
 %setup -q -c -n %{packname}

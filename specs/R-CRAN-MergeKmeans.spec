@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  MergeKmeans
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          Clustering Large Datasets by Merging K-Means Solutions
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-parallel 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
+Requires:         R-parallel 
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+Fast clustering of large datasets by hierarchically merging components of
+a K-means solution based on the pairwise overlap between the Gaussian
+mixture components implied by the K-means partition, as proposed by
+Melnykov and Michael (2020) <doi:10.1007/s00357-019-09314-8>. Implements
+the DEMP-K merging algorithm with single, Ward's, average, and complete
+linkages, the overlap map display for selecting the number of clusters,
+four K-means variants corresponding to Gaussian mixtures with spherical or
+elliptical, homoscedastic or heteroscedastic components, and a tool for
+selecting the number of K-means components.
 
 %prep
 %setup -q -c -n %{packname}

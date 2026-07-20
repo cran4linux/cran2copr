@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pslr
-%global packver   1.1.1
+%global packname  ErrorTracer
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Public Suffix List Engine
+Summary:          Bayesian Error Propagation and Forecast Uncertainty Decomposition
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,23 +16,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-punycoder >= 1.1.0
-BuildRequires:    R-tools 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-brms >= 2.20.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-punycoder >= 1.1.0
-Requires:         R-tools 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-brms >= 2.20.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-A focused implementation of the Public Suffix List (PSL). Bundles a
-reproducible, pinned PSL snapshot and implements the official
-prevailing-rule algorithm to answer public-suffix (eTLD) and
-registrable-domain (eTLD+1) queries. Distinguishes ICANN and PRIVATE rule
-sections, accepts Unicode and ASCII hostnames via 'punycoder'
-canonicalization, and supports an explicit, validated offline refresh
-path. The matcher is compiled with 'cpp11' and requires no external system
-library. Used as the PSL engine by the 'rurl' package.
+Provides a full pipeline from regularized or standard regression models
+(elastic net, linear models, generalized linear models, random forests) to
+informed Bayesian priors, structured forecast uncertainty decomposition
+(parameter / environmental / residual, plus a temporal component when the
+model carries an autocorrelation term), and forecast shelf life analysis
+(the quantification of when a forecast becomes uninformative). Designed
+for ecological and genomic forecasting with climate or environmental
+covariates. Methods build on Bürkner (2017) <doi:10.18637/jss.v080.i01>
+for Bayesian regression via 'Stan', Friedman, Hastie, and Tibshirani
+(2010) <doi:10.18637/jss.v033.i01> for elastic net regularization, Wright
+and Ziegler (2017) <doi:10.18637/jss.v077.i01> for random forests, and
+Vehtari, Gelman, and Gabry (2017) <doi:10.1007/s11222-016-9696-4> for
+leave-one-out cross-validation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  punycoder
-%global packver   1.1.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unicode and Punycode Domain Name Processing
 
@@ -20,11 +20,20 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-High-performance Unicode and Punycode encoding/decoding for
-internationalized domain names. Provides RFC 3492 compliant conversion
-functions with a focus on URL processing and data analysis workflows.
-Addresses limitations in existing R packages for handling international
-domain names in web scraping and URL parsing applications.
+High-performance Unicode and Punycode processing for internationalized
+domain names. The 'puny_encode()' / 'puny_decode()' helpers are a
+low-level, RFC 3492 compliant Punycode codec for domain labels (the 'xn--'
+ASCII-Compatible Encoding of RFC 5890/5891); they perform the raw
+transform plus letter-digit-hyphen checks and do not apply Unicode IDNA
+normalization. 'host_normalize()' is the Unicode Technical Standard #46
+host-normalization entry point, mapping a host name to a canonical
+lowercase ASCII comparison form (non-transitional profile, pinned Unicode
+version). The 'url_encode()' / 'url_decode()' / 'parse_url()' helpers do
+best-effort host extraction and rewriting in URL-shaped strings and are
+deliberately not RFC 3986 / WHATWG URL parsers or canonicalizers; they are
+deprecated in favor of dedicated URL packages. Aimed at host normalization
+and data analysis workflows. Used as the Punycode and IDNA engine by the
+'pslr' and 'rurl' packages.
 
 %prep
 %setup -q -c -n %{packname}

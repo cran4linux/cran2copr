@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkmapr
-%global packver   1.2.1
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pakistan Spatial Data Toolkit
 
@@ -22,19 +22,21 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-jsonlite 
 
 %description
 Provides a tidy interface to Pakistan's official administrative boundary
 data from the United Nations Office for the Coordination of Humanitarian
-Affairs (OCHA). Downloads and caches spatial data at country, province,
-district, and tehsil levels as 'sf' objects compatible with the
+Affairs (OCHA). Spatial data at country, province, district, and tehsil
+levels are embedded in the package as 'sf' objects compatible with the
 'tidyverse' and geospatial ecosystem. Includes utilities for geographic
 dictionary lookup, coordinate reference system selection, spatial
 measurement, and neighbour structure construction for use with 'spdep',

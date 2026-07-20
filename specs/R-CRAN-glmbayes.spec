@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmbayes
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Generalized Linear Models (IID Samples)
 
@@ -22,7 +22,10 @@ BuildRequires:    R-CRAN-Rdpack >= 0.11.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-nmathopencl 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-opencltools >= 0.8.1
@@ -30,7 +33,10 @@ Requires:         R-CRAN-Rdpack >= 0.11.0
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-bayestestR 
 Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-nmathopencl 
 
 %description
 Provides Bayesian linear and generalized linear model fitting with

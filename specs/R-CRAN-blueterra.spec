@@ -1,36 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  blueterra
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          Process-Oriented Geomorphometry for Submerged Terrain
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+Derives, organizes, summarizes, and visualizes terrain metrics from
+bathymetric and elevation rasters for submerged-landscape geomorphometry.
+Tools support terra-based raster preparation, slope and aspect
+decomposition, terrain position, rugosity, curvature, depth-band
+summaries, transect extraction, isobath-corridor analysis, and model-ready
+summaries for seafloor classification, habitat mapping, shelf-margin
+analysis, and spatial modeling. Methodological context for geomorphometric
+terrain analysis is provided by Lindsay (2016)
+<doi:10.1016/j.cageo.2016.07.003>.
 
 %prep
 %setup -q -c -n %{packname}

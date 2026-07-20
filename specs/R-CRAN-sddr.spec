@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  sddr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          Spatial Distribution Dynamics
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+A tidy toolkit for distribution dynamics: analysing how a cross-sectional
+distribution of values evolves over time and where it settles in the long
+run. Provides discrete-time, spatial, rank and local indicator of spatial
+association ('LISA') Markov transition estimation, ergodic analysis
+(steady-state, mean first passage and sojourn times), rank-mobility
+measures (Kendall's tau and the Theta statistic) and Markov mobility
+indices. Methods use long-format 'id'/'time'/'value' data rather than
+transition matrices and build on the distribution-dynamics literature
+(Quah (1993); Rey (2001) <doi:10.1111/j.1538-4632.2001.tb00444.x>).
+Results are validated for numerical parity against the reference 'giddy'
+library.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimplexRegression
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplex Regression Models with Parametric or Fixed Mean Link Functions
 
@@ -20,11 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-moments 
+Requires:         R-parallel 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-sandwich 
 

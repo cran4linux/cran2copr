@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  semTests
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          Robust Test Statistics for Structural Equation Models
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lavaan >= 0.7.2
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-utils 
+Requires:         R-CRAN-lavaan >= 0.7.2
 Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+Computes robust p-values for overall fit and nested comparisons of
+structural equation models fitted with 'lavaan'. Implements penalized
+eigenvalue block averaging and penalized regression (Foldnes, Moss,
+Grønneberg, 2025) <doi:10.1080/10705511.2024.2372028>, including their
+extension to nested models (Foldnes, Grønneberg, Moss, 2026)
+<doi:10.3758/s13428-026-02968-4>, alongside familiar corrections such as
+Satorra-Bentler. Supported settings include complete-data ML, GLS, and
+ULS, categorical DWLS and ULS, and full-information maximum likelihood
+with one or several groups.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lavaan.printer
-%global packver   0.1.2
+%global packname  magicrect
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for Printing 'lavaan' Outputs
+Summary:          Construct Magic Rectangles and Nearly Magic Rectangles
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lavaan 
 
 %description
-Helpers for customizing selected outputs from 'lavaan' by Rosseel (2012)
-<doi:10.18637/jss.v048.i02> and print them. The functions are intended to
-be used by package developers in their packages and so are not designed to
-be user-friendly. They are designed to be let developers customize the
-tables by other functions. Currently the parameter estimates tables of a
-fitted object are supported.
+Constructs a magic rectangle or a nearly magic rectangle of order p x q
+for every order for which one exists, together with existence
+classification and verification utilities. A magic rectangle arranges the
+integers 1 to p*q so that all row sums are equal and all column sums are
+equal; it exists exactly when p and q have the same parity, excluding 2 x
+2 and degenerate single-row/column cases (Hagedorn, 1999,
+<doi:10.1016/S0012-365X(99)00041-2>). When p and q have opposite parity a
+nearly magic rectangle exists instead, with constant sums along one
+direction and sums differing by at most one along the other (Chai, Singh
+and Stufken, 2019, Journal of Combinatorial Designs 27(6), 368-376).
+Implements the constructions of De Los Reyes, Das, Midha and Vellaisamy
+(2009) for even by even orders, Chai, Das and Midha (2013) for odd by odd
+orders, and Chai, Singh and Stufken (2019) for the nearly magic (even by
+odd) case.
 
 %prep
 %setup -q -c -n %{packname}

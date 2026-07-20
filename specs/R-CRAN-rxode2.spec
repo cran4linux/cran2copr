@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2
-%global packver   5.1.2
+%global packver   5.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.2
+Version:          5.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilities for Simulating from ODE-Based Models
 
@@ -27,11 +27,13 @@ BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.300.2.0
 BuildRequires:    R-CRAN-PreciseSums >= 0.7
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-sundialr >= 0.1.7
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-inline 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-rex 
 BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-tools 
@@ -55,6 +57,7 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-inline 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
+Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-rex 
 Requires:         R-CRAN-sys 
 Requires:         R-tools 

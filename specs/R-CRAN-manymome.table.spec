@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manymome.table
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Ready Tables for 'manymome' Results
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-flextable
 
 %description
 Converts results from the 'manymome' package, presented in Cheung and
-Cheung (2023) <doi:10.3758/s13428-023-02224-z>, to publication-ready
+Cheung (2024) <doi:10.3758/s13428-023-02224-z>, to publication-ready
 tables.
 
 %prep
