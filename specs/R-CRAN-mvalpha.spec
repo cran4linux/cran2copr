@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EMMAgeo
-%global packver   0.9.10
+%global packname  mvalpha
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          End-Member Modelling of Grain-Size Data
+Summary:          Krippendorff's Alpha for Multi-Valued Data
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-caTools 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-caTools 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-stringr 
 
 %description
-End-member modelling analysis of grain-size data is an approach to unmix a
-data set's underlying distributions and their contribution to the data
-set. EMMAgeo provides deterministic and robust protocols for that purpose.
+Calculate Krippendorff's alpha for multi-valued data using the methods
+introduced by Krippendorff and Craggs (2016)
+<doi:10.1080/19312458.2016.1228863>. Nominal, ordinal, interval, and ratio
+data types are supported, with option to create bootstrapped estimates of
+alpha.
 
 %prep
 %setup -q -c -n %{packname}

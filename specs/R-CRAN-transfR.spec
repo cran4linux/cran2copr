@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transfR
-%global packver   1.1.4
+%global packver   1.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-sf >= 0.8.0
 Requires:         R-CRAN-stars >= 0.4.0
@@ -29,6 +30,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rdpack 
 
 %description

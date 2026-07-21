@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaConvert
-%global packver   1.0.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Automatic Suite for Estimation of Various Effect Size Measures
 
@@ -19,22 +19,29 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-compareDF 
 BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-estimraw 
 BuildRequires:    R-CRAN-rio 
 Requires:         R-CRAN-compareDF 
 Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-estimraw 
 Requires:         R-CRAN-rio 
 
 %description
-Automatically estimate 11 effect size measures from a well-formatted
-dataset. Various other functions can help, for example, removing
-dependency between several effect sizes, or identifying differences
-between two datasets. This package is mainly designed to assist in
-conducting a systematic review with a meta-analysis but can be useful to
-any researcher interested in estimating an effect size.
+Automatically estimate 14 effect size measures from a well-formatted
+dataset, including Cohen's d, Hedges' g, mean difference, odds ratio, risk
+ratio, incidence rate ratio, risk difference, number needed to treat,
+Pearson correlation, Fisher's z, Cronbach's alpha, intraclass correlation
+coefficient, and single-group proportion. Provides a two-tier quality-flag
+diagnostic system for input validation and post-computation plausibility
+checks, missing-data guidance that tells users which columns would unlock
+additional estimators, post-hoc correction for attenuation due to
+measurement error, and standalone psychometric utilities (standard error
+of measurement, smallest detectable change, change-score reliability).
+Various other functions can help, for example, removing dependency between
+several effect sizes, or identifying differences between two datasets.
+This package is mainly designed to assist in conducting a systematic
+review with a meta-analysis but can be useful to any researcher interested
+in estimating an effect size.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EMMAgeo
-%global packver   0.9.10
+%global packname  ptetools
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          End-Member Modelling of Grain-Size Data
+Summary:          Panel Treatment Effects Tools
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5
-Requires:         R-core >= 4.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-caTools 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-caTools 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-BMisc >= 1.4.8
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DRDID 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-splines2 
+Requires:         R-CRAN-BMisc >= 1.4.8
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DRDID 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-splines2 
 
 %description
-End-member modelling analysis of grain-size data is an approach to unmix a
-data set's underlying distributions and their contribution to the data
-set. EMMAgeo provides deterministic and robust protocols for that purpose.
+Generic code for estimating treatment effects with panel data.  The idea
+is to break into separate steps organizing the data, looping over groups
+and time periods, computing group-time average treatment effects, and
+aggregating group-time average treatment effects.  Often, one is able to
+implement a new identification/estimation procedure by simply replacing
+the step on estimating group-time average treatment effects.  See several
+different examples of this approach in the package documentation.
 
 %prep
 %setup -q -c -n %{packname}

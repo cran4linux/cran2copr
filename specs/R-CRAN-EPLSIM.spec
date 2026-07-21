@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EPLSIM
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Linear Single Index Models for Environmental Mixture Analysis
 
@@ -37,13 +37,13 @@ Requires:         R-utils
 %description
 Collection of ancillary functions and utilities for Partial Linear Single
 Index Models for Environmental mixture analyses, which currently provides
-functions for scalar outcomes. The outputs of these functions include the
-single index function, single index coefficients, partial linear
-coefficients, mixture overall effect, exposure main and interaction
-effects, and differences of quartile effects. In the future, we will add
-functions for binary, ordinal, Poisson, survival, and longitudinal
-outcomes, as well as models for time-dependent exposures. See Wang et al
-(2020) <doi:10.1186/s12940-020-00644-4> for an overview.
+functions for scalar, binary and count outcomes. The outputs of these
+functions include the single index function, single index coefficients,
+partial linear coefficients, mixture overall effect, exposure main and
+interaction effects, and differences of quartile effects. In the future,
+we will add functions for ordinal, survival, and longitudinal outcomes, as
+well as models for time-dependent exposures. See Wang et al (2020)
+<doi:10.1186/s12940-020-00644-4> for an overview.
 
 %prep
 %setup -q -c -n %{packname}

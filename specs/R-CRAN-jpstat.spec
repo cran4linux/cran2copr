@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jpstat
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Easy Use of 'e-Stat', 'RESAS' API, Etc
+Summary:          Tools for Easy Use of the 'e-Stat' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,11 +24,12 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-navigatr >= 0.2.0
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-stickyr >= 0.1.3
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-stickyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-tibble >= 1.3.1
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-purrr >= 1.0.0
@@ -36,16 +37,16 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-navigatr >= 0.2.0
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-stickyr >= 0.1.3
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-stickyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-cli 
 
 %description
-Provides tools to use API such as 'e-Stat' (<https://www.e-stat.go.jp/>),
-the portal site for Japanese government statistics, and 'RESAS' (Regional
-Economy and Society Analyzing System, <https://resas.go.jp>).
+Provides tools to use the 'e-Stat' API (<https://www.e-stat.go.jp/>), the
+portal site for Japanese government statistics.
 
 %prep
 %setup -q -c -n %{packname}

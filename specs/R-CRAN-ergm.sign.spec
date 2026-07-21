@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergm.sign
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exponential-Family Models for Signed Networks
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-tergm
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-intergraph 
 BuildRequires:    R-CRAN-graphlayouts 
-BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-graphics 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-tergm
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-intergraph 
 Requires:         R-CRAN-graphlayouts 
-Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-purrr 
 Requires:         R-graphics 

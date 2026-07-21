@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  d3po
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Beautiful Interactive Visualization for 'Markdown' and 'Shiny'
+Summary:          Fast and Beautiful Interactive Visualization Based on the 'D3' Engine
 
 License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 
 %description
-Apache licensed alternative to 'Highcharter' which provides functions for
-both fast and beautiful interactive visualization for 'Markdown' and
-'Shiny'.
+A fully FOSS alternative to 'Highcharter' based on 'D3' which provides
+functions for both fast and beautiful interactive visualization for
+'Markdown' 'Shiny', and 'Tabler'.
 
 %prep
 %setup -q -c -n %{packname}

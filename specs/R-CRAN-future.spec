@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future
-%global packver   1.70.0
+%global packver   1.75.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.70.0
+Version:          1.75.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified Parallel and Distributed Processing in R for Everyone
 
-License:          LGPL (>= 2.1)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 

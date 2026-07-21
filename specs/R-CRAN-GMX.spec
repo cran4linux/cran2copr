@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GMX
-%global packver   0.9-2
+%global packver   0.9-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Graphical Model Checks for the Rasch Family of Models
 
@@ -22,17 +22,20 @@ Requires:         R-CRAN-psychotools
 
 %description
 The function plotLRT() draws pairwise graphical model checks for the Rasch
-Model (RM; Rasch, 1960), the Partial Credit Model(PCM; Masters, 1982), and
-the Rating Scale Model (RSM; Andrich, 1978) using the output object of
+Model (RM; Rasch, 1960), the Partial Credit Model (PCM; Masters, 1982),
+and the Rating Scale Model (RSM; Andrich, 1978) using the output object of
 eRm::LRtest(). The function cLRT() provides a conditional Likelihood Ratio
-Test (Andersen, 1973), using the routines of 'psychotools'. Users may
-choose to plot the threshold parameters, the cumulative thresholds, the
-average thresholds per item, or the person parameters. Extended coloring
-options allow for automated item-wise or threshold-wise coloring. For
-multi-group splits, all pairwise group comparisons are drawn
-automatically. For more details see Andersen (1973)
-<doi:10.1007/BF02291180>, Andrich (1978) <doi:10.1007/BF02293814>, Masters
-(1982) <doi:10.1007/BF02296272> and Rasch (1960, ISBN:9780598554512).
+Test (Andersen, 1973), using the routines of 'psychotools' (Zeileis et
+al., 2026). Users may choose to plot the threshold parameters, the
+cumulative thresholds, the average thresholds per item, or the person
+parameters. Extended coloring options allow for automated item-wise or
+threshold-wise coloring. For multi-group splits, all pairwise group
+comparisons are drawn automatically. The function plotMLT() draws a
+graphical model check for the Martin-Loef-Test (MLT). If type='persons',
+it draws scatterplots of the person parameter estimates of each pair of
+item sub-groups. If type='items', it draws a scatterplot of the
+item/threshold parameter estimates of each of the two sub-groups
+vertically against the estimates of the total sample horizontally.
 
 %prep
 %setup -q -c -n %{packname}
