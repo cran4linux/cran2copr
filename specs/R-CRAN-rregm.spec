@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rregm
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reparameterized Regression Models
 
@@ -34,14 +34,15 @@ Requires:         R-CRAN-skewMLRM
 
 %description
 Provides estimation and data generation tools for several new regression
-models, including the gamma, beta, inverse gamma and beta prime
-distributions. These models can be parameterized based on the mean,
-median, mode, geometric mean and harmonic mean, as specified by the user.
-For details, see Bourguignon and Gallardo (2025a)
+models, including the gamma, beta, inverse gamma, beta prime, log-normal
+and log-logistic distributions. These models can be parameterized based on
+the mean, median, mode, geometric mean and harmonic mean, except for the
+log-logistic model which is based on alternative parametrizations. For
+details, see Bourguignon and Gallardo (2025a)
 <doi:10.1016/j.chemolab.2025.105382> and Bourguignon and Gallardo (2025b)
-<doi:10.1111/stan.70007>. Additional tools are provided for higher-order
+<doi:10.1111/stan.70007>. The package also implements higher-order
 likelihood inference through Skovgaard-adjusted likelihood ratio
-statistics and for predictive shrinkage estimation in reparameterized beta
+statistics and predictive shrinkage estimators reparameterized beta
 regression models.
 
 %prep

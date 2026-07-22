@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PointFore
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Interpretation of Point Forecasts as State-Dependent Quantilesand Expectiles
+Version:          0.2.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Interpretation of Point Forecasts as State-Dependent Quantiles and Expectiles
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,20 +18,16 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gmm 
-BuildRequires:    R-boot 
-BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-MASS 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-gmm 
-Requires:         R-boot 
-Requires:         R-CRAN-car 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-MASS 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-sandwich 
 
 %description
@@ -42,12 +39,21 @@ realizations: the daily accumulated precipitation at London, UK from the
 high-resolution model of the European Centre for Medium-Range Weather
 Forecasts (ECMWF, <https://www.ecmwf.int/>) and GDP growth Greenbook data
 by the US Federal Reserve. See Schmidt, Katzfuss and Gneiting (2015)
-<arXiv:1506.01917> for more details on the identification and estimation
-of a directive behind a point forecast.
+<doi:10.48550/arXiv.1506.01917> for more details on the identification and
+estimation of a directive behind a point forecast.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -55,9 +61,10 @@ of a directive behind a point forecast.
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

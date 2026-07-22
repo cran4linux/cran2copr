@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmhc
-%global packver   0.2.10
+%global packver   0.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access, Retrieve, and Work with CMHC Data
 
@@ -20,19 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-digest >= 0.1
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-aws.s3 
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-digest >= 0.1
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-aws.s3 
 
 %description
 Wrapper around the Canadian Mortgage and Housing Corporation (CMHC) web

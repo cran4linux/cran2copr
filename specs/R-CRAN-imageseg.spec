@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  imageseg
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Learning Models for Image Segmentation
 
@@ -44,13 +45,13 @@ Requires:         R-CRAN-dplyr
 %description
 A general-purpose workflow for image segmentation using TensorFlow models
 based on the U-Net architecture by Ronneberger et al. (2015)
-<arXiv:1505.04597> and the U-Net++ architecture by Zhou et al. (2018)
-<arXiv:1807.10165>. We provide pre-trained models for assessing canopy
-density and understory vegetation density from vegetation photos. In
-addition, the package provides a workflow for easily creating model input
-and model architectures for general-purpose image segmentation based on
-grayscale or color images, both for binary and multi-class image
-segmentation.
+<doi:10.48550/arXiv.1505.04597> and the U-Net++ architecture by Zhou et
+al. (2018) <doi:10.48550/arXiv.1807.10165>. We provide pre-trained models
+for assessing canopy density and understory vegetation density from
+vegetation photos. In addition, the package provides a workflow for easily
+creating model input and model architectures for general-purpose image
+segmentation based on grayscale or color images, both for binary and
+multi-class image segmentation.
 
 %prep
 %setup -q -c -n %{packname}

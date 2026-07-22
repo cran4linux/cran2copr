@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastJM
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Joint Modeling of Longitudinal and Survival Data
 
@@ -30,6 +30,10 @@ BuildRequires:    R-CRAN-caret
 BuildRequires:    R-CRAN-pec 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-tidycmprsk 
+BuildRequires:    R-CRAN-ggsurvfit 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-rlang >= 0.4.11
@@ -45,6 +49,10 @@ Requires:         R-CRAN-caret
 Requires:         R-CRAN-pec 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-tidycmprsk 
+Requires:         R-CRAN-ggsurvfit 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 
 %description
 Implements scalable joint models for large-scale competing risks

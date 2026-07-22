@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mccca
-%global packver   2.2
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Class Specific Heterogeneous Tendencies in Categorical Data
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-wordcloud 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.11
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-wordcloud 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-stats 

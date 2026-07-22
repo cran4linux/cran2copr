@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lfebd3
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generation and Analysis of 3-Level and 5-Level Factorial Block Designs
+Summary:          Generation and Analysis of 3-Level, 4-Level and 5-Level Factorial Block Designs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,7 +27,7 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides tools to generate and analyze 3-level and 5-level linear
+Provides tools to generate and analyze 3-level, 4-level and 5-level linear
 factorial block designs, including complete factorial layouts, fractional
 factorial layouts, confounded factorial layouts, and design-characteristic
 summaries. The package includes utilities for recursive construction,

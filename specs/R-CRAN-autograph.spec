@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autograph
-%global packver   1.0.3
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Plotting and Theming of Many Graphs
 
@@ -14,22 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-ggraph >= 2.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-manynet 
 BuildRequires:    R-CRAN-ggdendro 
-BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-tidygraph 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-ggraph >= 2.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-manynet 
 Requires:         R-CRAN-ggdendro 
-Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-tidygraph 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggcube
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Plotting with 'ggplot2'
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-polyclip 
 BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-systemfonts 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-polyclip 
 Requires:         R-CRAN-isoband 
 Requires:         R-CRAN-systemfonts 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 A 'ggplot2' extension for creating 3D figures. Provides 3D geoms, stats,

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMediation
-%global packver   1.5.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation Analysis Confidence Intervals
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-graphics >= 4.1.0
 BuildRequires:    R-grDevices >= 4.1.0
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-cubature >= 2.1.0
 BuildRequires:    R-CRAN-lavaan >= 0.5.20
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-S7 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-graphics >= 4.1.0
 Requires:         R-grDevices >= 4.1.0
 Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-cubature >= 2.1.0
 Requires:         R-CRAN-lavaan >= 0.5.20
 Requires:         R-methods 
 Requires:         R-CRAN-S7 

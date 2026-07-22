@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BsplineQuantReg
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Constrained Quantile Regression with Cubic B-Splines'
+Summary:          'Constrained Quantile Regression with B-Splines'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,13 +21,17 @@ BuildRequires:    R-CRAN-CVXR
 Requires:         R-CRAN-CVXR 
 
 %description
-Quantile regression with cubic B-splines under monotonicity and convexity
-constraints using the Karlin-Studden SOCP formulation. The method is
-described in Abbes (2026) <doi:10.5281/zenodo.17427913>. This R
-implementation is intended for demonstration and prototyping; all B-spline
-and polynomial functions have been rewritten for consistency. A faster
-version written in 'Python' is available at
-<https://github.com/alexandreabbes/Constrained-Quantile-Regression-with-cubic-splines>.
+Quantile regression with B-splines under shape constraints. The initial
+version with cubic splines is now augmented with splines of degree 1 to 4.
+Constraints for degrees 3 (monotone) and 4 (monotone and convex) use the
+Karlin-Studden SOCP characterization for the sign of the polynomial, while
+other constraints applied at the knots are added as linear problems. The
+method for cubic splines is described in Abbes (2026)
+<doi:10.5281/zenodo.17427913>. Other formulations are simple consequences
+of the other given references. This R implementation is intended for
+demonstration and prototyping. All B-spline and polynomial functions have
+been rewritten for consistency. An equivalent Python package is available
+at <https://pypi.org/project/BsplineQuantRegpy/>.
 
 %prep
 %setup -q -c -n %{packname}

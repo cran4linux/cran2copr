@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  muttest
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mutation Testing
 
@@ -20,21 +20,29 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-treesitter.r >= 1.3.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mirai 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-treesitter 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-treesitter.r >= 1.3.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mirai 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-testthat 
+Requires:         R-tools 
 Requires:         R-CRAN-treesitter 
 Requires:         R-CRAN-withr 
 

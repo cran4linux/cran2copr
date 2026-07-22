@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastKRR
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Ridge Regression using 'RcppArmadillo'
 
@@ -38,12 +38,13 @@ enabling faster performance than pure R, improved numerical stability, and
 parallel execution with OpenMP where available. On systems without OpenMP
 support, the package automatically falls back to single-threaded execution
 with no user configuration required. For efficient model selection, it
-integrates with 'CVST' to provide sequential-testing cross-validation that
-identifies competitive hyperparameters without exhaustive grid search. The
-package offers a unified interface for exact kernel ridge regression and
-three scalable approximations—Nyström, Pivoted Cholesky, and Random
-Fourier Features—allowing analyses with substantially larger sample sizes
-than are feasible with exact KRR. It also integrates with the 'tidymodels'
+integrates with 'CVST' to provide sequential-testing cross-validation and
+additionally supports restricted maximum likelihood (REML) for continuous
+optimization of the regularization parameter. The package offers a unified
+interface for exact kernel ridge regression and three scalable
+approximations—Nyström, Pivoted Cholesky, and Random Fourier
+Features—allowing analyses with substantially larger sample sizes than are
+feasible with exact KRR. It also integrates with the 'tidymodels'
 ecosystem via the 'parsnip' model specification 'krr_reg', and the S3
 method tunable.krr_reg(). To understand the theoretical background, one
 can refer to Wainwright (2019) <doi:10.1017/9781108627771>.
