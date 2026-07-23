@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  command
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Command Line Arguments
 
@@ -18,19 +18,16 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
 Requires:         R-methods 
 Requires:         R-tools 
 
 %description
-Process command line arguments, as part of a data analysis workflow.
-'command' makes it easier to construct a workflow consisting of lots of
-small, self-contained scripts, all run from a Makefile or shell script.
-The aim is a workflow that is modular, transparent, and reliable.
+Process command line arguments, allowing scripts to behave like functions,
+with well-defined inputs and outputs. Helps make data analysis workflows
+more modular, and therefore more transparent, flexible, and reliable.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tabnet
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit 'TabNet' Models for Classification and Regression
 
@@ -69,7 +69,7 @@ Implements the 'TabNet' model by Sercan O. Arik et al. (2019)
 <doi:10.48550/arXiv.1908.07442> with 'Coherent Hierarchical Multi-label
 Classification Networks' by Giunchiglia et al.
 <doi:10.48550/arXiv.2010.10151> and provides a consistent interface for
-fitting and creating predictions. It's also fully compatible with the
+fitting and creating predictions.  It's also fully compatible with the
 'tidymodels' ecosystem.
 
 %prep

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dichromat
-%global packver   2.0-0.1
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Color Schemes for Dichromats
 
@@ -17,11 +18,16 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
 Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
 Collapse red-green or green-blue distinctions to simulate the effects of
-different types of color-blindness.
+different types of color-blindness based on the work of Françoise Viénot
+and co-authors, especially <doi:10.1038/376127a0> and
+<doi:10.1364/josaa.14.002647>. More recent functions for simulating color
+vision deficiency are provided in the 'colorspace' package.
 
 %prep
 %setup -q -c -n %{packname}

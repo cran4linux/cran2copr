@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmbcv
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multistate Model Bias-Corrected Robust Variance
 
@@ -20,9 +20,12 @@ BuildArch:        noarch
 
 %description
 Computes robust and bias-corrected sandwich variance estimators for
-multi-state Cox models with clustered time-to-event data. The methodology
-extends the marginal Cox model bias-correction framework of Wang et al.
-(2023) <doi:10.1002/bimj.202200113> to the multi-state setting.
+multi-state Cox models with clustered time-to-event data. Also provides
+Wald tests for heterogeneity, generalized least-squares linear trends, and
+order-restricted trends among transition-specific coefficients. The
+methodology extends the marginal Cox model bias-correction framework of
+Wang et al. (2023) <doi:10.1002/bimj.202200113> to the multi-state
+setting.
 
 %prep
 %setup -q -c -n %{packname}

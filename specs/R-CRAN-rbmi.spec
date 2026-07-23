@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbmi
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Based Multiple Imputation
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-assertthat
 BuildRequires:    R-CRAN-jinjar 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-mmrm 
 Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-Matrix 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-assertthat
 Requires:         R-CRAN-jinjar 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Implements standard and reference based multiple imputation methods for
@@ -46,8 +48,8 @@ deterministic conditional mean imputation and jackknifing as described in
 Wolbers et al.  (2022) <doi:10.1002/pst.2234>, Bayesian multiple
 imputation as described in Carpenter et al. (2013)
 <doi:10.1080/10543406.2013.834911>, and bootstrapped maximum likelihood
-imputation as described in von Hippel and Bartlett (2021) <doi:
-10.1214/20-STS793>.
+imputation as described in von Hippel and Bartlett (2021)
+<doi:10.1214/20-STS793>.
 
 %prep
 %setup -q -c -n %{packname}

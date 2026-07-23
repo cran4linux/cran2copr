@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Luminescence
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Luminescence Dating Data Analysis
 
@@ -16,33 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.4
 Requires:         R-core >= 4.4
-BuildRequires:    R-CRAN-mclust >= 6.1
-BuildRequires:    R-CRAN-XML >= 3.99.0.16
+BuildRequires:    R-CRAN-mclust >= 6.1.2
+BuildRequires:    R-CRAN-XML >= 3.99.0.23
 BuildRequires:    R-CRAN-DEoptim >= 2.2.8
-BuildRequires:    R-CRAN-lamW >= 2.2.3
-BuildRequires:    R-CRAN-httr >= 1.4.7
+BuildRequires:    R-CRAN-lamW >= 2.2.7
+BuildRequires:    R-CRAN-matrixStats >= 1.5.0
+BuildRequires:    R-CRAN-httr >= 1.4.8
 BuildRequires:    R-CRAN-shape >= 1.4.6
-BuildRequires:    R-CRAN-matrixStats >= 1.3.0
 BuildRequires:    R-CRAN-minpack.lm >= 1.2.4
 BuildRequires:    R-CRAN-data.table >= 1.18.2.1
 BuildRequires:    R-CRAN-interp >= 1.1.6
-BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-bbmle >= 1.0.25.1
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-mclust >= 6.1
-Requires:         R-CRAN-XML >= 3.99.0.16
+Requires:         R-CRAN-mclust >= 6.1.2
+Requires:         R-CRAN-XML >= 3.99.0.23
 Requires:         R-CRAN-DEoptim >= 2.2.8
-Requires:         R-CRAN-lamW >= 2.2.3
-Requires:         R-CRAN-httr >= 1.4.7
+Requires:         R-CRAN-lamW >= 2.2.7
+Requires:         R-CRAN-matrixStats >= 1.5.0
+Requires:         R-CRAN-httr >= 1.4.8
 Requires:         R-CRAN-shape >= 1.4.6
-Requires:         R-CRAN-matrixStats >= 1.3.0
 Requires:         R-CRAN-minpack.lm >= 1.2.4
 Requires:         R-CRAN-data.table >= 1.18.2.1
 Requires:         R-CRAN-interp >= 1.1.6
+Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-bbmle >= 1.0.25.1
-Requires:         R-CRAN-Rcpp >= 1.1.0
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-parallel 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbiodatacr
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for the BIODATACR Biodiversity Data Platform of Costa Rica
 
@@ -32,8 +32,8 @@ Requires:         R-CRAN-purrr
 Provides functions to query occurrence records, species information, and
 datasets from BIODATACR <https://biodiversidad.go.cr>, the national
 biodiversity information platform of Costa Rica managed by the Technical
-Office of CONAGEBIO, Costa Rica. Built on the Atlas of Living Australia
-(ALA) API infrastructure.
+Office of CONAGEBIO. Built on the Atlas of Living Australia (ALA) API
+infrastructure.
 
 %prep
 %setup -q -c -n %{packname}

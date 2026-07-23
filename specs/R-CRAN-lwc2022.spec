@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lwc2022
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Langa-Weir Classification of Cognitive Function for 2022 HRS Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-dplyr 
@@ -29,7 +29,7 @@ functions for data preprocessing, scoring, and classification allowing
 users to easily apply the Langa-Weir classification system. For details
 regarding the; HRS <https://hrsdata.isr.umich.edu/> and Langa-Weir
 classifications
-<https://hrsdata.isr.umich.edu/data-products/langa-weir-classification-cognitive-function-1995-2020>.
+<https://hrsdata.isr.umich.edu/data-products/langa-weir-classification-cognitive-function-1995-2022>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AMCP
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Model Comparison Perspective
+Summary:          Data Sets to Accompany Designing Experiments and Analyzing Data: A Model Comparison Perspective (Maxwell, Delaney, and Kelley, 2027, 4th Edition)
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 
 %description
-Accompanies the book "Designing experiments and analyzing data: A model
-comparison perspective" (3rd ed.) by Maxwell, Delaney, & Kelley (2018;
-Routledge). Contains all of the data sets in the book's chapters and
-end-of-chapter exercises. Information about the book is available at
-<https://designingexperiments.com/>.
+Data sets that accompany the book "Designing experiments and analyzing
+data: A model comparison perspective" (4th ed.) by Maxwell, Delaney, and
+Kelley (2027; ISBN 978-1-041-25384-6; Routledge). Contains all of the data
+sets in the book's chapters and end-of-chapter exercises. Beginning with
+version 2.0, the package is tailored to the 4th edition of the book; for
+the data as distributed with the 3rd edition (2018), install the archived
+version 1.0.2 from CRAN. We recommend the 'DMAR' package as the companion
+for carrying out the book's analyses; these analyses are illustrated in
+the book itself using the 'MBESS' package, which may be used as well. The
+book's companion website is available at
+<https://designingexperiments.com/> and its publisher page at
+<https://www.routledge.com/Designing-Experiments-and-Analyzing-Data-A-Model-Comparison-Perspective/Maxwell-Delaney-Kelley/p/book/9781041253846>.
 
 %prep
 %setup -q -c -n %{packname}

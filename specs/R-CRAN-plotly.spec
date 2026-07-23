@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotly
-%global packver   4.12.0
+%global packver   4.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.12.0
+Version:          4.12.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interactive Web Graphics via 'plotly.js'
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-httr >= 1.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-lazyeval >= 0.2.0
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-magrittr 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-httr >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-lazyeval >= 0.2.0
 Requires:         R-tools 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-magrittr 

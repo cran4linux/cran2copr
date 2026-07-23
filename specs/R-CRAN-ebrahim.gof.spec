@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebrahim.gof
-%global packver   2.1.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ebrahim-Farrington Goodness-of-Fit Test for Logistic Regression
+Summary:          Goodness-of-Fit and Calibration Tests for Logistic Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+Requires:         R-parallel 
 Requires:         R-stats 
 
 %description
-Implements the Ebrahim-Farrington goodness-of-fit test for logistic
-regression models, particularly effective for sparse data and binary
-outcomes. This test provides an improved alternative to the traditional
-Hosmer-Lemeshow test by using a modified Pearson chi-square statistic with
-data-dependent grouping. The test is based on Farrington (1996)
-theoretical framework but simplified for practical implementation with
-binary data. Includes functions for both the original Farrington test (for
-grouped data) and the new Ebrahim-Farrington test (for binary data with
-automatic grouping), the Directed Ebrahim-Farrington (DEF) test that
-targets calibration-shape departures, and an ensemble that combines the
-DEF bases via the Cauchy combination test. Also provides 'run.all.gof()',
-which runs a battery of classical and modern goodness-of-fit and
-calibration tests (including McCullagh, Osius-Rojek, le Cessie-van
-Houwelingen, Stute-Zhu, and the GiViTI calibration test) in one call. For
+Provides a unified battery of goodness-of-fit and calibration tests for
+binary logistic regression, runnable in a single call via 'run.all.gof()'.
+The package introduces the author's own tests aimed at sparse data --- the
+omnibus Ebrahim-Farrington (EF) test, the Directed EF ('EDGE') test that
+targets smooth calibration-shape departures, and a Cauchy-combination
+ensemble --- and aggregates a wide range of classical and modern tests for
+comparison, including Hosmer-Lemeshow, McCullagh, Osius-Rojek, le
+Cessie-van Houwelingen, Stute-Zhu, the binary-adaptive 'BAGofT' test, and
+the 'GiViTI' calibration test (each obtained from its own package, where
+installed, and attributed to its authors). The tools are particularly
+suited to sparse data, where the Hosmer-Lemeshow test loses power. For
 more details see Hosmer (1980) <doi:10.1080/03610928008827941> and
 Farrington (1996) <doi:10.1111/j.2517-6161.1996.tb02086.x>.
 

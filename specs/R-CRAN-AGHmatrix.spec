@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AGHmatrix
-%global packver   2.1.4
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relationship Matrices for Diploid and Autopolyploid Species
 
@@ -16,15 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo >= 1.8.6
-BuildRequires:    R-CRAN-Matrix >= 1.2.7.1
-Requires:         R-CRAN-zoo >= 1.8.6
-Requires:         R-CRAN-Matrix >= 1.2.7.1
+BuildRequires:    R-CRAN-matrixStats >= 1.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-matrixStats >= 1.5.0
+Requires:         R-CRAN-Rcpp >= 1.1.0
 
 %description
-Computation of A (pedigree), G (genomic-base), and H (A corrected by G)
-relationship matrices for diploid and autopolyploid species. Several
+Fast computation of A (pedigree), G (genomic-base), and H (A corrected by
+G) relationship matrices for diploid and autopolyploid species. Several
 methods are implemented considering additive and non-additive models.
 
 %prep

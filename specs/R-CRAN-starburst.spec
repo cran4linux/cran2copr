@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  starburst
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless AWS Cloud Bursting for Parallel R Workloads
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-globals
 BuildRequires:    R-CRAN-paws.compute 
 BuildRequires:    R-CRAN-paws.storage 
 BuildRequires:    R-CRAN-paws.management 
+BuildRequires:    R-CRAN-paws.cost.management 
 BuildRequires:    R-CRAN-paws.security.identity 
 BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-uuid 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-globals
 Requires:         R-CRAN-paws.compute 
 Requires:         R-CRAN-paws.storage 
 Requires:         R-CRAN-paws.management 
+Requires:         R-CRAN-paws.cost.management 
 Requires:         R-CRAN-paws.security.identity 
 Requires:         R-CRAN-qs2 
 Requires:         R-CRAN-uuid 

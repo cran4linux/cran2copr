@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geosapi
-%global packver   0.8
+%global packver   0.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          GeoServer REST API R Interface
 
@@ -42,7 +42,7 @@ Web-Services. The package currently supports all CRUD
 namespaces, datastores (stores of vector data), featuretypes, layers,
 styles, as well as vector data upload operations. For more information
 about the GeoServer REST API, see
-<https://docs.geoserver.org/stable/en/user/rest/>.
+<https://docs.geoserver.org/main/en/user/rest/>.
 
 %prep
 %setup -q -c -n %{packname}

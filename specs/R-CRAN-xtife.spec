@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xtife
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive Fixed Effects Estimator for Balanced Panel Data
+Summary:          Interactive Fixed Effects Estimator for Panel Data
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,13 +22,22 @@ Requires:         R-stats
 
 %description
 Implements the interactive fixed effects ('IFE') panel estimator of Bai
-(2009) <doi:10.3982/ECTA6135> with analytical standard errors
-('homoskedastic', 'HC1' robust, and cluster-robust by unit). Supports
-asymptotic bias correction for large panels (Bai 2009) and a dynamic
-extension for predetermined regressors (Moon and Weidner 2017
-<doi:10.1017/S0266466615000328>). Includes information-criterion-based
-factor number selection (Bai and Ng 2002 <doi:10.1111/1468-0262.00273>).
-All computations use base R only with no external dependencies.
+(2009) <doi:10.3982/ECTA6135> for balanced and unbalanced panels, with
+optional additive unit and/or time fixed effects. Provides analytical
+standard errors ('homoskedastic', 'HC1' heteroskedasticity-robust,
+cluster-robust by unit, and heteroskedasticity- and autocorrelation-
+consistent), together with asymptotic incidental-parameter bias correction
+for large panels, including a dynamic extension for predetermined
+(lagged-dependent) regressors following Moon and Weidner (2017)
+<doi:10.1017/S0266466615000328>. The number of factors is chosen by
+information criteria (Bai and Ng 2002 <doi:10.1111/1468-0262.00273>) or by
+singular value thresholding. Unbalanced panels are handled by an
+expectation-maximisation algorithm with nuclear-norm-regularised
+initialisation, with estimation, analytical inference, and bias correction
+following Su, Wang and Wang (2025) <doi:10.2139/ssrn.5177283> and building
+on the matrix-completion and missing-data factor analysis of Bai and Ng
+(2021) <doi:10.1080/01621459.2021.1967163>. All computations use base R
+only, with no external dependencies.
 
 %prep
 %setup -q -c -n %{packname}

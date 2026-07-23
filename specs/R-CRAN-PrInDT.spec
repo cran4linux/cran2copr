@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PrInDT
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction and Interpretation in Decision Trees for Classification and Regression
 
@@ -60,13 +60,13 @@ implemented in functions C2SPrInDT() and R2SPrInDT() as well as
 interdependent multilabel models in functions SimCPrInDT() and
 SimRPrInDT(). Finally, for mixtures of classification and regression
 models functions Mix2SPrInDT() and SimMixPrInDT() are implemented. Most of
-these extensions of PrInDT are described in Buschfeld & Weihs (2025Fc).
-References: -- Buschfeld, S., Weihs, C. (2025Fc) "Optimizing decision
-trees for the analysis of World Englishes and sociolinguistic data",
-Cambridge Elements. -- Weihs, C., Buschfeld, S. (2021a) "Combining
-Prediction and Interpretation in Decision Trees (PrInDT) - a Linguistic
-Example" <doi:10.48550/arXiv.2103.02336>; -- Weihs, C., Buschfeld, S.
-(2021b) "NesPrInDT: Nested undersampling in PrInDT"
+these extensions of PrInDT are described in Buschfeld & Weihs (2026).
+References: -- Buschfeld, S., Weihs, C. (2026) "Optimizing decision trees
+for the analysis of World Englishes and sociolinguistic data", Cambridge
+Elements. <doi:10.1017/9781009470346>; -- Weihs, C., Buschfeld, S. (2021a)
+"Combining Prediction and Interpretation in Decision Trees (PrInDT) - a
+Linguistic Example" <doi:10.48550/arXiv.2103.02336>; -- Weihs, C.,
+Buschfeld, S. (2021b) "NesPrInDT: Nested undersampling in PrInDT"
 <doi:10.48550/arXiv.2103.14931>; -- Weihs, C., Buschfeld, S. (2021c)
 "Repeated undersampling in PrInDT (RePrInDT): Variation in undersampling
 and prediction, and ranking of predictors in ensembles"

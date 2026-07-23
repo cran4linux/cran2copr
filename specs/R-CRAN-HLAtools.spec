@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HLAtools
-%global packver   1.6.3
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for HLA Immunogenomics
 
@@ -47,7 +47,7 @@ alleles and GLSCs across ImmunoPolymorphism Database (IPD) IMGT/HLA
 Database release versions, identify differences between pairs of alleles
 at a locus, generate customized, multi-position sequence alignments, trim
 and convert allele-names across nomenclature epochs, and extend existing
-data-analysis methods.
+data-analysis methods. Tran et al., (2025) <doi:10.1111/iji.70013>.
 
 %prep
 %setup -q -c -n %{packname}
