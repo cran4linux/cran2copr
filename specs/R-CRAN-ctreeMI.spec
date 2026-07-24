@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctreeMI
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Inference Trees with Stacked Multiple Imputation
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mice >= 3.0.0
 BuildRequires:    R-CRAN-partykit >= 1.2.0
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-mice >= 3.0.0
 Requires:         R-CRAN-partykit >= 1.2.0
+Requires:         R-stats 
 Requires:         R-methods 
 
 %description

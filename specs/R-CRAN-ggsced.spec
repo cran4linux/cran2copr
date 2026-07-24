@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsced
-%global packver   0.1.7
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities and Helpers for Single Case Experimental Design (SCED) using 'ggplot2'
 
@@ -22,11 +22,13 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-assert 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-assert 
+Requires:         R-CRAN-dplyr 
 
 %description
 Provides specialized visualization tools for Single-Case Experimental

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RGraphSpace
-%global packver   1.4.1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight Interface Between 'igraph' and 'ggplot2' Graphics
 
@@ -41,14 +41,14 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-lifecycle 
 
 %description
-An interface to integrate 'igraph' and 'ggplot2' graphics within a
-normalized coordinate system. 'RGraphSpace' extends 'ggplot2' with
-graph-aware geometries optimized for large networks. The 'GraphSpace'
-class integrates directly with 'ggplot2' through specialized 'geoms' and
-lazy resolution of node attributes, supporting customization of aesthetics
-and visual styles. These 'geoms' use a dual-anchor normalization approach
-to align layers, particularly useful for analyses in which network
-elements must be spatially aligned with reference maps and images.
+An interface for rendering 'igraph' objects as 'ggplot2' graphics within a
+normalized coordinate space. 'RGraphSpace' implements new geometries that
+treat a graph as a single coherent object, synchronizing node and edge
+layers under standard aesthetic mappings. Node features are resolved on
+demand, supporting high-dimensional data without expanding node tables.
+Spatial alignment is available at the pixel level, with node coordinates
+anchored to pixel centers through a half-pixel offset, enabling precise
+node positioning over external reference frames such as images and maps.
 
 %prep
 %setup -q -c -n %{packname}

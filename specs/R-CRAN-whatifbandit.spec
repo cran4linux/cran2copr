@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  whatifbandit
-%global packver   0.3.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyzing Randomized Experiments as Multi-Arm Bandits
+Summary:          Analyzing Randomized Experiments Using Multi-Arm Bandits
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.18.0
 BuildRequires:    R-CRAN-bandit 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-clubSandwich 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-estimatr 
 BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-randomizr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-data.table >= 1.18.0
 Requires:         R-CRAN-bandit 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-clubSandwich 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-estimatr 
 Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-randomizr 
 Requires:         R-CRAN-rlang 
@@ -41,16 +45,13 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 
 %description
-Simulates the results of completed randomized controlled trials, as if
-they had been conducted as adaptive Multi-Arm Bandit (MAB) trials instead.
-Augmented inverse probability weighted estimation (AIPW), outlined by
-Hadad et al. (2021) <doi:10.1073/pnas.2014602118>, is used to robustly
-estimate the probability of success for each treatment arm under the
-adaptive design. Provides customization options to simulate
-perfect/imperfect information, stationary/non-stationary bandits, blocked
-treatment assignments, along with control augmentation, and other hybrid
-strategies for assigning treatment arms. The methods used in simulation
-were inspired by Offer-Westort et al.  (2021) <doi:10.1111/ajps.12597>.
+Simulates response-adaptive experimental trials using Multi-Arm Bandits.
+Adaptive robust estimators defined in Hadad et al. (2021)
+<doi:10.1073/pnas.2014602118> and Offer-Westort et al. (2021)
+<doi:10.1111/ajps.12597> are used to robustly estimate conditional
+expectations and treatment effects. Provides significant simulation
+customization options for imperfect information, non-stationary bandits,
+and increased exploration strategies for assignments.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppParallel
-%global packver   5.1.11-2
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.11.2
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Programming Tools for 'Rcpp'
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    tbb-devel
 Requires:         tbb-devel
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 
 %description
 High level functions for parallel programming with 'Rcpp'. For example,

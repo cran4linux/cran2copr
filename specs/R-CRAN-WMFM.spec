@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WMFM
-%global packver   1.0.4
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore Fitted Linear and Generalised Linear Models with 'shiny'
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-ellmer 
+BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-glue 
@@ -38,6 +39,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-ellmer 
+Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-glue 

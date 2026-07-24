@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rBahadur
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assortative Mating Simulation and Multivariate Bernoulli Variates
 
@@ -18,14 +18,17 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Simulation of phenotype / genotype data under assortative mating. Includes
-functions for generating Bahadur order-2 multivariate Bernoulli variables
-with general and diagonal-plus-low-rank correlation structures. Further
-details are provided in: Border and Malik (2022)
-<doi:10.1101/2022.10.13.512132>.
+Simulation of phenotype / genotype data under assortative and
+disassortative mating. Includes functions for generating Bahadur order-2
+multivariate Bernoulli variables with general and diagonal-plus-low-rank
+correlation structures, and for writing simulated genotypes to disk as
+binary int8 or PLINK bed files. Further details are provided in: Border
+and Malik (2023) <doi:10.1186/s12859-023-05442-6>.
 
 %prep
 %setup -q -c -n %{packname}

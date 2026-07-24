@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoME
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Checks on MEDITS Trawl Survey Data
 
@@ -56,8 +56,7 @@ No automatic correction is applied: the package detects errors, warns the
 user, and specifies the type of error to ease data correction. Checks can
 be run simultaneously on multi-year datasets. An embedded 'shiny'
 application is also provided via run_RoME_app(). References describing the
-methods: MEDITS Working Group (2017)
-<https://www.sibm.it/MEDITS%%202011/principaledownload.htm>.
+methods: MEDITS Working Group (2017).
 
 %prep
 %setup -q -c -n %{packname}

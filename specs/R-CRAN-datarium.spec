@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datarium
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Bank for Statistical Analysis and Visualization
 
@@ -21,7 +21,10 @@ BuildArch:        noarch
 %description
 Contains data organized by topics: categorical data, regression model,
 means comparisons, independent and repeated measures ANOVA, mixed ANOVA
-and ANCOVA.
+and ANCOVA. The package code is under GPL-2; the data sets are covered by
+the terms in the 'LICENSE.note' file (the author's data sets under CC0
+1.0, and the 'heartdisease' data under CC BY 4.0, see the 'heartdisease'
+help page).
 
 %prep
 %setup -q -c -n %{packname}

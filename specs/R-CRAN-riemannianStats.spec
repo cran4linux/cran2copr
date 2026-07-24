@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riemannianStats
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Riemannian Statistics for Dimensionality Reduction and Visualization
+Summary:          Riemannian Methods for Principal Component Analysis, Regression and Visualization
 
 License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,19 +22,25 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-uwot 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-dbscan 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
 Requires:         R-CRAN-uwot 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-dbscan 
 
 %description
-Provides tools for applying statistical methods on Riemannian manifolds
-using local geometry derived from Uniform Manifold Approximation and
-Projection (UMAP). The package enables dimensionality reduction,
-visualization, and analysis of complex data through Riemannian versions of
-principal component analysis and related multivariate methods. Methods are
-based on McInnes et al. (2018) <doi:10.21105/joss.00861>.
+Provides tools for statistical analysis on Riemannian manifolds using
+local geometry derived from Uniform Manifold Approximation and Projection
+(UMAP), Isometric Mapping (Isomap), and Density-Based Spatial Clustering
+of Applications with Noise (DBSCAN). The package supports dimensionality
+reduction, visualization, Riemannian principal component analysis, and
+Riemannian linear regression for multivariate data analysis. Methods based
+on Uniform Manifold Approximation and Projection follow McInnes et al.
+(2018) <doi:10.21105/joss.00861>.
 
 %prep
 %setup -q -c -n %{packname}

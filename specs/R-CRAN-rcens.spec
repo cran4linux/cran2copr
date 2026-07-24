@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcens
-%global packver   0.1.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Sample Censoring
 
@@ -23,7 +23,10 @@ Provides functions to generate censored samples of type I, II and III,
 from any random sample generator. It also supplies the option to create
 left and right censorship. Along with this, the generation of samples with
 interval censoring is in the testing phase, with two options of fixed
-length intervals and random lengths.
+length intervals and random lengths. Additional functions generate complex
+inspection, delayed-entry, hybrid, progressive, covariate-dependent,
+frailty-dependent, and competing-risk observation structures while
+retaining a consistent and verifiable data object.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jmotif
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Analysis Toolkit Based on Symbolic Aggregate Discretization, i.e. SAX
 
@@ -23,9 +23,8 @@ Requires:         R-stats
 
 %description
 Implements time series z-normalization, SAX, HOT-SAX, VSM, SAX-VSM,
-RePair, and RRA algorithms facilitating time series motif (i.e., recurrent
-pattern), discord (i.e., anomaly), and characteristic pattern discovery
-along with interpretable time series classification.
+RePair, and RRA algorithms for time series discord (anomaly) discovery,
+grammatical compression, and interpretable time series classification.
 
 %prep
 %setup -q -c -n %{packname}

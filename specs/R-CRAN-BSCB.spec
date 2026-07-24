@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BSCB
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Simultaneous Credible Bands for Polynomial Regression
 
@@ -37,9 +37,9 @@ Hamiltonian Monte Carlo (HMC) using 'cmdstanr', and a non-informative
 independent Jeffreys prior approach. Also includes functions for computing
 the empirical simultaneous coverage rate (ESCR) and posterior simultaneous
 coverage probability (PSCP), enabling performance comparison across
-methods. The methodology is described in: Yang, F., Han, Y., Liu, W., &
-Hall, I. (2026). "Bayesian simultaneous credible bands for polynomial
-regression" <doi:10.48550/arXiv.2606.28015>.
+methods. The methodology is described in: Yang et al. (2026). "Bayesian
+simultaneous credible bands for polynomial regression"
+<doi:10.48550/arXiv.2606.28015>.
 
 %prep
 %setup -q -c -n %{packname}

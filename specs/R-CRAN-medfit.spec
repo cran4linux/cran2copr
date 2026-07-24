@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  medfit
-%global packver   0.2.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Mediation Model Fitting and Extraction
 
@@ -38,10 +38,12 @@ foundation package for the mediation analysis ecosystem, supporting
 interfaces for model fitting across different engines (currently
 generalized linear models, with future support for mixed models and
 Bayesian methods), standardized extraction of mediation paths from various
-model types, and robust bootstrap inference methods. Mediation inference
-methods are described in MacKinnon, Lockwood and Williams (2004)
-<doi:10.1207/s15327906mbr3901_4> and Tofighi and MacKinnon (2011)
-<doi:10.3758/s13428-011-0076-x>.
+model types, and robust bootstrap inference methods. Mediation methods are
+described in MacKinnon, Lockwood and Williams (2004)
+<doi:10.1207/s15327906mbr3901_4>, Preacher and Hayes (2008)
+<doi:10.3758/brm.40.3.879>, Tofighi and MacKinnon (2011)
+<doi:10.3758/s13428-011-0076-x>, and VanderWeele (2014)
+<doi:10.1097/EDE.0000000000000121>.
 
 %prep
 %setup -q -c -n %{packname}

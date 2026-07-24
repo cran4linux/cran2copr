@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wbCorr
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bivariate Within- and Between-Cluster Correlations
 
@@ -24,12 +24,14 @@ Requires:         R-CRAN-writexl
 
 %description
 Separates supplied variables into within- and between-cluster components
-and calculates bivariate correlations for each level separately. The
-centered-score decomposition corresponds to commonly used between- and
-within-cluster correlations discussed by Tu et al. (2025)
-<doi:10.1002/sim.10326>. The package is also motivated by the distinction
-between within- and between-person variation described by Curran and Bauer
-(2011) <doi:10.1146/annurev.psych.093008.100356> and by Hamaker (2024)
+and calculates bivariate correlations for each level separately. For
+Pearson correlations, the centered-score decomposition corresponds to
+commonly used between- and within-cluster correlations reviewed by Tu et
+al. (2025) <doi:10.1002/sim.10326>. The package's descriptive Spearman
+option is distinct from the clustered rank parameters introduced in that
+paper. The package is also motivated by the distinction between within-
+and between-person variation described by Curran and Bauer (2011)
+<doi:10.1146/annurev.psych.093008.100356> and by Hamaker (2024)
 <doi:10.1080/00273171.2022.2155930>. The package is intended for
 longitudinal or otherwise clustered data where researchers need
 transparent correlation matrices before fitting more complex multilevel

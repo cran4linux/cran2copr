@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tweedieDistr
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tweedie Distribution
 
@@ -33,7 +33,7 @@ parameterisation with power parameter in (1, 2). The density is evaluated
 using the series expansion of Dunn and Smyth (2005)
 <doi:10.1007/s11222-005-4070-y>, implemented in C++ via 'Rcpp' and
 'RcppArmadillo' for performance. A constructor compatible with the
-distributional package is also provided for use in tidy modelling
+'distributional' package is also provided for use in tidy modelling
 workflows.
 
 %prep

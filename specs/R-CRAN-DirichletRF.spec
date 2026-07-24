@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DirichletRF
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          "Dirichlet Random Forest"
+Summary:          Dirichlet Random Forest
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,14 +23,16 @@ Requires:         R-parallel
 
 %description
 Implementation of the Dirichlet Random Forest algorithm for compositional
-response data. Supports maximum likelihood estimation ('MLE') and
-method-of-moments ('MOM') parameter estimation for the Dirichlet
-distribution. Provides two prediction strategies; averaging-based
-predictions (average of responses within terminal nodes) and
-parameter-based predictions (expected value derived from the estimated
-Dirichlet parameters within terminal nodes). For more details see
-Masoumifard, van der Westhuizen, and Gardner-Lubbe (2026,
-ISBN:9781032903910).
+response data. Trees are grown using a Dirichlet log-likelihood splitting
+criterion, with maximum likelihood ('MLE') and method-of-moments ('MOM')
+parameter estimation. Provides averaging-based predictions (average of
+responses within terminal nodes), parameter-based predictions (expected
+value derived from the estimated Dirichlet parameters within terminal
+nodes), and distributional predictions represented as a weighted
+distribution over the training responses. Out-of-bag estimation and
+impurity- and permutation-based variable importance are also supported.
+For more details see Masoumifard, van der Westhuizen, and Gardner-Lubbe
+(2026, ISBN:9781032903910).
 
 %prep
 %setup -q -c -n %{packname}

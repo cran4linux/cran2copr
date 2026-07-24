@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BOLDconnectR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve, Transform and Analyze the Barcode of Life Data Systems Data
 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.1
 BuildRequires:    R-CRAN-sf >= 0.9.4
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ape >= 5.5
@@ -46,7 +46,7 @@ Requires:         R-CRAN-tidyr >= 1.1.1
 Requires:         R-CRAN-dplyr >= 1.0.1
 Requires:         R-CRAN-sf >= 0.9.4
 Requires:         R-methods 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rnaturalearth 
 Requires:         R-utils 
 

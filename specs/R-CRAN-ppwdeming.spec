@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ppwdeming
-%global packver   2.1.0
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precision Profile Weighted Deming Regression
 
@@ -37,7 +37,12 @@ investigation. The following reference provides further information on
 mathematical derivations and applications. Hawkins, D.M., and J.J. Kraker
 (2026). 'Precision Profile Weighted Deming Regression for Methods
 Comparison'. The Journal of Applied Laboratory Medicine 11, 379-392
-<doi:10.1093/jalm/jfaf183>.
+<doi:10.1093/jalm/jfaf183>. Weighted Deming regression is also now
+implemented for multiple instruments , as set out in Hawkins, D.M., and
+J.J. Kraker (2026). 'Multiple Instrument Methods Comparison by Precision
+weighted Deming Regression', on Arxiv <doi:10.48550/arXiv.2607.11776>. The
+“multi” functions refer to the multiple instrument analysis, and the "PWD"
+functions refer to the two-instrument.
 
 %prep
 %setup -q -c -n %{packname}
