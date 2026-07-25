@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vismi
-%global packver   0.9.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visual Diagnostics for Multiple Imputation
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.1
-BuildRequires:    R-CRAN-mixgb >= 2.2.3
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
@@ -35,7 +34,6 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-trelliscopejs 
 Requires:         R-CRAN-ggplot2 >= 4.0.1
-Requires:         R-CRAN-mixgb >= 2.2.3
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 

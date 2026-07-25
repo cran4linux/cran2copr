@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mritc
-%global packver   0.5-3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MRI Tissue Classification
 
@@ -14,16 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-misc3d >= 0.8.1
-BuildRequires:    R-CRAN-oro.nifti >= 0.4.0
-BuildRequires:    R-CRAN-lattice >= 0.18.8
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-methods 
-Requires:         R-CRAN-misc3d >= 0.8.1
-Requires:         R-CRAN-oro.nifti >= 0.4.0
-Requires:         R-CRAN-lattice >= 0.18.8
+BuildRequires:    R-CRAN-oro.nifti 
 Requires:         R-methods 
+Requires:         R-CRAN-oro.nifti 
 
 %description
 Implements various methods for tissue classification in magnetic resonance

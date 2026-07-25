@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fuzzystring
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Fuzzy String Joins for Data Frames
 
@@ -33,7 +33,10 @@ result assembly to reduce overhead in large joins, while adaptive
 candidate planning avoids unnecessary distance evaluations in
 single-column string joins. Suitable for reconciling misspellings,
 inconsistent labels, and other near-match identifiers while optionally
-returning the computed distance for each match.
+returning the computed distance for each match. Bibliographic references
+include the 'stringdist' package documentation (2014)
+<https://CRAN.R-project.org/package=stringdist> and Robinson, D. (2015)
+<https://github.com/dgrtwo/fuzzyjoin>.
 
 %prep
 %setup -q -c -n %{packname}

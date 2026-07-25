@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clmplus
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tool-Box of Chain Ladder Plus Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-StMoMo 
 BuildRequires:    R-CRAN-ChainLadder 
@@ -33,10 +33,10 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-reshape2 
 
 %description
-Implementation of the age–period–cohort models for claim development
-presented in Pittarello G, Hiabu M, Villegas A (2025) “Replicating and
-Extending Chain‑Ladder via an Age–Period–Cohort Structure on the Claim
-Development in a Run‑Off Triangle” <doi:10.1080/10920277.2025.2496725>.
+Implementation of the age-period-cohort models for the claim development
+presented in the manuscript 'Replicating and extending chain-ladder via an
+age-period-cohort structure on the claim development in a run-off
+triangle' <doi:10.1080/10920277.2025.2496725>.
 
 %prep
 %setup -q -c -n %{packname}

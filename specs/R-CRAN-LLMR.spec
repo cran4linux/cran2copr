@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMR
-%global packver   0.8.10
+%global packver   0.8.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.10
+Version:          0.8.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for Large Language Model APIs in R
 
@@ -55,11 +55,10 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-tidyselect 
 
 %description
-Provides a unified interface to large language models across multiple
-providers. Supports text generation, tidy data workflows, structured
-output with optional JSON Schema validation, XML-like tag extraction, and
-embeddings. Includes chat sessions, consistent error handling, and
-parallel batch tools.
+One interface to many large language model providers: a single
+configuration object and a single calling function serve chat and
+embedding models alike, so research code does not change when the provider
+does. The same calls scale to multi-model and multi-condition studies.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  factoextra
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract and Visualize the Results of Multivariate Data Analyses
 
@@ -42,11 +42,12 @@ multivariate data analyses, including 'PCA' (Principal Component
 Analysis), 'CA' (Correspondence Analysis), 'MCA' (Multiple Correspondence
 Analysis), 'FAMD' (Factor Analysis of Mixed Data), 'MFA' (Multiple Factor
 Analysis), and 'HMFA' (Hierarchical Multiple Factor Analysis) from
-different R packages. It also includes support for supplementary
-qualitative variables in 'FactoMineR' 'FAMD' and 'MFA' workflows, hardened
-validation for clustering and dimension-reduction helper workflows,
-backward-compatible phylogenetic dendrogram layout support for current
-'igraph' APIs, and 'ggplot2'-based data visualization.
+different R packages. It standardizes coordinates, squared cosines,
+contributions, and eigenvalues from several analysis backends and produces
+'ggplot2'-based factor maps, scree plots, contribution plots, clustering
+diagnostics, dendrograms, and silhouette plots. It also visualizes
+two-dimensional 'UMAP' and t-SNE embeddings and adapts precomputed or
+'tidymodels' principal-component results for the same plotting interface.
 
 %prep
 %setup -q -c -n %{packname}

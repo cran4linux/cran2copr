@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brickster
-%global packver   0.2.13
+%global packver   0.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
+Version:          0.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Toolkit for 'Databricks'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.1.1
+BuildRequires:    R-CRAN-httr2 >= 1.3.0
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-curl 
@@ -31,12 +31,13 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nanoarrow 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.1.1
+Requires:         R-CRAN-httr2 >= 1.3.0
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
@@ -50,6 +51,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-nanoarrow 
+Requires:         R-CRAN-processx 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 

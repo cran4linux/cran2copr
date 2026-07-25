@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  expowo
-%global packver   3.0
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Mining Global Plant Diversity and Distribution Data
 
@@ -54,14 +54,13 @@ Requires:         R-CRAN-viridisLite
 
 %description
 Produces diversity estimates and species lists with associated global
-distribution for any vascular plant family and genus from 'Plants of the
-World Online' database <https://powo.science.kew.org/>, by interacting
-with the source code of each plant taxon page. It also creates global maps
-of species richness, graphics of species discoveries and name changes over
-time. For more details: 'Zuanny, D.C., B.Vilela, P.W.Moonlight,
-T.E.Särkinen, and D.Cardoso. 2024. expowo: An R package for mining global
-plant diversity and distribution data. Applications in Plant Sciences 12:
-e11609'.
+distribution for any vascular plant family and genus from Plants of the
+World Online database, by interacting with the source code of each plant
+taxon page. It also creates global maps of species richness, graphics of
+species discoveries and name changes over time. For more details: 'Zuanny,
+D.C., B.Vilela, P.W.Moonlight, T.E.Särkinen, and D.Cardoso. 2024. expowo:
+An R package for mining global plant diversity and distribution data.
+Applications in Plant Sciences 12: e11609'.
 
 %prep
 %setup -q -c -n %{packname}

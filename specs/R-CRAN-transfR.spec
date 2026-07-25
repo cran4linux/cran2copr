@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transfR
-%global packver   1.1.12
+%global packver   1.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transfer of Hydrograph from Gauged to Ungauged Catchments
 
@@ -34,13 +34,13 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-Rdpack 
 
 %description
-A geomorphology-based hydrological modelling for transferring streamflow
-measurements from gauged to ungauged catchments. Inverse modelling enables
-to estimate net rainfall from streamflow measurements following Boudhraâ
-et al. (2018) <doi:10.1080/02626667.2018.1425801>. Resulting net rainfall
-is then estimated on the ungauged catchments by spatial interpolation in
-order to finally simulate streamflow following de Lavenne et al. (2016)
-<doi:10.1002/2016WR018716>.
+Provides geomorphology-based hydrological modelling for transferring
+streamflow measurements from gauged to ungauged catchments. Inverse
+modelling makes it possible to estimate net rainfall from streamflow
+measurements following Boudhraâ et al. (2018)
+<doi:10.1080/02626667.2018.1425801>. The resulting net rainfall is then
+interpolated to ungauged catchments to simulate streamflow following de
+Lavenne et al. (2016) <doi:10.1002/2016WR018716>.
 
 %prep
 %setup -q -c -n %{packname}

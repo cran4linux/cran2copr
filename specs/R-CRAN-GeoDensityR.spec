@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoDensityR
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Density Rasters from Polygon and Census Data
 
@@ -18,13 +18,16 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-terra 
+Requires:         R-tools 
 
 %description
-Creates density rasters from polygon vector data and tabular census or
-survey data. The package joins polygon boundaries with attribute data,
-calculates densities, rasterizes outputs, and exports ASCII Grid or
-GeoTiff rasters. Methods are based on spatial rasterization workflows
+Creates continuous density raster surfaces by joining vector spatial
+layers with tabular data frameworks, normalizing values by ellipsoidal
+polygon area calculations. Reconciles discrete boundary-constrained census
+or survey counts with uniform grids. Accepts spatial objects in-memory or
+via file paths. Methods are based on spatial rasterization workflows
 implemented in the 'terra' package Hijmans (2025)
 <https://rspatial.github.io/terra/>.
 

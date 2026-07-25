@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FDOTT
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Transport Based Testing in Factorial Design
+Summary:          Optimal Transport Based Testing in Factorial Designs
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}

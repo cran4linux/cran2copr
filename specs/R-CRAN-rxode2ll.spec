@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2ll
-%global packver   2.0.15
+%global packver   2.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.15
+Version:          2.0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Log-Likelihood Functions for 'rxode2'
 
@@ -16,15 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-RcppParallel >= 6.0.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.26
 BuildRequires:    R-CRAN-BH >= 1.78.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.2
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-RcppParallel >= 6.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-RcppParallel 
 
 %description
 Provides the log-likelihoods with gradients from 'stan' (Carpenter et al

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIR
-%global packver   3.3-6
+%global packver   3.3-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.6
+Version:          3.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-GGIRread 
 BuildRequires:    R-CRAN-ActCR 
 BuildRequires:    R-CRAN-read.gt3x 
+BuildRequires:    R-CRAN-arrow 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-GGIRread 
 Requires:         R-CRAN-ActCR 
 Requires:         R-CRAN-read.gt3x 
+Requires:         R-CRAN-arrow 
 
 %description
 A tool to process and analyse data collected with wearable raw

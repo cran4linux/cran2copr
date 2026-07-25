@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ccpsyc
-%global packver   0.2.6
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Cross-Cultural Psychology
 
@@ -16,36 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-ufs 
-BuildRequires:    R-CRAN-xlsx 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppAlgos 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-ufs 
-Requires:         R-CRAN-xlsx 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RcppAlgos 
+Requires:         R-CRAN-readr 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-With the development of new cross-cultural methods this package is
-intended to combine multiple functions automating and simplifying
-functions providing a unified analysis approach for commonly employed
-methods.
+Combines multiple functions that automate and simplify methods commonly
+employed in cross-cultural psychology, providing a unified analysis
+approach for measurement invariance testing, effect sizes for differential
+item functioning, factor congruence and multi-group reliability. Methods
+follow Fischer and Karl (2019) <doi:10.3389/fpsyg.2019.01507> and Gunn,
+Grimm and Edwards (2020) <doi:10.1080/10705511.2019.1689507>.
 
 %prep
 %setup -q -c -n %{packname}

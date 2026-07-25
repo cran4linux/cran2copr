@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DBHC
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequence Clustering with Discrete-Output HMMs
 
@@ -20,13 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-methods >= 4.2.2
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-TraMineR >= 2.0.7
+BuildRequires:    R-CRAN-seqHMM >= 2.0.0
 BuildRequires:    R-CRAN-reshape2 >= 1.2.1
-BuildRequires:    R-CRAN-seqHMM >= 1.0.8
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 Requires:         R-methods >= 4.2.2
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-TraMineR >= 2.0.7
+Requires:         R-CRAN-seqHMM >= 2.0.0
 Requires:         R-CRAN-reshape2 >= 1.2.1
-Requires:         R-CRAN-seqHMM >= 1.0.8
+Requires:         R-CRAN-rlang >= 0.4.0
 
 %description
 Provides an implementation of a mixture of hidden Markov models (HMMs) for

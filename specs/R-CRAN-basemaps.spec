@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  basemaps
-%global packver   0.0.8
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing Spatial Basemaps in R
 
@@ -20,22 +20,18 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-slippymath 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-slippymath 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-magick 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-pbapply 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-methods 

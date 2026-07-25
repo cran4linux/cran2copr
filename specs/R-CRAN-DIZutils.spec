@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIZutils
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for 'DIZ' R Package Development
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-CRAN-RJDBC 
 BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-CRAN-RPostgres 
-BuildRequires:    R-CRAN-RPresto 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-data.table 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-psych
 Requires:         R-CRAN-RJDBC 
 Requires:         R-CRAN-RJSONIO 
 Requires:         R-CRAN-RPostgres 
-Requires:         R-CRAN-RPresto 
 Requires:         R-CRAN-xml2 
 
 %description

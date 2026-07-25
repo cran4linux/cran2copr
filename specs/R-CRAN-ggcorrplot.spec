@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggcorrplot
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of a Correlation Matrix using 'ggplot2'
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-grDevices 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 
