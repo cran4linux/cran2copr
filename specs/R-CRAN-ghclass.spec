@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ghclass
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Managing Classes on GitHub
 
@@ -18,33 +18,39 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-gh >= 1.4.0
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-gh >= 1.4.0
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-gh 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Interface for the GitHub API that enables efficient management of courses

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtide
-%global packver   0.0.11
+%global packver   0.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tide Heights
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-chk >= 0.10.0
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-dttr2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-chk >= 0.10.0
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-chk 
 Requires:         R-CRAN-dttr2 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dqcheckrGUI
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Point-and-Click GUI Client for 'dqcheckr'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dqcheckr >= 0.2.2
+BuildRequires:    R-CRAN-dqcheckr >= 0.2.5
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-shinyvalidate 
@@ -28,11 +28,13 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-dqcheckr >= 0.2.2
+Requires:         R-CRAN-dqcheckr >= 0.2.5
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-shinyvalidate 
@@ -43,16 +45,21 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-tools 
 
 %description
 A graphical user interface for the 'dqcheckr' package. Provides a
 point-and-click 'shiny' application for configuring dataset quality
 checks, running them against recurring file deliveries, and browsing
-historical check results — without writing any R code.
+historical check results — without writing any R code. The package is
+feature-complete and is now maintained for corrections only; configuration
+features are developed in 'dqcheckr' itself, which offers a script-based
+workflow that does not need this interface.
 
 %prep
 %setup -q -c -n %{packname}

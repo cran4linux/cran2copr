@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstantools
-%global packver   2.6.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Developing R Packages Interfacing with 'Stan'
 
@@ -23,11 +23,13 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-QuickJSR 
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-desc 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-QuickJSR 
 
 %description
 Provides various tools for developers of R packages interfacing with

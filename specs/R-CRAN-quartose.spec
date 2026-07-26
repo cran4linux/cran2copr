@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quartose
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamically Generate Quarto Syntax
+Summary:          Dynamically Generate 'Quarto' Syntax
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,20 +18,24 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
+Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 
 %description
-Provides helper functions to work programmatically within a quarto
+Provides helper functions to work programmatically within a 'Quarto'
 document. It allows the user to create section headers, tabsets, divs, and
-spans, and formats these objects into quarto syntax when printed into a
+spans, and formats these objects into 'Quarto' syntax when printed into a
 document.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctreeMI
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Inference Trees with Stacked Multiple Imputation
 
@@ -32,14 +32,15 @@ Implements the stacked-imputation workflow for conditional inference trees
 <doi:10.1080/00273171.2026.2661244>. When data contain missing values,
 multiply imputed datasets (e.g., from 'mice') are stacked vertically and a
 single 'ctree' is fit on the combined data. To correct for the
-artificially inflated sample size introduced by stacking, the pruning
-significance threshold is divided by the number of imputations M (the
-Stack/M correction), producing a conservative but interpretable single
-tree that incorporates imputation uncertainty without requiring pooling of
-structurally different trees. Also exports stack_imputations() and
-rescale_alpha() as standalone utilities. The underlying 'ctree' algorithm
-is provided by 'partykit' (Hothorn & Zeileis, 2015; Hothorn, Hornik &
-Zeileis, 2006 <doi:10.1198/106186006X133933>).
+artificially inflated sample size introduced by stacking, each node-level
+test statistic is divided by the number of imputations M and its p-value
+recomputed before nodes are pruned (the Stack/M correction), producing a
+conservative but interpretable single tree that incorporates imputation
+uncertainty without requiring pooling of structurally different trees.
+Also exports stack_imputations(), rescale_statistic() and prune_stackM()
+as standalone utilities. The underlying 'ctree' algorithm is provided by
+'partykit' (Hothorn & Zeileis, 2015; Hothorn, Hornik & Zeileis, 2006
+<doi:10.1198/106186006X133933>).
 
 %prep
 %setup -q -c -n %{packname}

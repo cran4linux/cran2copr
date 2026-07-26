@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  picasso
-%global packver   1.5
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Learning with Convex and Concave Penalties
 
@@ -14,23 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 
 %description
-Fast tools for fitting sparse generalized linear models with convex
-penalties (lasso) and concave penalties (smoothly clipped absolute
-deviation and minimax concave penalty). Computation uses multi-stage
-convex relaxation and pathwise coordinate optimization with warm starts,
-active-set updates, and screening rules. Core solvers are implemented in
-C++, and coefficient paths are stored as sparse matrices for memory
-efficiency.
+Fast regularization paths for sparse Gaussian, binomial, Poisson,
+square-root-lasso, and multinomial models with lasso, smoothly clipped
+absolute deviation, or minimax concave penalties. Computation uses
+pathwise coordinate optimization, active-set updates, warm starts,
+screening rules, Proximal Newton iterations, quadratic majorization, and
+adaptive local linear approximation where appropriate. Core solvers are
+implemented in C++, and coefficient paths are returned as
+Matrix-compatible objects.
 
 %prep
 %setup -q -c -n %{packname}

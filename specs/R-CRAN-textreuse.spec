@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  textreuse
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Text Reuse and Document Similarity
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildRequires:    R-CRAN-tibble >= 3.0.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-stringr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-digest >= 0.6.8
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-NLP >= 0.1.8
@@ -28,9 +28,9 @@ BuildRequires:    R-CRAN-RcppProgress >= 0.1
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-tibble >= 3.0.1
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-stringr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-digest >= 0.6.8
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-NLP >= 0.1.8

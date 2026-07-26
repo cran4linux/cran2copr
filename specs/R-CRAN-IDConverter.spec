@@ -1,46 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crunch
-%global packver   1.31.2
+%global packname  IDConverter
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.31.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Crunch.io Data Tools
+Summary:          Convert Identifiers in Biological Databases
 
-License:          LGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.15
-BuildRequires:    R-CRAN-httpcache >= 0.1.4
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9.15
-Requires:         R-CRAN-httpcache >= 0.1.4
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-curl 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tibble 
 
 %description
-The Crunch.io service <https://crunch.io/> provides a cloud-based data
-store and analytic engine, as well as an intuitive web interface. Using
-this package, analysts can interact with and manipulate Crunch datasets
-from within R. Importantly, this allows technical researchers to
-collaborate naturally with team members, managers, and clients who prefer
-a point-and-click interface.
+Identifiers in biological databases connect different levels of metadata,
+phenotype data or genotype data. This tool is designed to easily convert
+identifiers within or between different biological databases (Wang,
+Shixiang, et al. (2021) <DOI:10.1371/journal.pgen.1009557>).
 
 %prep
 %setup -q -c -n %{packname}
