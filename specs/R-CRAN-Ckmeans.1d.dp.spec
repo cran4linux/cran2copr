@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Ckmeans.1d.dp
-%global packver   4.3.5
+%global packver   4.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.5
+Version:          4.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal, Fast, and Reproducible Univariate Clustering
 
@@ -16,25 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rdpack >= 0.6
+BuildRequires:    R-CRAN-Rdpack >= 0.6.1
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rdpack >= 0.6
+Requires:         R-CRAN-Rdpack >= 0.6.1
 Requires:         R-CRAN-Rcpp 
 
 %description
-Fast, optimal, and reproducible weighted univariate clustering by dynamic
+Fast, optimal, and reproducible univariate clustering by dynamic
 programming. Four problems are solved, including univariate k-means (Wang
 & Song 2011) <doi:10.32614/RJ-2011-015> (Song & Zhong 2020)
 <doi:10.1093/bioinformatics/btaa613>, k-median, k-segments, and
 multi-channel weighted k-means. Dynamic programming is used to minimize
 the sum of (weighted) within-cluster distances using respective metrics.
-Its advantage over heuristic clustering in efficiency and accuracy is
-pronounced when there are many clusters. Multi-channel weighted k-means
-groups multiple univariate signals into k clusters. An auxiliary function
-generates histograms adaptive to patterns in data. This package provides a
-powerful set of tools for univariate data analysis with guaranteed
-optimality, efficiency, and reproducibility, useful for peak calling on
-temporal, spatial, and spectral data.
+It substantially outperforms heuristic clustering in both efficiency and
+accuracy as the number of clusters increases. Multi-channel weighted
+k-means groups multiple univariate signals into k clusters. An auxiliary
+function generates histograms adaptive to patterns in data. This package
+provides a powerful set of tools for univariate data analysis with
+guaranteed optimality, efficiency, and reproducibility, useful for peak
+calling on temporal, spatial, and spectral data in addition to univariate
+clustering.
 
 %prep
 %setup -q -c -n %{packname}

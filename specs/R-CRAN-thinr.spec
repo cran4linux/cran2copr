@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thinr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Binary Image Thinning Algorithms
 
@@ -30,10 +30,10 @@ attributed to Hilditch (1969, in 'Machine Intelligence 4'), OPTA / SPTA
 (Naccache and Shinghal 1984), and Holt and colleagues (1987)
 <doi:10.1145/12527.12531>. Also provides the medial axis transform (Blum
 1967) and a distance transform implementation following Felzenszwalb and
-Huttenlocher (2012) <doi:10.4086/toc.2012.v008a019>. The drop-in
-thinImage() matches the signature of thinImage() in the 'EBImage' package
-on Bioconductor so existing code can switch parsers without changes. The
-wider thin() API selects the algorithm by name.
+Huttenlocher (2012) <doi:10.4086/toc.2012.v008a019>. The thin() API
+selects the algorithm by name, defaulting to Zhang-Suen. Complements the
+morphology in the 'EBImage' package, which does not provide a thinning
+operator.
 
 %prep
 %setup -q -c -n %{packname}

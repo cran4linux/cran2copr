@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  minioclient
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'MinIO' Client
 
@@ -37,9 +37,8 @@ modern alternative to UNIX commands like 'ls', 'cat', 'cp', 'mirror',
 cloud storage service ("AWS" Signature v2 and v4). This package provides
 convenience functions for installing the 'MinIO' client and running any
 operations, as described in the official documentation,
-<https://min.io/docs/minio/linux/reference/minio-mc.html?ref=docs-redirect>.
-This package provides a flexible and high-performance alternative to
-'aws.s3'.
+<https://docs.min.io/aistor/reference/cli/>. This package provides a
+flexible and high-performance alternative to 'aws.s3'.
 
 %prep
 %setup -q -c -n %{packname}

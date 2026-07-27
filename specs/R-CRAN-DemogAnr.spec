@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DemogAnr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Demographic Analysis
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 
@@ -29,12 +31,15 @@ Tool for demographic modeling and analysis, combining stochastic
 simulation-based projections with classic demographic methods. Provides
 utilities for disaggregating population data using Karup-King
 interpolation, fitting Brass relational logit models, calculating
-fertility and mortality metrics, building life tables, and performing
-hierarchical subnational population projections. Relational life table
-estimation and interpolation methods are described in Brass (1975)
-"Methods for Estimating Fertility and Mortality from Limited and Defective
-Data", Preston et al. (2001, ISBN:978-0631226161) "Demography: Measuring
-and Modeling Population Processes", Siegel and Swanson (2004,
+fertility and mortality metrics, building complete and abridged life
+tables with model-based separation factors, estimating child mortality
+indirectly from children ever born and surviving (Brass-Trussell method),
+decomposing and standardizing rates, and performing hierarchical
+subnational population projections. Relational life table estimation and
+interpolation methods are described in Brass (1975) "Methods for
+Estimating Fertility and Mortality from Limited and Defective Data",
+Preston et al. (2001, ISBN:978-0631226161) "Demography: Measuring and
+Modeling Population Processes", Siegel and Swanson (2004,
 ISBN:978-0126419559) "The Methods and Materials of Demography", and
 Raftery et al. (2012) "Bayesian probabilistic population projections for
 all countries" <doi:10.1073/pnas.1211452109>.

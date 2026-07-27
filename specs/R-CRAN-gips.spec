@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gips
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Model Invariant by Permutation Symmetry
 
@@ -16,15 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-numbers 
 BuildRequires:    R-CRAN-permutations 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-numbers 
 Requires:         R-CRAN-permutations 
-Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringi 
 
 %description
 Find the permutation symmetry group such that the covariance matrix of the

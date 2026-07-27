@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huge
-%global packver   1.6
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Undirected Graph Estimation
 
@@ -14,14 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 

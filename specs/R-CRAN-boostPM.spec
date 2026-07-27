@@ -1,47 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fanc
-%global packver   2.4.0
+%global packname  boostPM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Likelihood Factor Analysis via Nonconvex Penalty
+Summary:          Unsupervised Tree Boosting for Learning Probability Distributions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Computes the penalized maximum likelihood estimates of factor loadings and
-unique variances for various tuning parameters. The pathwise coordinate
-descent along with EM algorithm is used.  This package also includes a
-graphical tool which outputs path diagrams, heatmaps, goodness-of-fit
-indices and model selection criteria for each regularization parameter
-(Yamamoto, M., Hirose, K. and Nagata, H., 2017
-<doi:10.1007/s41237-016-0007-3>). The user can change the regularization
-parameter interactively with a built-in self-contained HTML viewer (no
-additional packages required), which is helpful to find a suitable value
-of regularization parameter. As a penalty, we can choose either the
-minimax concave penalty (Hirose, K. and Yamamoto, M., 2015
-<doi:10.1007/s11222-014-9458-0>; Hirose, K. and Yamamoto, M., 2014
-<doi:10.1016/j.csda.2014.05.011>) or the product-based elastic net penalty
-(Hirose, K. and Terada, Y., 2023 <doi:10.1007/s11336-022-09868-4>).
+Implements the unsupervised tree boosting method for learning probability
+distributions introduced by Awaya and Ma (2024). Provides model fitting,
+density evaluation, simulation, and diagnostic methods.
 
 %prep
 %setup -q -c -n %{packname}
