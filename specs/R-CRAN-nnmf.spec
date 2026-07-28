@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nnmf
-%global packver   1.4
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonnegative Matrix Factorization
 
@@ -49,8 +49,10 @@ Nonnegative matrix factorization (NMF) is a technique to factorize a
 matrix with nonnegative values into the product of two matrices.
 Covariates are also allowed. Parallel computing is an option to enhance
 the speed and high-dimensional and large scale (and/or sparse) data are
-allowed. Relevant papers include: Wang Y. X. and Zhang Y. J. (2012).
-Nonnegative matrix factorization: A comprehensive review. IEEE
+allowed. Relevant papers include: Sevinc V., Kontemeniotis N., Perdikis T.
+and Tsagris M. (2026). Non-negative matrix factorization using the R
+package nnmf <doi:10.48550/arXiv.2607.20084>, Wang Y. X. and Zhang Y. J.
+(2012). Nonnegative matrix factorization: A comprehensive review. IEEE
 Transactions on Knowledge and Data Engineering, 25(6): 1336-1353
 <doi:10.1109/TKDE.2012.51> and Kim H. and Park H. (2008). Nonnegative
 matrix factorization based on alternating nonnegativity constrained least

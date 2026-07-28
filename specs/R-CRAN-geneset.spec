@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geneset
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Gene Sets for Gene Enrichment Analysis
 
@@ -20,12 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-fst 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 
 %description

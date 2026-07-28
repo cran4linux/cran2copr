@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mqriskR
-%global packver   0.1.1
+%global packname  postshock
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Actuarial Risk Modeling and Life Contingencies
+Summary:          Donor-Adjusted Post-Shock Forecasting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-garchx 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-garchx 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Provides functions for actuarial risk modeling, including survival models,
-life annuities, multiple-decrement models, and mortality improvement
-projections. The package is designed to align with standard actuarial
-notation and supports teaching, exam preparation, and reproducible
-actuarial analysis. The methods are based on standard actuarial references
-including Camilli, Duncan and London (2014, ISBN:9781625423474) "Models
-for Quantifying Risk" and Dickson, Hardy and Waters (2020,
-ISBN:9781108478083) "Actuarial Mathematics for Life Contingent Risks".
+Implements donor-adjusted methods for forecasting conditional means and
+variances after structural shocks. Historical donor episodes are weighted
+using covariates observed before each shock, and their estimated
+post-shock effects are combined with forecasts from a target-series model.
+The methods build on Lin and Eck (2021)
+<doi:10.1016/j.ijforecast.2021.03.010>. The package supports donor
+balancing weights, structured donor pools, autoregressive integrated
+moving average models, and generalized autoregressive conditional
+heteroscedasticity models with external regressors.
 
 %prep
 %setup -q -c -n %{packname}

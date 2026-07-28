@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cardargus
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate SVG Information Cards with Embedded Fonts and Badges
 
@@ -21,23 +21,19 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-gdtools 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-later 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-gdtools 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-later 
 
 %description
 Create self-contained SVG information cards with embedded 'Google Fonts',
 shields-style badges, and custom logos. Cards are fully portable SVG files
 ideal for dashboards, reports, and web applications. Includes functions to
-export cards to PNG format and display them in 'R Markdown' and 'Quarto'
-documents.
+export cards to PNG and PDF formats and display them in 'R Markdown' and
+'Quarto' documents.
 
 %prep
 %setup -q -c -n %{packname}

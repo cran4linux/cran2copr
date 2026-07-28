@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  irtQ
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unidimensional Item Response Theory Modeling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-statmod 
@@ -65,7 +65,7 @@ read.bilog() and read.parscale() functions, respectively (Weeks (2010)
 modifying the bisection() function (Howard (2017, ISBN:9780367657918)).
 The code of the inverse test characteristic curve scoring in the
 est_score() function was written by modifying the irt.eq.tse() function
-(González (2014) <doi:10.18637/jss.v059.i07>). In est_score() function,
+(Gonzalez (2014) <doi:10.18637/jss.v059.i07>). In est_score() function,
 the code of weighted likelihood estimation method was written by referring
 to the Pi(), Ji(), and Ii() functions of the catR package (Magis & Barrada
 (2017) <doi:10.18637/jss.v076.c01>).

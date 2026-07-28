@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  optiSolve
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear, Quadratic, and Rational Optimization
 
@@ -16,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rcpp >= 0.12.4
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-shapes 
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-cccp 
@@ -27,8 +26,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12.4
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-shapes 
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-cccp 

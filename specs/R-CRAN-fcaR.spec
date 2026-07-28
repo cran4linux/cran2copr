@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fcaR
-%global packver   1.5.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formal Concept Analysis
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-registry 
 BuildRequires:    R-CRAN-settings 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-registry 
 Requires:         R-CRAN-settings 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -54,9 +56,9 @@ Wille (1982) <doi:10.1007/978-3-642-01815-2_23> and in Ganter and Obiedkov
 (2016) <doi:10.1007/978-3-662-49291-8>.  It provides functions to load and
 save a formal context, extract its concept lattice and implications.  In
 addition, one can use the implications to compute semantic closures of
-fuzzy sets and, thus, build recommendation systems. Matrix factorization
-is provided by the GreConD+ algorithm (Belohlavek and Trneckova, 2024
-<doi:10.1109/TFUZZ.2023.3330760>).
+fuzzy sets and, thus, build recommendation systems. Boolean Matrix
+Factorization (BMF) is provided by several algorithms (such as GreConD,
+ASSO, RSF, RSF-ES, GreEss, PaNDa+, and Hyper+).
 
 %prep
 %setup -q -c -n %{packname}

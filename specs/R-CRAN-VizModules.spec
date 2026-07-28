@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VizModules
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible, Interactive 'shiny' Modules for Almost Any Plot
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.5
 Requires:         R-core >= 4.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotthis >= 0.12.1
+BuildRequires:    R-CRAN-plotthis >= 0.13.0
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-dittoViz 
 BuildRequires:    R-CRAN-plotly 
@@ -37,7 +37,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-plotthis >= 0.12.1
+Requires:         R-CRAN-plotthis >= 0.13.0
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-dittoViz 
 Requires:         R-CRAN-plotly 

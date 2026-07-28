@@ -1,52 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semlbci
-%global packver   0.12.1
+%global packname  hashtable
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood-Based Confidence Interval in Structural Equation Models
+Summary:          Hash Table and Hash Set
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.13
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-lavaan >= 0.6.13
-Requires:         R-CRAN-nloptr 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-callr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-fastmatch 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-fastmatch 
 
 %description
-Forms likelihood-based confidence intervals (LBCIs) for parameters in
-structural equation modeling, introduced in Cheung and Pesigan (2023)
-<doi:10.1080/10705511.2023.2183860>. Currently implements the algorithm
-illustrated by Pek and Wu (2018) <doi:10.1037/met0000163>, and supports
-the robust LBCI proposed by Falk (2018)
-<doi:10.1080/10705511.2017.1367254>.
+It provides three implementations of hash tables and hash maps: 1. using
+'std::unordered_map' and 'std::unordered_set' C++ libraries, 2. wrapping
+around the 'fastmatch' package, 3. using R environment.
 
 %prep
 %setup -q -c -n %{packname}

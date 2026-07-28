@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordinal
-%global packver   2025.12-29
+%global packver   2026.7-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.12.29
+Version:          2026.7.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Models for Ordinal Data
 

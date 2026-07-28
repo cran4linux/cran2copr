@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMRagent
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Language-Model Agents for Research
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LLMR >= 0.8.10
+BuildRequires:    R-CRAN-LLMR >= 0.8.11
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
@@ -25,9 +25,8 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-LLMR >= 0.8.10
+Requires:         R-CRAN-LLMR >= 0.8.11
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
@@ -35,25 +34,13 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-callr 
 Requires:         R-utils 
 
 %description
-An 'R' interface built on 'LLMR' creates large language model (LLM) agents
-for use as reproducible and governed research instruments. Agents pair a
-model configuration with optional persona instructions. Stateful exchanges
-retain conversational memory, and native 'R' functions can serve as tools
-within declared budgets. Several agents can hold a turn-taking
-conversation over a shared transcript, and factorial experiments across
-such designs run in parallel. Model calls and tool activity are captured
-in a run object, so the research record extends beyond generated text. A
-study manifest hashes the design and computational apparatus without
-treating sampled replies as part of its identity, and a hash-sealed
-archive preserves it alongside transcripts and call records. Tool policies
-record declared side effects and can limit call counts or result sizes;
-calls marked for human review pause before execution. Robustness checks
-assess sensitivity to prompt or model changes, while calibration against
-human labels corrects estimates drawn from imperfect model labels.
+Large language model agents as governed research instruments, built on
+'LLMR'. The package supports designed conversations and factorial
+experiments with declared tools and budgets. Each run produces an
+inspectable record that can be archived and checked.
 
 %prep
 %setup -q -c -n %{packname}

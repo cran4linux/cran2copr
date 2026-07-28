@@ -1,45 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyactuarial
-%global packver   0.1.6
+%global packname  MVLs
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Tools for Actuarial Mathematics and Life Contingencies
+Summary:          Model Validation Levels
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-markdown 
 Requires:         R-utils 
 
 %description
-Provides tidyverse-aligned tools for actuarial mathematics and life
-contingencies, including life tables, survival probabilities, actuarial
-present values of cash flows, life annuities, life insurance, premiums,
-reserves, multiple-life calculations, Monte Carlo simulation, and
-deterministic cash-flow diagrams. The package emphasizes clear actuarial
-notation, reproducible workflows, and pipe-friendly tools for actuarial
-education and applied actuarial analysis.
+Calculates Model Validation Levels from user provided model data, referent
+data, and scope files as described by Stafford, Provost, & Jones (2025)
+<doi:10.1080/17477778.2025.2536096>. Data files must be structured
+according to one of the accepted Excel templates as shown by Jones,
+Provost, Stafford, & Young (2026)
+<https://www.afit.edu/docs/MVL%%20User%%20Guide%%20v4.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

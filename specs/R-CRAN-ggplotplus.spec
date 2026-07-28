@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggplotplus
-%global packver   0.5.5
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Universal Design-Oriented Enhancements for 'ggplot2'
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-viridisLite
 BuildRequires:    R-CRAN-polyclip 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-ggplot2 >= 4.0.1
 Requires:         R-CRAN-ggrepel >= 0.9.0
 Requires:         R-CRAN-rlang 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-viridisLite
 Requires:         R-CRAN-polyclip 
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
 A collection of enhancements to 'ggplot2', with a focus on creating

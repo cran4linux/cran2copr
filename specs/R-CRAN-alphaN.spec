@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  alphaN
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set Alpha Based on Sample Size Using Bayes Factors
 
@@ -25,7 +25,7 @@ Approximate Bayes factor. You tell alphaN() your sample size, and it tells
 you to which value you must lower alpha to avoid Lindley's Paradox. For
 details, see Wulff and Taylor (2024) <doi:10.1177/14761270231214429>.
 Alpha can also be calibrated to the effect-size and moment Bayes factors
-of Klauer, Meyer-Grant, and Kellen (2024)
+of Klauer, Meyer-Grant, and Kellen (2025)
 <doi:10.3758/s13423-024-02612-2>, which center the alternative hypothesis
 on an effect size of your choosing.
 

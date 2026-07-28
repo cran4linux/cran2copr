@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  owidapi
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the Our World in Data Chart API
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-rlang
 %description
 Retrieve data from the Our World in Data (OWID) Chart API
 <https://docs.owid.io/projects/etl/api/>. OWID provides public access to
-more than 5,000 charts focusing on global problems such as poverty,
+more than 4,000 charts focusing on global problems such as poverty,
 disease, hunger, climate change, war, existential risks, and inequality.
 
 %prep

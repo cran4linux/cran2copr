@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fable.intermittent
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Models for Intermittent Time Series
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-distributional >= 0.7.1
 BuildRequires:    R-CRAN-fabletools >= 0.6.0
 BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-tweedieDistr >= 0.1.0
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-nloptr >= 2.0.0
@@ -33,6 +34,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-distributional >= 0.7.1
 Requires:         R-CRAN-fabletools >= 0.6.0
 Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-tweedieDistr >= 0.1.0
 
 %description
 Extends the 'fable' framework to support forecasting methods specifically

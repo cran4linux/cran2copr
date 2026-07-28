@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  upstartr
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities Powering the Globe and Mail's Data Journalism Template
 
@@ -29,13 +29,10 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-librarian 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-beepr 
 BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-textclean 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tgamtheme 
 BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-stringr 
@@ -49,13 +46,10 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-librarian 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-beepr 
 Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-textclean 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tgamtheme 
 Requires:         R-CRAN-crayon 
 
 %description
