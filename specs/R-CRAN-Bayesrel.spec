@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Bayesrel
-%global packver   0.7.8
+%global packver   0.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.8
+Version:          0.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Reliability Estimation
 
@@ -49,7 +49,7 @@ the factor models, necessary for the omega coefficients. The method for
 the Bayesian 'unidimensional' estimates, except for omega_u, is sampling
 from the posterior inverse 'Wishart' for the covariance matrix based
 measures (see 'Murphy', 2007,
-<https://groups.seas.harvard.edu/courses/cs281/papers/murphy-2007.pdf>.
+<https://groups.seas.harvard.edu/courses/cs281/papers/murphy-2007.pdf>).
 The Bayesian omegas (u, t, and h) are obtained by 'Gibbs' sampling from
 the conditional posterior distributions of (1) the single factor model,
 (2) the second-order factor model, (3) the bi-factor model, (4) the

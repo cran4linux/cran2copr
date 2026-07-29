@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rim
-%global packver   0.8.1
+%global packname  PiChange
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Maxima', Enabling Symbolic Computation
+Summary:          Pi-Change: Change Point Detection with Prior-Informed Penalties
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       maxima
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-GlobalOptions 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-GlobalOptions 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-An interface to the powerful and fairly complete computer algebra system
-'Maxima'. It can be used to start and control 'Maxima' from within R by
-entering 'Maxima' commands. Results from 'Maxima' can be parsed and
-evaluated in R. It facilitates outputting results from 'Maxima' in 'LaTeX'
-and 'MathML'. 2D and 3D plots can be displayed directly. This package also
-registers a 'knitr'-engine enabling 'Maxima' code chunks to be written in
-'RMarkdown' documents.
+PI-Change is a prior-informed multiple change point detection method that
+incorporates prespecified plausible change point locations through a
+time-varying penalized likelihood. The method extends multiple change
+point detection beyond purely data-driven segmentation by allowing
+external knowledge about plausible change point locations to enter the
+objective function; see Jacobs and Chen (2026)
+<doi:10.48550/arXiv.2605.01003>.
 
 %prep
 %setup -q -c -n %{packname}

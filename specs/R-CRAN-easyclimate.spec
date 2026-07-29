@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyclimate
-%global packver   0.2.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Access to High-Resolution Daily Climate Data for Europe
 
@@ -27,8 +27,9 @@ Requires:         R-CRAN-RCurl
 Requires:         R-stats 
 
 %description
-Get high-resolution (1 km) daily climate data (precipitation, minimum and
-maximum temperatures) for points and polygons within Europe.
+Get high-resolution (1 km) daily, monthly and annual climate data
+(precipitation, and average, minimum and maximum temperatures) for points
+and polygons within Europe.
 
 %prep
 %setup -q -c -n %{packname}

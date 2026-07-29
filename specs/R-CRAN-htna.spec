@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  htna
-%global packver   0.1.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heterogeneous Transition Network Analysis
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Nestimate 
+BuildRequires:    R-CRAN-Nestimate >= 0.8.0
 BuildRequires:    R-CRAN-cograph 
 BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-Nestimate 
+Requires:         R-CRAN-Nestimate >= 0.8.0
 Requires:         R-CRAN-cograph 
 Requires:         R-CRAN-igraph 
 
@@ -28,9 +28,9 @@ Requires:         R-CRAN-igraph
 Implements the Heterogeneous Transition Network Analysis (HTNA) method
 described by López-Pernas et al. (2026) <doi:10.1002/jcal.70285>. The
 method is an extension of transition network analysis (TNA) where actions
-or events belong to two or more distinct actor types (e.g. Human and
-AI),preserving the actor type partition on the resulting network. Provides
-a thin, focused API on top of the 'Nestimate' estimation engine and the
+or events belong to two or more distinct actor types (e.g. Human and AI),
+preserving the actor type partition on the resulting network. Provides a
+thin, focused API on top of the 'Nestimate' estimation engine and the
 'cograph' rendering engine, so downstream bootstrap, permutation,
 reliability, centrality, and plotting functions treat each actor's codes
 as a distinct node group.

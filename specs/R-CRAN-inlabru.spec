@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inlabru
-%global packver   2.14.1
+%global packver   2.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.1
+Version:          2.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Gaussian Modelling using INLA and Extensions
 
@@ -18,41 +18,41 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-fmesher >= 0.7.0
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-MatrixModels 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-fmesher >= 0.7.0
 Requires:         R-methods 
-Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-MatrixModels 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-Rcpp 
 
 %description
-Facilitates spatial and general latent Gaussian modeling using integrated
+Facilitates spatial and general latent Gaussian modelling using integrated
 nested Laplace approximation via the INLA package
 (<https://www.r-inla.org>). Additionally, extends the GAM-like model class
 to more general nonlinear predictor expressions, and implements a log
-Gaussian Cox process likelihood for modeling univariate and spatial point
+Gaussian Cox process likelihood for modelling univariate and spatial point
 processes based on ecological survey data. Model components are specified
 with general inputs and mapping methods to the latent variables, and the
 predictors are specified via general R expressions, with separate

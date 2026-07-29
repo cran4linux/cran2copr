@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groupedHyperframe
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grouped Hyper Data Frame
 
@@ -30,8 +30,8 @@ academic research. Accordingly, this package should not be considered a
 validated tool for use in peer-reviewed publications or as the basis for
 grant applications.  Backward compatibility with user-code published in
 <doi:10.1093/bioinformatics/btaf430> is not maintained in versions >=
-0.4.0 of this package. The authors of those publications are the
-appropriate contacts for reproducibility inquiries.
+0.4.0 (June 2026) of this package. The authors of those publications are
+the appropriate contacts for reproducibility inquiries.
 
 %prep
 %setup -q -c -n %{packname}

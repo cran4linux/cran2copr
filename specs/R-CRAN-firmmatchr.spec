@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  firmmatchr
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Probabilistic Matching for German Company Names
+Summary:          Robust Probabilistic Matching of Company Names
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringi 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringdist 
@@ -45,12 +46,18 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 
 %description
 A pipeline for matching messy company name strings against a clean
 dictionary (e.g., 'Orbis'). Implements a cascading strategy: Exact ->
-Fuzzy ('zoomerjoin') -> 'FTS5' ('SQLite') -> Rarity Weighted. References:
-Beniamino Green (2025) <https://beniamino.org/zoomerjoin/>;
+Fuzzy ('zoomerjoin') -> 'FTS5' ('SQLite') -> Rarity Weighted. Name
+normalization covers German, French, Italian and English legal forms and
+conventions, which suits multilingual registers such as the Swiss one.
+Normalization discards detail, so several dictionary entries can collapse
+onto one string; these groups are matched once and a crosswalk back to
+every original entry is retained. References: Beniamino Green (2025)
+<https://github.com/beniaminogreen/zoomerjoin>;
 <https://www.sqlite.org/fts5.html>.
 
 %prep

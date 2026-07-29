@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plavaan
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Estimation for Latent Variable Models with 'lavaan'
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-lavaan >= 0.6.15
 BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-lavaan >= 0.6.15
 Requires:         R-CRAN-numDeriv 
 
 %description

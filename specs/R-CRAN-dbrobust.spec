@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbrobust
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Distance-Based Visualization and Analysis of Mixed-Type Data
 
@@ -53,7 +53,9 @@ Robust distance-based methods applied to matrices and data frames,
 producing distance matrices that can be used as input for various
 visualization techniques such as graphs, heatmaps, or multidimensional
 scaling configurations. See Boj and Grané (2024)
-<doi:10.1016/j.seps.2024.101992>.
+<doi:10.1016/j.seps.2024.101992>, Boj et al. (2026)
+<doi:10.1007/s10260-026-00860-1>, and Grané et al. (2026)
+<doi:10.1007/s10182-026-00565-6>.
 
 %prep
 %setup -q -c -n %{packname}

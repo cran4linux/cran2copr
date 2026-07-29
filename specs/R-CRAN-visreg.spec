@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  visreg
-%global packver   2.8.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Regression Models
 
@@ -17,10 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emstreeR
-%global packver   3.1.3
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Fast Computing and Visualizing Euclidean Minimum Spanning Trees
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-mlpack 
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
 Fast and easy computation of Euclidean Minimum Spanning Trees (EMST) from

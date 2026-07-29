@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  flametree
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Random Tree-Like Images
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -30,11 +32,13 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 
 %description
-A generative art system for producing tree-like images using an L-system
-to create the structures. The package includes tools for generating the
-data structures and visualise them in a variety of styles.
+A generative art system for producing tree-like images using a stochastic
+branching process to create the structures. The package includes tools for
+generating the data structures and visualising them in a variety of
+styles.
 
 %prep
 %setup -q -c -n %{packname}

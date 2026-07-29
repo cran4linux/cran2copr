@@ -1,52 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glinvci
-%global packver   1.2.4
+%global packname  diffHTS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phylogenetic Comparative Methods with Uncertainty Estimates
+Summary:          Differential Drug Sensitivity Analysis for Two-Condition High-Throughput Screens
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-lbfgsb3c 
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-lbfgsb3c 
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-generics 
-Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A framework for analytically computing the asymptotic confidence intervals
-and maximum-likelihood estimates of a class of continuous-time Gaussian
-branching processes defined by Mitov V, Bartoszek K, Asimomitis G, Stadler
-T (2019) <doi:10.1016/j.tpb.2019.11.005>. The class of model includes the
-widely used Ornstein-Uhlenbeck and Brownian motion branching processes.
-The framework is designed to be flexible enough so that the users can
-easily specify their own sub-models, or re-parameterizations, and obtain
-the maximum-likelihood estimates and confidence intervals of their own
-custom models.
+A complete workflow for large-scale, two-condition high-throughput drug
+screening (HTS). It compares drug sensitivity between any two experimental
+conditions - for example irradiated versus non-irradiated cells, cancer
+versus normal cell lines, or treated versus untreated samples - across
+many plates and experiments. The package covers the full pipeline:
+control-based normalisation, plate-level quality-control metrics
+(Z-factor, Z-prime, signal-to-background, signal-to-noise and strictly
+standardised mean difference), replicate-consistency checks,
+four-parameter logistic dose-response fitting with area under the curve
+(AUC) estimation, differential (delta) AUC scoring with within-plate
+standardisation, cut-off and sigma-based hit selection, and
+publication-ready heatmap, scatter and quality-control visualisations.
 
 %prep
 %setup -q -c -n %{packname}

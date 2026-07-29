@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sessioncheck
-%global packver   0.1
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Checks Session Status
 
@@ -19,10 +19,13 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Provides tools to check variables contained in the user environment, and
-inspect the currently loaded package namespaces. The intended use is to
-allow user scripts to throw errors or warnings if unwanted variables exist
-or if unwanted packages are loaded.
+Provides tools for checking whether an R session is in a clean state,
+including the global environment, attached packages, loaded namespaces,
+attached environments, session run time, R options, locale settings, and
+system environment variables. Intended as a safer replacement for the
+common 'rm(list = ls())' idiom: rather than silently wiping the global
+environment, sessioncheck() surfaces problems so the user can make an
+informed decision.
 
 %prep
 %setup -q -c -n %{packname}

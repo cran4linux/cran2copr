@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CustomDerivative
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pricing Various Types of Custom Derivatives
+Summary:          Extensible Derivative Pricing and Risk Analytics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-R6 
+Requires:         R-stats 
 
 %description
-A versatile R package for creating and pricing custom derivatives to suit
-your financial needs.
+Tools for pricing and analysing financial derivatives under the classical
+lognormal diffusion model and geometric Brownian motion assumptions. The
+package provides analytical European option prices, Monte Carlo pricing
+with antithetic and control variates, confidence intervals,
+finite-difference Greeks, and path simulation for path-dependent payoffs.
+The simulation interfaces accept user-defined payoff functions, enabling
+transparent construction of custom contracts while reporting numerical
+uncertainty.
 
 %prep
 %setup -q -c -n %{packname}

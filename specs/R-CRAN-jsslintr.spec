@@ -1,33 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flan
-%global packver   1.0
+%global packname  jsslintr
+%global packver   1.1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          FLuctuation ANalysis on Mutation Models
+Summary:          JSS LaTeX/BibTeX Style Checker
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gsl-devel
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.5
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 0.12.5
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Tools for fluctuations analysis of mutant cells counts. Main reference is
-A. Mazoyer, R. Drouilhet, S. Despreaux and B. Ycart (2017)
-<doi:10.32614/RJ-2017-029>.
+Lints LaTeX/BibTeX manuscripts against the Journal of Statistical Software
+(JSS) style guide. Wraps the same Rust rule engine used by the standalone
+jsslint binary, the browser/WASM build, and the Python binding, exposed to
+R via extendr.
 
 %prep
 %setup -q -c -n %{packname}

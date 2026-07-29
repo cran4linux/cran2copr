@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GenoTriplo
-%global packver   1.1.3
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Genotyping Triploids (or Diploids) from Luminescence Data
+Summary:          Genotyping Triploids/Tetraploids (or Diploids) from Luminescence Data
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,7 +31,10 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-Rmixmod 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-doParallel 
@@ -46,14 +49,19 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-Rmixmod 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-stringr 
 
 %description
 Genotyping of triploid individuals from luminescence data (marker probeset
-A and B). Works also for diploids. Two main functions: Run_Clustering()
-that regroups individuals with a same genotype based on proximity and
-Run_Genotyping() that assigns a genotype to each cluster. For Shiny
-interface use: launch_GenoShiny().
+A and B). Works also for diploids and tetraploids. Three main functions:
+Create_Dataset_from_file() to build dataset ;
+Clustering_parallele_from_dir() that regroups individuals with a same
+genotype based on proximity and Genotyping_parallele_from_dir() that
+assigns a genotype to each cluster. For Shiny interface use:
+launch_GenoShiny().
 
 %prep
 %setup -q -c -n %{packname}

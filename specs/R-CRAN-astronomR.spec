@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  astronomR
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cosmic Insights: Statistical Frameworks for Astronomers
 
@@ -39,9 +39,15 @@ A comprehensive toolkit for astronomical and cosmological computations.
 Provides functions for angular coordinate conversions (degrees,
 hours-minutes-seconds, degrees-minutes-seconds, and radians), access to
 fundamental physical constants, queries to the Gaia Archive TAP (Table
-Access Protocol) service, cosmological distance calculations, and
-early-universe thermal physics including photon density and 'Saha'
-equation solutions.
+Access Protocol) service, cosmological distance calculations,
+early-universe thermal physics including photon density, 'Saha' equation
+solutions, and a full thermal-cosmology module covering the Hubble rate in
+the radiation-dominated era, effective relativistic degrees of freedom,
+entropy density, equilibrium yields, the Boltzmann relic-abundance
+('pebble') equation for WIMP freeze-out, the freeze-out temperature
+solver, and the Peebles equation for hydrogen recombination. Also includes
+the Drake equation for estimating the number of communicating
+extraterrestrial civilisations in the Milky Way.
 
 %prep
 %setup -q -c -n %{packname}

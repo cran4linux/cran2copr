@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  camtrapR
-%global packver   3.0.4
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Camera Trap Data Management and Analysis Framework
 
@@ -18,14 +18,18 @@ Recommends:       /usr/bin/exiftool
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-secr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
@@ -33,14 +37,19 @@ BuildRequires:    R-CRAN-shinyBS
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-secr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
@@ -48,6 +57,7 @@ Requires:         R-CRAN-shinyBS
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tibble 
 
 %description
 Management and analysis of camera trap wildlife data through an integrated

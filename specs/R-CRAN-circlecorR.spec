@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NSR
+%global packname  circlecorR
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Native Status Resolver'
+Summary:          Circular Correlation Wheel Plots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-circlize >= 0.4.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-circlize >= 0.4.0
+Requires:         R-graphics 
+Requires:         R-CRAN-psych 
+Requires:         R-stats 
 
 %description
-Provides access to the 'Native Status Resolver' (NSR)
-<https://github.com/ojalaquellueva/nsr> API through R. The user supplies
-plant taxonomic names and political divisions and the package returns
-information about their likely native status (e.g., native,
-non-native,endemic), along with information on how those decisions were
-made.
+Draws circular "correlation wheel" plots in R, straight from a data frame
+of one row per observation. Variables are arranged around a circle,
+grouped and colour-tiled by category, and connected by curved links whose
+colour maps to the correlation coefficient, computed via a thin wrapper
+around corr.test() from the 'psych' package. Non-significant, weak, and
+within-category correlations can be masked. Categories, colours, and
+labels are all user-configurable.
 
 %prep
 %setup -q -c -n %{packname}

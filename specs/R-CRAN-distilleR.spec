@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distilleR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Wrap Around the 'DistillerSR' APIs
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-jsonlite >= 1.8.7
 BuildRequires:    R-CRAN-glue >= 1.7.0
 BuildRequires:    R-CRAN-readxl >= 1.4.3
 BuildRequires:    R-CRAN-httr2 >= 1.2.1
+BuildRequires:    R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-cli >= 3.6.5
 Requires:         R-CRAN-tibble >= 3.3.0
 Requires:         R-CRAN-checkmate >= 2.3.1
@@ -33,6 +34,7 @@ Requires:         R-CRAN-jsonlite >= 1.8.7
 Requires:         R-CRAN-glue >= 1.7.0
 Requires:         R-CRAN-readxl >= 1.4.3
 Requires:         R-CRAN-httr2 >= 1.2.1
+Requires:         R-CRAN-purrr >= 1.0.2
 
 %description
 Interface to 'DistillerSR' APIs. See

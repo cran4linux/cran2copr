@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npwbs
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Multiple Change Point Detection Using Wild Binary Segmentation
 
@@ -16,16 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements a procedure for detecting multiple location-scale change points
-in a sequence of univariate observations, as described in Ross (2026)
+Implements nonparametric multiple change-point detection for univariate
+sequences using Wild Binary Segmentation, as described in Ross (2026)
 "Nonparametric Detection of Multiple Location-Scale Change Points via Wild
-Binary Segmentation" <doi:10.48550/arXiv.2107.01742>. The method combines
-Wild Binary Segmentation with a rank-based statistic and provides
-calibrated thresholds for controlling the probability of incorrectly
-detecting a change point in a homogeneous sequence.
+Binary Segmentation" <doi:10.48550/arXiv.2107.01742>. The package provides
+Mann--Whitney, Mood, Lepage, Cramér--von Mises, and modified Baumgartner
+rank-based statistics, together with method-specific thresholds for
+controlling the probability of incorrectly detecting a change point in a
+homogeneous sequence.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MAGMA.R
-%global packver   1.0.4
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          MAny-Group MAtching
 
@@ -56,17 +56,19 @@ Requires:         R-CRAN-flextable >= 0.9.4
 
 %description
 Balancing quasi-experimental field research for effects of covariates is
-fundamental for drawing causal inference. Propensity Score Matching deals
-with this issue but current techniques are restricted to binary treatment
-variables. Moreover, they provide several solutions without providing a
-comprehensive framework on choosing the best model. The MAGMA R-package
-addresses these restrictions by offering nearest neighbor matching for two
-to four groups. It also includes the option to match data of a 2x2 design.
-In addition, MAGMA includes a framework for evaluating the post-matching
+fundamental for drawing causal inference. (Propensity Score) Matching
+deals with this issue but current techniques are restricted to binary
+treatment variables. Moreover, they provide several solutions without
+providing a comprehensive framework on choosing the best model. The MAGMA
+R-package addresses these restrictions by offering nearest neighbor
+matching based on Propensity Scores or the Mahalanobis Distance for two to
+four groups. It also includes the option to match data of a 2x2 design. In
+addition, MAGMA includes a framework for evaluating the post-matching
 balance. The package includes functions for the matching process and
-matching reporting. We provide a tutorial on MAGMA as vignette. More
-information on MAGMA can be found in Feuchter, M. D., Urban, J., Scherrer
-V., Breit, M. L., and Preckel F. (2022) <https://osf.io/p47nc/>.
+matching reporting. We provide a General tutorial on MAGMA and a tutorial
+for Mahalanobis Distance Matching as vignettes. More information on MAGMA
+can be found in Feuchter, M. D., Urban, J., Scherrer V., Breit, M. L., and
+Preckel F. (2022) <https://osf.io/p47nc/>.
 
 %prep
 %setup -q -c -n %{packname}
