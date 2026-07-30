@@ -1,62 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nocturn
-%global packver   1.2.0
+%global packname  triageR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sleep Data Filtering and Visualisation
+Summary:          Automated Machine Learning and AI Agent Tools for Clinical Prediction Modelling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-circular 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DALEX 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-edfReader 
-BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ellmer 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyalert 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-naniar 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rsvg 
-BuildRequires:    R-CRAN-svgedit 
-BuildRequires:    R-CRAN-qpdf 
-Requires:         R-CRAN-circular 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-yardstick 
+Requires:         R-CRAN-DALEX 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-edfReader 
-Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ellmer 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyalert 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-naniar 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rsvg 
-Requires:         R-CRAN-svgedit 
-Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-yardstick 
 
 %description
-An online app and command-line utility to import, filter and visualise
-sleep data. Can be used with sleep data collected from any type of device
-(e.g. radar, sleep diary,...) as long as the data contains sleep onset and
-wake-up times for each sleep session.
+Provides a streamlined workflow for building, validating, and reporting
+clinical prediction models. Combines standard machine learning tools with
+an optional AI agent that recommends appropriate statistical methods, runs
+sensitivity analyses, and flags common pitfalls. Includes automated
+generation of reports aligned with TRIPOD+AI reporting guidance (Collins
+et al. (2024 <doi:10.1136/bmj-2023-078378>)) for reproducible,
+guideline-aligned research.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  melodi
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Download Insee French Institute of Statistics Open Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zip 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+A wrapper for the French Institute of Statistics (Insee) API Melodi
+<https://catalogue-donnees.insee.fr>. Download, search, filter data and
+metadata from open data statistical public datasets, in french or in
+english.
 
 %prep
 %setup -q -c -n %{packname}

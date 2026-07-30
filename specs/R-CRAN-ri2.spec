@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ri2
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Randomization Inference for Randomized Experiments
 
@@ -14,19 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-randomizr >= 0.16.0
-BuildRequires:    R-CRAN-estimatr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-estimatr 
 Requires:         R-CRAN-randomizr >= 0.16.0
-Requires:         R-CRAN-estimatr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-estimatr 
 
 %description
 Randomization inference procedures for simple and complex randomized

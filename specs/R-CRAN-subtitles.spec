@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nhanesR
-%global packver   0.1.5
+%global packname  subtitles
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download, Parse, and Analyze NHANES Data with Mortality Linkage
+Summary:          Generate and Render Timed Subtitles Using 'FFmpeg'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-haven >= 2.5.0
-BuildRequires:    R-CRAN-readr >= 2.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-tools 
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-haven >= 2.5.0
-Requires:         R-CRAN-readr >= 2.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-tools 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
 
 %description
-Provides tools for downloading and organizing National Health and
-Nutrition Examination Survey (NHANES) public-use data files and the
-National Center for Health Statistics (NCHS) Public-Use Linked Mortality
-Files (LMF). Supports structured local caching, codebook access,
-survey-aware merging, and preparation of survival analysis datasets using
-NHANES-National Death Index (NDI) linked mortality data (follow-up through
-December 31, 2019). NHANES methodology is described at
-<https://wwwn.cdc.gov/nchs/nhanes/Default.aspx>.
+Tools for generating timed subtitle files and rendering them into video
+with the 'FFmpeg' command-line interface (<https://ffmpeg.org/>). Converts
+structured transcription output (such as that produced by 'Whisper'
+speech-to-text models) into SubRip ('SRT') and Advanced SubStation Alpha
+('ASS') subtitle files, with word-level caption timing, styling presets,
+and line-break control, and burns subtitles into video files using the
+'FFmpeg' subtitles filter.
 
 %prep
 %setup -q -c -n %{packname}

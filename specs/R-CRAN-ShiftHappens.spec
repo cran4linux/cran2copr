@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  ShiftHappens
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Detecting, Visualizing and Estimating Shifts
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RBaM 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-RBaM 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
-Requires:         R-CRAN-tibble 
-Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+Detecting, visualizing and estimating shifts, with a specific focus on
+stage-discharge rating shifts. The main methods are described in Darienzo
+et al. (2021) <doi:10.1029/2020WR028607> and Mansanarez et al. (2019)
+<doi:10.1029/2018WR023389>. See also 'BayDERS'
+<https://github.com/MatteoDarienzo/BayDERS> for similar tools, and
+'RatingShiftHappens'
+<https://github.com/Felipemendezrios/RatingShiftHappens> for an older
+version of this package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  mhtopt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Optimal Multiple Hypothesis Testing Corrections
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
-Requires:         R-CRAN-tibble 
 Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+Implements the optimal multiple hypothesis testing correction from
+Viviano, Wuthrich, and Niehaus (2026) <doi:10.48550/arXiv.2104.13367>.
+Derives the optimal per-test significance level from the economic
+incentives of research production, providing a correction that lies
+between Bonferroni (too conservative) and unadjusted (too permissive).
+Supports two cost models: a Linear one calibrated to United States Food
+and Drug Administration (FDA) clinical-trial costs, and a Cobb-Douglas one
+calibrated to Abdul Latif Jameel Poverty Action Lab (J-PAL) project costs.
+Reports optimal, Bonferroni, Holm, Benjamini-Hochberg (BH), and unadjusted
+results side by side.
 
 %prep
 %setup -q -c -n %{packname}

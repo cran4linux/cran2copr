@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  combreg
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Bayesian Regression for Combinatorial Response Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-coda 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-utils 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+Bayesian regression whose response data are integer-valued vectors subject
+to combinatorial constraints in the form of Ay<=b. Implements the
+Metropolis-Hastings-within-Gibbs sampler of Zheng et al. (2026+)
+<doi:10.48550/arXiv.2504.11630>, an unconstrained probit baseline for
+comparison, benchmarking helpers, MCMC and regression diagnostics
+(effective sample sizes, split-Rhat, structured reports), plotting methods
+(trace, autocorrelation, violin, effective-sample-size,
+sampling-efficiency, residual heat map), and utilities for constraint
+validation (total unimodularity, feasibility) and data simulation.
 
 %prep
 %setup -q -c -n %{packname}

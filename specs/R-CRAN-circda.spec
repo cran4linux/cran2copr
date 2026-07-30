@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  circda
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Circular Data Analysis
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-Directional 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rangen 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-Directional 
+Requires:         R-graphics 
+Requires:         R-CRAN-rangen 
+Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+Functions to perform maximum likelihood estimation, model-based
+clustering, discriminant and regression analysis with a circular response
+variable. <doi:10.1080/01621459.2019.1585249>.
 
 %prep
 %setup -q -c -n %{packname}

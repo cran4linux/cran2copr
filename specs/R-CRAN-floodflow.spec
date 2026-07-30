@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  floodflow
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Map-First Climate-Informed Flood Assessment for Data-Scarce Basins
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
-Requires:         R-CRAN-tibble 
 Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+A reproducible, map-oriented workflow for flood hazard assessment that
+chains rainfall extreme value analysis, rainfall-runoff simulation,
+terrain-based flow routing and water-depth estimation into a single
+pipeline. A stationary-versus-nonstationary test for changing rainfall
+extremes is built in, and any flood scenario can be produced for a
+present-day or a climate-adjusted design event. Defaults target settings
+with sparse gauge networks, using satellite or reanalysis rainfall,
+temperature-based potential evapotranspiration and regional pooling of
+short records. Heavy modelling engines are wrapped rather than
+reimplemented so that the core stays lightweight. Methods follow
+established hydrology, including the generalized extreme value
+distribution for rainfall maxima (Coles, 2001,
+<doi:10.1007/978-1-4471-3675-0>) and Manning's equation for open-channel
+flow.
 
 %prep
 %setup -q -c -n %{packname}

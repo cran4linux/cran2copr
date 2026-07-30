@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ihsMW
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clean and Harmonise 'Malawi Integrated Household Survey' Data
 
@@ -28,8 +28,9 @@ Requires:         R-CRAN-rlang >= 1.1.0
 
 %description
 An offline suite of tools to clean, aggregate, and harmonise data from the
-'Malawi Integrated Household Survey' ('IHS'). Provides crop-specific unit
-conversions, stratified winsorization, and automatic cross-round
+'Malawi Integrated Household Survey' ('IHS'), covering rounds two through
+six (2004 to 2025). Provides crop-specific unit conversions, stratified
+winsorization, consumer-price deflation, and automatic cross-round
 harmonisation for complex survey designs.
 
 %prep

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sgmean
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Trimmed Mean Compatible with 'Statgraphics' Method
+Summary:          Proportional Trimmed Mean
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,10 +19,13 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Computes the trimmed mean using a proportional discount method on the
-extremes, replicating the behavior of 'Statgraphics' software. Unlike R's
-built-in mean() with trim, this method applies a weighted reduction to
-boundary values rather than removing them entirely.
+Computes a proportional trimmed mean that resolves the integer truncation
+problem of base R's mean(..., trim). When k = trim * n is non-integer, a
+fractional discount (1 - delta) is applied to boundary observations, where
+delta = k - floor(k). The resulting estimator is continuous in alpha for
+any fixed n, syntactically identical to mean(..., trim), and compatible
+with the 'Statgraphics' implementation. See Gaviria Chaverra (2026)
+<doi:10.32614/CRAN.package.sgmean>.
 
 %prep
 %setup -q -c -n %{packname}

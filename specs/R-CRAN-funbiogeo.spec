@@ -1,46 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  funbiogeo
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Streamlining Functional Biogeography Analyses
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xfun 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-grid 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-xfun 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+Helps users with analyses in functional biogeography by loading and
+combining data, computing trait coverage, as well as computing functional
+diversity indices, drawing maps, correlating them with the environment,
+and upscaling assemblages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jagshelper
-%global packver   0.4.3
+%global packname  netpanel
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extracting and Visualizing Output from 'jagsUI'
+Summary:          Maximum Likelihood Estimation Routines for Panel Network Autocorrelation Models
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jagsUI 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-jagsUI 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
 
 %description
-Tools are provided to streamline Bayesian analyses in 'JAGS' using the
-'jagsUI' package.  Included are functions for extracting output in simpler
-format, functions for streamlining assessment of convergence, and
-functions for producing summary plots of output.  Also included is a
-function that provides a simple template for running 'JAGS' from 'R'.
-Referenced materials can be found at <DOI:10.1214/ss/1177011136>.
+A set of maximum likelihood estimation routines for panel network
+autocorrelation models. The package contains functionality for fixed and
+random effects panel network autocorrelation model, in addition to dynamic
+panel network autocorrelation that contains time lags of the response and
+networks. Moreover, the package allows for multiple networks to be fitted.
+For information on the types of models estimated in this package, please
+see Anselin (1988) <doi:10.1007/978-94-015-7799-1>, Cook et al. (2023)
+<doi:10.1017/S0003055422000272>, Hays et al. (2010)
+<doi:10.1016/j.stamet.2009.11.005>, Lee and Yu (2012)
+<doi:10.1111/j.1468-2354.2012.00724.x>, Millo (2014)
+<doi:10.1016/j.csda.2013.07.024>, Millo and Piras (2012)
+<doi:10.18637/jss.v047.i01>, and Wang and Yu (2015)
+<doi:10.1016/j.econlet.2015.01.021>.
 
 %prep
 %setup -q -c -n %{packname}

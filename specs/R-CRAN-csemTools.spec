@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  csemTools
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Conditional Standard Error of Measurement Tools for Test Scores
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
-Requires:         R-CRAN-tibble 
-Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+Compute and compare conditional standard errors of measurement (CSEM)
+across score distributions using methods from classical test theory.
+Includes approaches for smoothing, bootstrapped CSEM, standardized CSEM,
+CSEM for scale scores, and assessment of properties of split-half scores.
+Also supports comparison with global standard errors derived from
+reliability coefficients and graphical visualization of CSEM curves and
+relative precision across observed score ranges. Some of these implemented
+methods are based on work by Lord (1955)
+<doi:10.1002/j.2333-8504.1955.tb00054.x>, Feldt and Qualls (1996)
+<doi:10.1111/j.1745-3984.1996.tb00486.x>, McNeish and Dumas (2025)
+<doi:10.3758/s13428-025-02611-8>.
 
 %prep
 %setup -q -c -n %{packname}

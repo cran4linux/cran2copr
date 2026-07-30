@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PiC
-%global packver   3.3.1
+%global packver   3.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
+Version:          3.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Processing and Segmentation of Forest TLS Point-Cloud Data
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-conicfit 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-collapse 
-Requires:         R-CRAN-conicfit 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
@@ -51,9 +49,12 @@ analysis and structural characterization. Methods are designed to handle
 large and dense point-cloud datasets efficiently, supporting applications
 in forest structure assessment, connectivity analysis, and fire-risk
 evaluation. Input data are provided as '.xyz', '.txt', '.las', or '.laz'
-point-cloud files. For methodological details, see Ferrara and Arrizza
-(2025) <https://hdl.handle.net/20.500.14243/533471> and Ferrara et al.
-(2018) <doi:10.1016/j.agrformet.2018.04.008>.
+point-cloud files. The circle-fitting routines used for diameter
+estimation are adapted, in base R, from the 'conicfit' package (GPL-3) by
+Jose Gama, based on the original algorithms and code by Nikolai Chernov.
+For methodological details, see Ferrara and Arrizza (2025)
+<https://hdl.handle.net/20.500.14243/533471> and Ferrara et al. (2018)
+<doi:10.1016/j.agrformet.2018.04.008>.
 
 %prep
 %setup -q -c -n %{packname}

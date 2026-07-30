@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ncmeta
-%global packver   0.5.0
+%global packname  brpop
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Straightforward 'NetCDF' Metadata
+Summary:          Brazilian Population Estimates
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dtplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CFtime 
-Requires:         R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-zendown 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dtplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-tibble 
-Requires:         R-stats 
-Requires:         R-CRAN-CFtime 
+Requires:         R-CRAN-zendown 
 
 %description
-Extract metadata from 'NetCDF' data sources, these can be files, file
-handles or servers. This package leverages and extends the lower level
-functions of the 'RNetCDF' package providing a consistent set of functions
-that all return data frames. We introduce named concepts of 'grid', 'axis'
-and 'source' which are all meaningful entities without formal definition
-in the 'NetCDF' library <https://www.unidata.ucar.edu/software/netcdf>.
-'RNetCDF' matches the library itself with only the named concepts of
-'variables', 'dimensions' and 'attributes'.
+Provides Brazilian municipality population estimates from official and
+research sources, with functions to aggregate the data by state, health
+region, sex, and age group.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jsslintr
-%global packver   1.1.0-1
+%global packver   1.1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.1
+Version:          1.1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          JSS LaTeX/BibTeX Style Checker
+Summary:          JSS 'LaTeX'/'BibTeX' Style Checker
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,10 +18,10 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 
 %description
-Lints LaTeX/BibTeX manuscripts against the Journal of Statistical Software
-(JSS) style guide. Wraps the same Rust rule engine used by the standalone
-jsslint binary, the browser/WASM build, and the Python binding, exposed to
-R via extendr.
+Lints 'LaTeX'/'BibTeX' manuscripts against the Journal of Statistical
+Software (JSS) style guide. Wraps the same 'Rust' rule engine used by the
+standalone 'jsslint' binary, the browser/'WASM' build, and the 'Python'
+binding, exposed to R via 'extendr'.
 
 %prep
 %setup -q -c -n %{packname}

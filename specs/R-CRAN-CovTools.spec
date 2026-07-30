@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CovTools
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Covariance Analysis
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.14.0
 Requires:         R-core >= 2.14.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-geigen 
 BuildRequires:    R-CRAN-shapes 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -32,7 +31,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-SHT 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-geigen 
 Requires:         R-CRAN-shapes 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-mvtnorm 
