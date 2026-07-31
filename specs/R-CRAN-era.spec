@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  era
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Year-Based Time Scales
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-vctrs >= 0.3.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-zeallot 
 
 %description
 Provides a consistent representation of year-based time scales as a

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AddiVortes
-%global packver   0.4.8
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Bayesian) Additive Voronoi Tessellations
 
@@ -14,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-parallel >= 4.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-pbapply >= 1.6
-Requires:         R-parallel >= 4.0.0
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-pbapply >= 1.6
+Requires:         R-parallel 
 
 %description
 Implements the Bayesian Additive Voronoi Tessellation model for
@@ -27,11 +27,11 @@ non-parametric regression and machine learning as introduced in Stone and
 Gosling (2025) <doi:10.1080/10618600.2024.2414104>. This package provides
 a flexible alternative to BART (Bayesian Additive Regression Trees) using
 Voronoi tessellations instead of trees. Users can fit Bayesian regression
-models, estimate posterior distributions, and visualise the resulting
-tessellations. It is particularly useful for spatial data analysis,
-machine learning regression, complex function approximation and Bayesian
-modeling where the underlying structure is unknown. The method is
-well-suited to capturing spatial patterns and non-linear relationships.
+models (estimating the associated posterior distributions and make
+predictions. It is particularly useful for spatial data analysis, machine
+learning regression, complex function approximation and Bayesian modeling
+where the underlying structure is unknown. The method is well-suited to
+capturing spatial patterns and non-linear relationships.
 
 %prep
 %setup -q -c -n %{packname}

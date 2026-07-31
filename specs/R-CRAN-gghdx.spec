@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gghdx
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          HDX Theme, Scales, and Other Conveniences for 'ggplot2'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -41,8 +41,8 @@ Requires:         R-CRAN-tibble
 %description
 A Humanitarian Data Exchange (HDX) theme, color palettes, and scales for
 'ggplot2' to allow users to easily follow the HDX visual design guide,
-including convenience functions for for loading and using the Source Sans
-3 font.
+including convenience functions for for loading and using the Roboto and
+Merriweather fonts.
 
 %prep
 %setup -q -c -n %{packname}

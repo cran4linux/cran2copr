@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  comtradr
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface with the United Nations Comtrade API
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-poorman 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-tools 
@@ -40,7 +40,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-poorman 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
 Requires:         R-tools 

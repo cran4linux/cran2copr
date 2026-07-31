@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semFromKeys
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run 'lavaan' Models from Keys Lists
 
@@ -22,11 +22,17 @@ BuildRequires:    R-CRAN-lavaan
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-withr 
 Requires:         R-tools 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
 
 %description
 Specifying 'lavaan' models manually can be time consuming when multiple

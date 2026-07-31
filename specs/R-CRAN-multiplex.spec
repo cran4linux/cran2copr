@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiplex
-%global packver   3.9
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algebraic Tools for the Analysis of Multiple Social Networks
 
@@ -14,25 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.6.0
+Requires:         R-core >= 4.6.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 Requires:         R-methods 
 
 %description
-Algebraic procedures for analyses of multiple social networks are
-delivered with this package as described in Ostoic (2020)
-<DOI:10.18637/jss.v092.i11>. 'multiplex' makes possible, among other
-things, to create and manipulate multiplex, multimode, and multilevel
-network data with different formats. Effective ways are available to treat
-multiple networks with routines that combine algebraic systems like the
-partially ordered semigroup with decomposition procedures or semiring
-structures with the relational bundles occurring in different types of
-multivariate networks. 'multiplex' provides also an algebraic approach for
-affiliation networks through Galois derivations between families of the
-pairs of subsets in the two domains of the network with visualization
-options.
+Algebraic procedures for analyses of multiple social networks are provided
+with this package as described in Ostoic (2020)
+<DOI:10.18637/jss.v092.i11>. 'multiplex' supports the creation and
+analysis of multiplex, multimode, and multilevel network data in various
+formats. It combines methods based on partially ordered semigroups,
+decomposition procedures, semiring structures, and relational bundles for
+multivariate network analysis. It also provides an algebraic approach to
+affiliation networks using Galois derivations, with visualization options.
 
 %prep
 %setup -q -c -n %{packname}

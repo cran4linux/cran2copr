@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coglasso
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collaborative Graphical Lasso - Multi-Omics Network Reconstruction
 
@@ -37,8 +37,8 @@ Requires:         R-CRAN-withr
 %description
 Reconstruct networks from multi-omics data sets with the collaborative
 graphical lasso (coglasso) algorithm described in Albanese, A., Kohlen,
-W., and Behrouzi, P. (2024) <doi:10.48550/arXiv.2403.18602>. Use the main
-wrapper function `bs()` to build and select a multi-omics network.
+W., and Behrouzi, P. (2026) <doi:10.1093/bioinformatics/btag477>. Use the
+main wrapper function `bs()` to build and select a multi-omics network.
 
 %prep
 %setup -q -c -n %{packname}

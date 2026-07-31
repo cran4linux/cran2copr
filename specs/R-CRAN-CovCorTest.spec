@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CovCorTest
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests for Covariance and Correlation Matrices and their Structures
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MANOVA.RM 
 BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-MANOVA.RM 
 Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Rdpack 
 
 %description
 A compilation of tests for hypotheses regarding covariance and correlation
@@ -32,8 +34,9 @@ method must be chosen, and the functions provide p-values and mostly also
 estimators of calculated covariance matrices of test statistics. For more
 details on the methodology, see Sattler et al. (2022)
 <doi:10.1016/j.jspi.2021.12.001>, Sattler and Pauly (2024)
-<doi:10.1007/s11749-023-00906-6>, and Sattler and Dobler (2025)
-<doi:10.48550/arXiv.2310.11799>.
+<doi:10.1007/s11749-023-00906-6>, Sattler and Dobler (2026)
+<doi:10.1016/j.jmva.2025.105517>, and Sattler and Jedhoff (2025)
+<doi:10.48550/arXiv.2507.03406>.
 
 %prep
 %setup -q -c -n %{packname}

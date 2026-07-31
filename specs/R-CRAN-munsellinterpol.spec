@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  munsellinterpol
-%global packver   3.4-0
+%global packver   3.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpolate Munsell Renotation Data from Hue Value/Chroma to CIE/RGB
 
@@ -14,17 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-spacesXYZ >= 1.6.0
+BuildRequires:    R-CRAN-logger >= 0.4.1
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-CRAN-spacesRGB 
-BuildRequires:    R-CRAN-logger 
 Requires:         R-CRAN-spacesXYZ >= 1.6.0
+Requires:         R-CRAN-logger >= 0.4.1
 Requires:         R-CRAN-rootSolve 
 Requires:         R-CRAN-spacesRGB 
-Requires:         R-CRAN-logger 
 
 %description
 Methods for interpolating data in the Munsell color system following the

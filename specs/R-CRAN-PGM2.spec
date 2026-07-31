@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PGM2
-%global packver   1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recursive Construction of Nested Resolvable Designs and Associated Uniform Designs
+Summary:          Recursive Construction of Nested Resolvable Designs and Associated Uniform Designs over GF(p)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,13 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Implements recursive construction methods for balanced incomplete block
-designs (BIBDs), their second generation, resolvable BIBDs (RBIBDs), and
-uniform designs (UDs) derived from projective geometries over GF(2). It
-enables extraction of nested structures in multiple stages and supports
-recursive resolution processes, as introduced in Boudraa et al. (2013).
+Recursive construction of balanced incomplete block designs (BIBDs), their
+successive generations, resolvable BIBDs (RBIBDs) and associated uniform
+designs (UDs), derived from finite projective geometries PG(m, p) over a
+Galois field GF(p) of any prime order p. Implements and generalises the
+method of Boudraa, Gheribi-Aoulmi and Laib (2013, International Journal of
+Research and Reviews in Applied Sciences, 17(2), 167-176), which was
+previously available only for p = 2, and the uniform design constructions
+of Fang et al. (2004) <doi:10.1016/S0012-365X(03)00100-6>. Designs of
+every recursion stage can be extracted, and all constructions are
+validated against the parameters published in the original paper.
 
 %prep
 %setup -q -c -n %{packname}

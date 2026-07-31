@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  piar
-%global packver   0.9.0
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Price Index Aggregation
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
-BuildRequires:    R-CRAN-gpindex >= 0.6.2
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Matrix >= 1.5.0
-Requires:         R-CRAN-gpindex >= 0.6.2
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -37,7 +35,8 @@ contains a collection of functions that revolve around this work flow,
 making it easy to build standard price indexes, and implement the methods
 described by Balk (2008, <doi:10.1017/CBO9780511720758>), von der Lippe
 (2007, <doi:10.3726/978-3-653-01120-3>), and the CPI manual (2020,
-<doi:10.5089/9781484354841.069>) for bilateral price indexes.
+<doi:10.5089/9781484354841.069>) and PPI manual (2004,
+<doi:10.5089/9781589063044.069>) for bilateral price indexes.
 
 %prep
 %setup -q -c -n %{packname}

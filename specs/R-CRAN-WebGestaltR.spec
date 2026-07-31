@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WebGestaltR
-%global packver   0.4.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene Set Analysis Toolkit WebGestaltR
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-parallel >= 3.3.2
 BuildRequires:    R-CRAN-foreach >= 1.4.0
 BuildRequires:    R-CRAN-doParallel >= 1.0.10
@@ -27,10 +27,11 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-svglite 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-apcluster 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-poolr 
 Requires:         R-parallel >= 3.3.2
 Requires:         R-CRAN-foreach >= 1.4.0
 Requires:         R-CRAN-doParallel >= 1.0.10
@@ -42,10 +43,11 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-svglite 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-apcluster 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-poolr 
 
 %description
 The web version WebGestalt <https://www.webgestalt.org> supports 12

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blockr.dag
-%global packver   0.1.2
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Directed Acyclic Graph Extension for 'blockr'
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-g6R >= 0.6.0
-BuildRequires:    R-CRAN-blockr.core >= 0.1.2
-BuildRequires:    R-CRAN-blockr.dock >= 0.1.1
+BuildRequires:    R-CRAN-g6R >= 0.6.5
+BuildRequires:    R-CRAN-blockr.core >= 0.1.3
+BuildRequires:    R-CRAN-blockr.dock >= 0.1.2
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-g6R >= 0.6.0
-Requires:         R-CRAN-blockr.core >= 0.1.2
-Requires:         R-CRAN-blockr.dock >= 0.1.1
+Requires:         R-CRAN-g6R >= 0.6.5
+Requires:         R-CRAN-blockr.core >= 0.1.3
+Requires:         R-CRAN-blockr.dock >= 0.1.2
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-htmltools 

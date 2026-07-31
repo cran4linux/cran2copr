@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EGRET
-%global packver   3.0.11
+%global packver   3.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.11
+Version:          3.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploration and Graphics for RivEr Trends
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dataRetrieval >= 2.0.1
+BuildRequires:    R-CRAN-dataRetrieval >= 2.7.19
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-methods 
@@ -28,7 +28,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-dataRetrieval >= 2.0.1
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-dataRetrieval >= 2.7.19
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-fields 
 Requires:         R-methods 
@@ -39,6 +41,8 @@ Requires:         R-stats
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-zoo 
 
 %description
 Statistics and graphics for streamflow history, water quality trends, and

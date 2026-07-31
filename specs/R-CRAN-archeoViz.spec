@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  archeoViz
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisation, Exploration, and Web Communication of Archaeological Spatial Data
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-svglite 
 BuildRequires:    R-CRAN-htmlwidgets 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-svglite 
 Requires:         R-CRAN-htmlwidgets 
