@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiModTest
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Assessment for Individual Modalities in Multimodal Regression Models
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-SIS 
 BuildRequires:    R-CRAN-glmnet 
@@ -25,7 +24,6 @@ BuildRequires:    R-CRAN-ncvreg
 BuildRequires:    R-CRAN-MBESS 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-SIS 
 Requires:         R-CRAN-glmnet 
@@ -38,9 +36,11 @@ Requires:         R-CRAN-dplyr
 Provides methods for quantifying the information gain contributed by
 individual modalities in multimodal regression models. Information gain is
 measured using Expected Relative Entropy (ERE) or pseudo-R² metrics, with
-corresponding p-values and confidence intervals. Currently supports linear
-and logistic regression models with plans for extension to additional
-Generalized Linear Models and Cox proportional hazard model.
+corresponding confidence intervals. Currently supports linear regression,
+logistic regression, and the Cox proportional hazards model. A robust
+Median-of-Means based estimator is also provided for heavy-tailed
+responses under the Gaussian and Negative-Binomial families, with basic
+bootstrap confidence intervals.
 
 %prep
 %setup -q -c -n %{packname}

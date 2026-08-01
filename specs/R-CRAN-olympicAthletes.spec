@@ -1,44 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdecision
-%global packver   1.3.1
+%global packname  olympicAthletes
+%global packver   0.5.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.5.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Decision Analytic Modelling in Health Economics
+Summary:          Olympic Athlete Event Data, Athens 1896 to Milano-Cortina 2026
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-withr 
 
 %description
-Classes and functions for modelling health care interventions using
-decision trees and semi-Markov models. Mechanisms are provided for
-associating an uncertainty distribution with each source variable and for
-ensuring transparency of the mathematical relationships between variables.
-The package terminology follows Briggs "Decision Modelling for Health
-Economic Evaluation" (2006, ISBN:978-0-19-852662-9).
+A tidy, long-format dataset of every athlete-event participation in the
+modern Olympic Games, spanning Athens 1896 through Milano-Cortina 2026
+(about 315,000 rows). Extends the rgriff23 'Olympic_history' dataset
+(1896-2016) with five additional editions scraped from Olympedia
+(<https://www.olympedia.org>): PyeongChang 2018, Tokyo 2020, Beijing 2022,
+Paris 2024, and Milano-Cortina 2026. Companion datasets cover
+edition-level metadata and verified medal tables for every edition from
+1896 to 2026.
 
 %prep
 %setup -q -c -n %{packname}

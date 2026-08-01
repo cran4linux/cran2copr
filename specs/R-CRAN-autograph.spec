@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autograph
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Plotting and Theming of Many Graphs
 
@@ -18,21 +18,19 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-manynet >= 2.2.1
 BuildRequires:    R-CRAN-ggraph >= 2.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-manynet 
-BuildRequires:    R-CRAN-ggdendro 
+BuildRequires:    R-CRAN-graphlayouts >= 1.1.0
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-tidygraph 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-manynet >= 2.2.1
 Requires:         R-CRAN-ggraph >= 2.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-manynet 
-Requires:         R-CRAN-ggdendro 
+Requires:         R-CRAN-graphlayouts >= 1.1.0
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-tidygraph 
 
 %description
 Visual exploration and presentation of networks should not be difficult.

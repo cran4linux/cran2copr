@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fitODBOD
-%global packver   1.5.5
+%global packname  regMR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modeling Over Dispersed Binomial Outcome Data Using BMD and ABD
+Summary:          Regularized Finite Mixture Regression Models Using MM Algorithm
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bbmle 
-BuildRequires:    R-CRAN-hypergeo 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-bbmle 
-Requires:         R-CRAN-hypergeo 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-plotly 
 Requires:         R-stats 
 
 %description
-Contains Probability Mass Functions, Cumulative Mass Functions, Negative
-Log Likelihood value, parameter estimation and modeling data using
-Binomial Mixture Distributions (BMD) (Manoj et al (2013)
-<doi:10.5539/ijsp.v2n2p24>) and Alternate Binomial Distributions (ABD)
-(Paul (1985) <doi:10.1080/03610928508828990>), also Journal article to use
-the package(<doi:10.21105/joss.01505>).
+Provides a comprehensive framework for fitting regularized finite mixture
+regression models via an MM algorithm. The sparse group lasso (sgl)
+penalty is applied to parameter updates within the MM algorithm for
+variable selection with respect to groups and covariates. The package
+provides multiple functions for estimation and allows users to fit models
+over different lambda-alpha sgl penalties and group counts.
 
 %prep
 %setup -q -c -n %{packname}

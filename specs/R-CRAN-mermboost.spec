@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mermboost
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gradient Boosting for Generalized Additive Mixed Models
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-reformulas 
 Requires:         R-CRAN-mboost 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-stabs 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-parallel 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-reformulas 
 
 %description
 Provides a novel framework to estimate mixed models via gradient boosting.

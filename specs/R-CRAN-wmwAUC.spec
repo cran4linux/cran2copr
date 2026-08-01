@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wmwAUC
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wilcoxon-Mann-Whitney Test of No Group Discrimination
+Summary:          Test of No Group Discrimination Using the WMW Statistic
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,10 +19,14 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 
 %description
-Provides inference for the Wilcoxon-Mann-Whitney test under the null
-hypothesis H0: AUC = 0.5 for continuous, discrete or mixed random
-variables. Traditional implementations test H0: F = G, which is
-inappropriately broad and leads to erroneous inferences. Methods are
+Implements a wmwAUC test of H0: AUC = 1/2 for continuous, discrete, or
+mixed random variables, based on the Wilcoxon-Mann-Whitney (WMW)
+statistic. The classic WMW test is calibrated under H0: {(F, G): F = G}
+which does not match the set {(F, G): AUC = 1/2}, implied by the test
+statistic, and consequently leads to erroneous inferences. wmwAUC is
+calibrated under the correct null and implements two finite-sample
+corrected p-value methods: an Exact Unbiased (EU) method and a
+Bias-Corrected (BC) method, both valid for any tie pattern. Methods are
 described in M. Grendar (2025) "Wilcoxon-Mann-Whitney Test of No Group
 Discrimination" <doi:10.48550/arXiv.2511.20308>.
 

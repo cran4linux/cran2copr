@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eyeris
-%global packver   3.2.0
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible, Extensible, & Reproducible Pupillometry Preprocessing
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-splines 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-tidyr 
@@ -36,12 +37,14 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-reaborn 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-eyelinker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gsignal 
@@ -52,6 +55,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-splines 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-tidyr 
@@ -61,12 +65,14 @@ Requires:         R-CRAN-withr
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-fields 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-reaborn 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
 
 %description
 Pupillometry offers a non-invasive window into the mind and has been used

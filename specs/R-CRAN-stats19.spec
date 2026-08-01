@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stats19
-%global packver   4.0.0
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Open Road Traffic Casualty Data from Great Britain
 
@@ -43,7 +43,7 @@ your `.Renviron` file, which can be opened with
 `usethis::edit_r_environ()`. The data is provided as a series of `.csv`
 files. This package downloads, reads-in and formats the data, making it
 suitable for analysis. See the stats19 vignette for details. Data
-available from 1979 to 2024. See the official data series at
+available from 1979 to 2025. See the official data series at
 <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>.
 The package is described in a paper in the Journal of Open Source Software
 (Lovelace et al. 2019) <doi:10.21105/joss.01181>. See Gilardi et al.

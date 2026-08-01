@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zoo
-%global packver   1.8-15
+%global packver   1.9-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.15
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)
 
@@ -28,11 +28,16 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 
 %description
-An S3 class with methods for totally ordered indexed observations. It is
-particularly aimed at irregular time series of numeric vectors/matrices
-and factors. zoo's key design goals are independence of a particular
-index/date/time class and consistency with ts and base R by providing
-methods to extend standard generics.
+An S3 class with methods for working with regular and irregular time
+series. The class stores data as numeric vectors/matrices (or factors)
+along with a time index of arbitrary class (including numeric, Date,
+POSIXct, chron, yearmon, yearqtr, etc.). Functions and methods are
+consistent with the ts class and base R and also extend standard generics.
+Tools include: Data import/export, coercion, visualization (with base R,
+'ggplot2', 'lattice', 'tinyplot'), alignment and merging, aggregation,
+lags and subsets, rolling analytics, and time-based interpolation/filling.
+The design is introduced in Zeileis and Grothendieck (2005)
+<doi:10.18637/jss.v014.i06>.
 
 %prep
 %setup -q -c -n %{packname}

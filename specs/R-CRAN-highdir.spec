@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  highdir
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Backend-Agnostic Figure Builder for 'highcharter' and 'ggplot2'
+Summary:          Unified Data Visualization Framework for Dynamic and Static Graphics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,7 +21,9 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.6.0
+BuildRequires:    R-CRAN-scales >= 1.4.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.5
 BuildRequires:    R-CRAN-highcharter >= 0.9.4
 BuildRequires:    R-CRAN-viridis >= 0.6.0
 BuildRequires:    R-tools 
@@ -31,7 +33,9 @@ Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-htmlwidgets >= 1.6.0
+Requires:         R-CRAN-scales >= 1.4.0
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-lifecycle >= 1.0.5
 Requires:         R-CRAN-highcharter >= 0.9.4
 Requires:         R-CRAN-viridis >= 0.6.0
 Requires:         R-tools 
@@ -39,13 +43,13 @@ Requires:         R-utils
 Requires:         R-stats 
 
 %description
-Provides a backend-agnostic 'API' for creating data visualizations using
-'highcharter' (interactive) or 'ggplot2' (static). Figures are defined
-once via a specification object and can be rendered to either backend
-without modifying the calling code. Supports both declarative and layered
-workflows, flexible theming and colour palettes, optional 'JavaScript'
-enhancements, and tools for exporting figures and interactive exploration
-via a 'shiny' app.
+Provides a unified API for creating data visualizations across dynamic and
+static rendering modes. Visualizations are defined once using a
+specification object and can be rendered with 'highcharter', 'ggplot2', or
+other supported packages without modifying user code. The package supports
+declarative and layered workflows, reusable themes and colour palettes,
+optional 'JavaScript' enhancements, export tools, and interactive
+exploration through 'shiny' applications.
 
 %prep
 %setup -q -c -n %{packname}

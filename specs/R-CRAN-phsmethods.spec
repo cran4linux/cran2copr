@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phsmethods
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standard Methods for Use in Public Health Scotland
 
@@ -27,8 +27,6 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -39,8 +37,6 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
 A collection of methods for commonly undertaken analytical tasks,

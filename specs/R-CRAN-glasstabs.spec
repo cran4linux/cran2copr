@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glasstabs
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animated Glass-Style Tabs and Multi-Select Filter for 'Shiny'
+Summary:          Animated Glass-Style Tabs and Select Inputs for 'Shiny'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,8 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny >= 1.7.0
 Requires:         R-CRAN-htmltools >= 0.5.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Tools for creating animated glassmorphism-style tab navigation and select

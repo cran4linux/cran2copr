@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyalluvial
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Alluvial Plots with a Single Line of Code
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-ggalluvial >= 0.9.1
 BuildRequires:    R-CRAN-recipes >= 0.1.5
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-CRAN-ggplot2 >= 4.0.3
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-ggalluvial >= 0.9.1
 Requires:         R-CRAN-recipes >= 0.1.5
