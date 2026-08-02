@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  catmodeling
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Catastrophe Model Simulation and Adjustment
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
@@ -36,9 +37,8 @@ and calculating diagnostics from ELTs and YLTs, such as average annual
 loss and exceedance probability curves. Frequency adjustment routines are
 based on the paper "A new simulation algorithm for more precise estimates
 of change in catastrophe risk models, with application to hurricanes and
-climate change", Jewson, S. (2023); <doi:10.1007/s00477-023-02409-0>. Uses
-the compiled language 'Rust' in places and so requires a Rust compiler to
-be installed, or a binary installation.
+climate change", Jewson, S. (2023); <doi:10.1007/s00477-023-02409-0>.
+Version 0.0.2 no longer uses rust.
 
 %prep
 %setup -q -c -n %{packname}

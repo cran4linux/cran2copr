@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mnirs
-%global packver   0.6.5
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Muscle Near-Infrared Spectroscopy Processing and Analysis
 
@@ -36,12 +36,11 @@ Requires:         R-CRAN-tidyselect
 
 %description
 Read, process, and analyse data from muscle near-infrared spectroscopy
-(mNIRS) devices. Import raw data from .csv or .xls(x) files and return
-time-series data and metadata. Includes standardised methods for cleaning,
-filtering, and pre-processing mNIRS data for subsequent analysis. Also
-includes a custom plot theme and colour palette. Intended for mNIRS
-researchers and practitioners in exercise physiology, sports science, and
-clinical rehabilitation with minimal coding experience required.
+(mNIRS) devices. Import raw data from file and return time-series data and
+metadata. Standardised methods for cleaning, filtering, transforming, and
+analysing mNIRS data. Custom plot theme and colour palette. Intended for
+mNIRS researchers and practitioners in exercise physiology, sports
+science, and clinical practice.
 
 %prep
 %setup -q -c -n %{packname}

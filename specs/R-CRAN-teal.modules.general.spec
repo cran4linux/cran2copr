@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.modules.general
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Modules for 'teal' Applications
 
@@ -35,12 +35,14 @@ BuildRequires:    R-CRAN-goftest >= 1.2.3
 BuildRequires:    R-CRAN-teal >= 1.2.0
 BuildRequires:    R-CRAN-patchwork >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-tern >= 0.9.7
 BuildRequires:    R-CRAN-ggrepel >= 0.9.6
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-bslib >= 0.8.0
 BuildRequires:    R-CRAN-teal.data >= 0.8.0
+BuildRequires:    R-CRAN-broom >= 0.7.10
 BuildRequires:    R-CRAN-teal.transform >= 0.7.0
 BuildRequires:    R-CRAN-teal.code >= 0.7.0
 BuildRequires:    R-CRAN-teal.reporter >= 0.6.2
@@ -56,8 +58,11 @@ BuildRequires:    R-CRAN-DT >= 0.13
 BuildRequires:    R-CRAN-ggExtra >= 0.10.1
 BuildRequires:    R-CRAN-generics >= 0.1.3
 BuildRequires:    R-CRAN-shinyvalidate >= 0.1.3
+BuildRequires:    R-CRAN-teal.picks >= 0.1.0
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS >= 7.3.60
@@ -78,12 +83,14 @@ Requires:         R-CRAN-goftest >= 1.2.3
 Requires:         R-CRAN-teal >= 1.2.0
 Requires:         R-CRAN-patchwork >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-tern >= 0.9.7
 Requires:         R-CRAN-ggrepel >= 0.9.6
 Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-bslib >= 0.8.0
 Requires:         R-CRAN-teal.data >= 0.8.0
+Requires:         R-CRAN-broom >= 0.7.10
 Requires:         R-CRAN-teal.transform >= 0.7.0
 Requires:         R-CRAN-teal.code >= 0.7.0
 Requires:         R-CRAN-teal.reporter >= 0.6.2
@@ -99,8 +106,11 @@ Requires:         R-CRAN-DT >= 0.13
 Requires:         R-CRAN-ggExtra >= 0.10.1
 Requires:         R-CRAN-generics >= 0.1.3
 Requires:         R-CRAN-shinyvalidate >= 0.1.3
+Requires:         R-CRAN-teal.picks >= 0.1.0
 Requires:         R-grid 
+Requires:         R-CRAN-lattice 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-tools 
 Requires:         R-utils 
 

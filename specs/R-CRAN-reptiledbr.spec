@@ -1,46 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clinify
-%global packver   0.4.0
+%global packname  reptiledbr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clinical Table Styling Tools and Utilities
+Summary:          Interface to 'The Reptile Database' Taxon Data
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-officer >= 0.7.2
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-officer >= 0.7.2
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-fuzzyjoin 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-zoo 
+Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-cli 
 
 %description
-The primary motivation of this package is to take the things that are
-great about the R packages 'flextable'
-<https://davidgohel.github.io/flextable/> and 'officer'
-<https://davidgohel.github.io/officer/>, take the standard and complex
-pieces of formatting clinical tables for regulatory use, and simplify the
-tedious pieces.
+Provides tools to search, access, and format taxonomic information from
+'The Reptile Database' (<https://reptile-database.org>) directly within
+'R'. Users can retrieve species-level data, distribution, etymology,
+synonyms, common names, and other relevant information for reptiles.
+Designed for taxonomists, ecologists, and biodiversity researchers.
 
 %prep
 %setup -q -c -n %{packname}
