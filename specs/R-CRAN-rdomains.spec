@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdomains
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get the Category of Content Hosted by a Domain
 
@@ -33,6 +33,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-virustotal 
@@ -54,6 +55,7 @@ Requires:         R-stats
 Requires:         R-methods 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-virustotal 

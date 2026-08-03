@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  guess
-%global packver   0.3.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adjust Estimates of Learning for Guessing
 
@@ -27,11 +27,11 @@ Requires:         R-CRAN-checkmate
 %description
 Provides tools to adjust estimates of learning for guessing-related bias
 in educational and survey research. Implements standard guessing
-correction methods and a sophisticated latent class model that leverages
-informative pre-post test transitions to account for guessing behavior.
-The package helps researchers obtain more accurate estimates of actual
-learning when respondents may guess on closed-ended knowledge items. For
-theoretical background and empirical validation, see Cor and Sood (2018)
+correction methods and latent class models that leverage informative
+pre-post test transitions to account for guessing behavior. The package
+helps researchers obtain more accurate estimates of actual learning when
+respondents may guess on closed-ended knowledge items. For theoretical
+background and empirical validation, see Cor and Sood (2016)
 <https://gsood.com/research/papers/guess.pdf>.
 
 %prep

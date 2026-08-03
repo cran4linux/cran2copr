@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aieconindex
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'Anthropic Economic Index' Dataset
 
@@ -41,8 +41,9 @@ the methodology of Handa et al. (2025) <doi:10.48550/arXiv.2503.04761> and
 the privacy-preserving system 'Clio' of Tamkin et al. (2024)
 <doi:10.48550/arXiv.2412.13678>. Functions list available releases, fetch
 raw and enriched usage tables, retrieve task statements, request
-hierarchies, and country-level breakdowns, compare two releases, join the
-index to user-supplied data on a shared key, and compute
+hierarchies, country-level breakdowns, and the standalone labor market
+impacts tables (job exposure and task penetration), compare two releases,
+join the index to user-supplied data on a shared key, and compute
 usage-concentration metrics (Herfindahl-Hirschman Index, top-N
 concentration ratios, Shannon entropy). Data is cached locally for
 subsequent calls. Reproducibility helpers produce 'BibTeX' or plain-text

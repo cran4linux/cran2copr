@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  twinsvm
-%global packver   0.0.2
+%global packname  irid
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Twin Support Vector Machines
+Summary:          Component-Based 'Shiny' UI with Fine-Grained Reactivity
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-rlang >= 1.2.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides twin support vector machine classifiers and visualization tools
-for small to moderate classification problems. Includes one-vs-one
-multi-class classification and a standard support vector machine baseline
-for comparison.
+A component-based reactive UI framework for 'Shiny' that binds reactive
+values directly to DOM attributes, enabling fine-grained updates without
+re-rendering or 'update*Input' callbacks.
 
 %prep
 %setup -q -c -n %{packname}

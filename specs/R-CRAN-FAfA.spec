@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FAfA
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor Analysis for All
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,83 +17,59 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-EGAnet >= 2.4.1
 BuildRequires:    R-CRAN-Amelia 
 BuildRequires:    R-CRAN-EFA.MRFA 
 BuildRequires:    R-CRAN-EFA.dimensions 
 BuildRequires:    R-CRAN-EFAtools 
-BuildRequires:    R-CRAN-EGAnet 
-BuildRequires:    R-CRAN-MBESS 
+BuildRequires:    R-CRAN-ItemRest 
 BuildRequires:    R-CRAN-bsicons 
 BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mctest 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-missForest 
-BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-mvnormalTest 
 BuildRequires:    R-CRAN-naniar 
-BuildRequires:    R-CRAN-pastecs 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-psychometric 
+BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-semPlot 
-BuildRequires:    R-CRAN-semTools 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-sirt 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-EGAnet >= 2.4.1
 Requires:         R-CRAN-Amelia 
 Requires:         R-CRAN-EFA.MRFA 
 Requires:         R-CRAN-EFA.dimensions 
 Requires:         R-CRAN-EFAtools 
-Requires:         R-CRAN-EGAnet 
-Requires:         R-CRAN-MBESS 
+Requires:         R-CRAN-ItemRest 
 Requires:         R-CRAN-bsicons 
 Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-config 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-golem 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mctest 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-missForest 
-Requires:         R-CRAN-moments 
 Requires:         R-CRAN-mvnormalTest 
 Requires:         R-CRAN-naniar 
-Requires:         R-CRAN-pastecs 
 Requires:         R-CRAN-psych 
-Requires:         R-CRAN-psychometric 
+Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-semPlot 
-Requires:         R-CRAN-semTools 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-sirt 
 Requires:         R-stats 
 Requires:         R-tools 
-Requires:         R-CRAN-qgraph 
 Requires:         R-utils 
 
 %description
@@ -110,6 +86,8 @@ and item weighting techniques. The application leverages established R
 packages such as 'lavaan' and 'psych' to perform these analyses, offering
 an accessible platform for researchers and students. Results are presented
 in user-friendly tables and plots, with options for downloading outputs.
+Analysis projects can be saved and restored, and reproducible R, HTML, and
+PDF workflow reports can be generated.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FunctionalCalibration
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Aggregated Functional Data Calibration using Splines and Wavelets
 
@@ -25,8 +25,9 @@ Implements methods for calibrating an aggregated functional data model
 using wavelets or splines. Each aggregated curve is modeled as a linear
 combination of component functions and known weights. The component
 functions are estimated using wavelets or splines. The package is based on
-dos Santos Sousa (2024) <doi:10.1515/mcma-2023-2016> and Saraiva and Dias
-(2009) <doi:10.47749/T/UNICAMP.2009.471073>.
+dos Santos Sousa (2024) <doi:10.1515/mcma-2023-2016>, Saraiva and Dias
+(2009) <doi:10.47749/T/UNICAMP.2009.471073> and Johnstone and Silverman
+(1997) <doi:10.1111/1467-9868.00071>.
 
 %prep
 %setup -q -c -n %{packname}

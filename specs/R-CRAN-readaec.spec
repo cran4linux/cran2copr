@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readaec
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Australian Electoral Commission Data
 
@@ -33,9 +33,11 @@ Requires:         R-tools
 %description
 Provides clean, tidy access to Australian Electoral Commission (AEC)
 federal election data. Includes results for the House of Representatives
-and Senate from 2007 onwards, at both division and polling place level.
-Data is downloaded directly from the AEC <https://results.aec.gov.au> on
-first use and cached locally for subsequent calls.
+and Senate from 2007 onwards, at both division and polling place level,
+plus by-elections from 2008 onwards, the 2023 referendum, and the full
+distribution of preferences. Data is downloaded directly from the AEC
+<https://results.aec.gov.au> on first use and cached locally for
+subsequent calls.
 
 %prep
 %setup -q -c -n %{packname}

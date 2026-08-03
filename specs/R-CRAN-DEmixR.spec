@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEmixR
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Two-Component Normal and Lognormal Mixture Models
 
@@ -19,15 +19,18 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DEoptim >= 2.0.0
 BuildRequires:    R-CRAN-pbapply >= 1.0.0
-BuildRequires:    R-CRAN-parallelly >= 1.0.0
 Requires:         R-CRAN-DEoptim >= 2.0.0
 Requires:         R-CRAN-pbapply >= 1.0.0
-Requires:         R-CRAN-parallelly >= 1.0.0
 
 %description
 Fits, bootstraps, and evaluates two-component normal and lognormal mixture
-models. Includes diagnostic plots and statistical evaluation of mixture
-model fits using differential evolution optimization.
+models. Parameters are estimated by combining differential-evolution
+global optimization, as implemented in the 'DEoptim' package (Mullen,
+Ardia, Gil, Windover and Cline, 2011) <doi:10.18637/jss.v040.i06>, with a
+local 'L-BFGS-B' refinement step via optim(). Also provides preliminary
+diagnostic plots, automatic normal-versus-lognormal model selection by
+information criteria, and parametric or nonparametric bootstrap confidence
+intervals for the fitted parameters.
 
 %prep
 %setup -q -c -n %{packname}

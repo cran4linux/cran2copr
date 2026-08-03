@@ -1,48 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PeerPerformance
-%global packver   2.4.0
+%global packname  Gofpt2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Luck-Corrected Peer Performance Analysis in R
+Summary:          Generalized Goodness-of-Fit Test for Progressive Type-II Censored Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-stats 
+Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-lmtest 
-Requires:         R-parallel 
-Requires:         R-CRAN-sandwich 
-Requires:         R-stats 
 
 %description
-Provides functions to perform the peer performance analysis of funds'
-returns as described in Ardia and Boudt (2018)
-<doi:10.1016/j.jbankfin.2017.10.014>. For each fund, the package estimates
-the proportion of peers it outperforms, is equalled by, and is
-outperformed by, correcting for luck with the false discovery approach of
-Storey (2002) <doi:10.1111/1467-9868.00346>. Screenings can be based on
-factor-model alphas, Sharpe ratios, or modified Sharpe ratios, the latter
-using the equality test of Ardia and Boudt (2015)
-<doi:10.1016/j.frl.2015.02.008>. Funds can be screened within a universe
-or against a separate peer group, over rolling windows, and results come
-with bootstrap confidence intervals, summary, plot, and tidy data frame
-methods.
+Implements a generalized goodness-of-fit test based on spacings for
+general progressive Type-II censored data. The test statistic is based on
+the work of Qin et al. (2022) <doi:10.1080/02664763.2020.1821613> and
+extends the methodology of Balakrishnan et al. (2003)
+<doi:10.1007/978-1-4612-0103-8_8>. Users can test data against any
+distribution by providing custom pdf, cdf, and survival functions. The
+package supports both normal approximation and Monte Carlo simulation
+approaches for computing p-values and critical values.
 
 %prep
 %setup -q -c -n %{packname}

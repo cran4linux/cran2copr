@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sca
-%global packver   0.9-3
+%global packname  closecity
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Component Analysis
+Summary:          Client for the 'Close' API
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 
 %description
-Simple Component Analysis (SCA) often provides much more interpretable
-components than Principal Components (PCA) while still representing much
-of the variability in the data.
+Access travel times from every US census block to nearby points of
+interest, by walking, biking, and public transit, over the 'Close' API.
+Wraps the metered, read-only public endpoints with keyset pagination,
+ETag/304 conditional requests, token accounting, typed RFC 9457 error
+handling, and tabular output by default ('sf' where geometry applies, a
+data frame otherwise).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  obr
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'Office for Budget Responsibility' Data
 
@@ -33,13 +33,15 @@ Public Finances Databank (outturn for PSNB, PSND, receipts, and
 expenditure since 1946), the Historical Official Forecasts Database (every
 'OBR' forecast since 2010), the Economic and Fiscal Outlook detailed
 forecast tables (five-year projections from the latest Budget), the
-Welfare Trends Report (incapacity benefit spending and caseloads), and the
-Fiscal Risks and Sustainability Report (50-year state pension
-projections). All returned objects carry provenance metadata recording the
-source URL, publication vintage, retrieval time, and file fingerprint, so
-analyses can be audited and reproduced. Data is downloaded from the 'OBR'
-on first use and cached locally for subsequent calls. Data is sourced from
-the 'OBR' website <https://obr.uk>.
+monthly profiles for the public finances (the 'OBR' forecast apportioned
+across the months of the fiscal year), the Welfare Trends Report
+(incapacity benefit spending and caseloads), and the Fiscal Risks and
+Sustainability Report (50-year state pension projections). All returned
+objects carry provenance metadata recording the source URL, publication
+vintage, retrieval time, and file fingerprint, so analyses can be audited
+and reproduced. Data is downloaded from the 'OBR' on first use and cached
+locally for subsequent calls. Data is sourced from the 'OBR' website
+<https://obr.uk>.
 
 %prep
 %setup -q -c -n %{packname}

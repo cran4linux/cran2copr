@@ -1,48 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PeerPerformance
-%global packver   2.4.0
+%global packname  TTE
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Luck-Corrected Peer Performance Analysis in R
+Summary:          Design and Analysis Tools for Target Trial Emulation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lmtest 
-Requires:         R-parallel 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides functions to perform the peer performance analysis of funds'
-returns as described in Ardia and Boudt (2018)
-<doi:10.1016/j.jbankfin.2017.10.014>. For each fund, the package estimates
-the proportion of peers it outperforms, is equalled by, and is
-outperformed by, correcting for luck with the false discovery approach of
-Storey (2002) <doi:10.1111/1467-9868.00346>. Screenings can be based on
-factor-model alphas, Sharpe ratios, or modified Sharpe ratios, the latter
-using the equality test of Ardia and Boudt (2015)
-<doi:10.1016/j.frl.2015.02.008>. Funds can be screened within a universe
-or against a separate peer group, over rolling windows, and results come
-with bootstrap confidence intervals, summary, plot, and tidy data frame
-methods.
+Design and analysis tools for target trial emulation using longitudinal
+observational data. Functions are provided for checking person-period
+data, expanding longitudinal data into sequentially nested trials,
+estimating inverse probability weights for intention-to-treat and
+per-protocol analyses, and assessing weight distributions and covariate
+balance. Additional functions fit weighted pooled discrete-time outcome
+models, obtain standardized risks and treatment contrasts, and estimate
+weighted Kaplan-Meier and Aalen-Johansen curves. Two worked examples based
+on fully synthetic data illustrate an active-comparator new-user study
+comparing sodium-glucose cotransporter 2 inhibitors with dipeptidyl
+peptidase-4 inhibitors and an analysis of sequentially nested trials
+comparing angiotensin receptor blocker and calcium channel blocker
+strategies.
 
 %prep
 %setup -q -c -n %{packname}

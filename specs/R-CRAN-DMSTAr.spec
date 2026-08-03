@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sca
-%global packver   0.9-3
+%global packname  DMSTAr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Component Analysis
+Summary:          Dynamic Model for Stormwater Treatment Areas
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Simple Component Analysis (SCA) often provides much more interpretable
-components than Principal Components (PCA) while still representing much
-of the variability in the data.
+Performs treatment wetland modeling consistent with the original 'Excel'
+spreadsheet and VBA code version of DMSTA2 developed by Dr. Bill Walker
+<http://wwwalker.net/dmsta/>.
 
 %prep
 %setup -q -c -n %{packname}
