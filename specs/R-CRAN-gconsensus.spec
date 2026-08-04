@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gconsensus
-%global packver   0.3.2
+%global packver   0.3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consensus Value Constructor
 
@@ -31,10 +31,9 @@ Requires:         R-utils >= 3.4
 Requires:         R-CRAN-coda >= 0.13
 
 %description
-An implementation of the International Bureau of Weights and Measures
-(BIPM) generalized consensus estimators used to assign the reference value
-in a key comparison exercise. This can also be applied to any
-interlaboratory study. Given a set of different sources, primary
+An implementation of the generalized consensus estimators used to assign
+the reference value in a key comparison exercise. This can also be applied
+to any interlaboratory study. Given a set of different sources, primary
 laboratories or measurement methods this package provides an evaluation of
 the variance components according to the selected statistical method for
 consensus building. It also implements the comparison among different

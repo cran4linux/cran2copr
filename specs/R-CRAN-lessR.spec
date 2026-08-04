@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lessR
-%global packver   4.5.5
+%global packver   4.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.5
+Version:          4.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Less Code with More Comprehensive Results
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.11.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
@@ -42,6 +43,7 @@ BuildRequires:    R-CRAN-htmltools
 Requires:         R-CRAN-plotly >= 4.11.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-grid 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 

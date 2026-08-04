@@ -1,52 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bslib
-%global packver   0.12.0
+%global packname  mcplite
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Custom 'Bootstrap' 'Sass' Themes for 'shiny' and 'rmarkdown'
+Summary:          Lightweight Stdio MCP Server for R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-memoise >= 2.0.1
-BuildRequires:    R-CRAN-fastmap >= 1.1.1
-BuildRequires:    R-CRAN-htmltools >= 0.5.8
-BuildRequires:    R-CRAN-sass >= 0.4.9
-BuildRequires:    R-CRAN-jquerylib >= 0.1.3
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-cachem 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-nanonext >= 1.6.0
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-memoise >= 2.0.1
-Requires:         R-CRAN-fastmap >= 1.1.1
-Requires:         R-CRAN-htmltools >= 0.5.8
-Requires:         R-CRAN-sass >= 0.4.9
-Requires:         R-CRAN-jquerylib >= 0.1.3
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-cachem 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-otel 
+Requires:         R-CRAN-nanonext >= 1.6.0
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-otel 
 
 %description
-Simplifies custom 'CSS' styling of both 'shiny' and 'rmarkdown' via
-'Bootstrap' 'Sass'. Supports 'Bootstrap' 3, 4 and 5 as well as their
-various 'Bootswatch' themes. An interactive widget is also provided for
-previewing themes in real time.
+Provides a lightweight Model Context Protocol (MCP) server for exposing
+'R' functions as tools over standard input and output ('stdio'). Designed
+for local, client-launched integrations, with protocol-aware tool
+definitions and results, JSON Schema helpers, and optional
+interoperability with 'ellmer'.
 
 %prep
 %setup -q -c -n %{packname}

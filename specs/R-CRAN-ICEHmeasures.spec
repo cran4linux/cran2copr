@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ICEHmeasures
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Equiplot Graph and Complex Inequality Measures
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-survey
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-survey
 Requires:         R-CRAN-rlang 
 Requires:         R-grDevices 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Generates the equiplot, an iconic dot-plot graph for visualizing

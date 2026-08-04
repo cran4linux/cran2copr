@@ -1,48 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trajeR
-%global packver   1.0
+%global packname  neuralsbi
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Based Modeling Trajectory
+Summary:          Neural Simulation-Based Inference
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-capushe 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.4.6
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-capushe 
+BuildRequires:    R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
+Requires:         R-utils 
 
 %description
-Estimation of group-based trajectory models, including finite mixture
-models for longitudinal data, supporting censored normal, zero-inflated
-Poisson, logit, and beta distributions, using expectation-maximization and
-quasi-Newton methods, with tools for model selection, diagnostics, and
-visualization of latent trajectory groups, <doi:10.4159/9780674041318>,
-Nagin, D. (2005). Group-Based Modeling of Development. Cambridge, MA:
-Harvard University Press. and Noel (2022), <https://orbilu.uni.lu/>,
-thesis.
+A native R implementation of neural simulation-based inference, focused on
+Neural Posterior Estimation. Given a prior over parameters and a
+simulator, 'neuralsbi' trains a conditional neural density estimator to
+approximate the Bayesian posterior, enabling amortized, likelihood-free
+inference. Neural estimators run on the 'torch' back end. It targets
+applied researchers who want an approachable interface with sensible
+defaults and built-in posterior diagnostics.
 
 %prep
 %setup -q -c -n %{packname}

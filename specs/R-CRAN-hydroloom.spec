@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hydroloom
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities to Weave Hydrologic Fabrics
 
@@ -45,8 +45,8 @@ Requires:         R-CRAN-fastmap
 %description
 A collection of utilities that support creation of network attributes for
 hydrologic networks. Methods and algorithms implemented are documented in
-Moore et al. (2019) <doi:10.3133/ofr20191096>), Cormen and Leiserson
-(2022) <ISBN:9780262046305> and Verdin and Verdin (1999)
+Moore et al. (2019) <doi:10.3133/ofr20191096>, Cormen and Leiserson (2022)
+<ISBN:9780262046305> and Verdin and Verdin (1999)
 <doi:10.1016/S0022-1694(99)00011-6>.
 
 %prep

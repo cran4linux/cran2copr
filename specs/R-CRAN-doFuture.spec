@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doFuture
-%global packver   1.2.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Foreach to Parallelize via the Future Framework
 
-License:          LGPL (>= 2.1)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -37,13 +37,16 @@ The 'future' package provides a unifying parallelization framework for R
 that supports many parallel and distributed backends
 <doi:10.32614/RJ-2021-048>. The 'foreach' package provides a powerful API
 for iterating over an R expression in parallel. The 'doFuture' package
-brings the best of the two together. There are two alternative ways to use
-this package. The recommended approach is to use 'y <- foreach(...)
-%%dofuture%% { ... }', which does not require using 'registerDoFuture()' and
-has many advantages over '%%dopar%%'. The alternative is the traditional
-'foreach' approach by registering the 'foreach' adapter
-'registerDoFuture()' and so that 'y <- foreach(...) %%dopar%% { ... }' runs
-in parallelizes with the 'future' framework.
+brings the best of the two together. There are three ways to use this
+package. The recommended approach is to use 'y <- foreach(...) %%do%% { ...
+} |> futurize()' via the 'futurize' package
+(<doi:10.48550/arXiv.2601.17578>). The second alternative, which was
+formerly recommended, is to use 'y <- foreach(...) %%dofuture%% { ... }',
+which does not require using 'registerDoFuture()' and has many advantages
+over '%%dopar%%'. The third alternative is the traditional 'foreach'
+approach by registering the 'foreach' adapter 'registerDoFuture()' and so
+that 'y <- foreach(...) %%dopar%% { ... }' parallelizes with the 'future'
+framework.
 
 %prep
 %setup -q -c -n %{packname}

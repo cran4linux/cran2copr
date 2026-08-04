@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trajeR
-%global packver   1.0
+%global packname  sigPCA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Based Modeling Trajectory
+Summary:          Statistical Significance Testing for Principal Components
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-capushe 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.4.6
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-capushe 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
 
 %description
-Estimation of group-based trajectory models, including finite mixture
-models for longitudinal data, supporting censored normal, zero-inflated
-Poisson, logit, and beta distributions, using expectation-maximization and
-quasi-Newton methods, with tools for model selection, diagnostics, and
-visualization of latent trajectory groups, <doi:10.4159/9780674041318>,
-Nagin, D. (2005). Group-Based Modeling of Development. Cambridge, MA:
-Harvard University Press. and Noel (2022), <https://orbilu.uni.lu/>,
-thesis.
+Identifies principal components whose eigenvalues exceed those expected
+under noise. Implements analytical thresholds derived from the
+Marchenko-Pastur distribution (Marchenko and Pastur, 1967)
+<doi:10.1070/SM1967v001n04ABEH001994> and empirical permutation tests, and
+provides functions for visualizing observed and null eigenvalue spectra.
 
 %prep
 %setup -q -c -n %{packname}

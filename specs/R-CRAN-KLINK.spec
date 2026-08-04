@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KLINK
-%global packver   1.2.0
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kinship Analysis with Linked Markers
 
@@ -17,29 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.9.0
-BuildRequires:    R-CRAN-forrel 
-BuildRequires:    R-CRAN-norSTR 
+BuildRequires:    R-CRAN-pedtools >= 2.11.0
+BuildRequires:    R-CRAN-forrel >= 1.9.0
+BuildRequires:    R-CRAN-shiny >= 1.9.0
+BuildRequires:    R-CRAN-pedprobr >= 1.1.0
 BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-norSTR 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-pedFamilias 
 BuildRequires:    R-CRAN-pedmut 
-BuildRequires:    R-CRAN-pedprobr 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-verbalisr 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-pedtools >= 2.9.0
-Requires:         R-CRAN-forrel 
-Requires:         R-CRAN-norSTR 
+Requires:         R-CRAN-pedtools >= 2.11.0
+Requires:         R-CRAN-forrel >= 1.9.0
+Requires:         R-CRAN-shiny >= 1.9.0
+Requires:         R-CRAN-pedprobr >= 1.1.0
 Requires:         R-CRAN-gt 
+Requires:         R-CRAN-norSTR 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-pedFamilias 
 Requires:         R-CRAN-pedmut 
-Requires:         R-CRAN-pedprobr 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
@@ -52,7 +54,8 @@ A 'shiny' application for forensic kinship testing, based on the
 software 'Familias' and 'FamLink', but offers several unique features,
 including visualisations and automated report generation. The calculation
 of likelihood ratios supports pairs of linked markers, and all common
-mutation models.
+mutation models. The program is described in Vigeland and Gilfillan (2026)
+<doi:10.1016/j.fsigen.2026.103578>.
 
 %prep
 %setup -q -c -n %{packname}

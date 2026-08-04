@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  renv
-%global packver   1.2.4
+%global packname  walking
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Project Environments
+Summary:          Segments Accelerometry Data into Walking Bouts using Open Source Methods
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-reticulate >= 1.42.0
+BuildRequires:    R-CRAN-actibase 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-reticulate >= 1.42.0
+Requires:         R-CRAN-actibase 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-tidyr 
 
 %description
-A dependency management toolkit for R. Using 'renv', you can create and
-manage project-local R libraries, save the state of these libraries to a
-'lockfile', and later restore your library as required. Together, these
-tools can help make your projects more isolated, portable, and
-reproducible.
+Segments walking from accelerometry data using 'forest' python module
+<https://github.com/onnela-lab/forest> from Yi (2025) <doi:10.2196/71375>,
+'Verisense' original from Rowlands (2022)
+<doi:10.1080/02640414.2022.2147134> and 'Verisense' revised from Maylor
+(2022)<doi:10.3390/s22249984>, and Step Detection Threshold (SDT) from
+Ducharme (2021) <doi:10.1123/jmpb.2021-0011> methods.
 
 %prep
 %setup -q -c -n %{packname}

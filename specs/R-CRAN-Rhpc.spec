@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rhpc
-%global packver   0.26.4
+%global packver   0.26.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.26.4
+Version:          0.26.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply-Style Dispatch for High-Performance Computing
 

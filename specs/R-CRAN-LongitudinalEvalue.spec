@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trajeR
-%global packver   1.0
+%global packname  LongitudinalEvalue
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Based Modeling Trajectory
+Summary:          Sensitivity Analysis for Unmeasured Confounding in Longitudinal Studies
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-capushe 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-yuima 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.4.6
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-capushe 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-yuima 
+Requires:         R-methods 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-zoo 
 
 %description
-Estimation of group-based trajectory models, including finite mixture
-models for longitudinal data, supporting censored normal, zero-inflated
-Poisson, logit, and beta distributions, using expectation-maximization and
-quasi-Newton methods, with tools for model selection, diagnostics, and
-visualization of latent trajectory groups, <doi:10.4159/9780674041318>,
-Nagin, D. (2005). Group-Based Modeling of Development. Cambridge, MA:
-Harvard University Press. and Noel (2022), <https://orbilu.uni.lu/>,
-thesis.
+Evaluates the sensitivity of a given association to unmeasured
+confounding. The package consists of three functions. The first starts a
+'shiny' app which assesses how strong a time-invariant confounder needs to
+be associated with the exposure and outcome to explain away a proposed
+causal association. The second and third functions simulate a
+time-dependent confounder over time either using a fit from the qmle()
+function from the 'yuima' package or directly using the observed effect
+estimate.
 
 %prep
 %setup -q -c -n %{packname}

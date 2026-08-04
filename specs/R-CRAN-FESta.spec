@@ -1,48 +1,77 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FESta
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Fishing Effort Standardisation
+Version:          1.0.1
+Release:          1%{?dist}%{?buildtag}
+Summary:          Fishing Effort Standardization
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-bestNormalize 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tweedie 
+Requires:         R-CRAN-bestNormalize 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-statmod 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tweedie 
 
 %description
-Original idea was presented in the reference paper. Varghese et al. (2020,
-74(1):35-42) "Bayesian State-space Implementation of Schaefer Production
-Model for Assessment of Stock Status for Multi-gear Fishery". Marine
-fisheries governance and management practices are very essential to ensure
-the sustainability of the marine resources. A widely accepted resource
-management strategy towards this is to derive sustainable fish harvest
-levels based on the status of marine fish stock. Various fish stock
-assessment models that describe the biomass dynamics using time series
-data on fish catch and fishing effort are generally used for this purpose.
-In the scenario of complex multi-species marine fishery in which different
-species are caught by a number of fishing gears and each gear harvests a
-number of species make it difficult to obtain the fishing effort
-corresponding to each fish species. Since the capacity of the gears
-varies, the effort made to catch a resource cannot be considered as the
-sum of efforts expended by different fishing gears. This necessitates
-standardisation of fishing effort in unit base.
+Marine fisheries governance and management rely heavily on reliable
+indicators of stock abundance and fishing pressure to ensure the
+sustainable utilization of marine resources. Catch Per Unit Effort (CPUE)
+is widely used as an index of relative abundance, but direct comparison of
+catch rates is often affected by differences in fishing effort, vessel
+characteristics, gear efficiency, and operational practices. The FESta
+package provides methods for fishing effort and CPUE standardization,
+including vessel-based, gear-based, relative effort, derived effort,
+generalized linear models, generalized additive models, generalized linear
+mixed models, ordered quantile transformation models, and multi-gear
+standardization techniques for fisheries stock assessment and monitoring.
+To cite our package run this command, citation("FESta").
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -50,9 +79,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

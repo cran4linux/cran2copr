@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdd
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Manipulation of Out of Memory Data Sets
 
@@ -17,22 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dreamerr >= 1.4.0
+BuildRequires:    R-CRAN-stringmagic >= 1.2.0
 BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-dreamerr 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-dreamerr >= 1.4.0
+Requires:         R-CRAN-stringmagic >= 1.2.0
 Requires:         R-CRAN-fst 
 Requires:         R-utils 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-dreamerr 
+Requires:         R-CRAN-data.table 
 
 %description
 Hard drive data: Class of data allowing the easy importation/manipulation
 of out of memory data sets. The data sets are located on disk but look
 like in-memory, the syntax for manipulation is similar to 'data.table'.
-Operations are performed "chunk-wise" behind the scene.
+Operations are performed "chunk-wise" behind the scene. See
+<https://lrberge.github.io/hdd/> for more information.
 
 %prep
 %setup -q -c -n %{packname}

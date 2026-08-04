@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnet
-%global packver   7.3-21
+%global packname  sondage
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.21
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Feed-Forward Neural Networks and Multinomial Log-Linear Models
+Summary:          Survey Sampling Algorithms
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 
 %description
-Software for feed-forward neural networks with a single hidden layer, and
-for multinomial log-linear models.
+Fast implementations of survey sampling algorithms for single-stage
+probability sampling from finite populations, written in C. Provides equal
+probability methods (simple random sampling, systematic, Bernoulli),
+unequal probability methods (conditional Poisson / maximum entropy,
+Sampford, Brewer, systematic PPS, Pareto, sequential Poisson, Poisson,
+Chromy's minimum replacement, multinomial), balanced sampling via the cube
+method, and spatially balanced sampling via the local pivotal method and
+spatially correlated Poisson sampling. All sampling functions return
+design objects carrying sample indices, inclusion probabilities, and
+design metadata. Generics compute joint inclusion probabilities, pairwise
+expectations, and sampling covariances for variance estimation. Mostly
+based on algorithms from Tillé (2006, <doi:10.1007/0-387-34240-0>).
 
 %prep
 %setup -q -c -n %{packname}

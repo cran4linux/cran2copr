@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnet
-%global packver   7.3-21
+%global packname  panelTool
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.21
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Feed-Forward Neural Networks and Multinomial Log-Linear Models
+Summary:          Build Regularly Spaced Panels from Irregularly Spaced Longitudinal Data
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Software for feed-forward neural networks with a single hidden layer, and
-for multinomial log-linear models.
+Aligns irregularly timed longitudinal observations to regular panel
+schedules. Each observation on a subject serves as a potential baseline,
+and all later observations are aligned to the nearest panel with minimal
+delay. The package provides tools to: (1) build a panel book documenting
+alignments and delays, (2) organize variables in longitudinal data to
+wide-format panel matrices, (3) summarize alignment quality and panel
+coverage. Ideal for cross-lagged panel analysis, clinical trials with
+variable visit schedules, and Electronic Health Record harmonization.
 
 %prep
 %setup -q -c -n %{packname}

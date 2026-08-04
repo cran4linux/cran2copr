@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  class
-%global packver   7.3-23
+%global packver   7.3-24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.23
+Version:          7.3.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Classification
 
@@ -18,10 +18,8 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-MASS 
 
 %description
 Various functions for classification, including k-nearest neighbour,

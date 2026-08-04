@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidylearn
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Tidy Interface to R's Machine Learning Ecosystem
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-gbm 
@@ -48,6 +49,7 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-gbm 
