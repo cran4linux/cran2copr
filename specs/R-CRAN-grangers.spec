@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grangers
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference on Granger-Causality in the Frequency Domain
 
@@ -23,10 +23,11 @@ Requires:         R-CRAN-vars
 Requires:         R-CRAN-tseries 
 
 %description
-Contains five functions performing the calculation of unconditional and
-conditional Granger-causality spectra, bootstrap inference on both, and
-inference on the difference between them via the bootstrap approach of
-Farne' and Montanari, 2018 <arXiv:1803.00374>.
+Implements unconditional and conditional Granger-causality spectra in the
+frequency domain, bootstrap inference for both spectra and their
+difference, and the Breitung-Candelon parametric tests. The bootstrap
+procedures follow Farnè and Montanari (2022)
+<doi:10.1007/s10614-021-10112-x>.
 
 %prep
 %setup -q -c -n %{packname}

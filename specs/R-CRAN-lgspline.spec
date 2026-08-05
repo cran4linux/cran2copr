@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lgspline
-%global packver   1.1.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lagrangian Multiplier Smoothing Splines for Smooth Function Estimation
 
@@ -17,15 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-plotly 

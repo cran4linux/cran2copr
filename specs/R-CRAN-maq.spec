@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maq
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Armed Qini
 
@@ -20,10 +20,15 @@ BuildRequires:    R-CRAN-Rcpp
 Requires:         R-CRAN-Rcpp 
 
 %description
-Policy evaluation using generalized Qini curves: Evaluate data-driven
-treatment targeting rules for one or more treatment arms over different
-budget constraints in experimental or observational settings under
-unconfoundedness.
+Fits generalized Qini curves for evaluating treatment allocation policies
+with one or more mutually exclusive treatment arms. Given estimated
+conditional treatment effects and treatment costs, 'maq' computes the
+optimal treatment allocation over a range of budget levels and estimates
+the resulting policy value using doubly robust or inverse-propensity
+weighted scores. The underlying optimization exploits the linear
+multiple-choice knapsack structure of the allocation problem to compute
+the full solution path efficiently. For details see Sverdrup, Wu, Athey,
+and Wager (2025) <doi:10.1080/10618600.2024.2418820>.
 
 %prep
 %setup -q -c -n %{packname}

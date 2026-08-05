@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggRandomForests
-%global packver   3.4.0
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visually Exploring Random Forests
 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-stringr
 %description
 Graphic elements for exploring Random Forests using the 'randomForest' or
 'randomForestSRC' package for survival, regression and classification
-forests and 'ggplot2' package plotting. Implements visualisations of the
+forests and 'ggplot2' package plotting. Implements visualizations of the
 methods described in Breiman (2001) <doi:10.1023/A:1010933404324> and
 Ishwaran, Kogalur, Blackstone, and Lauer (2008) <doi:10.1214/08-AOAS169>.
 

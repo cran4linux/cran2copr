@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BIDistances
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bioinformatic Distances
 
@@ -41,10 +41,12 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-ggplot2 
 
 %description
-A selection of distances measures for bioinformatics data. Other important
-distance measures for bioinformatics data are selected from the R package
-'parallelDist'. A special distance measure for the Gene Ontology is
-available.
+A collection of high-performance methods for computing distance measures
+for bioinformatics data. The weighted Euclidean distance can be computed
+using 'OpenCL' on a GPU or a parallelized implementation on a CPU. Other
+important distance measures for bioinformatics data are provided by the R
+package 'parallelDist'. A specialized distance measure for the Gene
+Ontology is also available.
 
 %prep
 %setup -q -c -n %{packname}

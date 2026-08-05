@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OncoBayes2
-%global packver   0.9-4
+%global packver   0.10-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Logistic Regression for Oncology Dose-Escalation Trials
 
@@ -18,11 +18,10 @@ Recommends:       pandoc
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-rstantools >= 2.4.0
 BuildRequires:    R-CRAN-rstan >= 2.32.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.32.0
-BuildRequires:    R-CRAN-RBesT >= 1.8.0
+BuildRequires:    R-CRAN-RBesT >= 1.8.2
 BuildRequires:    R-CRAN-BH >= 1.75.0
 BuildRequires:    R-CRAN-posterior >= 1.5.0
 BuildRequires:    R-CRAN-bayesplot >= 1.4.0
@@ -37,20 +36,18 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-brms 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-rstantools >= 2.4.0
 Requires:         R-CRAN-rstan >= 2.32.0
-Requires:         R-CRAN-RBesT >= 1.8.0
+Requires:         R-CRAN-RBesT >= 1.8.2
 Requires:         R-CRAN-posterior >= 1.5.0
 Requires:         R-CRAN-bayesplot >= 1.4.0
 Requires:         R-CRAN-dplyr >= 1.1.0
@@ -63,14 +60,13 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-brms 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-grDevices 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rstantools
 
 %description

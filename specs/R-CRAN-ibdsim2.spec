@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ibdsim2
-%global packver   2.3.2
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Chromosomal Regions Shared by Family Members
 
@@ -18,19 +18,19 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-pedtools >= 2.8.0
 BuildRequires:    R-CRAN-ribd >= 1.7.1
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-pedtools >= 2.8.0
 Requires:         R-CRAN-ribd >= 1.7.1
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-Rcpp 
 
 %description
-Simulation of segments shared identical-by-descent (IBD) by pedigree
-members. Using sex specific recombination rates along the human genome
-(Halldorsson et al. (2019) <doi:10.1126/science.aau1043>), phased
+Simulation of chromosomal segments shared identical-by-descent (IBD) among
+pedigree members. Using sex-specific recombination rates along the human
+genome (Halldorsson et al. (2019) <doi:10.1126/science.aau1043>), phased
 chromosomes are simulated for all pedigree members. Applications include
 calculation of realised relatedness coefficients and IBD segment
 distributions. 'ibdsim2' is part of the 'pedsuite' collection of packages

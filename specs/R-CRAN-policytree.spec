@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  policytree
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Policy Learning via Doubly Robust Empirical Welfare Maximization over Trees
 
@@ -24,9 +24,12 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Learn optimal policies via doubly robust empirical welfare maximization
-over trees. Given doubly robust reward estimates, this package finds a
-rule-based treatment prescription policy, where the policy takes the form
-of a shallow decision tree that is globally (or close to) optimal.
+over trees. Given reward estimates, the algorithm finds a rule-based
+treatment allocation, where the policy takes the form of a shallow
+decision tree that is globally optimal (or nearly so). Methods are
+described in Sverdrup, Kanodia, Zhou, Athey, and Wager (2020)
+<doi:10.21105/joss.02232>, Athey and Wager (2021) <doi:10.3982/ECTA15732>,
+and Zhou, Athey, and Wager (2023) <doi:10.1287/opre.2022.2271>.
 
 %prep
 %setup -q -c -n %{packname}

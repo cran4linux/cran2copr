@@ -1,50 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  invasible
+%global packname  rtreeoflife
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predicting Invasion Probabilities from Phylogenetic Data and Species Traits
+Summary:          Access Tree of Life Data Releases
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-caper 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-phylolm 
-BuildRequires:    R-CRAN-phyr 
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-rotl 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-caper 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-phylolm 
-Requires:         R-CRAN-phyr 
-Requires:         R-CRAN-phytools 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-rotl 
-Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-A phylogenetic modelling approach for predicting species invasion risk,
-out of a given pool of local species where a subset is known to be
-invasive elsewhere. The package uses phylogenetic signal estimation and
-phylogenetic linear and logistic models to estimate probabilities of being
-invasive based on phylogeny and any set of additional predictors. A
-ranking method is implemented to evaluate prioritisation strategies. A
-manuscript describing these methods, by Shahar Dubiner and Tamar Guy-Haim,
-is in preparation.
+Search species and specimen records from the Royal Botanic Gardens Tree of
+Life Explorer and retrieve selected genomic sequence files. Provides a
+bundled species index, tools for matching scientific names, and selective
+download helpers for sequence files. Supports tidy data workflows with
+list-columns, summaries, exploratory visualisation with 'ggplot2', and
+illustrative tree construction from shared genes.
 
 %prep
 %setup -q -c -n %{packname}

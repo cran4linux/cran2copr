@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMR.shiny
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shared 'Shiny' Substrate for 'LLMR' Family GUIs
+Summary:          Shared 'Shiny' Components for 'LLMR' Family Applications
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,14 +27,8 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides the shared shell that 'LLMR'-family graphical interfaces are
-built on. It includes provider and model selection,
-environment-variable-based API-key handling, demo and live runners,
-session cost accounting, error banners, comma-separated-value upload and
-column mapping, and display helpers for the shared diagnostics() and
-report() generics. Graphical interfaces for the method packages import
-these helpers rather than each reimplementing them, so a fix here is
-available to every interface that depends on it.
+Reusable 'Shiny' user interface and server components from which the
+graphical applications in the 'LLMR' package family are assembled.
 
 %prep
 %setup -q -c -n %{packname}

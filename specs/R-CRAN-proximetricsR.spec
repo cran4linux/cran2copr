@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proximetricsR
-%global packver   0.6.5
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spectral Preprocessing and Chemometric Calibration of NIR Sensors
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-zip
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-plotly >= 4.0
 Requires:         R-CRAN-mathjaxr >= 1.0
@@ -43,6 +44,7 @@ Requires:         R-CRAN-zip
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-scales 
 
 %description
 Provides tools to build quantitative chemometric models and applications

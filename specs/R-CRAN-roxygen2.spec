@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  roxygen2
-%global packver   8.0.0
+%global packver   8.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.0
+Version:          8.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          In-Line Documentation for R
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-R6 >= 2.1.2
 BuildRequires:    R-CRAN-pkgload >= 1.5.2
 BuildRequires:    R-CRAN-desc >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-rdtools >= 0.1.0
 BuildRequires:    R-CRAN-brew 
 BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-CRAN-knitr 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-R6 >= 2.1.2
 Requires:         R-CRAN-pkgload >= 1.5.2
 Requires:         R-CRAN-desc >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-rdtools >= 0.1.0
 Requires:         R-CRAN-brew 
 Requires:         R-CRAN-commonmark 
 Requires:         R-CRAN-knitr 

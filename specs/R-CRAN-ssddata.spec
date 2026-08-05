@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ssddata
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Sensitivity Distribution Data
 
@@ -28,10 +29,12 @@ Requires:         R-utils
 %description
 Reference data sets of species sensitivities to compare the results of
 fitting species sensitivity distributions using software such as
-'ssdtools' and 'Burrlioz'. It consists of 17 primary data sets from four
-different Australian and Canadian organizations as well as five datasets
-from anonymous sources. It also includes a data set of the results of
-fitting various distributions using different software.
+'ssdtools' and 'Burrlioz'.  It consists of curated data sets for
+individual chemicals from Australian, New Zealand and Canadian
+organizations, several data sets from anonymous sources, and larger
+uncurated compilations drawn from the ANZTOX, WQBench and EnviroTox
+databases. It also includes a data set of the results of fitting various
+distributions using different software.
 
 %prep
 %setup -q -c -n %{packname}

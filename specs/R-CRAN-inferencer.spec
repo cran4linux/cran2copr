@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inferencer
-%global packver   0.1.4.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Unified Wrappers for Hosted Foundation Model Inference APIs
 
@@ -27,12 +27,17 @@ Requires:         R-CRAN-jsonlite
 %description
 Provides lightweight R wrappers for querying and listing models from
 several hosted foundation model inference platforms, currently including
-Google Gemini, Groq, OpenRouter, Cerebras, and Ollama Cloud. The package
-is designed for simple inference workflows and quick experimentation, with
-minimal abstraction and a consistent interface across providers. It
-includes helper functions for model discovery, text generation,
-embeddings, image generation, and multimodal inputs, while leaving room
-for future support of provider-specific parameters and advanced options.
+'OpenAI' <https://developers.openai.com/api/docs/>, 'Google Gemini'
+<https://ai.google.dev/gemini-api/docs>, 'Groq'
+<https://console.groq.com/docs/>, 'OpenRouter'
+<https://openrouter.ai/docs/>, 'Cerebras'
+<https://inference-docs.cerebras.ai/>, and 'Ollama Cloud'
+<https://docs.ollama.com/cloud>. The package is designed for simple
+inference workflows and quick experimentation, with minimal abstraction
+and a consistent interface across providers. It includes helper functions
+for model discovery, text generation, embeddings, image generation, and
+multimodal inputs, while leaving room for future support of
+provider-specific parameters and advanced options.
 
 %prep
 %setup -q -c -n %{packname}

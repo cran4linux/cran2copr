@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecoregime
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Ecological Dynamic Regimes
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-ecotraj >= 1.1.1
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shape 
 BuildRequires:    R-CRAN-smacof 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-ecotraj >= 1.1.1
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-data.table 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-shape 
 Requires:         R-CRAN-smacof 
@@ -37,17 +39,17 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 
 %description
-A toolbox for implementing the Ecological Dynamic Regime framework
-(Sánchez-Pinillos et al., 2023 <doi:10.1002/ecm.1589>) to characterize and
-compare groups of ecological trajectories in multidimensional spaces
-defined by state variables. The package includes the RETRA-EDR algorithm
-to identify representative trajectories, functions to generate, summarize,
-and visualize representative trajectories, and several metrics to quantify
-the distribution and heterogeneity of trajectories in an ecological
-dynamic regime and quantify the dissimilarity between two or more
-ecological dynamic regimes. The package also includes a set of functions
-to assess ecological resilience based on ecological dynamic regimes
-(Sánchez-Pinillos et al., 2024 <doi:10.1016/j.biocon.2023.110409>).
+A toolbox for implementing the Ecological Dynamic Regime framework,
+including functions to characterize and compare groups of ecological
+trajectories (Sánchez-Pinillos et al., 2023 <doi:10.1002/ecm.1589>);
+assess the ecological resilience of a disturbed system using a reference
+dynamic regime (Sánchez-Pinillos et al., 2024
+<doi:10.1016/j.biocon.2023.110409>); and forecast ecological trajectories
+from a dynamic regime (Sánchez-Pinillos et al. 2026,
+<doi:10.1111/2041-210x.70372>). Additional functions are also available
+for visualizing ecological dynamic regimes, their representative
+trajectories, as well as predicted trajectories in a multidimensional
+state space.
 
 %prep
 %setup -q -c -n %{packname}

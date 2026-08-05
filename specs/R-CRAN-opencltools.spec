@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opencltools
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'OpenCL' Tools for R Package Developers
 
@@ -33,9 +33,10 @@ Runtime 'OpenCL' support for R package developers: probe hardware and
 drivers, load and concatenate kernel sources, and manage
 dependency-annotated '.cl' libraries, so packages like 'nmathopencl' and
 other ported libraries can offer GPU acceleration without each
-re-implementing the same plumbing. Vignettes illustrate integration with
-suggested packages 'nmathopencl' and 'glmbayes'; production kernels for
-those applications ship in those packages rather than here.
+re-implementing and related helpers. Vignettes illustrate integration with
+suggested package 'nmathopencl' and with downstream applications such as
+'glmbayes'; production kernels for those applications ship in those
+packages rather than here.
 
 %prep
 %setup -q -c -n %{packname}

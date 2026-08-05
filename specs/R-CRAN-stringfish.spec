@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stringfish
-%global packver   0.19.0
+%global packver   0.19.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.0
+Version:          0.19.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alt String Implementation
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
+BuildRequires:    R-CRAN-RcppParallel >= 6.1.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18.3
 Requires:         R-CRAN-Rcpp >= 0.12.18.3
-Requires:         R-CRAN-RcppParallel >= 5.1.4
+Requires:         R-CRAN-RcppParallel >= 6.1.1
 
 %description
 Provides an extendable, performant and multithreaded 'alt-string'

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hcinfer
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heteroskedasticity-Consistent Inference for Linear Models
 
@@ -33,8 +33,7 @@ Computes heteroskedasticity-consistent covariance matrix estimators for
 ordinary least squares regression models. The published HC0 through HC5m
 estimators implemented in the package follow White (1980)
 <doi:10.2307/1912934>, Hinkley (1977)
-<doi:10.1080/00401706.1977.10489550>, Horn et al. (1975)
-<doi:10.1080/01621459.1975.10479877>, MacKinnon and White (1985)
+<doi:10.1080/00401706.1977.10489550>, MacKinnon and White (1985)
 <doi:10.1016/0304-4076(85)90158-7>, Cribari-Neto (2004)
 <doi:10.1016/S0167-9473(02)00366-3>, Cribari-Neto and da Silva (2011)
 <doi:10.1007/s10182-010-0141-2>, Cribari-Neto et al. (2007)

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stt.api
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'OpenAI' Compatible Speech-to-Text API Client
 
@@ -24,9 +24,9 @@ Requires:         R-CRAN-jsonlite
 
 %description
 A minimal-dependency R client for 'OpenAI'-compatible speech-to-text APIs
-(see <https://platform.openai.com/docs/api-reference/audio>) with optional
-local fallbacks. Supports 'OpenAI', local servers, and the 'whisper'
-package for local transcription.
+(see <https://developers.openai.com/api/reference/resources/audio>) with
+optional local fallbacks. Supports 'OpenAI', local servers, and the
+'whisper' package for local transcription.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmixr2plot
-%global packver   5.0.2
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.2
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models in Population PK/PD, Plot Functions
 
@@ -14,11 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-nlmixr2extra >= 5.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggtibble >= 1.0.4
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-nlmixr2est 
 BuildRequires:    R-CRAN-rxode2 
 BuildRequires:    R-CRAN-tidyr 
@@ -26,6 +28,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-xgxr 
 Requires:         R-CRAN-nlmixr2extra >= 5.0.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggtibble >= 1.0.4
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-nlmixr2est 
 Requires:         R-CRAN-rxode2 
 Requires:         R-CRAN-tidyr 

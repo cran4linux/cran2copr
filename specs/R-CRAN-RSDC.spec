@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSDC
-%global packver   1.1-2
+%global packver   1.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regime-Switching Dynamic Correlation Models
 
@@ -14,19 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-Rdpack >= 2.0
 BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rdpack >= 2.0
 Requires:         R-CRAN-DEoptim 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-generics 
+Requires:         R-graphics 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Estimation, forecasting, simulation, and portfolio construction for

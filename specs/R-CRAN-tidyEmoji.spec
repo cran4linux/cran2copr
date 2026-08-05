@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyEmoji
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discover, Count and Score Emoji in Text
+Summary:          Discover, Count, Categorise, Score, Translate and Relate Emoji in Text
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-emoji 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -27,6 +28,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-emoji 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -37,12 +39,18 @@ A tidy toolkit for working with the emoji in any text column, such as
 social-media posts, product reviews, chat logs or survey responses.
 Unicode is awkward to handle and not every code point is an emoji, which
 makes emoji statistics fiddly to obtain. 'tidyEmoji' extracts, counts,
-categorises and sentiment-scores emoji with grapheme-aware detection (so
-skin-tone and multi-person sequences stay intact), returning tidy data
-frames that slot straight into a 'tidyverse' workflow. The bundled emoji
-sentiment lexicon is from the Emoji Sentiment Ranking of Kralj Novak et
-al. (2015) <doi:10.1371/journal.pone.0144296>, released under CC BY-SA
-4.0.
+categorises, sentiment-scores and emotion-scores emoji, converts them to
+and from text (for accessibility and NLP preprocessing), searches the
+emoji catalogue, maps emoji co-occurrence and sequences (graph-ready edge
+lists and n-grams), measures where and how densely emoji are used, and
+builds document-by-emoji feature tables for machine learning, with
+grapheme-aware detection (so skin-tone and multi-person sequences stay
+intact), returning tidy data frames that slot straight into a 'tidyverse'
+workflow. The bundled emoji sentiment lexicon is from the Emoji Sentiment
+Ranking of Kralj Novak et al. (2015) <doi:10.1371/journal.pone.0144296>,
+released under CC BY-SA 4.0; the emotion lexicon is from EmoTag1200 of
+Shoeb & de Melo (2020) <https://aclanthology.org/2020.emnlp-main.720/>,
+released under the MIT licence.
 
 %prep
 %setup -q -c -n %{packname}
