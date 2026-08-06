@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  LugsailGR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Generalized Gelman-Rubin Diagnostic and Effective Sample Size for MCMC
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Provides generalized univariate and multivariate 'Gelman-Rubin'
+convergence diagnostics, effective sample size ('ESS') estimates, and
+principled termination thresholds for Markov chain Monte Carlo ('MCMC')
+simulations, based on Vats and Knudson (2021) <doi:10.1214/20-STS812>. The
+package incorporates replicated lugsail batch means variance estimators to
+construct stable convergence statistics for single and multiple chains.
+Additionally, it offers comprehensive tools for evaluating 'MCMC' output
+generated from user-supplied probability density functions ('PDF') or
+log-likelihoods, including implementations for censored data models under
+right, left, interval, 'Type-I', 'Type-II', progressive, and hybrid
+censoring schemes.
 
 %prep
 %setup -q -c -n %{packname}

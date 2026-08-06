@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RaCE.NMA
-%global packver   1.2.0
+%global packname  DendroFlux
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rank-Clustered Estimation for Network Meta-Analysis
+Summary:          Processing and Analyzing Dendrometer and Sap Flux Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-invgamma 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-invgamma 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-parallel 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-rlang 
 
 %description
-An implementation of the RaCE-NMA (Rank-Clustered Estimation for Network
-Meta-Analysis) model for post-hoc clustering of treatments or
-interventions by rank in network meta-analysis data. Functions for model
-estimation, assessment, and displaying results are provided. For more
-details, see Pearce and Zhou (2025) <doi:10.1017/rsm.2025.10049>.
+Data management and cleaning for dendrometer and sap flux data, including
+gap detection, NA identification, missing value interpolation, and date
+conversion. The package also calculates multiple growth metrics of tree
+radial change data, including the cumulative growth over the entire
+observation period, daily cumulative growth, and growth changes between
+adjacent time intervals. Various approaches can be applied to calculate
+the night delta-Tmax required for sap flow (Peters et al., 2018, <doi:
+10.1111/nph.15241>) and subsequently estimate sap flow density (Granier,
+1987, <doi: 10.1093/treephys/3.4.309>). In addition, it supports the
+creation of simple time‑series point plots to visually display the dynamic
+changes in tree growth status or sap flow density during that period.
 
 %prep
 %setup -q -c -n %{packname}

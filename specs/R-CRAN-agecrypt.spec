@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  agecrypt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          File Encryption with the 'age' Format
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+An idiomatic R interface to the 'age' file encryption format
+(<https://age-encryption.org/v1>), backed by a vendored copy of the 'agec'
+C implementation (<https://git.sr.ht/~min/agec>). Encrypt and decrypt raw
+vectors, files, and strings for one or more X25519 recipients or with a
+passphrase, with optional ASCII armor. Cryptography is vendored and
+randomness is drawn from the operating system, so the package has no
+external library dependencies.
 
 %prep
 %setup -q -c -n %{packname}

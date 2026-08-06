@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  grip
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Graph Drawing with Intelligent Placement (GRIP)
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Implements the GRIP multiscale graph layout workflow for ordinary graphs
+and a geometry-aware weighted GRIP workflow for weighted graphs in 2D and
+3D. Provides layout scoring, candidate comparison, multiscale trace
+diagnostics, synthetic graph families, and advanced experimental
+geodesic-KK utilities for weighted-layout evaluation and polish. Based on
+Gajer and Kobourov (2002) <doi:10.7155/jgaa.00052> and Gajer, Goodrich and
+Kobourov (2004) <doi:10.1016/j.comgeo.2004.03.014>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ip2location
-%global packver   8.1.3
+%global packver   8.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.1.3
+Version:          8.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lookup for IP Address Information
 
@@ -31,13 +31,14 @@ Requires:         R-CRAN-reticulate >= 1.13
 %description
 Enables the user to find the country, region, district, city, coordinates,
 zip code, time zone, ISP, domain name, connection type, area code,
-weather, Mobile Country Code, Mobile Network Code, mobile brand name,
-elevation, usage type, address type, IAB category and Autonomous system
-information that any IP address or hostname originates from. Supported
-IPv4 and IPv6. Please visit <https://www.ip2location.com> to learn more.
-You may also want to visit <https://lite.ip2location.com> for free
-database download. This package requires 'IP2Location Python' module. At
-the terminal, please run 'pip install IP2Location' to install the module.
+weather, Mobile Country Codes (MCC), Mobile Network Code (MNC), mobile
+brand name, elevation, usage type, address type, IAB category and
+Autonomous system number (ASN) that any IP address or hostname originates
+from. Supported IPv4 and IPv6. Please visit <https://www.ip2location.com>
+to learn more. You may also want to visit <https://lite.ip2location.com>
+for free database download. This package requires 'IP2Location Python'
+module. At the terminal, please run 'pip install IP2Location' to install
+the module.
 
 %prep
 %setup -q -c -n %{packname}

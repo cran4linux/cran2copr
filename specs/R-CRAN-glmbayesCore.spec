@@ -1,47 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RaCE.NMA
-%global packver   1.2.0
+%global packname  glmbayesCore
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rank-Clustered Estimation for Network Meta-Analysis
+Summary:          Core C++ Sampling Engine for 'glmbayes'
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-invgamma 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-invgamma 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1
+BuildRequires:    R-CRAN-opencltools >= 0.8.1
+BuildRequires:    R-CRAN-Rdpack >= 0.11.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-nmathopencl 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.1.1
+Requires:         R-CRAN-opencltools >= 0.8.1
+Requires:         R-CRAN-Rdpack >= 0.11.0
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-nmathopencl 
 
 %description
-An implementation of the RaCE-NMA (Rank-Clustered Estimation for Network
-Meta-Analysis) model for post-hoc clustering of treatments or
-interventions by rank in network meta-analysis data. Functions for model
-estimation, assessment, and displaying results are provided. For more
-details, see Pearce and Zhou (2025) <doi:10.1017/rsm.2025.10049>.
+Core C++ engine for 'glmbayes': envelope-based iid linear and generalized
+linear model samplers, prior-family routing, and optional 'OpenCL'
+acceleration. Sampling for supported non-conjugate models uses
+accept-reject methods based on likelihood subgradients as in Nygren and
+Nygren (2006) <doi:10.1198/016214506000000357>. Intended as a developer
+backend for the 'glmbayes' formula interface; end users should use
+'glmbayes' for modelling with interfaces analogous to 'lm' and 'glm'.
+Mixed-model engines are planned for a future release.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  CLDedgelister
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Import System-Dynamics Models and Convert Them to Edge Lists
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-xml2 
+Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Imports causal and system-dynamics models from 'Vensim', 'Stella' /
+'iThink' and 'Powersim Studio' ('XMILE'), 'AnyLogic' and 'GoldSim'
+(exported 'XML'), and converts them into a two-column edge list of
+cause-to-effect links. 'Vensim' models are read from their native diagram
+files; 'Powersim Studio' and 'GoldSim' are read from their exported
+'XMILE' or 'XML'. Provides an 'RStudio' add-in with a simple
+point-and-click interface, together with command-line functions that
+return a data frame or write it to 'CSV' or 'Excel'.
 
 %prep
 %setup -q -c -n %{packname}

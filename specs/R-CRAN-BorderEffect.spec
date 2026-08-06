@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  BorderEffect
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Detection of Edge Effects in Field Trials via Besag-Kempton Competition
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Estimates and evaluates the intraspecific competition coefficient
+associated with the edge (border) effect in agricultural field trials,
+using the Besag-Kempton autoregressive model and a least-squares estimator
+following Darghan, Rivera, Gonzalez and Castellanos (2022)
+<doi:10.47280/RevFacAgron(LUZ).v39.n1.18>. Provides field-layout
+generation, spatial weight matrices, a formula interface for arbitrary
+two-way designs, a simulation-based decision procedure for presence or
+absence of the edge effect, Moran's I diagnostics, and a 'shiny'
+application.
 
 %prep
 %setup -q -c -n %{packname}

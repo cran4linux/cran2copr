@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  actinet
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Estimate Human Activity from 'Accelerometry' Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-reticulate >= 1.42.0
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-reticulate >= 1.42.0
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Interfaces the 'actinet' Python module
+<https://github.com/OxWearables/actinet> for an activity classification
+model based on self-supervised learning for wrist-worn accelerometer data.
 
 %prep
 %setup -q -c -n %{packname}

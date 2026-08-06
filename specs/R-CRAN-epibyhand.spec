@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  epibyhand
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Worked Derivations for Classical Epidemiological Measures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Computes classical epidemiological measures and returns the complete
+worked derivation alongside the result: every intermediate quantity, the
+formula, and the formula with the observed numbers substituted in.
+Intended for teaching, for checking hand calculations, and for generating
+worked solutions in course materials. Scope is deliberately limited to
+methods a student can compute by hand on paper. Methods follow Mantel and
+Haenszel (1959) <doi:10.1093/jnci/22.4.719>, Greenland and Robins (1985,
+Biometrics 41, 55-68), Robins, Breslow and Greenland (1986, Biometrics 42,
+311-323), and Breslow and Day (1980, IARC Scientific Publications No. 32).
 
 %prep
 %setup -q -c -n %{packname}

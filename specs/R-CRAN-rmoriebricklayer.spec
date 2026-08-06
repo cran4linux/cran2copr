@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  rmoriebricklayer
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Reproducible Data Capsules with Provenance and Fallback
 
-License:          GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Tools for building brick-proof, reproducible, self-contained data
+capsules. Resolves open-data sources through the Comprehensive Knowledge
+Archive Network ('CKAN', <https://ckan.org/>) package_show and
+package_search endpoints, records and verifies provenance with Secure Hash
+Algorithm 256 ('SHA-256') digests and Internet Archive 'Wayback Machine'
+(<https://web.archive.org/>) snapshots, validates downloaded data against
+a pinned schema, and falls back to schema-driven synthetic data when the
+real source is unreachable. Run records are captured in a manifest plus a
+plain-language summary so any result can be traced back to its inputs.
+Also ships a small compiled C core (fast summary statistics and a
+self-contained 'SHA-256') that sibling packages in the 'rmorie' ecosystem
+reach through 'LinkingTo' for a single, shared numeric and
+provenance-hashing backend.
 
 %prep
 %setup -q -c -n %{packname}

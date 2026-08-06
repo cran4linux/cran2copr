@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  linf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          L-Infinity Normalization and Dominant Community State Types
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Implements L-infinity normalization for compositional matrices, assigns
+samples to dominant features, constructs truncated and hierarchically
+refined dominant community state types, and computes representative
+landmark profiles. The methods are described in the accompanying
+publication <doi:10.48550/arXiv.2503.21543>. Bundled vaginal and gut
+microbiome data support reproducible demonstrations of the package
+interface; phenotype fields in the stratified gut subset are illustrative
+and are not suitable for population-level inference.
 
 %prep
 %setup -q -c -n %{packname}

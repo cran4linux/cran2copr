@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  psreplicate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Access the Political Science Replication Index from R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Search and browse the Political Science Replication Index
+(<https://jsakowuah.github.io/polisci-replication/>), a searchable, tagged
+index of replication packages crawled monthly from flagship political
+science journals' Harvard Dataverse collections, without leaving R.
+Provides functions to download and cache the index locally and to search
+and filter it by journal, method, data type, and year.
 
 %prep
 %setup -q -c -n %{packname}

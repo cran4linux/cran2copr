@@ -1,36 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  SampleSizeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Sample Size Calculations for Epidemiological, Clinical, and Diagnostic Studies
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Provides comprehensive methods for sample size determination for
+epidemiological studies, clinical trials, diagnostic accuracy studies, and
+diagnostic agreement studies. The package supports prevalence surveys,
+cluster prevalence studies, unmatched case-control studies, cohort
+studies, superiority, non-inferiority, and equivalence clinical trials,
+diagnostic sensitivity, diagnostic specificity, receiver operating
+characteristic (ROC) area under the curve (AUC), and diagnostic agreement
+studies. Functions include optional adjustments for finite population
+correction, design effect, unequal allocation, anticipated response rate,
+and dropout. Results are returned as standardized 'SampleSizeR' objects
+with print, summary, plot, and data frame methods.
 
 %prep
 %setup -q -c -n %{packname}

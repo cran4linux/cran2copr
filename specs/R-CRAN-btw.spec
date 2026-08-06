@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  btw
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Connecting R and Large Language Models
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-frontmatter
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mcptools 
 BuildRequires:    R-CRAN-pkgsearch 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-frontmatter
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
 Requires:         R-CRAN-mcptools 
 Requires:         R-CRAN-pkgsearch 
 Requires:         R-CRAN-rmarkdown 

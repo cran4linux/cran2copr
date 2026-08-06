@@ -1,47 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RaCE.NMA
-%global packver   1.2.0
+%global packname  moranajp
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rank-Clustered Estimation for Network Meta-Analysis
+Summary:          Morphological Analysis for Japanese
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-invgamma 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-parallel 
-Requires:         R-utils 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-invgamma 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-parallel 
+Requires:         R-CRAN-ggraph 
+Requires:         R-grid 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-An implementation of the RaCE-NMA (Rank-Clustered Estimation for Network
-Meta-Analysis) model for post-hoc clustering of treatments or
-interventions by rank in network meta-analysis data. Functions for model
-estimation, assessment, and displaying results are provided. For more
-details, see Pearce and Zhou (2025) <doi:10.1017/rsm.2025.10049>.
+Supports morphological analysis for Japanese by using 'MeCab'
+<https://taku910.github.io/mecab/>, 'Sudachi'
+<https://github.com/WorksApplications/Sudachi>, 'Chamame'
+<https://chamame.ninjal.ac.jp/>, or 'Ginza'
+<https://github.com/megagonlabs/ginza>. Can input a data.frame and obtain
+all results of 'MeCab' and the row number of the original data.frame as a
+text id.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neo2R
-%global packver   3.1.1
+%global packname  trialSizing
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neo4j to R
+Summary:          Tools for Experimental Design Sizing
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-The aim of neo2R is to provide simple and low level connectors for
-querying neo4j graph databases (<https://neo4j.com/>). The objects
-returned by the query functions are either lists or data.frames with very
-little post-processing. It allows fast processing of queries returning
-many records. And it let the users handle post-processing according to the
-data model and their needs.
+Sizes field experiments from uniformity-trial data, following the
+relationship between the coefficient of variation and plot size. Checks a
+trial for the spatial structure the sizing methods assume (semivariogram,
+Moran's I, kriged field map), summarises the coefficient of variation over
+every plot shape the grid admits, and estimates the optimal plot size by
+the modified maximum curvature method of Meier and Lessman (1971), by the
+linear response plateau (LRP) and quadratic response plateau (QRP) models,
+and by the closed form of Paranaiba, Ferreira and Morais (2009), which can
+be compared side by side. From the coefficient of variation at the optimum
+it derives the number of replications needed to detect a given difference
+between treatment means, as in Cargnelutti Filho and others (2014). Every
+method returns standardised diagnostic statistics, optional bootstrap
+uncertainty for the breakpoint, and publication-style plots.
 
 %prep
 %setup -q -c -n %{packname}

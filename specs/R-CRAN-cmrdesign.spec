@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minired
-%global packver   1.0.1
+%global packname  cmrdesign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Redatam' Library
+Summary:          Conditional Minimax Regret Design Rules
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-This package is deprecated. Please use 'redatamx' instead. Provides an API
-to work with 'Redatam' (see <https://redatam.org>) databases in both
-formats: 'RXDB' (new format) and 'DICX' (old format) and running 'Redatam'
-programs written in 'SPC' language. It's a wrapper around 'Redatam' core
-and provides functions to open/close a database
-(redatam_open()/redatam_close()), list entities and variables from the
-database (redatam_entities(), redatam_variables()) and execute a 'SPC'
-program and gets the results as data frames (redatam_query(),
-redatam_run()).
+Implements Conditional Minimax Regret design rules for pilot-informed
+experimental assignment, as proposed in Yamin (2026)
+<doi:10.48550/arXiv.2607.16982>. Includes two-arm, unbounded two-arm,
+multi-arm, stratified, multiple-outcome, proxy-outcome, and pilot-planning
+tools. Variance bounds include Maurer and Pontil (2009)
+<doi:10.48550/arXiv.0907.3740> empirical-Bernstein bounds and exact
+Bernoulli confidence bounds.
 
 %prep
 %setup -q -c -n %{packname}
