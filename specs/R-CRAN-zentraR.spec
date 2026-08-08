@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sundialr
-%global packver   0.2.0
+%global packname  zentraR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
+Summary:          R Client for the ZENTRA Cloud V5 API
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
 
 %description
-Provides a way to call the functions in 'SUNDIALS' C ODE solving library
-(<https://computing.llnl.gov/projects/sundials>). Currently the serial
-version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
-differential algebraic solver 'IDA' from the 'SUNDIALS' library are
-implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
-function and does not require the 'SUNDIALS' library to be installed on
-the local machine.
+Downloads environmental sensor data from the ZENTRA Cloud V5 API
+(<https://api.zentracloud.io>) into tidy data frames. Provides device
+discovery, reading retrieval with automatic pagination and rate-limit
+handling, tidy long output with a wide-format helper, and an incremental
+'sync' engine with pluggable local storage (RDS files, CSV files, or
+return-only) so that new readings can be fetched on a schedule and
+appended to a growing local record.
 
 %prep
 %setup -q -c -n %{packname}

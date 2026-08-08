@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sundialr
-%global packver   0.2.0
+%global packname  fastrda
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
+Summary:          Fast Redundancy Analysis (RDA) with High-Performance 'C++' Backend
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.0
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-parallel 
 
 %description
-Provides a way to call the functions in 'SUNDIALS' C ODE solving library
-(<https://computing.llnl.gov/projects/sundials>). Currently the serial
-version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
-differential algebraic solver 'IDA' from the 'SUNDIALS' library are
-implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
-function and does not require the 'SUNDIALS' library to be installed on
-the local machine.
+Provides a high-performance implementation of redundancy analysis (RDA) in
+'C++' using 'Armadillo' and 'OpenMP'. Supports standard and partial RDA,
+centering, scaling, overall and axis-wise permutation tests, biplot
+visualization, score extraction, and prediction. Designed for large
+ecological, genomic, and other multivariate data sets where computational
+speed and memory efficiency are important.
 
 %prep
 %setup -q -c -n %{packname}

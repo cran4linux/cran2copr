@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sundialr
-%global packver   0.2.0
+%global packname  nhsbsa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
+Summary:          Client for the NHS Business Services Authority Open Data Portal
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides a way to call the functions in 'SUNDIALS' C ODE solving library
-(<https://computing.llnl.gov/projects/sundials>). Currently the serial
-version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
-differential algebraic solver 'IDA' from the 'SUNDIALS' library are
-implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
-function and does not require the 'SUNDIALS' library to be installed on
-the local machine.
+A low-level client for the National Health Service Business Services
+Authority (NHSBSA) Open Data Portal <https://opendata.nhsbsa.net>, a
+'CKAN' data catalogue. Provides thin wrappers around the portal's API
+actions for listing datasets, retrieving metadata, querying the datastore
+and downloading resource files. Results are returned as plain data
+(tibbles and lists) for the caller to interpret.
 
 %prep
 %setup -q -c -n %{packname}

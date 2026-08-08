@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sundialr
-%global packver   0.2.0
+%global packname  topocast
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
+Summary:          Moving-Window Regression Downscaling of Raster Data
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-terra >= 1.7.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-terra >= 1.7.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Provides a way to call the functions in 'SUNDIALS' C ODE solving library
-(<https://computing.llnl.gov/projects/sundials>). Currently the serial
-version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
-differential algebraic solver 'IDA' from the 'SUNDIALS' library are
-implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
-function and does not require the 'SUNDIALS' library to be installed on
-the local machine.
+Downscales coarse-resolution raster data to a finer grid by fitting local
+linear regressions of a response, such as a climate variable, on one or
+more fine-resolution predictors, such as elevation and other terrain
+indices, within a moving window. Regression coefficients are estimated for
+every cell using summed-area tables, so the cost is independent of the
+window size, then resampled to the target resolution and applied to the
+fine-resolution predictors. Multiplicative and additive anomaly
+application downscale time series relative to a baseline climatology,
+following the regression-on-elevation approach used for high-resolution
+climate surfaces described in Karger et al. (2017)
+<doi:10.1038/sdata.2017.122>.
 
 %prep
 %setup -q -c -n %{packname}

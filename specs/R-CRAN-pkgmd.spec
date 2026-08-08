@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sundialr
-%global packver   0.2.0
+%global packname  pkgmd
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
+Summary:          Generate Markdown Reference Documentation for R Packages
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-glue >= 1.6.0
+BuildRequires:    R-CRAN-fs >= 1.6.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-glue >= 1.6.0
+Requires:         R-CRAN-fs >= 1.6.0
+Requires:         R-CRAN-purrr >= 1.0.0
 
 %description
-Provides a way to call the functions in 'SUNDIALS' C ODE solving library
-(<https://computing.llnl.gov/projects/sundials>). Currently the serial
-version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
-differential algebraic solver 'IDA' from the 'SUNDIALS' library are
-implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
-function and does not require the 'SUNDIALS' library to be installed on
-the local machine.
+Generates plain Markdown reference documentation for any R package,
+installed or a local development source tree, optimized for rendering in
+the 'GitHub'/'Gitea' browser UI and for use as LLM context (e.g. 'Claude
+Code'). Reads Rd documentation via tools::Rd_db() (installed packages) or
+directly from man/*.Rd (development packages, no installation required)
+and renders one file per topic plus a navigable index.
 
 %prep
 %setup -q -c -n %{packname}

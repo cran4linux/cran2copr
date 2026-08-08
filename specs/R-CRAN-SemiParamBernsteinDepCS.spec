@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sundialr
-%global packver   0.2.0
+%global packname  SemiParamBernsteinDepCS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
+Summary:          Semiparametric Bayesian Regression for Dependent Current Status Data
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Provides a way to call the functions in 'SUNDIALS' C ODE solving library
-(<https://computing.llnl.gov/projects/sundials>). Currently the serial
-version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
-differential algebraic solver 'IDA' from the 'SUNDIALS' library are
-implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
-function and does not require the 'SUNDIALS' library to be installed on
-the local machine.
+Implements a semiparametric Bayesian regression framework using Bernstein
+polynomial baseline models for analyzing dependent current status data.
+The package accommodates proportional hazards (PH) and proportional odds
+(PO) regression models with Archimedean copulas ('Gumbel', 'Frank', and
+'Clayton') to model the joint dependence structure between event and
+observation or censoring times. Estimation is performed using a Robust
+Adaptive Metropolis (RAM) Markov Chain Monte Carlo ('MCMC') algorithm.
+Model comparison metrics including Deviance Information Criterion ('DIC')
+and posterior summaries with Highest Posterior Density ('HPD') intervals
+and Kendall's tau are provided. Methodological details are described in
+Sharma and Balakrishnan (2026) <doi:10.1080/02664763.2026.2701921>.
 
 %prep
 %setup -q -c -n %{packname}
