@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tseries
-%global packver   0.10-62
+%global packver   0.10-63
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.62
+Version:          0.10.63
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Analysis and Computational Finance
 
