@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlbench
-%global packver   2.1-10
+%global packver   2.1-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.10
+Version:          2.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Benchmark Problems
 
