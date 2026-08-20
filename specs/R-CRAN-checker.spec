@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  checker
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Checks 'R' Configuration Set Up Correctly Before Class
+Summary:          Check 'R' Configuration Set Up Correctly Before Class
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

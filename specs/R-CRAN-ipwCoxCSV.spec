@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ipwCoxCSV
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Corrected Sandwich Inference for Inverse Probability Weighted Cox Models
 
@@ -24,7 +24,7 @@ Requires:         R-stats
 
 %description
 An implementation of the corrected sandwich variance (CSV) method for
-inverse probability weighted (IPW) Cox models described in Shu et al
+inverse probability weighted (IPW) Cox models described in Shu et al.
 (2021) <doi:10.1111/biom.13332>. The method accounts for the uncertainty
 in estimating propensity score weights to improve variance and confidence
 interval estimation for adjusted marginal hazard ratios (HRs) in

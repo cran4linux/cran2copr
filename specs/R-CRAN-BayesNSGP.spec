@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesNSGP
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Non-Stationary Gaussian Process Models
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-FNN
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-StatMatch 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-nimble 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-StatMatch 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Enables off-the-shelf functionality for fully Bayesian, nonstationary

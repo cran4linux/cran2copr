@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xkcd
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting 'ggplot2' Graphics in an 'XKCD' Style
 
@@ -21,13 +21,11 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-stats 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-extrafont 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-Hmisc 
 Requires:         R-stats 
 Requires:         R-grid 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-extrafont 
 
 %description

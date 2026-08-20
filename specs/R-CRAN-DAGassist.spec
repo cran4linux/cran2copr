@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DAGassist
-%global packver   0.2.8
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Robustness with Directed Acyclic Graphs
 
@@ -27,7 +27,6 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dotwhisker 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-cli 
@@ -39,7 +38,6 @@ Requires:         R-tools
 Requires:         R-utils 
 Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dotwhisker 
 
 %description

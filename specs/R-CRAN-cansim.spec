@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cansim
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing Statistics Canada Data Table and Vectors
 
@@ -26,9 +26,9 @@ BuildRequires:    R-CRAN-arrow >= 18.1
 BuildRequires:    R-CRAN-stringr >= 1.5
 BuildRequires:    R-CRAN-tidyr >= 1.3
 BuildRequires:    R-CRAN-DBI >= 1.2
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.1
 BuildRequires:    R-CRAN-rlang >= 1.1
-BuildRequires:    R-CRAN-httr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0
 BuildRequires:    R-CRAN-digest >= 0.6
 Requires:         R-utils >= 4.3
@@ -40,9 +40,9 @@ Requires:         R-CRAN-arrow >= 18.1
 Requires:         R-CRAN-stringr >= 1.5
 Requires:         R-CRAN-tidyr >= 1.3
 Requires:         R-CRAN-DBI >= 1.2
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.1
 Requires:         R-CRAN-rlang >= 1.1
-Requires:         R-CRAN-httr >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0
 Requires:         R-CRAN-digest >= 0.6
 

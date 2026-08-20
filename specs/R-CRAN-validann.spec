@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gtrendshealth
-%global packver   1.0.1
+%global packname  validann
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Query the 'Google Trends for Health' API
+Summary:          Validation Tools for Artificial Neural Networks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-moments 
+Requires:         R-CRAN-moments 
 
 %description
-Connects to the 'Google Trends for Health' API hosted at
-<https://trends.google.com/trends/>, allowing projects authorized to use
-the health research data to query 'Google Trends'.
+Methods and tools for analysing and validating the outputs and modelled
+functions of artificial neural networks (ANNs) in terms of predictive,
+replicative and structural validity. Also provides a method for fitting
+feed-forward ANNs with a single hidden layer.
 
 %prep
 %setup -q -c -n %{packname}

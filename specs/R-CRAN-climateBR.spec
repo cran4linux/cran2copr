@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  climateBR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Rainfall, Temperature, and Wind Data from Brazil
 
@@ -26,6 +26,9 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-gstat 
@@ -35,6 +38,9 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides functions to download and import meteorological data from

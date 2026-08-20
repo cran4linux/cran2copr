@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxodist
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Taxonomic Distance and Phylogenetic Lineage Computation
+Summary:          Taxonomic Hierarchy Distances and Lineage Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,17 +35,17 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-Computes phylogenetic distances between any two taxa using hierarchical
-lineage data retrieved from The Taxonomicon
-<http://taxonomicon.taxonomy.nl>, a comprehensive curated classification
-of all life based on Systema Naturae 2000 (Brands, 1989
-<http://taxonomicon.taxonomy.nl>). Given any two taxon names, retrieves
-their full lineages, identifies the most recent common ancestor (MRCA),
-and computes a dissimilarity index based on lineage depth. Outputs native
-dist objects, enabling direct integration with the R statistical ecosystem
-for hierarchical clustering, principal coordinate analysis (PCoA), and
-multivariate ecological analyses. Supports individual distance queries,
-pairwise distance matrices, clade filtering, and lineage utilities.
+Computes distances between taxonomic hierarchy nodes using lineage data
+retrieved from The Taxonomicon <http://taxonomicon.taxonomy.nl>. For
+distinct nodes, distance is defined as the reciprocal of the depth of
+their most recent common ancestor; identical nodes have distance zero.
+This definition yields an ultrametric within each connected hierarchy.
+Functions are provided for lineage retrieval and comparison, clade
+membership, pairwise and matrix distance calculation, hierarchical
+clustering, principal coordinates analysis, and cache management. Distance
+matrices are returned as base R 'dist' objects. The distances represent
+classification depth rather than evolutionary time or phylogenetic branch
+length.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colleyRstats
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Streamline Statistical Analysis and Reporting
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-ggstatsplot >= 1.0.0
 BuildRequires:    R-CRAN-ggpmisc >= 0.5.0
 BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-ggsignif 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-see 
@@ -38,6 +40,8 @@ Requires:         R-CRAN-ggstatsplot >= 1.0.0
 Requires:         R-CRAN-ggpmisc >= 0.5.0
 Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-ggsignif 
+Requires:         R-grid 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-see 

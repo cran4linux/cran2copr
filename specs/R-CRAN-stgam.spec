@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stgam
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially and Temporally Varying Coefficient Models Using Generalized Additive Models
 
@@ -54,7 +54,7 @@ time series plots etc. The number of knots used in each smooth can be
 specified directly or iteratively increased. This is illustrated with a
 climate point dataset of the dry rain forest in South America. This builds
 on work in Comber et al (2024) <doi:10.1080/13658816.2023.2270285> and
-Comber et al (2004) <doi:10.3390/ijgi13120459>.
+Comber et al (2026) <doi:10.1080/13658816.2026.2671964>.
 
 %prep
 %setup -q -c -n %{packname}

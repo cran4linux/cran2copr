@@ -1,45 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  omophub
-%global packver   1.9.0
+%global packname  SeqExpMatch
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Client for the 'OMOPHub' Medical Vocabulary API
+Summary:          Sequential Experimental Design via Matching on-the-Fly with Estimation and Testing
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.6.3
+Requires:         R-core >= 3.6.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-doParallel 
+Requires:         R-stats 
 
 %description
-Provides an R interface to the 'OMOPHub' API for accessing 'OHDSI ATHENA'
-standardized medical vocabularies. Supports concept search, semantic
-search using neural embeddings, concept similarity, vocabulary
-exploration, hierarchy navigation, relationship queries, concept mappings,
-and FHIR-to-OMOP concept resolution with automatic pagination.
+Generates the following sequential two-arm experimental designs: (1)
+completely randomized (Bernoulli) (2) balanced completely randomized (3)
+Efron's (1971) Biased Coin (4) Atkinson's (1982) Covariate-Adjusted Biased
+Coin (5) Kapelner and Krieger's (2014) Covariate-Adjusted Matching on the
+Fly (6) Kapelner and Krieger's (2021) CARA Matching on the Fly with
+Differential Covariate Weights (7) Kapelner and Krieger's (2021) CARA
+Matching on the Fly with Differential Covariate Weights (Stepwise) and
+also provides the following types of inference: (1) estimation (with both
+Z-style estimators and OLS estimators), (2) frequentist testing (via
+asymptotic distribution results and via employing the nonparameteric
+randomization test) and (3) frequentist confidence intervals (only under
+the superpopulation sampling assumption currently). Details can be found
+in Kapelner and Krieger (2021) <doi:10.1111/biom.13561>.
 
 %prep
 %setup -q -c -n %{packname}

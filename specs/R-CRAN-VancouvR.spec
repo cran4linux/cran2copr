@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VancouvR
-%global packver   0.1.9
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'City of Vancouver' Open Data API
 
@@ -17,20 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.2.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-httr2 >= 1.2.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-sf 
@@ -40,9 +38,9 @@ Requires:         R-CRAN-purrr
 
 %description
 Wrapper around the 'City of Vancouver' Open Data API
-<https://opendata.vancouver.ca/api/v2/console> to simplify and standardize
-access to 'City of Vancouver' open data. Functionality to list the data
-catalogue and access data and geographic records.
+<https://opendata.vancouver.ca/api-console/explore/v2.1/> to simplify and
+standardize access to 'City of Vancouver' open data. Functionality to list
+the data catalogue and access data and geographic records.
 
 %prep
 %setup -q -c -n %{packname}

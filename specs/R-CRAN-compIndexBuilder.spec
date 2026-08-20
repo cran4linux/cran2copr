@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  compIndexBuilder
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Index Builder & Analytics 'shiny' App
 
@@ -18,45 +18,48 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-corrplot 
 BuildRequires:    R-CRAN-missForest 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-psych 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-missForest 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-psych 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides an interactive 'shiny' web application for constructing,
-analyzing, and visualizing composite indices from multidimensional
-datasets. Users can upload or select indicator data, group variables into
-logical categories, apply normalization and weighting methods (such as
-'equal' or 'custom' schemes), and compute aggregate composite indices. The
-'shiny' interface includes tools for exploring results through tables,
-plots, and data exports, making it useful for researchers, policymakers,
-and analysts interested in index-based evaluations.
+Provides an interactive 'shiny' application for constructing, analysing,
+comparing, and visualising composite indices from tabular multidimensional
+data. Supports multi-sheet 'Excel' workbooks with active-sheet selection,
+refresh controls, per-sheet and workbook-wide exports, missing-data
+processing, indicator direction and normalisation controls, equal and
+custom weighting, entity-level ranking, time-series analysis and
+forecasting, entity comparisons, pillar-based sub-indices with equal,
+custom, correlation-based, or principal-component weights, and diagnostic
+tools including internal-consistency reliability assessment, coefficient
+of variation, principal component analysis, sensitivity analysis,
+correlation heatmaps, and weighted flow visualizations.
 
 %prep
 %setup -q -c -n %{packname}

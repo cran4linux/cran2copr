@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iRfcb
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Managing Imaging FlowCytobot (IFCB) Data
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-R.matlab 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-R.matlab 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
