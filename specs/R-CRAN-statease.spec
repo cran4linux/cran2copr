@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statease
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Statistical Analysis with Plain-English Interpretation
 
@@ -31,15 +31,16 @@ one-way and two-way Analysis of Variance (ANOVA), Multivariate Analysis of
 Variance (MANOVA), chi-square tests, Fisher's Exact Test, McNemar's Test,
 correlation analysis, simple and multiple linear regression, logistic
 regression, Friedman Test, and non-parametric tests (Mann-Whitney U,
-Wilcoxon Signed Rank, and Kruskal-Wallis). Additional tools include
-statistical power analysis and automated assumption checking. Each
-function automatically interprets results in plain English, reporting
-effect sizes, confidence intervals, and p-value interpretations. Post-hoc
-tests are automatically applied following significant results. A master
-function automatically detects the appropriate test based on the structure
-of the input data. Methods are based on Cohen, J. (1988)
-<doi:10.4324/9780203771587>, Tukey, J. W. (1949) <doi:10.2307/3001913>,
-and Shapiro and Wilk (1965) <doi:10.2307/2333709>.
+Wilcoxon Signed Rank, and Kruskal-Wallis). Each function automatically
+interprets results in plain English, reporting effect sizes, confidence
+intervals, and p-value interpretations, and prints relevant assumption
+checks by default. A context argument allows users to describe their study
+design, echoed back alongside the interpretation as a reminder to read
+results in that context. Post-hoc tests are automatically applied
+following significant results. A master function automatically detects the
+appropriate test based on the structure of the input data. Methods are
+based on Cohen, J. (1988) <doi:10.4324/9780203771587>, Tukey, J. W. (1949)
+<doi:10.2307/3001913>, and Shapiro and Wilk (1965) <doi:10.2307/2333709>.
 
 %prep
 %setup -q -c -n %{packname}

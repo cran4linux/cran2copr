@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BioTooltipR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Bio Tooltips to HTML Reports
 
@@ -27,10 +27,10 @@ Requires:         R-CRAN-knitr
 Requires:         R-utils 
 
 %description
-Provides lightweight helpers for adding gene and chemical tooltips to R
-Markdown, Quarto, Shiny, pkgdown, and other HTML outputs. The package
-emits small HTML spans with module-specific data attributes and attaches
-the browser-side 'bio-tooltips' JavaScript and CSS assets through
+Provides lightweight helpers for adding gene and chemical tooltips to 'R
+Markdown', 'Quarto', 'shiny', 'pkgdown', and other HTML outputs. The
+package emits small HTML spans with module-specific data attributes and
+attaches the browser-side 'bio-tooltips' JavaScript and CSS assets through
 'htmltools'. Entity lookup and rendering are handled in the browser by
 'bio-tooltips'; this package does not query biological databases from R
 during package checks.

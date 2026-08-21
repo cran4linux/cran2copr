@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tuber
-%global packver   1.4.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the YouTube API
+Summary:          Client for the YouTube Data API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -51,10 +51,11 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-utils 
 
 %description
-Get comments posted on YouTube videos, information on how many times a
-video has been liked, search for videos with particular content, and much
-more. You can also scrape captions from a few videos. To learn more about
-the YouTube API, see <https://developers.google.com/youtube/v3/>.
+Search public YouTube data and retrieve channels, videos, playlists,
+comments, captions, live broadcasts, and reference data. Authenticated
+methods support common uploads, playlist changes, comment moderation, and
+media updates. See the YouTube Data API documentation at
+<https://developers.google.com/youtube/v3/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tirt
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testlet Item Response Theory
 
@@ -58,7 +58,14 @@ essential for pre-equating studies and item bank maintenance.
 Comprehensive data simulation functions are included to generate synthetic
 datasets with complex structures, including mixed-model blocks and
 specific testlet effects, aiding in methodological research and study
-design validation. Researchers can try multiple simulation situations.
+design validation. Researchers can try multiple simulation situations. A
+suite of post-estimation tools is also provided, including item and test
+information functions with the conditional standard error of measurement,
+summed-score to scale-score conversion tables (expected a posteriori,
+weighted likelihood, and maximum likelihood), person-fit and item-fit
+statistics, local dependence diagnostics (Yen's Q3), differential item
+functioning (M-H and logistic regression), reliability coefficients, test
+characteristic curves, and mixture (latent-class) item response models.
 
 %prep
 %setup -q -c -n %{packname}

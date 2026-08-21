@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inti
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Statistical Procedures in Plant Science
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-googlesheets4 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-systemfonts 
 Requires:         R-CRAN-shiny 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-googlesheets4 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-systemfonts 
 

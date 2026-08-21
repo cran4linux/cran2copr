@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  artma
-%global packver   0.3.3
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Replication Tools for Meta-Analysis
 
@@ -14,38 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-metafor >= 4.8.0
+BuildRequires:    jags-devel
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildRequires:    R-CRAN-cli >= 3.6.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-lintr >= 3.2.0
 BuildRequires:    R-CRAN-sandwich >= 3.1.0
 BuildRequires:    R-CRAN-withr >= 3.0.2
-BuildRequires:    R-CRAN-plm >= 2.6.3
 BuildRequires:    R-CRAN-yaml >= 2.3.10
 BuildRequires:    R-CRAN-memoise >= 2.0.1
+BuildRequires:    R-CRAN-box >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-lifecycle >= 1.0.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-lmtest >= 0.9.40
-BuildRequires:    R-CRAN-NlcOptim >= 0.6
-BuildRequires:    R-CRAN-climenu >= 0.1.3
-BuildRequires:    R-CRAN-ggtext >= 0.1.2
-Requires:         R-CRAN-metafor >= 4.8.0
+BuildRequires:    R-CRAN-climenu >= 0.1.7
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-cli >= 3.6.5
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-lintr >= 3.2.0
 Requires:         R-CRAN-sandwich >= 3.1.0
 Requires:         R-CRAN-withr >= 3.0.2
-Requires:         R-CRAN-plm >= 2.6.3
 Requires:         R-CRAN-yaml >= 2.3.10
 Requires:         R-CRAN-memoise >= 2.0.1
+Requires:         R-CRAN-box >= 1.2.0
 Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-lifecycle >= 1.0.4
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-lmtest >= 0.9.40
-Requires:         R-CRAN-NlcOptim >= 0.6
-Requires:         R-CRAN-climenu >= 0.1.3
-Requires:         R-CRAN-ggtext >= 0.1.2
+Requires:         R-CRAN-climenu >= 0.1.7
+Requires:         R-parallel 
 
 %description
 Provides a unified and straightforward interface for performing a variety

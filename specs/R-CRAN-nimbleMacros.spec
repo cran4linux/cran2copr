@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nimbleMacros
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Macros Generating 'nimble' Code
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-reformulas
 Macros to generate 'nimble' code from a concise syntax. Included are
 macros for generating linear modeling code using a formula-based syntax
 and for building for() loops. For more details review the 'nimble' manual:
-<https://r-nimble.org/html_manual/cha-writing-models.html#subsec:macros>.
+<https://r-nimble.org/manual/cha-user-defined.html#sec:user-macros>.
 
 %prep
 %setup -q -c -n %{packname}

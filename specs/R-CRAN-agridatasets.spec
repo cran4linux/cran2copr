@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  agridatasets
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Collection of Agricultural and Agronomic Datasets
 
-License:          GPL-3
+License:          GPL (>= 2) | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -37,7 +37,11 @@ and Latin square field trials, glasshouse experiments, and international
 agricultural surveys. Designed for agronomists, researchers, plant and
 animal scientists, data scientists, and students, this package facilitates
 exploratory data analysis, statistical modeling, and hypothesis testing in
-agricultural and biological sciences.
+agricultural and biological sciences. The package includes datasets
+originally distributed in other R packages. The original authors and
+contributors associated with these source packages and datasets are
+acknowledged in Authors@R, and the original sources and applicable
+licensing terms are documented in LICENSES_DETAILS.md.
 
 %prep
 %setup -q -c -n %{packname}

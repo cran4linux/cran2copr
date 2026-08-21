@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vasicekreg
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Modeling Using Vasicek Distribution
 
@@ -28,13 +28,19 @@ Requires:         R-CRAN-gamlss.dist
 Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides probability density, cumulative distribution, quantile, and
-random number generation functions for the Vasicek distribution. In
-addition, two functions are available for fitting Generalized Additive
-Models for Location, Scale and Shape introduced by Rigby and Stasinopoulos
-(2005, <doi:10.1111/j.1467-9876.2005.00510.x>). Some functions are written
-in 'C++' using 'Rcpp', developed by Eddelbuettel and Francois (2011,
-<doi:10.18637/jss.v040.i08>).
+Provides density, cumulative distribution, quantile, and random generation
+functions for Vasicek distributions with standard normal and standard
+logistic kernels. The normal-kernel distribution is parameterized by
+either its mean or a fixed quantile, whereas the logistic-kernel
+distribution uses a fixed-quantile parameterization. Zero-adjusted,
+one-adjusted, and zero-and-one-adjusted extensions of the normal-kernel
+mean parameterization are also provided for responses that include
+boundary values. The corresponding 'NVASIM', 'NVASIQ', 'LVASIQ',
+'ZANVASIM', 'OANVASIM', and 'ZOANVASIM' families are available for fitting
+Generalized Additive Models for Location, Scale and Shape, as introduced
+by Rigby and Stasinopoulos (2005, <doi:10.1111/j.1467-9876.2005.00510.x>).
+Some functions are written in 'C++' using 'Rcpp', developed by
+Eddelbuettel and Francois (2011, <doi:10.18637/jss.v040.i08>).
 
 %prep
 %setup -q -c -n %{packname}

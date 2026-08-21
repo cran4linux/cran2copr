@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CLDedgelister
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import System-Dynamics Models and Convert Them to Edge Lists
 
@@ -31,10 +31,11 @@ Imports causal and system-dynamics models from 'Vensim', 'Stella' /
 'iThink' and 'Powersim Studio' ('XMILE'), 'AnyLogic' and 'GoldSim'
 (exported 'XML'), and converts them into a two-column edge list of
 cause-to-effect links. 'Vensim' models are read from their native diagram
-files; 'Powersim Studio' and 'GoldSim' are read from their exported
-'XMILE' or 'XML'. Provides an 'RStudio' add-in with a simple
-point-and-click interface, together with command-line functions that
-return a data frame or write it to 'CSV' or 'Excel'.
+files; 'Powersim Studio' and 'GoldSim' are also now read from their native
+diagram files in addition to exported 'XMILE' or 'XML'. Provides an
+'RStudio' add-in with a simple point-and-click interface, together with
+command-line functions that return a data frame or write it to 'CSV' or
+'Excel'.
 
 %prep
 %setup -q -c -n %{packname}

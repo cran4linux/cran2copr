@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstudio.prefs
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Set 'RStudio' Preferences
+Summary:          Manage 'RStudio' Preferences and Addin Shortcuts
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.2
 BuildRequires:    R-CRAN-cli >= 2.5.0
@@ -39,13 +39,11 @@ Requires:         R-CRAN-rappdirs >= 0.3.3
 Requires:         R-CRAN-rstudioapi >= 0.13
 
 %description
-As of 'RStudio' v1.3, the preferences in the Global Options dialog (and a
-number of other preferences that aren’t) are now saved in simple,
-plain-text JSON files. This package provides an interface for working with
-these 'RStudio' JSON preference files to easily make modifications without
-using the point-and-click option menus. This is particularly helpful when
-working on teams to ensure a unified experience across machines and
-utilizing settings for best practices.
+Provides an interface for working with 'RStudio' preference files to
+modify settings and addin shortcuts without using point-and-click option
+menus. Useful for ensuring a unified experience across devices and for
+enforcing best practices. Also exposes some settings not available in the
+Global Options dialog.
 
 %prep
 %setup -q -c -n %{packname}

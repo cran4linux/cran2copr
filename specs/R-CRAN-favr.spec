@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  favr
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Function Argument Validation
 
@@ -17,20 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-vctrs 
 
 %description
-Validate function arguments succinctly with informative error messages and
-optional automatic type casting and size recycling. Enable schema-based
-assertions by attaching reusable rules to data.frame and list objects for
-use throughout workflows.
+Validate function arguments succinctly with informative error messages.
 
 %prep
 %setup -q -c -n %{packname}

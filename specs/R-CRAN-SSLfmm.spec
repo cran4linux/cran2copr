@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSLfmm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semi-Supervised Learning under a Mixed-Missingness Mechanism in Finite Mixture Models
+Summary:          Semi-Supervised Learning with Mixed Missingness in Finite Mixture Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-matrixStats 
 
 %description
-Implements a semi-supervised learning framework for finite mixture models
-under a mixed-missingness mechanism. The approach models both missing
-completely at random (MCAR) and entropy-based missing at random (MAR)
-processes using a logistic–entropy formulation. Estimation is carried out
-via an Expectation–-Conditional Maximisation (ECM) algorithm with robust
-initialisation routines for stable convergence. The methodology relates to
-the statistical perspective and informative missingness behaviour
-discussed in Ahfock and McLachlan (2020) <doi:10.1007/s11222-020-09971-5>
-and Ahfock and McLachlan (2023) <doi:10.1016/j.ecosta.2022.03.007>. The
-package provides functions for data simulation, model estimation,
-prediction, and theoretical Bayes error evaluation for analysing partially
-labelled data under a mixed-missingness mechanism.
+Semi-supervised Gaussian finite mixture models for partially labelled data
+under complete-case, missing completely at random (MCAR),
+entropy-dependent missing at random (MAR), and mixed MCAR/MAR
+label-missingness formulations. For the mixed formulation, the source of a
+missing label may be observed or latent. The package supports equal and
+component-specific covariance matrices, model fitting, simulation,
+initialization, prediction, classification performance assessment, and
+entropy-based diagnostics. A semi-synthetic Blood Transfusion data set is
+included to illustrate the applied workflow.
 
 %prep
 %setup -q -c -n %{packname}

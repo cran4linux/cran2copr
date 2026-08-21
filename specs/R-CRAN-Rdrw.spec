@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rdrw
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate and Multivariate Damped Random Walk Processes
 
@@ -28,11 +28,16 @@ or first-order continuous-time autoregressive models, CAR(1) or CARMA(1,
 heteroscedastic measurement errors, missing measurements across
 multivariate time series, and polynomial mean trends in normalized time.
 The current implementation models up to ten time series jointly. Kalman
-filtering is used to evaluate the likelihood efficiently for maximum
-likelihood estimation and Bayesian posterior sampling. Users should
-preserve sufficient numerical precision when loading astronomical
-observation times; see the manual for details. Also see Hu and Tak (2020)
-<doi:10.48550/arXiv.2005.08049>.
+filtering is used to evaluate the likelihood efficiently. Polynomial mean
+coefficients are handled conditionally within the Kalman recursion,
+reducing the dimension of numerical maximum likelihood optimization and
+permitting exact Gaussian conditional updates during Bayesian posterior
+sampling. Maximum likelihood estimation is computationally efficient and
+suitable for large-scale data analysis, while Bayesian posterior sampling
+is better suited to small-scale analyses requiring more careful
+uncertainty quantification. Users should preserve sufficient numerical
+precision when loading astronomical observation times; see the manual for
+details. Also see Hu and Tak (2020) <doi:10.3847/1538-3881/abc1e2>.
 
 %prep
 %setup -q -c -n %{packname}

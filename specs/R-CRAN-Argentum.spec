@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Argentum
-%global packver   1.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access and Import WMS and WFS Data from Argentine Organizations
+Summary:          Access Argentine WFS and WMS Geospatial Web Services
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-terra 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Provides functions to retrieve information from Web Feature Service (WFS)
-and Web Map Service (WMS) layers from various Argentine organizations and
-import them into R for further analysis. WFS and WMS are standardized
-protocols for serving georeferenced map data over the internet. For more
-information on these services, see
-<https://www.ogc.org/publications/standard/wfs/> and
-<https://www.ogc.org/publications/standard/wms/>.
+Discovers and reads geospatial layers published by Argentine public
+organizations through the Open Geospatial Consortium standards Web Feature
+Service (WFS) and Web Map Service (WMS). Provides a cached catalogue of
+endpoints, capability parsing with version negotiation, paginated vector
+downloads returned as 'sf' objects, and raster map retrieval returned as
+'terra' objects. For the underlying standards see
+<https://www.ogc.org/standards/wfs/> and
+<https://www.ogc.org/standards/wms/>.
 
 %prep
 %setup -q -c -n %{packname}

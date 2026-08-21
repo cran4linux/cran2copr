@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TCpRepDesigns
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partially Replicated Test-Control Designs for Early Generation Varietal Trials
 
@@ -24,14 +24,13 @@ Requires:         R-CRAN-MASS
 Provides functions for generating partially replicated (p-rep)
 test-control designs for early generation varietal trials conducted across
 multiple environments. The package implements three construction methods
-for obtaining efficient p-rep test-control designs with one or more
-control treatments. The package extends the partially replicated design
-framework of Vinaykumar et al. (2026) <doi:10.1007/s12355-025-01684-1> to
+for obtaining p-rep test-control designs with one or more control
+treatments. The package extends the partially replicated design framework
+of Vinaykumar et al. (2026) <doi:10.1007/s12355-025-01684-1> to
 accommodate test-control comparisons in breeding trials. Functions are
-also provided for generating randomized and non-randomized layouts and for
-evaluating designs using average variance measures for test-versus-test
-and test-versus-control comparisons, together with canonical efficiency
-factors. The proposed designs are useful for large-scale varietal
+provided for generating randomized and non-randomized layouts and for
+displaying the design parameters and treatment allocations for each
+environment. The proposed designs are useful for large-scale varietal
 evaluation trials where a large number of test lines are assessed under
 limited experimental resources.
 

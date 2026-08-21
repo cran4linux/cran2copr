@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesqm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Q Methodology: Probabilistic Factor Analysis
+Summary:          Bayesian Q Methodology: Exact Rank-Order Likelihood for Forced Q Sorts
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,28 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstantools >= 2.3.0
+BuildRequires:    R-CRAN-posterior >= 1.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-rstantools >= 2.3.0
+BuildRequires:    R-CRAN-clue 
+Requires:         R-CRAN-posterior >= 1.5.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-tools 
-Requires:         R-parallel 
+Requires:         R-CRAN-clue 
 
 %description
-A Bayesian factor-analytic framework for Q methodology. Fits a low-rank
-factor model to Q-sort data with a Student-t likelihood and a hierarchical
-normal prior on loadings, samples the posterior with Stan, resolves
-rotational ambiguity via the MatchAlign post-processing of Poworoznek et
-al. (2025) <doi:10.1214/25-BA1544>, and returns posterior summaries
-including credible intervals for loadings and factor scores, probabilistic
-dominant-factor membership, distinguishing and consensus statements, and
-PSIS-LOO-based factor enumeration following Vehtari et al. (2017)
-<doi:10.1007/s11222-016-9696-4> with the Sivula et al. (2025)
-<doi:10.1214/25-BA1569> parsimony rule.
+A Bayesian analysis for Q methodology, alongside the classical one. Models
+the forced Q sort as an ordered partition of the statements through an
+exact rank-order likelihood (the design quotas fix the partition margins,
+so the likelihood of the observed sorting event is exact), fits it by a
+parameter-expanded Gibbs sampler in R with no compiled code and a
+convergence gate on rotation-invariant functionals, resolves rotational
+ambiguity via the MatchAlign post-processing of Poworoznek et al. (2025)
+<doi:10.1214/25-BA1544>, and returns the familiar Q tables as posterior
+summaries: credible intervals for bounded participant loadings, flag
+probabilities with an explicit unclassified state, quota-respecting factor
+arrays, distinguishing and consensus statements judged against a posterior
+critical difference and a grid-width equivalence region, one posterior
+false-discovery rule for all published claims, and a two-signal
+posterior-predictive workflow for the number of factors.
 
 %prep
 %setup -q -c -n %{packname}

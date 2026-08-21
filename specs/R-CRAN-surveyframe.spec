@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveyframe
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Instrument Workflows
 
@@ -33,7 +33,13 @@ serialisation to the '.sframe' format, multi-page survey rendering,
 branching logic, response quality checking, scale scoring, psychometric
 diagnostics, analysis-plan execution, model syntax planning, an
 interactive response dashboard, codebook generation, and reproducible HTML
-reporting.
+reporting. This release adds three capability themes: multi-criteria
+decision analysis (AHP, ANP, DEMATEL, TOPSIS, VIKOR, MOORA, SMART, WASPAS,
+PROMETHEE II, ELECTRE I), small-sample survey helpers, and text and
+open-ended response analysis (term and n-gram frequency, keyword in
+context, co-occurrence and co-occurrence networks, sentiment,
+document-feature matrices, and topic modelling via LDA or structural topic
+models).
 
 %prep
 %setup -q -c -n %{packname}

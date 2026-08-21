@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  isodistrreg
-%global packver   0.1.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isotonic Distributional Regression (IDR)
 
@@ -13,21 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-osqp 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-osqp 
-Requires:         R-CRAN-Matrix 
 Requires:         R-utils 
 
 %description
 Distributional regression under stochastic order restrictions for numeric
-and binary response variables and partially ordered covariates. See Henzi,
-Ziegel, Gneiting (2020) <arXiv:1909.03725>.
+and binary response variables and partially ordered covariates, including
+right-censored responses via Survival-IDR. See Henzi, Ziegel, Gneiting
+(2021) <doi:10.1111/rssb.12450> and Bladt, Henzi, van den Heuvel, Ziegel
+(2026) <doi:10.48550/arXiv.2608.02914>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ambiR
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate AZTI’s Marine Biotic Index
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Calculate AZTI’s Marine Biotic Index - AMBI. The included list of benthic

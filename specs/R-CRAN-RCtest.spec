@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RCtest
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reality Check and Predictive Ability Tests for Forecast Evaluation
 
@@ -34,15 +34,15 @@ accuracy of forecasting models against a benchmark. The package is
 grounded in the reality check framework of White (2000)
 <doi:10.1111/1468-0262.00152>, extended by Hansen (2005)
 <doi:10.1198/073500105000000063> for Superior Predictive Ability (SPA),
-'Giacomini' & White (2006) <doi:10.1111/j.1468-0262.2006.00718.x> for
-Conditional Predictive Ability (CPA), and 'Corradi' & Swanson (2006)
+Giacomini & White (2006) <doi:10.1111/j.1468-0262.2006.00718.x> for
+Conditional Predictive Ability (CPA), and Corradi & Swanson (2006)
 <doi:10.1016/j.jeconom.2005.07.026> for predictive density evaluation via
-the 'Kullback'-'Leibler' Information Criterion ('KLIC') and 'ZP' Quantile
-Loss test, the Continuous Ranked Probability Score ('CRPS') ('Gneiting' &
-'Raftery', 2007) <doi:10.1198/016214506000001437>, coverage tests
-('Kupiec', 1995) <doi:10.3905/jod.1995.407942>, 'HAC' covariance
-estimation ('Newey' & West, 1987) <doi:10.2307/1913610>, and Moving Block
-Bootstrap resampling ('Kunsch', 1989) <doi:10.1214/aos/1176347265>.
+the Kullback-Leibler Information Criterion (KLIC) and ZP Quantile Loss
+test, the Continuous Ranked Probability Score (CRPS) (Gneiting & Raftery,
+2007) <doi:10.1198/016214506000001437>, coverage tests (Kupiec, 1995)
+<doi:10.3905/jod.1995.407942>, HAC covariance estimation (Newey & West,
+1987) <doi:10.2307/1913610>, and Moving Block Bootstrap resampling
+(Kunsch, 1989) <doi:10.1214/aos/1176347265>.
 
 %prep
 %setup -q -c -n %{packname}

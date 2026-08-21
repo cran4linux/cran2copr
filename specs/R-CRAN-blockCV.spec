@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blockCV
-%global packver   3.2-0
+%global packver   4.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Environmental Blocking for K-Fold and LOO Cross-Validation
+Summary:          Spatial and Environmental Blocking for Cross-Validation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-terra >= 1.6.41
+BuildRequires:    R-CRAN-automap >= 1.1.20
 BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-automap >= 1.0.16
 BuildRequires:    R-CRAN-sf >= 1.0
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-terra >= 1.6.41
+Requires:         R-CRAN-automap >= 1.1.20
 Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-automap >= 1.0.16
 Requires:         R-CRAN-sf >= 1.0
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-cowplot 
 
 %description
-Creating spatially or environmentally separated folds for cross-validation
-to provide a robust error estimation in spatially structured environments;
-Investigating and visualising the effective range of spatial
-autocorrelation in continuous raster covariates and point samples to find
-an initial realistic distance band to separate training and testing
-datasets spatially described in Valavi, R. et al. (2019)
-<doi:10.1111/2041-210X.13107>.
+Creates spatially or environmentally separated, or group-preserving,
+training and testing folds for k-fold, leave-group-out, and leave-one-out
+cross-validation. Provides spatial blocking, clustering, buffering, and
+nearest-neighbour distance-matching methods, together with tools to
+visualise folds, summarise fold sizes and class balance, and assess
+train–test separation and environmental novelty. Also estimates spatial
+autocorrelation ranges in point samples and continuous raster covariates
+to provide an initial distance scale for designing spatial folds. Methods
+are described in Valavi, R. et al. (2019) <doi:10.1111/2041-210X.13107>.
 
 %prep
 %setup -q -c -n %{packname}

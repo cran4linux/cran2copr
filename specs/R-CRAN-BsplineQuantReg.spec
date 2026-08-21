@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BsplineQuantReg
-%global packver   0.2.2
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Constrained Quantile Regression with B-Splines'
 
@@ -18,7 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-ECOSolveR 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-ECOSolveR 
+Requires:         R-utils 
 
 %description
 Quantile regression with B-splines under shape constraints. The initial
@@ -26,12 +30,18 @@ version with cubic splines is now augmented with splines of degree 1 to 4.
 Constraints for degrees 3 (monotone) and 4 (monotone and convex) use the
 Karlin-Studden SOCP characterization for the sign of the polynomial, while
 other constraints applied at the knots are added as linear problems. The
-method for cubic splines is described in Abbes (2026)
+method for cubic splines is described in 'Abbes (2026)'
 <doi:10.5281/zenodo.17427913>. Other formulations are simple consequences
-of the other given references. This R implementation is intended for
-demonstration and prototyping. All B-spline and polynomial functions have
-been rewritten for consistency. An equivalent Python package is available
-at <https://pypi.org/project/BsplineQuantRegpy/>.
+of the other given references. All B-spline and polynomial functions have
+been rewritten for consistency. This package provides an original B-spline
+library for conversion between PP-form and B-spline representation,
+evaluation, differentiation, callable and non-callable objects, print
+human readable pp forms, view basis, all based on "De Boor's" theory. It
+also extends to multiple knots to catch up singularities. This feature is
+robust in the package including for constrained regression. This R
+implementation is intended for demonstration and prototyping. An
+equivalent Python package is available at
+<https://pypi.org/project/BsplineQuantRegpy/>.
 
 %prep
 %setup -q -c -n %{packname}

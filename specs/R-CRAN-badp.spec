@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  badp
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Averaging for Dynamic Panels
 
@@ -14,8 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-RTMB >= 1.6
 BuildRequires:    R-CRAN-patchwork >= 1.1.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -23,18 +25,15 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-optimbase 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-rje 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-RTMB >= 1.6
 Requires:         R-CRAN-patchwork >= 1.1.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -42,14 +41,10 @@ Requires:         R-grid
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-optimbase 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-rje 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
