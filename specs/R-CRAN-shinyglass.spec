@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyglass
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Liquid Glass Design Themes for 'shiny' Applications
 
@@ -17,19 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-CRAN-bslib >= 0.5.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.0
 BuildRequires:    R-CRAN-sass >= 0.4.0
+Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-bslib >= 0.5.0
 Requires:         R-CRAN-htmltools >= 0.5.0
 Requires:         R-CRAN-sass >= 0.4.0
 
 %description
-Drop-in Liquid Glass themes for 'shiny'. Call glass_theme() and pass the
-result to fluidPage(), navbarPage(), or any 'bslib'-aware page function to
-get translucent surfaces, backdrop blur, and system typography on
-'Bootstrap' components. Light and dark presets are included, with options
-for accent color, blur, and corner radius.
+Provides drop-in Liquid Glass themes for 'shiny'. Call glass_theme() and
+pass the result as theme = to fluidPage(), navbarPage(), or any
+'bslib'-aware page function to get translucent surfaces, backdrop blur,
+and system typography on 'Bootstrap' components. Includes light and dark
+presets with runtime switching and an OS-following 'auto' mode, an
+iOS-style intensity control from Ultra Clear to Tinted
+(glass_intensity_slider()), and options for accent color, blur, corner
+radius, and motion or tint behavior.
 
 %prep
 %setup -q -c -n %{packname}

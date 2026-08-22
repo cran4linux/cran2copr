@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesQRsurvey
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Quantile Regression Models for Complex Survey Data Analysis
 
@@ -41,7 +41,8 @@ informative sampling using survey-weighted estimators. Both single- and
 multiple-output models are supported. To accelerate computation, all
 algorithms are implemented in 'C++' using 'Rcpp', 'RcppArmadillo', and
 'RcppEigen', and are called from 'R'. See Nascimento and Gonçalves (2024)
-<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2025, in press).
+<doi:10.1093/jssam/smae015> and Nascimento and Gonçalves (2026)
+<doi:10.1093/jssam/smaf040>.
 
 %prep
 %setup -q -c -n %{packname}

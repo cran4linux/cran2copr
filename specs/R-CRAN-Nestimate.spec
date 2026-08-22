@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Nestimate
-%global packver   0.8.0
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Estimation, Bootstrap, and Higher-Order Analysis
+Summary:          Dynamic, Probabilistic, and Higher-Order Network Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

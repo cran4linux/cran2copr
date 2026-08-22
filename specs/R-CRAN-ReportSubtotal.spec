@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReportSubtotal
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adds Subtotals to Data Reports
 
@@ -21,10 +21,14 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lubridate 
 
 %description
 Adds subtotal rows / sections (a la the 'SAS' 'Proc Tabulate' All option)

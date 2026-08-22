@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gridmicrotex
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Native 'LaTeX' Math Rendering for Grid Graphics
 
@@ -16,22 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-commonmark 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-systemfonts 
 Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
 Renders 'LaTeX' math equations as native R grid graphics objects (grobs)
 using the 'MicroTeX' 'C++' library as the layout engine. Produces
 resolution-independent vector output that works on any R graphics device,
-with no external 'LaTeX' installation required.
+with no external 'LaTeX' installation required. Markdown labels and block
+documents that mix prose formatting with math are also rendered, for use
+with both 'grid' and 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

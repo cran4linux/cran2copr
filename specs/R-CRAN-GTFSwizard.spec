@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GTFSwizard
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating, Exploring and Manipulating 'GTFS' Files
+Summary:          Creating, Exploring, and Manipulating GTFS Files
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gtfsio 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gtfsio 
@@ -43,8 +41,10 @@ visualizations, and perform detailed analyses of transit networks,
 including headway, dwell times, route frequencies, service span, scheduled
 vehicle-hours, and trip duration. Methods follow common public transport
 planning and operation concepts described in Ceder (2007,
-ISBN:978-0-7506-6166-6), Vuchic (2005, ISBN:978-0-471-63265-8), and Vuchic
-(2007, ISBN:978-0-471-75823-5).
+ISBN:978-0-7506-6166-6), Vuchic (2005, ISBN:978-0-471-63265-8), Vuchic
+(2007, ISBN:978-0-471-75823-5), Cascetta (2009)
+<doi:10.1007/978-0-387-75857-2>, and Gentile and Noekel (2016)
+<doi:10.1007/978-3-319-25082-3>.
 
 %prep
 %setup -q -c -n %{packname}

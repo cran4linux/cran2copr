@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BIGpopA
-%global packver   1.0.6
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pedigree Validation Genetic Composition of Diploids & Polyploids
 
@@ -34,9 +34,11 @@ estimation in diploid and polyploid breeding populations. 'BIGpopA'
 provides functions to check and correct common pedigree errors, assign
 parentage from SNP genotype data using Mendelian error rates, validate
 parent-offspring trios, and estimate genome-wide breed or line composition
-using quadratic programming. Supports both diploid and polyploid species.
-For more details about the included 'breedTools' functions, see Funkhouser
-et al. (2017) <doi:10.2527/tas2016.0003>.
+using quadratic programming. Pedigree validation and parentage assignment
+support any ploidy, using a polysomic Mendelian test for even ploidy and a
+homozygosity-based check for odd ploidy. For more details about the
+included 'breedTools' functions, see Funkhouser et al. (2017)
+<doi:10.2527/tas2016.0003>.
 
 %prep
 %setup -q -c -n %{packname}

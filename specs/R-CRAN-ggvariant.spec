@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggvariant
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy, 'ggplot2'-Native Visualization for Genomic Variants
 
@@ -27,10 +27,9 @@ Requires:         R-CRAN-scales >= 1.3.0
 %description
 A simple, opinionated toolkit for visualizing genomic variant data using a
 'ggplot2'-native grammar. Accepts VCF files or plain data frames and
-produces publication-ready lollipop plots, consequence summaries,
-mutational spectrum charts, and cohort-level comparisons with minimal
-code. Designed for both wet-lab biologists and experienced
-bioinformaticians.
+produces lollipop plots, consequence summaries, mutational spectrum
+charts, and cohort-level comparisons as standard 'ggplot2' objects.
+Designed for both wet-lab biologists and experienced bioinformaticians.
 
 %prep
 %setup -q -c -n %{packname}

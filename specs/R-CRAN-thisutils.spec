@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thisutils
-%global packver   0.4.9
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.9
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Utility Functions for Data Analysis and Computing
+Summary:          Reliable Utilities for Reusable Research Workflows
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -40,9 +40,13 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides utility functions for data analysis and computing. Includes
-functions for logging, parallel processing, and other computational tasks
-to streamline workflows.
+Provides reusable building blocks for research packages across matrix
+representation, numerical computation, neighborhood evaluation, controlled
+execution, and runtime interoperability. Core tools preserve declared
+sparse semantics, expose dense-memory and output boundaries, standardize
+neighborhood and classification results, and align serial and parallel
+result and error behavior. Additional helpers support structured messages,
+optional dependency checks, and common statistical workflows.
 
 %prep
 %setup -q -c -n %{packname}

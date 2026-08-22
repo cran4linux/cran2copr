@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcgf
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markov Chain Gaussian Fields Simulation and Parameter Estimation
 
@@ -24,10 +24,12 @@ Requires:         R-CRAN-sp
 
 %description
 Simulating and estimating (regime-switching) Markov chain Gaussian fields
-with covariance functions of the Gneiting class (Gneiting 2002)
-<doi:10.1198/016214502760047113>. It supports parameter estimation by
-weighted least squares and maximum likelihood methods, and produces
-Kriging forecasts and intervals for existing and new locations.
+with spatio-temporal covariance functions of the Gneiting class (Gneiting
+2002) <doi:10.1198/016214502760047113>, including the regime-switching
+framework of Jia and Sezer (2025) <doi:10.1063/5.0285012>. It supports
+parameter estimation by weighted least squares and approximate conditional
+maximum likelihood methods, and produces Kriging forecasts and intervals
+for existing and new locations.
 
 %prep
 %setup -q -c -n %{packname}

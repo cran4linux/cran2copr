@@ -1,0 +1,57 @@
+%global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
+%global packname  grayleafspotdata
+%global packver   0.1.0
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          0.1.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          File Manifest for the S-BSST3199 Magnaporthe Colony Image Dataset
+
+License:          MIT + file LICENSE
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+
+%description
+Provides a machine-readable file and image manifest for the research data
+deposited in EMBL-EBI BioStudies under accession S-BSST3199 (a time-series
+petri-dish image dataset of Magnaporthe colonies from twelve plates, with
+associated morphometric analysis outputs produced by metrics-petri 3.0.0).
+The original research files are not bundled in this R package; they remain
+hosted by BioStudies. The manifest can be used in image-analysis and
+plant-pathology workflows, including workflows based on the
+'grayleafspotr' software. Related research outputs are documented using
+their persistent identifiers.
+
+%prep
+%setup -q -c -n %{packname}
+
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
+
+%files
+%{rlibdir}/%{packname}

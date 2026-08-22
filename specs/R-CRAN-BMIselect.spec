@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BMIselect
-%global packver   1.0.4
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian MI-LASSO for Variable Selection on Multiply-Imputed Datasets
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-abind
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-loo 
 
 %description
 Provides a suite of Bayesian MI-LASSO for variable selection methods for

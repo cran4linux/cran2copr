@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diegr
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic and Interactive EEG Graphics
 
@@ -23,22 +23,24 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-MASS 
 
 %description
 Allows to visualize high-density electroencephalography (HD-EEG) data

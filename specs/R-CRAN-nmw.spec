@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nmw
-%global packver   0.3.1
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Understanding Nonlinear Mixed Effects Modeling for Population Pharmacokinetics
 
@@ -14,15 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-simPDF >= 0.1.1
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-simPDF >= 0.1.1
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MASS 
 Requires:         R-grDevices 

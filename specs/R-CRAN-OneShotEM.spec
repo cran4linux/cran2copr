@@ -1,55 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ExactTree
-%global packver   0.1.1
+%global packname  OneShotEM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Tree
+Summary:          Efficient eM-Algorithm for One-Shot Device Data Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-partykit 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-grid 
-BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-gridtext 
-BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rpart 
-Requires:         R-CRAN-partykit 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-stats 
-Requires:         R-grid 
-Requires:         R-utils 
 Requires:         R-graphics 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-gridtext 
-Requires:         R-CRAN-DescTools 
+Requires:         R-grDevices 
+Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Grows optimally global trees based on the algorithm defined in "An exact
-dynamic programming algorithm for regression and classification trees"
-(2011). It is possible to obtain both classification and regression trees
-depending on the measurement level of the outcome variable. The algorithm
-is based on the dynamic programming principle and guarantees that the
-resulting tree is optimal with respect to the chosen impurity measure. The
-package also includes a function to visualize the resulting trees, a
-function that summarizes the tree with its splitting information and leaf
-information, and a predict function that provides estimates for a new
-dataset given a model fit.
+Implements the simple and efficient Expectation-Maximization (eM)
+algorithm proposed by Zhu, Li, Li, and Balakrishnan (2026)
+<doi:10.1080/03610918.2025.2515193> for parameter estimation in one-shot
+device accelerated life testing (ALT) data. Unlike traditional EM
+algorithms that impute exact failure times, this method treats failure
+counts between inspection intervals as missing data, resulting in faster
+convergence and enhanced numerical stability. Supports Exponential,
+Weibull, Lognormal, Gamma, and custom user-defined lifetime distributions
+under log-linear stress models. Standard errors, confidence intervals,
+model selection statistics (AIC, BIC, AICc, HQIC), residual diagnostics,
+and visualization tools are provided. References: Balakrishnan and Ling
+(2012) <doi:10.1016/j.csda.2011.09.010>, Fan, Balakrishnan, and Chang
+(2009) <doi:10.1080/00949650802142592>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  locaR
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Set of Tools for Sound Localization
 
@@ -42,7 +42,7 @@ Requires:         R-grDevices
 A set of functions and tools to conduct acoustic source localization, as
 well as organize and check localization data and results. The localization
 functions implement the modified steered response power algorithm
-described by Cobos et al. (2010) <doi:10.1109/LSP.2010.2091502>.
+described by Cobos et al. (2011) <doi:10.1109/LSP.2010.2091502>.
 
 %prep
 %setup -q -c -n %{packname}

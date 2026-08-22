@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cuda.ml
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface for the RAPIDS cuML Suite of Libraries
 
@@ -14,22 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-rlang >= 0.1.4
+BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-CRAN-bundle 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-filelock 
 BuildRequires:    R-CRAN-hardhat 
-BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-rlang >= 0.1.4
+Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-CRAN-bundle 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-filelock 
 Requires:         R-CRAN-hardhat 
-Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-jsonlite 
 
 %description
-R interface for RAPIDS cuML (<https://github.com/rapidsai/cuml>), a suite
-of GPU-accelerated machine learning libraries powered by CUDA
+R interface for RAPIDS cuML (<https://github.com/NVIDIA/cuml>), a suite of
+GPU-accelerated machine learning libraries powered by CUDA
 (<https://en.wikipedia.org/wiki/CUDA>).
 
 %prep

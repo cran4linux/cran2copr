@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cofad
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Contrast Analyses for Factorial Designs
 
@@ -17,29 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rhandsontable 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rhandsontable 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description

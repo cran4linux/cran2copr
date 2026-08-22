@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bsvarSIGNs
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian SVARs with Sign, Zero, and Narrative Restrictions
 
@@ -21,11 +21,15 @@ BuildRequires:    R-CRAN-RcppArmadillo
 BuildRequires:    R-CRAN-bsvars 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-bsvars 
 Requires:         R-CRAN-RcppProgress 
 Requires:         R-CRAN-R6 
+Requires:         R-parallel 
+Requires:         R-CRAN-generics 
 
 %description
 Implements state-of-the-art algorithms for the Bayesian analysis of
@@ -33,12 +37,14 @@ Structural Vector Autoregressions (SVARs) identified by sign, zero, and
 narrative restrictions. The core model is based on a flexible Vector
 Autoregression with estimated hyper-parameters of the Minnesota prior and
 the dummy observation priors as in Giannone, Lenza, Primiceri (2015)
-<doi:10.1162/REST_a_00483>. The sign restrictions are implemented
-employing the methods proposed by Rubio-Ramírez, Waggoner & Zha (2010)
+<doi:10.1162/REST_a_00483> extended by the COVID-specific
+heteroskedasticity proposed by Lenza, Primiceri (2022)
+<doi:10.1002/jae.2895>. The sign restrictions are implemented employing
+the methods proposed by Rubio-Ramírez, Waggoner & Zha (2010)
 <doi:10.1111/j.1467-937X.2009.00578.x>, while identification through sign
 and zero restrictions follows the approach developed by Arias,
 Rubio-Ramírez, & Waggoner (2018) <doi:10.3982/ECTA14468>. Furthermore, our
-tool provides algorithms for identification via sign and narrative
+toolset provides algorithms for identification via sign and narrative
 restrictions, in line with the methods introduced by Antolín-Díaz and
 Rubio-Ramírez (2018) <doi:10.1257/aer.20161852>. Users can also estimate a
 model with sign, zero, and narrative restrictions imposed at once. The
@@ -49,10 +55,12 @@ shocks and fitted values. All this is complemented by colourful plots,
 user-friendly summary functions, and comprehensive documentation including
 the vignette by Wang & Woźniak (2024) <doi:10.48550/arXiv.2501.16711>. The
 'bsvarSIGNs' package is aligned regarding objects, workflows, and code
-structure with the R package 'bsvars' by Woźniak (2024)
-<doi:10.32614/CRAN.package.bsvars>, and they constitute an integrated
-toolset. It was granted the Di Cook Open-Source Statistical Software Award
-by the Statistical Society of Australia in 2024.
+structure with the R packages 'bsvars' by Woźniak (2024)
+<doi:10.32614/CRAN.package.bsvars>, 'bvars' by Liu, Ramirez Hassan,
+Woźniak (2026) <doi:10.32614/CRAN.package.bvars>, and 'bpvars' by Woźniak
+(2026) <doi:10.32614/CRAN.package.bpvars>, and they constitute an
+integrated toolset. It was granted the Di Cook Open-Source Statistical
+Software Award by the Statistical Society of Australia in 2024.
 
 %prep
 %setup -q -c -n %{packname}

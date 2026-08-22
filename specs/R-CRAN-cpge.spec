@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpge
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Career Possibilities after French Selective Engineering Schools in France
+Summary:          Interactive Clustered Graph for French Scientific Preparatory Classes
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,14 +31,15 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-visNetwork 
 
 %description
-To help French students from Classes Preparatoires aux Grandes Ecoles
-(CPGE) in their choice of field of study and career options, this package
-provides an interactive tool and data visualization of a graph clustered
-by different competitive exams and sectors of activity for French
-selective engineering schools and selective higher education institutions
-like Ecoles Normales Superieures (ENS) or specialized university programs.
-Besides, there are two drop-down menus to select on the graph many fields
-or more than 200 engineering schools or ENS. It gives the opportunity to
+To help French students from scientific preparatory classes for the
+Grandes Ecoles (CPGE) in their choice of field of study and career
+options, this package provides an interactive tool and data visualization
+of a graph clustered by different competitive exams and sectors of
+activity for French selective engineering schools and selective higher
+education institutions like Ecoles Normales Superieures (ENS) or
+specialized university programs (magisteres). Besides, there are two
+drop-down menus to select on the graph many fields or more than 200
+engineering schools or ENS or magisteres. It gives the opportunity to
 expand, collapse clusters of selective exams interactively too. For more
 information, see the demonstration video:
 <https://valerierobert-maths.re/index.php/maths-en-cpge/>. The data was

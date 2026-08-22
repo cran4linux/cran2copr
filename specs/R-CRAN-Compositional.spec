@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   8.2
+%global packver   8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.2
+Version:          8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -110,13 +110,14 @@ C. (2023). "Flexible non--parametric regression models for compositional
 response data with zeros". Statistics and Computing, 33(106).
 <doi:10.1007/s11222-023-10277-5>. n) Tsagris. M. (2025). "Constrained
 least squares simplicial--simplicial regression". Statistics and
-Computing, 35(27). <doi:10.1007/s11222-024-10560-z>. o) Sevinc V. and
-Tsagris. M. (2026). "Energy Based Equality of Distributions Testing for
-Compositional Data". Communications in Statistics--Simulation and
-Computation. <doi:10.1080/03610918.2026.2636167>. p) Tsagris M. and
-Alzeley O. (2025). "Scalable approximation of the transformation--free
+Computing, 35(27). <doi:10.1007/s11222-024-10560-z>. o) Tsagris M. and
+Alzeley O. (2026). "Scalable approximation of the transformation--free
 linear simplicial--simplicial regression via constrained iterative
-reweighted least squares". <doi:10.48550/arXiv.2511.13296>.
+reweighted least squares". Statistical Analysis and Data Mining,
+19(4):e70100. <doi:10.1002/sam.70100>. p) Sevinc V. and Tsagris. M.
+(2026). "Energy Based Equality of Distributions Testing for Compositional
+Data". Communications in Statistics--Simulation and Computation.
+<doi:10.1080/03610918.2026.2636167>.
 
 %prep
 %setup -q -c -n %{packname}

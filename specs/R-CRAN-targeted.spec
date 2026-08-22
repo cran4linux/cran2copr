@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  targeted
-%global packver   0.8
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Targeted Inference
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-lava >= 1.9.2
-BuildRequires:    R-CRAN-mets >= 1.3.9
+BuildRequires:    R-CRAN-mets >= 1.3.12
 BuildRequires:    R-CRAN-Rcpp >= 1.1.1
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-abind 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-lava >= 1.9.2
-Requires:         R-CRAN-mets >= 1.3.9
+Requires:         R-CRAN-mets >= 1.3.12
 Requires:         R-CRAN-Rcpp >= 1.1.1
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-abind 
@@ -46,7 +46,8 @@ Requires:         R-CRAN-survival
 Various methods for targeted and semiparametric inference including
 augmented inverse probability weighted (AIPW) estimators for missing data
 and causal inference (Bang and Robins (2005)
-<doi:10.1111/j.1541-0420.2005.00377.x>), variable importance and
+<doi:10.1111/j.1541-0420.2005.00377.x>), one-step imputation (Nordland et
+al (2026)) <doi:10.48550/arXiv.2606.07174>), variable importance and
 conditional average treatment effects (CATE) (van der Laan (2006)
 <doi:10.2202/1557-4679.1008>), estimators for risk differences and
 relative risks (Richardson et al. (2017)

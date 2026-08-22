@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NeutroCODsAnalysis
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neutrosophic Analysis Crossover Designs
 
@@ -21,17 +21,16 @@ BuildRequires:    R-CRAN-MASS
 Requires:         R-CRAN-MASS 
 
 %description
-Provides methods for Neutrosophic Analysis of Variance (NANOVA) for
-crossover designs and multi-session designs with direct and residual
-effects using interval-valued observations. The package computes
-neutrosophic sums of squares, mean squares, interval-valued F-statistics,
-significance tests, and multiple comparisons using Least Significant
-Difference (LSD) procedures. For crisp data, users may enter identical
-lower and upper response values to obtain classical Analysis of Variance
-(ANOVA) results. The basic idea of neutrosophic statistics is obtained
-from Smarandache (2014) <https://fs.unm.edu/NeutrosophicStatistics.pdf>,
-while the analysis procedures implemented in this package are newly
-developed.
+Provides methods for Neutrosophic Analysis of Variance (NANOVA) and
+Neutrosophic Analysis of Covariance (NANCOVA) for crossover designs, as
+well as NANOVA for multi-session designs with direct and residual effects
+using interval-valued observations. For crisp data, users can enter
+identical lower and upper values for the response and covariate variables
+to obtain results equivalent to classical Analysis of Variance (ANOVA) and
+Analysis of Covariance (ANCOVA), respectively. The basic concepts of
+neutrosophic statistics are based on Smarandache (2014)
+<https://fs.unm.edu/NeutrosophicStatistics.pdf>, while the analysis
+procedures implemented in this package are newly developed.
 
 %prep
 %setup -q -c -n %{packname}

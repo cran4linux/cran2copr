@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  subincomeR
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Global Sub-National Income Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidygeocoder 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-countrycode 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidygeocoder 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-zip 
 

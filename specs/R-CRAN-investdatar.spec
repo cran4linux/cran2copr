@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  combcoint
-%global packver   0.2.0
+%global packname  investdatar
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Joint Test-Statistic for the Null of Non-Cointegration
+Summary:          Investment Data Access and Preparation Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tsDyn 
-BuildRequires:    R-CRAN-urca 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tsDyn 
-Requires:         R-CRAN-urca 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yaml 
 
 %description
-Implements a joint cointegration testing approach that combines
-Engle-Granger, Johansen maximum eigenvalue, Boswijk, and Banerjee tests
-into a unified test-statistic for the null of non-cointegration. Also see
-Bayer and Hanck (2013) <doi:10.1111/j.1467-9892.2012.00814.x>.
+A toolkit for loading, transforming, and managing structured
+investment-related data. Includes functions for retrieving macroeconomic
+and public financial series, regulatory filings, futures positioning,
+energy and fiscal data, market open-high-low-close-volume data, fund
+holdings, narrative feeds, and crypto derivatives from multiple providers.
+It detects time-series gaps and synchronizes local '.rds' data stores with
+sidecar metadata for analysis and trading workflows. It also generates
+structured dataset descriptions for LLM-based analyst agents that produce
+R code for analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}

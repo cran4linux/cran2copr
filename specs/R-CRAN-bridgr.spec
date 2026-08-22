@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bridgr
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bridging Data Frequencies for Timely Economic Forecasts
 
@@ -14,36 +14,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-tsbox 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tsbox 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-tsbox 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-xts 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tsbox 
+Requires:         R-CRAN-withr 
 
 %description
-Implements bridge models for nowcasting and forecasting macroeconomic
-variables by linking high-frequency indicator variables (e.g., monthly
-data) to low-frequency target variables (e.g., quarterly GDP). Simplifies
-forecasting and aggregating indicator variables to match the target
-frequency, enabling timely predictions ahead of official data releases.
-For more on bridge models, see Baffigi, A., Golinelli, R., & Parigi, G.
-(2004) <doi:10.1016/S0169-2070(03)00067-0>, Burri (2023)
-<https://www5.unine.ch/RePEc/ftp/irn/pdfs/WP23-02.pdf> or Schumacher
-(2016) <doi:10.1016/j.ijforecast.2015.07.004>.
+Implements bridge and MIDAS-style mixed-frequency models for nowcasting
+and forecasting macroeconomic variables by linking higher-frequency
+indicator variables to a lower-frequency target series. The package
+standardizes input data, infers regular frequencies, forecasts missing
+indicator observations, and aggregates indicators to the target frequency
+before fitting a regression with autoregressive target dynamics. Frequency
+alignment can be customized through user-supplied conversion rules. For
+more on bridge and MIDAS models, see Baffigi, A., Golinelli, R., & Parigi,
+G. (2004) <doi:10.1016/S0169-2070(03)00067-0>, Ghysels, Sinko, & Valkanov
+(2007) <doi:10.1080/07474930600972467>, Andreou, Ghysels, & Kourtellos
+(2010) <doi:10.1016/j.jeconom.2010.01.004>, Schumacher (2016)
+<doi:10.1016/j.ijforecast.2015.07.004>, and Burri (2026)
+<doi:10.1111/obes.70073>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SuperLearner
-%global packver   2.0-40
+%global packver   2.0-41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.40
+Version:          2.0.41
 Release:          1%{?dist}%{?buildtag}
 Summary:          Super Learner Prediction
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-gam >= 1.15
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-cvAUC 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-gam >= 1.15
 Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-cvAUC 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 Implements the super learner prediction method and contains a library of

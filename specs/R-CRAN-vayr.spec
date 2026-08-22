@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vayr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions for 'ggplot2' to Visualize as You Randomize
 
@@ -25,9 +25,12 @@ Requires:         R-CRAN-withr >= 2.1.1
 Requires:         R-CRAN-packcircles >= 0.3.7
 
 %description
-Position adjustments for 'ggplot2' to implement "visualize as you
-randomize" principles, which can be especially useful when plotting
-experimental data.
+Extensions for 'ggplot2' that implement the "visualize as you randomize"
+principles of Coppock (2021) <doi:10.1017/9781108777919.022>, which can be
+especially useful when plotting experimental data. Provides position
+adjustments that arrange over-plotted points so that a statistical model
+can be shown in data-space, and a helper for graphing extreme value bounds
+when an experiment encounters attrition.
 
 %prep
 %setup -q -c -n %{packname}

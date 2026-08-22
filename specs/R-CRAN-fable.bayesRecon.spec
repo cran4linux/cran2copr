@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fable.bayesRecon
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Reconciliation in the 'fable' Framework
 
@@ -44,7 +44,7 @@ following 'fable' conventions. For methodological background, see Corani
 et al. (2021) <doi:10.1007/978-3-030-67664-3_13>, Zambon et al. (2024a)
 <doi:10.1007/s11222-023-10343-y>, Zambon et al. (2024b)
 <https://proceedings.mlr.press/v244/zambon24a.html>, and Carrara et al.
-(2025) <doi:10.48550/arXiv.2506.19554>.
+(2026) <doi:10.1016/j.ijforecast.2026.07.003>.
 
 %prep
 %setup -q -c -n %{packname}

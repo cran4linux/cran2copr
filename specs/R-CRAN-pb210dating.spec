@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bigtabulate
-%global packver   1.1.9
+%global __requires_exclude ^libmpi
+%global packname  pb210dating
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Table, Apply, and Split Functionality for Matrix and 'big.matrix' Objects
+Summary:          Pb-210 Dating of Sediment Cores
 
-License:          LGPL-3 | Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-bigmemory >= 4.0.0
-BuildRequires:    R-CRAN-biganalytics 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-bigmemory >= 4.0.0
-Requires:         R-CRAN-biganalytics 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-lubridate 
 
 %description
-Extend the bigmemory package with 'table', 'tapply', and 'split' support
-for 'big.matrix' objects. The functions may also be used with native R
-matrices for improving speed and memory-efficiency.
+Dates sediment cores from lead-210 (Pb-210) activity profiles measured by
+alpha or gamma spectrometry, following the unified formulation and
+nomenclature of Sanchez-Cabeza and Ruiz-Fernandez (2012)
+<doi:10.1016/j.gca.2010.12.024>. Implements the Constant Flux (CF) and
+Constant Flux Constant Sedimentation (CFCS) dating models, together with
+supporting tools for data input, decay correction, missing inventory
+estimation, calculation of sediment and mass accumulation rates, and Monte
+Carlo propagation of dating uncertainties as described in Sanchez-Cabeza
+et al. (2014) <doi:10.1016/j.quageo.2014.06.002>. Also provides functions
+to visualize activity profiles and resulting age models.
 
 %prep
 %setup -q -c -n %{packname}

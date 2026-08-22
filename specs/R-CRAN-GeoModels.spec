@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoModels
-%global packver   2.2.7
+%global packver   2.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.7
+Version:          2.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Gaussian and Non Gaussian Geostatistical (Large) Data Analysis
 
@@ -17,51 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mapproj 
-BuildRequires:    R-CRAN-shape 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-dotCall64 
 BuildRequires:    R-CRAN-FastGP 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-nabor 
 BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mapproj 
-Requires:         R-CRAN-shape 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-future.apply 
 Requires:         R-methods 
 Requires:         R-CRAN-spam 
-Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-dotCall64 
 Requires:         R-CRAN-FastGP 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-pbivnorm 
 Requires:         R-CRAN-sn 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-nabor 
 Requires:         R-CRAN-hypergeo 
 Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
-Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-withr 
 
 %description
 Functions for Gaussian and Non Gaussian (bivariate) spatial and

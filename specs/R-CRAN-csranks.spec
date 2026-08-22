@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csranks
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Ranks
 
@@ -17,24 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ivreg 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ivreg 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
-Account for uncertainty when working with ranks. Estimate standard errors
-consistently in linear regression with ranked variables. Construct
+Account for uncertainty when working with ranks.  Estimate standard errors
+consistently in linear regression with ranked variables.  Construct
 confidence sets of various kinds for positions of populations in a ranking
-based on values of a certain feature and their estimation errors. Theory
+based on values of a certain feature and their estimation errors.  Theory
 based on Mogstad, Romano, Shaikh, and Wilhelm
 (2023)<doi:10.1093/restud/rdad006> and Chetverikov and Wilhelm (2023)
 <doi:10.48550/arXiv.2310.15512>.

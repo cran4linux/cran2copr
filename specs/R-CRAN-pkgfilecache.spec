@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgfilecache
-%global packver   0.1.5
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Manage Optional Package Data
 
@@ -17,10 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-downloader 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-downloader 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-curl 
 
@@ -29,7 +27,8 @@ Manage optional data for your package. The data can be hosted anywhere,
 and you have to give a Uniform Resource Locator (URL) for each file. File
 integrity checks are supported. This is useful for package authors who
 need to ship more than the 5 Megabyte of data currently allowed by the the
-Comprehensive R Archive Network (CRAN).
+Comprehensive R Archive Network (CRAN). Download functions are supposed to
+be called by users in interactive sessions only.
 
 %prep
 %setup -q -c -n %{packname}

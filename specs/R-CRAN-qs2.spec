@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qs2
-%global packver   0.2.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Serialization of R Objects
 
@@ -14,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-RcppParallel >= 6.1.1
 BuildRequires:    R-CRAN-stringfish >= 0.18.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-RcppParallel >= 6.1.1
 Requires:         R-CRAN-stringfish >= 0.18.0
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
 
 %description
 Streamlines and accelerates the process of saving and loading R objects,

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vcdExtra
-%global packver   0.9.7
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          'vcd' Extensions and Additions
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-gnm >= 1.0.3
 BuildRequires:    R-CRAN-vcd 
 BuildRequires:    R-CRAN-MASS 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-webshot2 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-gnm >= 1.0.3
 Requires:         R-CRAN-vcd 
 Requires:         R-CRAN-MASS 
@@ -63,8 +65,12 @@ Generalized Nonlinear Models. In particular, 'vcdExtra' extends mosaic,
 assoc and sieve plots from 'vcd' to handle 'glm()' and 'gnm()' models and
 adds a 3D version in 'mosaic3d'.  Additionally, methods are provided for
 comparing and visualizing lists of 'glm' and 'loglm' objects. This package
-is now a support package for the book, "Discrete Data Analysis with R" by
-Michael Friendly and David Meyer.
+is now a support package for the book Friendly, M. and Meyer, D. (2016,
+ISBN:978-1-4987-2583-5) 'Discrete Data Analysis with R: Visualization and
+Modeling Techniques for Categorical and Count Data'. Recent work adds
+colorized tables of frequencies to highlight patterns of association,
+association graphs to visualize conditional independence and a variety of
+new or improved statistical tests for categorical data analysis.
 
 %prep
 %setup -q -c -n %{packname}

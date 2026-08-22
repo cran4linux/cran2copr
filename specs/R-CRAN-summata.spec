@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  summata
-%global packver   0.11.5
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.5
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Publication-Ready Summary Tables and Forest Plots
 
@@ -22,11 +22,17 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-grDevices 
+Requires:         R-parallel 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 A comprehensive framework for descriptive statistics and regression

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  healthyR.ai
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Machine Learning and AI Modeling Companion to 'healthyR'
 
@@ -14,13 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-recipes >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-yardstick >= 0.0.8
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-ggrepel 
@@ -30,17 +29,14 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-h2o 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-workflows 
-BuildRequires:    R-CRAN-modeltime 
 Requires:         R-CRAN-recipes >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-yardstick >= 0.0.8
-Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-ggrepel 
@@ -50,13 +46,11 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-h2o 
 Requires:         R-stats 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-tune 
 Requires:         R-CRAN-workflows 
-Requires:         R-CRAN-modeltime 
 
 %description
 Hospital machine learning and ai data analysis workflow tools, modeling,

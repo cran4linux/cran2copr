@@ -1,43 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GVARX
-%global packver   1.4
+%global packname  phylowise
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Global Vector Autoregression Estimation and Inference
+Summary:          Phylogenetic Pairwise Contrasts
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-vars 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-strucchange 
-BuildRequires:    R-CRAN-tsDyn 
-BuildRequires:    R-CRAN-urca 
-Requires:         R-CRAN-vars 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-strucchange 
-Requires:         R-CRAN-tsDyn 
-Requires:         R-CRAN-urca 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-BMA 
+BuildRequires:    R-CRAN-phylotate 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-BMA 
+Requires:         R-CRAN-phylotate 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Light procedures for learning Global Vector Autoregression model (GVAR) of
-Pesaran, Schuermann and Weiner (2004) <DOI:10.1198/073500104000000019> and
-Dees, di Mauro, Pesaran and Smith (2007) <DOI:10.1002/jae.932>.
+A phylogenetic comparative method for finding associations between
+biological traits and molecular evolutionary rates. The method samples
+pairs from a phylogeny such that each pair has non-overlapping edge paths,
+and can therefore be treated as statistically independent observations.
+Linear regression is performed on the pair contrasts. This approach is
+similar to phylogenetically independent contrasts (PIC) but without
+reconstructing the traits at internal nodes, and is better suited for
+finding trait-rate associations than phylogenetic generalised least
+squares (PGLS). Refer to Douglas and Bromham (2026)
+<doi:10.64898/2026.08.13.744736> for further details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MosaiClusteR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Umbrella Framework for Multi-Source and Multi-Omics Clustering
 
-License:          GPL-3
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -48,17 +48,17 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-Rdpack 
 
 %description
-An umbrella framework ("MoSaIC" = Multi-Omics Source-Agnostic Integration
-Clustering in R) that unifies a large collection of multi-source /
-multi-omics clustering methodologies behind a single, consistent
-list-of-matrices interface. It spans five integration paradigms - direct,
-similarity-based, graph-based, voting-based consensus, and hierarchy-based
-- and bundles a complete downstream workflow for method comparison and
-evaluation. The package features the multi-source the ability to compare
-many algorithms on the same footing, a data-nugget based feature-weighting
-scheme as a robust, big-data-friendly alternative to variance weighting,
-and a downstream suite for cluster characterisation, visualisation and
-biological interpretation.
+An umbrella framework ("MoSaIC:" Multi-Omics Similarity Aggregation and
+Integrative Clustering in R) that unifies a large collection of
+multi-source / multi-omics clustering methodologies behind a single,
+consistent list-of-matrices interface. It spans five integration paradigms
+- direct, similarity-based, graph-based, voting-based consensus, and
+hierarchy-based - and bundles a complete downstream workflow for method
+comparison and evaluation. The package features the multi-source the
+ability to compare many algorithms on the same footing, a data-nugget
+based feature-weighting scheme as a robust, big-data-friendly alternative
+to variance weighting, and a downstream suite for cluster
+characterisation, visualisation and biological interpretation.
 
 %prep
 %setup -q -c -n %{packname}

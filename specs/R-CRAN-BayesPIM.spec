@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesPIM
-%global packver   1.0.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Prevalence-Incidence Mixture Model
 
@@ -18,22 +18,32 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggamma 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggamma 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Models time-to-event data from interval-censored screening studies. It

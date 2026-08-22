@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  agregR
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian State-Space Aggregation of Brazilian Presidential Polls
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-cli 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-cli 

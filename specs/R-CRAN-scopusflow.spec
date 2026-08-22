@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scopusflow
-%global packver   0.1.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Reproducible Workflow Layer for 'Scopus' Bibliographic Searches
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-stats 
@@ -40,11 +40,15 @@ A coherent, quota-aware workflow layer over the Elsevier 'Scopus' Search
 search plans, retrieves records with rate-limit handling, retry with
 back-off and optional resumable caching, normalises results to a stable
 tidy schema, extracts and tracks changes in Digital Object Identifiers
-(DOIs), compares publication trends across topics and exports to formats
-compatible with downstream bibliometric tools. Network and 'API' errors
-are surfaced as typed conditions so that callers can respond to them
-programmatically. 'Scopus' is a trademark of Elsevier. This package is an
-independent client and is not affiliated with or endorsed by Elsevier.
+(DOIs), sizes sets of concepts and their intersections, compares
+publication trends across topics, writes the search up as a reproducible
+record for a methods section following the 'PRISMA-S' reporting standard
+(Rethlefsen and others, 2021) <doi:10.1186/s13643-020-01542-z> and exports
+to formats compatible with downstream bibliometric tools. Network and
+'API' errors are surfaced as typed conditions so that callers can respond
+to them programmatically. 'Scopus' is a trademark of Elsevier. This
+package is an independent client and is not affiliated with or endorsed by
+Elsevier.
 
 %prep
 %setup -q -c -n %{packname}

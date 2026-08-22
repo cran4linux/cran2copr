@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  XML
-%global packver   3.99-0.23
+%global packver   3.99-0.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.99.0.23
+Version:          3.99.0.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Parsing and Generating XML Within R and S-Plus
 
@@ -23,9 +23,9 @@ Requires:         R-methods
 Requires:         R-utils 
 
 %description
-Many approaches for both reading and creating XML (and HTML) documents
-(including DTDs), both local and accessible via HTTP or FTP.  Also offers
-access to an 'XPath' "interpreter".
+Many approaches for both reading and creating XML (and HTML) documents,
+both local and accessible via HTTP or FTP.  Also offers access to an
+'XPath' "interpreter".
 
 %prep
 %setup -q -c -n %{packname}

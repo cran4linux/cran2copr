@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  soma
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          General-Purpose Optimisation with the Self-Organising Migrating Algorithm
 
@@ -23,7 +24,7 @@ Requires:         R-CRAN-reportr >= 1.3.0
 An R implementation of the Self-Organising Migrating Algorithm, a
 general-purpose, stochastic optimisation algorithm. The approach is
 similar to that of genetic algorithms, although it is based on the idea of
-a series of ``migrations'' by a fixed set of individuals, rather than the
+a series of "migrations" by a fixed set of individuals, rather than the
 development of successive generations. It can be applied to any
 cost-minimisation problem with a bounded parameter space, and is robust to
 local minima.

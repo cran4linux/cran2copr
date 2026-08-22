@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RobustMetrics
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates Robust Performance Metrics for Imbalanced Classification Problems
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Calculates robust Matthews Correlation Coefficient (MCC) and robust F-Beta
-Scores, as introduced by Holzmann and Klar (2024)
+Calculates robust Matthews Correlation Coefficient (MCC), Cohen's Kappa,
+and robust F-Beta Scores, as introduced by Holzmann and Klar (2026)
 <doi:10.48550/arXiv.2404.07661>. These performance metrics are designed
 for imbalanced classification problems. Plots the receiver operating
 characteristic curve (ROC curve) together with the recall / 1-precision

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grip
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Drawing with Intelligent Placement (GRIP)
 
@@ -20,9 +20,9 @@ BuildRequires:    R-CRAN-Rcpp
 Requires:         R-CRAN-Rcpp 
 
 %description
-Implements the GRIP multiscale graph layout workflow for ordinary graphs
-and a geometry-aware weighted GRIP workflow for weighted graphs in 2D and
-3D. Provides layout scoring, candidate comparison, multiscale trace
+Implements GRIP multiscale graph layout with a unified choice between
+hop-count and geometry-aware edge-length graph metrics in 2D and 3D.
+Provides layout scoring, candidate comparison, multiscale trace
 diagnostics, synthetic graph families, and advanced experimental
 geodesic-KK utilities for weighted-layout evaluation and polish. Based on
 Gajer and Kobourov (2002) <doi:10.7155/jgaa.00052> and Gajer, Goodrich and
