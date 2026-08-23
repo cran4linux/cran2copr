@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  selecta
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Declarative EQUATOR-Style Flow Diagrams for Clinical Studies
 
@@ -18,9 +18,17 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-grDevices 
 Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Build EQUATOR-style flowcharts for clinical studies by sequentially

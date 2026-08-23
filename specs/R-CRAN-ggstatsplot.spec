@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstatsplot
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -14,48 +14,48 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.2
-BuildRequires:    R-CRAN-statsExpressions >= 2.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
+BuildRequires:    R-CRAN-statsExpressions >= 2.1.0
 BuildRequires:    R-CRAN-glue >= 1.8.1
 BuildRequires:    R-CRAN-paletteer >= 1.7.0
-BuildRequires:    R-CRAN-insight >= 1.5.0
+BuildRequires:    R-CRAN-insight >= 1.5.2
 BuildRequires:    R-CRAN-patchwork >= 1.3.2
 BuildRequires:    R-CRAN-tidyr >= 1.3.2
-BuildRequires:    R-CRAN-datawizard >= 1.3.0
+BuildRequires:    R-CRAN-datawizard >= 1.3.1
+BuildRequires:    R-CRAN-rlang >= 1.3.0
 BuildRequires:    R-CRAN-purrr >= 1.2.2
 BuildRequires:    R-CRAN-dplyr >= 1.2.1
-BuildRequires:    R-CRAN-rlang >= 1.2.0
 BuildRequires:    R-CRAN-forcats >= 1.0.1
 BuildRequires:    R-CRAN-ggrepel >= 0.9.8
 BuildRequires:    R-CRAN-correlation >= 0.8.8
 BuildRequires:    R-CRAN-ggsignif >= 0.6.4
 BuildRequires:    R-CRAN-ggside >= 0.4.1
-BuildRequires:    R-CRAN-parameters >= 0.28.3
-BuildRequires:    R-CRAN-performance >= 0.16.0
-BuildRequires:    R-CRAN-ggcorrplot >= 0.1.4.1
+BuildRequires:    R-CRAN-ggcorrplot >= 0.3.0
+BuildRequires:    R-CRAN-parameters >= 0.29.2
+BuildRequires:    R-CRAN-performance >= 0.17.1
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 4.0.2
-Requires:         R-CRAN-statsExpressions >= 2.0.0
+Requires:         R-CRAN-ggplot2 >= 4.0.3
+Requires:         R-CRAN-statsExpressions >= 2.1.0
 Requires:         R-CRAN-glue >= 1.8.1
 Requires:         R-CRAN-paletteer >= 1.7.0
-Requires:         R-CRAN-insight >= 1.5.0
+Requires:         R-CRAN-insight >= 1.5.2
 Requires:         R-CRAN-patchwork >= 1.3.2
 Requires:         R-CRAN-tidyr >= 1.3.2
-Requires:         R-CRAN-datawizard >= 1.3.0
+Requires:         R-CRAN-datawizard >= 1.3.1
+Requires:         R-CRAN-rlang >= 1.3.0
 Requires:         R-CRAN-purrr >= 1.2.2
 Requires:         R-CRAN-dplyr >= 1.2.1
-Requires:         R-CRAN-rlang >= 1.2.0
 Requires:         R-CRAN-forcats >= 1.0.1
 Requires:         R-CRAN-ggrepel >= 0.9.8
 Requires:         R-CRAN-correlation >= 0.8.8
 Requires:         R-CRAN-ggsignif >= 0.6.4
 Requires:         R-CRAN-ggside >= 0.4.1
-Requires:         R-CRAN-parameters >= 0.28.3
-Requires:         R-CRAN-performance >= 0.16.0
-Requires:         R-CRAN-ggcorrplot >= 0.1.4.1
+Requires:         R-CRAN-ggcorrplot >= 0.3.0
+Requires:         R-CRAN-parameters >= 0.29.2
+Requires:         R-CRAN-performance >= 0.17.1
 Requires:         R-utils 
 
 %description

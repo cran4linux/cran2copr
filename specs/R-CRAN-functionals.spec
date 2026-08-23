@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  functionals
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Programming with Parallelism and Progress Tracking
 
@@ -23,8 +23,10 @@ Requires:         R-parallel
 %description
 Provides functional tools such as fmap(), fwalk(), and fapply() to iterate
 over vectors, data frames, or grouped data with optional parallelism and
-real-time progress tracking. Designed for readable and reproducible
-workflows, including support for Monte Carlo simulations and benchmarking.
+real-time progress tracking. Progress updates now reflect completed tasks
+across sequential, multicore, and cluster-backed execution. Designed for
+readable and reproducible workflows, including support for Monte Carlo
+simulations and benchmarking.
 
 %prep
 %setup -q -c -n %{packname}

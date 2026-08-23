@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bsvars
-%global packver   3.2
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Estimation of Structural Vector Autoregressive Models
 
@@ -14,14 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-RcppProgress >= 0.1
 BuildRequires:    R-CRAN-RcppTN 
 BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-stochvol 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-RcppProgress >= 0.1
@@ -29,13 +30,15 @@ Requires:         R-CRAN-RcppTN
 Requires:         R-CRAN-GIGrvg 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-stochvol 
+Requires:         R-CRAN-generics 
 
 %description
 Provides fast and efficient procedures for Bayesian analysis of Structural
 Vector Autoregressions. This package estimates a wide range of models,
 including homo-, heteroskedastic, and non-normal specifications.
 Structural models can be identified by adjustable exclusion restrictions,
-time-varying volatility, or non-normality. They all include a flexible
+time-varying volatility, or non-normality, and include exclusion
+restrictions on autoregressive parameters. They all include a flexible
 three-level equation-specific local-global hierarchical prior distribution
 for the estimated level of shrinkage for autoregressive and structural
 parameters. Additionally, the package facilitates predictive and
@@ -44,16 +47,19 @@ historical decompositions, forecasting, verification of
 heteroskedasticity, non-normality, and hypotheses on autoregressive
 parameters, as well as analyses of structural shocks, volatilities, and
 fitted values. Beautiful plots, informative summary functions, and
-extensive documentation including the vignette by Woźniak (2024)
+extensive documentation including the vignette by Woźniak (2025)
 <doi:10.48550/arXiv.2410.15090> complement all this. The implemented
 techniques align closely with those presented in Lütkepohl, Shang, Uzeda,
-& Woźniak (2024) <doi:10.48550/arXiv.2404.11057>, Lütkepohl & Woźniak
+& Woźniak (2025) <doi:10.1016/j.jeconom.2025.106107>, Lütkepohl & Woźniak
 (2020) <doi:10.1016/j.jedc.2020.103862>, and Song & Woźniak (2021)
-<doi:10.1093/acrefore/9780190625979.013.174>. The 'bsvars' package is
-aligned regarding objects, workflows, and code structure with the R
-package 'bsvarSIGNs' by Wang & Woźniak (2024)
-<doi:10.32614/CRAN.package.bsvarSIGNs>, and they constitute an integrated
-toolset.
+<doi:10.1093/acrefore/9780190625979.013.174> and they embed many popular
+models proposed by other authors. The 'bsvars' package is aligned
+regarding objects, workflows, and code structure with the R packages
+'bsvarSIGNs' by Wang & Woźniak (2025)
+<doi:10.32614/CRAN.package.bsvarSIGNs>, 'bvars' by Liu, Ramirez Hassan,
+Woźniak (2026) <doi:10.32614/CRAN.package.bvars>, and 'bpvars' by Woźniak
+(2026) <doi:10.32614/CRAN.package.bpvars>, and they constitute an
+integrated toolset.
 
 %prep
 %setup -q -c -n %{packname}

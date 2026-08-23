@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  circles
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Small Package for Drawing Various Combinations of Circles
+Summary:          Quickly Draw Various Combinations of Circular Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-data.table
 Requires:         R-CRAN-data.table 
 
 %description
-Contains the adaptation of bubblebath from 'MATLAB', developed by Adam
-Danz and available through the 'MATLAB' Central File Exchange, and the
+Contains the adaptation of bubblebath from 'MATLAB' (Danz, 2020:
+<https://www.mathworks.com/matlabcentral/fileexchange/70348>) and the
 tools to transform a dataframe of radii and points to plot-able paths.
 
 %prep

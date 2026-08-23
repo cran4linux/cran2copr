@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dann
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discriminant Adaptive Nearest Neighbor Classification
 
@@ -36,9 +36,10 @@ Requires:         R-CRAN-hardhat
 
 %description
 Discriminant Adaptive Nearest Neighbor Classification is a variation of k
-nearest neighbors where the shape of the neighborhood is data driven. This
-package implements dann and sub_dann from Hastie (1996)
-<https://web.stanford.edu/~hastie/Papers/dann_IEEE.pdf>.
+nearest neighbors where the shape of the neighborhood is data driven. The
+neighborhood is elongated along class boundaries and shrunk in the
+orthogonal direction. This package implements dann and sub_dann from
+Hastie (1996) <https://web.stanford.edu/~hastie/Papers/dann_IEEE.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

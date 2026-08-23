@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grmtree
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning for Graded Response Models
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mirt >= 1.36.1
+BuildRequires:    R-CRAN-mirt >= 1.46
 BuildRequires:    R-CRAN-partykit >= 1.2.9
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -25,7 +25,8 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-strucchange 
-Requires:         R-CRAN-mirt >= 1.36.1
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-mirt >= 1.46
 Requires:         R-CRAN-partykit >= 1.2.9
 Requires:         R-stats 
 Requires:         R-graphics 
@@ -33,6 +34,7 @@ Requires:         R-grid
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-strucchange 
+Requires:         R-parallel 
 
 %description
 Provides methods for recursive partitioning based on the 'Graded Response

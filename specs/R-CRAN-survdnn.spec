@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survdnn
-%global packver   0.7.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Neural Networks for Survival Analysis with R 'torch'
 
@@ -52,7 +52,8 @@ time (AFT) loss. Offers a formula-based interface, built-in support for
 cross-validation, hyperparameter tuning, survival curve plotting, and
 evaluation metrics such as the C-index, Brier score, and integrated Brier
 score. For methodological details, see Kvamme et al. (2019)
-<https://www.jmlr.org/papers/v20/18-424.html>.
+<https://www.jmlr.org/papers/v20/18-424.html>. The package is described in
+El Badisy (2026) <doi:10.32614/RJ-2026-008>.
 
 %prep
 %setup -q -c -n %{packname}

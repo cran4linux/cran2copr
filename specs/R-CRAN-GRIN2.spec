@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GRIN2
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genomic Random Interval (GRIN)
 
@@ -27,10 +27,9 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-circlize 
@@ -43,20 +42,22 @@ Requires:         R-grDevices
 Requires:         R-grid 
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-writexl 
 
 %description
-Improved version of 'GRIN' software that streamlines its use in practice
-to analyze genomic lesion data, accelerate its computing, and expand its
-analysis capabilities to answer additional scientific questions including
-a rigorous evaluation of the association of genomic lesions with RNA
-expression. Pounds, Stan, et al. (2013)
-<DOI:10.1093/bioinformatics/btt372>.
+Implements the Genomic Random Interval (GRIN) framework for identifying
+genomic loci affected by genomic lesions more frequently than expected by
+chance. Supports multiple lesion classes, lesion constellation analysis,
+exon-level target-size modeling, genomic lesion visualization, and
+gene-level association analyses linking genomic lesions or gene expression
+with binary and time-to-event clinical outcomes. Includes tools for
+retrieving versioned GRCh38 Ensembl gene, exon, and regulatory-element
+annotations. The statistical framework is described in Pounds et al.
+(2013) <doi:10.1093/bioinformatics/btt372>.
 
 %prep
 %setup -q -c -n %{packname}

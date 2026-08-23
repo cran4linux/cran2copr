@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projectLSA
-%global packver   0.0.9
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny Application for Latent Structure Analysis with a Graphical User Interface
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,6 +27,8 @@ BuildRequires:    R-CRAN-ggiraph
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glca 
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lavaan 
@@ -45,14 +48,16 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-semPlot 
 BuildRequires:    R-CRAN-semptools 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyLPA 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
@@ -62,6 +67,8 @@ Requires:         R-CRAN-ggiraph
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glca 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lavaan 
@@ -81,14 +88,15 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-semPlot 
 Requires:         R-CRAN-semptools 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyLPA 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-writexl 
 
 %description
 Provides an interactive Shiny-based toolkit for conducting latent
@@ -102,9 +110,14 @@ Lewis, 2011) <doi:10.32614/CRAN.package.poLCA> & 'glca' (Kim & Kim, 2024)
 <doi:10.32614/CRAN.package.glca>, LTA/IRT via 'mirt' (Chalmers, 2012)
 <doi:10.18637/jss.v048.i06>, and EFA via 'psych' (Revelle, 2025). SEM and
 CFA functionalities build upon the 'lavaan' framework (Rosseel, 2012)
-<doi:10.18637/jss.v048.i02>. Users can upload datasets or use built-in
-examples, fit models, compare fit indices, visualize results, and export
-outputs without programming.
+<doi:10.18637/jss.v048.i02>. The CFA/SEM module additionally supports
+multi-group invariance testing, latent growth modelling, modification
+indices, and path diagram visualisation. Every module can save and restore
+an analysis session, export an 'R Markdown' HTML report, and consult an
+optional AI assistant that interprets the current results through a
+user-supplied large language model API key. Users can upload datasets or
+use built-in examples, fit models, compare fit indices, visualize results,
+and export outputs without programming.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corrselect
-%global packver   3.2.3
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correlation-Based and Model-Based Predictor Pruning
 
@@ -26,10 +26,11 @@ Requires:         R-stats
 %description
 Provides functions for predictor pruning using association-based and
 model-based approaches. Includes corrPrune() for fast correlation-based
-pruning, modelPrune() for VIF-based regression pruning, and exact
-graph-theoretic algorithms (Eppstein–Löffler–Strash, Bron–Kerbosch) for
-exhaustive subset enumeration. Supports linear models, GLMs, and mixed
-models ('lme4', 'glmmTMB').
+pruning, modelPrune() for regression pruning on the variance inflation
+factor (VIF) and the condition number, and exact graph-theoretic
+algorithms (Eppstein–Löffler–Strash, Bron–Kerbosch) for exhaustive subset
+enumeration. Supports linear models, generalized linear models (GLMs), and
+mixed models ('lme4', 'glmmTMB').
 
 %prep
 %setup -q -c -n %{packname}

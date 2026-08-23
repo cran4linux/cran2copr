@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xxdi
-%global packver   1.26.4
+%global packver   1.26.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.26.4
+Version:          1.26.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Evaluating Expertise Indices for Research Strength Assessment
 
@@ -17,16 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.2.0
 Requires:         R-core >= 4.4.2.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.3.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-agop >= 0.2.4
-Requires:         R-stats >= 4.3.3
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-tidyr >= 1.3.1
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-agop >= 0.2.4
+BuildRequires:    R-CRAN-agop 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-agop 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
 Institutional performance assessment remains a key challenge to a
@@ -40,11 +42,12 @@ broader assessment of overall scholarly expertise considering an
 institution's publication pattern and strengths across coarse thematic
 areas. These indices offer a nuanced understanding of institutional
 research capabilities, aiding stakeholders in research management and
-resource allocation decisions. Lathabai, H.H., Nandy, A., and Singh, V.K.
-(2021) <doi:10.1007/s11192-021-04188-3>. Nandy, A., Lathabai, H.H., and
-Singh, V.K. (2023) <doi:10.5281/zenodo.8305585>. This package provides the
-h-, g-, x-, xd-indices, and their variants for use with standard format of
-Web of Science (WoS) scrapped datasets.
+resource allocation decisions. For further details, see Lathabai, H.H.,
+Nandy, A., and Singh, V.K. (2021) <doi:10.1007/s11192-021-04188-3>, and
+Nandy, A., Lathabai, H.H., and Singh, V.K. (2023)
+<doi:10.5281/zenodo.8305585>. This package provides wrapper functions for
+computing these exertise indices and their variants, for use with the
+standard output format of the Web of Science database.
 
 %prep
 %setup -q -c -n %{packname}

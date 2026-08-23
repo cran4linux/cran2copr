@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  walking
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Segments Accelerometry Data into Walking Bouts using Open Source Methods
 
@@ -41,7 +41,7 @@ Segments walking from accelerometry data using 'forest' python module
 <https://github.com/onnela-lab/forest> from Yi (2025) <doi:10.2196/71375>,
 'Verisense' original from Rowlands (2022)
 <doi:10.1080/02640414.2022.2147134> and 'Verisense' revised from Maylor
-(2022)<doi:10.3390/s22249984>, and Step Detection Threshold (SDT) from
+(2022) <doi:10.3390/s22249984>, and Step Detection Threshold (SDT) from
 Ducharme (2021) <doi:10.1123/jmpb.2021-0011> methods.
 
 %prep

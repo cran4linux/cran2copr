@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nparLD
-%global packver   2.2
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Analysis of Longitudinal Data in Factorial Experiments
 
@@ -14,20 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.6.0
-Requires:         R-core >= 2.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-rlang 
 
 %description
-Performs nonparametric analysis of longitudinal data in factorial
-experiments. Longitudinal data are those which are collected from the same
-subjects over time, and they frequently arise in biological sciences.
-Nonparametric methods do not require distributional assumptions, and are
-applicable to a variety of data types (continuous, discrete, purely
-ordinal, and dichotomous).  Such methods are also robust with respect to
-outliers and for small sample sizes.
+Provides nonparametric procedures for the analysis of longitudinal data in
+factorial experiments. The package implements hypothesis tests on marginal
+distribution functions and unweighted relative marginal effects. It
+supports arbitrary crossed factorial designs with longitudinal or
+repeated-measures factors, missing observations, dependent replicates,
+rank- and pseudo-rank-based inference, Wald-type and ANOVA-type
+statistics, multiple contrast tests, and simultaneous confidence
+intervals.
 
 %prep
 %setup -q -c -n %{packname}

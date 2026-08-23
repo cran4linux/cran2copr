@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adass
-%global packver   1.0.1
+%global packname  autoplotly
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Smoothing Spline (AdaSS) Estimator for the Function-on-Function Linear Regression
+Summary:          Automatic Generation of Interactive Visualizations for Statistical Results
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-SparseM 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-plot3D 
-Requires:         R-CRAN-fda 
-Requires:         R-parallel 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-SparseM 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-plot3D 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggfortify 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggfortify 
 
 %description
-Implements the adaptive smoothing spline estimator for the
-function-on-function linear regression model described in Centofanti et
-al. (2023) <doi:10.1007/s00180-022-01223-6>.
+Functionalities to automatically generate interactive visualizations for
+statistical results supported by 'ggfortify', such as time series, PCA,
+clustering and survival analysis, with 'plotly.js' <https://plotly.com/>
+and 'ggplot2' style. The generated visualizations can also be easily
+extended using 'ggplot2' and 'plotly' syntax while staying interactive.
 
 %prep
 %setup -q -c -n %{packname}

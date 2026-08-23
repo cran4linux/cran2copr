@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survalis
-%global packver   0.7.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Survival Machine Learning Framework
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-functionals 
 BuildRequires:    R-CRAN-nnls 
 BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-CRAN-aftgee 
 BuildRequires:    R-CRAN-aorsf 
@@ -34,6 +33,7 @@ BuildRequires:    R-CRAN-survdnn
 BuildRequires:    R-CRAN-survivalsvm 
 BuildRequires:    R-CRAN-randomForestSRC 
 BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-CoxBoost 
 BuildRequires:    R-CRAN-BART 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-glmnet 
@@ -45,18 +45,14 @@ BuildRequires:    R-CRAN-gower
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-functionals 
 Requires:         R-CRAN-nnls 
 Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rsample 
 Requires:         R-CRAN-aftgee 
 Requires:         R-CRAN-aorsf 
@@ -68,6 +64,7 @@ Requires:         R-CRAN-survdnn
 Requires:         R-CRAN-survivalsvm 
 Requires:         R-CRAN-randomForestSRC 
 Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-CoxBoost 
 Requires:         R-CRAN-BART 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-glmnet 
@@ -79,12 +76,9 @@ Requires:         R-CRAN-gower
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-torch 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
 
 %description
 A modular toolkit for interpretable survival machine learning with a

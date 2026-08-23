@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baselinr
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          WWC-Aligned Baseline Equivalence Tables for Education Impact Evaluations
+Summary:          What Works Clearinghouse Standards for Education Impact Evaluations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,12 +23,14 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 
 %description
-Produces report-ready baseline equivalence tables for impact evaluations
-in education research, following the conventions of the What Works
-Clearinghouse (WWC). Computes standardized mean differences (Hedges' g)
-between treatment and comparison groups for continuous covariates and
-classifies each covariate into the WWC baseline-equivalence categories
-(satisfied, satisfied with statistical adjustment, or not satisfied).
+Applies the group-design determinations of the What Works Clearinghouse
+(WWC) to education impact studies. Computes WWC effect sizes (Hedges' g
+with the small-sample correction, and the Cox index) and classifies
+baseline equivalence; classifies overall and differential attrition
+against the WWC attrition boundary; returns the group-design study rating;
+and reports the robustness of the baseline-equivalence verdict as a
+multiverse over the computation choices an analyst could defensibly make
+differently. Provides report-ready tables and Love plots.
 
 %prep
 %setup -q -c -n %{packname}

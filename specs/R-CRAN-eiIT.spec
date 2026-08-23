@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eiIT
-%global packver   0.0.1-1
+%global packver   0.0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.1
+Version:          0.0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference via Information Theory
 
@@ -26,17 +26,18 @@ Requires:         R-CRAN-nloptr
 
 %description
 Estimates RxC transfer matrices from aggregated marginal data using a
-two-stage (GME+IPF) information-theoretic approach within a two-step
-(global+local) estimation procedure. The resulting matrices are consistent
-with observed row and column marginals across collections of subtables
-(e.g. precincts, polling stations, or districts). References: Golan, A.,
-Judge, G., & Miller, D. (1996). Maximum Entropy Econometrics: Robust
-Estimation with Limited Data. Wiley. Judge, G., Miller, D.J., & Cho,
-W.K.T. (2004). An information theoretic approach to ecological estimation
-and inference. In G. King, O. Rosen, & M. A. Tanner (Eds.), Ecological
-Inference: New Methodological Strategies (pp. 162–187). Cambridge
-University Press. Mittelhammer, R., Judge, G., & Miller, D. (2000).
-Econometric Foundations. Cambridge University Press. Pavia, J.M. (2023)
+two-stage (GME+IPF; Generalized Maximum Entropy and Iterative Proportional
+Fitting) information-theoretic approach within a two-step (global+local)
+estimation procedure. The resulting matrices are consistent with observed
+row and column marginals across collections of subtables (e.g. precincts,
+polling stations, or districts). References: Golan, A., Judge, G., &
+Miller, D. (1996). Maximum Entropy Econometrics: Robust Estimation with
+Limited Data. Wiley. Judge, G., Miller, D.J., & Cho, W.K.T. (2004). "An
+information theoretic approach to ecological estimation and inference". In
+G. King, O. Rosen, & M. A. Tanner (Eds.), Ecological Inference: New
+Methodological Strategies (pp. 162–187). Cambridge University Press.
+Mittelhammer, R., Judge, G., & Miller, D. (2000). Econometric Foundations.
+Cambridge University Press. Pavia, J.M. (2023)
 <doi:10.1007/s43545-023-00658-y> Acknowledgements: The author wish to
 thank Conselleria de Economia, Hacienda y Administracion Publica (grant
 CIACIO/2023/031) for supporting this research.

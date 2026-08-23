@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NeuroDataSets
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Collection of Neuroscience and Brain-Related Datasets
 
-License:          GPL-3
+License:          GPL (>= 2) | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -39,7 +39,12 @@ injury databases, and international comparative studies. Designed for
 researchers, neuroscientists, clinicians, psychologists, data scientists,
 and students, this package facilitates exploratory data analysis,
 statistical modeling, and hypothesis testing in neuroscience and
-neuroepidemiology.
+neuroepidemiology. The package includes datasets originally distributed in
+other R packages as well as open data repositories such as Kaggle.
+Original package authors and contributors are acknowledged in Authors@R.
+All datasets—including those from R source packages and Kaggle, along with
+their respective authors and licensing terms—are fully documented in the
+'LICENSES_DETAILS' file.
 
 %prep
 %setup -q -c -n %{packname}

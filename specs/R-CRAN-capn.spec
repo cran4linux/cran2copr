@@ -1,42 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rtreeoflife
-%global packver   0.1.0
+%global packname  capn
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Tree of Life Data Releases
+Summary:          Capital Asset Pricing for Nature
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-utils 
 
 %description
-Search species and specimen records from the Royal Botanic Gardens Tree of
-Life Explorer and retrieve selected genomic sequence files. Provides a
-bundled species index, tools for matching scientific names, and selective
-download helpers for sequence files. Supports tidy data workflows with
-list-columns, summaries, exploratory visualisation with 'ggplot2', and
-illustrative tree construction from shared genes.
+Implements the natural capital asset pricing for nature (CAPN) approach,
+using a collocation or iteration method and associated functions for
+dynamic programs. Development of this package was supported by the
+Knobloch Family Foundation and Lenfest Ocean Program Contract ID 00029728.
 
 %prep
 %setup -q -c -n %{packname}

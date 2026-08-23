@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sreg
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratified Randomized Experiments
 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-viridis
 
 %description
 Estimate average treatment effects (ATEs) in stratified randomized
-experiments. `sreg` supports a wide range of stratification designs,
+experiments. 'sreg' supports a wide range of stratification designs,
 including matched pairs, n-tuple designs, and larger strata with many
 units — possibly of unequal size across strata. 'sreg' is designed to
 accommodate scenarios with multiple treatments and cluster-level treatment

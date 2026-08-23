@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funcml
-%global packver   0.7.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Machine Learning Framework
 
@@ -19,11 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-functionals 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-nnet 
@@ -42,16 +42,17 @@ BuildRequires:    R-CRAN-ada
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-dbarts 
+BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-lightgbm 
-BuildRequires:    R-CRAN-shapviz 
+BuildRequires:    R-CRAN-densemlp 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-functionals 
 Requires:         R-grDevices 
 Requires:         R-tools 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-nnet 
@@ -70,9 +71,10 @@ Requires:         R-CRAN-ada
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-dbarts 
+Requires:         R-CRAN-torch 
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-lightgbm 
-Requires:         R-CRAN-shapviz 
+Requires:         R-CRAN-densemlp 
 
 %description
 A compact and explicit machine learning framework for supervised learning,
@@ -92,7 +94,8 @@ Friedman (2001) <doi:10.1214/aos/1013203451>, Goldstein et al. (2015)
 opinionated: preprocessing is expected to occur outside the modeling step,
 and the API emphasizes explicit inputs, consistent object contracts, and
 compact interfaces rather than feature-by-feature competition with larger
-machine learning ecosystems.
+machine learning ecosystems. Plug-in g-computation follows Naimi, Cole,
+and Kennedy (2016) <doi:10.1093/ije/dyw323>.
 
 %prep
 %setup -q -c -n %{packname}

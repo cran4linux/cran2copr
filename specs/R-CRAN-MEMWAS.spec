@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MEMWAS
-%global packver   0.9.3
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed-Effects Models with Autocorrelation Structures
 
@@ -22,29 +22,33 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Fits longitudinal generalized mixed-effects models through the 'MEMWAS'
-interface and a registered 'C++' numerical backend. Supported serial
-covariance structures include first-order autoregressive (AR(1)),
-exponential or Ornstein-Uhlenbeck, higher-order autoregressive (AR(p)),
-first-order autoregressive moving-average (ARMA(1,1)), compound symmetry,
-Toeplitz, and unstructured covariance. Serial processes can be unified or
-attached independently to numeric predictor loadings. Candidate temporal
-structures can be ranked on a common sample by primary-cluster grouped
-cross-validation, the Akaike information criterion, the Bayesian
-information criterion, or log-likelihood. Clustered, crossed, and nested
-random intercepts and slopes are assembled jointly with diagonal or
-term-specific unstructured covariance. Available approximation methods
-include Laplace, saddlepoint likelihood with latent Laplace integration,
-adaptive Gaussian quadrature, full-covariance Gaussian variational
-inference, and penalized quasi-likelihood. Subject-grouped tuning requires
-every validation fold to succeed and supports fold-local nonlinear
-screening, bootstrap inference, prediction inference, and effective
-degrees of freedom for penalized information criteria. The mixed-effects
-framework follows Laird and Ware (1982) <doi:10.2307/2529876>;
-generalized-model approximations follow Breslow and Clayton (1993)
-<doi:10.1080/01621459.1993.10594284>; and serial covariance formulations
-follow Pinheiro and Bates (2000) <doi:10.1007/b98882>. The run-time
-fitting interface imports no third-party 'R' packages.
+Fits longitudinal mixed-effects models through a registered 'C++'
+numerical backend. Supported serial covariance structures include
+first-order autoregressive (AR(1)), exponential or Ornstein-Uhlenbeck,
+higher-order autoregressive (AR(p)), first-order autoregressive
+moving-average (ARMA(1,1)), compound symmetry, Toeplitz, and unstructured
+covariance. Serial processes can be unified or attached independently to
+numeric predictor loadings. Candidate temporal structures can be ranked on
+a common sample by dependence-component grouped cross-validation, the
+Akaike information criterion, the Bayesian information criterion, or
+log-likelihood. Clustered, crossed, and nested random intercepts and
+slopes are assembled jointly with diagonal or term-specific unstructured
+covariance. Available approximation methods include Laplace, saddlepoint
+likelihood with latent Laplace integration, adaptive Gaussian quadrature,
+full-covariance Gaussian variational inference, and penalized
+quasi-likelihood. Penalized smooth mean terms include ordinary and cyclic
+P-splines, factor-by and varying-coefficient terms, tensor products,
+shrinkage smooths, and whole-term selection. Term-specific penalties,
+grouped fold-local smoothing selection, null-space constraints, and smooth
+effective degrees of freedom remain separate from elastic-net coefficient
+shrinkage while the smooth mean and serial covariance are fitted jointly.
+Bootstrap resampling preserves the declared dependence components. The
+mixed-effects framework is inspired by Laird and Ware (1982)
+<doi:10.2307/2529876>; generalized-model approximations are inspired by
+Breslow and Clayton (1993) <doi:10.1080/01621459.1993.10594284>; and
+serial covariance formulations are inspired by Pinheiro and Bates (2000)
+<doi:10.1007/b98882>. The run-time fitting interface imports no
+third-party 'R' packages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blavaan
-%global packver   0.5-10
+%global packver   0.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.10
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Variable Analysis
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-loo >= 2.0
 BuildRequires:    R-CRAN-BH >= 1.69.0
 BuildRequires:    R-CRAN-rstantools >= 1.5.0
-BuildRequires:    R-CRAN-lavaan >= 0.6.18
+BuildRequires:    R-CRAN-lavaan >= 0.7.1
 BuildRequires:    R-CRAN-nonnest2 >= 0.5.7
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
@@ -34,15 +34,17 @@ BuildRequires:    R-CRAN-coda
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-tmvnsim 
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-loo >= 2.0
 Requires:         R-CRAN-rstantools >= 1.5.0
-Requires:         R-CRAN-lavaan >= 0.6.18
+Requires:         R-CRAN-lavaan >= 0.7.1
 Requires:         R-CRAN-nonnest2 >= 0.5.7
 Requires:         R-CRAN-Rcpp >= 0.12.15
 Requires:         R-methods 
@@ -53,9 +55,11 @@ Requires:         R-CRAN-coda
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-tmvnsim 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-rstantools
 
 %description

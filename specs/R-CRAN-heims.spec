@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  heims
-%global packver   0.4.0
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
-Release:          3%{?dist}%{?buildtag}
-Summary:          Decode and Validate HEIMS Data from Department of Education,Australia
+Version:          0.4.3
+Release:          1%{?dist}%{?buildtag}
+Summary:          Decode and Validate HEIMS Data from Department of Education, Australia
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -36,11 +37,23 @@ system of the Department of Education, Australia to record enrolments and
 completions in Australia's higher education system, as well as a range of
 relevant information. For more information, including the source of the
 data dictionary, see
-<http://heimshelp.education.gov.au/sites/heimshelp/dictionary/pages/data-element-dictionary>.
+<https://web.archive.org/web/20180210074903/http://heimshelp.education.gov.au/sites/heimshelp/dictionary/pages/data-element-dictionary>.
+That collection has since been superseded by the Tertiary Collection of
+Student Information, whose data element dictionary is at
+<https://www.tcsisupport.gov.au/element>.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -48,9 +61,10 @@ data dictionary, see
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

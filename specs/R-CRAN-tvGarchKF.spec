@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tvGarchKF
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time-Varying Garch Models Through a State-Space Representation
 
@@ -19,10 +19,30 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-fGarch 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-timeSeries 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-locfit 
+BuildRequires:    R-CRAN-npreg 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-CRAN-fGarch 
 Requires:         R-graphics 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-timeSeries 
+Requires:         R-methods 
+Requires:         R-CRAN-zoo 
+Requires:         R-utils 
+Requires:         R-CRAN-locfit 
+Requires:         R-CRAN-npreg 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-mgcv 
+Requires:         R-splines 
 
 %description
 Estimates the time-varying (tv) parameters of the GARCH(1,1) model,
