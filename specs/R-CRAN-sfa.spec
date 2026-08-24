@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sfa
-%global packver   1.0.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Frontier Analysis
 
@@ -14,51 +14,43 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-pso 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-fdrtool 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-plm 
 BuildRequires:    R-CRAN-minqa 
 BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-frontier 
-BuildRequires:    R-CRAN-Jmisc 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-tmvtnorm 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-devtools 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-pso 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-fdrtool 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-plm 
 Requires:         R-CRAN-minqa 
 Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-frontier 
-Requires:         R-CRAN-Jmisc 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-tmvtnorm 
 Requires:         R-CRAN-Formula 
 Requires:         R-methods 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
 Provides a user-friendly framework for estimating a wide variety of

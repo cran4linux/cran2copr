@@ -1,50 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coconots
-%global packver   2.0.4
+%global packname  fitODBOD
+%global packver   1.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          1.5.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convolution-Closed Models for Count Time Series
+Summary:          Modeling Over Dispersed Binomial Outcome Data Using BMD and ABD
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.2
-Requires:         R-core >= 4.0.2
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-HMMpa 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-JuliaConnectoR 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bbmle 
+BuildRequires:    R-CRAN-hypergeo 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-HMMpa 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-JuliaConnectoR 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-bbmle 
+Requires:         R-CRAN-hypergeo 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 
 %description
-Useful tools for fitting, validating, and forecasting of practical
-convolution-closed time series models for low counts are provided.
-Marginal distributions of the data can be modelled via Poisson and
-Generalized Poisson innovations. Regression effects can be incorporated
-through time varying innovation rates. The models are described in Jung
-and Tremayne (2011) <doi:10.1111/j.1467-9892.2010.00697.x> and the model
-assessment tools are presented in Czado et al. (2009)
-<doi:10.1111/j.1541-0420.2009.01191.x> and, Tsay (1992)
-<doi:10.2307/2347612>.
+Contains Probability Mass Functions, Cumulative Mass Functions, Negative
+Log Likelihood value, parameter estimation and modeling data using
+Binomial Mixture Distributions (BMD) (Manoj et al (2013)
+<doi:10.5539/ijsp.v2n2p24>) and Alternate Binomial Distributions (ABD)
+(Paul (1985) <doi:10.1080/03610928508828990>), also Journal article to use
+the package(<doi:10.21105/joss.01505>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fsbrain
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Managing and Visualizing Brain Surface Data
 
@@ -40,7 +40,7 @@ Requires:         R-methods
 
 %description
 Provides high-level access to neuroimaging data from standard software
-packages like 'FreeSurfer' <http://freesurfer.net/> on the level of
+packages like 'FreeSurfer' <https://freesurfer.net/> on the level of
 subjects and groups. Load morphometry data, surfaces and brain
 parcellations based on atlases. Mask data using labels, load data for
 specific atlas regions only, and visualize data and statistical results

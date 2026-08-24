@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GFT
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Fisher Transformation of Correlation Matrices
 
@@ -19,16 +19,15 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Forward and inverse generalized Fisher transformation ('GFT') of
-correlation matrices, gamma = vecl(log C), which maps the positive
-definite correlation matrices one-to-one onto the Euclidean space of
-dimension n(n-1)/2, see Archakov and Hansen (2021)
-<doi:10.3982/ECTA16910>. The inverse is computed from a variational
-characterization by the 'GFT-FP+N' algorithm: a fixed-point phase in the
-log domain followed by a matrix-free inexact Newton phase with
-preconditioned conjugate gradients. Reference implementations of the plain
-fixed point, Broyden's method, and full Newton are included. Uses base R
-only.
+Forward and inverse generalized Fisher transformation (GFT) of correlation
+matrices, gamma = vecl(log C), which maps the positive definite
+correlation matrices one-to-one onto the Euclidean space of dimension
+n(n-1)/2, see Archakov and Hansen (2021) <doi:10.3982/ECTA16910>. The
+inverse is computed from a variational characterization by the GFT-FP+N
+algorithm: a fixed-point phase in the log domain followed by a matrix-free
+inexact Newton phase with preconditioned conjugate gradients. Reference
+implementations of the plain fixed point, Broyden's method, and full
+Newton are included. Uses base R only.
 
 %prep
 %setup -q -c -n %{packname}

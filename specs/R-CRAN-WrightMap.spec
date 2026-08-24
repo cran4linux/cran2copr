@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WrightMap
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          IRT Item-Person Map with 'ConQuest' Integration
 
@@ -33,7 +33,7 @@ estimates stored as R objects. Although the package can be used in
 conjunction with any software used to estimate the IRT model (e.g. 'TAM',
 'mirt', 'eRm' or 'IRToys' in 'R', or 'Stata', 'Mplus', etc.), 'WrightMap'
 features special integration with 'ConQuest' to facilitate reading and
-plotting its output directly.The 'wrightMap' function creates Wright Maps
+plotting its output directly. The 'wrightMap' function creates Wright Maps
 based on person estimates and item parameters produced by an item response
 analysis. The 'CQmodel' function reads output files created using
 'ConQuest' software and creates a set of data frames for easy data

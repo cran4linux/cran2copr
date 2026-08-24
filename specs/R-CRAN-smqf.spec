@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smqf
-%global packver   1.1-1
+%global packver   1.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Methods in Quantitative Finance
+Summary:          Statistical Methods for Quantitative Finance
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,7 +29,7 @@ Requires:         R-CRAN-nloptr
 Requires:         R-CRAN-pracma 
 
 %description
-Provides data and functions used in the book "Statistical Methods in
+Provides data and functions used in the book "Statistical Methods for
 Quantitative Finance" by David Ardia (2026).
 
 %prep

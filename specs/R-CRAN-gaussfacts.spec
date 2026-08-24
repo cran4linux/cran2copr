@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gaussfacts
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Greatest Mathematician Since Antiquity
 
@@ -19,8 +19,9 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Display a random fact about Carl Friedrich Gauss based the on collection
-curated by Mike Cavers via the <http://gaussfacts.com> site.
+Display a random fact about Carl Friedrich Gauss based on the collection
+curated by Mike Cavers via the
+<https://web.archive.org/web/*/gaussfacts.com> site.
 
 %prep
 %setup -q -c -n %{packname}

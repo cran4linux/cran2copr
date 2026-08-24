@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  armadillo4r
-%global packver   1.0.0
+%global packver   15.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          15.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An 'Armadillo' Interface
 
-License:          Apache License (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,7 +25,8 @@ Provides function declarations and inline function definitions that
 facilitate communication between R and the 'Armadillo' 'C++' library for
 linear algebra and scientific computing. This implementation is derived
 from Vargas Sepulveda and Schneider Malamud (2024)
-<doi:10.1016/j.softx.2025.102087>.
+<doi:10.1016/j.softx.2025.102087>. The shipped version of the 'Armadillo'
+library is version 15.4.2 "Medium Roast Agave".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  miapack
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marginalization over Incomplete Auxiliaries
 
@@ -28,9 +28,10 @@ Requires:         R-CRAN-progress
 Implements methods to estimate conditional outcome means in settings with
 missingness-not-at-random and incomplete auxiliary variables.
 Specifically, this package implements the marginalization over incomplete
-auxiliaries (MIA) method. The package supports continuous and binary
-outcomes, and supports auxiliary variables that are normal, binary, and
-categorical.
+auxiliaries (MIA) method proposed by Mathur et al. (2026)
+<doi:10.13140/RG.2.2.30750.19524>. The package supports the iterative
+conditional expectation estimator and the noniterative conditional
+expectation estimator.
 
 %prep
 %setup -q -c -n %{packname}

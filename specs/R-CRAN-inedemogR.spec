@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  educabR
-%global packver   1.1.0
+%global packname  inedemogR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Process Brazilian Education Data from INEP
+Summary:          Tidy Access to Spanish INE Demographic Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,44 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ineapir 
+BuildRequires:    R-CRAN-mapSpain 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ineapir 
+Requires:         R-CRAN-mapSpain 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
 
 %description
-Download and process public education data from INEP (Instituto Nacional
-de Estudos e Pesquisas Educacionais Anísio Teixeira). Provides functions
-to access microdata from the School Census (Censo Escolar), ENEM (Exame
-Nacional do Ensino Médio), SAEB (Sistema de Avaliação da Educação Básica),
-Higher Education Census (Censo da Educação Superior), ENADE (Exame
-Nacional de Desempenho dos Estudantes), ENCCEJA (Exame Nacional para
-Certificação de Competências de Jovens e Adultos), IDD (Indicador de
-Diferença entre os Desempenhos Observado e Esperado), CPC (Conceito
-Preliminar de Curso), IGC (Índice Geral de Cursos), CAPES graduate
-education data, FUNDEB (Fundo de Manutencao e Desenvolvimento da Educacao
-Basica), IDEB (Índice de Desenvolvimento da Educação Básica), and other
-educational datasets. Returns data in tidy format ready for analysis. Data
-source: INEP Open Data Portal
-<https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos>.
+Provides tidy, harmonized access to demographic data from the Spanish
+National Statistics Institute (INE) fenomenos demograficos domain,
+including population, births, and deaths, retrieved live via the official
+'ineapir' API wrapper, with optional spatial integration at municipality
+and province level via 'mapSpain'. Mortality indicators follow the Human
+Mortality Database Methods Protocol, including the average age at death in
+infancy method of Andreev and Kingkade (2015)
+<doi:10.4054/DemRes.2015.33.13>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lifecontingencies
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Financial and Actuarial Mathematics for Life Contingencies
 
@@ -18,11 +18,13 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-parallel 
 Requires:         R-utils 
 Requires:         R-stats 

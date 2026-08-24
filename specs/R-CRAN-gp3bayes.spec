@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gp3bayes
-%global packver   0.1.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Contract-First Bayesian Workflows for Hierarchical Behavioural Data
 
@@ -18,17 +18,28 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-withr 
+Requires:         R-stats 
 
 %description
 Provides transparent, contract-first infrastructure for Bayesian analysis
 of repeated-measures and hierarchical behavioural data. It supports
-approved Bernoulli-logit and positive lognormal duration workflows with
-readiness audits, deterministic simulation, explicit preparation,
-inspectable priors, prior and posterior predictive checks, restricted
-optional fitting through 'brms' and 'rstan', sampling diagnostics, prior
-sensitivity, parameter recovery, and conservative reporting. Core
-contracts and prior checks remain backend-independent.
+approved Bernoulli-logit, positive lognormal duration, and governed
+Gaussian dynamic-pupillometry workflows with strict readiness auditing,
+deterministic simulation, explicit preparation and transformation replay,
+inspectable scale-aware priors, prior and posterior predictive checks,
+restricted optional fitting through 'brms' with either 'rstan' or
+'cmdstanr', sampling and temporal diagnostics, explicit posterior
+estimands, sensitivity analysis, target-specific predictive validation,
+simulation-based calibration, and conservative reporting. Core contracts
+and validation remain backend-independent. Version 0.5 adds governed
+robust and distributional dynamic pupillometry, bounded ARMA residual
+structures, Gaussian-process trajectories, explicit measurement
+uncertainty and missing-data models, joint binocular analysis, predictive
+model comparison, functional posterior estimands, and experimental
+nonlinear response-shape models while preserving explicit scientific and
+computational governance boundaries.
 
 %prep
 %setup -q -c -n %{packname}

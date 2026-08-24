@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OptimalBinningWoE
-%global packver   1.0.8
+%global packver   1.13.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.13.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Binning and Weight of Evidence Framework for Modeling
 
@@ -21,6 +21,9 @@ BuildRequires:    R-CRAN-recipes
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppNumerical 
 Requires:         R-CRAN-Rcpp 
@@ -28,18 +31,23 @@ Requires:         R-CRAN-recipes
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dials 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-High-performance implementation of 36 optimal binning algorithms (16
-categorical, 20 numerical) for Weight of Evidence ('WoE') transformation,
+High-performance implementation of 37 optimal binning algorithms (16
+categorical, 21 numerical) for Weight of Evidence ('WoE') transformation,
 credit scoring, and risk modeling. Includes advanced methods such as Mixed
 Integer Linear Programming ('MILP'), Genetic Algorithms, Simulated
 Annealing, and Monotonic Regression. Features automatic method selection
 based on Information Value ('IV') maximization, strict monotonicity
-enforcement, and efficient handling of large datasets via 'Rcpp'. Fully
-integrated with the 'tidymodels' ecosystem for building robust machine
-learning pipelines. Based on methods described in Siddiqi (2006)
-<doi:10.1002/9781119201731> and Navas-Palencia (2020)
+enforcement, and efficient handling of large datasets via 'Rcpp'. Provides
+automated variable screening by Information Value strength and bin
+ordering, and generation of the equivalent 'SQL' 'CASE' expressions for
+in-database scoring. Fully integrated with the 'tidymodels' ecosystem for
+building robust machine learning pipelines. Based on methods described in
+Siddiqi (2006) <doi:10.1002/9781119201731> and Navas-Palencia (2020)
 <doi:10.48550/arXiv.2001.08025>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tram
-%global packver   1.4-4
+%global packver   1.4-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 4.5.0
 Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mlt >= 1.8.0
-BuildRequires:    R-CRAN-mvtnorm >= 1.3.7
+BuildRequires:    R-CRAN-multcomp >= 1.4.32
+BuildRequires:    R-CRAN-mvtnorm >= 1.4.0
 BuildRequires:    R-CRAN-basefun >= 1.1.2
 BuildRequires:    R-CRAN-variables >= 1.0.4
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
@@ -30,11 +30,11 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-mlt >= 1.8.0
-Requires:         R-CRAN-mvtnorm >= 1.3.7
+Requires:         R-CRAN-multcomp >= 1.4.32
+Requires:         R-CRAN-mvtnorm >= 1.4.0
 Requires:         R-CRAN-basefun >= 1.1.2
 Requires:         R-CRAN-variables >= 1.0.4
 Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-sandwich 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 

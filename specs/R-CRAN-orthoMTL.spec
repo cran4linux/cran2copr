@@ -1,50 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coconots
-%global packver   2.0.4
+%global packname  orthoMTL
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convolution-Closed Models for Count Time Series
+Summary:          Multi-Task Learning with Orthogonal Constraints
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.2
-Requires:         R-core >= 4.0.2
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-HMMpa 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-JuliaConnectoR 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-HMMpa 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-JuliaConnectoR 
 Requires:         R-parallel 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description
-Useful tools for fitting, validating, and forecasting of practical
-convolution-closed time series models for low counts are provided.
-Marginal distributions of the data can be modelled via Poisson and
-Generalized Poisson innovations. Regression effects can be incorporated
-through time varying innovation rates. The models are described in Jung
-and Tremayne (2011) <doi:10.1111/j.1467-9892.2010.00697.x> and the model
-assessment tools are presented in Czado et al. (2009)
-<doi:10.1111/j.1541-0420.2009.01191.x> and, Tsay (1992)
-<doi:10.2307/2347612>.
+Fits regularised multi-task learning models where relationships between
+tasks are controlled via orthogonality or disjoint-support constraints.
+Supports regression, binary classification, and censored survival data. In
+survival mode, time-to-event outcomes are converted into binary labels at
+user-defined thresholds, enabling the discovery of features with
+time-varying effects that standard proportional-hazards models cannot
+detect. Implements the penalty described in Vervier et al. (2014)
+<https://hal.science/hal-00985654>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qvivid
-%global packver   0.1.3
+%global packname  LeLogicielR
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Quantum Simulation and Vivid Visualizations
+Summary:          Companion to the Book Le Logiciel R
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-xtable 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-CRAN-IndependenceTests 
+Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-gdata 
+Requires:         R-CRAN-IndependenceTests 
 
 %description
-Builds, simulates, inspects, and animates gate-based quantum circuits. The
-package provides a readable reference implementation and compiled
-state-vector kernels, reproducible shot sampling, circuit diagrams,
-phase-aware state plots, reduced-state Bloch spheres, journal-sized figure
-export, and animated trajectories. For background on the implemented
-methods, see Nielsen and Chuang (2010, ISBN:9781107002173).
+Functions and datasets for readers of the book "Le logiciel R: Maitriser
+le langage, Effectuer des analyses statistiques" by Lafaye de Micheaux,
+Drouilhet and Liquet (2011) <doi:10.1007/978-2-8178-0115-5>. The
+documentation and help pages are written in French.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  phonics
-%global packver   1.3.10
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.10
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phonetic Spelling Algorithms
 
@@ -17,7 +18,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.1
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.12.1
 Requires:         R-CRAN-data.table 
 

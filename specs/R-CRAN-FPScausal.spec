@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FPScausal
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Propensity Score for Causal Inference
 
@@ -38,11 +38,15 @@ Requires:         R-utils
 
 %description
 Implements functional propensity score (FPS) weighting for causal
-inference with functional treatments. Weights are estimated by maximising
-the empirical likelihood subject to covariate-balancing constraints and
-solving the resulting dual problem via the BFGS quasi-Newton algorithm,
-following Ciardulli, S. and Fontana, N. (2026). The package supports
-scalar, binary, and functional outcomes, as well as functional covariates.
+inference with functional treatments. The method estimates weights that
+balance observed confounders by removing their dependence on the
+functional treatment and uses a dual formulation of the weighting problem
+for efficient unconstrained optimization. The framework supports scalar,
+binary, and functional outcomes, as well as functional covariates, and can
+be used to estimate marginal causal effects in settings with time-varying
+exposures. The methodology follows Ciardulli, S., Fontana, N., Vantini,
+S., and Ieva, F. (2026) "Generalized propensity score weighting for
+functional causal inference framework" <doi:10.48550/arXiv.2608.03200>.
 
 %prep
 %setup -q -c -n %{packname}

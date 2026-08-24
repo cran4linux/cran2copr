@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PEAXAI
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Efficiency Analysis Using Explainable Artificial Intelligence
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Benchmarking 
 BuildRequires:    R-CRAN-caret 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-deaR
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-kernelshap 
 BuildRequires:    R-CRAN-iml 
-BuildRequires:    R-CRAN-isotone 
 BuildRequires:    R-CRAN-lime 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-PRROC 
@@ -31,13 +30,13 @@ BuildRequires:    R-CRAN-pROC
 BuildRequires:    R-CRAN-rminer 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-peakRAM 
 Requires:         R-CRAN-Benchmarking 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-deaR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-kernelshap 
 Requires:         R-CRAN-iml 
-Requires:         R-CRAN-isotone 
 Requires:         R-CRAN-lime 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-PRROC 
@@ -45,6 +44,7 @@ Requires:         R-CRAN-pROC
 Requires:         R-CRAN-rminer 
 Requires:         R-CRAN-rms 
 Requires:         R-stats 
+Requires:         R-CRAN-peakRAM 
 
 %description
 Provides a probabilistic framework that integrates Data Envelopment

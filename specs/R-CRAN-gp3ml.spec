@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gp3ml
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Governance-First Predictive Modelling for 'Gazepoint' Research
 
@@ -22,15 +22,19 @@ BuildArch:        noarch
 Provides governance-first infrastructure for leakage-resistant predictive
 modelling and validation using 'Gazepoint'-derived research data. Supports
 explicit task and role declarations, feature-provenance manifests,
-group-aware holdout splitting and repeated resampling, fold-local
-preprocessing, governed model engines, discrimination and calibration
-metrics, bootstrap uncertainty, external-validation reports, model cards,
-and reproducibility reports. Intended only for explicitly observed,
-non-sensitive outcomes and declared scientific purposes. Use is prohibited
-for person identification, biometric authentication, health or
-protected-attribute inference, and direct or indirect inference of
-emotion, stress, personality, deception, cognition, comprehension, intent,
-or other mental states.
+group-aware holdout splitting and repeated resampling, repository-aware
+fold evaluation, explicit governed tuning, nested grouped resampling,
+fold-local preprocessing, discrimination and calibration metrics,
+target-aligned uncertainty, external-validation and transportability
+reports, prediction-to-decision governance, target-aware conformal
+prediction, dataset-shift auditing, locked analysis plans, portable model
+artifacts, robustness diagnostics, environment provenance, research-object
+export, model cards, and reproducibility evidence. Intended only for
+explicitly observed, non-sensitive outcomes and declared scientific
+purposes. Use is prohibited for person identification, biometric
+authentication, health or protected-attribute inference, and direct or
+indirect inference of emotion, stress, personality, deception, cognition,
+comprehension, intent, or other mental states.
 
 %prep
 %setup -q -c -n %{packname}

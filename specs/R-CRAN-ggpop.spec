@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpop
-%global packver   1.7.1
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Icon-Based Population Charts and Plots for 'ggplot2'
 
@@ -28,6 +28,11 @@ BuildRequires:    R-CRAN-fontawesome
 BuildRequires:    R-CRAN-rsvg 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggimage 
@@ -39,9 +44,14 @@ Requires:         R-CRAN-fontawesome
 Requires:         R-CRAN-rsvg 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tibble 
+Requires:         R-grid 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Create engaging population and point plots charts in R. 'ggpop' allows
+Create engaging population charts and point plots in R. 'ggpop' allows
 users to represent population data and points proportionally using
 customizable icons, facilitating the creation of circular representative
 population charts as well as any point-plots.
