@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greenbook
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          HM Treasury Green Book Cost-Benefit Analysis Primitives
 
@@ -27,10 +27,10 @@ Requires:         R-utils
 %description
 Implements cost-benefit analysis primitives from HM Treasury Green Book
 guidance (HM Treasury, 2022, 2026): the kinked Social Time Preference Rate
-('STPR'), discount factors, net present value ('NPV'), equivalent annual
-cost, and real-terms rebasing using the GDP deflator. Designed for UK
-central government appraisal and evaluation. Bundled parameter tables
-carry vintage metadata for reproducibility.
+(STPR), discount factors, net present value (NPV), equivalent annual cost,
+and real-terms rebasing using the GDP deflator. Designed for UK central
+government appraisal and evaluation. Bundled parameter tables carry
+vintage metadata for reproducibility.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gkwreg
-%global packver   2.1.14
+%global packver   2.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.14
+Version:          2.1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Kumaraswamy Regression Models for Bounded Data
 
@@ -17,29 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-gkwdist 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Formula 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-gkwdist 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-TMB 
+Requires:         R-utils 
 
 %description
 Implements regression models for bounded continuous data in the open
@@ -51,7 +55,8 @@ Model Builder ('TMB'), offering comprehensive diagnostics, model
 comparison tools, and simulation methods. Particularly useful for
 analyzing proportions, rates, indices, and other bounded response data
 with complex distributional features not adequately captured by simpler
-models.
+models. Methods are described in Lopes and Bonat (2026)
+<doi:10.21105/joss.08991>.
 
 %prep
 %setup -q -c -n %{packname}

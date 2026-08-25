@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aftables
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Spreadsheet Publications Following Best Practice
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-openxlsx2 
+BuildRequires:    R-CRAN-openxlsx2 >= 1.27
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
@@ -28,7 +28,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-openxlsx2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-openxlsx2 >= 1.27
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-tibble 
+Requires:         R-stats 
 
 %description
 Generate spreadsheet publications that follow best practice guidance from

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyterra
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-terra >= 1.8.10
 BuildRequires:    R-CRAN-dplyr >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-data.table 
@@ -30,7 +31,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
@@ -40,6 +40,7 @@ Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-terra >= 1.8.10
 Requires:         R-CRAN-dplyr >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-data.table 
@@ -48,7 +49,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-isoband 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-tools 
 Requires:         R-utils 
@@ -57,7 +57,9 @@ Requires:         R-CRAN-vctrs
 %description
 Provides methods from 'tidyverse' packages for 'SpatRaster' and
 'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms' and
-scales for plotting those objects.
+scales for plotting those objects. It is designed to let users manipulate
+spatial data with familiar 'dplyr' and 'tidyr' verbs before visualizing
+results with 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

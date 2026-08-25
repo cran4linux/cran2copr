@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cfbfastR
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access College Football Play by Play Data
 
@@ -25,16 +25,13 @@ BuildRequires:    R-CRAN-glue >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-progressr >= 0.6.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-nnet 
 Requires:         R-CRAN-RcppParallel >= 5.1.4
 Requires:         R-CRAN-cli >= 3.0.0
@@ -44,16 +41,13 @@ Requires:         R-CRAN-glue >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-progressr >= 0.6.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-nnet 
 
 %description

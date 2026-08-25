@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isoreader2
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Stable Isotope Data Files
 
@@ -24,11 +24,13 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-RcppSimdJson 
@@ -42,11 +44,13 @@ Requires:         R-tools
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-RcppSimdJson 

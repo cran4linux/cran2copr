@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imfweo
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless Access to IMF World Economic Outlook (WEO) Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-httr2
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -30,14 +31,15 @@ Requires:         R-CRAN-httr2
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
 Provides tools to download, process, and analyze data from the
-International Monetary Fund's World Economic Outlook (WEO) database
-<https://www.imf.org/en/Publications/SPROLLs/world-economic-outlook-databases>.
-Functions support downloading complete WEO releases, accessing specific
-economic indicators for selected countries, and listing available data.
+International Monetary Fund's World Economic Outlook (WEO)
+<https://www.imf.org/en/publications/weo>. Functions support downloading
+complete WEO releases, accessing specific economic indicators for selected
+countries, and listing available data.
 
 %prep
 %setup -q -c -n %{packname}

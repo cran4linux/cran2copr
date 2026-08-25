@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GFisher
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Fisher's Combination Tests Under Dependence
 
@@ -35,7 +35,7 @@ as an omnibus procedure that automatically adapts proper weights and
 degrees of freedom to a given data. The new p-value calculation methods
 are based on novel ideas of moment-ratio matching and joint-distribution
 approximation. The technical details can be found in Hong Zhang and
-Zheyang Wu (2020) <arXiv:2003.01286>.
+Zheyang Wu (2022) <doi:10.1111/biom.13634>.
 
 %prep
 %setup -q -c -n %{packname}

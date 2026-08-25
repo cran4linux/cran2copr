@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mrangr
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mechanistic Metacommunity Simulator
 
@@ -45,17 +45,14 @@ Requires:         R-CRAN-terra
 Requires:         R-utils 
 
 %description
-Flexible, mechanistic, and spatially explicit simulator of
-metacommunities. It extends our previous package - 'rangr' (see
-<https://github.com/ropensci/rangr>), which implemented a mechanistic
-virtual species simulator integrating population dynamics and dispersal.
-The 'mrangr' package adds the ability to simulate multiple species
-interacting through an asymmetric matrix of pairwise relationships,
-allowing users to model all types of biotic interactions — competitive,
-facilitative, or neutral — within spatially explicit virtual environments.
-This work was supported by the National Science Centre, Poland, grant no.
-2018/29/B/NZ8/00066 and the Poznań Supercomputing and Networking Centre
-(grant no. pl0090-01).
+A forward simulator for generating synthetic metacommunity data. As an in
+silico experimental platform, it enables researchers to simulate community
+shifts, test theoretical frameworks, and benchmark analytical algorithms
+prior to empirical application. Key capabilities include mechanistic
+simulations driven by demography, dispersal, and interactions, GIS
+interoperability via the 'terra' package for dynamic environments, and a
+virtual ecologist module that simulates imperfect detection and survey
+errors to mimic real-world biodiversity data.
 
 %prep
 %setup -q -c -n %{packname}

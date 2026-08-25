@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimplicialComplex
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topological Data Analysis: Simplicial Complex
 
@@ -23,23 +23,31 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-clue 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-clue 
 
 %description
 Provides an implementation of simplicial complexes for Topological Data
 Analysis (TDA). The package includes functions to compute faces, boundary
 operators, Betti numbers, Euler characteristic, and to construct
-simplicial complexes. It also implements persistent homology, from
-building filtrations to computing persistence diagrams, with the aim of
-helping readers understand the core concepts of computational topology.
-Methods are based on standard references in persistent homology such as
-Zomorodian and Carlsson (2005) <doi:10.1007/s00454-004-1146-y> and Chazal
-and Michel (2021) <doi:10.3389/frai.2021.667963>.
+simplicial complexes, including Vietoris-Rips, Cech, Alpha, Delaunay,
+Witness, flood, and (via a Freudenthal triangulation) cubical complexes
+for grid and image data. It also implements persistent homology, from
+building filtrations (via a single build_filtration() entry point covering
+all of the above) to computing persistence diagrams, persistence
+landscapes, and Wasserstein/bottleneck distances between diagrams, with
+the aim of helping readers understand the core concepts of computational
+topology. Methods are based on standard references in persistent homology
+such as Zomorodian and Carlsson (2005) <doi:10.1007/s00454-004-1146-y>,
+Chazal and Michel (2021) <doi:10.3389/frai.2021.667963>, and Otter,
+Porter, Tillmann, Grindrod and Harrington (2017)
+<doi:10.1140/epjds/s13688-017-0109-5>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ammiBayes
-%global packver   2.1-1
+%global packver   2.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Ammi Model for Continuous Data with or without Additive and Dominance Effect
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-movMF
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-distfree.cr 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-movMF
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-MASS 
 
 %description
 Flexible multi-environment trials analysis via MCMC method for Additive

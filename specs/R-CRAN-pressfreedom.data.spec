@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  autotesteR
-%global packver   0.1.12
+%global packname  pressfreedom.data
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Functions for Basic Statistical Tests
+Summary:          Download and Process Reporters Without Borders Press Freedom Index Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,50 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-FSA 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggdist 
-BuildRequires:    R-CRAN-ggExtra 
-BuildRequires:    R-CRAN-multcompView 
-BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vcd 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-FSA 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggdist 
-Requires:         R-CRAN-ggExtra 
-Requires:         R-CRAN-multcompView 
-Requires:         R-CRAN-nortest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-vcd 
+Requires:         R-CRAN-stringi 
 
 %description
-Provides simple and intuitive functions for basic statistical analyses.
-Methods include the t-test (Student 1908 <doi:10.1093/biomet/6.1.1>), the
-Mann-Whitney U test (Mann and Whitney 1947 <doi:10.1214/aoms/1177730491>),
-Pearson's correlation (Pearson 1895 <doi:10.1098/rspl.1895.0041>), and
-analysis of variance (Fisher 1925, <doi:10.1007/978-1-4612-4380-9_5>).
-Functions are compatible with 'ggplot2' and 'dplyr'.
+Download press freedom index data from Reporters Without Borders (RSF)
+with period-aware encoding handling. Data are downloaded from the RSF
+website (<https://rsf.org/en/index>). Provides infrastructure for data
+cleaning and ISO 3166 standardization in downstream phases.
 
 %prep
 %setup -q -c -n %{packname}

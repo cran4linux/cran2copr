@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggchord
-%global packver   0.2.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Sequence 'BLAST' Alignment Chord Diagram Visualization Tool
+Summary:          Multi-Sequence Alignment Chord Diagram Visualization Tool
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-ggnewscale >= 0.5.0
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-ggnewscale >= 0.5.0
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-grDevices 
 Requires:         R-grid 
 
 %description
-A function built on 'ggplot2' that visualizes pairwise 'BLAST' alignment
-results as chord diagrams, intuitively displaying homologous regions
-between query and subject sequences.
+A 'ggplot2'-based R package that visualizes multi-sequence alignment
+results as chord diagrams using layered grammar of graphics. Users build
+chord plots by stacking geom layers (geom_seq, geom_ribbon, geom_gene,
+geom_axis). Layout parameters are specified within each geom layer,
+following 'ggplot2' conventions. Homologous regions between query and
+subject sequences are intuitively displayed.
 
 %prep
 %setup -q -c -n %{packname}

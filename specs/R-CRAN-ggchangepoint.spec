@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggchangepoint
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combines Changepoint Analysis with 'ggplot2'
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-ecp
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
@@ -35,20 +36,31 @@ Requires:         R-CRAN-ecp
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
-R provides fantastic tools for changepoint analysis, but plots generated
-by the tools do not have the 'ggplot2' style. This tool, however, combines
-'changepoint', 'changepoint.np' and 'ecp' together, and uses 'ggplot2' to
-visualize changepoints. It provides a unified 'ggcpt' S3 result class,
-'broom'-style tidy/glance/augment methods, 'autoplot()', composable geoms
+A unified, tidy, 'ggplot2'-native interface to changepoint detection in R.
+Provides the 'ggcpt' S3 result class with 'broom'-style
+tidy/glance/augment methods, 'autoplot()' (with confidence intervals,
+fitted signals, and multivariate facets), composable geoms
 ('geom_changepoint()', 'geom_cpt_segment()', 'geom_cpt_ci()',
-'stat_changepoint()'), a unified 'cpt_detect()' dispatcher with method
-introspection via 'cpt_methods()', wrappers for several optional engines
-(WBS, WBS2, NOT, MOSUM, FPOP, Isolate-Detect, TGUH), a method comparison
-module, accuracy metrics, data simulation, and canonical test signals.
+'stat_changepoint()'), and a 'cpt_detect()' dispatcher covering over
+thirty methods with introspection via 'cpt_methods()': penalised/optimal
+partitioning (PELT, BinSeg, SegNeigh, AMOC, FPOP, CROPS penalty paths,
+'fastcpd', change-in-slope via 'cpop'), multiscale and search methods
+(WBS, WBS2, NOT, MOSUM, Isolate-Detect, TGUH, SMUCE/HSMUCE with confidence
+intervals), nonparametric and kernel methods ('changepoint.np', 'ecp',
+'kcpRS', 'CptNonPar', sequential 'cpm', self-normalisation via 'SNSeg'),
+Bayesian methods ('bcp', online 'ocp', 'Rbeast'), high-dimensional and
+multivariate methods ('InspectChangepoint', 'ocd', 'changepoint.geo'),
+regression breaks ('strucchange', 'segmented', 'EnvCpt'), and robust
+detection under drift and autocorrelation ('DeCAFS'). Also includes method
+comparison, batch/panel detection, bootstrap stability diagnostics,
+accuracy metrics, Bayesian posterior and run-length plots, interactive
+rendering, data simulation with canonical test signals, and per-method
+citations.
 
 %prep
 %setup -q -c -n %{packname}

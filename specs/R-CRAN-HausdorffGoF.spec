@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HausdorffGoF
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          One- And Two-Sample Hausdorff Goodness-of-Fit Test
 
@@ -16,17 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-KSgeneral >= 2.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-KSgeneral 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-KSgeneral >= 2.1.0
 Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-KSgeneral 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
 Computes the test statistic and p-values of the one-sample and two-sample

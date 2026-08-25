@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drmeta
-%global packver   0.1.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design-Robust Meta-Analysis via Variance-Function Models
+Summary:          Design-Indexed Location-Scale Meta-Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,26 +19,31 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Implements Design-Robust Meta-Analysis (DR-Meta), a variance-function
-random-effects framework in which between-study heterogeneity is modelled
-as a function of a study-level design robustness index, allowing
-heterogeneity to depend systematically on study quality or design strength
-rather than being treated as a single nuisance parameter. The package
-provides profiled restricted maximum likelihood (REML) estimation of the
-overall effect and variance-function parameters, study-specific weights,
-heterogeneity diagnostics (tau-squared, I-squared), influence and
-leave-one-out analysis, and graphical tools including forest plots and
-influence plots. The DR-Meta framework nests classical fixed-effects and
-standard random-effects meta-analysis as special cases, making it a strict
-generalisation of existing approaches.
+Fits constrained and unrestricted meta-analytic location-scale models in
+which residual between-study heterogeneity is modeled as an exponential
+function of a prespecified design-robustness score. The package supports
+maximum-likelihood (ML) and restricted maximum-likelihood (REML)
+estimation, location moderators, the conventional random-effects model as
+a nested special case, exact estimation at the nonnegative scale-gradient
+boundary, design-indexed heterogeneity summaries, scale-attenuation
+measures, prediction of fitted heterogeneity, leave-one-out influence
+diagnostics, and parametric-bootstrap inference for the scale gradient.
+Because the scale-gradient null lies on the boundary of the constrained
+parameter space, standard chi-square likelihood-ratio references do not
+apply (Self and Liang, 1987, <doi:10.1080/01621459.1987.10478472>). The
+general location-scale parent model is described in Viechtbauer and
+Lopez-Lopez (2022, <doi:10.1002/jrsm.1562>). A scale model reweights
+studies and does not adjust the mean for design-linked bias.
 
 %prep
 %setup -q -c -n %{packname}

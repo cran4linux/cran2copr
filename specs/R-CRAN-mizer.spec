@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mizer
-%global packver   3.2.1
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Multi-Species Size Spectrum Modelling
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-progress 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-grid 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-progress 
