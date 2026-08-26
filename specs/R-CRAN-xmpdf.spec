@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xmpdf
-%global packver   0.2.1
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Edit 'XMP' Metadata and 'PDF' Bookmarks and Documentation Info
 
@@ -14,6 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Recommends:       /usr/bin/exiftool
+Recommends:       ghostscript
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
@@ -44,7 +46,7 @@ Edit 'XMP' metadata
 of media file formats as well as edit bookmarks (aka outline aka table of
 contents) and documentation info entries in 'pdf' files. Can detect and
 use a variety of command-line tools to perform these operations such as
-'exiftool' <https://exiftool.org/>, 'ghostscript'
+'exiftool' <https://exiftool.sourceforge.net/>, 'ghostscript'
 <https://www.ghostscript.com/>, and/or 'pdftk'
 <https://gitlab.com/pdftk-java/pdftk>.
 

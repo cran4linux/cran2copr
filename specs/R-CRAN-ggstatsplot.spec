@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstatsplot
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Based Plots with Statistical Details
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.5.0
 Requires:         R-core >= 4.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.3
-BuildRequires:    R-CRAN-statsExpressions >= 2.1.0
+BuildRequires:    R-CRAN-statsExpressions >= 2.1.1
 BuildRequires:    R-CRAN-glue >= 1.8.1
 BuildRequires:    R-CRAN-paletteer >= 1.7.0
 BuildRequires:    R-CRAN-insight >= 1.5.2
@@ -38,7 +38,7 @@ BuildRequires:    R-CRAN-parameters >= 0.29.2
 BuildRequires:    R-CRAN-performance >= 0.17.1
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 4.0.3
-Requires:         R-CRAN-statsExpressions >= 2.1.0
+Requires:         R-CRAN-statsExpressions >= 2.1.1
 Requires:         R-CRAN-glue >= 1.8.1
 Requires:         R-CRAN-paletteer >= 1.7.0
 Requires:         R-CRAN-insight >= 1.5.2

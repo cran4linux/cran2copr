@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wikiprofiler
-%global packver   0.1.7
+%global packname  vartest
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Integration and Visualization on 'WikiPathways' Graphics
+Summary:          Tests for Variance Homogeneity
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rsvg 
-Requires:         R-CRAN-yulab.utils >= 0.1.7
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-gson 
-Requires:         R-methods 
-Requires:         R-CRAN-rsvg 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SuppDists 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-PearsonDS 
+Requires:         R-stats 
+Requires:         R-CRAN-SuppDists 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-PearsonDS 
 
 %description
-Retrieves pathway graphics from 'WikiPathways' and maps user-supplied
-quantitative data, such as gene expression values, onto pathway nodes.
-Provides a pipe-friendly grammar for building pathway visualizations with
-layered fills, text highlighting, condition-wise comparisons, data
-preparation helpers, and batch rendering utilities.
+Performs 18 omnibus tests yielding a total of 28 distinct methodological
+variations for testing the composite hypothesis of variance homogeneity.
 
 %prep
 %setup -q -c -n %{packname}

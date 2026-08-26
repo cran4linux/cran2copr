@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evoFE
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evolutionary Feature Engineering
 
@@ -25,6 +25,10 @@ BuildRequires:    R-CRAN-digest
 BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-quitefastmst 
 BuildRequires:    R-CRAN-genieclust 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-bbotk 
+BuildRequires:    R-CRAN-mlr3mbo 
+BuildRequires:    R-CRAN-lhs 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lightgbm 
 Requires:         R-CRAN-xgboost 
@@ -33,6 +37,10 @@ Requires:         R-CRAN-digest
 Requires:         R-CRAN-uwot 
 Requires:         R-CRAN-quitefastmst 
 Requires:         R-CRAN-genieclust 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-bbotk 
+Requires:         R-CRAN-mlr3mbo 
+Requires:         R-CRAN-lhs 
 
 %description
 Automates feature engineering using evolutionary algorithms inspired by
@@ -48,8 +56,8 @@ dimensionality reduction, and minimum spanning tree (MST) graph-based
 clustering. The evolutionary search yields an optimised feature recipe
 that can be applied to new data for prediction. Methods are described in
 McInnes et al. (2018) <doi:10.21105/joss.00861>, Ke et al. (2017)
-<https://papers.nips.cc/paper/6907-lightgbm-a-highly-efficient-gradient-boosting-decision-framework>,
-Chen and Guestrin (2016) <doi:10.1145/2939672.2939785>, Gagolewski (2021)
+<doi:10.48550/arXiv.1711.08789>, Chen and Guestrin (2016)
+<doi:10.1145/2939672.2939785>, Gagolewski (2021)
 <doi:10.1016/j.softx.2021.100722>, Gagolewski (2026)
 <doi:10.32614/CRAN.package.lumbermark>, and Gagolewski (2026)
 <doi:10.32614/CRAN.package.deadwood>.

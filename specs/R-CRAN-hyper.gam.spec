@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hyper.gam
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Additive Models with Hyper Column
 
@@ -26,15 +26,15 @@ Requires:         R-CRAN-plotly
 
 %description
 An interactive HTML widget of the perspective plot for generalized
-additive models.  An alternative solution of the function mgcv::vis.gam().
+additive models; an alternative solution of the function mgcv::vis.gam().
 This R package author has retired from academic research. Accordingly,
 this package should not be considered a validated tool for use in
 peer-reviewed publications or as the basis for grant applications.
 Backward compatibility with user-code published in
 <doi:10.1093/bioinformatics/btaf182> and
 <doi:10.1093/bioinformatics/btaf430> is not maintained in versions >=
-0.3.0 of this package. The authors of those publications are the
-appropriate contacts for reproducibility inquiries.
+0.3.0 (June 2026) of this package. The authors of those publications are
+the appropriate contacts for reproducibility inquiries.
 
 %prep
 %setup -q -c -n %{packname}

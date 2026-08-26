@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nominatimlite
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'Nominatim' API
 
@@ -29,10 +29,11 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Lightweight interface to the 'OpenStreetMap' 'Nominatim' API
-<https://nominatim.org/release-docs/latest/>. Extract coordinates from
-addresses, retrieve addresses from coordinates, look up amenities and
-addresses, and return results as 'tibble' or 'sf' objects.
+Provides a lightweight interface to the 'Nominatim' API
+<https://nominatim.org/release-docs/latest/>. It supports free-form and
+structured address searches, searches for addresses from coordinates,
+amenity lookup and address lookup by 'OpenStreetMap' object identifier. It
+returns results as 'tibble' data frames or 'sf' objects.
 
 %prep
 %setup -q -c -n %{packname}

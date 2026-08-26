@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  artoo
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lossless CDISC-Native Input and Output for Clinical Datasets
 
@@ -41,10 +41,15 @@ Model (ADaM) datasets. A single canonical metadata model carries labels,
 CDISC data types, lengths, 'SAS' display formats, controlled-terminology
 references, and sort keys identically across every format, so conversion
 between any two formats is lossless by construction. Pure 'R' and
-lightweight, with no external 'SAS' or 'Java' runtime. Implements the
-published format specifications for CDISC Dataset-JSON
-(<https://cdisc-org.github.io/DataExchange-DatasetJson/doc/dataset-json1-1.html>)
-and 'SAS' XPORT
+lightweight, with no external 'SAS' or 'Java' runtime. Reads and writes
+CDISC Define-XML, the specification document that accompanies a
+submission, and renders it as HTML through the bundled Define-XML
+stylesheet. Implements the published format specifications for CDISC
+Dataset-JSON
+(<https://cdisc-org.github.io/DataExchange-DatasetJson/doc/dataset-json1-1.html>),
+CDISC Define-XML
+(<https://www.cdisc.org/standards/data-exchange/define-xml>), and 'SAS'
+XPORT
 (<https://www.loc.gov/preservation/digital/formats/fdd/fdd000466.shtml>).
 
 %prep

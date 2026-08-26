@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPTreeO
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dividing Local Gaussian Processes for Online Learning Regression
 
@@ -21,10 +21,16 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-hash 
 BuildRequires:    R-CRAN-DiceKriging 
 BuildRequires:    R-CRAN-mlegp 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-hash 
 Requires:         R-CRAN-DiceKriging 
 Requires:         R-CRAN-mlegp 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-ggplot2 
 
 %description
 We implement and extend the Dividing Local Gaussian Process algorithm by

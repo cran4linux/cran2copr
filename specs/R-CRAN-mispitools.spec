@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mispitools
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Person Identification Tools
 
@@ -16,8 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-forrel 
 BuildRequires:    R-CRAN-pedtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -26,11 +24,9 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-DirichletReg 
-BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-Requires:         R-CRAN-forrel 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-pedtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
@@ -39,10 +35,9 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-patchwork 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-DirichletReg 
-Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 
 %description
 A comprehensive toolkit for missing person identification combining

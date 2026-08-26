@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hcinfer
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heteroskedasticity-Consistent Inference for Linear Models
 
@@ -29,19 +29,23 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tibble 
 
 %description
-Computes heteroskedasticity-consistent covariance matrix estimators for
-ordinary least squares regression models. The published HC0 through HC5m
-estimators implemented in the package follow White (1980)
-<doi:10.2307/1912934>, Hinkley (1977)
-<doi:10.1080/00401706.1977.10489550>, MacKinnon and White (1985)
-<doi:10.1016/0304-4076(85)90158-7>, Cribari-Neto (2004)
+Performs heteroskedasticity-consistent inferences in linear regressions
+under heteroskedasticity. The published HC0 through HC5m estimators
+implemented in the package follow White (1980) <doi:10.2307/1912934>,
+Hinkley (1977) <doi:10.1080/00401706.1977.10489550>, MacKinnon and White
+(1985) <doi:10.1016/0304-4076(85)90158-7>, Cribari-Neto (2004)
 <doi:10.1016/S0167-9473(02)00366-3>, Cribari-Neto and da Silva (2011)
 <doi:10.1007/s10182-010-0141-2>, Cribari-Neto et al. (2007)
-<doi:10.1080/03610920601126589>, and Li et al. (2016)
+<doi:10.1080/03610920601126589> with its erratum
+<doi:10.1080/03610920802109210>, and Li et al. (2016)
 <doi:10.1080/00949655.2016.1198906>. The package also includes HCbeta, a
-new estimator proposed by the package authors. It provides normal Wald
-tests, confidence intervals, diagnostics, and S3 output for applied
-inference.
+new estimator proposed by the package authors. It additionally provides
+feasible generalized least squares estimation under multiplicative
+heteroskedasticity following Harvey (1976) <doi:10.2307/1913974> and
+Cribari-Neto and Pereira (2019) <doi:10.1080/00949655.2019.1586902>, with
+two-step and maximum likelihood fitting and information criteria for the
+likelihood fit. It provides normal Wald tests, confidence intervals,
+diagnostics, and S3 output for applied inference.
 
 %prep
 %setup -q -c -n %{packname}

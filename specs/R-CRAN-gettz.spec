@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gettz
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get the Timezone Information
 
@@ -22,7 +22,9 @@ A function to retrieve the system timezone on Unix systems which has been
 found to find an answer when 'Sys.timezone()' has failed. It is based on
 an answer by Duane McCully posted on 'StackOverflow', and adapted to be
 callable from R. The package also builds on Windows, but just returns
-NULL.
+NULL. The functionality it offers was not available in R when the package
+was written, but has since been added which reduces the need for this
+package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hoopR
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Men's Basketball Play by Play Data
 
@@ -19,47 +19,53 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
+BuildRequires:    R-CRAN-stringi >= 1.7.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-cli >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-stringdist >= 0.9.0
 BuildRequires:    R-CRAN-progressr >= 0.6.0
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-RcppParallel >= 5.1.4
+Requires:         R-CRAN-stringi >= 1.7.0
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-cli >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-stringdist >= 0.9.0
 Requires:         R-CRAN-progressr >= 0.6.0
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
 
 %description
 A utility to quickly obtain clean and tidy men's basketball play by play
 data. Provides functions to access live play by play and box score data
 from ESPN<https://www.espn.com> with shot locations when available. It is
-also a full NBA Stats API<https://www.nba.com/stats/> wrapper. It is also
+also a full NBA Stats API<https://www.nba.com/stats/> wrapper.  It is also
 a scraping and aggregating interface for Ken Pomeroy's men's college
 basketball statistics website<https://kenpom.com>. It provides users with
 an active subscription the capability to scrape the website tables and

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wikiprofiler
-%global packver   0.1.7
+%global packname  roadDB
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Integration and Visualization on 'WikiPathways' Graphics
+Summary:          Access Data from the ROCEEH Out of Africa Database (ROAD)
 
-License:          Artistic-2.0
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rsvg 
-Requires:         R-CRAN-yulab.utils >= 0.1.7
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-gson 
-Requires:         R-methods 
-Requires:         R-CRAN-rsvg 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-assertthat 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-glue 
 
 %description
-Retrieves pathway graphics from 'WikiPathways' and maps user-supplied
-quantitative data, such as gene expression values, onto pathway nodes.
-Provides a pipe-friendly grammar for building pathway visualizations with
-layered fills, text highlighting, condition-wise comparisons, data
-preparation helpers, and batch rendering utilities.
+Provides an R interface to the ROCEEH Out of Africa Database (ROAD)
+(<https://www.roceeh.uni-tuebingen.de/roadweb/smarty_road_simple_search.php>),
+a comprehensive resource for archaeological, anthropological,
+paleoenvironmental and geographic data from Africa and Eurasia dating from
+3,000,000 to 20,000 years BP. The package allows users to retrieve data
+from the online database at different levels of detail and customize
+search requests. Functions return data frame objects compatible with other
+R packages used in prehistoric and paleoenvironmental science, supporting
+reproducible workflows as an input provider.
 
 %prep
 %setup -q -c -n %{packname}

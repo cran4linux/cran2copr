@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flexstanr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portable Backend Layer for 'Stan' Models
 
@@ -17,18 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-methods 
+Requires:         R-CRAN-parallelly 
 Requires:         R-tools 
-Requires:         R-CRAN-rstantools
 
 %description
 Gives a 'Stan'-based R package one interface for fitting its models
-through either 'rstan' or (optionally) 'cmdstanr'. Collects and validates
+through either 'rstan' or 'cmdstanr', neither of which is required to
+install this package (install whichever you use). Collects and validates
 sampler options, guarding against mixing one backend's argument vocabulary
 into the other, dispatches the fit to the chosen backend, and exposes
 backend-agnostic accessors for reading posterior draws, extracting

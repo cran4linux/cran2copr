@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  msPCA
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Principal Component Analysis with Multiple Principal Components
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.11
@@ -23,8 +23,8 @@ Requires:         R-CRAN-Rcpp >= 1.0.11
 %description
 Implements an algorithm for computing multiple sparse principal components
 of a dataset. The method is based on Cory-Wright and Pauphilet "Sparse PCA
-with Multiple Principal Components" (2026) <doi:10.1287/opre.2023.0598>.
-The algorithm uses an iterative deflation heuristic with a truncated power
+with Multiple Components" (2026) <doi:10.1287/opre.2023.0598>. The
+algorithm uses an iterative deflation heuristic with a truncated power
 method applied at each iteration to compute sparse principal components
 with controlled sparsity.
 

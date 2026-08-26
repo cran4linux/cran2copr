@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brfinance
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Brazilian Macroeconomic and Financial Time Series
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-yfR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-yfR 
 
 %description
 Provides simplified access to selected Brazilian macroeconomic and

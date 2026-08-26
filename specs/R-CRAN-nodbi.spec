@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nodbi
-%global packver   0.14.0
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'NoSQL' Database Connector
+Summary:          Document 'NoSQL' Database DBI Connector
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-jsonlite 
@@ -33,9 +33,11 @@ Requires:         R-CRAN-V8
 Requires:         R-CRAN-R.utils 
 
 %description
-Simplified JSON document database access and manipulation, providing a
-common API across supported 'NoSQL' databases 'Elasticsearch', 'CouchDB',
-'MongoDB' as well as 'SQLite/JSON1', 'PostgreSQL', and 'DuckDB'.
+R database connector for creating, reading (querying and listing fields),
+updating and deleting of individual or many JSON documents, providing a
+common API across supported databases ('SQLite', 'PostgreSQL', 'DuckDB',
+'MariaDB' or 'MySQL' as well as 'NoSQL' databases 'MongoDB', 'CouchDB' and
+'Elasticsearch').
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,45 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wikiprofiler
-%global packver   0.1.7
+%global packname  DRLAP2
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Integration and Visualization on 'WikiPathways' Graphics
+Summary:          Dynamic Reinforcement Learning and Adaptive Progressive Censoring
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rsvg 
-Requires:         R-CRAN-yulab.utils >= 0.1.7
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-gson 
-Requires:         R-methods 
-Requires:         R-CRAN-rsvg 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Retrieves pathway graphics from 'WikiPathways' and maps user-supplied
-quantitative data, such as gene expression values, onto pathway nodes.
-Provides a pipe-friendly grammar for building pathway visualizations with
-layered fills, text highlighting, condition-wise comparisons, data
-preparation helpers, and batch rendering utilities.
+Implements Maximum Likelihood Estimation (MLE) and Bayesian Markov Chain
+Monte Carlo (MCMC) sampling algorithms for progressive censoring models,
+with support for dynamic reinforcement learning environment simulation and
+accelerated computational routines written in C++.
 
 %prep
 %setup -q -c -n %{packname}

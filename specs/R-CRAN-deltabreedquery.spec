@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wikiprofiler
-%global packver   0.1.7
+%global packname  deltabreedquery
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Integration and Visualization on 'WikiPathways' Graphics
+Summary:          Fast, Simple API Tools for Retrieving Data from 'DeltaBreed'
 
-License:          Artistic-2.0
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rsvg 
-Requires:         R-CRAN-yulab.utils >= 0.1.7
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-gson 
-Requires:         R-methods 
-Requires:         R-CRAN-rsvg 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Retrieves pathway graphics from 'WikiPathways' and maps user-supplied
-quantitative data, such as gene expression values, onto pathway nodes.
-Provides a pipe-friendly grammar for building pathway visualizations with
-layered fills, text highlighting, condition-wise comparisons, data
-preparation helpers, and batch rendering utilities.
+Simplified data retrieval from the 'DeltaBreed' breeding data management
+platform (<https://sandbox.breedinginsight.net/>) via the 'BrAPI'
+open-source breeding data API (<https://brapi.org/specification>). Each of
+the four main data types stored in 'DeltaBreed' (germplasm, trait
+variables, experiments/environments, and observations) are handled by a
+get_datatype() function that constructs and executes the request, handles
+paginated responses, and parses the retrieved data. Responses are
+reformatted into a consistent, R-friendly data frame format that resembles
+how the data appears on the 'DeltaBreed' web interface as closely as
+possible.
 
 %prep
 %setup -q -c -n %{packname}

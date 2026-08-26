@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  countryatlas
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Join World Bank Data, Country Codes and Maps on the ISO Spine
 
@@ -46,12 +46,14 @@ map geometry, 'WDI' World Bank indicators and the 'countrycode' Rosetta
 stone; exposes the join machinery for the user's own data; ships curated
 reference data (metadata, group memberships, an indicator catalogue, flags
 and currencies); adds analysis helpers (per-capita, regional roll-ups,
-ranking); and turns one hand-drawn choropleth into a full vocabulary of
-projected, area-honest maps (binned and quantile choropleths,
-proportional-symbol, bivariate, cartogram, tile-grid, flow, animated and
-interactive). Heavy spatial dependencies stay optional, and a bundled
-offline snapshot lets every example, test and vignette run without the
-network.
+ranking, inequality and convergence statistics); and turns one hand-drawn
+choropleth into a full vocabulary of projected, area-honest maps (binned
+and quantile choropleths, proportional-symbol, spike, bivariate,
+cartogram, tile-grid, flow, small-multiple, animated, globe and
+interactive), and can hand its curated, ISO-reconciled tables to 'ggsql'
+for database-side spatial rendering. Heavy spatial dependencies stay
+optional, and a bundled offline snapshot lets every example, test and
+vignette run without the network.
 
 %prep
 %setup -q -c -n %{packname}

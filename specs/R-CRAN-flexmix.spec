@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flexmix
-%global packver   2.3-20
+%global packver   2.3-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.20
+Version:          2.3.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Mixture Modeling
 
@@ -18,20 +18,20 @@ BuildRequires:    R-devel >= 2.15.0
 Requires:         R-core >= 2.15.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-modeltools >= 0.2.16
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-modeltools >= 0.2.16
-Requires:         R-CRAN-lattice 
 Requires:         R-graphics 
 Requires:         R-grid 
 Requires:         R-grDevices 
+Requires:         R-CRAN-lattice 
 Requires:         R-methods 
 Requires:         R-CRAN-nnet 
 Requires:         R-stats 

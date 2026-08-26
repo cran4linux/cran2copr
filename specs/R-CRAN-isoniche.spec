@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isoniche
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Density-Independent Niche Breadth Indices from Abundance Data
 
@@ -19,15 +19,18 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lmodel2 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lmodel2 
+Requires:         R-stats 
 
 %description
-Deriving isodar-based niche breadth indices from abundance data of two or
-more habitats, including several methods based on pairwise isodars,
-multidimensional isodars, and isodar-adjusted inequality.
+Deriving density-independent and density-dependent niche breadth indices
+from abundance data of two or more habitats, including both the pairwise
+and n-dimensional methods to calculate isodar-adjusted inequality. Methods
+are described in Granot, Dubiner & Belmaker (in revision), "Why
+abundance-based indices of niche breadth are biased, and what can be done
+to improve them", Ecology Letters.
 
 %prep
 %setup -q -c -n %{packname}

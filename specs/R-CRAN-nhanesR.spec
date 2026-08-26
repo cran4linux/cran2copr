@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wikiprofiler
-%global packver   0.1.7
+%global packname  nhanesR
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Integration and Visualization on 'WikiPathways' Graphics
+Summary:          Download, Parse, and Analyze NHANES Data with Mortality Linkage
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rsvg 
-Requires:         R-CRAN-yulab.utils >= 0.1.7
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-gson 
-Requires:         R-methods 
-Requires:         R-CRAN-rsvg 
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-haven >= 2.5.0
+BuildRequires:    R-CRAN-readr >= 2.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-tools 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-haven >= 2.5.0
+Requires:         R-CRAN-readr >= 2.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-tools 
 
 %description
-Retrieves pathway graphics from 'WikiPathways' and maps user-supplied
-quantitative data, such as gene expression values, onto pathway nodes.
-Provides a pipe-friendly grammar for building pathway visualizations with
-layered fills, text highlighting, condition-wise comparisons, data
-preparation helpers, and batch rendering utilities.
+Provides tools for downloading and organizing National Health and
+Nutrition Examination Survey (NHANES) public-use data files and the
+National Center for Health Statistics (NCHS) Public-Use Linked Mortality
+Files (LMF). Supports structured local caching, codebook access,
+survey-aware merging, and preparation of survival analysis datasets using
+NHANES-National Death Index (NDI) linked mortality data (follow-up through
+December 31, 2019). NHANES methodology is described at
+<https://wwwn.cdc.gov/nchs/nhanes/Default.aspx>.
 
 %prep
 %setup -q -c -n %{packname}

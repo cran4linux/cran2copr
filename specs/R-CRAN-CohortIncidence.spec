@@ -1,45 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wikiprofiler
-%global packver   0.1.7
+%global packname  CohortIncidence
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Integration and Visualization on 'WikiPathways' Graphics
+Summary:          Cohort Incidence Analysis for the OMOP Common Data Model
 
-License:          Artistic-2.0
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggplotify 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gson 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rsvg 
-Requires:         R-CRAN-yulab.utils >= 0.1.7
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggplotify 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-gson 
-Requires:         R-methods 
-Requires:         R-CRAN-rsvg 
+BuildRequires:    R-CRAN-DatabaseConnector >= 3.0.0
+BuildRequires:    R-CRAN-SqlRender >= 1.6.0
+BuildRequires:    R-CRAN-rJava >= 0.9.10
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-DatabaseConnector >= 3.0.0
+Requires:         R-CRAN-SqlRender >= 1.6.0
+Requires:         R-CRAN-rJava >= 0.9.10
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Retrieves pathway graphics from 'WikiPathways' and maps user-supplied
-quantitative data, such as gene expression values, onto pathway nodes.
-Provides a pipe-friendly grammar for building pathway visualizations with
-layered fills, text highlighting, condition-wise comparisons, data
-preparation helpers, and batch rendering utilities.
+Provides functionality for performing cohort incidence analyses against
+data stored in the OMOP Common Data Model (CDM). The package generates
+database-specific SQL, executes analyses across supported database
+platforms, and returns standardized incidence estimates using configurable
+time-at-risk, stratification, and cohort definitions. It is intended to
+support reproducible observational research within the OHDSI analytics
+framework.
 
 %prep
 %setup -q -c -n %{packname}

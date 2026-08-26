@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nmfkc
-%global packver   0.8.8
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Negative Matrix Factorization with Kernel Covariates
 
@@ -39,7 +39,8 @@ model for blind source separation and path analysis. References: Satoh
 (2025) <doi:10.48550/arXiv.2403.05359>; Satoh (2025)
 <doi:10.48550/arXiv.2510.10375>; Satoh (2025)
 <doi:10.48550/arXiv.2512.18250>; Satoh (2026)
-<doi:10.48550/arXiv.2603.01468>; Satoh (2026)
+<doi:10.48550/arXiv.2603.01468>; Satoh and Tokuda (2026)
+<doi:10.48550/arXiv.2607.27474>; Satoh (2026)
 <doi:10.1007/s42081-025-00314-0>.
 
 %prep

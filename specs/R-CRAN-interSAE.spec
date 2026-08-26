@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rfacebookstat
-%global packver   2.16.1
+%global packname  interSAE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.16.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load Data from Facebook API Marketing
+Summary:          Intersectional Small Area Estimation from Survey and Census Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,30 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Load data by campaigns, ads, ad sets and insights, ad account and business
-manager from Facebook Marketing API into R. For more details see official
-documents by Facebook Marketing API
-<https://developers.facebook.com/documentation/ads-commerce/marketing-api>.
+Implements design-aware, margin-constrained estimation of population
+indicators for geographic areas crossed with demographic subgroups.
+Complex-survey microdata supply outcomes and association information,
+while one or more aggregate census tables supply overlapping population
+margins. A generalized iterative proportional fitting engine reconstructs
+a coherent latent population table, and an augmented model-assisted
+estimator produces domain means, proportions, and totals for sampled and
+unsampled intersections. Tools diagnose non-identification, compute
+linear-programming sensitivity bounds, propagate sampling and model
+uncertainty with replicate-weight or multiplier bootstrap procedures,
+enforce structural zeros, and benchmark estimates to official totals. The
+framework extends calibration ideas from Deville and Sarndal (1992)
+<doi:10.1080/01621459.1992.10475217> and small area estimation ideas from
+Fay and Herriot (1979) <doi:10.1080/01621459.1979.10482505>.
 
 %prep
 %setup -q -c -n %{packname}

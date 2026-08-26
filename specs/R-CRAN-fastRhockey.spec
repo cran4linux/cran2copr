@@ -1,65 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastRhockey
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Access Premier Hockey Federation and National Hockey League Play by Play Data
+Summary:          Functions to Access Professional Women's Hockey League and National Hockey League Play by Play Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-cli >= 3.4.1
 BuildRequires:    R-CRAN-tibble >= 3.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-rlang >= 1.0.4
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-progressr >= 0.6.0
-BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-cli >= 3.4.1
 Requires:         R-CRAN-tibble >= 3.0
 Requires:         R-CRAN-stringr >= 1.3.0
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-rlang >= 1.0.4
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-progressr >= 0.6.0
-Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-rlang 
 
 %description
 A utility to scrape and load play-by-play data and statistics from the
-Premier Hockey Federation (PHF)
-<https://www.premierhockeyfederation.com/>, formerly known as the National
-Women's Hockey League (NWHL). Additionally, allows access to the National
-Hockey League's stats API <https://www.nhl.com/>.
+Professional Women's Hockey League <https://www.thepwhl.com/>, formerly
+known as the Premier Hockey Federation (PHF) or National Women's Hockey
+League (NWHL). Additionally, allows access to the National Hockey League's
+stats API <https://www.nhl.com/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TrialEmulation
-%global packver   0.0.4.11
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.11
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Analysis of Observational Time-to-Event Data
 
@@ -28,6 +28,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-future.apply 
 Requires:         R-CRAN-data.table >= 1.9.8
 Requires:         R-CRAN-broom >= 0.7.10
 Requires:         R-CRAN-checkmate 
@@ -40,6 +41,7 @@ Requires:         R-methods
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-future.apply 
 
 %description
 Implements target trial emulation methods to apply randomized clinical
