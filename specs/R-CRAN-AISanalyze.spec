@@ -1,33 +1,52 @@
 %global __brp_check_rpaths %{nil}
-%global packname  scryr
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  AISanalyze
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to the 'Scryfall' API
+Summary:          Processing and Analyzing AIS Vessel Tracking Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
 
 %description
-A simple, light, and robust interface between R and the 'Scryfall' card
-data API <https://scryfall.com/docs/api>.
+Processes Automatic Identification System (AIS) vessel tracking data,
+including travel estimation, trajectory correction, interpolation,
+extraction, and summarising vessel information. The package is designed to
+facilitate reproducible analyses of maritime traffic in ecological,
+environmental, and marine spatial planning applications. For more details
+see <https://remip48.github.io/AISanalyze/>.
 
 %prep
 %setup -q -c -n %{packname}

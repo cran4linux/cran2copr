@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clidatajp
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data from Japan Meteorological Agency
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
+Requires:         R-stats 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 

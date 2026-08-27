@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  finnts
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microsoft Finance Time Series Forecasting Framework
 
@@ -17,22 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dials >= 1.3.0
 BuildRequires:    R-CRAN-modeltime 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-Cubist 
-BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-feasts 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-hts 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
@@ -54,22 +58,26 @@ BuildRequires:    R-CRAN-timetk
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-vroom 
 BuildRequires:    R-CRAN-workflows 
+Requires:         R-CRAN-dials >= 1.3.0
 Requires:         R-CRAN-modeltime 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-Cubist 
-Requires:         R-CRAN-dials 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-earth 
 Requires:         R-CRAN-feasts 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-hts 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 

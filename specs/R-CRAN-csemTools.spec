@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csemTools
-%global packver   0.1.4
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Standard Error of Measurement Tools for Test Scores
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-patchwork 
 
 %description
 Compute and compare conditional standard errors of measurement (CSEM)

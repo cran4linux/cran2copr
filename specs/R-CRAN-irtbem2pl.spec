@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  irtbem2pl
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marginalized Bayesian Item Parameter Estimation, 2pl Model IRT
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-IRTBEMM 
+BuildRequires:    R-CRAN-statmod 
 Requires:         R-CRAN-IRTBEMM 
+Requires:         R-CRAN-statmod 
 
 %description
 Estimates item parameters of the two-parameter logistic (2PL) model in

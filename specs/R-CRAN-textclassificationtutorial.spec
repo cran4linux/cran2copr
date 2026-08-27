@@ -1,47 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wcde
-%global packver   0.0.8
+%global packname  textclassificationtutorial
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Data from the Wittgenstein Centre Human Capital Data Explorer
+Summary:          Reproducible Text Classification Workflows
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-countrycode 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-RCurl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-countrycode 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-RCurl 
 
 %description
-Download and plot education specific demographic data from the
-Wittgenstein Centre for Demography and Human Capital Data Explorer
-<https://dataexplorer.wittgensteincentre.org/>.
+Dependency-light tools and tutorials for teaching reproducible text
+classification. The package covers HTML text extraction, sentence
+segmentation, text preprocessing, document-term matrices, TF-IDF, keyword
+extraction, cosine similarity, stratified cross-validation, classification
+metrics, and a multinomial Naive Bayes classifier. It modernizes the code
+accompanying Kobayashi, V. B., Berkers, H. A., Mol, S. T. Kismihok, G.,
+and Den Hartog, D. N. (2017) <doi:10.1177/1094428117719322> The package
+replaces the original scripts in the paper.
 
 %prep
 %setup -q -c -n %{packname}

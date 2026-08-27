@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitPS
-%global packver   1.0.6
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Zeta Distributions to Forensic Data
+Summary:          Fit Probability Models to Forensic Survey Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-pbapply
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
@@ -43,11 +45,15 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-VGAM 
 
 %description
-Fits Zeta distributions (discrete power laws) to data that arises from
-forensic surveys of clothing on the presence of glass and paint in various
-populations. The general method is described to some extent in Coulson,
-S.A., Buckleton, J.S., Gummer, A.B., and Triggs, C.M. (2001)
-<doi:10.1016/S1355-0306(01)71847-3>, although the implementation differs.
+Fits probability models to P- and S-type count data arising from forensic
+surveys of clothing for the background presence of glass, paint, and
+related trace material. Built-in models include zeta, zero-inflated zeta,
+and logarithmic distributions, with a public extension interface for
+additional models. Inference is available by maximum likelihood,
+parametric Bayesian methods, the ordinary nonparametric bootstrap, and
+Rubin's Bayesian Bootstrap. The clothing-survey setting is described by
+Coulson, Buckleton, Gummer, and Triggs (2001)
+<doi:10.1016/S1355-0306(01)71847-3>.
 
 %prep
 %setup -q -c -n %{packname}

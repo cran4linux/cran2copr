@@ -1,25 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qindex.data
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data for Package 'Qindex'
+Summary:          Data for (Legacy) Package 'Qindex'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.6
+Requires:         R-core >= 4.6
 BuildArch:        noarch
 
 %description
-Example data used in package 'Qindex'.
+Example data in <doi:10.1186/s12859-023-05408-8> and
+<doi:10.1016/j.labinv.2023.100158>.
 
 %prep
 %setup -q -c -n %{packname}

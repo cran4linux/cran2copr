@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baseballr
-%global packver   1.6.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acquiring and Analyzing Baseball Data
 
@@ -14,19 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.4.1
 BuildRequires:    R-CRAN-tibble >= 3.0
-BuildRequires:    R-CRAN-stringr >= 1.3.0
+BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-rlang >= 1.0.4
 BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-httr >= 0.5
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
@@ -37,14 +37,14 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-cli >= 3.4.1
 Requires:         R-CRAN-tibble >= 3.0
-Requires:         R-CRAN-stringr >= 1.3.0
+Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-rlang >= 1.0.4
 Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-httr >= 0.5
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eClosure
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods Based on the e-Closure Principle
 
@@ -21,8 +21,8 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Implements several methods for False Discovery Rate control based on the
-e-Closure Principle, in particular the Closed e-Benjamini-Hochberg and
-Closed Benjamini-Yekutieli procedures.
+e-Closure Principle, in particular the Closed Benjamini-Hochberg, Closed
+e-Benjamini-Hochberg and Closed Benjamini-Yekutieli procedures.
 
 %prep
 %setup -q -c -n %{packname}

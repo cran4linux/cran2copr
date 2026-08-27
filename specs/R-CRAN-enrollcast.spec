@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DSIR
-%global packver   0.8.0
+%global packname  enrollcast
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Science Infrastructure for Global Health
+Summary:          Project School Enrollment with Grade Progression Ratios
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-flextable >= 0.9.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-flextable >= 0.9.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-stats 
 
 %description
-Supports global health data analysis, including a publication-ready
-'ggplot2' theme, a 'flextable' defaults helper, a thin pie chart wrapper,
-built-in regional country-code datasets with a WHO region lookup helper, a
-geometric mean function for indicator aggregation, an average annual rate
-of reduction function for indicator progress tracking, and convenience
-clients for the World Health Organization Global Health Observatory (GHO)
-OData API <https://ghoapi.azureedge.net/api/> and the United Nations
-Sustainable Development Goals (SDG) API
-<https://unstats.un.org/SDGAPI/swagger/>.
+Projects school enrollment using the cohort survival / grade progression
+ratio method described in Webster (1970)
+<doi:10.1080/00220973.1970.11011238>, implemented as a matrix projection.
+Works at any level of aggregation and any number of grades. Provides
+functions to compute progression ratios from historical grade-level
+enrollment and to project future enrollment forward an arbitrary horizon.
 
 %prep
 %setup -q -c -n %{packname}

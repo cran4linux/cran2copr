@@ -1,56 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filibustr
-%global packver   0.5.2
+%global packname  cantrends
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Utilities for Congressional Research
+Summary:          Fit Segmented Regression Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mirai >= 2.5.1
+BuildRequires:    R-CRAN-purrr >= 1.1.0
+BuildRequires:    R-CRAN-carrier >= 0.3.0
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lspline 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-mirai >= 2.5.1
+Requires:         R-CRAN-purrr >= 1.1.0
+Requires:         R-CRAN-carrier >= 0.3.0
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lspline 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides easy-to-understand and consistent interfaces for accessing data
-on the U.S. Congress. The functions in 'filibustr' streamline the process
-for importing data on Congress into R, removing the need to download and
-work from CSV files and the like. Data sources include 'Voteview'
-(<https://voteview.com/>), the U.S. Senate website
-(<https://www.senate.gov/>), and more.
+Estimates piecewise linear spline models for assessing temporal trends in
+cancer incidence and mortality rates. Provides tools for identifying and
+reporting knot locations, annual percent changes (APCs), and average
+annual percent changes (AAPCs), facilitating the analysis and
+communication of changes in cancer rates over time.
 
 %prep
 %setup -q -c -n %{packname}

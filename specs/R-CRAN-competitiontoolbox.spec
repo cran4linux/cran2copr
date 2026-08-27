@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  competitiontoolbox
-%global packver   0.7.1
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Graphical User Interface for Antitrust and Trade Practitioners
 
@@ -17,15 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-antitrust >= 0.99.11
-BuildRequires:    R-CRAN-trade >= 0.5.4
+BuildRequires:    R-CRAN-antitrust >= 0.99.33
+BuildRequires:    R-CRAN-trade >= 0.8.6
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-rhandsontable 
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-antitrust >= 0.99.11
-Requires:         R-CRAN-trade >= 0.5.4
+Requires:         R-CRAN-antitrust >= 0.99.33
+Requires:         R-CRAN-trade >= 0.8.6
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-rhandsontable 
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-ggplot2 
 
 %description

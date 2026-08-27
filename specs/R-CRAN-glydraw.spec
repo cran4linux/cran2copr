@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glydraw
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Beautiful Symbol Nomenclature for Glycans
 
@@ -19,24 +19,24 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-igraph >= 2.2.0
-BuildRequires:    R-CRAN-glyrepr >= 0.10.0
+BuildRequires:    R-CRAN-glyrepr >= 1.0.0
+BuildRequires:    R-CRAN-glyparse >= 0.7.1
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-glyparse 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-igraph >= 2.2.0
-Requires:         R-CRAN-glyrepr >= 0.10.0
+Requires:         R-CRAN-glyrepr >= 1.0.0
+Requires:         R-CRAN-glyparse >= 0.7.1
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-glyparse 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-scales 

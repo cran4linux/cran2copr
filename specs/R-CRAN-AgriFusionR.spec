@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RPatternJoin
-%global packver   1.0.0
+%global packname  AgriFusionR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          String Similarity Joins for Hamming and Levenshtein Distances
+Summary:          An Integration Framework for Agricultural Analytics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-This project is a tool for words edit similarity joins (a.k.a. all-pairs
-similarity search) under small (< 3) edit distance constraints. It works
-for Levenshtein/Hamming distances and words from any alphabet. The
-software was originally developed for joining amino-acid/nucleotide
-sequences from Adaptive Immune Repertoires, where the number of words is
-relatively large (10^5-10^6) and the average length of words is relatively
-small (10-100).
+Assembles agricultural analyses around a single unit of observation, the
+management unit within a season, and keeps climate, soil and
+remote-sensing covariates aligned to it. Covariates are aggregated over
+phenological windows derived from accumulated growing degree days rather
+than calendar months, following McMaster and Wilhelm (1997)
+<doi:10.1016/S0168-1923(97)00027-0>. Models are validated with spatial
+resampling by default, since random cross-validation inflates apparent
+skill when observations are spatially autocorrelated, as shown by Roberts
+and others (2017) <doi:10.1111/ecog.02881>. Prediction intervals use split
+conformal inference after Lei and others (2018)
+<doi:10.1080/01621459.2017.1307116>. Data sources and learning algorithms
+are supplied through registries so that new providers and methods can be
+added without modifying the package.
 
 %prep
 %setup -q -c -n %{packname}

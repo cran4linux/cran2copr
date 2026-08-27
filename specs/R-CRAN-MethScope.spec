@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MethScope
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ultra-Fast Analysis of Sparse DNA Methylome via Recurrent Pattern Encoding
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -49,7 +49,7 @@ Requires:         R-CRAN-nnls
 Methods for analyzing DNA methylation data via Most Recurrent Methylation
 Patterns (MRMPs). Supports cell-type annotation, spatial deconvolution,
 unsupervised clustering, and cancer cell-of-origin inference. Includes
-C-backed summaries for YAME “.cg/.cm” files (overlap counts, log2 odds
+C-backed summaries for YAME ".cg/.cm" files (overlap counts, log2 odds
 ratios, beta/depth aggregation), an XGBoost classifier, NNLS
 deconvolution, and plotting utilities. Scales to large spatial and
 single-cell methylomes and is robust to extreme sparsity.

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  harmonydata
-%global packver   0.3.2
+%global packname  mvboxcox
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Library for 'Harmony'
+Summary:          Bivariate Logistic Box-Cox Regression
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-uuid 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-uuid 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-fields 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-fields 
 
 %description
-'Harmony' is a tool using AI which allows you to compare items from
-questionnaires and identify similar content. You can try 'Harmony' at
-<https://harmonydata.ac.uk/app/> and you can read our blog at
-<https://harmonydata.ac.uk/blog/> or at
-<https://fastdatascience.com/how-does-harmony-work/>. Documentation at
-<https://harmonydata.ac.uk/harmony-r-released/>.
+Fits bivariate logistic Box-Cox regression models for binary outcomes and
+positive continuous predictors. Transformation parameters are selected by
+cross-validated grid search with adaptive refinement and thin-plate spline
+smoothing. The package also provides prediction, empirical and
+sampling-weighted median effects, simulation tools, and sampling-weighted
+model fitting. The methodology extends the logistic Box-Cox approach of
+Xing et al. (2021) <doi:10.1002/cjs.11587>.
 
 %prep
 %setup -q -c -n %{packname}

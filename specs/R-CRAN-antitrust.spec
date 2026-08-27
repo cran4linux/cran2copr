@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  antitrust
-%global packver   0.99.30
+%global packver   0.99.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.30
+Version:          0.99.33
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Antitrust Practitioners
 
@@ -20,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-BB 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-SQUAREM 
 Requires:         R-methods 
 Requires:         R-CRAN-BB 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-SQUAREM 
 
 %description
 A collection of tools for antitrust practitioners, including the ability

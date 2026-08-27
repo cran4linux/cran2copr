@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  immundata
-%global packver   0.0.7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Data Layer for Large-Scale Single-Cell, Spatial and Bulk Immunomics
 
@@ -17,12 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.2.1
 BuildRequires:    R-CRAN-duckplyr >= 1.2.1
-BuildRequires:    R-CRAN-dplyr >= 1.2.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
@@ -32,12 +31,11 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr >= 1.2.1
 Requires:         R-CRAN-duckplyr >= 1.2.1
-Requires:         R-CRAN-dplyr >= 1.2.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 

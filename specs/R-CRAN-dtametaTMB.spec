@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtametaTMB
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Test Accuracy Meta-Analysis using Template Model Builder
 
@@ -35,7 +35,7 @@ binomial-normal model of Reitsma et al. (2005)
 <doi:10.1016/j.jclinepi.2005.02.022>, the threshold-based bivariate
 time-to-event model of Hoyer et al. (2018) <doi:10.1002/jrsm.1273>, and
 the latent class extensions of Liu et al. (2015) <doi:10.1111/biom.12264>
-for diagnostic studies without a perfect reference standard. Provides
+for diagnostic studies with an imperfect reference standard. Provides
 subgroup analyses, HSROC meta-regression, likelihood-ratio tests, summary
 ROC plots, and coupled forest plots.
 

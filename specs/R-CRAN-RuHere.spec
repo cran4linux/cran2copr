@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RuHere
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flags Spatial Errors in Biological Collection Data Using Specialists' Information
 
@@ -18,23 +18,25 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-RcppArmadillo >= 15.0.2.2
 BuildRequires:    R-CRAN-florabr >= 1.3.1
+BuildRequires:    R-CRAN-faunabr >= 1.1.1
 BuildRequires:    R-CRAN-Rcpp >= 1.1.0
-BuildRequires:    R-CRAN-faunabr >= 1.0.0
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rgbif 
 BuildRequires:    R-CRAN-rredlist 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-BIEN 
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-ridigbio 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-florabr >= 1.3.1
-Requires:         R-CRAN-faunabr >= 1.0.0
+Requires:         R-CRAN-faunabr >= 1.1.1
 Requires:         R-CRAN-Rcpp >= 1.1.0
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-data.table 
@@ -42,13 +44,15 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-rgbif 
 Requires:         R-CRAN-rredlist 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-BIEN 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-ridigbio 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-httr 
 
 %description
 Automatically flags common spatial errors in biological collection data

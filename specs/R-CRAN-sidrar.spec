@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sidrar
-%global packver   0.3.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to IBGE's SIDRA API
 
@@ -25,10 +25,10 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-utils 
 
 %description
-Provides a flexible interface to the aggregate data available from the
-Brazilian Institute of Geography and Statistics (IBGE) through its SIDRA
-application programming interfaces. SIDRA is IBGE's system for retrieving
-aggregate statistical data.
+Provides a flexible interface to discover, inspect, plan, and retrieve
+aggregate data from the Brazilian Institute of Geography and Statistics
+(IBGE) through its SIDRA application programming interfaces. SIDRA is
+IBGE's system for retrieving aggregate statistical data.
 
 %prep
 %setup -q -c -n %{packname}

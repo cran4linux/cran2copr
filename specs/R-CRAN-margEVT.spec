@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  margEVT
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Point Processes and Stochastic Marginalization for Extremes
 
@@ -30,8 +30,10 @@ covariate-driven Non-Homogeneous Poisson Process (NHPP) with Elastic-Net
 regularization and exact analytical gradients. Provides methodologies for
 estimating conditional return levels and unconditional (marginalized)
 return levels via parametric stochastic integration over Vector
-Autoregressive VAR(p) covariate trajectories, or non-parametric block
-bootstrapping. Methodologies are based on Villa (2026)
+Autoregressive VAR(p) covariate trajectories, or non-parametric
+annual-block resampling. Temporal resolution and active-set tolerances are
+propagated consistently through fitting, marginalization, simulation, and
+validation. Methodologies are based on Villa (2026)
 <https://sabi.ufrgs.br/> "A Novel Regularized Point Process and Stochastic
 Marginalization Framework for Return Level Inference under
 Covariate-Driven Extremes" (Master's dissertation, Universidade Federal do

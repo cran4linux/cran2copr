@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FLSSS
-%global packver   9.2.8
+%global packver   9.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.2.8
+Version:          9.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mining Rigs for Problems in the Subset Sum Family
 
@@ -46,7 +46,8 @@ accelerated by a simplified Bloom filter. The package contains a copy of
 (<doi:10.48550/arXiv.1612.04484>) detailed a few historical updates.
 Functions prefixed with 'aux' (auxiliary) are independent implementations
 of published algorithms for solving optimization problems less relevant to
-Subset Sum.
+Subset Sum. A simplified and accelerated Python package is built at
+<https://github.com/WhateverLiu/flsss>.
 
 %prep
 %setup -q -c -n %{packname}
