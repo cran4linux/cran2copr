@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IBclust
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Bottleneck Methods for Clustering Mixed-Type Data
 
@@ -45,7 +45,9 @@ Slonim and Tishby (1999)
 <https://papers.nips.cc/paper/1651-agglomerative-information-bottleneck>,
 the generalised IB from Strouse and Schwab (2017)
 <doi:10.1162/NECO_a_00961>, and the sequential IB from Slonim et al.
-(2002) <doi:10.1145/564376.564401>.
+(2002) <doi:10.1145/564376.564401>. Diagnostic and plotting functions are
+provided to summarise, visualise, and predict from the resulting
+clusterings.
 
 %prep
 %setup -q -c -n %{packname}

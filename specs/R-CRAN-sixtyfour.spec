@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sixtyfour
-%global packver   0.2.0
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Humane Interface to Amazon Web Services
 
@@ -17,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws >= 0.9.0
 BuildRequires:    R-CRAN-paws.common >= 0.8.1
 BuildRequires:    R-CRAN-s3fs >= 0.1.5
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-paws.security.identity 
+BuildRequires:    R-CRAN-paws.storage 
+BuildRequires:    R-CRAN-paws.compute 
+BuildRequires:    R-CRAN-paws.database 
+BuildRequires:    R-CRAN-paws.cost.management 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
@@ -32,13 +36,14 @@ BuildRequires:    R-CRAN-uuid
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-ipaddress 
-Requires:         R-CRAN-paws >= 0.9.0
 Requires:         R-CRAN-paws.common >= 0.8.1
 Requires:         R-CRAN-s3fs >= 0.1.5
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-paws.security.identity 
+Requires:         R-CRAN-paws.storage 
+Requires:         R-CRAN-paws.compute 
+Requires:         R-CRAN-paws.database 
+Requires:         R-CRAN-paws.cost.management 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
@@ -50,9 +55,6 @@ Requires:         R-CRAN-uuid
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-ipaddress 
 
 %description
 An opinionated interface to Amazon Web Services <https://aws.amazon.com>,

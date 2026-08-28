@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forestly
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Forest Plot
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-metalite
 BuildRequires:    R-CRAN-metalite.ae 
 BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-brew 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-metalite
 Requires:         R-CRAN-metalite.ae 
 Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-uuid 
 

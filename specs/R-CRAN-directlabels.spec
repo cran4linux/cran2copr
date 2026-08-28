@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  directlabels
-%global packver   2026.4.23
+%global packver   2026.8.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.4.23
+Version:          2026.8.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Direct Labels for Multicolor Plots
 
@@ -16,11 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-grid >= 3.0.0
-BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-grid >= 3.0.0
-Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
 
 %description
 An extensible framework for automatically placing direct labels onto

@@ -1,37 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedZIsc
-%global packver   0.0.5
+%global packname  lasars
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework for Co-Mediators of Zero-Inflated Single-Cell Data
+Summary:          Explore Response Style in Survey Responding
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-betareg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-betareg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pmwg 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pmwg 
+Requires:         R-stats 
 
 %description
-A causal mediation framework for single-cell data that incorporates two
-key features ('MedZIsc', pronounced Magics): (1) zero-inflation using beta
-regression and (2) overdispersed expression counts using negative binomial
-regression. This approach also includes a screening step based on
-penalized and marginal models to handle high-dimensionality. Full
-methodological details are available in our recent preprint by Ahn S et
-al. (2025) <doi:10.48550/arXiv.2507.06113>.
+Provides tools to fit the latent state and response style ('lasars') model
+to survey data using either Particle Metropolis within Gibbs ('pmwg') or
+maximum likelihood estimation. The package facilitates estimation of
+less-biased latent state and psychologically interpretable response style
+parameters.
 
 %prep
 %setup -q -c -n %{packname}

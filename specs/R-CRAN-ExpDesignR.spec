@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedZIsc
-%global packver   0.0.5
+%global packname  ExpDesignR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework for Co-Mediators of Zero-Inflated Single-Cell Data
+Summary:          Experimental Design and Randomization Methods for Biomedical and Veterinary Research
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-betareg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-betareg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-A causal mediation framework for single-cell data that incorporates two
-key features ('MedZIsc', pronounced Magics): (1) zero-inflation using beta
-regression and (2) overdispersed expression counts using negative binomial
-regression. This approach also includes a screening step based on
-penalized and marginal models to handle high-dimensionality. Full
-methodological details are available in our recent preprint by Ahn S et
-al. (2025) <doi:10.48550/arXiv.2507.06113>.
+Generates randomized experimental designs for biomedical, veterinary,
+agricultural, and clinical research, including simple, block, stratified,
+and cluster randomization, Latin square and crossover designs, allocation
+summaries, schedule export, and visualization of treatment allocations.
+The methods are based on established principles of randomization and
+experimental design; see Rosenberger and Lachin (2015, ISBN:9781118742242)
+and Jones and Kenward (2014, ISBN:9781439861424).
 
 %prep
 %setup -q -c -n %{packname}

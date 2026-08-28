@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedZIsc
-%global packver   0.0.5
+%global packname  layeranalyzer
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework for Co-Mediators of Zero-Inflated Single-Cell Data
+Summary:          Time Series Analysis Tool using Linear Layered SDEs
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-betareg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-betareg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-coda >= 0.19.1
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-coda >= 0.19.1
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A causal mediation framework for single-cell data that incorporates two
-key features ('MedZIsc', pronounced Magics): (1) zero-inflation using beta
-regression and (2) overdispersed expression counts using negative binomial
-regression. This approach also includes a screening step based on
-penalized and marginal models to handle high-dimensionality. Full
-methodological details are available in our recent preprint by Ahn S et
-al. (2025) <doi:10.48550/arXiv.2507.06113>.
+Time series analysis tool using linear layered stochastic differential
+equations. The package allows for multiple time series with correlative
+and/or causal links between them. Unmeasured causal processes are allowed
+to affect the measured processes in a layered structure, hence the name of
+the package. In case of causal feedback loops, the matrix operations
+(including eigenvalue decompositions) allows for complex numbers. In this
+case, cyclic behavior can be expected. Details can be found in Reitan and
+Liow (2019)<doi:10.1111/2041-210X.13299>.
 
 %prep
 %setup -q -c -n %{packname}

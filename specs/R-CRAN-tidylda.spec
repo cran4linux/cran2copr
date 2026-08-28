@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidylda
-%global packver   0.0.7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Dirichlet Allocation Using 'tidyverse' Conventions
 
@@ -47,13 +47,14 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidytext 
 
 %description
-Implements an algorithm for Latent Dirichlet Allocation (LDA), Blei et at.
+Implements an algorithm for Latent Dirichlet Allocation (LDA), Blei et al.
 (2003) <https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf>, using
 style conventions from the 'tidyverse', Wickham et al.
 (2019)<doi:10.21105/joss.01686>, and 'tidymodels', Kuhn et
 al.<https://tidymodels.github.io/model-implementation-principles/>.
-Fitting is done via collapsed Gibbs sampling. Also implements several
-novel features for LDA such as guided models and transfer learning.
+Fitting is done via 'warpLDA', a Metropolis-Hastings sampler, Chen et al.
+(2016) <doi:10.48550/arXiv.1510.08628>. Also implements several novel
+features for LDA such as guided models and transfer learning.
 
 %prep
 %setup -q -c -n %{packname}

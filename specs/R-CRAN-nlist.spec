@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlist
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lists of Numeric Atomic Objects
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-extras >= 0.10.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-extras 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
@@ -29,10 +29,10 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-term 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-universals 
+Requires:         R-CRAN-extras >= 0.10.0
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-extras 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  runExamplesWrapper
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for 'run_examples()'
+Summary:          Wrapper for 'run_example()'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,20 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-devtools 
-Requires:         R-CRAN-devtools 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-tools 
+Requires:         R-CRAN-cli 
 
 %description
-Captures errors encountered when running 'run_examples()', and processes
-and archives them. The function 'run_examples()' within the 'devtools'
-package allows batch execution of all of the examples within a given
-package. This is much more convenient than testing each example manually.
-However, a major inconvenience is that if an error is encountered, the
-program stops and does not complete testing the remaining examples. Also,
-there is not a systematic record of the results, namely which package
-functions had no examples, which had examples that failed, and which had
-examples that succeeded. The current package provides the missing
-functionality.
+Captures errors or missing examples encountered when iteratively running
+'run_examplez()', and archives them.
 
 %prep
 %setup -q -c -n %{packname}

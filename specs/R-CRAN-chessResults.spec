@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chessResults
-%global packver   2026.07.12
+%global packver   2026.08.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2026.07.12
+Version:          2026.08.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scraper for Chess-Results.com
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-stringr >= 1.6.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.2
 BuildRequires:    R-CRAN-dplyr >= 1.2.1
 BuildRequires:    R-CRAN-rvest >= 1.0.5
-BuildRequires:    R-CRAN-polite >= 0.1.4
 Requires:         R-CRAN-tibble >= 3.3.1
 Requires:         R-CRAN-janitor >= 2.2.1
 Requires:         R-CRAN-readr >= 2.2.0
@@ -32,13 +31,11 @@ Requires:         R-CRAN-stringr >= 1.6.0
 Requires:         R-CRAN-tidyr >= 1.3.2
 Requires:         R-CRAN-dplyr >= 1.2.1
 Requires:         R-CRAN-rvest >= 1.0.5
-Requires:         R-CRAN-polite >= 0.1.4
 
 %description
 Scrape data from <https://chess-results.com> and get a clean 'tibble'.
 Currently supports tournament information, starting rank, playing
-schedule, pairings/results for rounds, and closing rank. All requests to
-the <https://chess-results.com> server are made using 'polite'.
+schedule, pairings/results for rounds, and closing rank.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  climniche
-%global packver   0.0.1
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Niche Climate Exposure
+Summary:          Climate Exposure Relative to a Species' Climatic Niche
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,13 +23,16 @@ Requires:         R-grid
 Requires:         R-methods 
 
 %description
-Assesses niche climate exposure by interpreting projected climate change
-relative to the climate conditions a species currently occupies. Using
-occurrence records, range data or thresholded SDM suitability maps,
-current environmental rasters and future projections, the package
-separates climate change amount, change in distance to the current niche
-centre, composition change and exceedance beyond an empirical niche
-boundary.
+Quantifies projected climatic change relative to the climatic niche
+represented by a species' current distribution. A weighted current
+reference defines the niche centre and empirical radial boundary. Present
+and projected conditions at each location give local climatic
+displacement, signed change in niche distance, a derived non-radial
+reconfiguration term, and exceedance beyond the niche boundary. Occurrence
+records, range maps, and binary or continuous species distribution model
+outputs can define reference weights. Matrix and spatial workflows return
+location-level values, weighted summaries, maps and climatic-variable
+contributions.
 
 %prep
 %setup -q -c -n %{packname}

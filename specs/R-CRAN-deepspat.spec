@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deepspat
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deep Compositional Spatial Models
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-CRAN-tensorflow 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-keras 
 Requires:         R-CRAN-tensorflow 

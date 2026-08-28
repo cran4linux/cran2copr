@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CopernicusDataspace
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search Download and Handle Data from the Copernicus Data Space Ecosystem
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-paws 
+BuildRequires:    R-CRAN-paws.storage 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-memoise 
 Requires:         R-methods 
-Requires:         R-CRAN-paws 
+Requires:         R-CRAN-paws.storage 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 

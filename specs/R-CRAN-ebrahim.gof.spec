@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebrahim.gof
-%global packver   2.4.0
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit and Calibration Tests for Logistic Regression
 
@@ -25,17 +25,23 @@ Requires:         R-stats
 %description
 Provides a unified battery of goodness-of-fit and calibration tests for
 binary logistic regression, runnable in a single call via 'run.all.gof()'.
-The package introduces the author's own tests aimed at sparse data --- the
-omnibus Ebrahim-Farrington (EF) test, the Directed EF ('EDGE') test that
-targets smooth calibration-shape departures, and a Cauchy-combination
-ensemble --- and aggregates a wide range of classical and modern tests for
-comparison, including Hosmer-Lemeshow, McCullagh, Osius-Rojek, le
-Cessie-van Houwelingen, Stute-Zhu, the binary-adaptive 'BAGofT' test, and
-the 'GiViTI' calibration test (each obtained from its own package, where
-installed, and attributed to its authors). The tools are particularly
-suited to sparse data, where the Hosmer-Lemeshow test loses power. For
-more details see Hosmer (1980) <doi:10.1080/03610928008827941> and
-Farrington (1996) <doi:10.1111/j.2517-6161.1996.tb02086.x>.
+Around twenty-five tests spanning five decades of literature are
+aggregated and grouped by the departure each is built to detect: global
+and standardized statistics, partition tests, directed and covariate-space
+tests, smoothing and resampling tests, and calibration tests. Each is
+obtained from its own package where installed and attributed to its
+authors. The package also implements the author's own procedures for
+sparse data, where the Hosmer-Lemeshow test loses power: the omnibus
+Ebrahim-Farrington test, the directed 'EDGE' test, 'DeepGOF-1' (a
+pretrained convolutional statistic whose level comes from the analyst's
+own parametric bootstrap rather than from the network), a
+Cauchy-combination ensemble, 'legoft()' (a pretrained combination whose
+weights are fixed offline and ship frozen, so two analysts obtain the same
+p-value), and 'shrink.gof()' for penalized (ridge) logistic regression,
+where shrinkage biases the fitted probabilities and invalidates the usual
+chi-squared references. For more details see Hosmer (1980)
+<doi:10.1080/03610928008827941> and Farrington (1996)
+<doi:10.1111/j.2517-6161.1996.tb02086.x>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dosr
-%global packver   0.3.4
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Analysis Tools for the Chilean Social Observatory
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-srvyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-survey 
 Requires:         R-CRAN-srvyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 

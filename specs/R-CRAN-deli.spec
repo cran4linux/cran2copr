@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedZIsc
-%global packver   0.0.5
+%global packname  deli
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework for Co-Mediators of Zero-Inflated Single-Cell Data
+Summary:          M-Estimation and Empirical Sandwich Variance Estimation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-betareg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-betareg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-S7 >= 0.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-S7 >= 0.2.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
 
 %description
-A causal mediation framework for single-cell data that incorporates two
-key features ('MedZIsc', pronounced Magics): (1) zero-inflation using beta
-regression and (2) overdispersed expression counts using negative binomial
-regression. This approach also includes a screening step based on
-penalized and marginal models to handle high-dimensionality. Full
-methodological details are available in our recent preprint by Ahn S et
-al. (2025) <doi:10.48550/arXiv.2507.06113>.
+Solves estimating equations to obtain M-estimators together with empirical
+sandwich variance estimates, providing a general interface for both custom
+and built-in estimating equations.  Built-in equations cover basic
+statistics, regression, causal inference, survival analysis, measurement
+error, and more. An 'R' port of the 'Python' library 'delicatessen'
+described in 'Zivich et al. (2022)' <doi:10.48550/arXiv.2203.11300>.
 
 %prep
 %setup -q -c -n %{packname}

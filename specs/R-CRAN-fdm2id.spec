@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdm2id
-%global packver   0.9.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Mining and R Programming for Beginners
 
@@ -20,17 +20,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-arules 
 BuildRequires:    R-CRAN-arulesViz 
 BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-arules 
 Requires:         R-CRAN-arulesViz 
 Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-nnet 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mclust 
 Requires:         R-methods 
-Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-pls 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Contains functions to simplify the use of data mining methods

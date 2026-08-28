@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GMLTM
-%global packver   0.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Multicomponent Latent Trait Model for Diagnosis
 
@@ -44,11 +44,14 @@ Logistic Test Model (LLTM; Fischer (1973)
 for Diagnosis (MLTM-D; Embretson and Yang (2013)
 <doi:10.1007/s11336-012-9296-y>), and the Generalized Multicomponent
 Latent Trait Model for Diagnosis (GMLTM-D; Ramirez et al. (2024)
-<doi:10.3390/jintelligence12070067>). All models are estimated via
-Hamiltonian Monte Carlo using 'Stan' through the 'rstan' interface.
-Includes tools for model validation, reliability estimation, and
-visualization of item characteristic curves. Supports user-defined prior
-distributions for all model parameters.
+<doi:10.3390/jintelligence12070067>), including a variant with correlated
+latent components. All models are estimated via Hamiltonian Monte Carlo
+using 'Stan' through the 'rstan' interface. Includes tools for prior
+predictive checks (Gelman et al., 2020), model validation, conditional
+reliability estimation, examinee mastery classification following
+Embretson (2019) <doi:10.1007/978-3-030-05584-4_9>, and individual
+diagnostic reports at the rule and component level. Supports user-defined
+prior distributions for all model parameters.
 
 %prep
 %setup -q -c -n %{packname}

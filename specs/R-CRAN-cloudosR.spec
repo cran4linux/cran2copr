@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cloudosR
-%global packver   0.2.0
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Lifebit' Platform 'API' Client
 
@@ -17,12 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-jsonlite 
-Requires:         R-utils 
 
 %description
 Interacts with the 'Lifebit' Platform Cohort Browser 'API'

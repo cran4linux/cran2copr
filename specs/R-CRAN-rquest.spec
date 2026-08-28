@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rquest
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hypothesis Tests for Quantiles and Quantile-Based Measures
 
@@ -18,7 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gld 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-gld 
+Requires:         R-CRAN-rlang 
 
 %description
 Functions to conduct hypothesis tests and derive confidence intervals for

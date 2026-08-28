@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MedZIsc
-%global packver   0.0.5
+%global packname  bayess
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Framework for Co-Mediators of Zero-Inflated Single-Cell Data
+Summary:          Bayesian Essentials with R
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-betareg 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-betareg 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-combinat 
+Requires:         R-stats 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-combinat 
 
 %description
-A causal mediation framework for single-cell data that incorporates two
-key features ('MedZIsc', pronounced Magics): (1) zero-inflation using beta
-regression and (2) overdispersed expression counts using negative binomial
-regression. This approach also includes a screening step based on
-penalized and marginal models to handle high-dimensionality. Full
-methodological details are available in our recent preprint by Ahn S et
-al. (2025) <doi:10.48550/arXiv.2507.06113>.
+Allows the reenactment of the R programs used in the book Bayesian
+Essentials with R without further programming. R code being available as
+well, they can be modified by the user to conduct one's own simulations.
+Marin J.-M. and Robert C. P. (2014) <doi:10.1007/978-1-4614-8687-9>.
 
 %prep
 %setup -q -c -n %{packname}

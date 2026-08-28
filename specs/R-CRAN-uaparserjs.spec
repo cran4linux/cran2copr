@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uaparserjs
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse 'User-Agent' Strings
 
@@ -24,8 +24,8 @@ Requires:         R-CRAN-V8
 
 %description
 Parses HTTP user agent strings and returns user agent, device and OS
-information.  This is a 'V8'-backed package based on the 'ua-parser'
-project <https://github.com/ua-parser>.
+information. This is a ‘V8’-backed package that uses the UA, device and OS
+definitions from the ‘ua-parser’ project <https://github.com/ua-parser>.
 
 %prep
 %setup -q -c -n %{packname}
