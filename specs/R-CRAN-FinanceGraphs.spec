@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FinanceGraphs
-%global packver   0.9.2
+%global packver   0.9.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Graphs for Analysis of Financial Data and Time Series
 
@@ -40,7 +40,6 @@ BuildRequires:    R-CRAN-ggiraph >= 0.9.0
 BuildRequires:    R-CRAN-tidyr >= 0.6.3
 BuildRequires:    R-CRAN-xts >= 0.10.0
 BuildRequires:    R-CRAN-qlcal >= 0.1.0
-BuildRequires:    R-CRAN-ggtext >= 0.1.0
 BuildRequires:    R-CRAN-RegimeChange >= 0.1.0
 Requires:         R-grDevices >= 4.5.0
 Requires:         R-stats >= 4.5.0
@@ -65,7 +64,6 @@ Requires:         R-CRAN-ggiraph >= 0.9.0
 Requires:         R-CRAN-tidyr >= 0.6.3
 Requires:         R-CRAN-xts >= 0.10.0
 Requires:         R-CRAN-qlcal >= 0.1.0
-Requires:         R-CRAN-ggtext >= 0.1.0
 Requires:         R-CRAN-RegimeChange >= 0.1.0
 
 %description

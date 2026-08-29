@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lnmCluster
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Logistic Normal Multinomial Clustering for Microbiome Compositional Data
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel >= 3.50
 Requires:         R-core >= 3.50
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-gtools 
@@ -25,6 +27,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-gtools 
@@ -34,17 +37,19 @@ Requires:         R-utils
 %description
 An implementation of logistic normal multinomial (LNM) clustering. It is
 an extension of LNM mixture model proposed by Fang and Subedi (2020)
-<arXiv:2011.06682>, and is designed for clustering compositional data. The
-package includes 3 extended models: LNM Factor Analyzer (LNM-FA), LNM
-Bicluster Mixture Model (LNM-BMM) and Penalized LNM Factor Analyzer
-(LNM-FA). There are several advantages of LNM models: 1. LNM provides more
-flexible covariance structure; 2. Factor analyzer can reduce the number of
-parameters to estimate; 3. Bicluster can simultaneously cluster subjects
-and taxa, and provides significant biological insights; 4. Penalty term
-allows sparse estimation in the covariance matrix. Details for model
-assumptions and interpretation can be found in papers: Tu and Subedi
-(2021) <arXiv:2101.01871> and Tu and Subedi (2022)
-<doi:10.1002/sam.11555>.
+<doi:10.1038/s41598-023-41318-8>, and is designed for clustering
+compositional data. The package includes 3 extended models: LNM Factor
+Analyzer (LNM-FA), LNM Bicluster Mixture Model (LNM-BMM) and Penalized LNM
+Factor Analyzer (LNM-FA). There are several advantages of LNM models: 1.
+LNM provides more flexible covariance structure; 2. Factor analyzer can
+reduce the number of parameters to estimate; 3. Bicluster can
+simultaneously cluster subjects and taxa, and provides significant
+biological insights; 4. Penalty term allows sparse estimation in the
+covariance matrix. Details for model assumptions and interpretation can be
+found in papers: Tu and Subedi (2023) <doi:10.1007/s00357-023-09452-0> and
+Tu and Subedi (2022) <doi:10.3329/jsr.v56i2.67469>. It also include a
+Biclustering algorithm that applies to multivariate normal data: Tu and
+Subedi (2022) <doi:10.1002/sam.11555>.
 
 %prep
 %setup -q -c -n %{packname}

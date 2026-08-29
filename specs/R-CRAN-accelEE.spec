@@ -1,50 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  melodi
-%global packver   1.1.2
+%global packname  accelEE
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Insee French Institute of Statistics Open Data
+Summary:          Predict Energy Expenditure from Accelerometry Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-PAutilities >= 1.3.0
+BuildRequires:    R-CRAN-Sojourn >= 1.1.0
+BuildRequires:    R-CRAN-TwoRegression >= 1.0.0
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-tree 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-PAutilities >= 1.3.0
+Requires:         R-CRAN-Sojourn >= 1.1.0
+Requires:         R-CRAN-TwoRegression >= 1.0.0
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-zip 
+Requires:         R-CRAN-tree 
+Requires:         R-utils 
 
 %description
-A wrapper for the French Institute of Statistics (Insee) API Melodi
-<https://catalogue-donnees.insee.fr>. Download, search, filter data and
-metadata from open data statistical public datasets, in french or in
-english.
+Simplifies the application of various energy expenditure models. The
+package is intended as a hub that brings together methods from a variety
+of other, themed packages such as 'Sojourn' and 'TwoRegression'. Several
+methods are supported locally as well, including the linear methods of
+Hildebrand et al. (2014) <doi:10.1249/MSS.0000000000000289> and the
+non-linear adaptation by Ellingson et al. (2017)
+<doi:10.1088/1361-6579/aa6d00>. The package can combine output from
+different methods and produce standardized output in a range of units.
 
 %prep
 %setup -q -c -n %{packname}

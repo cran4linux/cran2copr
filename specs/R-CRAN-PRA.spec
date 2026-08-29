@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RMVL
-%global packver   1.1.0.4
+%global packname  PRA
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.4
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mappable Vector Library for Handling Large Datasets
+Summary:          Project Risk Analysis
 
-License:          LGPL-2.1
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mc2d 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-mc2d 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-stats 
 
 %description
-Mappable vector library provides convenient way to access large datasets.
-Use all of your data at once, with few limits. Memory mapped data can be
-shared between multiple R processes. Access speed depends on storage
-medium, so solid state drive is recommended, preferably with PCI Express
-(or M.2 nvme) interface or a fast network file system. The data is memory
-mapped into R and then accessed using usual R list and array subscription
-operators. Convenience functions are provided for merging, grouping and
-indexing large vectors and data.frames. The layout of underlying MVL files
-is optimized for large datasets. The vectors are stored to guarantee
-alignment for vector intrinsics after memory map. The package is built on
-top of libMVL, which can be used as a standalone C library. libMVL has
-simple C API making it easy to interchange datasets with outside programs.
-Large MVL datasets are distributed via Academic Torrents
-<https://academictorrents.com/collection/mvl-datasets>.
+Data analysis for Project Risk Management via the Second Moment Method,
+Monte Carlo Simulation, Contingency Analysis, Sensitivity Analysis, Earned
+Value Management, Learning Curves, Bayesian Methods, and more.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqualify
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Qualification of R Software Installations
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pandoc 
+BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-tinytex 
 Requires:         R-CRAN-pandoc 
+Requires:         R-CRAN-quarto 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-tinytex 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gpciLindApproxProgII
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lindley Approximation for Capability Indices under Progressive Censoring
 
@@ -38,9 +38,10 @@ Implements Bayesian parameter and Generalized Process Capability Indices
 Evaluates point estimates and posterior expectations for classical and
 non-normal capability indices, including Cpy (Maiti et al., 2010
 <doi:10.1080/16843703.2010.11673233>), Spmk (Dey & Saha, 2019
-<doi:10.1007/s41872-019-00081-4>), CpTk (Saha et al., 2019), Cpc (Saha et
-al., 2022 <doi:10.1080/02664763.2021.1971632>), CNpmc (Alotaibi et al.,
-2022 <doi:10.1155/2022/3135264>), CNpmkc (Saha et al., 2024
+<doi:10.1007/s41872-019-00081-4>), CpTk (Saha et al., 2019
+<doi:10.1007/s13198-019-00789-7>), Cpc (Saha et al., 2022
+<doi:10.1080/02664763.2021.1971632>), CNpmc (Alotaibi et al., 2022
+<doi:10.1155/2022/3135264>), CNpmkc (Saha et al., 2024
 <doi:10.1142/S021853932450013X>), CNpk (Saha et al., 2018
 <doi:10.1080/21681015.2018.1437793>), and Vannman's Cp(u,v) family
 (Vannman, 1995 <doi:10.1111/j.1467-9574.1995.tb01472.x>). Calculates point

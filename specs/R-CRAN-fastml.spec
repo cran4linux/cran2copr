@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastml
-%global packver   0.7.9
+%global packver   0.7.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.9
+Version:          0.7.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Guarded Resampling Workflows for Safe and Automated Machine Learning in R
+Summary:          Guarded Resampling Workflows for Leakage-Aware Machine Learning in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-xgboost >= 1.7.8
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-dplyr 
@@ -44,7 +45,7 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-xgboost >= 1.7.8
 Requires:         R-stats 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-dplyr 
@@ -72,7 +73,6 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-xgboost 
 
 %description
 Provides a guarded resampling workflow for training and evaluating

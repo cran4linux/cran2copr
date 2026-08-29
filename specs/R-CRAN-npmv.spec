@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npmv
-%global packver   2.4.1
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Comparison of Multivariate Samples
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pseudorank 
 Requires:         R-CRAN-Formula 
 Requires:         R-methods 
+Requires:         R-CRAN-pseudorank 
 
 %description
 Performs analysis of one-way multivariate data, for small samples using

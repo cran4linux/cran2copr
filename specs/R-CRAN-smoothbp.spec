@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smoothbp
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Piecewise Regression with Smoothed Change-Points
 
@@ -40,7 +40,8 @@ Posterior inference uses a Metropolis-within-Gibbs sampler implemented in
 'Rust' for speed. Methods are based on the smooth transition piecewise
 regression model of Bacon and Watts (1971) <doi:10.2307/2334389> and
 variable selection spike-and-slab priors of Kuo and Mallick (1998)
-<https://www.jstor.org/stable/25053023>.
+<https://www.jstor.org/stable/25053023>. Methods are described in Bindoff
+(2026) <doi:10.48550/arXiv.2606.19044>.
 
 %prep
 %setup -q -c -n %{packname}

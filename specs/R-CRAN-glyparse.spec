@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glyparse
-%global packver   0.7.1
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parsing Glycan Structure Text Representations
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glyrepr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-glyrepr >= 0.12.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,8 +26,8 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstackdeque 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-glyrepr >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-glyrepr >= 0.12.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -40,8 +40,9 @@ Requires:         R-CRAN-stringr
 Provides functions to parse glycan structure text representations into
 'glyrepr' glycan structures. Currently, it supports StrucGP-style,
 pGlyco-style, IUPAC-condensed, IUPAC-extended, IUPAC-short, IUPAC-compact,
-WURCS, LINUCS, Linear Code, GlycoCT, and KCF format. It also provides an
-automatic parser to detect the format and parse the structure string.
+WURCS, LINUCS, Linear Code, GlycoCT, KCF, and GlycoWorkbench formats. It
+also provides an automatic parser to detect the format and parse the
+structure string.
 
 %prep
 %setup -q -c -n %{packname}

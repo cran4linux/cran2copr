@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rwavelet
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wavelet Analysis
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-signal 
 Requires:         R-CRAN-signal 
@@ -22,9 +23,9 @@ Requires:         R-CRAN-signal
 %description
 Perform wavelet analysis (orthogonal,translation invariant, tensorial,
 1-2-3d transforms, thresholding, block thresholding, linear,...) with
-applications to data compression or denoising/regression. The core of the
-code is a port of 'MATLAB' Wavelab toolbox written by D. Donoho, A. Maleki
-and M. Shahram (<https://statweb.stanford.edu/~wavelab/>).
+applications to data compression, denoising/regression or clustering. The
+core of the code is a port of 'MATLAB' Wavelab toolbox written by D.
+Donoho, A. Maleki and M. Shahram.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +35,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

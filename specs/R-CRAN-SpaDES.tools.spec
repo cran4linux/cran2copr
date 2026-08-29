@@ -1,41 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modEvA
-%global packver   3.46
+%global packname  SpaDES.tools
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.46
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Evaluation and Analysis
+Summary:          Additional Tools for Developing Spatially Explicit Discrete Event Simulation (SpaDES) Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-terra > 1.5.50
-BuildRequires:    R-CRAN-effectsize 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-reproducible >= 2.1.3
+BuildRequires:    R-CRAN-checkmate >= 1.8.2
+BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-fpCompare >= 0.2.1
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-terra > 1.5.50
-Requires:         R-CRAN-effectsize 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-reproducible >= 2.1.3
+Requires:         R-CRAN-checkmate >= 1.8.2
+Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-CRAN-fpCompare >= 0.2.1
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-backports 
 Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
-Analyses species distribution models and evaluates their performance. It
-includes functions for variation partitioning, extracting variable
-importance, computing several metrics of model discrimination and
-calibration performance, optimizing prediction thresholds based on a
-number of criteria, performing multivariate environmental similarity
-surface (MESS) analysis, and displaying various analytical plots.
-Initially described in Barbosa et al. (2013) <doi:10.1111/ddi.12100>.
+Provides GIS and map utilities, plus additional modeling tools for
+developing cellular automata, dynamic raster models, and agent based
+models in 'SpaDES'.  Included are various methods for spatial spreading,
+spatial agents, GIS operations, random map generation, and others.  See
+'?SpaDES.tools' for a categorized overview of these additional tools.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rstudiothemes
-%global packver   1.2.0
+%global packname  DSIR
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create and Install Custom 'RStudio' Themes
+Summary:          Data Science Infrastructure for Global Health
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,35 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-flextable >= 0.9.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-sass 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-flextable >= 0.9.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-sass 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 
 %description
-Create, convert and install custom 'RStudio' editor themes from 'Visual
-Studio Code', 'Positron' and 'TextMate' theme files. Convert themes
-between 'TextMate', 'Visual Studio Code' and 'Positron' formats and
-install bundled ports of popular themes for use in 'RStudio'. Inspect
-theme files as tabular data for custom conversion workflows.
+Supports global health data analysis, including a publication-ready
+'ggplot2' theme, a 'flextable' defaults helper, a thin pie chart wrapper,
+built-in regional country-code datasets with a WHO region lookup helper, a
+geometric mean function for indicator aggregation, an average annual rate
+of reduction function for indicator progress tracking, direct age
+standardization against the bundled WHO World Standard Population, period
+life-table construction, a snapshot helper for reproducible data pulls,
+and convenience clients for the World Health Organization Global Health
+Observatory (GHO) OData API <https://ghoapi.azureedge.net/api/> and the
+United Nations Sustainable Development Goals (SDG) API
+<https://unstats.un.org/SDGAPI/swagger/>.
 
 %prep
 %setup -q -c -n %{packname}

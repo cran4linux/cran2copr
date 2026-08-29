@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extrafrail
-%global packver   1.14
+%global packver   1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14
+Version:          1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Additional Tools for Alternative Shared Frailty Models
 
@@ -32,15 +32,16 @@ Requires:         R-CRAN-msm
 Provide estimation and data generation tools for new multivariate frailty
 models. This version includes the gamma, inverse Gaussian, weighted
 Lindley, Birnbaum-Saunders, truncated normal, mixture of inverse Gaussian,
-mixture of Birnbaum-Saunders, generalized exponential and
-Jorgensen-Seshadri-Whitmore as the distribution for frailty terms. For the
-basal model, it is considered a parametric approach based on the
-exponential, Weibull and the piecewise exponential distributions as well
-as a semiparametric approach. For details, see Gallardo et al. (2024)
-<doi:10.1007/s11222-024-10458-w>, Gallardo et al. (2025)
-<doi:10.1002/bimj.70044>, Kiprotich et al. (2025)
-<doi:10.1177/09622802251338984> and Gallardo et al. (2025)
-<doi:10.1038/s41598-025-15903-y>.
+mixture of Birnbaum-Saunders, generalized exponential,
+Jorgensen-Seshadri-Whitmore, weighted Akash, weighted Shanker and weighted
+Sujatha as the distribution for frailty terms. For the basal model, it is
+considered a parametric approach based on the exponential, Weibull and the
+piecewise exponential distributions as well as a semiparametric approach.
+For details, see Gallardo et al. (2024) <doi:10.1007/s11222-024-10458-w>,
+Gallardo et al. (2025) <doi:10.1002/bimj.70044>, Kiprotich et al. (2025)
+<doi:10.1177/09622802251338984>, Gallardo et al. (2025)
+<doi:10.1038/s41598-025-15903-y>, Kiprotich et al. (2026)
+<doi:10.1080/00949655.2025.2584734 and Mohammadi et al. (2026).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,53 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LABTNSCPSS
-%global packver   1.0.2
+%global packname  CMTFtoolbox
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of Comorbidity and Frailty Scores
+Summary:          Create (Advanced) Coupled Matrix and Tensor Factorization Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mize 
+BuildRequires:    R-CRAN-multiway 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
+Requires:         R-methods 
+Requires:         R-CRAN-mize 
+Requires:         R-CRAN-multiway 
+Requires:         R-parallel 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-rTensor 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-glue 
 
 %description
-Computes comorbidity indices and combined frailty scores for multiple ICD
-coding systems, including ICD-10-CA, ICD-10-CM, and ICD-11. The package
-provides tools to preprocess episode data, map diagnosis codes to chronic
-categories, propagate conditions across episodes, and generate comorbidity
-and frailty measures. The methods implemented are original to this package
-and were developed by the authors for research applications; a manuscript
-describing the methodology is currently in preparation.
+Creation and selection of (Advanced) Coupled Matrix and Tensor
+Factorization (ACMTF) and ACMTF-Regression (ACMTF-R) models. Selection of
+the optimal number of components can be done using
+'ACMTF_modelSelection()' and 'ACMTFR_modelSelection()'. The CMTF and ACMTF
+methods were originally described by Acar et al., 2011
+<doi:10.48550/arXiv.1105.3422> and Acar et al., 2014
+<doi:10.1186/1471-2105-15-239>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

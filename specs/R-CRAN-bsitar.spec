@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bsitar
-%global packver   0.3.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Super Imposition by Translation and Rotation Growth Curve Analysis
 
@@ -17,30 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-loo >= 2.7.0
 BuildRequires:    R-CRAN-Rdpack >= 2.6.6
 BuildRequires:    R-CRAN-rstan >= 2.32.7
 BuildRequires:    R-CRAN-brms >= 2.23.0
-BuildRequires:    R-CRAN-collapse >= 2.1.6
-BuildRequires:    R-CRAN-sitar >= 1.5.0
-BuildRequires:    R-CRAN-insight >= 1.4.6
-BuildRequires:    R-CRAN-dplyr >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.18.0
+BuildRequires:    R-CRAN-loo >= 2.10.1
+BuildRequires:    R-CRAN-collapse >= 2.1.7
+BuildRequires:    R-CRAN-insight >= 1.5.3
+BuildRequires:    R-CRAN-dplyr >= 1.2.1
+BuildRequires:    R-CRAN-data.table >= 1.18.6.1
 BuildRequires:    R-CRAN-rlang >= 1.1.2
 BuildRequires:    R-CRAN-marginaleffects >= 0.32.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-loo >= 2.7.0
 Requires:         R-CRAN-Rdpack >= 2.6.6
 Requires:         R-CRAN-rstan >= 2.32.7
 Requires:         R-CRAN-brms >= 2.23.0
-Requires:         R-CRAN-collapse >= 2.1.6
-Requires:         R-CRAN-sitar >= 1.5.0
-Requires:         R-CRAN-insight >= 1.4.6
-Requires:         R-CRAN-dplyr >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.18.0
+Requires:         R-CRAN-loo >= 2.10.1
+Requires:         R-CRAN-collapse >= 2.1.7
+Requires:         R-CRAN-insight >= 1.5.3
+Requires:         R-CRAN-dplyr >= 1.2.1
+Requires:         R-CRAN-data.table >= 1.18.6.1
 Requires:         R-CRAN-rlang >= 1.1.2
 Requires:         R-CRAN-marginaleffects >= 0.32.0
 Requires:         R-CRAN-magrittr 

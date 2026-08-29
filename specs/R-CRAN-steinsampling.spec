@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  steinsampling
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel Stein Discrepancy Goodness-of-Fit and Stein Sampling Tools
+Summary:          Kernelized Stein Discrepancy for Goodness-of-Fit Tests and Stein Sampling
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,12 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm >= 0.9.9994
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm >= 0.9.9994
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-mvtnorm 
 
 %description
 Provides Stein-discrepancy goodness-of-fit tests and Stein-method-based
@@ -37,7 +35,8 @@ variational gradient descent following Riabiz et al. (2022)
 <doi:10.48550/arXiv.1803.10161>, Chen et al. (2019)
 <doi:10.48550/arXiv.1905.03673>, and Liu and Wang (2016)
 <doi:10.48550/arXiv.1608.04471>. Gaussian mixture utilities are included
-for simulation, likelihoods, posterior probabilities, scores, and plots.
+for constructing example targets, simulation, density evaluation, and
+score callbacks.
 
 %prep
 %setup -q -c -n %{packname}

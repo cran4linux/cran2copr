@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  episensr
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Sensitivity Analysis of Epidemiological Results
 
@@ -24,12 +24,12 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dagitty 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggdag 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-trapezoid 
 BuildRequires:    R-CRAN-triangle 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-actuar 
 Requires:         R-CRAN-boot 
@@ -37,12 +37,12 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-dagitty 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggdag 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-trapezoid 
 Requires:         R-CRAN-triangle 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
 
 %description
 Basic sensitivity analysis of the observed relative risks adjusting for
