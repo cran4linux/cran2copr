@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sstn
-%global packver   1.0.2
+%global packname  PaddleOCR
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Similarity Test for Normality
+Summary:          R Client for the 'PaddleOCR' Cloud API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Implements the Self-Similarity Test for Normality (SSTN), a new
-statistical test designed to assess whether a given sample originates from
-a normal distribution. The method exploits the self-similarity property of
-the normal characteristic function by iteratively transforming and
-comparing standardized empirical characteristic functions. The null
-distribution of the test statistic is obtained via Monte Carlo simulation.
-Details of the methodology are described in Anarat and Schwender (2026),
-"A test for normality based on self-similarity",
-<doi:10.48550/arXiv.2604.03810>.
+An R client for the 'PaddleOCR' cloud service API
+<https://www.paddleocr.ai/latest/en/version3.x/inference_deployment/serving/paddleocr_official_api/overview.html>.
+Submit images, PDFs, or URLs for OCR processing using models like
+'PaddleOCR-VL-1.6'. Supports job submission, polling, result retrieval,
+automatic image download, and streaming PDF-to-markdown conversion with
+batch processing.
 
 %prep
 %setup -q -c -n %{packname}

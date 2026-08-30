@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GetFREData
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reading FRE Corporate Data of Public Traded Companies from B3
 
@@ -22,10 +22,8 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-GetDFPData2 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cli 
@@ -38,10 +36,8 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-XML 
 Requires:         R-CRAN-GetDFPData2 
 Requires:         R-utils 
 Requires:         R-CRAN-cli 

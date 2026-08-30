@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PNC
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phylogenetic Niche Conservatism Analysis for Ecological Communities
+Summary:          Evaluating Phylogeny as a Proxy for Ecological Similarity
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,23 +18,31 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-geiger 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-phytools 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-geiger 
 
 %description
-Provides functions for testing phylogenetic niche conservatism, a key
-prerequisite in community assembly studies. The package integrates global
-functional trait data across major taxonomic groups and implements methods
-such as Pagel's Lambda and Blomberg's K to quantify phylogenetic signals
-in ecological communities. Methods are described in Münkemüller et al.
-(2012) <doi:10.1111/j.2041-210X.2012.00196.x>.
+Provides a trait-based workflow for evaluating whether phylogenetic
+relatedness is informative about similarity in measured quantitative
+traits within focal species pools and across multiple communities.
+Functions support trait data integration, taxon-specific trait extraction,
+coverage assessment, optional principal component analysis, and estimation
+of phylogenetic signal using Pagel's lambda or Blomberg's K. Curated
+quantitative trait datasets are included for plants, birds, mammals,
+reptiles, amphibians, and fishes. Paired simulations assess how observed
+patterns of missing trait data affect Pagel's lambda estimates and
+significance classifications for individual traits. Methods for
+quantifying phylogenetic signal are based on Pagel (1999)
+<doi:10.1038/44766>, Blomberg et al. (2003)
+<doi:10.1111/j.0014-3820.2003.tb00285.x>, and Münkemüller et al. (2012)
+<doi:10.1111/j.2041-210X.2012.00196.x>.
 
 %prep
 %setup -q -c -n %{packname}

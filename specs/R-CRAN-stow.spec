@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sstn
-%global packver   1.0.2
+%global packname  stow
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Similarity Test for Normality
+Summary:          Durable Managed Local Copies of Remote Files
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
 
 %description
-Implements the Self-Similarity Test for Normality (SSTN), a new
-statistical test designed to assess whether a given sample originates from
-a normal distribution. The method exploits the self-similarity property of
-the normal characteristic function by iteratively transforming and
-comparing standardized empirical characteristic functions. The null
-distribution of the test statistic is obtained via Monte Carlo simulation.
-Details of the methodology are described in Anarat and Schwender (2026),
-"A test for normality based on self-similarity",
-<doi:10.48550/arXiv.2604.03810>.
+Turns remote file URLs into paths to durable managed local copies stored
+in a fixed subdirectory of platform-appropriate, package-specific user
+data directories. Matching copies are reused across R sessions and remain
+available for offline use. Supports optional ETag-based versions, content
+validation, and staged replacement that prevents failed downloads and
+files that fail a supplied validator from becoming managed local copies.
+Includes tools to inspect, conservatively prune, and explicitly remove
+retained copies.
 
 %prep
 %setup -q -c -n %{packname}

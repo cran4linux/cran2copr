@@ -1,32 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tgstat
-%global packver   2.4.0
+%global packname  gganime
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Amos Tanay's Group High Performance Statistical Utilities
+Summary:          Animate 'ggplot2' Plots with 'Anime.js'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
+BuildRequires:    R-CRAN-gridSVG >= 1.7.5
+BuildRequires:    R-CRAN-animejs >= 1.1.0
+BuildRequires:    R-CRAN-gganimate >= 1.0.11
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-ggplot2 >= 4.0.0
+Requires:         R-CRAN-gridSVG >= 1.7.5
+Requires:         R-CRAN-animejs >= 1.1.0
+Requires:         R-CRAN-gganimate >= 1.0.11
+Requires:         R-CRAN-cli 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-A collection of high performance utilities to compute distance,
-correlation, auto correlation, clustering and other tasks. Contains graph
-clustering algorithm described in "MetaCell: analysis of single-cell
-RNA-seq data using K-nn graph partitions" (Yael Baran, Akhiad Bercovich,
-Arnau Sebe-Pedros, Yaniv Lubling, Amir Giladi, Elad Chomsky, Zohar Meir,
-Michael Hoichman, Aviezer Lifshitz & Amos Tanay, 2019
-<doi:10.1186/s13059-019-1812-2>).
+Renders 'ggplot2' plots written with 'gganimate' syntax as animated
+Scalable Vector Graphics (SVG) drawn in the browser by the 'Anime.js'
+JavaScript library (<https://animejs.com>), through the 'animejs' package.
+The result is a single self-contained, resolution-independent 'htmlwidget'
+with one timeline over the plot's elements.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  UBStats
-%global packver   0.3.0
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Statistics
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
@@ -27,10 +27,13 @@ Requires:         R-grDevices
 Requires:         R-stats 
 
 %description
-Basic statistical analyses. The package has been developed to be used in
-statistics courses at Bocconi University (Milan, Italy). Currently, the
-package includes some exploratory and inferential analyses usually
-presented in introductory statistics courses.
+Basic statistical analyses. The package provides comprehensive functions
+and datasets for teaching introductory statistics courses. It has been
+developed to be used in undergraduate statistics courses at Bocconi
+University (Milan, Italy), and constitutes the core software tool used
+throughout the textbook by Piccarreta, R., Tonini, D., & Trentini, F.
+(2026) "From Data to Decisions. An Introduction to Applied Statistics",
+BUP, ISBN:9788823824096.
 
 %prep
 %setup -q -c -n %{packname}

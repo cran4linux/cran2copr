@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitdistrBayes
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Objective Bayesian Distribution Fitting
 
@@ -21,12 +21,14 @@ BuildArch:        noarch
 %description
 Fits common univariate distributions using registered objective Bayesian
 priors, including Jeffreys, reference, and maximal data information
-priors. Model-specific posterior propriety and moment conditions are
-checked before computation. Exact simulation, marginalization, slice
-sampling, and adaptive Metropolis algorithms are selected from posterior
-structure, with a common interface for summaries, diagnostics, prediction,
-and pointwise log-likelihood evaluation. The reference-prior framework
-follows Bernardo (1979) <doi:10.1111/j.2517-6161.1979.tb01066.x>.
+priors, and supports user-defined distributions and priors through an
+extensible model specification. Model-specific posterior propriety and
+moment conditions are checked before computation when registered or
+supplied. Exact simulation, marginalization, slice sampling, adaptive
+Metropolis, and user-supplied posterior samplers share a common interface
+for summaries, diagnostics, prediction, and pointwise log-likelihood
+evaluation. The reference-prior framework follows Bernardo (1979)
+<doi:10.1111/j.2517-6161.1979.tb01066.x>.
 
 %prep
 %setup -q -c -n %{packname}

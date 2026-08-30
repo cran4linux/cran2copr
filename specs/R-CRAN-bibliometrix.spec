@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bibliometrix
-%global packver   5.4.1
+%global packver   5.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.4.1
+Version:          5.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -95,8 +95,8 @@ for importing bibliographic data from 'SCOPUS', 'Clarivate Analytics Web
 of Science' (<https://www.webofknowledge.com/>), 'Digital Science
 Dimensions' (<https://www.dimensions.ai/>), 'OpenAlex'
 (<https://openalex.org/>), 'Cochrane Library'
-(<https://www.cochranelibrary.com/>), 'Lens' (<https://lens.org>), and
-'PubMed' (<https://pubmed.ncbi.nlm.nih.gov/>) databases, performing
+(<https://www.cochranelibrary.com/>), 'Lens' (<https://www.lens.org/>),
+and 'PubMed' (<https://pubmed.ncbi.nlm.nih.gov/>) databases, performing
 bibliometric analysis and building networks for co-citation, coupling,
 scientific collaboration and co-word analysis.
 

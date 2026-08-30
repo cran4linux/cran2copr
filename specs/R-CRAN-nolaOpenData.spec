@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sstn
-%global packver   1.0.2
+%global packname  nolaOpenData
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Similarity Test for Normality
+Summary:          A Lightweight Interface to New Orleans Open Data APIs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Implements the Self-Similarity Test for Normality (SSTN), a new
-statistical test designed to assess whether a given sample originates from
-a normal distribution. The method exploits the self-similarity property of
-the normal characteristic function by iteratively transforming and
-comparing standardized empirical characteristic functions. The null
-distribution of the test statistic is obtained via Monte Carlo simulation.
-Details of the methodology are described in Anarat and Schwender (2026),
-"A test for normality based on self-similarity",
-<doi:10.48550/arXiv.2604.03810>.
+Provides a unified set of helper functions to access datasets from the New
+Orleans Open Data platform <https://data.nola.gov/>. Functions return
+results as tidy tibbles and support optional filtering, sorting, and row
+limits via the Socrata API. The package provides a consistent interface
+for discovering and downloading datasets from the San Francisco Open Data
+Portal using human-readable dataset keys or official Socrata dataset
+identifiers.
 
 %prep
 %setup -q -c -n %{packname}

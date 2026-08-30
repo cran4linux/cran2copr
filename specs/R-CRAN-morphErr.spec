@@ -1,41 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minex
-%global packver   0.2.0
+%global packname  morphErr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatically Reduce Failing R Scripts to a Minimal Reproducible Example
+Summary:          Measurement Error Models for Morphometric Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lmeInfo 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-callr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lmeInfo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-nlme 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Shrinks a failing R script to the smallest subset of statements that still
-triggers the same error, using the delta debugging algorithm of Zeller and
-Hildebrandt (2002) <doi:10.1109/32.988498>. Each candidate reduction is
-evaluated in a separate R process, so dependencies between statements and
-their side effects are respected. The result is a one-minimal example, in
-which removing any remaining statement makes the error disappear; this is
-the form most useful for bug reports and for questions on community
-forums. When no statement can be removed, because the failure is nested
-inside a function body, reduction continues within the surviving
-statements. A general delta debugging routine and a helper for reducing
-data frames to the rows that reproduce a failure are also provided.
+Morphometric data collected on animal populations can be subject to
+measurement error, which leads to biased estimators using line-fitting
+techniques such as linear regression and reduced major axis. The models
+implemented in this package were described by Stevenson, Smit, and
+Setyawan (2026) <DOI:10.1214/26-AOAS2164>. They explicitly accommodate
+measurement error, allow for multivariate data, estimate relationships
+between dimensions, allow missing data, and provide tests for isometric
+relationships between dimensions. Morphometric data of the reef manta ray,
+collected in Raja Ampat, Indonesia, are included.
 
 %prep
 %setup -q -c -n %{packname}

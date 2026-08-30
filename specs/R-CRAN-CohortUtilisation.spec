@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sstn
-%global packver   1.0.2
+%global packname  CohortUtilisation
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Similarity Test for Normality
+Summary:          Healthcare Resource Utilization on OMOP CDM Cohorts
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-dbplyr >= 2.4.0
+BuildRequires:    R-CRAN-CDMConnector >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.3.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-dbplyr >= 2.4.0
+Requires:         R-CRAN-CDMConnector >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-omopgenerics >= 0.3.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
 
 %description
-Implements the Self-Similarity Test for Normality (SSTN), a new
-statistical test designed to assess whether a given sample originates from
-a normal distribution. The method exploits the self-similarity property of
-the normal characteristic function by iteratively transforming and
-comparing standardized empirical characteristic functions. The null
-distribution of the test statistic is obtained via Monte Carlo simulation.
-Details of the methodology are described in Anarat and Schwender (2026),
-"A test for normality based on self-similarity",
-<doi:10.48550/arXiv.2604.03810>.
+In-database healthcare resource utilization (HCRU) extraction across
+inpatient, emergency, outpatient, pharmacy, and procedure domains for
+Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM)
+cohorts following DARWIN EU standards.
 
 %prep
 %setup -q -c -n %{packname}

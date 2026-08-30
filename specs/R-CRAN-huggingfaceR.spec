@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huggingfaceR
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access 'Hugging Face' Models and Datasets
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 Access models and datasets hosted on the 'Hugging Face' Hub through its

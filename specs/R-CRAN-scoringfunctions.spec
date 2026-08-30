@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scoringfunctions
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Loss Functions for Assessing Point Forecasts
+Summary:          Loss Functions for Assessing Point Forecasts
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,10 +19,13 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 
 %description
-Implements multiple consistent scoring functions (Gneiting T (2011)
-<doi:10.1198/jasa.2011.r10138>) for assessing point forecasts and point
-predictions. Detailed documentation of scoring functions' properties is
-included for facilitating interpretation of results.
+Implements consistent loss functions and the corresponding identification
+functions for point forecasts, including those of the mean, the median,
+quantiles, expectiles, moments and Huber functionals (Gneiting T (2011)
+<doi:10.1198/jasa.2011.r10138>; Fissler T, Ziegel JF (2016)
+<doi:10.1214/16-AOS1439>). Pointwise losses and realised average scores
+are both available. Detailed documentation of the functions' properties is
+included for facilitating the interpretation of results.
 
 %prep
 %setup -q -c -n %{packname}

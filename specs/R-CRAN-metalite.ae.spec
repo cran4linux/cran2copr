@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metalite.ae
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adverse Events Analysis Using 'metalite'
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-metalite 
 BuildRequires:    R-CRAN-r2rtf 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gt 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-metalite 
 Requires:         R-CRAN-r2rtf 
 Requires:         R-stats 
+Requires:         R-CRAN-gt 
 
 %description
 Analyzes adverse events in clinical trials using the 'metalite' data

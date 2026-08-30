@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sstn
-%global packver   1.0.2
+%global packname  aiEvalR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Self-Similarity Test for Normality
+Summary:          Statistical and Psychometric Evaluation of AI Systems
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Implements the Self-Similarity Test for Normality (SSTN), a new
-statistical test designed to assess whether a given sample originates from
-a normal distribution. The method exploits the self-similarity property of
-the normal characteristic function by iteratively transforming and
-comparing standardized empirical characteristic functions. The null
-distribution of the test statistic is obtained via Monte Carlo simulation.
-Details of the methodology are described in Anarat and Schwender (2026),
-"A test for normality based on self-similarity",
-<doi:10.48550/arXiv.2604.03810>.
+Evaluates artificial intelligence (AI) systems as measurement instruments
+using psychometric methods. Provides multi-facet generalizability theory
+(G-study and D-study) via 'lme4', reliability via the intraclass
+correlation coefficient (ICC), calibration via the expected calibration
+error (ECE) and Brier score, robustness stress testing, and group
+disparity diagnostics. Item-level differential item functioning (DIF)
+based on item response theory (IRT) is delegated to the 'aiDIF' package.
+Methods follow Cronbach, Gleser, Nanda and Rajaratnam (1972,
+<ISBN:9780471188506>) and Brennan (2001) <doi:10.1007/978-1-4757-3456-0>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minex
-%global packver   0.2.0
+%global packname  EasyPCA
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatically Reduce Failing R Scripts to a Minimal Reproducible Example
+Summary:          Principal Component Analysis with Automated Interpretation and Visualization
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggcorrplot 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-factoextra 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-callr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggcorrplot 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-factoextra 
 Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-utils 
 
 %description
-Shrinks a failing R script to the smallest subset of statements that still
-triggers the same error, using the delta debugging algorithm of Zeller and
-Hildebrandt (2002) <doi:10.1109/32.988498>. Each candidate reduction is
-evaluated in a separate R process, so dependencies between statements and
-their side effects are respected. The result is a one-minimal example, in
-which removing any remaining statement makes the error disappear; this is
-the form most useful for bug reports and for questions on community
-forums. When no statement can be removed, because the failure is nested
-inside a function body, reduction continues within the surviving
-statements. A general delta debugging routine and a helper for reducing
-data frames to the rows that reproduce a failure are also provided.
+Provides an automated workflow for Principal Component Analysis (PCA) that
+simplifies multivariate data analysis by performing essential
+preprocessing, statistical tests, component extraction, and visualization
+in a single function call. The package automatically standardizes
+variables, computes correlation matrices, performs Kaiser-Meyer-Olkin
+(KMO) and Bartlett's tests, determines the optimal number of principal
+components using multiple selection criteria, generates component loadings
+and scores, and produces publication-ready tables and graphical outputs
+for researchers and students. Methodological background is described in
+Shankar et al. (2024) <doi:10.1007/s12665-024-11985-5>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dexisensitivity
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DEXi' Decision Tree Analysis and Visualization
 
@@ -54,8 +54,8 @@ table plot, aiding in the efficient comparison of scenarios. Whether for
 in-depth decision modeling or sensitivity analysis, this package stands as
 a comprehensive solution. Definition of sensitivity analyses available in
 Carpani, Bergez and Monod (2012) <doi:10.1016/j.envsoft.2011.10.002> and
-detailed description of the package soon available in Alaphilippe et al.
-(2025) <doi:10.1016/j.simpa.2024.100729>.
+detailed description of the package available in Alaphilippe et al. (2025)
+<doi:10.1016/j.simpa.2024.100729>.
 
 %prep
 %setup -q -c -n %{packname}

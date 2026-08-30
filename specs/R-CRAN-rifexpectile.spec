@@ -1,52 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gsDesign
-%global packver   3.11.0
+%global packname  rifexpectile
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Sequential Design
+Summary:          Density-Free RIF Decompositions for Unconditional Expectiles
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-r2rtf 
-BuildRequires:    R-CRAN-rlang 
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-ggplot2 >= 3.1.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-graphics 
-Requires:         R-CRAN-gt 
-Requires:         R-methods 
-Requires:         R-CRAN-r2rtf 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-CRAN-xtable 
+Requires:         R-graphics 
 
 %description
-Derives group sequential clinical trial designs and describes their
-properties. Particular focus on time-to-event, binary, and continuous
-outcomes. Largely based on methods described in Jennison, Christopher and
-Turnbull, Bruce W., 2000, "Group Sequential Methods with Applications to
-Clinical Trials" ISBN: 0-8493-0316-8.
+Implements a density-free recentered influence function (RIF) regression
+framework for unconditional expectiles, and embeds it in a two-sample
+Oaxaca-Blinder decomposition indexed continuously by the expectile level.
+Unlike quantile-based RIF decompositions, which require estimating an
+inverse density term at each quantile, the expectile RIF depends only on
+primitive moments of the outcome distribution and requires no density
+estimation, no bandwidth selection, and no kernel smoothing. The package
+provides expectile estimation by iteratively reweighted least squares,
+closed-form RIF construction, two-sample composition/structure
+decomposition across a grid of expectile levels, bootstrap-based
+inference, and plotting methods. The underlying methodology is described
+in Ndoye (2025), "Semi-Nonparametric Expectile RIF Regression for
+Distributional Decomposition," presented at the 2025 World Congress of the
+Econometric Society, Seoul, Korea,
+<https://www.econometricsociety.org/regional-activities/conference-papers/view/282/943>.
 
 %prep
 %setup -q -c -n %{packname}

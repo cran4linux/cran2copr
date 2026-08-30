@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ipeval
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluation of Interventional Predictions
+Summary:          Interventional Prediction Evaluation
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-nnet 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-nnet 
 
 %description
 Provides methods to evaluate predictive performance of models that
@@ -33,11 +35,11 @@ weighting (IPTW) is used to construct a pseudopopulation in which all
 individuals receive a specified intervention, enabling assessment of
 agreement between predicted risks under the intervention and observed
 outcomes in the pseudo-population corresponding to that intervention.
-Package supports binary and time-to-event outcomes under binary
-interventions made at a single time point. Performance measures supported
-are AUC (Area Under the receiving operating characteristic Curve), Brier
-score, observed-expected ratio, and calibration plots. Methods implemented
-in this package are based on work by Keogh and Van Geloven (2024)
+Supports interventions with binary or categorical treatment levels,
+applied at a single time point. Performance measures supported are AUC
+(Area Under the receiving operating characteristic Curve), Brier score,
+observed-expected ratio, and calibration plots. Methods implemented in
+this package are based on work by Keogh and Van Geloven (2024)
 <DOI:10.1097/EDE.0000000000001713>.
 
 %prep

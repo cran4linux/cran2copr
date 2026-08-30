@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidydann
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add the 'dann' Model and the 'sub_dann' Model to the Tidymodels Ecosystem
+Summary:          Add the 'dann' Model and the 'sub_dann' Model to the 'tidymodels' Ecosystem
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dann >= 1.3.0
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dann >= 1.3.0
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides model specifications, tuning parameters for models in 'dann'
-package. Models based on Hastie (1996)
+Provides model specifications and tuning parameters that make the models
+in the 'dann' package available to the 'tidymodels' ecosystem. Models
+based on Hastie (1996)
 <https://web.stanford.edu/~hastie/Papers/dann_IEEE.pdf>.
 
 %prep

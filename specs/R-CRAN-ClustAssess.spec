@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClustAssess
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Assessing Clustering
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-qualpalr >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
@@ -29,7 +30,6 @@ BuildRequires:    R-CRAN-ggnewscale
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrastr 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-gprofiler2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-jsonlite 
@@ -39,7 +39,6 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-paletteer 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-qualpalr 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
@@ -51,9 +50,11 @@ BuildRequires:    R-CRAN-shinyWidgets
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-vioplot 
+BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-qualpalr >= 1.0.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
@@ -66,7 +67,6 @@ Requires:         R-CRAN-ggnewscale
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrastr 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-gprofiler2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-jsonlite 
@@ -76,7 +76,6 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-paletteer 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-qualpalr 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
@@ -88,6 +87,7 @@ Requires:         R-CRAN-shinyWidgets
 Requires:         R-utils 
 Requires:         R-CRAN-uwot 
 Requires:         R-CRAN-vioplot 
+Requires:         R-CRAN-zip 
 
 %description
 A set of tools for evaluating clustering robustness using proportion of

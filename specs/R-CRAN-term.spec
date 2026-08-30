@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  term
-%global packver   0.3.7
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Manipulate and Query Parameter Terms
 
@@ -17,20 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-vctrs >= 0.4.0
 BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-extras 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-universals 
-BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-vctrs >= 0.4.0
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-extras 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-universals 
-Requires:         R-CRAN-vctrs 
 
 %description
 Creates, manipulates, queries and repairs vectors of parameter terms.

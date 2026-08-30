@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tabxplor
-%global packver   1.3.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly Tables with Color Helpers for Data Exploration
 
@@ -17,52 +17,53 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-nnet >= 7.3.0
+BuildRequires:    R-CRAN-MASS >= 7.3.0
 BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-survey >= 3.0
 BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-pillar >= 1.6.0
-BuildRequires:    R-CRAN-magrittr >= 1.5.0
-BuildRequires:    R-CRAN-stringi >= 1.4.6
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-crayon >= 1.3.0
-BuildRequires:    R-CRAN-kableExtra >= 1.3.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.3
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-DescTools >= 0.99.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-forcats >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-CRAN-vctrs >= 0.3.0
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-nnet >= 7.3.0
+Requires:         R-CRAN-MASS >= 7.3.0
 Requires:         R-stats >= 4.0.0
 Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-survey >= 3.0
 Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-pillar >= 1.6.0
-Requires:         R-CRAN-magrittr >= 1.5.0
-Requires:         R-CRAN-stringi >= 1.4.6
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-crayon >= 1.3.0
-Requires:         R-CRAN-kableExtra >= 1.3.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.3
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-DescTools >= 0.99.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-forcats >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-CRAN-vctrs >= 0.3.0
+Requires:         R-utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-grid 
 
 %description
 Make it easy to deal with multiple cross-tables in data exploration, by
 creating them, manipulating them, and adding color helpers to highlight
-important informations (differences from totals, comparisons between lines
-or columns, contributions to variance, confidence intervals, odds ratios,
-etc.). All functions are pipe-friendly and render data frames which can be
-easily manipulated. In the same time, time-taking operations are done with
-'data.table' to go faster with big dataframes. Tables can be exported with
-formats and colors to 'Excel', plot and html.
+deviations (differences from totals, comparisons between lines or columns,
+contributions to variance, odds ratios, etc.) and significance (confidence
+intervals, stars, etc.). Create the same kind of tables for regression
+models, with a framework to compare model effects with their
+crude/observed counterpart systematically. All functions render data
+frames which can be easily manipulated. All tables can be exported with
+formats and colors to 'Excel', html and markdown.
 
 %prep
 %setup -q -c -n %{packname}
