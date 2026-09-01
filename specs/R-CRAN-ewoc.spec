@@ -1,43 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  noctua
-%global packver   2.6.3
+%global packname  ewoc
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to 'AWS Athena' using R 'AWS SDK' 'paws' ('DBI' Interface)
+Summary:          Escalation with Overdose Control
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.4
-BuildRequires:    R-CRAN-DBI >= 0.7
-BuildRequires:    R-CRAN-paws >= 0.2.0
-BuildRequires:    R-CRAN-uuid >= 0.1.4
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.12.4
-Requires:         R-CRAN-DBI >= 0.7
-Requires:         R-CRAN-paws >= 0.2.0
-Requires:         R-CRAN-uuid >= 0.1.4
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rjags >= 4.6
+BuildRequires:    R-graphics >= 3.3.1
+BuildRequires:    R-stats >= 3.3.1
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-CRAN-doRNG >= 1.7.1
+BuildRequires:    R-CRAN-foreach >= 1.4.3
+BuildRequires:    R-CRAN-Formula >= 1.2.1
+BuildRequires:    R-CRAN-doParallel >= 1.0.11
+BuildRequires:    R-CRAN-coda >= 0.18.1
+Requires:         R-CRAN-rjags >= 4.6
+Requires:         R-graphics >= 3.3.1
+Requires:         R-stats >= 3.3.1
+Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-CRAN-doRNG >= 1.7.1
+Requires:         R-CRAN-foreach >= 1.4.3
+Requires:         R-CRAN-Formula >= 1.2.1
+Requires:         R-CRAN-doParallel >= 1.0.11
+Requires:         R-CRAN-coda >= 0.18.1
 
 %description
-Designed to be compatible with the 'R' package 'DBI' (Database Interface)
-when connecting to Amazon Web Service ('AWS') Athena
-<https://aws.amazon.com/athena/>. To do this the 'R' 'AWS' Software
-Development Kit ('SDK') 'paws' <https://github.com/paws-r/paws> is used as
-a driver.
+An implementation of a variety of escalation with overdose control designs
+introduced by Babb, Rogatko and Zacks (1998)
+<doi:10.1002/(SICI)1097-0258(19980530)17:10%%3C1103::AID-SIM793%%3E3.0.CO;2-9>.
+It calculates the next dose as a clinical trial proceeds and performs
+simulations to obtain operating characteristics.
 
 %prep
 %setup -q -c -n %{packname}

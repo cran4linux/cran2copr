@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unsurv
-%global packver   0.5.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unsupervised Clustering of Individualized Survival Curves
 
@@ -29,8 +29,8 @@ Tools for clustering individualized survival curves using the Partitioning
 Around Medoids (PAM) algorithm, with monotonic enforcement, optional
 smoothing, weighted distances (L1/L2), automatic K selection via
 silhouette width, prediction for new curves, basic stability checks, and
-plotting helpers. The clustering strategy follows Kaufman and Rousseeuw
-(1990, ISBN:0471878766).
+plotting helpers. The method is described in El Badisy (2026)
+<doi:10.1093/bioadv/vbag218>.
 
 %prep
 %setup -q -c -n %{packname}

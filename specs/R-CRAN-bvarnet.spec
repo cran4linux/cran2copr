@@ -1,26 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bvarnet
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Estimation of Dynamic VAR Models using STAN
+Summary:          Bayesian Estimation of Dynamic VAR Models using Stan
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-instantiate 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-logspline 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-posterior 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-instantiate 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-logspline 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-posterior 

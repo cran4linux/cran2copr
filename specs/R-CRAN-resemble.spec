@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  resemble
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Similarity Retrieval and Local Learning for Spectral Chemometrics
 
@@ -37,7 +37,9 @@ search and selection, and retrieval-based modelling with model libraries.
 Supports local learning, optimisation of spectral libraries, and ensemble
 prediction from precomputed models. Most of these functions are based on
 the methods presented in Ramirez-Lopez et al. (2013)
-<doi:10.1016/j.geoderma.2012.12.014>.
+<doi:10.1016/j.geoderma.2012.12.014>, Ramirez-Lopez et al. (2026a)
+<doi:10.1016/j.aca.2026.345682>, and Ramirez-Lopez et al. (2026b)
+<doi:10.1016/j.aca.2026.345651>.
 
 %prep
 %setup -q -c -n %{packname}

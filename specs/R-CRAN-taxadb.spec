@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxadb
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A High-Performance Local Taxonomic Database Interface
+Summary:          A High-Performance Taxonomic Database Interface
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,8 +25,6 @@ BuildRequires:    R-CRAN-dbplyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-contentid 
-BuildRequires:    R-CRAN-memoise 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-duckdb 
 Requires:         R-CRAN-tibble 
@@ -35,12 +33,12 @@ Requires:         R-CRAN-dbplyr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-contentid 
-Requires:         R-CRAN-memoise 
 
 %description
-Creates a local database of many commonly used taxonomic authorities and
-provides functions that can quickly query this data.
+Provides fast access to many commonly used taxonomic authorities in a
+uniform Darwin Core format. Tables are read directly from versioned
+Parquet snapshots, streamed from cloud storage or from a local copy, and
+queried with familiar 'dplyr' verbs.
 
 %prep
 %setup -q -c -n %{packname}

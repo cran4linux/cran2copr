@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StepReg
-%global packver   1.6.6
+%global packver   1.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          1.6.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stepwise Regression Analysis
+Summary:          A Comprehensive and Intuitive R Package for Stepwise Regression Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,7 +45,8 @@ address potential issues with invalid statistical inference and a
 randomized forward selection option to avoid overfitting. We validated
 StepReg's accuracy using public datasets within the SAS software
 environment. For an interactive web interface, users can install the
-companion 'StepRegShiny' package.
+companion 'StepRegShiny' package. The methodology is described in Li et
+al. (2026) <doi:10.32614/RJ-2026-005>.
 
 %prep
 %setup -q -c -n %{packname}

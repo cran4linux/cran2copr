@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pre
-%global packver   1.0.9
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Rule Ensembles
 
@@ -23,26 +23,26 @@ BuildRequires:    R-CRAN-Formula
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MatrixModels 
+BuildRequires:    R-CRAN-rpart 
 Requires:         R-CRAN-partykit >= 1.2.0
 Requires:         R-CRAN-earth 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MatrixModels 
+Requires:         R-CRAN-rpart 
 
 %description
-Derives prediction rule ensembles (PREs). Largely follows the procedure
-for deriving PREs as described in Friedman & Popescu (2008;
+Fits prediction rule ensembles (PREs). Largely follows the procedure for
+deriving PREs as described in Friedman & Popescu (2008;
 <DOI:10.1214/07-AOAS148>), with adjustments and improvements described in
 Fokkema (2020; <DOI:10.18637/jss.v092.i12>) and Fokkema & Strobl (2020;
 <DOI:10.1037/met0000256>). The main function pre() derives prediction rule

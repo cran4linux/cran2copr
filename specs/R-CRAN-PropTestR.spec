@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cognitoR
-%global packver   1.0.5
+%global packname  PropTestR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Authentication for 'Shiny' Apps with 'Amazon Cognito'
+Summary:          Comprehensive Two-Proportion Inference
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-config 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-paws 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-config 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-paws 
+BuildRequires:    R-CRAN-ratesci >= 1.1.0
+BuildRequires:    R-CRAN-DescTools >= 0.99.60
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ratesci >= 1.1.0
+Requires:         R-CRAN-DescTools >= 0.99.60
+Requires:         R-stats 
 
 %description
-Provides authentication for Shiny applications using 'Amazon Cognito' (
-<https://aws.amazon.com/es/cognito/>).
+Unified methods for comparing two independent or paired proportions.
+Provides classical, exact, score-based, non-inferiority, equivalence,
+effect-size, confidence-interval, and stratified procedures with
+standardized publication-ready output. Farrington-Manning inference is
+supported through established score-based methods described by Farrington
+and Manning (1990) <doi:10.2307/2532443> and implemented through
+'ratesci', while additional established methods are provided through
+'DescTools' and base R.
 
 %prep
 %setup -q -c -n %{packname}

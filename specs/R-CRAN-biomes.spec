@@ -1,47 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TopDom
-%global packver   0.10.2
+%global packname  biomes
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Efficient and Deterministic Method for Identifying Topological Domains in Genomes
+Summary:          Reproducible Occurrence-to-Biome Classification Using 31 Global Biome Schemes
 
-License:          GPL
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-tidyterra 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-graphics 
-Requires:         R-grid 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-tidyterra 
 Requires:         R-utils 
 
 %description
-The 'TopDom' method identifies topological domains in genomes from Hi-C
-sequence data (Shin et al., 2016 <doi:10.1093/nar/gkv1505>).  The authors
-published an implementation of their method as an R script (two different
-versions; also available in this package).  This package originates from
-those original 'TopDom' R scripts and provides help pages adopted from the
-original 'TopDom' PDF documentation.  It also provides a small number of
-bug fixes to the original code.
+Reproducibly classifies occurrence records into biome classes using 31
+published global terrestrial biome schemes compiled by Fischer and
+colleagues (2022) <doi:10.1111/geb.13574>, provided as harmonised raster
+layers at 10x10 km resolution globally. Includes functions to choose the
+most suitable biome scheme for a dataset by a data-driven ranking, to
+classify occurrence records, and to tabulate and visualise the result.
+Works with user-provided occurrences or a taxon name, in which case
+occurrences are downloaded from GBIF (<https://www.gbif.org>) and cleaned
+automatically.
 
 %prep
 %setup -q -c -n %{packname}

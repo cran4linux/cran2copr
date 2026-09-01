@@ -1,37 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netrics
-%global packver   1.0.1
+%global packname  AsyPeer
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Many Marks, Measures, Memberships, and Motifs for Networks
+Summary:          Estimating Asymmetric Peer Effects
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-manynet >= 2.2.3
-BuildRequires:    R-CRAN-igraph >= 2.1.0
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-manynet >= 2.2.3
-Requires:         R-CRAN-igraph >= 2.1.0
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
 
 %description
-Many tools for calculating network, node, or tie marks, measures, motifs
-and memberships of many different types of networks. Marks identify
-structural positions, measures quantify network properties, memberships
-classify nodes into groups, and motifs tabulate substructure
-participation. All functions operate with all classes of network data
-covered in 'manynet', and on directed, undirected, multiplex, multimodal,
-signed, and other networks.
+Simulating and estimating asymmetric peer-effect models (Houndetoungan and
+Lambotte, 2026 <doi:10.48550/arXiv.2608.09219>). The model nests the
+widely used linear-in-means model (Manski, 1993 <doi:10.2307/2298123>;
+Bramoulle et al., 2009 <doi:10.1016/j.jeconom.2008.12.021>) and allows
+agents to be influenced differently by friends who exert more or less
+effort than themselves.
 
 %prep
 %setup -q -c -n %{packname}

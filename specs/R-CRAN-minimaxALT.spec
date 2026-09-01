@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  minimaxALT
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Optimal Designs of Accelerated Life Test using PSO-Based Algorithm
 
@@ -14,6 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+BuildRequires:    gsl-devel
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-parallel >= 4.0.0
@@ -25,9 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 Requires:         R-parallel >= 4.0.0
 Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-RcppArmadillo >= 14.0.0.1
 Requires:         R-CRAN-Rcpp >= 1.0.11
-Requires:         R-CRAN-RcppGSL >= 0.3.13
 Requires:         R-stats 
 Requires:         R-graphics 
 
@@ -38,9 +37,7 @@ Optimization (PSO)-based hybrid algorithm, the package identifies optimal
 test plans that minimize estimation variance under specified failure
 models and stress profiles. For more detailed, see Lee et al. (2025),
 Optimal Robust Strategies for Accelerated Life Tests and Fatigue Testing
-of Polymer Composite Materials <doi:10.1214/25-AOAS2075>, and Hoang
-(2025), Model-Robust Minimax Design of Accelerated Life Tests via
-PSO-based Hybrid Algorithm, Master' Thesis, Unpublished.
+of Polymer Composite Materials <doi:10.1214/25-AOAS2075>.
 
 %prep
 %setup -q -c -n %{packname}

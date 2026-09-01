@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  winfapReader
-%global packver   0.1-7.1
+%global packname  figsr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with Peak Flow Data in the United Kingdom
+Summary:          Fast Interpretable Greedy-Tree Sums for Tree Ensembles
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-utils 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dials 
+Requires:         R-graphics 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Obtain information on peak flow data from the National River Flow Archive
-(NRFA) in the United Kingdom, either from the Peak Flow Dataset files
-<https://nrfa.ceh.ac.uk/data/peak-flow-dataset> once these have been
-downloaded to the user's computer or using the NRFA's API. These files are
-in a format suitable for direct use in the 'WINFAP' software, hence the
-name of the package.
+Flexible, interpretable machine learning algorithm for additive tree sums
+(FIGS). Fits a sum of shallow classification and regression trees (CART)
+by greedily minimizing residual impurity, growing a new tree or deepening
+an existing one at each step, whichever reduces the residuals most.
+Supports regression and two-class classification, variable importance,
+bootstrap ensembling and seamless integration with 'parsnip' and
+'tidymodels' workflows. The method is described in Tan et al. (2023)
+<doi:10.1073/pnas.2310151122>.
 
 %prep
 %setup -q -c -n %{packname}

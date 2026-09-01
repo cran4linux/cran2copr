@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oystermapR
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predict and Map Oyster Growth Suitability from Environmental Data
 
@@ -38,11 +38,18 @@ data using Analytic Hierarchy Process (AHP) weighted scoring. Users supply
 sensor data from Acoustic Doppler Current Profilers (ADCP),
 Conductivity-Temperature-Depth (CTD) sensors, bathymetric sonar, and
 sidescan sonar, specify a target species, and receive per-location
-suitability scores, a 'GeoTIFF' heatmap for 'QGIS', contour lines, and a
-formatted PDF or HTML report. Supports fourteen species across global
-aquaculture regions, including Ostrea edulis, Magallana gigas, Crassostrea
-virginica, Crassostrea hongkongensis, and ten further species; see
-list_species(). Includes season-aware scoring, tidal height correction,
+suitability scores, a five-band 'GeoTIFF' heatmap for 'QGIS', contour
+lines, and a formatted PDF or HTML report. Supports seventeen species
+across global aquaculture regions, including Ostrea edulis, Magallana
+gigas, Crassostrea virginica, Crassostrea hongkongensis, and thirteen
+further species; see list_species(). Includes ocean acidification scoring
+via in-house aragonite saturation state (Omega_arag) calculation using
+Lueker et al. (2000) <doi:10.1016/S0304-4203(00)00022-0> and Mucci (1983)
+<doi:10.1357/002224083788520153> equilibrium constants (no external
+dependencies), variable impact diagnostics (variable_impact()), fine-scale
+habitat area analysis for restoration reporting in m2 with contiguous
+patch identification (area_summary()), tolerance curve visualisation
+(plot_tolerance()), season-aware scoring, tidal height correction,
 Bayesian tolerance parameter updating from field observations, spatial
 block cross-validation (Roberts et al., 2017, <doi:10.1111/ecog.02881>),
 permutation variable importance, wave exposure and sediment stability

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rSPDE
-%global packver   2.5.2
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.2
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rational Approximations of Fractional Stochastic Partial Differential Equations
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fmesher >= 0.2.0
+BuildRequires:    R-CRAN-fmesher >= 0.7.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-broom 
-Requires:         R-CRAN-fmesher >= 0.2.0
+Requires:         R-CRAN-fmesher >= 0.7.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 Requires:         R-methods 

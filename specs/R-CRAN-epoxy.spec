@@ -1,34 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  winfapReader
-%global packver   0.1-7.1
+%global packname  epoxy
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with Peak Flow Data in the United Kingdom
+Summary:          String Interpolation for Documents, Reports and Apps
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-utils 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-glue >= 1.5.0
+BuildRequires:    R-CRAN-knitr >= 1.37
+BuildRequires:    R-CRAN-scales >= 1.1.0
+BuildRequires:    R-CRAN-and 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-whisker 
+Requires:         R-CRAN-glue >= 1.5.0
+Requires:         R-CRAN-knitr >= 1.37
+Requires:         R-CRAN-scales >= 1.1.0
+Requires:         R-CRAN-and 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-tools 
+Requires:         R-CRAN-whisker 
 
 %description
-Obtain information on peak flow data from the National River Flow Archive
-(NRFA) in the United Kingdom, either from the Peak Flow Dataset files
-<https://nrfa.ceh.ac.uk/data/peak-flow-dataset> once these have been
-downloaded to the user's computer or using the NRFA's API. These files are
-in a format suitable for direct use in the 'WINFAP' software, hence the
-name of the package.
+Extra strength 'glue' for data-driven templates. String interpolation for
+'Shiny' apps or 'R Markdown' and 'knitr'-powered 'Quarto' documents, built
+on the 'glue' and 'whisker' packages.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvrsquared
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute the Coefficient of Determination for Vector or Matrix Outcomes
 
@@ -31,7 +31,7 @@ be useful for multidimensional predictions (such as a multinomial model)
 or calculating goodness of fit from latent variable models such as
 probabilistic topic models like latent Dirichlet allocation or
 deterministic topic models like latent semantic analysis. Based on Jones
-(2019) <arXiv:1911.11061>.
+(2019) <doi:10.48550/arXiv.1911.11061>.
 
 %prep
 %setup -q -c -n %{packname}

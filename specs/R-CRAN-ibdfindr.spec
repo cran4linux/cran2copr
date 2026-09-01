@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ibdfindr
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          HMM Toolkit for Inferring IBD Segments from SNP Genotypes
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forrel 
 BuildRequires:    R-CRAN-ggplot2 
@@ -34,7 +34,10 @@ identity-by-descent (IBD) segments shared by two individuals from their
 single-nucleotide polymorphism (SNP) genotypes. Provides posterior
 probabilities at each marker (forward-backward algorithm), prediction of
 IBD segments (Viterbi algorithm), and functions for visualising results.
-Supports both autosomal data and X-chromosomal data.
+Supports both autosomal data and X-chromosomal data. The current model has
+two states, non-IBD and IBD1, and is intended for unilineal relationships.
+The methodology and package are described in Vigeland et al. (2026)
+<doi:10.1016/j.fsigen.2025.103409>.
 
 %prep
 %setup -q -c -n %{packname}

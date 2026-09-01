@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdm
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Dependence Measures
 
@@ -22,9 +22,10 @@ Requires:         R-CRAN-Rcpp
 %description
 Provides efficient implementations of weighted dependence measures and
 related asymptotic tests for independence. Implemented measures are the
-Pearson correlation, Spearman's rho, Kendall's tau, Blomqvist's beta, and
-Hoeffding's D; see, e.g., Nelsen (2006) <doi:10.1007/0-387-28678-0> and
-Hollander et al. (2015, ISBN:9780470387375).
+Pearson correlation, Spearman's rho, Kendall's tau, Blomqvist's beta,
+Hoeffding's D, and Chatterjee's xi; see, e.g., Nelsen (2006)
+<doi:10.1007/0-387-28678-0>, Hollander et al. (2015, ISBN:9780470387375),
+and Chatterjee (2021) <doi:10.1080/01621459.2020.1758115>.
 
 %prep
 %setup -q -c -n %{packname}

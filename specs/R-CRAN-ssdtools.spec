@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssdtools
-%global packver   2.6.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Sensitivity Distributions
 
@@ -16,19 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-goftest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-readr 
@@ -41,20 +39,19 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-CRAN-universals 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-abind 
 Requires:         R-CRAN-chk 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-goftest 
 Requires:         R-graphics 
 Requires:         R-grid 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-parallel 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-readr 
@@ -67,11 +64,12 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-TMB 
 Requires:         R-CRAN-universals 
 Requires:         R-utils 
+Requires:         R-CRAN-VGAM 
 
 %description
 Species sensitivity distributions are cumulative probability distributions
 which are fitted to toxicity concentrations for different species as
-described by Posthuma et al.(2001) <isbn:9781566705783>. The ssdtools
+described by Posthuma et al. (2001) <isbn:9781566705783>. The ssdtools
 package uses Maximum Likelihood to fit distributions such as the gamma,
 log-logistic, log-normal and log-normal log-normal mixture. Multiple
 distributions can be averaged using Akaike Information Criteria.

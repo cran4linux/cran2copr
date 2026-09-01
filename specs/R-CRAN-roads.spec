@@ -1,61 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  badp
-%global packver   0.6.1
+%global packname  roads
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Averaging for Dynamic Panels
+Summary:          Road Network Projection
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RTMB >= 1.6
-BuildRequires:    R-CRAN-patchwork >= 1.1.0
+BuildRequires:    R-CRAN-igraph >= 2.0.3
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-rje 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-RTMB >= 1.6
-Requires:         R-CRAN-patchwork >= 1.1.0
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-igraph >= 2.0.3
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-rje 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-units 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-methods 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-terra 
 
 %description
-Implements Bayesian model averaging for dynamic panels with weakly
-exogenous regressors as described in the paper by Moral-Benito (2013,
-<doi:10.1080/07350015.2013.818003>). The package provides functions to
-estimate dynamic panel data models and analyze the results of the
-estimation.
+Iterative least cost path and minimum spanning tree methods for projecting
+forest road networks. The methods connect a set of target points to an
+existing road network using 'igraph' <https://igraph.org> to identify
+least cost routes. The cost of constructing a road segment between
+adjacent pixels is determined by a user supplied weight raster and a
+weight function; options include the average of adjacent weight raster
+values, and a function of the elevation differences between adjacent cells
+that penalizes steep grades. These road network projection methods are
+intended for integration into R workflows and modelling frameworks used
+for forecasting forest change, and can be applied over multiple time-steps
+without rebuilding a graph at each time-step.
 
 %prep
 %setup -q -c -n %{packname}

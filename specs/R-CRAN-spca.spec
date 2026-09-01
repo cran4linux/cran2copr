@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spca
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Least Squares Sparse Principal Components Analysis
 
@@ -29,9 +29,12 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-rlang 
 
 %description
-Implements least-squares sparse principal component analysis (LS-SPCA).
-The approach follows Merola (2015) <doi:10.1111/anzs.12128> and Merola and
-Chen (2019) <doi:10.1016/j.jmva.2019.04.001>.
+Implements least-squares sparse principal component analysis with
+cardinality constraints. The package has an efficient C++ backend and
+provides functions for fitting, summarizing, comparing, and visualizing
+sparse principal component models. The approach follows Merola (2015)
+<doi:10.1111/anzs.12128> and Merola and Chen (2019)
+<doi:10.1016/j.jmva.2019.04.001>.
 
 %prep
 %setup -q -c -n %{packname}
