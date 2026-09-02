@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmarkdown
-%global packver   2.31
+%global packver   2.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.31
+Version:          2.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Documents for R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,7 +19,7 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.1.19
-BuildRequires:    R-CRAN-knitr >= 1.43
+BuildRequires:    R-CRAN-knitr >= 1.50
 BuildRequires:    R-CRAN-htmltools >= 0.5.1
 BuildRequires:    R-CRAN-fontawesome >= 0.5.0
 BuildRequires:    R-CRAN-xfun >= 0.36
@@ -32,7 +32,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-yaml >= 2.1.19
-Requires:         R-CRAN-knitr >= 1.43
+Requires:         R-CRAN-knitr >= 1.50
 Requires:         R-CRAN-htmltools >= 0.5.1
 Requires:         R-CRAN-fontawesome >= 0.5.0
 Requires:         R-CRAN-xfun >= 0.36

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  int3ract
-%global packver   1.0.7
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plotting Two- and Three-Way Interactions
+Summary:          Johnson-Neyman Analysis of Two- and Three-Way Interactions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,31 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpattern 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpattern 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-patchwork 
 
 %description
-Provides two- and three-way Johnson-Neyman-(Krause) plots for easier
-interpretation of interactions. It extends the classic framework of
-Johnson and Neyman (1936) and Johnson and Fay (1950)
-<doi:10.1007/BF02288864> to Bayesian models and three-way interactions.
-The functions have dedicated routines for classic lm()/glm() models, as
-well as 'lme4' models and 'RSiena' results. However, the package can also
-be used model agnostic and thus extends the availability of JN(K)-plots
-beyond what is currently available. A detailed introduction can be found
-in Krause (2026) <doi:10.48550/arXiv.2604.22051>.
+Reports and plots the conditional effect of each variable involved in a
+multiplicative interaction across the range of its moderators, together
+with the region over which that effect is distinguishable from zero.
+Extends the classic framework of Johnson and Neyman (1936) and Johnson and
+Fay (1950) <doi:10.1007/BF02288864> to three-way interactions and to
+Bayesian models. The single entry point JN() dispatches on the fitted
+object, with methods for lm()/glm() models, 'lme4' models, 'RSiena' and
+'multiSiena' results, and matrices of posterior draws; support for further
+model classes is added by writing one jn_input() method. Results are
+classed objects with print(), summary() and plot() methods, and the
+figures carry data-density panels showing how much empirical support each
+part of the moderator range has. A detailed introduction can be found in
+Krause (2026) <doi:10.48550/arXiv.2604.22051>.
 
 %prep
 %setup -q -c -n %{packname}

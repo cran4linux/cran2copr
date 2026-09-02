@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CausalQueries
-%global packver   1.4.5
+%global packver   1.4.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make, Update, and Query Binary Causal Models
 
@@ -51,10 +51,11 @@ Requires:         R-CRAN-rstantools
 
 %description
 Users can declare causal models over binary nodes, update beliefs about
-causal types given data, and calculate arbitrary queries.  Updating is
-implemented in 'stan'. See Humphreys and Jacobs, 2023, Integrated
-Inferences (<DOI: 10.1017/9781316718636>) and Pearl, 2009 Causality
-(<DOI:10.1017/CBO9780511803161>).
+causal types given data, and calculate arbitrary queries. Updating is
+implemented in 'stan'. See Tietz, Medina, Syunyaev and Humphreys (2026)
+<doi:10.18637/jss.v117.i01>, Humphreys and Jacobs (2023)
+<doi:10.1017/9781316718636> and Pearl (2009)
+<doi:10.1017/CBO9780511803161>.
 
 %prep
 %setup -q -c -n %{packname}

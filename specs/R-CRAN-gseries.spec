@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gseries
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Improve the Coherence of Your Time Series Data
 
@@ -18,24 +18,24 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-osqp >= 1.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xmpdf 
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-osqp >= 1.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggtext 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-osqp 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-xmpdf 

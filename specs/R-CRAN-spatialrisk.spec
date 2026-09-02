@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialrisk
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Concentration and Radius-Based Risk Calculations
 
@@ -38,14 +38,17 @@ Requires:         R-CRAN-terra
 Requires:         R-CRAN-units 
 
 %description
-Provides methods for spatial concentration and radius-based risk
-calculations. The package focuses on efficient determination of the sum of
-observations within a given radius, identifying areas of high local
-concentration, and aggregating point data to polygon geometries. These
-methods are useful for applications such as insurance, urban analytics,
-environmental exposure analysis, and other spatial point pattern
-workflows. The underlying maximum covering problem is described by Church
-(1974) <doi:10.1007/BF01942293>.
+Provides computational building blocks for fixed-radius spatial
+aggregation, weighted circle-placement problems, hotspot detection, and
+polygon-based spatial summaries. The package focuses on efficient
+determination of the sum of observations within a given radius,
+identifying areas of high local concentration, and aggregating point data
+to polygon geometries. These methods are useful for applications such as
+insurance, urban analytics, environmental exposure analysis, and other
+spatial point pattern workflows. The fixed-radius circle placement problem
+is discussed by Chazelle and Lee (1986) <doi:10.1007/BF02238188>, and
+related maximum covering problems are described by Church (1974)
+<doi:10.1007/BF01942293>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kstMatrix
-%global packver   2.3-4
+%global packver   3.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Functions in Knowledge Space Theory Using Matrix Representation
 
@@ -39,8 +39,8 @@ structures in a particular domain. The 'kstMatrix' package provides basic
 functionalities to generate, handle, and manipulate knowledge structures
 and knowledge spaces. Opposed to the 'kst' package, 'kstMatrix' uses
 matrix representations for knowledge structures. Furthermore, 'kstMatrix'
-contains several knowledge spaces developed by the research group around
-Cornelia Dowling through querying experts.
+contains several knowledge spaces obtained in the 1990s by the research
+group around Cornelia Dowling through querying experts.
 
 %prep
 %setup -q -c -n %{packname}

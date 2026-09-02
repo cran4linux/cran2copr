@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LUCIDus
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          LUCID with Multiple Omics Data
 
@@ -27,6 +27,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-glasso 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-boot 
@@ -37,6 +39,8 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-glasso 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
 
 %description
 Implements Latent Unknown Clusters By Integrating Multi-omics Data (LUCID;

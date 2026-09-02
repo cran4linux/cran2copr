@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grmtree
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning for Graded Response Models
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-strucchange 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-mirt >= 1.46
 Requires:         R-CRAN-partykit >= 1.2.9
 Requires:         R-stats 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-strucchange 
 Requires:         R-parallel 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Provides methods for recursive partitioning based on the 'Graded Response
@@ -47,8 +49,10 @@ and factor score distributions). The package also implements the
 Longitudinal GRMTree for detecting response shift in PROMs measured at two
 time points, embedding a constrained two-factor longitudinal GRM within
 recursive partitioning, with post-hoc characterization of recalibration
-and reprioritization. For more details on the methods, see Samejima (1969)
-<doi:10.1002/J.2333-8504.1968.TB00153.X>, Komboz et al. (2018)
+and reprioritization. Random-forest ensembles (`grmforest()`) with
+permutation variable importance are available for both the cross-sectional
+and longitudinal trees. For more details on the methods, see Samejima
+(1969) <doi:10.1002/J.2333-8504.1968.TB00153.X>, Komboz et al. (2018)
 <doi:10.1177/0013164416664394> and Arimoro et al. (2025)
 <doi:10.1007/s11136-025-04018-6>.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semanticfa
-%global packver   0.1.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semantic Factor Analysis of Language Model Embeddings
 
@@ -45,12 +45,18 @@ Performs exploratory factor analysis on language model embeddings of
 psychological scale items. Embeds item text with sentence transformers or
 other language models, transforms the embeddings into item-by-item
 similarity matrices, and extracts latent factor structure via standard
-exploratory factor analysis. Supports embedding-adapted parallel analysis,
-several similarity transforms (atomic reversed, SQuID centering,
-mean-centered Pearson), and fit diagnostics tailored to embedding matrices
-(TEFI, RMSR, CAF, McDonald's omega). The underlying methods are documented
-with full citations in the corresponding function help pages. Returns
-objects compatible with 'psych' and 'EFAtools' workflows.
+exploratory factor analysis, using several similarity transforms (atomic
+reversed, SQuID centering, mean-centered Pearson) and fit diagnostics
+tailored to embedding matrices (TEFI, RMSR, CAF, McDonald's omega). Factor
+retention spans embedding-adapted parallel analysis, the empirical Kaiser
+criterion, Velicer's minimum average partial, a comparison-data misfit
+profile, and a calibrated learned rule that reports conformal intervals.
+Further tools orient factor axes toward retrieved construct terms by
+lexical target rotation, and audit whether a scale's items cover their
+construct's semantic region without collecting responses. The underlying
+methods are documented with full citations in the corresponding function
+help pages. Returns objects compatible with 'psych' and 'EFAtools'
+workflows.
 
 %prep
 %setup -q -c -n %{packname}

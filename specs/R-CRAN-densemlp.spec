@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  densemlp
-%global packver   0.6.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dense Neural Networks for Tabular Classification and Regression
+Summary:          Dense Neural Networks for Tabular Regression, Classification and Survival
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-torch 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-graphics 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-torch 
+Requires:         R-utils 
 
 %description
-Provides dense feed-forward neural network models for tabular regression
-and classification using 'torch'. The package supports modern extensions
-around dense neural network blocks, including dropout, batch
-normalization, residual connections, gated blocks, and optional input
-projection.
+Dense feed-forward neural networks (multilayer perceptrons) for tabular
+regression, classification and survival analysis, with a formula or x/y
+interface. Supports residual and gated hidden blocks, batch normalization,
+per-layer dropout, learned cross-feature interactions, exponential
+moving-average weights, learning-rate schedules, internal bootstrap
+ensembles and Adam optimization. Survival outcomes are trained with either
+a batch-wise Breslow-tie Cox partial likelihood or a discrete-time
+inverse-probability-of-censoring-weighted integrated Brier score. The
+numerical kernels are implemented natively in C++ via 'RcppArmadillo',
+with no external deep learning framework dependency (no 'torch' /
+'libtorch'). Companion helpers provide k-fold cross-validation,
+hyperparameter search and task-aware evaluation metrics.
 
 %prep
 %setup -q -c -n %{packname}

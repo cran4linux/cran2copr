@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simglm
-%global packver   0.8.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Models Based on the Generalized Linear Model
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -23,6 +24,10 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-splines 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
@@ -30,6 +35,10 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-lmtest 
+Requires:         R-splines 
 
 %description
 Simulates regression models, including both simple regression and
