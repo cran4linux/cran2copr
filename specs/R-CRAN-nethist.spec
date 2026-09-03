@@ -1,59 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  meteoland
-%global packver   2.2.8
+%global packname  nethist
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landscape Meteorology Tools
+Summary:          Network Histograms
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ncdfgeom 
-BuildRequires:    R-CRAN-ncmeta 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-cubelyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-lattice 
 Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-graphics 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ncdfgeom 
-Requires:         R-CRAN-ncmeta 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-cubelyr 
 
 %description
-Functions to estimate weather variables at any position of a landscape [De
-Caceres et al. (2018) <doi:10.1016/j.envsoft.2018.08.003>].
+Estimates network histograms, a blockmodel approximation to the graphon
+underlying a network's connectivity pattern, for both single-layer and
+multilayer networks. Implements graphon estimation methods including the
+profile-likelihood method of Olhede and Wolfe (2014)
+<doi:10.1073/pnas.1400374111> and the least-squares method of Gao, Lu, and
+Zhou (2015) <doi:10.1214/15-AOS1354> for single-layer networks, and the
+multilayer extension of Song and Olhede (2026)
+<doi:10.48550/arXiv.2608.14536>.
 
 %prep
 %setup -q -c -n %{packname}

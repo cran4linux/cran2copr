@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imuGAP
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Immunity: Geographic and Age-Based Projection
 
@@ -16,20 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstantools >= 2.5.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.11.2
+BuildRequires:    R-CRAN-rstantools >= 2.6.0
+BuildRequires:    R-CRAN-rstan >= 2.32
+BuildRequires:    R-CRAN-StanHeaders >= 2.32
+BuildRequires:    R-CRAN-BH >= 1.90
+BuildRequires:    R-CRAN-Rcpp >= 1.1.2
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.4
+BuildRequires:    R-CRAN-flexstanr >= 0.2.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstantools >= 2.5.0
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-RcppParallel >= 5.1.11.2
+Requires:         R-CRAN-rstantools >= 2.6.0
+Requires:         R-CRAN-rstan >= 2.32
+Requires:         R-CRAN-Rcpp >= 1.1.2
+Requires:         R-CRAN-flexstanr >= 0.2.0
 Requires:         R-CRAN-data.table 
 Requires:         R-methods 
 Requires:         R-CRAN-rstantools

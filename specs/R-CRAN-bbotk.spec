@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bbotk
-%global packver   1.12.0
+%global packver   1.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.0
+Version:          1.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Black-Box Optimization Toolkit
 
@@ -18,21 +18,21 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-paradox >= 1.0.0
+BuildRequires:    R-CRAN-moocore >= 0.3.2
 BuildRequires:    R-CRAN-mlr3misc >= 0.21.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-moocore 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-paradox >= 1.0.0
+Requires:         R-CRAN-moocore >= 0.3.2
 Requires:         R-CRAN-mlr3misc >= 0.21.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
 Requires:         R-methods 
-Requires:         R-CRAN-moocore 
 Requires:         R-CRAN-R6 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readNSx
-%global packver   0.0.7
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read 'Blackrock-Microsystems' Files ('NEV', 'NSx')
 
@@ -18,13 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-fastmap 
-BuildRequires:    R-CRAN-hdf5r 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-hdf5lib 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-fastmap 
-Requires:         R-CRAN-hdf5r 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-R6 
 

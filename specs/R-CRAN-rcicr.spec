@@ -1,52 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggstats
-%global packver   0.14.0
+%global packname  rcicr
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension to 'ggplot2' for Plotting Stats
+Summary:          Reverse-Correlation Image-Classification Toolbox
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-matlab 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-yesno 
+Requires:         R-CRAN-matlab 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-viridis 
 Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-yesno 
 
 %description
-Provides new statistics, new geometries and new positions for 'ggplot2'
-and a suite of functions to facilitate the creation of statistical plots.
+Generate stimuli and analyze data of reverse correlation image
+classification experiments (psychophysical tasks aimed at visualizing
+cognitive mental representations of faces). For the method see Dotsch and
+Todorov (2012) <doi:10.1177/1948550611430272>; for a practical primer see
+Brinkman, Todorov and Dotsch (2017) <doi:10.1080/10463283.2017.1381469>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  washr
-%global packver   1.1.0
+%global packname  IP
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Publication Toolkit for Water, Sanitation and Hygiene (WASH) Data
+Summary:          Classes and Methods for 'IP' Addresses
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-usethis >= 2.2.3
-BuildRequires:    R-CRAN-pkgdown >= 2.0.7
-BuildRequires:    R-CRAN-desc >= 1.4.3
-BuildRequires:    R-CRAN-rlang >= 1.1.3
-BuildRequires:    R-CRAN-cffr >= 1.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-usethis >= 2.2.3
-Requires:         R-CRAN-pkgdown >= 2.0.7
-Requires:         R-CRAN-desc >= 1.4.3
-Requires:         R-CRAN-rlang >= 1.1.3
-Requires:         R-CRAN-cffr >= 1.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    libidn-devel
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-methods 
+Requires:         R-CRAN-stringi 
 
 %description
-A toolkit to set up an R data package in a consistent structure. Automates
-tasks like tidy data export, data dictionary documentation, README and
-website creation, and citation management.
+Provides S4 classes for Internet Protocol (IP) versions 4 and 6 addresses
+and efficient methods for 'IP' addresses comparison, arithmetic, bit
+manipulation and lookup. Both 'IPv4' and 'IPv6' arbitrary ranges are also
+supported as well as internationalized ('IDN') domain lookup with and
+'whois' query.
 
 %prep
 %setup -q -c -n %{packname}

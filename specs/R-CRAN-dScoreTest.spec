@@ -1,52 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggstats
-%global packver   0.14.0
+%global packname  dScoreTest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension to 'ggplot2' for Plotting Stats
+Summary:          Debiased Score Tests for Goodness of Fit and Model Comparison
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-mgcv 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-mgcv 
 
 %description
-Provides new statistics, new geometries and new positions for 'ggplot2'
-and a suite of functions to facilitate the creation of statistical plots.
+Debiased (Neyman-orthogonalized) score tests for assessing whether a
+semiparametric or parametric regression model is well-specified and for
+comparing nested models. The test employs a hunt-and-test strategy: on a
+held-out hunt sample, it fits the null model and uses machine learning to
+find a direction in which the null model's score seems positive; on an
+independent test sample, it assesses the significance of the score in the
+hunted direction. The test employs orthogonalization to eliminate the bias
+from estimating the null model, yielding a test statistic that is
+asymptotically standard normal under the null without requiring a
+parametric form for the alternative. Methods are provided for 'glm', 'lm'
+and 'mgcv::gam' fits as well as for detecting heterogeneous treatment
+effects. The methodology is described in Dhawan, Guo and Shah (2026)
+<doi:10.48550/arXiv.2607.28861>.
 
 %prep
 %setup -q -c -n %{packname}

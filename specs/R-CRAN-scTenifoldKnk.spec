@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scTenifoldKnk
-%global packver   1.0.3
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          In-Silico Knockout Experiments from Single-Cell Gene Regulatory Networks
 
@@ -17,28 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-scTenifoldNet >= 1.4
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-scTenifoldNet 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-enrichR 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-scTenifoldNet >= 1.4
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-scTenifoldNet 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-enrichR 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-reshape2 
+Requires:         R-grDevices 
 
 %description
 A workflow based on 'scTenifoldNet' to perform in-silico knockout

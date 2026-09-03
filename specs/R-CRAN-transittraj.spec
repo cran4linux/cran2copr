@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transittraj
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reconstruct and Visualize Transit Vehicle Trajectories
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geos 
 BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-ggplot2 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-tidytransit
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geos 
 Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggplot2 

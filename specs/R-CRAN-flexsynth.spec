@@ -1,52 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggstats
-%global packver   0.14.0
+%global packname  flexsynth
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension to 'ggplot2' for Plotting Stats
+Summary:          Flexible Synthetic Data for Nested, Longitudinal and Linked Multi-Table Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
 
 %description
-Provides new statistics, new geometries and new positions for 'ggplot2'
-and a suite of functions to facilitate the creation of statistical plots.
+Generates utility-oriented synthetic data for supported flat, nested,
+longitudinal and tree-linked multi-table designs, including patients,
+admissions, procedures and laboratory results linked by identifiers. The
+default engine uses sequential conditional synthesis; an opt-in
+differentially private engine implements person-level (epsilon, delta)
+mechanisms and records their budget accounting. Synthetic output is not
+anonymisation. Empirical utility and disclosure-risk diagnostics are
+descriptive and do not by themselves establish that a release is safe.
 
 %prep
 %setup -q -c -n %{packname}

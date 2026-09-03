@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tscv
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Utilities for Tidy Time Series Forecasting and Time Series Cross-Validation
 
@@ -55,10 +55,10 @@ Requires:         R-CRAN-distributional
 Requires:         R-CRAN-tidytext 
 
 %description
-Provides functions and tools for tidy time series analysis and forecasting
-as well as time series cross-validation. This is mainly a set of wrapper
-and helper functions as well as some extensions for the packages
-'tsibble', 'fable', and 'fabletools'.
+Functions and tools for tidy time series analysis and forecasting as well
+as time series cross-validation. This is mainly a set of wrapper and
+helper functions as well as some extensions for the packages 'tsibble',
+'fable', and 'fabletools'.
 
 %prep
 %setup -q -c -n %{packname}

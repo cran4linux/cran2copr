@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gasper
-%global packver   1.1.6
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Signal Processing
 
@@ -36,9 +36,9 @@ Requires:         R-CRAN-curl
 Provides the standard operations for signal processing on graphs: graph
 Fourier transform, spectral graph wavelet transform, visualization tools.
 It also implements a data driven method for graph signal
-denoising/regression, for details see De Loynes, Navarro, Olivier (2019)
-<arxiv:1906.01882>. The package also provides an interface to the
-SuiteSparse Matrix Collection, <https://sparse.tamu.edu/>, a large and
+denoising/regression, for details see De Loynes, Navarro, Olivier (2021)
+<doi:10.1016/j.cam.2020.113319>. The package also provides an interface to
+the SuiteSparse Matrix Collection, <https://sparse.tamu.edu/>, a large and
 widely used set of sparse matrix benchmarks collected from a wide range of
 applications.
 

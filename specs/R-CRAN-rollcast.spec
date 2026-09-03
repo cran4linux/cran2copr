@@ -1,55 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  riskutility
-%global packver   0.2.0
+%global packname  rollcast
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Disclosure Risk and Data Utility Metrics for Synthetic and Anonymized Data
+Summary:          Probabilistic Forecasting with Adaptive Mixtures of Rolling Statistics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-VIM 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-VIM 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
 
 %description
-Provides comprehensive methods to measure disclosure risk and data utility
-for anonymized and synthetic data. Implements attribution-based risk
-metrics including Correct Attribution Probability (CAP), Targeted CAP
-(TCAP), Within Equivalence Class Attribution Probability (WEAP), and RAPID
-(Risk of Attribute Prediction-Induced Disclosure). Also provides
-distance-based privacy metrics such as Distance to Closest Record (DCR),
-Nearest Neighbor Distance Ratio (NNDR), and Identical Match Share (IMS).
-Utility assessment includes propensity score analysis, distribution
-comparisons, and various statistical tests. Methods are based on Taub et
-al. (2018) <doi:10.1007/978-3-319-99771-1_9> and related literature.
-Designed for integration with 'simPop' S4 classes.
+Implements a probabilistic time-series forecasting framework based on
+adaptive mixtures of rolling statistical anchors. Rolling means, medians,
+minimum and maximum values, regression endpoints, and user-specified
+quantiles define candidate forecast locations. A proper-score gating model
+assigns state-dependent mixture weights, optional state-conditional
+residual sampling adds local dispersion, and recursive simulation produces
+marginal and joint predictive distributions. Numeric hyperparameters can
+be supplied as scalars or candidate vectors for causal validation-based
+selection.
 
 %prep
 %setup -q -c -n %{packname}

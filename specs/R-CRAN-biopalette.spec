@@ -1,52 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggstats
-%global packver   0.14.0
+%global packname  biopalette
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension to 'ggplot2' for Plotting Stats
+Summary:          Image-Inspired Color Palettes for Biomedical Visualization
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
 
 %description
-Provides new statistics, new geometries and new positions for 'ggplot2'
-and a suite of functions to facilitate the creation of statistical plots.
+Provides a curated collection of image-inspired color palettes for
+biomedical visualization. The palettes are organized as qualitative,
+sequential, or diverging scales and include documented source context and
+intended use. The package provides functions to retrieve, inspect,
+preview, and apply these palettes in base R and 'ggplot2' graphics,
+together with utilities for working with palette definitions.
 
 %prep
 %setup -q -c -n %{packname}

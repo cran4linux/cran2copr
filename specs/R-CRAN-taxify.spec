@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxify
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Offline Taxonomic Name Matching Against Darwin Core Backbones
 
@@ -30,10 +30,11 @@ Requires:         R-CRAN-vectra
 Match taxonomic names against locally stored Darwin Core backbone
 databases ('WFO', 'COL', 'GBIF', 'ITIS', 'NCBI Taxonomy', 'Open Tree of
 Life', 'WoRMS', 'Euro+Med', 'Species Fungorum', 'AlgaeBase', 'FishBase',
-'SeaLifeBase', 'Reptile Database', 'LCVP', 'WCVP'). Provides offline fuzzy
-and exact matching with synonym resolution, hybrid name detection, and a
-unified output schema across all sources. All heavy computation runs in
-the 'vectra' C11 columnar engine.
+'SeaLifeBase', 'Reptile Database', 'LCVP', 'WCVP', 'Mammal Diversity
+Database', 'AviList', 'LPSN'). Provides offline fuzzy and exact matching
+with synonym resolution, hybrid name detection, and a unified output
+schema across all sources. All heavy computation runs in the 'vectra' C11
+columnar engine.
 
 %prep
 %setup -q -c -n %{packname}

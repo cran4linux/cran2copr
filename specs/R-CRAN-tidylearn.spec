@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidylearn
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Tidy Interface to R's Machine Learning Ecosystem
 
@@ -74,12 +74,13 @@ function signatures and tidy tibble output. Results flow into unified
 'ggplot2'-based visualization and optional formatted 'gt' tables via the
 tl_table() family. The underlying algorithms are unchanged; 'tidylearn'
 simply makes them easier to use together. Access raw model objects via the
-$fit slot for package-specific functionality. Methods include random
-forests Breiman (2001) <doi:10.1023/A:1010933404324>, LASSO regression
-Tibshirani (1996) <doi:10.1111/j.2517-6161.1996.tb02080.x>, elastic net
-Zou and Hastie (2005) <doi:10.1111/j.1467-9868.2005.00503.x>, support
-vector machines Cortes and Vapnik (1995) <doi:10.1007/BF00994018>, and
-gradient boosting Friedman (2001) <doi:10.1214/aos/1013203451>.
+$fit slot for a supervised method, or $fit$model for an unsupervised one.
+Methods include random forests Breiman (2001)
+<doi:10.1023/A:1010933404324>, LASSO regression Tibshirani (1996)
+<doi:10.1111/j.2517-6161.1996.tb02080.x>, elastic net Zou and Hastie
+(2005) <doi:10.1111/j.1467-9868.2005.00503.x>, support vector machines
+Cortes and Vapnik (1995) <doi:10.1007/BF00994018>, and gradient boosting
+Friedman (2001) <doi:10.1214/aos/1013203451>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  circumplex
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Circular Data
 
@@ -14,20 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
 BuildRequires:    R-CRAN-boot >= 1.3.18
 BuildRequires:    R-CRAN-htmlTable >= 1.13.3
-BuildRequires:    R-CRAN-ggforce >= 0.3.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.11
+BuildRequires:    R-grid 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggplot2 >= 4.0.0
 Requires:         R-CRAN-boot >= 1.3.18
 Requires:         R-CRAN-htmlTable >= 1.13.3
-Requires:         R-CRAN-ggforce >= 0.3.0
+Requires:         R-grid 
+Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

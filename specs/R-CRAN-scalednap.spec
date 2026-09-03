@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  washr
-%global packver   1.1.0
+%global packname  scalednap
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Publication Toolkit for Water, Sanitation and Hygiene (WASH) Data
+Summary:          Community Detection by Scaled Null-Adjusted Persistence
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-usethis >= 2.2.3
-BuildRequires:    R-CRAN-pkgdown >= 2.0.7
-BuildRequires:    R-CRAN-desc >= 1.4.3
-BuildRequires:    R-CRAN-rlang >= 1.1.3
-BuildRequires:    R-CRAN-cffr >= 1.0.1
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-usethis >= 2.2.3
-Requires:         R-CRAN-pkgdown >= 2.0.7
-Requires:         R-CRAN-desc >= 1.4.3
-Requires:         R-CRAN-rlang >= 1.1.3
-Requires:         R-CRAN-cffr >= 1.0.1
-Requires:         R-CRAN-jsonlite 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-lifecycle 
 
 %description
-A toolkit to set up an R data package in a consistent structure. Automates
-tasks like tidy data export, data dictionary documentation, README and
-website creation, and citation management.
+Finds the vertex partition of an undirected graph that maximises a
+persistence-based objective, using the Milano local-search algorithm.
+Three related quality measures are supported: the persistence probability
+of a community, its null-adjusted persistence (NAP), and the scaled
+null-adjusted persistence (Scaled-NAP), which interpolates between NAP and
+modularity. The methods are described in Avellone et al. (2023)
+<doi:10.1007/s10288-023-00559-z> and Avellone et al. (2025)
+<doi:10.1016/j.ins.2025.123032>.
 
 %prep
 %setup -q -c -n %{packname}

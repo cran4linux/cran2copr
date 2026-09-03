@@ -1,52 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggstats
-%global packver   0.14.0
+%global packname  rhythm.metrics
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension to 'ggplot2' for Plotting Stats
+Summary:          Analyse and Visualise Speech Rhythm and Timing Metrics
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 4.0.0
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 4.0.0
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsci 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
 
 %description
-Provides new statistics, new geometries and new positions for 'ggplot2'
-and a suite of functions to facilitate the creation of statistical plots.
+Calculates and visualises speech rhythm and timing metrics. The
+'rhythm.metrics' package provides a standardised workflow to compute
+common metrics including Delta C, Delta V, VarcoC, VarcoV, the percentage
+of vocalic intervals (%%V), and both raw and normalised Pairwise
+Variability Indices (rPVI, nPVI). It includes functions for calculating
+and visualising these measures to facilitate cross-linguistic and
+developmental rhythm research. Delta C, Delta V, and %%V measures are based
+on Ramus et al. (1999) <doi:10.1016/S0010-0277(99)00058-X>; VarcoC and
+VarcoV measures are based on Dellwo (2006, ISBN: 9783631554777); and
+rPVI-C and nPVI-V are based on Grabe & Low (2002)
+<doi:10.1515/9783110197105.2.515>.
 
 %prep
 %setup -q -c -n %{packname}

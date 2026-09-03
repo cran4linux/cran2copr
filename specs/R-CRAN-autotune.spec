@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autotune
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Faster and more Efficient Lasso (than 'glmnet' and 'scalreg') with Data-Driven Tuning
+Summary:          Fast, Accurate and Automatic Tuning Parameter Selection for Lasso
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,12 +22,13 @@ Requires:         R-CRAN-Rcpp >= 1.0.13
 %description
 Fits Lasso paths for high-dimensional regression using coordinate descent
 with automatic, data-driven tuning of the regularization parameter. The
-implementation is 10 to 50 times faster than the standard 'glmnet'
-implementation of Lasso and over 100 times faster than scaled Lasso. It
-also provides a reliable estimate of the regression noise level. For
-details of the method, see Sadhukhan, Wilms, Smeekes and Basu (2025)
-"Autotune: fast, accurate, and automatic tuning parameter selection for
-Lasso" <doi:10.48550/arXiv.2512.11139>.
+implementation is 10 to 200 times faster than the standard 'glmnet'
+implementation of Lasso tuned via Cross Validation and over 100 times
+faster than scaled Lasso. It also provides a reliable estimate of the
+regression noise level and a new diagnostic for sparsity. For details of
+the method, see Sadhukhan, Wilms, Smeekes and Basu (2025) "Autotune: fast,
+accurate, and automatic tuning parameter selection for Lasso"
+<doi:10.48550/arXiv.2512.11139>.
 
 %prep
 %setup -q -c -n %{packname}

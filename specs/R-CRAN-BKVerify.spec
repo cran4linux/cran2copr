@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gtDesign
+%global packname  BKVerify
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convex Optimal Designs for Group Testing Experiments
+Summary:          Consistency Auditing of Reported Plant Breeding Statistics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CVXR >= 1.8.1
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-CVXR >= 1.8.1
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Finite candidate-set approximate optimal designs for group testing and
-related experiments, using convex optimization and equivalence checks.
-Implements the information matrix and cost structure for the prevalence /
-sensitivity / specificity model used in Huang and colleagues (2020), as in
-Chi-Kuang Yeh, Weng Kee Wong, and Julie Zhou
-(<doi:10.48550/arXiv.2508.08445>).
+Audits published or draft plant breeding tables for internal arithmetic
+consistency. Analysis of variance tables, precision statistics and genetic
+variability parameters are jointly over-determined by exact algebraic
+identities; 'BKVerify' recomputes every derivable quantity using
+rounding-interval arithmetic and reports a value as inconsistent only when
+no combination of values inside the reported rounding intervals can
+satisfy the identity. The package deliberately restricts itself to
+relationships that hold irrespective of which variance-component
+definition an author adopted, so that flagged results reflect arithmetic
+inconsistency rather than methodological disagreement. Implemented checks
+cover analysis of variance internal structure, coefficient of variation,
+standard error of mean and critical difference, the genetic advance
+identity of Johnson, Robinson and Comstock (1955)
+<doi:10.2134/agronj1955.00021962004700070009x>, the relation between
+genotypic and phenotypic coefficients of variation and broad-sense
+heritability, and admissibility of reported correlation matrices.
 
 %prep
 %setup -q -c -n %{packname}

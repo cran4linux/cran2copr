@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ShrinkageTrees
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Tree Ensembles for Survival Analysis and Causal Inference
 
@@ -18,8 +18,14 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 BuildRequires:    R-parallel 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp >= 1.0.11
+Requires:         R-splines 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Bayesian regression tree ensembles for survival analysis and causal
