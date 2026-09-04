@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MN
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrix Normal Distribution
 
@@ -23,11 +23,11 @@ Requires:         R-CRAN-rangen
 Requires:         R-CRAN-Rfast 
 
 %description
-Density computation, random matrix generation and maximum likelihood
-estimation of the matrix normal distribution. References: Pocuca N.,
-Gallaugher M. P., Clark K. M. & McNicholas P. D. (2019). Assessing and
-Visualizing Matrix Variate Normality. <doi:10.48550/arXiv.1910.02859> and
-the relevant wikipedia page.
+Density computation, random matrix generation, maximum likelihood
+estimation, and regression for the matrix normal distribution. References:
+Pocuca N., Gallaugher M. P., Clark K. M. & McNicholas P. D. (2019).
+Assessing and Visualizing Matrix Variate Normality.
+<doi:10.48550/arXiv.1910.02859> and the relevant wikipedia page.
 
 %prep
 %setup -q -c -n %{packname}

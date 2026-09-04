@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openEBGM
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          EBGM Disproportionality Scores for Adverse Event Data Mining
 
@@ -14,15 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.2.3
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-stats >= 3.5.0
 BuildRequires:    R-CRAN-data.table >= 1.10.0
-Requires:         R-stats >= 3.2.3
-Requires:         R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-stats >= 3.5.0
 Requires:         R-CRAN-data.table >= 1.10.0
+Requires:         R-CRAN-numDeriv 
 
 %description
 An implementation of DuMouchel's (1999)

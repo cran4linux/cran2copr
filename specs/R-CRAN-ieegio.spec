@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ieegio
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          File IO for Intracranial Electroencephalography
 
@@ -29,10 +29,10 @@ BuildRequires:    R-CRAN-fastmap
 BuildRequires:    R-CRAN-freesurferformats 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-hdf5r 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-oro.nifti 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
@@ -48,10 +48,10 @@ Requires:         R-CRAN-fastmap
 Requires:         R-CRAN-freesurferformats 
 Requires:         R-CRAN-fs 
 Requires:         R-grDevices 
-Requires:         R-CRAN-hdf5r 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-oro.nifti 
 Requires:         R-CRAN-R6 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 

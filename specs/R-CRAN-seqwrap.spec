@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seqwrap
-%global packver   0.7.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Item-by-Item Iterative Model Fitting
 
@@ -23,7 +23,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DHARMa 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-broom.mixed 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-S7 
@@ -31,7 +32,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-DHARMa 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-broom.mixed 
 
 %description

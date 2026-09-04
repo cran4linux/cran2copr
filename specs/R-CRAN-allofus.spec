@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  allofus
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for 'All of Us' Researcher Workbench
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-dbplyr >= 2.5.0
 Requires:         R-CRAN-bigrquery >= 1.5.1
 Requires:         R-CRAN-dplyr >= 1.1.4
@@ -49,6 +50,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Streamline use of the 'All of Us' Researcher Workbench

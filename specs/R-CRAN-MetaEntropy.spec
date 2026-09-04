@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetaEntropy
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Shannon Entropy for Virome Mutational Analysis
 
@@ -20,11 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-beeswarm 
+BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-beeswarm 
+Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
 
 %description
 Estimates Shannon entropy, per gene and per genomic position, associated

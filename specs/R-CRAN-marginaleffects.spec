@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marginaleffects
-%global packver   0.32.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictions, Comparisons, Slopes, Marginal Means, and Hypothesis Tests
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-backports
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-insight >= 1.3.0
@@ -31,6 +32,7 @@ Requires:         R-CRAN-backports
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 

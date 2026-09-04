@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openNCAI
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates a Natural Capital Assets Index
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 

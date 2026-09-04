@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveyframe
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Instrument Workflows
 
@@ -25,19 +25,22 @@ Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-rlang >= 1.1.0
 
 %description
-Supports survey research workflows built around a typed instrument object
-(the sframe). Features include visual instrument design via a
-browser-based builder or 'Shiny' studio, export to a self-contained static
-HTML survey, an embeddable 'Shiny' module, SHA-256 integrity-checked
-serialisation to the '.sframe' format, multi-page survey rendering,
-branching logic, response quality checking, scale scoring, psychometric
-diagnostics, analysis-plan execution, model syntax planning, an
-interactive response dashboard, codebook generation, and reproducible HTML
-reporting. This release adds three capability themes: multi-criteria
-decision analysis (AHP, ANP, DEMATEL, TOPSIS, VIKOR, MOORA, SMART, WASPAS,
-PROMETHEE II, ELECTRE I), small-sample survey helpers, and text and
-open-ended response analysis (term and n-gram frequency, keyword in
-context, co-occurrence and co-occurrence networks, sentiment,
+Provides a design-first survey research workflow. An instrument, an
+analysis plan declared before data collection, and a measurement or
+structural model are held together in one typed, integrity-checked object
+(the 'sframe'), so a study's confirmatory tests are fixed before responses
+arrive rather than chosen afterward. Includes visual instrument design via
+a browser-based builder or 'Shiny' studio, export to a self-contained
+static HTML survey, an embeddable 'Shiny' module, SHA-256
+integrity-checked serialisation to the '.sframe' format, multi-page survey
+rendering with branching logic, response quality checking, scale scoring,
+psychometric diagnostics, analysis-plan execution, model syntax generation
+for EFA, CFA, CB-SEM, and PLS-SEM, an interactive response dashboard,
+codebook generation, and reproducible HTML reporting. Also supports
+multi-criteria decision analysis (AHP, ANP, DEMATEL, TOPSIS, VIKOR, MOORA,
+SMART, WASPAS, PROMETHEE II, ELECTRE I), small-sample survey helpers, and
+text and open-ended response analysis (term and n-gram frequency, keyword
+in context, co-occurrence and co-occurrence networks, sentiment,
 document-feature matrices, and topic modelling via LDA or structural topic
 models).
 

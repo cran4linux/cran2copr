@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evgam
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Additive Extreme Value Models
 
@@ -16,11 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.1.1.1.1
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.1.0
+Requires:         R-CRAN-Rcpp >= 1.1.1.1.1
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
 Methods for fitting various extreme value distributions with parameters of

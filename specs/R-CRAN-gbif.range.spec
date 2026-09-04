@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gbif.range
-%global packver   1.9.1
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          1.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Range Mapping from GBIF Using Ecoregion Constraints
 
@@ -55,23 +55,17 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 
 %description
-Provides a workflow to retrieve, filter, and analyze 'GBIF' occurrence
-records and to generate ecologically informed species range maps using
-downloaded or custom ecoregions. The package includes tools for querying
-the 'GBIF' backbone taxonomy with get_status(), counting or downloading
-occurrences with get_gbif_count() and get_gbif(), creating custom
-ecoregion layers with make_ecoreg(), building range maps with get_range(),
-and evaluating them against independent validation data with
-evaluate_range() and cv_range(). A disk-based batch workflow
-(split_gbif_by_species(), species_csvs_to_ranges(), read_range_rds())
-supports large multi-species 'GBIF' exports without loading the full table
-into memory. Bundled ecoregion layers cover terrestrial (Olson et al. 2001
-<doi:10.1641/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2>), marine (Spalding
-et al. 2007 <doi:10.1641/B570707>), and freshwater (Abell et al. 2008
-<doi:10.1641/B580507>) realms. The 'GBIF' API is accessed via the 'rgbif'
-package, and coordinate cleaning uses 'CoordinateCleaner' (Zizka et al.
-2019 <doi:10.1111/2041-210X.13152>). The 'GBIF' API is described at
-<https://www.gbif.org/developer/summary>.
+A user-friendly, end-to-end workflow to generate ecologically informed
+species range maps from sparse observations using environmental clustering
+and convex hulls. Serves as a standalone framework or complementary
+approach to Species Distribution Models (SDMs). By constraining estimated
+ranges within authoritative or custom ecoregion boundaries, the approach
+prevents spurious range over-prediction common in geometric hull methods.
+The package automates data acquisition via 'GBIF' synonym-aware, tiled
+downloads; curates records using 13 configurable filters; and supports
+multi-scale analysis by integrating global or user-provided spatial
+layers. Also includes disk-based batch processing for large-scale studies
+and built-in tools for cross-validation and expert-derived evaluations.
 
 %prep
 %setup -q -c -n %{packname}

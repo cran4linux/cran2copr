@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSQLite.toolkit
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data in SQLite from Tabular Files
 
@@ -28,7 +28,7 @@ Requires:         R-CRAN-arrow
 
 %description
 A lightweight wrapper around the 'RSQLite' package for streamlined loading
-of data from tabular files (i,e. text delimited files like Comma Separated
+of data from tabular files (i,e. delimited text files like Comma Separated
 Values and Tab Separated Values, Microsoft Excel, and Arrow Inter-process
 Communication files) in 'SQLite' databases. Includes helper functions for
 inspecting the structure of the input files, and some functions to

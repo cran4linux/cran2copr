@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datasetjson
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write CDISC Dataset JSON Files
 
@@ -16,12 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonvalidate >= 1.3.1
-BuildRequires:    R-CRAN-yyjsonr >= 0.1.18
 BuildRequires:    R-CRAN-hms 
-Requires:         R-CRAN-jsonvalidate >= 1.3.1
-Requires:         R-CRAN-yyjsonr >= 0.1.18
 Requires:         R-CRAN-hms 
 
 %description
